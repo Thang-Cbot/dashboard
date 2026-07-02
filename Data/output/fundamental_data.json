@@ -1,0 +1,415 @@
+{
+  "last_updated_fundamentals": "2026-07-02",
+  "last_updated_weather": "2026-06-12",
+  "ZC": {
+    "us_planting": {
+      "latest": "97% đã gieo trồng",
+      "next_date": "16/06/2026 lúc 03:00 (VN)",
+      "forecast": "98% đã gieo trồng",
+      "action": "Tiến độ nhanh -> Canh Short ngắn hạn",
+      "logic": "Trung bình 5 năm đạt 96%. Tiến độ hiện tại được cập nhật mới nhất.",
+      "previous": "95% đã gieo trồng",
+      "previous_date": "Tuần trước (16/06)",
+      "latest_date": "Tuần này (23/06)"
+    },
+    "harvest_progress": {
+      "latest": "Mỹ: 0% | Argentina: 66% (2/3 tiến độ)",
+      "next_date": "Hàng tuần",
+      "forecast": "Argentina: 72% thu hoạch",
+      "action": "Argentina thu hoạch rộ -> Canh Short ngắn hạn / Gom Long dài hạn (DCA)",
+      "logic": "Argentina đang thu hoạch rộ đạt 66%. Việc giá ngô giữ vững trên 445-450 cents bất bất chấp áp lực thu hoạch cho thấy ngô đã xác lập vùng đáy chu kỳ mùa vụ thành công.",
+      "previous": "Mỹ: 0% | Argentina: 58% (tiến độ)",
+      "previous_date": "Tuần trước (16/06)",
+      "latest_date": "Tuần này (23/06)"
+    },
+    "crop_condition": {
+      "latest": "67% Good to Excellent",
+      "next_date": "07/07/2026 lúc 03:00 (VN)",
+      "forecast": "70% G/E",
+      "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
+      "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
+      "previous": "69% Good to Excellent",
+      "previous_date": "Tuần trước (16/06)",
+      "latest_date": "Tuần này (23/06)"
+    },
+    "us_ending_stocks": {
+      "next_date": "10/07/2026 lúc 23:00 (VN)",
+      "forecast": "1,940 triệu bushels (Dự kiến giảm)",
+      "action": "Tồn kho giảm -> Gom Long dài hạn (DCA)",
+      "logic": "Giảm mạnh so với niên vụ trước (giảm ~8.6%) do diện tích gieo trồng giảm 6%.",
+      "previous": "2,122 triệu bu",
+      "current": "1,960 triệu bushels (2026/27)",
+      "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
+      "pct_change": -7.6,
+      "pct_vs_prev_report": -8.6
+    },
+    "global_ending_stocks": {
+      "next_date": "10/07/2026 lúc 23:00 (VN)",
+      "forecast": "276.8 triệu tấn (Tiếp tục giảm)",
+      "action": "Tồn kho thấp nhất 12 năm -> Gom Long dài hạn (DCA)",
+      "logic": "Tồn kho ngô toàn cầu chạm mức thấp nhất 12 năm qua (kể từ niên vụ 2013/14).",
+      "previous": "312.3 triệu tấn",
+      "current": "281.22 triệu tấn (2026/27)",
+      "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
+      "pct_change": -9.9
+    },
+    "exports": {
+      "latest": "Giao hàng (Inspections): 1,786,167 tấn (Tuần kết thúc Jun 29, 2026)",
+      "next_date": "06/07/2026 lúc 22:00 (VN)",
+      "forecast": "900,000 tấn (Dự báo tăng trưởng)",
+      "action": "Xuất khẩu ổn định -> Gom Long trung hạn",
+      "logic": "Báo cáo ngày 04/06 ghi nhận doanh số ròng 883,332 tấn ngô. Nhật Bản mua ròng lớn nhất với 336,300 tấn. Mặc dù doanh số giảm nhẹ 13% so với tuần trước, lượng giao hàng thực tế (exports) tăng 7% lên 1.72 triệu tấn.",
+      "previous": "Giao hàng (Inspections): 1,454,252 tấn (Tuần kết thúc Jun 22, 2026)",
+      "previous_date": "Tuần kết thúc 15/06/2026",
+      "latest_date": "Tuần kết thúc 22/06/2026"
+    },
+    "competitors": {
+      "latest": "Brazil & Argentina",
+      "next_date": "Liên tục (Cập nhật hàng ngày)",
+      "forecast": "Khô hạn Safrinha Brazil; Argentina đạt 64M tấn",
+      "action": "Brazil vụ 2 khô hạn -> Gom Long trung hạn",
+      "logic": "Argentina: Dự báo sản lượng đạt kỷ lục 64 triệu tấn. Brazil: Vụ 1 kết thúc; ngô vụ 2 (Safrinha) đang chịu khô hạn cục bộ tại các bang phía Nam gây lo ngại sụt giảm năng suất."
+    },
+    "weather": {
+      "latest": "Trời nóng tại Midwest, mưa rải rác",
+      "next_date": "Hàng ngày",
+      "forecast": "Vành đai phía Bắc vẫn khô hạn cục bộ",
+      "action": "Khô hạn đe dọa nảy mầm -> Gom Long dài hạn (DCA)",
+      "logic": "Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại đang xuất hiện vùng khô hạn cục bộ ở rìa phía Bắc (Minnesota, Northern Plains) đe dọa trực tiếp tỷ lệ nảy mầm của cây ngô non."
+    },
+    "cot_report": {
+      "latest": "[2026-06-16] Net Short 120,000 HD | Change: -10,000 HD",
+      "next_date": "19/06/2026 (Hang tuan, Thu Sau)",
+      "forecast": "Q3 (DO DAM) - NHOI SHORT",
+      "action": "Uu tien SHORT thuan xu huong.",
+      "logic": "[2026-06-16] Managed Money nam giu vi the rong Short 120,000 hop dong. Tuan nay giam bot 10,000 HD. Xep hang Ma Tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.",
+      "raw_data": {
+        "net_position": -120000,
+        "change": -10000,
+        "long": 0,
+        "short": 0
+      }
+    },
+    "import_demand": {
+      "latest": "Thị trường cốt lõi",
+      "next_date": "Hàng tuần",
+      "forecast": "Mexico & Hàn Quốc mua ròng mạnh",
+      "action": "Lực cầu vững chắc -> Gom Long dài hạn (DCA)",
+      "logic": "Nhu cầu nhập khẩu cốt lõi từ Mexico (bền vững ở mức cao kỷ lục) và Hàn Quốc (flash sales gia tăng) liên tục hỗ trợ lực đỡ cho xuất khẩu Mỹ, bù đắp cho sự sụt giảm tạm thời của các thị trường khác."
+    },
+    "weather_long_term": {
+      "latest": "El Nino đang diễn ra (chính thức)",
+      "next_date": "Định kỳ hàng tháng",
+      "forecast": "Xác suất La Niña đạt 82% vào tháng 7",
+      "action": "La Niña vĩ mô -> Gom Long dài hạn (DCA)",
+      "logic": "Xác suất chuyển pha mạnh từ El Niño sang La Niña đạt 82% vào tháng 7/2026. Sự dịch chuyển này thường mang lại thời tiết khô hạn và nóng bất thường cho vành đai Midwest Mỹ vào giai đoạn thụ phấn then chốt tháng 7-8, tạo rủi ro mất mùa vĩ mô dài hạn."
+    },
+    "competitor_weather": {
+      "brazil_safrinha": "Bắt đầu thu hoạch, dự báo 107.8 triệu tấn",
+      "argentina": "Khô ráo thuận lợi cho thu hoạch ngô (đạt 66%). Sản lượng dự kiến 64 triệu tấn.",
+      "black_sea": "Nga: Sương giá muộn ảnh hưởng ngô vụ sớm. Ukraine: Điều kiện gieo trồng bình thường."
+    },
+    "short_term_weather": "Mưa lớn kéo dài ở phía Đông Corn Belt (Illinois, Ohio).",
+    "short_term_weather_logic": "📉 **Tác động ngắn hạn (Neutral/Bearish Intraday):** Mưa lớn bổ sung độ ẩm đất rất tốt, khiến thị trường phản ứng bán tháo ngắn hạn do kỳ vọng cây ngô phát triển thuận lợi lúc đầu. Tuy nhiên, mưa quá lớn gây úng cục bộ và cản trước giai đoạn gieo trồng cuối cùng, buộc nông dân phải tính đến replanting (gieo lại) hoặc chuyển diện tích sang đậu tương do sát ngày hết hạn bảo hiểm. Đây là cơ hội Mua khi giá điều chỉnh sâu (Buy on Dip).",
+    "intraday_strategy": "LONG (Canh mua khi điều chỉnh giảm sâu).",
+    "entry_zone": "417.26 - 421.24 cents (Canh mua vùng hỗ trợ)",
+    "stop_loss": "412.23 cents (Dưới cản S2 + 1.5x ATR)",
+    "take_profit_1": "423.00 cents",
+    "take_profit_2": "487.50 cents",
+    "seasonal_strategy": "Tích lũy mua gom dài hạn (DCA Long) phòng thủ khô hạn El Niño và tồn kho thế giới thấp kỷ lục.",
+    "dca_brackets": "436.30 - 444.75 cents",
+    "dca_logic": "Việc Argentina hoàn thành 2/3 vụ thu hoạch mà giá vẫn giữ vững trên 450 cents chứng minh đây là vùng đáy chu kỳ dài hạn lý tưởng để gom hàng.",
+    "swing_trend": "Đi ngang tích lũy (Sideways Accumulation)",
+    "swing_logic": "Giá ngô chốt phiên rút chân cực mạnh từ đáy S1/S2 và đang kẹp trong biên độ lớn 451.50 - 463.00. Với DXY ổn định và Brent trên $90, biên độ này cực kỳ lý tưởng cho chiến lược Đánh Biên (Swing Range) kiếm tối thiểu 10 giá.",
+    "swing_long_entry": "425.50 - 426.59 cents",
+    "swing_long_sl": "421.14 cents (Chống quét SL tuyệt đối)",
+    "swing_long_tp": "491.00 cents (Ăn trọn biên độ ngô ~10.5 giá)",
+    "swing_short_entry": "425.00 - 427.00 cents",
+    "swing_short_sl": "431.50 cents",
+    "swing_short_tp": "426.50 cents",
+    "acreage": {
+      "report_date": "30/06/2026",
+      "current": "95.3 triệu acres (2026)",
+      "previous": "98.1 triệu acres (2025)",
+      "pct_change": -2.9,
+      "vs_march_est": "95.338 triệu acres (ước tính tháng 3)",
+      "note": "Giảm 3% so với 2025. Bằng ước tính tháng 3.",
+      "next_report": "11/09/2026 (WASDE + Crop Production)"
+    },
+    "grain_stocks": {
+      "report_date": "30/06/2026",
+      "current": "5.29 tỷ bushels (01/06/2026)",
+      "previous": "4.64 tỷ bushels (01/06/2025)",
+      "pct_change": 14.0,
+      "note": "Tăng 14% so với cùng kỳ 2025. Tồn kho vật lý dồi dào do Argentina thu hoạch lớn."
+    }
+  },
+  "ZW": {
+    "us_planting": {
+      "latest": "Lúa mì đông đã thu hoạch (25%), Xuân 95% gieo",
+      "next_date": "08/06/2026 (Hàng tuần)",
+      "forecast": "Lúa xuân: 98%",
+      "action": "Tiến độ ổn định -> Canh Short ngắn hạn",
+      "logic": "Lúa mì xuân gieo trồng phát triển thuận lợi. Lúa mì đông đã trổ bông vượt trung bình.",
+      "previous": "Xuân 93% gieo",
+      "previous_date": "Tuần trước (16/06)",
+      "latest_date": "Tuần này (23/06)"
+    },
+    "harvest_progress": {
+      "latest": "Mỹ: 48% lúa đông đã thu hoạch",
+      "next_date": "07/07/2026 lúc 03:00 (VN)",
+      "forecast": "Mỹ: 12% lúa đông đã thu hoạch",
+      "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
+      "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
+      "previous": "Mỹ: 25% lúa đông đã thu hoạch",
+      "previous_date": "Tuần trước (16/06)",
+      "latest_date": "Tuần này (23/06)"
+    },
+    "crop_condition": {
+      "latest": "26% Good to Excellent",
+      "next_date": "07/07/2026 lúc 03:00 (VN)",
+      "forecast": "Duy trì cực xấu 25-27% G/E",
+      "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
+      "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
+      "previous": "27% Good to Excellent",
+      "previous_date": "Tuần trước (16/06)",
+      "latest_date": "Tuần này (23/06)"
+    },
+    "us_ending_stocks": {
+      "next_date": "10/07/2026 lúc 23:00 (VN)",
+      "forecast": "755 triệu bushels (Dự kiến giảm)",
+      "action": "Tồn kho thắt chặt -> Gom Long dài hạn (DCA)",
+      "logic": "Giảm sâu 18.5% so với niên vụ trước, phản ánh thiệt hại sản lượng lúa mì đông nặng nề.",
+      "previous": "2,122 triệu bu",
+      "current": "744 triệu bushels (2026/27)",
+      "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
+      "pct_change": -64.9,
+      "pct_vs_prev_report": -1.6
+    },
+    "global_ending_stocks": {
+      "next_date": "10/07/2026 lúc 23:00 (VN)",
+      "forecast": "274.2 triệu tấn (Tiếp tục giảm)",
+      "action": "Cung toàn cầu giảm -> Gom Long dài hạn (DCA)",
+      "logic": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
+      "previous": "312.3 triệu tấn",
+      "current": "275.42 triệu tấn (2026/27)",
+      "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
+      "pct_change": -11.8
+    },
+    "exports": {
+      "latest": "Giao hàng (Inspections): 358,253 tấn (Tuần kết thúc Jun 29, 2026)",
+      "next_date": "06/07/2026 lúc 22:00 (VN)",
+      "forecast": "350,000 tấn (Dự kiến phục hồi)",
+      "action": "Xuất khẩu giảm cơ học -> Gom Long trung hạn",
+      "logic": "Tuần cuối niên vụ cũ ghi nhận mức âm ròng -642,239 tấn do các điều chỉnh hủy hàng/chuyển niên vụ. Tuy nhiên, doanh số niên vụ mới (2026/27) đạt mức rất cao là 838,500 tấn nhờ nhu cầu tăng mạnh trước lo ngại sụt giảm sản lượng.",
+      "previous": "Giao hàng (Inspections): 393,150 tấn (Tuần kết thúc Jun 22, 2026)",
+      "previous_date": "Tuần kết thúc 15/06/2026",
+      "latest_date": "Tuần kết thúc 22/06/2026"
+    },
+    "competitors": {
+      "latest": "Úc & Argentina",
+      "next_date": "Liên tục (Cập nhật hàng tuần)",
+      "forecast": "Úc giảm 41% sản lượng, Arg giảm 25%",
+      "action": "Thiệt hại kép -> Gom Long dài hạn (DCA)",
+      "logic": "Úc: Diện tích gieo trồng dự kiến giảm sâu 20.4% xuống còn 9.8 triệu ha. Sản lượng dự kiến giảm mạnh 41% xuống 21.3 triệu tấn do hạn hán đầu vụ ở phía Bắc NSW/Nam Queensland. Argentina: Đã gieo trồng được 14.2% diện tích. Sản lượng dự kiến đạt 20.7 triệu tấn (giảm 25% so với mức kỷ lục niên vụ trước) do nông dân lo ngại chi phí phân bón cao và rủi ro bệnh dịch từ El Niño."
+    },
+    "other_competitors": {
+      "latest": "Nga, Ukraine & EU",
+      "next_date": "Liên tục",
+      "forecast": "Black Sea sương giá muộn, EU hạ yield",
+      "action": "Mất mùa vĩ mô -> Gom Long dài hạn (DCA)",
+      "logic": "Black Sea & EU: Nga có sương giá muộn, nông dân chuyển dịch sang nhóm hạt có dầu; Ukraine dự kiến sản lượng đạt 22.4 triệu tấn; EU MARS hạ dự báo yield do khô hạn tháng 4 tại Pháp/Đức."
+    },
+    "weather": {
+      "latest": "Hạn hán vĩ mô",
+      "next_date": "Hàng ngày",
+      "forecast": "Kansas đón mưa ngắn hạn nhưng muộn",
+      "action": "Mưa ngắn hạn -> Canh Short ngắn hạn / Gom Long dài hạn (DCA)",
+      "logic": "Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ) + Hạn hán mùa thu làm giảm 20% diện tích gieo trồng của Úc."
+    },
+    "cot_report": {
+      "latest": "[2026-06-16] Net Short 45,000 HD | Change: +5,000 HD",
+      "next_date": "19/06/2026 (Hang tuan, Thu Sau)",
+      "forecast": "Q4 (CAM) - COVER SHORT",
+      "action": "Cam Short duoi. Canh LONG bat hoi.",
+      "logic": "[2026-06-16] Managed Money nam giu vi the rong Short 45,000 hop dong. Tuan nay tang them 5,000 HD. Xep hang Ma Tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.",
+      "raw_data": {
+        "net_position": -45000,
+        "change": 5000,
+        "long": 0,
+        "short": 0
+      }
+    },
+    "import_demand": {
+      "latest": "Thị trường cốt lõi",
+      "next_date": "Hàng tuần",
+      "forecast": "Bắc Phi & Ai Cập đấu thầu liên tục",
+      "action": "Cầu nhập khẩu duy trì cao -> Gom Long dài hạn (DCA)",
+      "logic": "Nhu cầu nhập khẩu tại khu vực Bắc Phi (Ai Cập - GASC liên tục thầu thâu mua) và Trung Đông duy trì ở mức cao do mùa màng nội địa sụt giảm, củng cố nhu cầu thu mua lúa mì toàn cầu bền vững."
+    },
+    "weather_long_term": {
+      "latest": "Chu kỳ vĩ mô",
+      "next_date": "Định kỳ hàng tháng",
+      "forecast": "La Niña gây hạn hán Nam Bán Cầu",
+      "action": "La Niña vĩ mô -> Gom Long dài hạn (DCA)",
+      "logic": "Chu kỳ dịch chuyển thời tiết El Niño có xu hướng gây hạn hán nặng nề và làm nóng khu vực Đông Úc (Queensland, NSW) và Southern Plains của Mỹ, đe dọa trực tiếp năng suất và chất lượng lúa mì mùa đông."
+    },
+    "competitor_weather": {
+      "australia": "Hạn hán El Nino đe dọa mùa màng, sản lượng có thể giảm mạnh",
+      "argentina": "Đã gieo trồng 14.2% diện tích lúa mì. Sản lượng dự kiến giảm 25% do chi phí phân bón cao và rủi ro El Niño.",
+      "black_sea_eu": "Nga: Sản lượng nâng lên 91.5 triệu tấn. Sương giá muộn cục bộ. EU MARS hạ yield do khô hạn tháng 4 tại Pháp/Đức."
+    },
+    "short_term_weather": "Mưa lớn bất ngờ xuất hiện tại vùng Southern Plains (Kansas, Oklahoma, Texas).",
+    "short_term_weather_logic": "📉 **Tác động ngắn hạn (Bearish Intraday - Rất Mạnh):** Cơn mưa bất ngờ 2-3 ngày qua đã kích hoạt đợt bán tháo/chốt lời ồ ạt trên thị trường kỳ hạn lúa mì, đẩy giá sụt giảm từ đỉnh cũ về vùng 618.50. Tuy nhiên, về mặt sinh học nông nghiệp, **cơn mưa này đến quá muộn** để cứu vãn phần lớn lúa mì đông đã bị tàn phá (44% Poor/Very Poor). Do đó, nhịp giảm kỹ thuật do mưa này là cơ hội \"vàng\" để Gom vị thế mua giá rẻ (DCA Long).",
+    "intraday_strategy": "SHORT (Canh bán khi giá hồi kỹ thuật chạm EMA 21/50).",
+    "entry_zone": "624.50 - 626.50 cents (Vùng cản hội tụ EMA 21 và EMA 50 H1)",
+    "stop_loss": "634.50 cents (Vượt lên trên hẳn vùng cản đỉnh R1/R2 để tránh bị quét SL ngắn hạn)",
+    "take_profit_1": "618.50 cents",
+    "take_profit_2": "615.00 cents",
+    "seasonal_strategy": "Mua tích trữ dài hạn (DCA Long) dựa trên sự sụt giảm sản lượng kép (Mỹ giảm 18%, Úc giảm 41%, Argentina giảm 25%).",
+    "dca_brackets": "600.00 - 612.00 cents",
+    "dca_logic": "Sự đồng thuận giảm sản lượng từ tất cả các nước sản xuất lớn ở cả hai bán cầu sẽ đẩy ZW bứt phá lên vùng 650 - 680 cents trước khi Nam Bán Cầu bước vào thu hoạch vào tháng 10.",
+    "swing_trend": "Giảm điều chỉnh tích lũy (Bearish Correction & Consolidation)",
+    "swing_logic": "Lúa mì bị bán tháo mạnh từ đỉnh kháng cự lớn do tin mưa ngắn hạn, rơi về sát vùng hỗ trợ Price Action cứng. Do đó, xu hướng giảm trung hạn đang đi vào vùng quá bán cực đại (RSI sát 30), chuẩn bị cho nhịp hồi swing tối thiểu 15-20 giá khi thị trường nhận ra mưa không cứu được năng lượng lúa mì.",
+    "swing_long_entry": "574.00 - 576.00 cents",
+    "swing_long_sl": "565.00 cents (Dưới đáy lớn S2 + 1.0 ATR)",
+    "swing_long_tp": "632.00 cents (Sát kháng cự R1 - Kỳ vọng lợi nhuận 14.5 giá)",
+    "swing_short_entry": "598.00 - 600.00 cents",
+    "swing_short_sl": "604.50 cents (Dưới trên đỉnh R1 + 1.0 ATR)",
+    "swing_short_tp": "574.00 cents",
+    "acreage": {
+      "report_date": "30/06/2026",
+      "current": "42.7 triệu acres (2026)",
+      "previous": "45.4 triệu acres (2025)",
+      "pct_change": -5.9,
+      "winter_wheat": "31.5 triệu acres (-5% vs 2025)",
+      "spring_wheat": "9.39 triệu acres (-6% vs 2025)",
+      "durum_wheat": "1.83 triệu acres (-16% vs 2025)",
+      "vs_march_est": "43.775 triệu acres (ước tính tháng 3)",
+      "note": "Giảm 6% so với 2025. Thấp hơn dự báo tháng 3 → Bullish.",
+      "next_report": "11/09/2026 (WASDE + Crop Production)"
+    },
+    "grain_stocks": {
+      "report_date": "30/06/2026",
+      "current": "920 triệu bushels (01/06/2026)",
+      "previous": "852 triệu bushels (01/06/2025)",
+      "pct_change": 8.0,
+      "note": "Tăng 8% so với cùng kỳ 2025. Tuy nhiên chất lượng lúa đông kém → hạn chế giá trị sử dụng."
+    }
+  },
+  "ZS": {
+    "us_planting": {
+      "latest": "95% đã gieo trồng",
+      "next_date": "23/06/2026 lúc 03:00 (VN)",
+      "forecast": "94% đã gieo trồng",
+      "action": "Gieo trồng thần tốc -> Canh Short ngắn hạn",
+      "logic": "Trung bình 5 năm đạt 88%. Tiến độ hiện tại được cập nhật mới nhất."
+    },
+    "harvest_progress": {
+      "latest": "Mỹ: 0% | Nam Mỹ: 75%",
+      "next_date": "Hàng tuần",
+      "forecast": "Argentina: 82% thu hoạch",
+      "action": "Hết áp lực bán tháo -> Gom Long dài hạn (DCA)",
+      "logic": "Mỹ bắt đầu thu hoạch vào tháng 9-11. Argentina đang thu hoạch đậu tương đạt 75% tiến độ. Việc Argentina sắp kết thúc thu hoạch rộ đồng nghĩa với việc áp lực bán tháo lớn nhất của Nam Mỹ đã phản ánh hoàn toàn vào giá (priced-in), tạo điều kiện cho giá đậu tương thiết lập đáy chu kỳ mùa vụ và bước vào pha tăng trưởng."
+    },
+    "crop_condition": {
+      "latest": "65% Good to Excellent",
+      "next_date": "07/07/2026 lúc 03:00 (VN)",
+      "forecast": "68% G/E",
+      "action": "Chất lượng gieo trồng tốt -> Canh Short ngắn hạn / bảo thủ",
+      "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6."
+    },
+    "us_ending_stocks": {
+      "next_date": "10/07/2026 lúc 23:00 (VN)",
+      "forecast": "305 triệu bushels (Dự kiến giảm)",
+      "action": "Nhu cầu Biodiesel cao -> Gom Long dài hạn (DCA)",
+      "logic": "Giảm nhẹ so với niên vụ trước do nhu cầu ép dầu nội địa (Crush) sản xuất Biodiesel đạt mức cao kỷ lục.",
+      "previous": "N/A (Báo cáo tháng trước)",
+      "current": "310 triệu bushels (2026/27)",
+      "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"
+    },
+    "global_ending_stocks": {
+      "next_date": "10/07/2026 lúc 23:00 (VN)",
+      "forecast": "124.50 triệu tấn (Giảm nhẹ)",
+      "action": "Cung cầu thắt chặt -> Gom Long dài hạn (DCA)",
+      "logic": "Giảm nhẹ so với niên vụ trước, cho thấy cán quan cung cầu toàn cầu duy trì trạng thái thắt chặt vừa phải.",
+      "previous": "N/A (Báo cáo tháng trước)",
+      "current": "124.88 triệu tấn (2026/27)",
+      "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"
+    },
+    "exports": {
+      "latest": "Giao hàng (Inspections): 419,124 tấn (Tuần kết thúc Jun 29, 2026)",
+      "next_date": "06/07/2026 lúc 22:00 (VN)",
+      "forecast": "300,000 tấn",
+      "action": "Xuất khẩu ổn định -> Gom Long trung hạn",
+      "logic": "Đạt 276,852 tấn trong tuần, giảm nhẹ 8% so với tuần trước. Trung Quốc vẫn là đối tác mua ròng hàng đầu với 74,800 tấn. Lượng bốc xếp thực tế duy trì ổn định ở mức 569,300 tấn.",
+      "previous": "Giao hàng (Inspections): 241,045 tấn (Tuần kết thúc Jun 22, 2026)"
+    },
+    "competitors": {
+      "latest": "Brazil & Argentina",
+      "next_date": "Liên tục (Cập nhật hàng ngày)",
+      "forecast": "Brazil đạt kỷ lục 180M tấn, Arg 50.1M tấn",
+      "action": "Cung Nam Mỹ dồi dào -> Canh Short trung hạn",
+      "logic": "Brazil: Đang xuất khẩu mạnh mẽ dưới thời tiết khô ráo thuận lợi, sản lượng dự báo đạt kỷ lục 180 triệu tấn. Argentina: Thu hoạch đậu tương đạt 75% dưới thời tiết khô hanh, sản lượng ước đạt cao ở mức 50.1 triệu tấn."
+    },
+    "weather": {
+      "latest": "Ngập lụt Midwest",
+      "next_date": "Hàng ngày",
+      "forecast": "Ngập úng đe dọa replanting Ohio/Indiana",
+      "action": "Úng ngập đe dọa replanting -> Gom Long dài hạn (DCA)",
+      "logic": "Lũ lụt nghiêm trọng tại Đông Midwest (Ohio, Indiana, Illinois) đe dọa làm ngập úng hạt giống, bắt buộc gieo hạt lại (replanting) diện rộng, đe dọa năng suất thực tế."
+    },
+    "cot_report": {
+      "latest": "[2026-06-16] Net Long 85,000 HD | Change: +12,000 HD",
+      "next_date": "19/06/2026 (Hang tuan, Thu Sau)",
+      "forecast": "Q1 (XANH LA) - GOM LONG",
+      "action": "Uu tien LONG. Xu huong tang ben vung.",
+      "logic": "[2026-06-16] Managed Money nam giu vi the rong Long 85,000 hop dong. Tuan nay tang them 12,000 HD. Xep hang Ma Tran: Q1 (XANH LA) - GOM LONG. Khuyen nghi: Uu tien LONG. Xu huong tang ben vung.",
+      "raw_data": {
+        "net_position": 85000,
+        "change": 12000,
+        "long": 0,
+        "short": 0
+      }
+    },
+    "import_demand": {
+      "latest": "Thị trường cốt lõi",
+      "next_date": "Hàng tuần",
+      "forecast": "Trung Quốc nhập ròng mạnh liên tục",
+      "action": "Lực cầu bền bỉ -> Gom Long dài hạn (DCA)",
+      "logic": "Trung Quốc (nhà nhập khẩu đậu tương lớn nhất thế giới) liên tục duy trì tốc độ nhập khẩu ròng mạnh mẽ và bền bỉ trong tháng 5 để bổ sung tồn kho heo nội địa và tích trữ lương thực, tạo bệ đỡ vững chắc loại trừ rủi ro sụt giảm sâu cho ZS."
+    },
+    "weather_long_term": {
+      "latest": "Chu kỳ vĩ mô",
+      "next_date": "Định kỳ hàng tháng",
+      "forecast": "La Niña gây khô hạn miền Nam Mỹ cuối năm",
+      "action": "Siêu sóng vĩ mô La Niña -> Gom Long dài hạn (DCA)",
+      "logic": "La Niña dự kiến xuất hiện từ quý 3/2026 sẽ gây thời tiết khô hanh cục bộ cho miền Nam nước Mỹ và Brazil, là nhân tố chủ chốt kích hoạt các đợt sóng tăng giá dài hạn cực mạnh cho đậu tương giai đoạn gieo trồng Nam Mỹ cuối năm."
+    },
+    "competitor_weather": {
+      "brazil": "Thời tiết khô ráo thuận lợi cho xuất khẩu. Sản lượng dự báo đạt kỷ lục 180 triệu tấn.",
+      "argentina": "Thu hoạch đậu tương đạt 75% dưới thời tiết khô hanh. Sản lượng 50.1 triệu tấn.",
+      "china": "Trung Quốc nhập khẩu ròng mạnh liên tục để bổ sung tồn kho heo nội địa."
+    },
+    "short_term_weather": "Bão và mưa cực lớn gây lũ lụt cục bộ tại vùng Đông Midwest (Ohio, Indiana).",
+    "short_term_weather_logic": "🚀 **Tác động ngắn hạn (Highly Volatile / Bullish Reversal):** Mưa bão dữ dội 2 ngày qua ban đầu gây tâm lý hoảng loạn, kích hoạt đợt quét stop-loss (rũ bỏ) sụt giảm về 1186.63 đầu phiên. Ngay sau đó, phe Mua nhận diện nguy cơ úng hạt giống và đóng váng đất (soil crusting) cản trở nảy mầm buộc phải gieo lại (replanting), đẩy giá giật ngược hình chữ V tăng vọt đóng phiên sát đỉnh 1194.25. Tín hiệu cực tốt cho phe Long.",
+    "intraday_strategy": "LONG (Canh mua khi điều chỉnh giảm về EMA 21 H1).",
+    "entry_zone": "1189.50 - 1191.50 cents (Vùng hỗ trợ EMA 21/50 H1)",
+    "stop_loss": "1181.50 cents (Đặt dưới hỗ trợ cứng S1 + 1.5 ATR)",
+    "take_profit_1": "1198.50 cents",
+    "take_profit_2": "1205.00 cents",
+    "seasonal_strategy": "Mua tích lũy phòng thủ rủi ro replanting (gieo hạt lại) do ngập lụt tại Midwest Mỹ và nhu cầu dầu sinh học.",
+    "dca_brackets": "1165.00 - 1175.00 cents",
+    "dca_logic": "Chia vốn gom từ 1165.00 đến 1175.00 cents. Việc Argentina hoàn thành 75% thu hoạch đánh dấu áp lực cung tối đa đã trôi qua, củng cố đây là vùng đáy chu kỳ vững chắc để tích lũy.",
+    "swing_trend": "Tăng mạnh trung hạn (Strong Bullish Trend)",
+    "swing_logic": "Đậu tương đã kích hoạt Golden Cross H1 with a huge candle. Giá đã thoát ly khỏi vùng đáy tích lũy dưới và đang bám sát kênh tăng giá đi lên vùng kháng cự cao hơn. Chiến lược ưu tiên Canh mua biên dưới (Swing Long) để ăn trọn nhịp bứt phá 15-20 giá.",
+    "swing_long_entry": "1188.00 - 1190.50 cents",
+    "swing_long_sl": "1178.50 cents (Dưới đáy quét râu S2 + 2.0 ATR để loại trừ Stop-hunt hoàn toàn)",
+    "swing_long_tp": "1206.50 cents (Sát kháng cự R2 - Lợi nhuận kỳ vọng 17 giá)",
+    "swing_short_entry": "1205.00 - 1207.50 cents",
+    "swing_short_sl": "1214.50 cents",
+    "swing_short_tp": "1191.00 cents"
+  },
+  "wasde_report_month": "Jun",
+  "last_updated_cot": "2026-07-02 07:40:50"
+}

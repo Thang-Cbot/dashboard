@@ -1,0 +1,57 @@
+{
+  "ZC": {
+    "active": {
+      "ticker": "ZCU26.CBT",
+      "year": 2026,
+      "month": 9
+    },
+    "swing": {
+      "ticker": "ZCU26.CBT",
+      "year": 2026,
+      "month": 9
+    },
+    "dca": {
+      "ticker": "ZCZ26.CBT",
+      "year": 2026,
+      "month": 12
+    },
+    "liquidity": {
+      "today_volume": 112729.0,
+      "prev_volume": 230166.0,
+      "today_oi": 648651,
+      "prev_oi": 648652,
+      "today_close": 423.75,
+      "prev_close": 416.75,
+      "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
+      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
+    }
+  },
+  "ZW": {
+    "active": {
+      "ticker": "ZWU26.CBT",
+      "year": 2026,
+      "month": 9
+    },
+    "swing": {
+      "ticker": "ZWU26.CBT",
+      "year": 2026,
+      "month": 9
+    },
+    "dca": {
+      "ticker": "ZWZ26.CBT",
+      "year": 2026,
+      "month": 12
+    },
+    "liquidity": {
+      "today_volume": 99959.0,
+      "prev_volume": 66112.0,
+      "today_oi": 218069,
+      "prev_oi": 218075,
+      "today_close": 601.0,
+      "prev_close": 589.25,
+      "trend": "Tăng do phe Short chốt lời (Short Covering)",
+      "logic": "Giá tăng đi kèm Volume tăng nhưng OI giảm. Cho thấy phe Short đang ồ ạt cắt lỗ/chốt vị thế bán khống, giúp giá đẩy lên nhanh nhưng thiếu dòng tiền mới mua lên."
+    }
+  },
+  "updated_at": "2026-07-02 06:30:23"
+}

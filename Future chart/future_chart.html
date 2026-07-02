@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FUTURE CHART — ZC/ZW/ZS Multi-Commodity Simulation | Jun 15-19, 2026</title>
+<meta name="description" content="AI-powered price simulation for CBOT ZC, ZW, ZS futures — Week of June 15-19, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+  :root {
+    --bg-primary:#0a0e1a;--bg-secondary:#0f1525;--bg-card:#131929;--bg-card2:#1a2138;
+    --border:#1e2d4a;--accent-blue:#38bdf8;--accent-cyan:#22d3ee;--accent-green:#4ade80;
+    --accent-red:#f87171;--accent-amber:#fbbf24;--accent-purple:#a78bfa;
+    --text-primary:#e2e8f0;--text-muted:#64748b;--text-dim:#94a3b8;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;background:var(--bg-primary);color:var(--text-primary);min-height:100vh;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(56,189,248,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,0.025) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+  header{position:relative;z-index:10;padding:1.25rem 2rem;background:rgba(10,14,26,0.97);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  .logo-wrap{display:flex;align-items:center;gap:1rem}
+  .logo-icon{width:42px;height:42px;background:linear-gradient(135deg,#38bdf8,#818cf8);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 0 25px rgba(56,189,248,0.5);animation:pulse 3s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 20px rgba(56,189,248,0.4)}50%{box-shadow:0 0 45px rgba(56,189,248,0.85))}}
+  h1{font-size:1.35rem;font-weight:900;background:linear-gradient(90deg,#38bdf8,#818cf8,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.02em}
+  .logo-sub{font-size:0.68rem;color:var(--text-muted);font-family:'JetBrains Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;margin-top:0.1rem}
+  .badges{display:flex;gap:0.6rem;flex-wrap:wrap}
+  .badge{display:flex;align-items:center;gap:0.35rem;padding:0.28rem 0.7rem;border-radius:999px;font-size:0.7rem;font-family:'JetBrains Mono',monospace;font-weight:600;border:1px solid}
+  .b-live{background:rgba(74,222,128,0.1);border-color:rgba(74,222,128,0.4);color:#4ade80}
+  .b-mod{background:rgba(56,189,248,0.1);border-color:rgba(56,189,248,0.4);color:#38bdf8}
+  .dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:blink 1.4s ease-in-out infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
+  
+  /* TAB NAV */
+  .tab-nav{position:sticky;top:0;z-index:20;background:rgba(10,14,26,0.98);border-bottom:1px solid var(--border);padding:0 1.5rem;display:flex;gap:0.25rem;backdrop-filter:blur(12px)}
+  .tab-btn{padding:0.85rem 1.5rem;font-size:0.82rem;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;border:none;background:transparent;color:var(--text-muted);border-bottom:2px solid transparent;transition:all 0.25s;white-space:nowrap}
+  .tab-btn:hover{color:var(--text-primary);background:rgba(255,255,255,0.03)}
+  .tab-btn.active{color:var(--tc,#38bdf8);border-bottom-color:var(--tc,#38bdf8)}
+  
+  main{position:relative;z-index:1;max-width:1600px;margin:0 auto;padding:1.5rem 1.5rem 3rem;display:flex;flex-direction:column;gap:1.5rem}
+  .tab-pane{display:flex;flex-direction:column;gap:1.5rem}
+  .hero{background:linear-gradient(135deg,rgba(56,189,248,0.07),rgba(129,140,248,0.05),rgba(34,211,238,0.03));border:1px solid var(--border);border-top:2px solid rgba(56,189,248,0.45);border-radius:16px;padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;overflow:hidden;position:relative}
+  .hero::after{content:'';position:absolute;top:-60%;right:-5%;width:350px;height:350px;background:radial-gradient(circle,rgba(56,189,248,0.07),transparent 70%);pointer-events:none}
+  .hero-info h2{font-size:1.1rem;font-weight:700;margin-bottom:0.3rem}
+  .hero-info p{font-size:0.75rem;color:var(--text-muted);font-family:'JetBrains Mono',monospace}
+  .metrics{display:flex;gap:1.75rem;flex-wrap:wrap}
+  .metric{text-align:center}
+  .mv{font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;line-height:1;margin-bottom:0.2rem}
+  .ml{font-size:0.62rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em}
+  .pos{color:#4ade80}.neg{color:#f87171}.neu{color:#38bdf8}.amb{color:#fbbf24}
+  .card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 0 25px rgba(56,189,248,0.08)}
+  .card-header{padding:0.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;border-bottom:1px solid var(--border);background:linear-gradient(90deg,rgba(56,189,248,0.06),transparent)}
+  .ch-title{font-size:0.85rem;font-weight:700;display:flex;align-items:center;gap:0.5rem}
+  .ch-sub{font-size:0.67rem;color:var(--text-muted);font-family:'JetBrains Mono',monospace;margin-top:0.1rem}
+  .legend{display:flex;gap:0.85rem;font-size:0.68rem;font-family:'JetBrains Mono',monospace;flex-wrap:wrap}
+  .li{display:flex;align-items:center;gap:0.35rem}
+  .ld{width:12px;height:3px;border-radius:2px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+  .panel{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s}
+  .panel:hover{border-color:rgba(56,189,248,0.28);box-shadow:0 0 20px rgba(56,189,248,0.1)}
+  .ph{padding:0.8rem 1.2rem;border-bottom:1px solid var(--border);font-size:0.73rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;display:flex;align-items:center;gap:0.45rem;color:var(--accent-blue);background:linear-gradient(90deg,rgba(56,189,248,0.07),transparent)}
+  .pb{padding:1rem 1.2rem}
+  table{width:100%;border-collapse:collapse;font-size:0.78rem}
+  thead th{padding:0.5rem 0.7rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.63rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;border-bottom:1px solid var(--border)}
+  tbody td{padding:0.6rem 0.7rem;font-family:'JetBrains Mono',monospace;font-size:0.75rem;border-bottom:1px solid rgba(30,45,74,0.4)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover td{background:rgba(56,189,248,0.035)}
+  .sb{font-size:0.63rem;padding:0.18rem 0.5rem;border-radius:4px;font-weight:600;letter-spacing:0.04em;border:1px solid}
+  .sj{background:rgba(248,113,113,0.13);color:#fca5a5;border-color:rgba(248,113,113,0.3)}
+  .su{background:rgba(74,222,128,0.11);color:#86efac;border-color:rgba(74,222,128,0.3)}
+  .sm{background:rgba(56,189,248,0.11);color:#7dd3fc;border-color:rgba(56,189,248,0.3)}
+  .sc{background:rgba(167,139,250,0.11);color:#c4b5fd;border-color:rgba(167,139,250,0.3)}
+  .sq{background:rgba(251,191,36,0.11);color:#fde68a;border-color:rgba(251,191,36,0.3)}
+  .flist{display:flex;flex-direction:column;gap:0.55rem}
+  .fi{display:flex;flex-direction:column;gap:0.22rem}
+  .fh{display:flex;justify-content:space-between;align-items:center}
+  .fn{font-size:0.7rem;color:var(--text-dim)}
+  .fs{font-family:'JetBrains Mono',monospace;font-size:0.73rem;font-weight:700}
+  .fb{height:4px;background:rgba(255,255,255,0.06);border-radius:99px;overflow:hidden}
+  .fbi{height:100%;border-radius:99px;transition:width 1.2s ease}
+  .fbu{background:linear-gradient(90deg,#4ade80,#22d3ee)}
+  .fbd{background:linear-gradient(90deg,#f87171,#fb923c)}
+  .conf-wrap{display:flex;align-items:center;gap:0.85rem;padding:0.85rem;background:rgba(56,189,248,0.05);border:1px solid rgba(56,189,248,0.2);border-radius:10px;margin-bottom:0.85rem}
+  .cl{font-size:0.68rem;color:var(--text-muted);min-width:75px;font-family:'JetBrains Mono',monospace}
+  .cb{flex:1;height:7px;background:rgba(255,255,255,0.06);border-radius:99px;overflow:hidden}
+  .cbi{height:100%;border-radius:99px}
+  .cv{font-family:'JetBrains Mono',monospace;font-size:0.82rem;font-weight:700;min-width:36px;text-align:right}
+  .evl{display:flex;flex-direction:column;gap:0.5rem}
+  .ev{display:flex;gap:0.7rem;padding:0.55rem 0.7rem;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid var(--border);align-items:flex-start}
+  .ed{font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:700;color:#fbbf24;min-width:60px;white-space:nowrap}
+  .et{font-size:0.7rem;color:var(--text-dim);line-height:1.5}
+  .emaj{border-color:rgba(248,113,113,0.28)!important;background:rgba(248,113,113,0.04)!important}
+  .emaj .ed{color:#f87171}
+  .disclaim{background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:12px;padding:1rem 1.5rem;font-size:0.7rem;color:#fde68a;line-height:1.75;text-align:center}
+  
+  /* PHASE SCENARIO STRIP */
+  .ph-strip{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1rem 1.5rem;box-shadow:0 0 20px rgba(56,189,248,0.06)}
+  .ph-strip-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#a78bfa;margin-bottom:0.85rem;display:flex;align-items:center;gap:0.5rem}
+  .ph-strip-label::before{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(167,139,250,0.3),transparent)}
+  .ph-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.75rem}
+  .ph-card{background:var(--bg-card2);border:1px solid var(--border);border-top:2px solid;border-radius:12px;padding:0.85rem 1rem;display:flex;gap:0.65rem;align-items:flex-start;transition:all 0.25s}
+  .ph-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.3);border-color:rgba(255,255,255,0.12)}
+  .ph-icon{font-size:1.1rem;flex-shrink:0;margin-top:0.05rem}
+  .ph-body{flex:1;min-width:0}
+  .ph-title{font-size:0.68rem;font-weight:700;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.35rem;line-height:1.3}
+  .ph-desc{font-size:0.7rem;color:var(--text-muted);line-height:1.55}
+  
+  @media(max-width:768px){header{padding:1rem}main{padding:1rem;gap:1rem}.hero{padding:1rem}.metrics{gap:1rem}.mv{font-size:1.1rem}.grid2{grid-template-columns:1fr}.tab-btn{padding:0.6rem 0.9rem;font-size:0.75rem}.ph-cards{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo-wrap">
+    <div class="logo-icon">&#128200;</div>
+    <div>
+      <h1>FUTURE CHART</h1>
+      <div class="logo-sub">ZC · ZW · ZS &middot; AI Price Simulation &middot; CBOT V3+V4+ICT+MuaVu</div>
+    </div>
+  </div>
+  <div class="badges">
+    <span class="badge b-live"><span class="dot"></span>AI ACTIVE</span>
+    <span class="badge b-mod">MODEL v2.0</span>
+    <span class="badge b-mod">Tuần 15-19/06/2026</span>
+  </div>
+</header>
+
+<div class="tab-nav">
+<button class="tab-btn active" onclick="showTab('ZC')" id="tbtn_ZC" style="--tc:#fbbf24">🌽 Ngô (ZC)</button>
+<button class="tab-btn" onclick="showTab('ZW')" id="tbtn_ZW" style="--tc:#4ade80">🌾 Lúa mì (ZW)</button>
+<button class="tab-btn" onclick="showTab('ZS')" id="tbtn_ZS" style="--tc:#a78bfa">🌱 Đậu tương (ZS)</button>
+</div>
+
+<main id="main-content">
+
+<!-- ═══════════════ TAB: ZC ═══════════════ -->
+<div id="tab_ZC" class="tab-pane" style="display:none">
+
+  <!-- HERO + SCENARIO STRIP -->
+  <div class="hero" style="border-top-color:#fbbf2440;background:linear-gradient(135deg,rgba(56,189,248,0.04),#fbbf2408)">
+    <div class="hero-info">
+      <h2 style="background:linear-gradient(90deg,#fbbf24,#fbbf2499);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Ngô CBOT (ZCU26) — Kịch Bản Tuần 15-19/06/2026</h2>
+      <p>Anchor: 421.00&cent; &nbsp;|&nbsp; Bias: +1.00 &nbsp;|&nbsp; Model: V3+V4+ICT+Mùa Vụ</p>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="mv neu">421.00</div><div class="ml">Anchor</div></div>
+      <div class="metric"><div class="mv pos">425.50</div><div class="ml">Wk High</div></div>
+      <div class="metric"><div class="mv neg">416.25</div><div class="ml">Wk Low</div></div>
+      <div class="metric"><div class="mv neg">419.75</div><div class="ml">Wk Close</div></div>
+      <div class="metric"><div class="mv neg">-1.25&cent;</div><div class="ml">Net Chg</div></div>
+    </div>
+  </div>
+
+  <!-- SCENARIO PHASE CARDS (compact strip) -->
+  <div class="ph-strip">
+    <div class="ph-strip-label">🧠 Luận Giải Kịch Bản AI — ZC</div>
+    <div class="ph-cards">
+      <div class="ph-card" style="border-top-color:#f87171">
+          <div class="ph-icon">1️⃣</div>
+          <div class="ph-body">
+            <div class="ph-title" style="color:#f87171">PHASE 1 — MONDAY (Chờ USDA, Tương quan ZW):
+  Ngô giảm nhẹ theo xu hướng chung khi dầu giảm. Thị trường chờ đợi.</div>
+            <div class="ph-desc"></div>
+          </div>
+        </div><div class="ph-card" style="border-top-color:#4ade80">
+          <div class="ph-icon">2️⃣</div>
+          <div class="ph-body">
+            <div class="ph-title" style="color:#4ade80">PHASE 2 — TUESDAY (USDA + EIA Ethanol):
+  G/E Ngô tốt hơn kỳ vọng kéo hồi nhẹ. EIA Ethanol bổ sung lực mua.</div>
+            <div class="ph-desc"></div>
+          </div>
+        </div><div class="ph-card" style="border-top-color:#38bdf8">
+          <div class="ph-icon">3️⃣</div>
+          <div class="ph-body">
+            <div class="ph-title" style="color:#38bdf8">PHASE 3 — WEDNESDAY (Pollination Risk):
+  Tin thời tiết nóng Midwest tạo premium lo ngại mùa vụ — lực mua xuất hiện.</div>
+            <div class="ph-desc"></div>
+          </div>
+        </div><div class="ph-card" style="border-top-color:#a78bfa">
+          <div class="ph-icon">4️⃣</div>
+          <div class="ph-body">
+            <div class="ph-title" style="color:#a78bfa">PHASE 4-5 — THURSDAY/FRIDAY (Xuất khẩu yếu + Range):
+  Brazil cạnh tranh làm Export Sales thất vọng. Giá đóng trong biên độ hẹp.</div>
+            <div class="ph-desc"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- 4H CHART -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="ch-title">📈 Ngô CBOT (ZCU26) — Nến Mô Phỏng 4H</div>
+        <div class="ch-sub">Anchor: 421.00 &middot; Frame: 4H &middot; Tuần 15-19/06/2026</div>
+      </div>
+      <div class="legend">
+        <div class="li"><div class="ld" style="background:#26a69a"></div><span>Bull</span></div>
+        <div class="li"><div class="ld" style="background:#ef5350"></div><span>Bear</span></div>
+        <div class="li"><div class="ld" style="background:#fbbf24;height:2px;box-shadow:0 0 5px #fbbf24"></div><span style="color:#fbbf24;font-weight:bold">Giá Thực Tế</span></div>
+        <div class="li"><div class="ld" style="background:#38bdf8;height:1px"></div><span>EMA 21</span></div>
+        <div class="li"><div class="ld" style="background:#a78bfa;height:1px"></div><span>EMA 50</span></div>
+      </div>
+    </div>
+    <div id="chart4h_ZC" style="width:100%;height:550px"></div>
+  </div>
+
+  <!-- DAILY CHART -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="ch-title">📅 Tổng Quan Ngày — Daily OHLC</div>
+        <div class="ch-sub">5 ngày giao dịch · Mon 15/06 → Fri 19/06 · 2026</div>
+      </div>
+    </div>
+    <div id="chartday_ZC" style="width:100%;height:310px"></div>
+  </div>
+
+  <!-- TABLE + FACTORS + EVENTS -->
+  <div class="grid2">
+    <!-- Detailed Table (full width) -->
+    <div class="panel" style="grid-column:span 2">
+      <div class="ph">📋 Chi Tiết Dự Báo Từng Ngày — ZC</div>
+      <div class="pb">
+        <table>
+          <thead><tr><th>Ngày</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Thay đổi</th><th>Biên độ</th><th>Kịch bản</th><th>Logic chính</th></tr></thead>
+          <tbody id="dtbody_ZC"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Factors -->
+    <div class="panel">
+      <div class="ph">⚖️ Phân Tích Đa Nhân Tố (Bias Score) — ZC</div>
+      <div class="pb">
+        <div class="conf-wrap">
+          <div class="cl">TỔNG ĐIỂM</div>
+          <div class="cb"><div class="cbi" style="width:17%;background:#fbbf24"></div></div>
+          <div class="cv" style="color:#fbbf24">+1.0</div>
+        </div>
+        <div class="flist" id="flist_ZC"></div>
+      </div>
+    </div>
+
+    <!-- Events -->
+    <div class="panel">
+      <div class="ph" style="color:#fbbf24">📅 Lịch Sự Kiện Tuần — ZC</div>
+      <div class="pb">
+        <div class="evl">
+          <div class="ev emaj"><div class="ed">Mon Jun 15</div><div class="et">USDA Crop Progress (G/E Ngô) - QUAN TRỌNG</div></div>
+          <div class="ev"><div class="ed">Tue Jun 16</div><div class="et">EIA Ethanol Production & Stocks - TRUNG BÌNH</div></div>
+          <div class="ev"><div class="ed">Thu Jun 18</div><div class="et">Export Sales Weekly (Corn) - TRUNG BÌNH</div></div>
+          <div class="ev"><div class="ed">Fri Jun 19</div><div class="et">Đóng vị thế cuối tuần, theo dõi thời tiết Midwest</div></div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const C4H_ZC = [
+  ["15/06 07-11",421.00,423.25,418.50,419.75],
+  ["15/06 11-15",419.75,421.00,417.50,419.25],
+  ["15/06 15-19",419.25,420.50,417.50,419.00],
+  ["15/06 19-21",419.00,421.00,416.75,419.50],
+  ["15/06 21-23",419.50,421.25,417.00,420.00],
+  ["15/06 23-01",420.00,421.75,418.00,419.75],
+  ["16/06 07-11",419.75,422.25,416.25,421.00],
+  ["16/06 11-15",421.00,422.75,418.00,420.25],
+  ["16/06 15-19",420.25,422.25,417.75,420.75],
+  ["16/06 19-21",420.75,422.25,419.00,420.25],
+  ["16/06 21-23",420.25,422.50,417.25,421.25],
+  ["16/06 23-01",421.25,422.75,420.00,421.50],
+  ["17/06 07-11",421.50,423.00,420.00,421.00],
+  ["17/06 11-15",421.00,422.50,419.00,420.50],
+  ["17/06 15-19",420.50,422.50,418.00,421.00],
+  ["17/06 19-21",421.00,423.50,418.25,422.25],
+  ["17/06 21-23",422.25,425.50,419.25,422.75],
+  ["17/06 23-01",422.75,424.75,420.75,422.50],
+  ["18/06 07-11",422.50,423.75,420.75,422.00],
+  ["18/06 11-15",422.00,423.25,419.75,422.25],
+  ["18/06 15-19",422.25,424.00,421.25,422.00],
+  ["18/06 19-21",422.00,423.75,419.75,421.50],
+  ["18/06 21-23",421.50,423.75,419.50,420.50],
+  ["18/06 23-01",420.50,422.25,419.50,420.75],
+  ["19/06 07-11",420.75,422.75,418.75,420.25],
+  ["19/06 11-15",420.25,422.00,418.50,420.00],
+  ["19/06 15-19",420.00,421.50,418.75,420.25],
+  ["19/06 19-21",420.25,421.75,418.75,420.00],
+  ["19/06 21-23",420.00,422.00,418.25,420.25],
+  ["19/06 23-01",420.25,422.25,419.25,419.75]
+];
+  const ACTUAL_ZC = [
+  ["15/06 07-11",418.50],
+  ["15/06 11-15",422.50],
+  ["15/06 19-21",421.25],
+  ["15/06 21-23",421.25],
+  ["15/06 23-01",418.50],
+  ["16/06 23-01",420.75]
+];
+  const DAILY_ZC = [
+  {d:"Mon 15/06",o:421.00,h:423.25,l:416.75,c:419.75,sc:"Tương quan ZW, Chờ USDA",scl:"sq",logic:"Ngô giảm nhẹ theo nhóm nông sản khi dầu yếu. Thị trường chờ USDA Crop Progress sau đóng cửa."},
+  {d:"Tue 16/06",o:419.75,h:422.75,l:416.25,c:421.50,sc:"USDA Reaction + EIA Ethanol",scl:"sm",logic:"G/E Ngô 65% — tốt hơn tuần trước. EIA Ethanol tích cực kéo lực mua. Giá hồi nhẹ từ đáy."},
+  {d:"Wed 17/06",o:421.50,h:425.50,l:418.00,c:422.50,sc:"Midwest Weather Alert",scl:"sm",logic:"Dự báo nhiệt độ cao tuần tới tại Iowa/Illinois trong giai đoạn pollination (7–10 ngày tới) tạo premium giá."},
+  {d:"Thu 18/06",o:422.50,h:424.00,l:419.50,c:420.75,sc:"Consolidation / Export Sales",scl:"sq",logic:"Export Sales ngô thấp hơn kỳ vọng do Brazil cạnh tranh mạnh. Giá chịu áp lực bán nhẹ."},
+  {d:"Fri 19/06",o:420.75,h:422.75,l:418.25,c:419.75,sc:"Đóng vị thế cuối tuần",scl:"sq",logic:"Thị trường ngô không có catalyst mới. Giá dao động trong biên độ hẹp trước khi đóng cửa."}
+];
+  const FACTORS_ZC = [
+  {n:"V3_Technical",s:-0.5,m:1.5},
+  {n:"V4_Structure",s:-0.5,m:1.5},
+  {n:"ICT_Profile",s:+0.5,m:1.5},
+  {n:"Seasonality",s:+0.8,m:1.5},
+  {n:"Macro_DXY",s:+0.2,m:1.5},
+  {n:"Macro_Brent",s:-0.8,m:1.5},
+  {n:"COT_Report",s:+0.5,m:1.5},
+  {n:"Fundamentals",s:+0.8,m:1.5}
+];
+  const ANCHOR_ZC = 421.0;
+  const EMA21_ZC = 420.43;
+  const EMA50_ZC = 421.11;
+
+  // Build 4H chart
+  function buildChart4h_ZC(){
+    const xs = C4H_ZC.map(r=>r[0]);
+    const act_xs = ACTUAL_ZC.map(r=>r[0]);
+    const act_ys = ACTUAL_ZC.map(r=>r[1]);
+    const ema21v = xs.map((_,i)=>+(EMA21_ZC+(i*0.05)).toFixed(2));
+    const ema50v = xs.map((_,i)=>+(EMA50_ZC+(i*0.04)).toFixed(2));
+    const mss = 422.00;
+    const allY = C4H_ZC.flatMap(r=>[r[2],r[3]]).concat(act_ys).filter(v=>v>0);
+    const yMin = Math.min(...allY)*0.997;
+    const yMax = Math.max(...allY)*1.003;
+    const sh = [
+      {type:'line',x0:xs[0],x1:xs[xs.length-1],y0:mss,y1:mss,line:{color:'#fbbf24',width:1.5,dash:'dashdot'},layer:'below'},
+      ...[5,11,17,23].map(i=>i<xs.length?{type:'line',x0:xs[i],x1:xs[i],y0:0,y1:1e5,line:{color:'rgba(255,255,255,0.04)',width:1},layer:'below'}:null).filter(Boolean)
+    ];
+    Plotly.newPlot('chart4h_ZC',[
+      {type:'candlestick',x:xs,open:C4H_ZC.map(r=>r[1]),high:C4H_ZC.map(r=>r[2]),low:C4H_ZC.map(r=>r[3]),close:C4H_ZC.map(r=>r[4]),
+        increasing:{line:{color:'#26a69a',width:1.5},fillcolor:'#26a69a'},
+        decreasing:{line:{color:'#ef5350',width:1.5},fillcolor:'#ef5350'},
+        name:'ZC Simulated',whiskerwidth:0.8},
+      {type:'scatter',x:xs,y:ema21v,mode:'lines',line:{color:'#38bdf8',width:1.5,dash:'dot'},name:'EMA 21'},
+      {type:'scatter',x:xs,y:ema50v,mode:'lines',line:{color:'#a78bfa',width:1.5,dash:'dash'},name:'EMA 50'},
+      {type:'scatter',x:act_xs,y:act_ys,mode:'lines+markers',
+        line:{color:'#fbbf24',width:3},marker:{size:8,color:'#fbbf24',line:{color:'#000',width:1}},
+        name:'Giá Thực Tế',hovertemplate:'<b>%{x}</b><br>Actual: %{y:.2f}<extra></extra>'}
+    ],{
+      paper_bgcolor:'#131929',plot_bgcolor:'#0f1525',
+      font:{family:'JetBrains Mono,monospace',color:'#94a3b8',size:10},
+      xaxis:{tickangle:-35,gridcolor:'rgba(30,45,74,0.45)',rangeslider:{visible:false},color:'#64748b',tickfont:{size:8.5}},
+      yaxis:{title:'Price (cents/bushel)',gridcolor:'rgba(30,45,74,0.35)',tickformat:'.2f',color:'#64748b',side:'right',range:[yMin,yMax],tickfont:{size:9}},
+      margin:{l:8,r:85,t:18,b:65},shapes:sh,showlegend:true,
+      legend:{x:0.01,y:0.99,bgcolor:'rgba(10,14,26,0.88)',bordercolor:'rgba(30,45,74,0.8)',borderwidth:1,font:{size:8.5}},
+      hovermode:'x unified'
+    },{responsive:true,displayModeBar:false});
+  }
+
+  // Build Daily chart
+  function buildChartDay_ZC(){
+    const x = DAILY_ZC.map(d=>d.d);
+    const allY2 = DAILY_ZC.flatMap(d=>[d.h,d.l]);
+    const yMin2 = Math.min(...allY2)*0.997;
+    const yMax2 = Math.max(...allY2)*1.003;
+    Plotly.newPlot('chartday_ZC',[
+      {type:'candlestick',x,open:DAILY_ZC.map(d=>d.o),high:DAILY_ZC.map(d=>d.h),low:DAILY_ZC.map(d=>d.l),close:DAILY_ZC.map(d=>d.c),
+        increasing:{line:{color:'#26a69a',width:2.5},fillcolor:'rgba(38,166,154,0.85)'},
+        decreasing:{line:{color:'#ef5350',width:2.5},fillcolor:'rgba(239,83,80,0.85)'},
+        name:'ZC Daily',whiskerwidth:0.4}
+    ],{
+      paper_bgcolor:'#131929',plot_bgcolor:'#0f1525',
+      font:{family:'JetBrains Mono,monospace',color:'#94a3b8',size:10},
+      xaxis:{gridcolor:'rgba(30,45,74,0.4)',color:'#64748b',rangeslider:{visible:false}},
+      yaxis:{title:'Price',gridcolor:'rgba(30,45,74,0.35)',tickformat:'.2f',color:'#64748b',side:'right',range:[yMin2,yMax2]},
+      margin:{l:8,r:85,t:18,b:40},showlegend:false
+    },{responsive:true,displayModeBar:false});
+  }
+
+  // Build Table
+  function buildTable_ZC(){
+    const b = document.getElementById('dtbody_ZC');
+    let prev = ANCHOR_ZC;
+    DAILY_ZC.forEach(d=>{
+      const chg = d.c - prev; prev = d.c;
+      const col = chg>=0?'#4ade80':'#f87171';
+      const s = chg>=0?'+':'';
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td style="font-weight:700">${d.d}</td><td style="color:#94a3b8">${d.o.toFixed(2)}</td><td style="color:#4ade80">${d.h.toFixed(2)}</td><td style="color:#f87171">${d.l.toFixed(2)}</td><td style="color:${col};font-weight:700">${d.c.toFixed(2)}</td><td style="color:${col};font-weight:700">${s}${chg.toFixed(2)}&cent;</td><td style="color:#fbbf24">${(d.h-d.l).toFixed(2)}&cent;</td><td><span class="sb ${d.scl}">${d.sc}</span></td><td style="color:#64748b;font-size:0.68rem">${d.logic}</td>`;
+      b.appendChild(tr);
+    });
+  }
+
+  // Build Factors
+  function buildFactors_ZC(){
+    const c = document.getElementById('flist_ZC');
+    FACTORS_ZC.forEach(f=>{
+      const pct = Math.abs(f.s/f.m*100).toFixed(0), bull = f.s>=0, col = bull?'#4ade80':'#f87171';
+      const d = document.createElement('div'); d.className='fi';
+      d.innerHTML=`<div class="fh"><span class="fn">${f.n}</span><span class="fs" style="color:${col}">${(f.s>=0?'+':'')+f.s.toFixed(1)}</span></div><div class="fb"><div class="fbi ${bull?'fbu':'fbd'}" style="width:${pct}%"></div></div>`;
+      c.appendChild(d);
+    });
+  }
+
+  // Register init (charts only built when tab is shown)
+  window['_init_ZC'] = function(){
+    buildChart4h_ZC();
+    buildChartDay_ZC();
+    buildTable_ZC();
+    buildFactors_ZC();
+    window['_init_ZC'] = null; // run once
+  };
+})();
+</script>
+
+<!-- ═══════════════ TAB: ZW ═══════════════ -->
+<div id="tab_ZW" class="tab-pane" style="display:none">
+
+  <!-- HERO + SCENARIO STRIP -->
+  <div class="hero" style="border-top-color:#4ade8040;background:linear-gradient(135deg,rgba(56,189,248,0.04),#4ade8008)">
+    <div class="hero-info">
+      <h2 style="background:linear-gradient(90deg,#4ade80,#4ade8099);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Lúa mì CBOT (ZWU26) — Kịch Bản Tuần 15-19/06/2026</h2>
+      <p>Anchor: 594.25&cent; &nbsp;|&nbsp; Bias: +3.90 &nbsp;|&nbsp; Model: V3+V4+ICT+Mùa Vụ</p>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="mv neu">594.25</div><div class="ml">Anchor</div></div>
+      <div class="metric"><div class="mv pos">602.00</div><div class="ml">Wk High</div></div>
+      <div class="metric"><div class="mv neg">581.25</div><div class="ml">Wk Low</div></div>
+      <div class="metric"><div class="mv neg">590.50</div><div class="ml">Wk Close</div></div>
+      <div class="metric"><div class="mv neg">-3.75&cent;</div><div class="ml">Net Chg</div></div>
+    </div>
+  </div>
+
+  <!-- SCENARIO PHASE CARDS (compact strip) -->
+  <div class="ph-strip">
+    <div class="ph-strip-label">🧠 Luận Giải Kịch Bản AI — ZW</div>
+    <div class="ph-cards">
+      <div class="ph-card" style="border-top-color:#f87171">
+          <div class="ph-icon">1️⃣</div>
+          <div class="ph-body">
+            <div class="ph-title" style="color:#f87171">PHASE 1 — MONDAY (Peace Treaty Shock):
+  Iran-US peace treaty xóa premium địa chính trị, Brent $83 kéo lúa mì giảm.
+  Judas Swing quét stop loss bên dưới vùng OTE (585-589) trước khi NY phục hồi.</div>
+            <div class="ph-desc"></div>
+          </div>
+        </div><div class="ph-card" style="border-top-color:#4ade80">
+          <div class="ph-icon">2️⃣</div>
+          <div class="ph-body">
+            <div class="ph-title" style="color:#4ade80">PHASE 2 — TUESDAY (USDA Recovery):
+  USDA xác nhận G/E chỉ 25% (tệ nhất từ 2006). Short covering đẩy giá gap up.
+  Macro fund vẫn bán rally do dầu yếu, hạn chế biên độ hồi phục.</div>
+            <div class="ph-desc"></div>
+          </div>
+        </div><div class="ph-card" style="border-top-color:#38bdf8">
+          <div class="ph-icon">3️⃣</div>
+          <div class="ph-body">
+            <div class="ph-title" style="color:#38bdf8">PHASE 3 — WEDNESDAY (MSS Fakeout):
+  Giá cố break R1 (592.25) nhưng thất bại tại phiên NY. Bull trap hình thành.
+  Close trở lại bên dưới vùng kháng cự quan trọng.</div>
+            <div class="ph-desc"></div>
+          </div>
+        </div><div class="ph-card" style="border-top-color:#a78bfa">
+          <div class="ph-icon">4️⃣</div>
+          <div class="ph-body">
+            <div class="ph-title" style="color:#a78bfa">PHASE 4-5 — THURSDAY/FRIDAY (Ranging & Bearish Close):
+  Export Sales tốt giữ đà nhưng lực bán cuối tuần + dầu yếu khiến giá đóng thấp hơn anchor.</div>
+            <div class="ph-desc"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- 4H CHART -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="ch-title">📈 Lúa mì CBOT (ZWU26) — Nến Mô Phỏng 4H</div>
+        <div class="ch-sub">Anchor: 594.25 &middot; Frame: 4H &middot; Tuần 15-19/06/2026</div>
+      </div>
+      <div class="legend">
+        <div class="li"><div class="ld" style="background:#26a69a"></div><span>Bull</span></div>
+        <div class="li"><div class="ld" style="background:#ef5350"></div><span>Bear</span></div>
+        <div class="li"><div class="ld" style="background:#fbbf24;height:2px;box-shadow:0 0 5px #fbbf24"></div><span style="color:#fbbf24;font-weight:bold">Giá Thực Tế</span></div>
+        <div class="li"><div class="ld" style="background:#38bdf8;height:1px"></div><span>EMA 21</span></div>
+        <div class="li"><div class="ld" style="background:#a78bfa;height:1px"></div><span>EMA 50</span></div>
+      </div>
+    </div>
+    <div id="chart4h_ZW" style="width:100%;height:550px"></div>
+  </div>
+
+  <!-- DAILY CHART -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="ch-title">📅 Tổng Quan Ngày — Daily OHLC</div>
+        <div class="ch-sub">5 ngày giao dịch · Mon 15/06 → Fri 19/06 · 2026</div>
+      </div>
+    </div>
+    <div id="chartday_ZW" style="width:100%;height:310px"></div>
+  </div>
+
+  <!-- TABLE + FACTORS + EVENTS -->
+  <div class="grid2">
+    <!-- Detailed Table (full width) -->
+    <div class="panel" style="grid-column:span 2">
+      <div class="ph">📋 Chi Tiết Dự Báo Từng Ngày — ZW</div>
+      <div class="pb">
+        <table>
+          <thead><tr><th>Ngày</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Thay đổi</th><th>Biên độ</th><th>Kịch bản</th><th>Logic chính</th></tr></thead>
+          <tbody id="dtbody_ZW"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Factors -->
+    <div class="panel">
+      <div class="ph">⚖️ Phân Tích Đa Nhân Tố (Bias Score) — ZW</div>
+      <div class="pb">
+        <div class="conf-wrap">
+          <div class="cl">TỔNG ĐIỂM</div>
+          <div class="cb"><div class="cbi" style="width:65%;background:#4ade80"></div></div>
+          <div class="cv" style="color:#4ade80">+3.9</div>
+        </div>
+        <div class="flist" id="flist_ZW"></div>
+      </div>
+    </div>
+
+    <!-- Events -->
+    <div class="panel">
+      <div class="ph" style="color:#fbbf24">📅 Lịch Sự Kiện Tuần — ZW</div>
+      <div class="pb">
+        <div class="evl">
+          <div class="ev emaj"><div class="ed">Mon Jun 15</div><div class="et">USDA Crop Progress (sau đóng cửa) - BIẾN ĐỘNG CAO</div></div>
+          <div class="ev"><div class="ed">Tue Jun 16</div><div class="et">Phản ứng USDA + Export Inspections</div></div>
+          <div class="ev"><div class="ed">Wed Jun 17</div><div class="et">EIA Storage (nhỏ), mid-week acceleration</div></div>
+          <div class="ev"><div class="ed">Thu Jun 18</div><div class="et">Export Sales Weekly (~20:30 ICT) - TRUNG BÌNH</div></div>
+          <div class="ev"><div class="ed">Fri Jun 19</div><div class="et">Đóng vị thế cuối tuần, ảnh hưởng options expiry</div></div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const C4H_ZW = [
+  ["15/06 07-11",594.25,600.25,588.00,590.75],
+  ["15/06 11-15",590.75,595.00,586.25,589.25],
+  ["15/06 15-19",589.25,596.25,581.50,586.75],
+  ["15/06 19-21",586.75,594.00,583.00,585.75],
+  ["15/06 21-23",585.75,592.75,581.25,587.75],
+  ["15/06 23-01",587.75,591.75,582.25,588.50],
+  ["16/06 07-11",588.50,595.00,582.25,591.00],
+  ["16/06 11-15",591.00,598.25,584.75,590.00],
+  ["16/06 15-19",590.00,594.50,583.50,591.00],
+  ["16/06 19-21",591.00,596.25,587.75,591.50],
+  ["16/06 21-23",591.50,599.75,584.00,593.50],
+  ["16/06 23-01",593.50,597.50,590.75,593.25],
+  ["17/06 07-11",593.25,597.75,589.75,593.50],
+  ["17/06 11-15",593.50,596.75,590.50,593.00],
+  ["17/06 15-19",593.00,600.75,586.00,594.50],
+  ["17/06 19-21",594.50,600.25,588.00,595.00],
+  ["17/06 21-23",595.00,602.00,586.25,593.50],
+  ["17/06 23-01",593.50,597.75,588.50,592.25],
+  ["18/06 07-11",592.25,597.50,588.25,591.75],
+  ["18/06 11-15",591.75,597.00,587.75,591.25],
+  ["18/06 15-19",591.25,597.25,587.75,592.25],
+  ["18/06 19-21",592.25,595.50,588.00,592.50],
+  ["18/06 21-23",592.50,597.25,587.75,594.25],
+  ["18/06 23-01",594.25,597.50,590.75,593.75],
+  ["19/06 07-11",593.75,598.25,590.25,593.00],
+  ["19/06 11-15",593.00,596.75,589.50,592.00],
+  ["19/06 15-19",592.00,595.75,586.75,591.50],
+  ["19/06 19-21",591.50,596.00,587.50,591.00],
+  ["19/06 21-23",591.00,594.25,585.00,591.50],
+  ["19/06 23-01",591.50,594.25,588.00,590.50]
+];
+  const ACTUAL_ZW = [
+  ["15/06 07-11",588.50],
+  ["15/06 11-15",598.25],
+  ["15/06 19-21",598.75],
+  ["15/06 21-23",597.00],
+  ["15/06 23-01",591.00],
+  ["16/06 23-01",594.50]
+];
+  const DAILY_ZW = [
+  {d:"Mon 15/06",o:594.25,h:600.25,l:581.25,c:588.50,sc:"Peace Treaty Shock",scl:"sj",logic:"Tin tức hòa bình Iran-US đẩy Brent xuống $83, xóa toàn bộ premium địa chính trị của Lúa mì."},
+  {d:"Tue 16/06",o:588.50,h:599.75,l:582.25,c:593.25,sc:"USDA Recovery",scl:"su",logic:"USDA xác nhận G/E 25% — thấp nhất từ 2006. Short-covering bùng nổ, giá gap up từ vùng OTE."},
+  {d:"Wed 17/06",o:593.25,h:602.00,l:586.00,c:592.25,sc:"MSS Fakeout",scl:"sq",logic:"Giá cố breakout R1 (592.25) nhưng macro fund bán đè tại NY. Bull trap hình thành."},
+  {d:"Thu 18/06",o:592.25,h:597.50,l:587.75,c:593.75,sc:"Choppy Ranging",scl:"sm",logic:"Export Sales tốt giữ giá ổn định. Thị trường giằng co giữa fundamental tốt và macro yếu."},
+  {d:"Fri 19/06",o:593.75,h:598.25,l:585.00,c:590.50,sc:"Bearish Close (Oil weak)",scl:"sj",logic:"Các quỹ đóng Long trước cuối tuần. Brent yếu + thiếu catalyst địa chính trị khiến lực bán áp đảo."}
+];
+  const FACTORS_ZW = [
+  {n:"V3_Technical",s:+0.5,m:1.5},
+  {n:"V4_Structure",s:+1.0,m:1.5},
+  {n:"ICT_Profile",s:+1.2,m:1.5},
+  {n:"Seasonality",s:+0.7,m:1.5},
+  {n:"Macro_DXY",s:+0.2,m:1.5},
+  {n:"Macro_Brent",s:-1.5,m:1.5},
+  {n:"COT_Report",s:+0.8,m:1.5},
+  {n:"Fundamentals",s:+1.0,m:1.5}
+];
+  const ANCHOR_ZW = 594.25;
+  const EMA21_ZW = 597.0;
+  const EMA50_ZW = 598.15;
+
+  // Build 4H chart
+  function buildChart4h_ZW(){
+    const xs = C4H_ZW.map(r=>r[0]);
+    const act_xs = ACTUAL_ZW.map(r=>r[0]);
+    const act_ys = ACTUAL_ZW.map(r=>r[1]);
+    const ema21v = xs.map((_,i)=>+(EMA21_ZW+(i*0.05)).toFixed(2));
+    const ema50v = xs.map((_,i)=>+(EMA50_ZW+(i*0.04)).toFixed(2));
+    const mss = 592.25;
+    const allY = C4H_ZW.flatMap(r=>[r[2],r[3]]).concat(act_ys).filter(v=>v>0);
+    const yMin = Math.min(...allY)*0.997;
+    const yMax = Math.max(...allY)*1.003;
+    const sh = [
+      {type:'line',x0:xs[0],x1:xs[xs.length-1],y0:mss,y1:mss,line:{color:'#fbbf24',width:1.5,dash:'dashdot'},layer:'below'},
+      ...[5,11,17,23].map(i=>i<xs.length?{type:'line',x0:xs[i],x1:xs[i],y0:0,y1:1e5,line:{color:'rgba(255,255,255,0.04)',width:1},layer:'below'}:null).filter(Boolean)
+    ];
+    Plotly.newPlot('chart4h_ZW',[
+      {type:'candlestick',x:xs,open:C4H_ZW.map(r=>r[1]),high:C4H_ZW.map(r=>r[2]),low:C4H_ZW.map(r=>r[3]),close:C4H_ZW.map(r=>r[4]),
+        increasing:{line:{color:'#26a69a',width:1.5},fillcolor:'#26a69a'},
+        decreasing:{line:{color:'#ef5350',width:1.5},fillcolor:'#ef5350'},
+        name:'ZW Simulated',whiskerwidth:0.8},
+      {type:'scatter',x:xs,y:ema21v,mode:'lines',line:{color:'#38bdf8',width:1.5,dash:'dot'},name:'EMA 21'},
+      {type:'scatter',x:xs,y:ema50v,mode:'lines',line:{color:'#a78bfa',width:1.5,dash:'dash'},name:'EMA 50'},
+      {type:'scatter',x:act_xs,y:act_ys,mode:'lines+markers',
+        line:{color:'#fbbf24',width:3},marker:{size:8,color:'#fbbf24',line:{color:'#000',width:1}},
+        name:'Giá Thực Tế',hovertemplate:'<b>%{x}</b><br>Actual: %{y:.2f}<extra></extra>'}
+    ],{
+      paper_bgcolor:'#131929',plot_bgcolor:'#0f1525',
+      font:{family:'JetBrains Mono,monospace',color:'#94a3b8',size:10},
+      xaxis:{tickangle:-35,gridcolor:'rgba(30,45,74,0.45)',rangeslider:{visible:false},color:'#64748b',tickfont:{size:8.5}},
+      yaxis:{title:'Price (cents/bushel)',gridcolor:'rgba(30,45,74,0.35)',tickformat:'.2f',color:'#64748b',side:'right',range:[yMin,yMax],tickfont:{size:9}},
+      margin:{l:8,r:85,t:18,b:65},shapes:sh,showlegend:true,
+      legend:{x:0.01,y:0.99,bgcolor:'rgba(10,14,26,0.88)',bordercolor:'rgba(30,45,74,0.8)',borderwidth:1,font:{size:8.5}},
+      hovermode:'x unified'
+    },{responsive:true,displayModeBar:false});
+  }
+
+  // Build Daily chart
+  function buildChartDay_ZW(){
+    const x = DAILY_ZW.map(d=>d.d);
+    const allY2 = DAILY_ZW.flatMap(d=>[d.h,d.l]);
+    const yMin2 = Math.min(...allY2)*0.997;
+    const yMax2 = Math.max(...allY2)*1.003;
+    Plotly.newPlot('chartday_ZW',[
+      {type:'candlestick',x,open:DAILY_ZW.map(d=>d.o),high:DAILY_ZW.map(d=>d.h),low:DAILY_ZW.map(d=>d.l),close:DAILY_ZW.map(d=>d.c),
+        increasing:{line:{color:'#26a69a',width:2.5},fillcolor:'rgba(38,166,154,0.85)'},
+        decreasing:{line:{color:'#ef5350',width:2.5},fillcolor:'rgba(239,83,80,0.85)'},
+        name:'ZW Daily',whiskerwidth:0.4}
+    ],{
+      paper_bgcolor:'#131929',plot_bgcolor:'#0f1525',
+      font:{family:'JetBrains Mono,monospace',color:'#94a3b8',size:10},
+      xaxis:{gridcolor:'rgba(30,45,74,0.4)',color:'#64748b',rangeslider:{visible:false}},
+      yaxis:{title:'Price',gridcolor:'rgba(30,45,74,0.35)',tickformat:'.2f',color:'#64748b',side:'right',range:[yMin2,yMax2]},
+      margin:{l:8,r:85,t:18,b:40},showlegend:false
+    },{responsive:true,displayModeBar:false});
+  }
+
+  // Build Table
+  function buildTable_ZW(){
+    const b = document.getElementById('dtbody_ZW');
+    let prev = ANCHOR_ZW;
+    DAILY_ZW.forEach(d=>{
+      const chg = d.c - prev; prev = d.c;
+      const col = chg>=0?'#4ade80':'#f87171';
+      const s = chg>=0?'+':'';
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td style="font-weight:700">${d.d}</td><td style="color:#94a3b8">${d.o.toFixed(2)}</td><td style="color:#4ade80">${d.h.toFixed(2)}</td><td style="color:#f87171">${d.l.toFixed(2)}</td><td style="color:${col};font-weight:700">${d.c.toFixed(2)}</td><td style="color:${col};font-weight:700">${s}${chg.toFixed(2)}&cent;</td><td style="color:#fbbf24">${(d.h-d.l).toFixed(2)}&cent;</td><td><span class="sb ${d.scl}">${d.sc}</span></td><td style="color:#64748b;font-size:0.68rem">${d.logic}</td>`;
+      b.appendChild(tr);
+    });
+  }
+
+  // Build Factors
+  function buildFactors_ZW(){
+    const c = document.getElementById('flist_ZW');
+    FACTORS_ZW.forEach(f=>{
+      const pct = Math.abs(f.s/f.m*100).toFixed(0), bull = f.s>=0, col = bull?'#4ade80':'#f87171';
+      const d = document.createElement('div'); d.className='fi';
+      d.innerHTML=`<div class="fh"><span class="fn">${f.n}</span><span class="fs" style="color:${col}">${(f.s>=0?'+':'')+f.s.toFixed(1)}</span></div><div class="fb"><div class="fbi ${bull?'fbu':'fbd'}" style="width:${pct}%"></div></div>`;
+      c.appendChild(d);
+    });
+  }
+
+  // Register init (charts only built when tab is shown)
+  window['_init_ZW'] = function(){
+    buildChart4h_ZW();
+    buildChartDay_ZW();
+    buildTable_ZW();
+    buildFactors_ZW();
+    window['_init_ZW'] = null; // run once
+  };
+})();
+</script>
+
+<!-- ═══════════════ TAB: ZS ═══════════════ -->
+<div id="tab_ZS" class="tab-pane" style="display:none">
+
+  <!-- HERO + SCENARIO STRIP -->
+  <div class="hero" style="border-top-color:#a78bfa40;background:linear-gradient(135deg,rgba(56,189,248,0.04),#a78bfa08)">
+    <div class="hero-info">
+      <h2 style="background:linear-gradient(90deg,#a78bfa,#a78bfa99);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Đậu tương CBOT (ZSU26) — Kịch Bản Tuần 15-19/06/2026</h2>
+      <p>Anchor: 1133.50&cent; &nbsp;|&nbsp; Bias: +0.10 &nbsp;|&nbsp; Model: V3+V4+ICT+Mùa Vụ</p>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="mv neu">1133.50</div><div class="ml">Anchor</div></div>
+      <div class="metric"><div class="mv pos">1139.75</div><div class="ml">Wk High</div></div>
+      <div class="metric"><div class="mv neg">1123.50</div><div class="ml">Wk Low</div></div>
+      <div class="metric"><div class="mv neg">1131.25</div><div class="ml">Wk Close</div></div>
+      <div class="metric"><div class="mv neg">-2.25&cent;</div><div class="ml">Net Chg</div></div>
+    </div>
+  </div>
+
+  <!-- SCENARIO PHASE CARDS (compact strip) -->
+  <div class="ph-strip">
+    <div class="ph-strip-label">🧠 Luận Giải Kịch Bản AI — ZS</div>
+    <div class="ph-cards">
+      <div class="ph-card" style="border-top-color:#f87171">
+          <div class="ph-icon">1️⃣</div>
+          <div class="ph-body">
+            <div class="ph-title" style="color:#f87171">PHASE 1 — MONDAY (Brazil vs China Tug-of-War):
+  Brazil xuất khẩu kỷ lục đối đầu với đơn mua Trung Quốc 500k tấn.
+  Phiên NY phục hồi mạnh sau tin China xác nhận mua hàng.</div>
+            <div class="ph-desc"></div>
+          </div>
+        </div><div class="ph-card" style="border-top-color:#4ade80">
+          <div class="ph-icon">2️⃣</div>
+          <div class="ph-body">
+            <div class="ph-title" style="color:#4ade80">PHASE 2 — TUESDAY (NOPA Crush tốt):
+  Crush margin cao → cầu đậu tương nội địa Mỹ tốt. Rally được hỗ trợ.</div>
+            <div class="ph-desc"></div>
+          </div>
+        </div><div class="ph-card" style="border-top-color:#38bdf8">
+          <div class="ph-icon">3️⃣</div>
+          <div class="ph-body">
+            <div class="ph-title" style="color:#38bdf8">PHASE 3 — WEDNESDAY (Brazil Hedge Selling):
+  Nhà xuất khẩu Brazil bán hedge vào rally, giá không vượt được R1.</div>
+            <div class="ph-desc"></div>
+          </div>
+        </div><div class="ph-card" style="border-top-color:#a78bfa">
+          <div class="ph-icon">4️⃣</div>
+          <div class="ph-body">
+            <div class="ph-title" style="color:#a78bfa">PHASE 4-5 — THURSDAY/FRIDAY (Export Sales + Profit Taking):
+  Export Sales tốt giúp cân bằng, nhưng cuối tuần giảm nhẹ khi Long chốt lời.</div>
+            <div class="ph-desc"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- 4H CHART -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="ch-title">📈 Đậu tương CBOT (ZSU26) — Nến Mô Phỏng 4H</div>
+        <div class="ch-sub">Anchor: 1133.50 &middot; Frame: 4H &middot; Tuần 15-19/06/2026</div>
+      </div>
+      <div class="legend">
+        <div class="li"><div class="ld" style="background:#26a69a"></div><span>Bull</span></div>
+        <div class="li"><div class="ld" style="background:#ef5350"></div><span>Bear</span></div>
+        <div class="li"><div class="ld" style="background:#fbbf24;height:2px;box-shadow:0 0 5px #fbbf24"></div><span style="color:#fbbf24;font-weight:bold">Giá Thực Tế</span></div>
+        <div class="li"><div class="ld" style="background:#38bdf8;height:1px"></div><span>EMA 21</span></div>
+        <div class="li"><div class="ld" style="background:#a78bfa;height:1px"></div><span>EMA 50</span></div>
+      </div>
+    </div>
+    <div id="chart4h_ZS" style="width:100%;height:550px"></div>
+  </div>
+
+  <!-- DAILY CHART -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="ch-title">📅 Tổng Quan Ngày — Daily OHLC</div>
+        <div class="ch-sub">5 ngày giao dịch · Mon 15/06 → Fri 19/06 · 2026</div>
+      </div>
+    </div>
+    <div id="chartday_ZS" style="width:100%;height:310px"></div>
+  </div>
+
+  <!-- TABLE + FACTORS + EVENTS -->
+  <div class="grid2">
+    <!-- Detailed Table (full width) -->
+    <div class="panel" style="grid-column:span 2">
+      <div class="ph">📋 Chi Tiết Dự Báo Từng Ngày — ZS</div>
+      <div class="pb">
+        <table>
+          <thead><tr><th>Ngày</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Thay đổi</th><th>Biên độ</th><th>Kịch bản</th><th>Logic chính</th></tr></thead>
+          <tbody id="dtbody_ZS"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Factors -->
+    <div class="panel">
+      <div class="ph">⚖️ Phân Tích Đa Nhân Tố (Bias Score) — ZS</div>
+      <div class="pb">
+        <div class="conf-wrap">
+          <div class="cl">TỔNG ĐIỂM</div>
+          <div class="cb"><div class="cbi" style="width:2%;background:#a78bfa"></div></div>
+          <div class="cv" style="color:#a78bfa">+0.1</div>
+        </div>
+        <div class="flist" id="flist_ZS"></div>
+      </div>
+    </div>
+
+    <!-- Events -->
+    <div class="panel">
+      <div class="ph" style="color:#fbbf24">📅 Lịch Sự Kiện Tuần — ZS</div>
+      <div class="pb">
+        <div class="evl">
+          <div class="ev"><div class="ed">Mon Jun 15</div><div class="et">USDA Crop Progress (G/E Đậu tương) + Theo dõi đơn mua Trung Quốc</div></div>
+          <div class="ev emaj"><div class="ed">Tue Jun 16</div><div class="et">NOPA Crush Report tháng 5 - QUAN TRỌNG</div></div>
+          <div class="ev emaj"><div class="ed">Thu Jun 18</div><div class="et">Export Sales Weekly (Soybeans) - QUAN TRỌNG</div></div>
+          <div class="ev"><div class="ed">Fri Jun 19</div><div class="et">Đóng vị thế cuối tuần</div></div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const C4H_ZS = [
+  ["15/06 07-11",1133.50,1136.50,1126.50,1131.00],
+  ["15/06 11-15",1131.00,1133.75,1126.50,1130.00],
+  ["15/06 15-19",1130.00,1135.00,1126.00,1129.50],
+  ["15/06 19-21",1129.50,1133.50,1125.25,1130.50],
+  ["15/06 21-23",1130.50,1137.00,1123.50,1132.50],
+  ["15/06 23-01",1132.50,1136.50,1129.25,1132.00],
+  ["16/06 07-11",1132.00,1136.00,1127.75,1132.75],
+  ["16/06 11-15",1132.75,1137.75,1129.00,1132.25],
+  ["16/06 15-19",1132.25,1135.75,1128.00,1132.75],
+  ["16/06 19-21",1132.75,1138.25,1129.75,1134.25],
+  ["16/06 21-23",1134.25,1138.75,1128.00,1135.50],
+  ["16/06 23-01",1135.50,1139.50,1131.50,1135.25],
+  ["17/06 07-11",1135.25,1138.00,1131.75,1134.25],
+  ["17/06 11-15",1134.25,1138.25,1129.75,1133.50],
+  ["17/06 15-19",1133.50,1136.50,1129.25,1133.00],
+  ["17/06 19-21",1133.00,1136.25,1129.75,1133.50],
+  ["17/06 21-23",1133.50,1139.75,1129.25,1132.00],
+  ["17/06 23-01",1132.00,1136.75,1129.25,1131.50],
+  ["18/06 07-11",1131.50,1134.75,1129.00,1131.00],
+  ["18/06 11-15",1131.00,1134.50,1126.00,1131.50],
+  ["18/06 15-19",1131.50,1134.75,1127.00,1132.25],
+  ["18/06 19-21",1132.25,1135.50,1129.00,1132.75],
+  ["18/06 21-23",1132.75,1136.50,1127.25,1134.00],
+  ["18/06 23-01",1134.00,1137.25,1131.00,1133.75],
+  ["19/06 07-11",1133.75,1137.50,1131.00,1133.00],
+  ["19/06 11-15",1133.00,1137.00,1129.25,1132.50],
+  ["19/06 15-19",1132.50,1135.25,1128.75,1132.25],
+  ["19/06 19-21",1132.25,1135.75,1129.75,1131.75],
+  ["19/06 21-23",1131.75,1134.50,1129.00,1132.00],
+  ["19/06 23-01",1132.00,1135.00,1129.00,1131.25]
+];
+  const ACTUAL_ZS = [
+  ["15/06 07-11",1127.00],
+  ["15/06 11-15",1133.00],
+  ["15/06 19-21",1131.75],
+  ["15/06 21-23",1130.00],
+  ["15/06 23-01",1134.00],
+  ["16/06 23-01",1127.50]
+];
+  const DAILY_ZS = [
+  {d:"Mon 15/06",o:1133.50,h:1137.00,l:1123.50,c:1132.00,sc:"Brazil Pressure vs China Buy",scl:"sq",logic:"Brazil xuất khẩu đậu tương tháng 6 đạt kỷ lục, tạo áp lực lên giá. Nhưng tin Trung Quốc mua thêm 500k tấn giữa phiên NY đảo ngược tình thế."},
+  {d:"Tue 16/06",o:1132.00,h:1139.50,l:1127.75,c:1135.25,sc:"NOPA Crush + USDA G/E",scl:"su",logic:"NOPA Crush tháng 5 đạt 188 triệu bushel (trên kỳ vọng 185). USDA G/E Đậu tương 67% tốt, nhưng không đủ để đảo chiều xu hướng."},
+  {d:"Wed 17/06",o:1135.25,h:1139.75,l:1129.25,c:1131.50,sc:"Pullback — Brazil Hedge",scl:"sj",logic:"Nhà xuất khẩu Brazil hedge bán mạnh vào rally. Giá không thể vượt R1 (1135.75), hình thành cấu trúc giảm ngắn hạn."},
+  {d:"Thu 18/06",o:1131.50,h:1137.25,l:1126.00,c:1133.75,sc:"Export Sales Support",scl:"su",logic:"Export Sales đậu tương tuần này đạt 800k tấn, vượt kỳ vọng 650k. Trung Quốc là người mua chính."},
+  {d:"Fri 19/06",o:1133.75,h:1137.50,l:1128.75,c:1131.25,sc:"Đóng Long / Profit Taking",scl:"sj",logic:"Không có tin mới. Trader rút Long trước cuối tuần. Giá đóng bên dưới EMA50, xu hướng ngắn hạn giảm."}
+];
+  const FACTORS_ZS = [
+  {n:"V3_Technical",s:-0.5,m:1.5},
+  {n:"V4_Structure",s:-0.5,m:1.5},
+  {n:"ICT_Profile",s:+0.5,m:1.5},
+  {n:"Seasonality",s:+0.3,m:1.5},
+  {n:"Macro_DXY",s:+0.3,m:1.5},
+  {n:"Macro_Brent",s:-0.5,m:1.5},
+  {n:"COT_Report",s:-0.5,m:1.5},
+  {n:"Fundamentals",s:+1.0,m:1.5}
+];
+  const ANCHOR_ZS = 1133.5;
+  const EMA21_ZS = 1130.27;
+  const EMA50_ZS = 1132.07;
+
+  // Build 4H chart
+  function buildChart4h_ZS(){
+    const xs = C4H_ZS.map(r=>r[0]);
+    const act_xs = ACTUAL_ZS.map(r=>r[0]);
+    const act_ys = ACTUAL_ZS.map(r=>r[1]);
+    const ema21v = xs.map((_,i)=>+(EMA21_ZS+(i*0.05)).toFixed(2));
+    const ema50v = xs.map((_,i)=>+(EMA50_ZS+(i*0.04)).toFixed(2));
+    const mss = 1135.75;
+    const allY = C4H_ZS.flatMap(r=>[r[2],r[3]]).concat(act_ys).filter(v=>v>0);
+    const yMin = Math.min(...allY)*0.997;
+    const yMax = Math.max(...allY)*1.003;
+    const sh = [
+      {type:'line',x0:xs[0],x1:xs[xs.length-1],y0:mss,y1:mss,line:{color:'#fbbf24',width:1.5,dash:'dashdot'},layer:'below'},
+      ...[5,11,17,23].map(i=>i<xs.length?{type:'line',x0:xs[i],x1:xs[i],y0:0,y1:1e5,line:{color:'rgba(255,255,255,0.04)',width:1},layer:'below'}:null).filter(Boolean)
+    ];
+    Plotly.newPlot('chart4h_ZS',[
+      {type:'candlestick',x:xs,open:C4H_ZS.map(r=>r[1]),high:C4H_ZS.map(r=>r[2]),low:C4H_ZS.map(r=>r[3]),close:C4H_ZS.map(r=>r[4]),
+        increasing:{line:{color:'#26a69a',width:1.5},fillcolor:'#26a69a'},
+        decreasing:{line:{color:'#ef5350',width:1.5},fillcolor:'#ef5350'},
+        name:'ZS Simulated',whiskerwidth:0.8},
+      {type:'scatter',x:xs,y:ema21v,mode:'lines',line:{color:'#38bdf8',width:1.5,dash:'dot'},name:'EMA 21'},
+      {type:'scatter',x:xs,y:ema50v,mode:'lines',line:{color:'#a78bfa',width:1.5,dash:'dash'},name:'EMA 50'},
+      {type:'scatter',x:act_xs,y:act_ys,mode:'lines+markers',
+        line:{color:'#fbbf24',width:3},marker:{size:8,color:'#fbbf24',line:{color:'#000',width:1}},
+        name:'Giá Thực Tế',hovertemplate:'<b>%{x}</b><br>Actual: %{y:.2f}<extra></extra>'}
+    ],{
+      paper_bgcolor:'#131929',plot_bgcolor:'#0f1525',
+      font:{family:'JetBrains Mono,monospace',color:'#94a3b8',size:10},
+      xaxis:{tickangle:-35,gridcolor:'rgba(30,45,74,0.45)',rangeslider:{visible:false},color:'#64748b',tickfont:{size:8.5}},
+      yaxis:{title:'Price (cents/bushel)',gridcolor:'rgba(30,45,74,0.35)',tickformat:'.2f',color:'#64748b',side:'right',range:[yMin,yMax],tickfont:{size:9}},
+      margin:{l:8,r:85,t:18,b:65},shapes:sh,showlegend:true,
+      legend:{x:0.01,y:0.99,bgcolor:'rgba(10,14,26,0.88)',bordercolor:'rgba(30,45,74,0.8)',borderwidth:1,font:{size:8.5}},
+      hovermode:'x unified'
+    },{responsive:true,displayModeBar:false});
+  }
+
+  // Build Daily chart
+  function buildChartDay_ZS(){
+    const x = DAILY_ZS.map(d=>d.d);
+    const allY2 = DAILY_ZS.flatMap(d=>[d.h,d.l]);
+    const yMin2 = Math.min(...allY2)*0.997;
+    const yMax2 = Math.max(...allY2)*1.003;
+    Plotly.newPlot('chartday_ZS',[
+      {type:'candlestick',x,open:DAILY_ZS.map(d=>d.o),high:DAILY_ZS.map(d=>d.h),low:DAILY_ZS.map(d=>d.l),close:DAILY_ZS.map(d=>d.c),
+        increasing:{line:{color:'#26a69a',width:2.5},fillcolor:'rgba(38,166,154,0.85)'},
+        decreasing:{line:{color:'#ef5350',width:2.5},fillcolor:'rgba(239,83,80,0.85)'},
+        name:'ZS Daily',whiskerwidth:0.4}
+    ],{
+      paper_bgcolor:'#131929',plot_bgcolor:'#0f1525',
+      font:{family:'JetBrains Mono,monospace',color:'#94a3b8',size:10},
+      xaxis:{gridcolor:'rgba(30,45,74,0.4)',color:'#64748b',rangeslider:{visible:false}},
+      yaxis:{title:'Price',gridcolor:'rgba(30,45,74,0.35)',tickformat:'.2f',color:'#64748b',side:'right',range:[yMin2,yMax2]},
+      margin:{l:8,r:85,t:18,b:40},showlegend:false
+    },{responsive:true,displayModeBar:false});
+  }
+
+  // Build Table
+  function buildTable_ZS(){
+    const b = document.getElementById('dtbody_ZS');
+    let prev = ANCHOR_ZS;
+    DAILY_ZS.forEach(d=>{
+      const chg = d.c - prev; prev = d.c;
+      const col = chg>=0?'#4ade80':'#f87171';
+      const s = chg>=0?'+':'';
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td style="font-weight:700">${d.d}</td><td style="color:#94a3b8">${d.o.toFixed(2)}</td><td style="color:#4ade80">${d.h.toFixed(2)}</td><td style="color:#f87171">${d.l.toFixed(2)}</td><td style="color:${col};font-weight:700">${d.c.toFixed(2)}</td><td style="color:${col};font-weight:700">${s}${chg.toFixed(2)}&cent;</td><td style="color:#fbbf24">${(d.h-d.l).toFixed(2)}&cent;</td><td><span class="sb ${d.scl}">${d.sc}</span></td><td style="color:#64748b;font-size:0.68rem">${d.logic}</td>`;
+      b.appendChild(tr);
+    });
+  }
+
+  // Build Factors
+  function buildFactors_ZS(){
+    const c = document.getElementById('flist_ZS');
+    FACTORS_ZS.forEach(f=>{
+      const pct = Math.abs(f.s/f.m*100).toFixed(0), bull = f.s>=0, col = bull?'#4ade80':'#f87171';
+      const d = document.createElement('div'); d.className='fi';
+      d.innerHTML=`<div class="fh"><span class="fn">${f.n}</span><span class="fs" style="color:${col}">${(f.s>=0?'+':'')+f.s.toFixed(1)}</span></div><div class="fb"><div class="fbi ${bull?'fbu':'fbd'}" style="width:${pct}%"></div></div>`;
+      c.appendChild(d);
+    });
+  }
+
+  // Register init (charts only built when tab is shown)
+  window['_init_ZS'] = function(){
+    buildChart4h_ZS();
+    buildChartDay_ZS();
+    buildTable_ZS();
+    buildFactors_ZS();
+    window['_init_ZS'] = null; // run once
+  };
+})();
+</script>
+
+
+  <div class="disclaim">
+    &#9888;&#65039; <strong>KHUYẾN CÁO QUAN TRỌNG:</strong> Đây là mô hình <em>giả lập AI</em> dựa trên phân tích kỹ thuật (V3 Pro, V4 ICT), dữ liệu mùa vụ và yếu tố vĩ mô.
+    <strong>KHÔNG phải khuyến nghị giao dịch.</strong> Thị trường thực tế có thể khác biệt hoàn toàn. Mục đích duy nhất là <em>kiểm định độ chính xác của hệ thống phân tích</em>.
+  </div>
+</main>
+
+<script>
+// Tab switching
+function showTab(code) {
+  document.querySelectorAll('.tab-pane').forEach(p=>p.style.display='none');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab_'+code).style.display='flex';
+  document.getElementById('tbtn_'+code).classList.add('active');
+  // Lazy init charts
+  const fn = window['_init_'+code];
+  if(fn) fn();
+}
+// Init first tab
+showTab('ZC');
+</script>
+</body>
+</html>

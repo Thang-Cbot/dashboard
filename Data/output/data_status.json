@@ -1,0 +1,72 @@
+{
+  "last_full_update": "2026-07-02 06:32:22",
+  "elapsed_seconds": 139.8,
+  "modules": {
+    "usda": {
+      "status": "OK",
+      "detail": "WASDE + Crop Progress updated",
+      "updated_at": "2026-07-02 06:30:18"
+    },
+    "prices": {
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-07-02 17:15:04"
+    },
+    "macro": {
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-07-02 17:15:07"
+    },
+    "cot": {
+      "status": "OK",
+      "detail": "COT CFTC updated (fallback if 403)",
+      "updated_at": "2026-07-02 06:30:30"
+    },
+    "export_sales": {
+      "status": "OK",
+      "detail": "Export Sales updated",
+      "updated_at": "2026-07-02 06:30:34"
+    },
+    "weather_short": {
+      "status": "[OK]",
+      "detail": "Auto-fetch 07:07:19",
+      "updated_at": "2026-07-02 07:07:19"
+    },
+    "weather_long": {
+      "status": "OK",
+      "detail": "ENSO/El Nino updated",
+      "updated_at": "2026-07-02 06:31:03"
+    },
+    "ai": {
+      "status": "OK",
+      "detail": "Generated AI narrative",
+      "updated_at": "2026-07-02 06:31:30"
+    },
+    "acreage": {
+      "status": "[OK]",
+      "detail": "Auto-fetch 06:36:54",
+      "updated_at": "2026-07-02 06:36:54"
+    }
+  },
+  "all_ok": true,
+  "acreage": {
+    "status": "OK",
+    "detail": "ZC=95.3M, ZW=46.0M acres",
+    "updated_at": "2026-07-02 06:36:54"
+  },
+  "weather_short": {
+    "status": "OK",
+    "detail": "24/24 fetched",
+    "updated_at": "2026-07-02 07:07:19"
+  },
+  "macro": {
+    "status": "ERROR",
+    "detail": "'charmap' codec can't encode characters in position 2-3: character maps to <undefined>",
+    "updated_at": "2026-07-02 17:15:07"
+  },
+  "cot": {
+    "status": "OK",
+    "detail": "Fetched 2/2 commodities OK",
+    "updated_at": "2026-07-02 07:40:50"
+  }
+}

@@ -1,0 +1,10 @@
+﻿__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.agents/
+Data/api_key.txt
+api_key.txt
+*.txt
+

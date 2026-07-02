@@ -1,0 +1,1220 @@
+//@version=6
+indicator("DCBOT_Chart_T6.15R02", overlay=true, max_lines_count=300, max_labels_count=500, max_boxes_count=400, max_bars_back=2000, dynamic_requests=false)
+// ─── VERSION ────────────────────────────────────────────────────────────────
+// File   : DCBOT_Chart_T6.15R02.pine
+// Title  : DCBOT_Chart_T6.15R02          (shown in TradingView indicator panel)
+// Payload: DUONG_CBOT_CHART              (DO NOT change — Python parser key)
+// Status : T6.15R02 – Fix NDOG/NWOG: lookback gioi han (21/56 ngay), xoa label+box dung khi fill, khong tich luy label
+// History: -> T6.15R01 (2026-06-15) -> T6.15R02 (2026-06-15)
+// Next   : T6.16 hoac T6.15R03 neu can chinh
+// ────────────────────────────────────────────────────────────────────────────
+
+//------------------------------------------------------------------------------
+// Inputs — 7 groups
+//------------------------------------------------------------------------------
+grpZones  = "01 ZONES"
+grpHQ     = "02 ZONE QUALITY TAGS"
+grpCore   = "03 CORE SETTINGS"
+grpMSS    = "04 MSS / CHoCH / CONTEXT"
+grpAlerts = "05 MSS ALERTS"
+grpSess   = "06 SESSION & CANDLE"
+grpSys    = "07 SYSTEM"
+
+// ── 01 ZONES ──────────────────────────────────────────────────────────────
+showFVG            = input.bool(true,  "Show FVG",                                     group=grpZones, display=display.none)
+showCELines        = input.bool(true,  "Show FVG CE midpoint line (only near price)",  group=grpZones, display=display.none)
+showOB             = input.bool(true,  "Show OB",                                      group=grpZones, display=display.none)
+showBreaker        = input.bool(true,  "Show Breaker Block",                           group=grpZones, display=display.none)
+showIFVG           = input.bool(false, "Show IFVG",                                    group=grpZones, display=display.none)
+showBPR            = input.bool(false, "Show BPR",                                     group=grpZones, display=display.none)
+ifvgMode           = input.string("Important only", "IFVG display",  options=["Off", "Important only", "All"], group=grpZones, display=display.none)
+bprMode            = input.string("Important only", "BPR display",   options=["Off", "Important only", "All"], group=grpZones, display=display.none)
+maxFVGEachSide     = input.int(2, "Max FVG each side",     minval=0, maxval=20, group=grpZones, display=display.none)
+maxOBEachSide      = input.int(3, "Max OB each side",      minval=0, maxval=20, group=grpZones, display=display.none)
+maxBreakerEachSide = input.int(2, "Max Breaker each side", minval=0, maxval=20, group=grpZones, display=display.none)
+maxIFVGEachSide    = input.int(2, "Max IFVG each side",    minval=0, maxval=20, group=grpZones, display=display.none)
+maxBPRZones        = input.int(1, "Max BPR zones",         minval=0, maxval=10, group=grpZones, display=display.none)
+showOTEZone        = input.bool(true, "Show OTE zone (62-79% from latest MSS swing)",  group=grpZones, display=display.none)
+colOTEBull         = input.color(color.new(color.lime, 87), "OTE Bull zone color",     group=grpZones, display=display.none)
+colOTEBear         = input.color(color.new(color.red,  87), "OTE Bear zone color",     group=grpZones, display=display.none)
+fvgInvalidMode     = input.string("20%", "FVG invalid when", options=["Touched", "20%", "50%", "Full Fill"], group=grpZones, display=display.none)
+zoneLabelMode      = input.string("Important only", "Zone label mode", options=["Off", "Important only", "All"], group=grpZones, display=display.none)
+importantZoneLabelSizeInput = input.string("Small", "Important zone label size", options=["Tiny", "Small", "Normal"], group=grpZones, display=display.none)
+importantZoneNearATR        = input.float(1.50, "Important zone near price ATR", minval=0.25, maxval=10.00, step=0.25, group=grpZones, display=display.none)
+
+// ── 02 ZONE QUALITY TAGS ──────────────────────────────────────────────────
+showR4HQTags          = input.bool(false, "Show HQ OB/BB/BPR/IFVG tags",       group=grpHQ, display=display.none)
+r6HQReplaceZoneLabels = input.bool(true,  "HQ tags replace normal zone labels", group=grpHQ, display=display.none)
+r6HQTagTextMode       = input.string("Compact", "HQ tag text", options=["Compact", "Detailed"], group=grpHQ, display=display.none)
+r4HQRequireSweepOrMSS = input.bool(true,  "HQ requires sweep or MSS context",  group=grpHQ, display=display.none)
+r4HQIFVGOnly          = input.bool(true,  "Show only HQ IFVG labels",           group=grpHQ, display=display.none)
+r5HQTagScope          = input.string("Recent + near price", "HQ tag scope", options=["Recent + near price", "Recent only", "Near price only", "All"], group=grpHQ, display=display.none)
+r5HQTagRecentBars     = input.int(120,  "HQ tag recent bars",    minval=20,   maxval=1000,  group=grpHQ, display=display.none)
+r5HQTagNearATR        = input.float(2.50,"HQ tag near price ATR", minval=0.25, maxval=20.00, step=0.25, group=grpHQ, display=display.none)
+
+// ── 03 CORE SETTINGS ──────────────────────────────────────────────────────
+swingLen            = input.int(4,    "Swing length",                minval=2,  maxval=20,   group=grpCore, display=display.none)
+atrLen              = input.int(14,   "ATR length",                  minval=5,  maxval=100,  group=grpCore, display=display.none)
+zoneExtendBars      = input.int(36,   "Zone extend bars",            minval=10, maxval=500,  group=grpCore, display=display.none)
+hideInvalidZones    = input.bool(true, "Hide invalid zones",                                  group=grpCore, display=display.none)
+showOnlyRecent      = input.bool(false,"Show only recent zones",                              group=grpCore, display=display.none)
+recentBars          = input.int(300,  "Recent zone bars",            minval=30, maxval=2000, group=grpCore, display=display.none)
+hideFarDisplayZones = input.bool(false,"Hide zones far from price",                           group=grpCore, display=display.none)
+maxZoneDistATR      = input.float(999.0,"Max zone distance ATR (999 = off)", minval=1.0, maxval=999.0, step=0.5, group=grpCore, display=display.none)
+
+// ── 04 MSS / CHoCH / CONTEXT ──────────────────────────────────────────────
+sweepLabelMode       = input.string("Off", "Sweep labels", options=["Important only", "All", "Off"], group=grpMSS, display=display.none)
+sweepLabelScope      = input.string("Recent N bars", "Sweep label scope", options=["Recent N bars", "All history"], group=grpMSS, display=display.none)
+sweepLabelRecentBars = input.int(60, "Sweep label recent bars", minval=10, maxval=500, group=grpMSS, display=display.none)
+sweepLabelMinGap     = input.int(4,  "Sweep label min gap bars", minval=0, maxval=50,  group=grpMSS, display=display.none)
+showMSSLabels        = input.bool(true,  "Show MSS / CHoCH labels",            group=grpMSS, display=display.none)
+mssRequireSweep      = input.bool(true,  "MSS label requires prior sweep",     group=grpMSS, display=display.none)
+mssPriorSweepBars    = input.int(36,  "Prior sweep lookback bars",  minval=1,  maxval=300,  group=grpMSS, display=display.none)
+mssRecentBars        = input.int(120, "MSS label recent bars",      minval=20, maxval=2000, group=grpMSS, display=display.none)
+mssLabelMinGap       = input.int(5,   "MSS label min gap bars",     minval=0,  maxval=100,  group=grpMSS, display=display.none)
+mssLabelSizeInput    = input.string("Normal", "MSS label size", options=["Small", "Normal", "Large"], group=grpMSS, display=display.none)
+showMSSHighlight     = input.bool(true, "Highlight MSS break bar (subtle bgcolor)", group=grpMSS, display=display.none)
+colMSSBullHL         = input.color(color.new(color.purple, 80), "Bull MSS bar color", group=grpMSS, display=display.none)
+colMSSBearHL         = input.color(color.new(color.orange, 80), "Bear MSS bar color", group=grpMSS, display=display.none)
+showCHoCHLabel       = input.bool(true, "Show CHoCH label + line (SSL/BSL sweep level break)", group=grpMSS, display=display.none)
+chochLineExtend      = input.int(36, "CHoCH line extend bars", minval=5, maxval=200, group=grpMSS, display=display.none)
+showV20ChartLayers   = input.bool(true, "Enable SH/MSS/RT context layers",      group=grpMSS, display=display.none)
+showV20SH            = input.bool(true, "Show SH hunt line",                     group=grpMSS, display=display.none)
+showV20MSS           = input.bool(true, "Show MSS break line",                   group=grpMSS, display=display.none)
+showV20PB            = input.bool(true, "Show RT / POI retest zone",             group=grpMSS, display=display.none)
+showV20Plan          = false  // visual-only chart; Entry/SL/TP from Board
+v20OnlyLatest        = input.bool(true, "Only latest active SH-MSS-PB setup",   group=grpMSS, display=display.none)
+v20ActiveBars        = input.int(80,  "Active setup bars",        minval=10, maxval=300, group=grpMSS, display=display.none)
+v20DrawExtendBars    = input.int(80,  "Context line extend bars", minval=10, maxval=250, group=grpMSS, display=display.none)
+v20PBProximityATR    = input.float(0.35, "PB retest tolerance ATR", minval=0.05, maxval=2.00, step=0.05, group=grpMSS, display=display.none)
+v20SLBufferATR       = 0.15  // unused visual-only
+v20TP1R              = 1.50  // unused visual-only
+v20TP2R              = 2.50  // unused visual-only
+v20ShowStatus        = false  // Board-only
+v20OldAfterBars      = 48    // unused visual-only
+v20WeakMaxDistATR    = 1.50  // unused visual-only
+showV322RevWatch     = input.bool(true, "Show BASE? OB/BB after extended MSS leg", group=grpMSS, display=display.none)
+v322RevTrendBars     = input.int(96,  "Prior MSS leg active bars",  minval=12, maxval=500,  group=grpMSS, display=display.none)
+v322RevRecentBars    = input.int(160, "Draw recent bars",           minval=20, maxval=1000, group=grpMSS, display=display.none)
+v322RevMinMoveATR    = input.float(2.25,"Min move from prior MSS ATR", minval=0.25, maxval=8.00, step=0.25, group=grpMSS, display=display.none)
+v322RevBaseBodyATR   = input.float(0.55,"OB/BB base body ATR",     minval=0.05, maxval=2.00, step=0.05, group=grpMSS, display=display.none)
+v322RevExtendBars    = input.int(55,  "BASE zone extend bars",     minval=20, maxval=250,  group=grpMSS, display=display.none)
+v322RevMinGapBars    = input.int(24,  "BASE label min gap bars",   minval=0,  maxval=100,  group=grpMSS, display=display.none)
+v322RevBaseRangeATR  = input.float(1.40,"Max base range ATR",      minval=0.30, maxval=5.00, step=0.10, group=grpMSS, display=display.none)
+v322RevOnlyLatest    = input.bool(true, "Only latest BASE zone per side", group=grpMSS, display=display.none)
+
+// ── 05 MSS ALERTS ─────────────────────────────────────────────────────────
+mssAlertEnabled      = input.bool(true, "Enable MSS alert",            group=grpAlerts, display=display.none)
+mssAlertLongEnabled  = input.bool(true, "Bull MSS alert",              group=grpAlerts, inline="side", display=display.none)
+mssAlertShortEnabled = input.bool(true, "Bear MSS alert",              group=grpAlerts, inline="side", display=display.none)
+mssAlertRequireSweep = input.bool(true, "Alert requires prior sweep",  group=grpAlerts, display=display.none)
+mssAlertHoldMinutes  = input.int(20, "MSS active hold minutes", options=[5, 10, 15, 20, 30], group=grpAlerts, display=display.none)
+mssAlertScore        = input.float(5.00,"MSS alert score", minval=0.00, maxval=20.00, step=0.25, group=grpAlerts, display=display.none)
+mssAlertMinGapBars   = input.int(5, "MSS alert min gap bars", minval=0, maxval=100, group=grpAlerts, display=display.none)
+mssAlertIntrabar     = input.bool(true, "Alert intrabar before 1H close", group=grpAlerts, display=display.none)
+
+// ── 06 SESSION & CANDLE ───────────────────────────────────────────────────
+// ── 4 phiên giao dịch chính (giờ Việt Nam UTC+7) ──────────────────────────
+showSydneyKZ = input.bool(false, "Phiên Úc  / Sydney   04:00–13:00 VN", group=grpSess, display=display.none)
+showTokyoKZ  = input.bool(false, "Phiên Á   / Tokyo    06:00–15:00 VN", group=grpSess, display=display.none)
+showLondonKZ = input.bool(false, "Phiên Âu  / London   14:00–23:00 VN", group=grpSess, display=display.none)
+showNYKZ     = input.bool(false, "Phiên Mỹ  / New York 19:00–04:00 VN", group=grpSess, display=display.none)
+colSydneyKZ  = input.color(color.new(color.blue,   88), "Sydney color",   group=grpSess, display=display.none)
+colTokyoKZ   = input.color(color.new(color.red,    90), "Tokyo color",    group=grpSess, display=display.none)
+colLondonKZ  = input.color(color.new(color.green,  88), "London color",   group=grpSess, display=display.none)
+colNewYorkKZ = input.color(color.new(color.yellow, 88), "New York color", group=grpSess, display=display.none)
+// ── CBOT Kill Zone (phiên cụ thể trong NY session) ──────────────────────
+showPitKZ    = input.bool(false, "CBOT Pit Open KZ  21:15–22:00 VN (10:15–11:00 CT)", group=grpSess, display=display.none)
+showAMKZ     = input.bool(false, "CBOT AM window    19:30–21:15 VN (08:30–10:15 CT)", group=grpSess, display=display.none)
+colPitKZ     = input.color(color.new(color.orange, 90), "Pit Open KZ color", group=grpSess, display=display.none)
+colAMKZ      = input.color(color.new(color.yellow, 96), "AM window color",   group=grpSess, display=display.none)
+showNDOG             = input.bool(true,  "Show NDOG (New Day Open Gap) — canh bao Judas Swing",    group=grpSess, display=display.none)
+ndogMinATR           = input.float(0.15, "NDOG min gap (ATR)",  minval=0.05, maxval=3.0, step=0.05, group=grpSess, display=display.none)
+showNWOG             = input.bool(true,  "Show NWOG (New Week Open Gap) — Judas Swing tuan",       group=grpSess, display=display.none)
+nwogMinATR           = input.float(0.10, "NWOG min gap (ATR)",  minval=0.05, maxval=3.0, step=0.05, group=grpSess, display=display.none)
+ndogExtBars          = input.int(120,    "Gap extend bars (NDOG/NWOG)", minval=20, maxval=500,       group=grpSess, display=display.none)
+ndogLookbackDays     = input.int(21,     "NDOG recent days (chi hien trong N ngay gan nhat)",      minval=5,  maxval=365, group=grpSess, display=display.none)
+nwogLookbackDays     = input.int(56,     "NWOG recent days (chi hien trong N ngay gan nhat)",      minval=7,  maxval=365, group=grpSess, display=display.none)
+showCISDMarkers      = input.bool(false, "Show CISD markers (1st bullish/bear close 1-3 bars after sweep)", group=grpSess, display=display.none)
+showRejBlockMarkers  = input.bool(false, "Show Rejection Block (small body + large wick)",                  group=grpSess, display=display.none)
+showPropBlockMarkers = input.bool(false, "Show Propulsion Block (strong continuation bar)",                 group=grpSess, display=display.none)
+
+// V4R13: roll warning da xoa (input + f_roll_window) — xem DCBOT_RollDetect_V1.
+
+// ── 08 PIVOT POINTS ───────────────────────────────────────────────────────
+grpPivot    = "08 PIVOT POINTS"
+showPivots  = input.bool(true,   "Show Daily Pivot Points (Traditional)",     group=grpPivot, display=display.none)
+showPivR2S2 = input.bool(false,  "Show R2 / S2 levels",                       group=grpPivot, display=display.none)
+showPivR3S3 = input.bool(false,  "Show R3 / S3 levels",                       group=grpPivot, display=display.none)
+pivExtBars  = input.int(40,      "Extend bars right",  minval=5, maxval=300,   group=grpPivot, display=display.none)
+pivLookback = input.int(60,      "Lookback bars left", minval=5, maxval=500,   group=grpPivot, display=display.none)
+colPivP     = input.color(#fb8c00,                     "P color",              group=grpPivot, display=display.none)
+colPivR     = input.color(color.new(color.red,   15),  "R1/R2/R3 color",      group=grpPivot, display=display.none)
+colPivS     = input.color(color.new(color.lime,  15),  "S1/S2/S3 color",      group=grpPivot, display=display.none)
+
+//------------------------------------------------------------------------------
+// Colors
+//------------------------------------------------------------------------------
+colBullFVG = color.rgb(0, 210, 210)
+colBearFVG = color.rgb(255, 150, 35)
+colBullOB = color.rgb(30, 120, 255)
+colBearOB = color.rgb(255, 70, 70)
+colBullBRK = color.rgb(170, 90, 255)
+colBearBRK = color.rgb(255, 190, 40)
+colBullIFVG = color.rgb(95, 220, 170)
+colBearIFVG = color.rgb(235, 110, 155)
+colBPR = color.rgb(125, 125, 125)
+colREV = color.rgb(255, 210, 65)
+
+f_mss_size() =>
+    mssLabelSizeInput == "Small" ? size.small : mssLabelSizeInput == "Large" ? size.large : size.normal
+
+f_imp_label_size() =>
+    importantZoneLabelSizeInput == "Tiny" ? size.tiny : importantZoneLabelSizeInput == "Normal" ? size.normal : size.small
+
+f_num(float x) =>
+    na(x) ? "-" : str.tostring(x, format.mintick)
+
+f_mss_alert_payload(string systemName, int dir, float level, int holdMinutes, string sweepText, float score, string barStateText) =>
+    "{\"system\":\"" + systemName + "\",\"event\":\"MSS\",\"symbol\":\"" + syminfo.ticker + "\",\"tf\":\"" + timeframe.period +
+     "\",\"bar_state\":\"" + barStateText + "\",\"confirmed\":\"" + (barStateText == "CONFIRMED" ? "true" : "false") +
+     "\",\"side\":\"" + (dir == 1 ? "BULL_MSS" : "BEAR_MSS") + "\",\"level\":\"" + f_num(level) +
+     "\",\"close\":\"" + f_num(close) + "\",\"hold_minutes\":\"" + str.tostring(holdMinutes) +
+     "\",\"sweep\":\"" + sweepText + "\",\"score\":\"" + str.tostring(score, "#.##") + "\"}"
+
+f_v20_side_text(int _dir) =>
+    _dir == 1 ? "BUY" : _dir == -1 ? "SELL" : "-"
+
+f_v20_poi_name(int _type) =>
+    _type == 3 ? "BB" : _type == 2 ? "OB" : _type == 1 ? "FVG" : _type == 4 ? "IFVG" : "POI"
+
+f_v20_act_text(int _dir, string _src) =>
+    _dir == 1 ? (_src == "PB" ? "B3" : _src == "MSS" ? "B2" : _src == "SH" ? "B1" : "-") : _dir == -1 ? (_src == "PB" ? "S3" : _src == "MSS" ? "S2" : _src == "SH" ? "S1" : "-") : "-"
+
+f_v20_stage_rank(string _src) =>
+    _src == "PB" ? 3 : _src == "MSS" ? 2 : _src == "SH" ? 1 : 0
+
+f_v20_status_text(string _src, int _ageBars, float _distATR, bool _conflict, int _oldAfterBars, float _weakMaxDistATR) =>
+    _conflict ? "CF" : _src == "SH" ? "WT" : _ageBars > _oldAfterBars ? "OLD" : _distATR > _weakMaxDistATR ? "WK" : "ACT"
+
+//------------------------------------------------------------------------------
+// Core helpers
+//------------------------------------------------------------------------------
+atr = ta.atr(atrLen)
+
+float ph = ta.pivothigh(high, swingLen, swingLen)
+float pl = ta.pivotlow(low, swingLen, swingLen)
+var float lastSwingHigh = na
+var float lastSwingLow = na
+var int lastSwingHighBar = na
+var int lastSwingLowBar = na
+if not na(ph)
+    lastSwingHigh := ph
+    lastSwingHighBar := bar_index - swingLen
+if not na(pl)
+    lastSwingLow := pl
+    lastSwingLowBar := bar_index - swingLen
+
+bslSweep = not na(lastSwingHigh) and high > lastSwingHigh and close < lastSwingHigh
+sslSweep = not na(lastSwingLow) and low < lastSwingLow and close > lastSwingLow
+bullMSS = not na(lastSwingHigh) and ta.crossover(close, lastSwingHigh)
+bearMSS = not na(lastSwingLow) and ta.crossunder(close, lastSwingLow)
+var int v20LastBullMSSBar = na
+var int v20LastBearMSSBar = na
+if bullMSS
+    v20LastBullMSSBar := bar_index
+if bearMSS
+    v20LastBearMSSBar := bar_index
+
+barsSinceSSLSweep = ta.barssince(sslSweep)
+barsSinceBSLSweep = ta.barssince(bslSweep)
+recentSSLSweep = not na(barsSinceSSLSweep) and barsSinceSSLSweep <= mssPriorSweepBars
+recentBSLSweep = not na(barsSinceBSLSweep) and barsSinceBSLSweep <= mssPriorSweepBars
+mssInRecentScope = bar_index >= last_bar_index - mssRecentBars
+
+// CHoCH detection (Change of Character — earlier signal than full MSS)
+// Bull CHoCH: sau SSL sweep, close vượt high của cây sweep đó
+// Bear CHoCH: sau BSL sweep, close phá low của cây sweep đó
+var float chochSSLRefHigh = na
+var int   chochSSLBar     = na
+var float chochBSLRefLow  = na
+var int   chochBSLBar     = na
+if sslSweep
+    chochSSLRefHigh := high
+    chochSSLBar     := bar_index
+if bslSweep
+    chochBSLRefLow := low
+    chochBSLBar    := bar_index
+chochBullFire = not na(chochSSLRefHigh) and not na(chochSSLBar) and bar_index > chochSSLBar and ta.crossover(close, chochSSLRefHigh) and barsSinceSSLSweep <= mssPriorSweepBars
+chochBearFire = not na(chochBSLRefLow) and not na(chochBSLBar) and bar_index > chochBSLBar and ta.crossunder(close, chochBSLRefLow) and barsSinceBSLSweep <= mssPriorSweepBars
+
+// FVG definitions
+bullFVG = low > high[2]
+bullFVGTop = low
+bullFVGBot = high[2]
+bearFVG = high < low[2]
+bearFVGTop = low[2]
+bearFVGBot = high
+
+var float lastBullFVGTop = na
+var float lastBullFVGBot = na
+var int lastBullFVGBar = na
+var float lastBearFVGTop = na
+var float lastBearFVGBot = na
+var int lastBearFVGBar = na
+
+lastBearCandleTop = ta.valuewhen(close[1] < open[1], high[1], 0)
+lastBearCandleBot = ta.valuewhen(close[1] < open[1], low[1], 0)
+lastBearCandleBar = ta.valuewhen(close[1] < open[1], bar_index[1], 0)
+lastBullCandleTop = ta.valuewhen(close[1] > open[1], high[1], 0)
+lastBullCandleBot = ta.valuewhen(close[1] > open[1], low[1], 0)
+lastBullCandleBar = ta.valuewhen(close[1] > open[1], bar_index[1], 0)
+
+bullOB = bullMSS and not na(lastBearCandleTop) and not na(lastBearCandleBot)
+bullOBTop = lastBearCandleTop
+bullOBBot = lastBearCandleBot
+bullOBBar = bar_index - 1
+bearOB = bearMSS and not na(lastBullCandleTop) and not na(lastBullCandleBot)
+bearOBTop = lastBullCandleTop
+bearOBBot = lastBullCandleBot
+bearOBBar = bar_index - 1
+
+var float lastBullOBTop = na
+var float lastBullOBBot = na
+var float lastBearOBTop = na
+var float lastBearOBBot = na
+
+bullBreaker = not na(lastBearOBTop) and ta.crossover(close, lastBearOBTop)
+bullBreakerTop = lastBearOBTop
+bullBreakerBot = lastBearOBBot
+bearBreaker = not na(lastBullOBBot) and ta.crossunder(close, lastBullOBBot)
+bearBreakerTop = lastBullOBTop
+bearBreakerBot = lastBullOBBot
+
+// IFVG/BPR
+bullIFVG = not na(lastBearFVGTop) and ta.crossover(close, lastBearFVGTop)
+bullIFVGTop = lastBearFVGTop
+bullIFVGBot = lastBearFVGBot
+bearIFVG = not na(lastBullFVGBot) and ta.crossunder(close, lastBullFVGBot)
+bearIFVGTop = lastBullFVGTop
+bearIFVGBot = lastBullFVGBot
+
+bprTop = math.min(nz(lastBullFVGTop), nz(lastBearFVGTop))
+bprBot = math.max(nz(lastBullFVGBot), nz(lastBearFVGBot))
+bprValid = not na(lastBullFVGTop) and not na(lastBearFVGTop) and bprTop > bprBot
+bprNew = bprValid and (bullFVG or bearFVG)
+
+bullDispR4 = close > open and (close - open) >= atr * 0.55
+bearDispR4 = close < open and (open - close) >= atr * 0.55
+bullHQOB = bullOB and (not r4HQRequireSweepOrMSS or bullMSS or recentSSLSweep) and bullDispR4
+bearHQOB = bearOB and (not r4HQRequireSweepOrMSS or bearMSS or recentBSLSweep) and bearDispR4
+bullHQBB = bullBreaker and (not r4HQRequireSweepOrMSS or bullMSS or recentSSLSweep or not na(v20LastBullMSSBar))
+bearHQBB = bearBreaker and (not r4HQRequireSweepOrMSS or bearMSS or recentBSLSweep or not na(v20LastBearMSSBar))
+bullHQIFVG_LIQ = bullIFVG and recentSSLSweep
+bearHQIFVG_LIQ = bearIFVG and recentBSLSweep
+bullHQIFVG_POI = bullIFVG and not na(ta.barssince(bullOB or bullBreaker)) and ta.barssince(bullOB or bullBreaker) <= mssPriorSweepBars
+bearHQIFVG_POI = bearIFVG and not na(ta.barssince(bearOB or bearBreaker)) and ta.barssince(bearOB or bearBreaker) <= mssPriorSweepBars
+bullHQIFVG = bullHQIFVG_LIQ or bullHQIFVG_POI
+bearHQIFVG = bearHQIFVG_LIQ or bearHQIFVG_POI
+hqBPR = bprNew and (bullMSS or bearMSS or recentSSLSweep or recentBSLSweep)
+
+f_zone_dist_atr(float _top, float _bot) =>
+    float d = close > _top ? close - _top : close < _bot ? _bot - close : 0.0
+    not na(atr) and atr > 0 ? d / atr : 0.0
+
+f_zone_near(float _top, float _bot) =>
+    not hideFarDisplayZones or maxZoneDistATR >= 999.0 or f_zone_dist_atr(_top, _bot) <= maxZoneDistATR
+
+f_zone_important(float _top, float _bot, bool _context) =>
+    _context or f_zone_dist_atr(_top, _bot) <= importantZoneNearATR
+
+f_r5_hq_tag_scope_ok(float _price) =>
+    bool recentOK = bar_index >= last_bar_index - r5HQTagRecentBars
+    bool nearOK = not na(_price) and not na(atr) and atr > 0 and math.abs(close - _price) <= atr * r5HQTagNearATR
+    r5HQTagScope == "All" ? true : r5HQTagScope == "Recent only" ? recentOK : r5HQTagScope == "Near price only" ? nearOK : recentOK and nearOK
+
+f_r4_hq_label(string _txt, float _price, color _col, int _styleCode) =>
+    if showR4HQTags and not na(_price) and f_r5_hq_tag_scope_ok(_price)
+        st = _styleCode == -1 ? label.style_label_down : _styleCode == 0 ? label.style_label_left : label.style_label_up
+        label.new(bar_index, _price, _txt, xloc=xloc.bar_index, yloc=yloc.price, style=st, color=color.new(_col, 78), textcolor=_col, size=size.tiny)
+    0
+
+f_recent_ok(int _bar) =>
+    not showOnlyRecent or _bar >= last_bar_index - recentBars
+
+//------------------------------------------------------------------------------
+// Zone arrays
+// type: 1 FVG, 2 OB, 3 Breaker, 4 IFVG, 5 BPR
+// side: 1 bull, -1 bear, 0 neutral
+//------------------------------------------------------------------------------
+var box[] zBox = array.new_box()
+var label[] zLab = array.new_label()
+var int[] zType = array.new_int()
+var int[] zSide = array.new_int()
+var float[] zTop = array.new_float()
+var float[] zBot = array.new_float()
+var int[] zBirth = array.new_int()
+var bool[] zMit  = array.new_bool()
+var line[] zCE   = array.new_line()
+
+f_zone_name(int _type, int _side) =>
+    _type == 1 ? (_side == 1 ? "Bull FVG" : "Bear FVG") :
+     _type == 2 ? (_side == 1 ? "Bull OB" : "Bear OB") :
+     _type == 3 ? (_side == 1 ? "Bull BB" : "Bear BB") :
+     _type == 4 ? (_side == 1 ? "Bull IFVG" : "Bear IFVG") : "BPR"
+
+f_zone_border(int _type, int _side) =>
+    _type == 1 ? (_side == 1 ? colBullFVG : colBearFVG) :
+     _type == 2 ? (_side == 1 ? colBullOB : colBearOB) :
+     _type == 3 ? (_side == 1 ? colBullBRK : colBearBRK) :
+     _type == 4 ? (_side == 1 ? colBullIFVG : colBearIFVG) : colBPR
+
+f_zone_fill(int _type, int _side) =>
+    color base = f_zone_border(_type, _side)
+    int transp = _type == 5 ? 88 : _type == 2 ? 86 : _type == 3 ? 88 : _type == 1 ? 90 : _type == 4 ? 94 : 96
+    color.new(base, transp)
+
+f_zone_limit(int _type, int _side, int _max) =>
+    int ret = 0
+    if _max >= 0 and array.size(zBox) > 0
+        int cnt = 0
+        int oldest = na
+        for i = 0 to array.size(zBox) - 1
+            if array.get(zType, i) == _type and (_side == 0 or array.get(zSide, i) == _side)
+                cnt += 1
+                if na(oldest)
+                    oldest := i
+        if cnt > _max and not na(oldest)
+            box.delete(array.get(zBox, oldest))
+            label.delete(array.get(zLab, oldest))
+            if oldest < array.size(zCE)
+                line ceLn = array.get(zCE, oldest)
+                if not na(ceLn)
+                    line.delete(ceLn)
+                array.remove(zCE, oldest)
+            array.remove(zBox, oldest)
+            array.remove(zLab, oldest)
+            array.remove(zType, oldest)
+            array.remove(zSide, oldest)
+            array.remove(zTop, oldest)
+            array.remove(zBot, oldest)
+            array.remove(zBirth, oldest)
+            array.remove(zMit, oldest)
+    ret
+
+f_add_zone(int _type, int _side, float _top, float _bot, int _left, bool _important, bool _suppressLabel) =>
+    int ret = 0
+    bool typeOn = (_type == 1 and showFVG) or (_type == 2 and showOB) or (_type == 3 and showBreaker) or (_type == 4 and showIFVG) or (_type == 5 and showBPR)
+    // T6.15: FVG chi hien khi important (co context MSS/sweep hoac gan gia) — HQ FVG only
+    bool modeOK = _type == 1 ? _important : _type == 4 ? (ifvgMode == "All" or (ifvgMode == "Important only" and _important)) : _type == 5 ? (bprMode == "All" or (bprMode == "Important only" and _important)) : true
+    bool allow = typeOn and modeOK and f_recent_ok(_left) and f_zone_near(_top, _bot) and not na(_top) and not na(_bot) and _top > _bot
+    if allow
+        color brd = f_zone_border(_type, _side)
+        color bg = f_zone_fill(_type, _side)
+        string txt = _suppressLabel ? "" : zoneLabelMode == "All" ? f_zone_name(_type, _side) : zoneLabelMode == "Important only" and _important ? f_zone_name(_type, _side) : ""
+        line_style = _type == 5 ? line.style_solid : _type == 4 ? line.style_dashed : line.style_solid
+        box bx = box.new(left=_left, top=_top, right=bar_index + zoneExtendBars, bottom=_bot, xloc=xloc.bar_index, border_color=brd, border_width=1, border_style=line_style, bgcolor=bg)
+        string _lbSize = (_type == 2 or _type == 3) ? f_imp_label_size() : _important ? f_imp_label_size() : size.tiny
+        label lb = label.new(_left, _top, txt, xloc=xloc.bar_index, yloc=yloc.price, style=label.style_none, textcolor=brd, size=_lbSize)
+        array.push(zBox, bx)
+        array.push(zLab, lb)
+        array.push(zType, _type)
+        array.push(zSide, _side)
+        array.push(zTop, _top)
+        array.push(zBot, _bot)
+        array.push(zBirth, bar_index)
+        array.push(zMit, false)
+        line _ceLine = na
+        if _type == 1 and showCELines and f_zone_near(_top, _bot)
+            float _ce = (_top + _bot) / 2.0
+            _ceLine := line.new(_left, _ce, bar_index + zoneExtendBars, _ce, xloc=xloc.bar_index,
+                 color=color.new(brd, 25), style=line.style_dashed, width=1)
+        array.push(zCE, _ceLine)
+        int maxForType = _type == 1 ? maxFVGEachSide : _type == 2 ? maxOBEachSide : _type == 3 ? maxBreakerEachSide : _type == 4 ? maxIFVGEachSide : maxBPRZones
+        f_zone_limit(_type, _side, maxForType)
+    ret
+
+f_update_zones() =>
+    int ret = 0
+    int i = array.size(zBox) - 1
+    while i >= 0
+        box bx = array.get(zBox, i)
+        label lb = array.get(zLab, i)
+        int side = array.get(zSide, i)
+        float top = array.get(zTop, i)
+        float bot = array.get(zBot, i)
+        int type = array.get(zType, i)
+        int birth = array.get(zBirth, i)
+        bool mitigated = array.get(zMit, i)
+
+        box.set_right(bx, bar_index + zoneExtendBars)
+
+        float mid = (top + bot) / 2.0
+        bool touched = bar_index > birth and high >= bot and low <= top
+        bool far = not f_zone_near(top, bot)
+        bool old = not f_recent_ok(birth)
+
+        bool fvgInvalid = false
+        if type == 1
+            float fvgH = math.max(top - bot, syminfo.mintick)
+            float bullTouchedLevel = top
+            float bull20Level = top - fvgH * 0.20
+            float bull50Level = mid
+            float bullFullLevel = bot
+            float bearTouchedLevel = bot
+            float bear20Level = bot + fvgH * 0.20
+            float bear50Level = mid
+            float bearFullLevel = top
+            fvgInvalid := fvgInvalidMode == "Touched" ?
+                 (side == 1 ? low <= bullTouchedLevel : high >= bearTouchedLevel) :
+                 fvgInvalidMode == "20%" ?
+                 (side == 1 ? low <= bull20Level : high >= bear20Level) :
+                 fvgInvalidMode == "50%" ?
+                 (side == 1 ? low <= bull50Level : high >= bear50Level) :
+                 (side == 1 ? low <= bullFullLevel : high >= bearFullLevel)
+
+        bool obInvalid = (type == 2 or type == 3) and (side == 1 ? close < bot : close > top)
+        bool invalid = bar_index > birth and (fvgInvalid or obInvalid)
+
+        if (hideInvalidZones and invalid) or far or old
+            box.delete(bx)
+            label.delete(lb)
+            if i < array.size(zCE)
+                line ceLn = array.get(zCE, i)
+                if not na(ceLn)
+                    line.delete(ceLn)
+                array.remove(zCE, i)
+            array.remove(zBox, i)
+            array.remove(zLab, i)
+            array.remove(zType, i)
+            array.remove(zSide, i)
+            array.remove(zTop, i)
+            array.remove(zBot, i)
+            array.remove(zBirth, i)
+            array.remove(zMit, i)
+        else
+            if invalid and not hideInvalidZones
+                color invBorder = color.new(color.gray, 60)
+                box.set_bgcolor(bx, color.new(color.gray, 96))
+                box.set_border_color(bx, invBorder)
+                box.set_border_style(bx, line.style_dotted)
+                label.set_text(lb, "")
+                label.set_textcolor(lb, invBorder)
+            else if touched and not mitigated and type <= 3
+                array.set(zMit, i, true)
+                color faintBorder = color.new(f_zone_border(type, side), type == 3 ? 40 : 45)
+                color faintFill = color.new(f_zone_border(type, side), type == 2 ? 93 : type == 3 ? 94 : type == 1 ? 95 : type == 4 ? 96 : 97)
+                box.set_bgcolor(bx, faintFill)
+                box.set_border_color(bx, faintBorder)
+                box.set_border_style(bx, line.style_dashed)
+                string suffix = type == 1 ? " mitigated" : type == 2 ? " swept" : type == 3 ? " retested" : type == 4 ? " retested" : " touched"
+                string currentLabelText = label.get_text(lb)
+                if currentLabelText != ""
+                    label.set_text(lb, currentLabelText + suffix)
+                label.set_textcolor(lb, faintBorder)
+            if i < array.size(zCE)
+                line ceLn = array.get(zCE, i)
+                if not na(ceLn)
+                    line.set_x2(ceLn, bar_index + zoneExtendBars)
+                    if invalid
+                        line.set_color(ceLn, color.new(color.gray, 70))
+        i -= 1
+    ret
+
+// Add zones after update
+f_update_zones()
+if bullFVG
+    // T6.15: true = suppress label (khong hien chu "FVG↑" cho don gian)
+    f_add_zone(1, 1, bullFVGTop, bullFVGBot, bar_index - 2, f_zone_important(bullFVGTop, bullFVGBot, bullMSS or recentSSLSweep), true)
+    lastBullFVGTop := bullFVGTop
+    lastBullFVGBot := bullFVGBot
+    lastBullFVGBar := bar_index - 2
+if bearFVG
+    f_add_zone(1, -1, bearFVGTop, bearFVGBot, bar_index - 2, f_zone_important(bearFVGTop, bearFVGBot, bearMSS or recentBSLSweep), true)
+    lastBearFVGTop := bearFVGTop
+    lastBearFVGBot := bearFVGBot
+    lastBearFVGBar := bar_index - 2
+if bullOB
+    bool bullHQOBTagOK = showR4HQTags and bullHQOB and f_r5_hq_tag_scope_ok(bullOBTop)
+    f_add_zone(2, 1, bullOBTop, bullOBBot, bullOBBar, true, r6HQReplaceZoneLabels and bullHQOBTagOK)
+    if bullHQOB
+        f_r4_hq_label("HQ OB↑", bullOBTop, colBullOB, 1)
+    lastBullOBTop := bullOBTop
+    lastBullOBBot := bullOBBot
+if bearOB
+    bool bearHQOBTagOK = showR4HQTags and bearHQOB and f_r5_hq_tag_scope_ok(bearOBBot)
+    f_add_zone(2, -1, bearOBTop, bearOBBot, bearOBBar, true, r6HQReplaceZoneLabels and bearHQOBTagOK)
+    if bearHQOB
+        f_r4_hq_label("HQ OB↓", bearOBBot, colBearOB, -1)
+    lastBearOBTop := bearOBTop
+    lastBearOBBot := bearOBBot
+if bullBreaker and not na(bullBreakerTop) and not na(bullBreakerBot)
+    bool bullHQBBTagOK = showR4HQTags and bullHQBB and f_r5_hq_tag_scope_ok(bullBreakerTop)
+    f_add_zone(3, 1, bullBreakerTop, bullBreakerBot, bar_index, true, r6HQReplaceZoneLabels and bullHQBBTagOK)
+    if bullHQBB
+        f_r4_hq_label("HQ BB↑", bullBreakerTop, colBullBRK, 1)
+if bearBreaker and not na(bearBreakerTop) and not na(bearBreakerBot)
+    bool bearHQBBTagOK = showR4HQTags and bearHQBB and f_r5_hq_tag_scope_ok(bearBreakerBot)
+    f_add_zone(3, -1, bearBreakerTop, bearBreakerBot, bar_index, true, r6HQReplaceZoneLabels and bearHQBBTagOK)
+    if bearHQBB
+        f_r4_hq_label("HQ BB↓", bearBreakerBot, colBearBRK, -1)
+if bullIFVG and ifvgMode != "Off" and (not r4HQIFVGOnly or bullHQIFVG)
+    bool bullHQIFVGTagOK = showR4HQTags and bullHQIFVG and f_r5_hq_tag_scope_ok(bullIFVGTop)
+    f_add_zone(4, 1, bullIFVGTop, bullIFVGBot, nz(lastBearFVGBar, bar_index), f_zone_important(bullIFVGTop, bullIFVGBot, bullMSS or recentSSLSweep or bullHQIFVG), r6HQReplaceZoneLabels and bullHQIFVGTagOK)
+    if bullHQIFVG
+        f_r4_hq_label(r6HQTagTextMode == "Detailed" ? (bullHQIFVG_LIQ ? "HQ IFVG-LIQ↑" : "HQ IFVG-POI↑") : "HQ IFVG↑", bullIFVGTop, colBullIFVG, 1)
+if bearIFVG and ifvgMode != "Off" and (not r4HQIFVGOnly or bearHQIFVG)
+    bool bearHQIFVGTagOK = showR4HQTags and bearHQIFVG and f_r5_hq_tag_scope_ok(bearIFVGTop)
+    f_add_zone(4, -1, bearIFVGTop, bearIFVGBot, nz(lastBullFVGBar, bar_index), f_zone_important(bearIFVGTop, bearIFVGBot, bearMSS or recentBSLSweep or bearHQIFVG), r6HQReplaceZoneLabels and bearHQIFVGTagOK)
+    if bearHQIFVG
+        f_r4_hq_label(r6HQTagTextMode == "Detailed" ? (bearHQIFVG_LIQ ? "HQ IFVG-LIQ↓" : "HQ IFVG-POI↓") : "HQ IFVG↓", bearIFVGTop, colBearIFVG, -1)
+if bprNew and bprMode != "Off"
+    bool hqBPRTagOK = showR4HQTags and hqBPR and f_r5_hq_tag_scope_ok(bprTop)
+    f_add_zone(5, 0, bprTop, bprBot, bar_index, f_zone_important(bprTop, bprBot, bullMSS or bearMSS or recentSSLSweep or recentBSLSweep or hqBPR), r6HQReplaceZoneLabels and hqBPRTagOK)
+    if hqBPR
+        f_r4_hq_label("HQ BPR", bprTop, colBPR, 0)
+
+//------------------------------------------------------------------------------
+// Sweep / MSS labels
+//------------------------------------------------------------------------------
+var int lastBullMSSLabelBar = na
+var int lastBearMSSLabelBar = na
+var int lastBSLSweepLabelBar = na
+var int lastSSLSweepLabelBar = na
+sweepInScope = sweepLabelScope == "All history" ? true : bar_index >= last_bar_index - sweepLabelRecentBars
+bslSweepRaw = sweepLabelMode != "Off" and sweepInScope and bslSweep
+sslSweepRaw = sweepLabelMode != "Off" and sweepInScope and sslSweep
+bslSweepToDraw = sweepLabelMode == "All" ? bslSweepRaw : bslSweepRaw and not bslSweepRaw[1]
+sslSweepToDraw = sweepLabelMode == "All" ? sslSweepRaw : sslSweepRaw and not sslSweepRaw[1]
+if bslSweepToDraw and (na(lastBSLSweepLabelBar) or bar_index - lastBSLSweepLabelBar >= sweepLabelMinGap)
+    lastBSLSweepLabelBar := bar_index
+    label.new(bar_index, high, "BSL sweep", xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_down, color=color.new(color.red, 65), textcolor=color.white, size=size.tiny)
+if sslSweepToDraw and (na(lastSSLSweepLabelBar) or bar_index - lastSSLSweepLabelBar >= sweepLabelMinGap)
+    lastSSLSweepLabelBar := bar_index
+    label.new(bar_index, low, "SSL sweep", xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_up, color=color.new(color.green, 65), textcolor=color.white, size=size.tiny)
+
+bullMSSLabelOK = showMSSLabels and mssInRecentScope and bullMSS and (not mssRequireSweep or recentSSLSweep) and (na(lastBullMSSLabelBar) or bar_index - lastBullMSSLabelBar >= mssLabelMinGap)
+bearMSSLabelOK = showMSSLabels and mssInRecentScope and bearMSS and (not mssRequireSweep or recentBSLSweep) and (na(lastBearMSSLabelBar) or bar_index - lastBearMSSLabelBar >= mssLabelMinGap)
+if bullMSSLabelOK
+    lastBullMSSLabelBar := bar_index
+    label.new(bar_index, low, recentSSLSweep ? "SSL -> BULL MSS" : "BULL MSS", xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_up, color=color.new(color.teal, 20), textcolor=color.white, size=f_mss_size())
+if bearMSSLabelOK
+    lastBearMSSLabelBar := bar_index
+    label.new(bar_index, high, recentBSLSweep ? "BSL -> BEAR MSS" : "BEAR MSS", xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_down, color=color.new(color.maroon, 20), textcolor=color.white, size=f_mss_size())
+
+// CHoCH: đường ngang (width=2) tại mức sweep bị phá + marker size.small — quan trọng sau MSS
+var line chochBullLine = na
+var line chochBearLine = na
+if showCHoCHLabel and chochBullFire and mssInRecentScope
+    if not na(chochBullLine)
+        line.delete(chochBullLine)
+    chochBullLine := line.new(bar_index, chochSSLRefHigh, bar_index + chochLineExtend, chochSSLRefHigh,
+        xloc=xloc.bar_index, color=color.new(color.yellow, 20), width=2, style=line.style_dashed)
+if showCHoCHLabel and chochBearFire and mssInRecentScope
+    if not na(chochBearLine)
+        line.delete(chochBearLine)
+    chochBearLine := line.new(bar_index, chochBSLRefLow, bar_index + chochLineExtend, chochBSLRefLow,
+        xloc=xloc.bar_index, color=color.new(color.purple, 20), width=2, style=line.style_dashed)
+// plotshape small — ẩn khi cùng bar có MSS (MSS là tín hiệu chính); CHoCH size to hơn tiny để dễ thấy
+plotshape(showCHoCHLabel and chochBullFire and mssInRecentScope and not bullMSS, title="CHoCH Bull",
+    style=shape.triangleup, location=location.belowbar,
+    color=color.new(color.yellow, 10), size=size.small)
+plotshape(showCHoCHLabel and chochBearFire and mssInRecentScope and not bearMSS, title="CHoCH Bear",
+    style=shape.triangledown, location=location.abovebar,
+    color=color.new(color.purple, 10), size=size.small)
+
+//------------------------------------------------------------------------------
+// MSS alert layer
+//------------------------------------------------------------------------------
+chartMSSAlertBullRaw = bullMSS and (not mssAlertRequireSweep or recentSSLSweep)
+chartMSSAlertBearRaw = bearMSS and (not mssAlertRequireSweep or recentBSLSweep)
+chartMSSAlertCanFireNow = mssAlertIntrabar or barstate.isconfirmed
+
+var int chartMSSAlertActiveDir = 0
+var float chartMSSAlertActiveLevel = na
+var int chartMSSAlertActiveUntilMs = na
+var string chartMSSAlertActiveSweep = "-"
+
+chartMSSAlertNowMs = barstate.isrealtime ? timenow : time
+chartMSSAlertHoldMs = mssAlertHoldMinutes * 60 * 1000
+
+var int chartMSSAlertLastBullBar = na
+var int chartMSSAlertLastBearBar = na
+chartMSSAlertBullGapOK = na(chartMSSAlertLastBullBar) or bar_index - chartMSSAlertLastBullBar >= mssAlertMinGapBars
+chartMSSAlertBearGapOK = na(chartMSSAlertLastBearBar) or bar_index - chartMSSAlertLastBearBar >= mssAlertMinGapBars
+
+chartMSSAlertBull = mssAlertEnabled and mssAlertLongEnabled and chartMSSAlertCanFireNow and chartMSSAlertBullRaw and chartMSSAlertBullGapOK
+chartMSSAlertBear = mssAlertEnabled and mssAlertShortEnabled and chartMSSAlertCanFireNow and chartMSSAlertBearRaw and chartMSSAlertBearGapOK
+
+if chartMSSAlertBull
+    chartMSSAlertLastBullBar := bar_index
+    chartMSSAlertActiveDir := 1
+    chartMSSAlertActiveLevel := lastSwingHigh
+    chartMSSAlertActiveUntilMs := chartMSSAlertNowMs + chartMSSAlertHoldMs
+    chartMSSAlertActiveSweep := recentSSLSweep ? "SSL" : "-"
+    chartMSSBullPayload = f_mss_alert_payload("DUONG_CBOT_CHART", 1, chartMSSAlertActiveLevel, mssAlertHoldMinutes, chartMSSAlertActiveSweep, mssAlertScore, mssAlertIntrabar ? "INTRABAR" : "CONFIRMED")
+    if mssAlertIntrabar
+        alert(chartMSSBullPayload, alert.freq_once_per_bar)
+    else
+        alert(chartMSSBullPayload, alert.freq_once_per_bar_close)
+
+if chartMSSAlertBear
+    chartMSSAlertLastBearBar := bar_index
+    chartMSSAlertActiveDir := -1
+    chartMSSAlertActiveLevel := lastSwingLow
+    chartMSSAlertActiveUntilMs := chartMSSAlertNowMs + chartMSSAlertHoldMs
+    chartMSSAlertActiveSweep := recentBSLSweep ? "BSL" : "-"
+    chartMSSBearPayload = f_mss_alert_payload("DUONG_CBOT_CHART", -1, chartMSSAlertActiveLevel, mssAlertHoldMinutes, chartMSSAlertActiveSweep, mssAlertScore, mssAlertIntrabar ? "INTRABAR" : "CONFIRMED")
+    if mssAlertIntrabar
+        alert(chartMSSBearPayload, alert.freq_once_per_bar)
+    else
+        alert(chartMSSBearPayload, alert.freq_once_per_bar_close)
+
+chartMSSAlertActive = chartMSSAlertActiveDir != 0 and not na(chartMSSAlertActiveUntilMs) and chartMSSAlertNowMs <= chartMSSAlertActiveUntilMs
+if not chartMSSAlertActive
+    chartMSSAlertActiveDir := 0
+    chartMSSAlertActiveLevel := na
+    chartMSSAlertActiveUntilMs := na
+    chartMSSAlertActiveSweep := "-"
+
+alertcondition(chartMSSAlertBull, title="DCBOT Chart Bull MSS", message="DUONG_CBOT_CHART Bull MSS {{ticker}} {{interval}} close={{close}}")
+alertcondition(chartMSSAlertBear, title="DCBOT Chart Bear MSS", message="DUONG_CBOT_CHART Bear MSS {{ticker}} {{interval}} close={{close}}")
+
+//------------------------------------------------------------------------------
+// SH -> MSS -> PB context layer (visual only)
+//------------------------------------------------------------------------------
+f_v20_find_pb(int _dir, int _mssBar, float _proxATR) =>
+    float _bestTop = na
+    float _bestBot = na
+    int _bestType = 0
+    float _bestScore = 10e10
+    if array.size(zBox) > 0 and not na(_mssBar) and _dir != 0
+        for i = 0 to array.size(zBox) - 1
+            int _side = array.get(zSide, i)
+            int _type = array.get(zType, i)
+            float _top = array.get(zTop, i)
+            float _bot = array.get(zBot, i)
+            int _birth = array.get(zBirth, i)
+            bool _typeOK = _type == 1 or _type == 2 or _type == 3 or _type == 4
+            bool _birthOK = _birth >= _mssBar - 10 and _birth <= bar_index
+            bool _sideOK = _side == _dir
+            bool _retouched = bar_index > _mssBar and high >= _bot and low <= _top
+            bool _near = bar_index > _mssBar and f_zone_dist_atr(_top, _bot) <= _proxATR
+            if _sideOK and _typeOK and _birthOK and (_retouched or _near)
+                int _rank = _type == 3 ? 0 : _type == 2 ? 1 : _type == 4 ? 2 : 3
+                float _mid = (_top + _bot) / 2.0
+                float _score = _rank * 100000.0 + math.abs(close - _mid)
+                if _score < _bestScore
+                    _bestScore := _score
+                    _bestTop := _top
+                    _bestBot := _bot
+                    _bestType := _type
+    [_bestTop, _bestBot, _bestType]
+
+var int v20Dir = 0
+var int v20SHBar = na
+var int v20MSSBar = na
+var float v20SHLevel = na
+var float v20MSSLevel = na
+
+if showV20ChartLayers and sslSweep
+    v20Dir := 1
+    v20SHBar := bar_index
+    v20MSSBar := na
+    v20SHLevel := low
+    v20MSSLevel := na
+if showV20ChartLayers and bslSweep
+    v20Dir := -1
+    v20SHBar := bar_index
+    v20MSSBar := na
+    v20SHLevel := high
+    v20MSSLevel := na
+
+if showV20ChartLayers and bullMSS and recentSSLSweep
+    v20Dir := 1
+    v20SHBar := na(v20SHBar) ? bar_index : v20SHBar
+    v20SHLevel := na(v20SHLevel) ? low : v20SHLevel
+    v20MSSBar := bar_index
+    v20MSSLevel := lastSwingHigh
+if showV20ChartLayers and bearMSS and recentBSLSweep
+    v20Dir := -1
+    v20SHBar := na(v20SHBar) ? bar_index : v20SHBar
+    v20SHLevel := na(v20SHLevel) ? high : v20SHLevel
+    v20MSSBar := bar_index
+    v20MSSLevel := lastSwingLow
+
+v20Active = showV20ChartLayers and v20Dir != 0 and not na(v20SHBar) and bar_index - v20SHBar <= v20ActiveBars
+[v20PBTop, v20PBBot, v20PBType] = f_v20_find_pb(v20Dir, v20MSSBar, v20PBProximityATR)
+v20HasPB = v20Active and not na(v20MSSBar) and not na(v20PBTop) and not na(v20PBBot)
+string v20EntrySource = "-"
+float v20Entry = na
+float v20SL = na
+float v20TP1 = na
+float v20TP2 = na
+string v20Act = "-"
+string v20ActWithStatus = "-"
+
+var line v20SHLine = na
+var line v20MSSLine = na
+var line v20EntryLine = na
+var line v20SLLine = na
+var line v20TP1Line = na
+var line v20TP2Line = na
+var box v20PBBox = na
+var label v20SHLabel = na
+var label v20MSSLabel = na
+var label v20PBLabel = na
+var label v20PlanLabel = na
+
+if barstate.islast
+    if not na(v20SHLine)
+        line.delete(v20SHLine)
+    if not na(v20MSSLine)
+        line.delete(v20MSSLine)
+    if not na(v20EntryLine)
+        line.delete(v20EntryLine)
+    if not na(v20SLLine)
+        line.delete(v20SLLine)
+    if not na(v20TP1Line)
+        line.delete(v20TP1Line)
+    if not na(v20TP2Line)
+        line.delete(v20TP2Line)
+    if not na(v20PBBox)
+        box.delete(v20PBBox)
+    if not na(v20SHLabel)
+        label.delete(v20SHLabel)
+    if not na(v20MSSLabel)
+        label.delete(v20MSSLabel)
+    if not na(v20PBLabel)
+        label.delete(v20PBLabel)
+    if not na(v20PlanLabel)
+        label.delete(v20PlanLabel)
+
+    v20Right = bar_index + v20DrawExtendBars
+    v20Left = not na(v20SHBar) ? math.max(0, v20SHBar) : math.max(0, bar_index - v20ActiveBars)
+    color v20BuyCol = color.new(color.lime, 0)
+    color v20SellCol = color.new(color.red, 0)
+    color v20MSSCol = color.new(color.fuchsia, 0)
+    color v20PBCol = color.new(color.orange, 0)
+    color v20PlanCol = v20Dir == 1 ? v20BuyCol : v20SellCol
+    if v20Active and showV20SH and not na(v20SHLevel)
+        string _shTxt = v20Dir == 1 ? "SH HUNT↓ SSL " + f_num(v20SHLevel) : "SH HUNT↑ BSL " + f_num(v20SHLevel)
+        v20SHLine := line.new(v20Left, v20SHLevel, v20Right, v20SHLevel, xloc=xloc.bar_index, color=color.new(v20PlanCol, 15), width=1, style=line.style_dotted)
+        v20SHLabel := label.new(v20Right, v20SHLevel, _shTxt, xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_left, color=color.new(v20PlanCol, 72), textcolor=color.white, size=size.tiny)
+    if v20Active and showV20MSS and not na(v20MSSLevel)
+        string _mssTxt = v20Dir == 1 ? "MSS↑ " + f_num(v20MSSLevel) : "MSS↓ " + f_num(v20MSSLevel)
+        v20MSSLine := line.new(nz(v20MSSBar, v20Left), v20MSSLevel, v20Right, v20MSSLevel, xloc=xloc.bar_index, color=v20MSSCol, width=2, style=line.style_dashed)
+        v20MSSLabel := label.new(v20Right, v20MSSLevel, _mssTxt, xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_left, color=color.new(v20MSSCol, 70), textcolor=color.white, size=size.tiny)
+    if v20Active and showV20PB and v20HasPB
+        string _pbTxt = "RT " + f_v20_poi_name(v20PBType) + "@" + f_num((v20PBTop + v20PBBot) / 2.0)
+        v20PBBox := box.new(left=math.max(nz(v20MSSBar, v20Left), bar_index - v20ActiveBars), top=v20PBTop, right=v20Right, bottom=v20PBBot, xloc=xloc.bar_index, border_color=v20PBCol, border_width=1, bgcolor=color.new(v20PBCol, 86))
+        v20PBLabel := label.new(v20Right, (v20PBTop + v20PBBot) / 2.0, _pbTxt, xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_left, color=color.new(v20PBCol, 65), textcolor=color.white, size=size.tiny)
+    if v20Active and showV20Plan and not na(v20Entry) and not na(v20SL) and not na(v20TP1) and not na(v20TP2)
+        v20EntryLine := line.new(v20Left, v20Entry, v20Right, v20Entry, xloc=xloc.bar_index, color=v20PlanCol, width=2, style=line.style_solid)
+        v20SLLine := line.new(v20Left, v20SL, v20Right, v20SL, xloc=xloc.bar_index, color=color.new(color.red, 0), width=1, style=line.style_solid)
+        v20TP1Line := line.new(v20Left, v20TP1, v20Right, v20TP1, xloc=xloc.bar_index, color=color.new(color.green, 0), width=1, style=line.style_dashed)
+        v20TP2Line := line.new(v20Left, v20TP2, v20Right, v20TP2, xloc=xloc.bar_index, color=color.new(color.green, 0), width=1, style=line.style_dotted)
+        string _planTxt = v20ActWithStatus + " " + v20EntrySource + " Entry " + f_num(v20Entry) + " | SL " + f_num(v20SL) + " | TP1 " + f_num(v20TP1) + " | TP2 " + f_num(v20TP2)
+        v20PlanLabel := label.new(v20Right, v20Entry, _planTxt, xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_left, color=color.new(v20PlanCol, 58), textcolor=color.white, size=size.small)
+
+//------------------------------------------------------------------------------
+// EARLY REVERSAL WATCH — OB/BB base after extended MSS leg
+//------------------------------------------------------------------------------
+revBullMSSBars = ta.barssince(bullMSS)
+revBearMSSBars = ta.barssince(bearMSS)
+revBullMSSLevel = ta.valuewhen(bullMSS, lastSwingHigh, 0)
+revBearMSSLevel = ta.valuewhen(bearMSS, lastSwingLow, 0)
+
+revAfterBullLeg = not na(revBullMSSBars) and revBullMSSBars <= v322RevTrendBars and not na(revBullMSSLevel) and high >= revBullMSSLevel + atr * v322RevMinMoveATR
+revAfterBearLeg = not na(revBearMSSBars) and revBearMSSBars <= v322RevTrendBars and not na(revBearMSSLevel) and low <= revBearMSSLevel - atr * v322RevMinMoveATR
+
+bool revAtResistance = true
+bool revAtSupport    = true
+
+revBaseRange = ta.highest(high, 5) - ta.lowest(low, 5)
+revBaseCompact = revBaseRange <= atr * v322RevBaseRangeATR
+
+revBearOBNow = close < open and close[1] > open[1] and (open - close) >= atr * v322RevBaseBodyATR
+revBullOBNow = close > open and close[1] < open[1] and (close - open) >= atr * v322RevBaseBodyATR
+revLastBullBaseTop = ta.valuewhen(revBullOBNow, high[1], 0)
+revLastBullBaseBot = ta.valuewhen(revBullOBNow, low[1], 0)
+revLastBearBaseTop = ta.valuewhen(revBearOBNow, high[1], 0)
+revLastBearBaseBot = ta.valuewhen(revBearOBNow, low[1], 0)
+revBearBBNow = not na(revLastBullBaseBot) and close < revLastBullBaseBot and close[1] >= revLastBullBaseBot
+revBullBBNow = not na(revLastBearBaseTop) and close > revLastBearBaseTop and close[1] <= revLastBearBaseTop
+
+revShortNow = showV322RevWatch and bar_index >= last_bar_index - v322RevRecentBars and revAfterBullLeg and revAtResistance and revBaseCompact and (revBearOBNow or revBearBBNow) and not bearMSS
+revLongNow = showV322RevWatch and bar_index >= last_bar_index - v322RevRecentBars and revAfterBearLeg and revAtSupport and revBaseCompact and (revBullOBNow or revBullBBNow) and not bullMSS
+
+var int revLastShortLabelBar = na
+var int revLastLongLabelBar = na
+var box revLastShortBox = na
+var box revLastLongBox = na
+var label revLastShortLabel = na
+var label revLastLongLabel = na
+revShortGapOK = na(revLastShortLabelBar) or bar_index - revLastShortLabelBar >= v322RevMinGapBars
+revLongGapOK = na(revLastLongLabelBar) or bar_index - revLastLongLabelBar >= v322RevMinGapBars
+
+if revShortNow and revShortGapOK
+    revLastShortLabelBar := bar_index
+    float _top = revBearBBNow ? revLastBullBaseTop : high[1]
+    float _bot = revBearBBNow ? revLastBullBaseBot : low[1]
+    string _txt = revBearBBNow ? "BASE?↓ BB" : "BASE?↓ OB"
+    if v322RevOnlyLatest and not na(revLastShortBox)
+        box.delete(revLastShortBox)
+    if v322RevOnlyLatest and not na(revLastShortLabel)
+        label.delete(revLastShortLabel)
+    revLastShortBox := box.new(left=bar_index - 1, top=_top, right=bar_index + v322RevExtendBars, bottom=_bot, xloc=xloc.bar_index, border_color=colREV, border_width=1, border_style=line.style_dashed, bgcolor=color.new(colREV, 90))
+    revLastShortLabel := label.new(bar_index, _top, _txt, xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_down, color=color.new(colREV, 35), textcolor=color.black, size=size.tiny)
+
+if revLongNow and revLongGapOK
+    revLastLongLabelBar := bar_index
+    float _top = revBullBBNow ? revLastBearBaseTop : high[1]
+    float _bot = revBullBBNow ? revLastBearBaseBot : low[1]
+    string _txt = revBullBBNow ? "BASE?↑ BB" : "BASE?↑ OB"
+    if v322RevOnlyLatest and not na(revLastLongBox)
+        box.delete(revLastLongBox)
+    if v322RevOnlyLatest and not na(revLastLongLabel)
+        label.delete(revLastLongLabel)
+    revLastLongBox := box.new(left=bar_index - 1, top=_top, right=bar_index + v322RevExtendBars, bottom=_bot, xloc=xloc.bar_index, border_color=colREV, border_width=1, border_style=line.style_dashed, bgcolor=color.new(colREV, 90))
+    revLastLongLabel := label.new(bar_index, _bot, _txt, xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_up, color=color.new(colREV, 35), textcolor=color.black, size=size.tiny)
+
+//==============================================================================
+// TRADITIONAL DAILY PIVOT POINTS
+// P  = (H+L+C)/3
+// R1 = 2P-L   S1 = 2P-H
+// R2 = P+(H-L) S2 = P-(H-L)
+// R3 = H+2(P-L) S3 = L-2(H-P)
+// Su dung settlement close cho CBOT futures (settlement_as_close.on).
+// Chi ve tai barstate.islast (1 bo line/label, khong nhan len max count).
+//==============================================================================
+_pivTicker = ticker.modify(syminfo.tickerid, settlement_as_close = settlement_as_close.on)
+
+[_pH, _pL, _pC] = request.security(
+     _pivTicker, "1D",
+     [high[1], low[1], close[1]],
+     lookahead = barmerge.lookahead_on)
+
+float _pivP  = (_pH + _pL + _pC) / 3.0
+float _pivHL = _pH - _pL
+float _pivR1 = 2.0 * _pivP - _pL
+float _pivS1 = 2.0 * _pivP - _pH
+float _pivR2 = _pivP + _pivHL
+float _pivS2 = _pivP - _pivHL
+float _pivR3 = _pH + 2.0 * (_pivP - _pL)
+float _pivS3 = _pL - 2.0 * (_pH - _pivP)
+
+var line _plP  = na
+var line _plR1 = na
+var line _plS1 = na
+var line _plR2 = na
+var line _plS2 = na
+var line _plR3 = na
+var line _plS3 = na
+var label _llP  = na
+var label _llR1 = na
+var label _llS1 = na
+var label _llR2 = na
+var label _llS2 = na
+var label _llR3 = na
+var label _llS3 = na
+
+_piv_del_line(line ln) =>
+    if not na(ln)
+        line.delete(ln)
+
+_piv_del_label(label lb) =>
+    if not na(lb)
+        label.delete(lb)
+
+if showPivots and barstate.islast and not na(_pivP) and _pivP > 0
+    _piv_del_line(_plP)
+    _piv_del_line(_plR1)
+    _piv_del_line(_plS1)
+    _piv_del_line(_plR2)
+    _piv_del_line(_plS2)
+    _piv_del_line(_plR3)
+    _piv_del_line(_plS3)
+    _piv_del_label(_llP)
+    _piv_del_label(_llR1)
+    _piv_del_label(_llS1)
+    _piv_del_label(_llR2)
+    _piv_del_label(_llS2)
+    _piv_del_label(_llR3)
+    _piv_del_label(_llS3)
+
+    int _pLeft  = math.max(0, bar_index - pivLookback)
+    int _pRight = bar_index + pivExtBars
+
+    // P (Pivot) — solid
+    _plP := line.new(_pLeft, _pivP, _pRight, _pivP, xloc=xloc.bar_index,
+         color=colPivP, width=1, style=line.style_solid)
+    _llP := label.new(_pRight, _pivP, "P " + f_num(_pivP), xloc=xloc.bar_index,
+         yloc=yloc.price, style=label.style_label_left,
+         color=color.new(colPivP, 75), textcolor=colPivP, size=size.tiny)
+
+    // R1 / S1 — dashed
+    _plR1 := line.new(_pLeft, _pivR1, _pRight, _pivR1, xloc=xloc.bar_index,
+         color=colPivR, width=1, style=line.style_dashed)
+    _llR1 := label.new(_pRight, _pivR1, "R1 " + f_num(_pivR1), xloc=xloc.bar_index,
+         yloc=yloc.price, style=label.style_label_left,
+         color=color.new(colPivR, 75), textcolor=colPivR, size=size.tiny)
+    _plS1 := line.new(_pLeft, _pivS1, _pRight, _pivS1, xloc=xloc.bar_index,
+         color=colPivS, width=1, style=line.style_dashed)
+    _llS1 := label.new(_pRight, _pivS1, "S1 " + f_num(_pivS1), xloc=xloc.bar_index,
+         yloc=yloc.price, style=label.style_label_left,
+         color=color.new(colPivS, 75), textcolor=colPivS, size=size.tiny)
+
+    // R2 / S2 — dotted (optional)
+    if showPivR2S2
+        _plR2 := line.new(_pLeft, _pivR2, _pRight, _pivR2, xloc=xloc.bar_index,
+             color=color.new(colPivR, 40), width=1, style=line.style_dotted)
+        _llR2 := label.new(_pRight, _pivR2, "R2 " + f_num(_pivR2), xloc=xloc.bar_index,
+             yloc=yloc.price, style=label.style_label_left,
+             color=color.new(colPivR, 85), textcolor=color.new(colPivR, 30), size=size.tiny)
+        _plS2 := line.new(_pLeft, _pivS2, _pRight, _pivS2, xloc=xloc.bar_index,
+             color=color.new(colPivS, 40), width=1, style=line.style_dotted)
+        _llS2 := label.new(_pRight, _pivS2, "S2 " + f_num(_pivS2), xloc=xloc.bar_index,
+             yloc=yloc.price, style=label.style_label_left,
+             color=color.new(colPivS, 85), textcolor=color.new(colPivS, 30), size=size.tiny)
+
+    // R3 / S3 — dotted faint (optional)
+    if showPivR3S3
+        _plR3 := line.new(_pLeft, _pivR3, _pRight, _pivR3, xloc=xloc.bar_index,
+             color=color.new(colPivR, 60), width=1, style=line.style_dotted)
+        _llR3 := label.new(_pRight, _pivR3, "R3 " + f_num(_pivR3), xloc=xloc.bar_index,
+             yloc=yloc.price, style=label.style_label_left,
+             color=color.new(colPivR, 90), textcolor=color.new(colPivR, 50), size=size.tiny)
+        _plS3 := line.new(_pLeft, _pivS3, _pRight, _pivS3, xloc=xloc.bar_index,
+             color=color.new(colPivS, 60), width=1, style=line.style_dotted)
+        _llS3 := label.new(_pRight, _pivS3, "S3 " + f_num(_pivS3), xloc=xloc.bar_index,
+             yloc=yloc.price, style=label.style_label_left,
+             color=color.new(colPivS, 90), textcolor=color.new(colPivS, 50), size=size.tiny)
+
+plot(na, title="DUONG_CBOT_CHART")
+
+//==============================================================================
+// SESSION BACKGROUND SHADING
+// 4 phiên chính (giờ VN UTC+7) + CBOT Kill Zone — tất cả default OFF
+// Layer từ dưới lên: Sydney → Tokyo → London → NY → CBOT KZ → MSS highlight
+// Overlap sẽ blend màu (ví dụ London+NY = vàng+xanh lá = vàng nhạt)
+//==============================================================================
+_vnTZ = "Asia/Ho_Chi_Minh"
+_kzTZ = "America/Chicago"
+bool _inSydney = showSydneyKZ and not na(time(timeframe.period, "0400-1300", _vnTZ))
+bool _inTokyo  = showTokyoKZ  and not na(time(timeframe.period, "0600-1500", _vnTZ))
+bool _inLondon = showLondonKZ and not na(time(timeframe.period, "1400-2300", _vnTZ))
+bool _inNY     = showNYKZ     and not na(time(timeframe.period, "1900-0400", _vnTZ))
+bool _inPitKZ  = showPitKZ    and not na(time(timeframe.period, "1015-1100", _kzTZ))
+bool _inAMKZ   = showAMKZ     and not na(time(timeframe.period, "0830-1015", _kzTZ)) and not _inPitKZ
+bgcolor(_inSydney ? colSydneyKZ  : na, title="Sydney Session")
+bgcolor(_inTokyo  ? colTokyoKZ   : na, title="Tokyo Session")
+bgcolor(_inLondon ? colLondonKZ  : na, title="London Session")
+bgcolor(_inNY     ? colNewYorkKZ : na, title="New York Session")
+bgcolor(_inPitKZ  ? colPitKZ : _inAMKZ ? colAMKZ : na, title="CBOT Kill Zone")
+bgcolor(showMSSHighlight and bullMSS ? colMSSBullHL : showMSSHighlight and bearMSS ? colMSSBearHL : na, title="MSS Bar Highlight")
+
+//==============================================================================
+// NDOG (New Day Opening Gap) + NWOG (New Week Opening Gap)
+// T6.15R02 — Root cause fix: box bi orphan sau khi fill → mat khoi chart
+// NGUYEN NHAN: khi fill, code set _nwogBox := na → box chi extend den fill+120 bars
+// Tren 15M: 120 bars = 30h. Gap fill trong ngay → box het trong 30h → mat khi xem chart moi
+// Tren 1D: gap chua fill (gia chua recover) → box van extend moi bar → nhin thay
+// FIX: KHONG set _nwogBox := na sau fill. Giu ref song, tiep tuc extend. Khi new gap den moi delete.
+// Fill state theo doi bang var bool. Bo phan biet bang border: dashed=active, dotted=filled.
+// NDOG detection: time-gap > 2h AND < 24h (loai break sang 45min, bat gap chinh 5h40min)
+// NWOG detection: time-gap >= 24h (bat weekend gap ~54h, timezone-independent)
+//==============================================================================
+
+f_gap_box(float gTop, float gBot, color brd, color fill, int lft) =>
+    box.new(lft, gTop, lft + ndogExtBars, gBot,
+         xloc=xloc.bar_index, border_color=brd, border_style=line.style_dashed,
+         bgcolor=fill, border_width=2)
+
+// Detection — time-gap, timezone-independent, works tren moi TF
+bool _isDayOpen  = bar_index > 0 and (time - time[1]) > 2 * 3600 * 1000 and (time - time[1]) < 86400000
+bool _isWeekOpen = bar_index > 0 and (time - time[1]) >= 86400000
+
+// ── NDOG ─────────────────────────────────────────────────────────────────────
+var box   _ndogBox        = na
+var label _ndogLabel      = na  // label tren box (dau tao)
+var label _ndogRLabel     = na  // label canh phai (luon cap nhat)
+var bool  _ndogBull       = true
+var int   _ndogCreateBar  = na
+var bool  _ndogWasFilled  = false
+var float _ndogTop        = na
+var float _ndogBot        = na
+int _ndogMs = ndogLookbackDays * 86400 * 1000
+
+if showNDOG and _isDayOpen and (timenow - time) <= _ndogMs
+    float gapSz = math.abs(open - close[1])
+    if gapSz >= atr * ndogMinATR
+        box.delete(_ndogBox)
+        label.delete(_ndogLabel)
+        label.delete(_ndogRLabel)
+        _ndogBull       := open > close[1]
+        _ndogWasFilled  := false
+        _ndogTop        := _ndogBull ? open    : close[1]
+        _ndogBot        := _ndogBull ? close[1] : open
+        color brd  = _ndogBull ? color.new(#00bcd4, 0)  : color.new(#ff9800, 0)
+        color fill = _ndogBull ? color.new(#00bcd4, 65) : color.new(#ff9800, 65)
+        string lbl = _ndogBull ? "NDOG↑" : "NDOG↓"
+        _ndogBox       := f_gap_box(_ndogTop, _ndogBot, brd, fill, bar_index)
+        _ndogLabel     := label.new(bar_index, _ndogTop, lbl, xloc=xloc.bar_index, yloc=yloc.price,
+             style=label.style_label_down, color=color.new(brd, 40), textcolor=color.white, size=size.small)
+        _ndogCreateBar := bar_index
+
+if showNDOG and not na(_ndogBox) and not na(_ndogCreateBar) and bar_index > _ndogCreateBar
+    bool _nowFilled = _ndogBull ? (low <= _ndogBot) : (high >= _ndogTop)
+    if _nowFilled and not _ndogWasFilled
+        color _filledBrd  = _ndogBull ? color.new(#00bcd4, 30) : color.new(#ff9800, 30)
+        color _filledFill = _ndogBull ? color.new(#00bcd4, 80) : color.new(#ff9800, 80)
+        box.set_border_style(_ndogBox, line.style_dotted)
+        box.set_border_color(_ndogBox, _filledBrd)
+        box.set_bgcolor(_ndogBox, _filledFill)
+        label.delete(_ndogLabel)
+        _ndogLabel    := na
+        _ndogWasFilled := true
+    box.set_right(_ndogBox, bar_index + ndogExtBars)
+    // Right-side label: cap nhat moi bar o canh phai chart
+    if barstate.islast or barstate.isrealtime
+        label.delete(_ndogRLabel)
+        color _rCol = _ndogWasFilled
+             ? (_ndogBull ? color.new(#00bcd4, 55) : color.new(#ff9800, 55))
+             : (_ndogBull ? color.new(#00bcd4, 20) : color.new(#ff9800, 20))
+        string _rTxt = _ndogWasFilled
+             ? (_ndogBull ? "NDOG↑ ✓" : "NDOG↓ ✓")
+             : (_ndogBull ? "NDOG↑"   : "NDOG↓")
+        // Hien thi o mep giua cua gap
+        float _rPrice = (_ndogTop + _ndogBot) / 2
+        _ndogRLabel := label.new(bar_index + ndogExtBars, _rPrice, _rTxt,
+             xloc=xloc.bar_index, yloc=yloc.price,
+             style=label.style_label_left, color=_rCol,
+             textcolor=color.white, size=size.small)
+
+// ── NWOG ─────────────────────────────────────────────────────────────────────
+var box   _nwogBox        = na
+var label _nwogLabel      = na
+var label _nwogRLabel     = na  // label canh phai
+var bool  _nwogBull       = true
+var int   _nwogCreateBar  = na
+var bool  _nwogWasFilled  = false
+var float _nwogTop        = na
+var float _nwogBot        = na
+int _nwogMs = nwogLookbackDays * 86400 * 1000
+
+if showNWOG and _isWeekOpen and (timenow - time) <= _nwogMs
+    float gapSz = math.abs(open - close[1])
+    if gapSz >= atr * nwogMinATR
+        box.delete(_nwogBox)
+        label.delete(_nwogLabel)
+        label.delete(_nwogRLabel)
+        _nwogBull       := open > close[1]
+        _nwogWasFilled  := false
+        _nwogTop        := _nwogBull ? open    : close[1]
+        _nwogBot        := _nwogBull ? close[1] : open
+        color brd  = _nwogBull ? color.new(#7c4dff, 0)  : color.new(#e91e63, 0)
+        color fill = _nwogBull ? color.new(#7c4dff, 65) : color.new(#e91e63, 65)
+        string lbl = _nwogBull ? "⚠ NWOG↑ Judas?" : "⚠ NWOG↓ Judas?"
+        _nwogBox       := f_gap_box(_nwogTop, _nwogBot, brd, fill, bar_index)
+        _nwogLabel     := label.new(bar_index, _nwogTop, lbl, xloc=xloc.bar_index, yloc=yloc.price,
+             style=label.style_label_down, color=color.new(brd, 40), textcolor=color.white, size=size.small)
+        _nwogCreateBar := bar_index
+
+if showNWOG and not na(_nwogBox) and not na(_nwogCreateBar) and bar_index > _nwogCreateBar
+    bool _nowFilled = _nwogBull ? (low <= _nwogBot) : (high >= _nwogTop)
+    if _nowFilled and not _nwogWasFilled
+        color _filledBrd  = _nwogBull ? color.new(#7c4dff, 30) : color.new(#e91e63, 30)
+        color _filledFill = _nwogBull ? color.new(#7c4dff, 80) : color.new(#e91e63, 80)
+        box.set_border_style(_nwogBox, line.style_dotted)
+        box.set_border_color(_nwogBox, _filledBrd)
+        box.set_bgcolor(_nwogBox, _filledFill)
+        label.delete(_nwogLabel)
+        _nwogLabel    := na
+        _nwogWasFilled := true
+    box.set_right(_nwogBox, bar_index + ndogExtBars)
+    // Right-side label: cap nhat moi bar o canh phai
+    if barstate.islast or barstate.isrealtime
+        label.delete(_nwogRLabel)
+        color _rCol = _nwogWasFilled
+             ? (_nwogBull ? color.new(#7c4dff, 55) : color.new(#e91e63, 55))
+             : (_nwogBull ? color.new(#7c4dff, 20) : color.new(#e91e63, 20))
+        string _rTxt = _nwogWasFilled
+             ? (_nwogBull ? "NWOG↑ ✓" : "NWOG↓ ✓")
+             : (_nwogBull ? "⚠ NWOG↑" : "⚠ NWOG↓")
+        float _rPrice = (_nwogTop + _nwogBot) / 2
+        _nwogRLabel := label.new(bar_index + ndogExtBars, _rPrice, _rTxt,
+             xloc=xloc.bar_index, yloc=yloc.price,
+             style=label.style_label_left, color=_rCol,
+             textcolor=color.white, size=size.small)
+
+//==============================================================================
+// OTE FIBONACCI ZONE (62-79% retracement of most recent MSS swing)
+// Default ON (R12) — tắt trong settings nếu quá nhiễu
+//==============================================================================
+var box _oteBox = na
+
+if showOTEZone and barstate.islast
+    float bullOTEHigh = ta.valuewhen(bullMSS, lastSwingHigh, 0)
+    float bullOTELow  = ta.valuewhen(bullMSS, lastSwingLow,  0)
+    float bearOTEHigh = ta.valuewhen(bearMSS, lastSwingHigh, 0)
+    float bearOTELow  = ta.valuewhen(bearMSS, lastSwingLow,  0)
+
+    bool hasBull = not na(bullOTEHigh) and not na(bullOTELow) and bullOTEHigh > bullOTELow
+    bool hasBear = not na(bearOTEHigh) and not na(bearOTELow) and bearOTEHigh > bearOTELow
+    bool useBull = hasBull and (not hasBear or (not na(v20LastBullMSSBar) and not na(v20LastBearMSSBar) and v20LastBullMSSBar >= v20LastBearMSSBar))
+
+    float oteTop = na
+    float oteBot = na
+    color oteCol = na
+
+    if useBull and hasBull
+        float rng = bullOTEHigh - bullOTELow
+        oteBot := bullOTEHigh - rng * 0.786
+        oteTop := bullOTEHigh - rng * 0.618
+        oteCol := colOTEBull
+    else if hasBear
+        float rng = bearOTEHigh - bearOTELow
+        oteBot := bearOTELow  + rng * 0.618
+        oteTop := bearOTELow  + rng * 0.786
+        oteCol := colOTEBear
+
+    box.delete(_oteBox)
+    if not na(oteTop) and not na(oteBot) and oteTop > oteBot
+        int oteLeft = math.max(0, bar_index - 300)
+        _oteBox := box.new(oteLeft, oteTop, bar_index + 80, oteBot,
+             xloc=xloc.bar_index, border_color=oteCol, border_width=1,
+             border_style=line.style_dashed, bgcolor=oteCol)
+        float ote705 = (oteTop + oteBot) / 2.0
+        line.new(oteLeft, ote705, bar_index + 80, ote705,
+             xloc=xloc.bar_index, color=color.new(oteCol, 0), width=1, style=line.style_solid)
+        label.new(bar_index + 80, oteTop, "62%",
+             xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_left,
+             color=color.new(oteCol, 40), textcolor=color.white, size=size.tiny)
+        label.new(bar_index + 80, ote705, "70.5% OTE",
+             xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_left,
+             color=color.new(oteCol, 10), textcolor=color.white, size=size.tiny)
+        label.new(bar_index + 80, oteBot, "79%",
+             xloc=xloc.bar_index, yloc=yloc.price, style=label.style_label_left,
+             color=color.new(oteCol, 40), textcolor=color.white, size=size.tiny)
+
+//==============================================================================
+// CANDLE QUALITY MARKERS
+//==============================================================================
+_bullCISD = showCISDMarkers and not na(barsSinceSSLSweep) and barsSinceSSLSweep >= 1 and barsSinceSSLSweep <= 3 and close > open and close > close[1]
+_bearCISD = showCISDMarkers and not na(barsSinceBSLSweep) and barsSinceBSLSweep >= 1 and barsSinceBSLSweep <= 3 and close < open and close < close[1]
+
+_buyRejBlock  = showRejBlockMarkers and math.abs(close - open) < atr * 0.40 and (math.min(close, open) - low)  > atr * 0.50
+_sellRejBlock = showRejBlockMarkers and math.abs(close - open) < atr * 0.40 and (high - math.max(close, open)) > atr * 0.50
+
+_buyProp  = showPropBlockMarkers and close > open and (close - open) > atr * 0.60 and close > math.max(close[1], open[1])
+_sellProp = showPropBlockMarkers and close < open and (open - close) > atr * 0.60 and close < math.min(close[1], open[1])
+
+plotshape(_bullCISD,     title="CISD Bull",       style=shape.triangleup,   location=location.belowbar, color=color.new(color.teal, 20),   size=size.tiny)
+plotshape(_bearCISD,     title="CISD Bear",       style=shape.triangledown, location=location.abovebar, color=color.new(color.maroon, 20), size=size.tiny)
+plotshape(_buyRejBlock,  title="Rej Block Buy",   style=shape.circle,       location=location.belowbar, color=color.new(color.lime, 30),   size=size.tiny)
+plotshape(_sellRejBlock, title="Rej Block Sell",  style=shape.circle,       location=location.abovebar, color=color.new(color.orange, 30), size=size.tiny)
+plotshape(_buyProp,      title="Propulsion Buy",  style=shape.arrowup,      location=location.belowbar, color=color.new(color.green, 10),  size=size.tiny)
+plotshape(_sellProp,     title="Propulsion Sell", style=shape.arrowdown,    location=location.abovebar, color=color.new(color.red, 10),    size=size.tiny)
+
+// V4R13: roll warning table da xoa — xem DCBOT_RollDetect_V1.

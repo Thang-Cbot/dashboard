@@ -1,0 +1,137 @@
+{
+  "timestamp": "02/07/2026 17:16",
+  "macro": {
+    "brent_price": 71.18,
+    "brent_pct": -2.386,
+    "dxy_price": 101.413,
+    "dxy_pct": 0.22
+  },
+  "commodities": {
+    "ZC": {
+      "active": {
+        "time": "2026-07-02 17:00",
+        "close": 424.75,
+        "ema_21": 422.2918038373012,
+        "ema_50": 419.7308757146024,
+        "volatility": 0.5,
+        "signal": "Bullish",
+        "rsi": 66.15551417412968,
+        "atr": 1.424342699554476,
+        "s1": 423.0,
+        "s2": 406.25,
+        "r1": 425.5,
+        "r2": 467.25,
+        "volume": 82.0,
+        "open_interest": 651628,
+        "contract": "ZCU26",
+        "weather": "Trời nóng tại Midwest, mưa rải rác",
+        "predicted_close": 425.4504104934041,
+        "predicted_change": 0.7004104934040677
+      },
+      "swing": {
+        "time": "2026-07-02 17:00",
+        "close": 424.75,
+        "ema_21": 422.2918038373012,
+        "ema_50": 419.7308757146024,
+        "volatility": 0.5,
+        "signal": "Bullish",
+        "rsi": 66.15551417412968,
+        "atr": 1.424342699554476,
+        "s1": 423.0,
+        "s2": 406.25,
+        "r1": 425.5,
+        "r2": 467.25,
+        "volume": 82.0,
+        "open_interest": 651628,
+        "contract": "ZCU26"
+      },
+      "dca": {
+        "time": "2026-07-02 17:00",
+        "close": 443.75,
+        "ema_21": 441.4542647444477,
+        "ema_50": 439.0870495682001,
+        "volatility": 0.25,
+        "signal": "Bullish",
+        "rsi": 65.1391467640252,
+        "atr": 1.398667509440615,
+        "s1": 441.75,
+        "s2": 425.75,
+        "r1": 444.5,
+        "r2": 485.0,
+        "volume": 78.0,
+        "open_interest": 744357,
+        "contract": "ZCZ26"
+      },
+      "competitor_weather": {
+        "brazil_safrinha": "Bắt đầu thu hoạch, dự báo 107.8 triệu tấn",
+        "argentina": "Khô ráo thuận lợi cho thu hoạch ngô (đạt 66%). Sản lượng dự kiến 64 triệu tấn.",
+        "black_sea": "Nga: Sương giá muộn ảnh hưởng ngô vụ sớm. Ukraine: Điều kiện gieo trồng bình thường."
+      },
+      "short_term_weather": "Mưa lớn kéo dài ở phía Đông Corn Belt (Illinois, Ohio).",
+      "enso_status": "Xác suất La Niña đạt 82% vào tháng 7"
+    },
+    "ZW": {
+      "active": {
+        "time": "2026-07-02 17:00",
+        "close": 602.75,
+        "ema_21": 599.3956120847139,
+        "ema_50": 595.4449878941181,
+        "volatility": 0.5,
+        "signal": "Bullish",
+        "rsi": 63.1385020137649,
+        "atr": 2.386651174389477,
+        "s1": 601.5,
+        "s2": 574.0,
+        "r1": 604.75,
+        "r2": 641.0,
+        "volume": 92.0,
+        "open_interest": 215998,
+        "contract": "ZWU26",
+        "weather": "Hạn hán vĩ mô",
+        "predicted_close": 604.9888221009736,
+        "predicted_change": 2.238822100973576
+      },
+      "swing": {
+        "time": "2026-07-02 17:00",
+        "close": 602.75,
+        "ema_21": 599.3956120847139,
+        "ema_50": 595.4449878941181,
+        "volatility": 0.5,
+        "signal": "Bullish",
+        "rsi": 63.1385020137649,
+        "atr": 2.386651174389477,
+        "s1": 601.5,
+        "s2": 574.0,
+        "r1": 604.75,
+        "r2": 641.0,
+        "volume": 92.0,
+        "open_interest": 215998,
+        "contract": "ZWU26"
+      },
+      "dca": {
+        "time": "2026-07-02 17:00",
+        "close": 616.75,
+        "ema_21": 613.7384190892074,
+        "ema_50": 610.5562296334638,
+        "volatility": 0.5,
+        "signal": "Bullish",
+        "rsi": 61.46241894651989,
+        "atr": 2.1885705979215366,
+        "s1": 615.0,
+        "s2": 590.5,
+        "r1": 618.0,
+        "r2": 660.75,
+        "volume": 44.0,
+        "open_interest": 117931,
+        "contract": "ZWZ26"
+      },
+      "competitor_weather": {
+        "australia": "Hạn hán El Nino đe dọa mùa màng, sản lượng có thể giảm mạnh",
+        "argentina": "Đã gieo trồng 14.2% diện tích lúa mì. Sản lượng dự kiến giảm 25% do chi phí phân bón cao và rủi ro El Niño.",
+        "black_sea_eu": "Nga: Sản lượng nâng lên 91.5 triệu tấn. Sương giá muộn cục bộ. EU MARS hạ yield do khô hạn tháng 4 tại Pháp/Đức."
+      },
+      "short_term_weather": "Mưa lớn bất ngờ xuất hiện tại vùng Southern Plains (Kansas, Oklahoma, Texas).",
+      "enso_status": "La Niña gây hạn hán Nam Bán Cầu"
+    }
+  }
+}

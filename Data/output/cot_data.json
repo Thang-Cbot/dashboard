@@ -1,0 +1,36 @@
+{
+  "fetched_at": "2026-07-02 07:40:46",
+  "source": "CFTC Public API (Disaggregated Futures Only)",
+  "commodities": {
+    "ZC": {
+      "commodity": "002602",
+      "cftc_code": "ZC",
+      "report_date": "2026-06-16",
+      "long_curr": 0,
+      "short_curr": 0,
+      "net_position": 0,
+      "long_prev": 0,
+      "short_prev": 0,
+      "net_prev": 0,
+      "change": 0,
+      "quadrant": "NEUTRAL",
+      "action": "Cho tin hieu ro rang.",
+      "fetched_at": "2026-07-02 07:40:49"
+    },
+    "ZW": {
+      "commodity": "001602",
+      "cftc_code": "ZW",
+      "report_date": "2026-06-16",
+      "long_curr": 0,
+      "short_curr": 0,
+      "net_position": 0,
+      "long_prev": 0,
+      "short_prev": 0,
+      "net_prev": 0,
+      "change": 0,
+      "quadrant": "NEUTRAL",
+      "action": "Cho tin hieu ro rang.",
+      "fetched_at": "2026-07-02 07:40:50"
+    }
+  }
+}

@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBOT Master Dashboard v3.2</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.1.2/dist/chartjs-plugin-annotation.min.js"></script>
+<style>
+:root{--bg0:#080b12;--bg1:#0b0f1c;--bg2:#111827;--bg3:#162033;--bg4:#1b2840;--bg5:#21304d;--br:rgba(99,130,255,.12);--brh:rgba(99,130,255,.35);--t1:#e8ecf8;--t2:#8892b0;--t3:#5a6480;--cyan:#00d4ff;--green:#00e88a;--red:#ff4757;--yellow:#ffd32a;--orange:#ff9f43;--purple:#a29bfe;--blue:#6382ff;--zc:#ffd32a;--zw:#00e88a;--zs:#ff9f43;--bull:#00e88a;--bear:#ff4757;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg0);color:var(--t1);min-height:100vh;}
+::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--bg5);border-radius:3px}
+
+/* STATUS DOTS */
+.status-dot {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-left: 6px;
+  animation: pulse 2s infinite; vertical-align: middle;
+}
+.status-green { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.status-yellow { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
+.status-red { background: var(--red); box-shadow: 0 0 6px var(--red); }
+@keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.2); } 100% { opacity: 1; transform: scale(1); } }
+
+/* NAV */
+#nav{position:sticky;top:0;z-index:200;background:rgba(8,11,18,.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--br);display:flex;align-items:center;gap:0;height:58px;padding:0 18px;}
+.n-logo{font-size:14px;font-weight:800;color:var(--cyan);letter-spacing:2px;margin-right:28px;white-space:nowrap;}
+.n-logo small{color:var(--t3);font-weight:400;font-size:11px;margin-left:6px;}
+.n-links{display:flex;gap:2px;flex:1;}
+.nbtn{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all .18s;border:1px solid transparent;white-space:nowrap;user-select:none;}
+.nbtn:hover{background:var(--bg3);}
+.nbtn.active{border-color:var(--brh);background:var(--bg4);}
+.nbtn .pip{width:7px;height:7px;border-radius:50%;}
+.nbtn.ov{color:var(--cyan)}.nbtn.ov .pip{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.nbtn.zc{color:var(--zc)}.nbtn.zc .pip{background:var(--zc);box-shadow:0 0 8px var(--zc)}
+.nbtn.zw{color:var(--zw)}.nbtn.zw .pip{background:var(--zw);box-shadow:0 0 8px var(--zw)}
+.nbtn.zs{color:var(--zs)}.nbtn.zs .pip{background:var(--zs);box-shadow:0 0 8px var(--zs)}
+#ntime{margin-left:auto;font-family:'JetBrains Mono';font-size:12px;color:var(--t3);}
+
+/* PAGE */
+.pg{max-width:1680px;margin:0 auto;padding:22px 18px 80px;}
+.tab{display:none;}.tab.active{display:block;}
+
+/* HEADERS */
+.sh{font-size:12px;font-weight:700;letter-spacing:2.5px;color:var(--t3);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin:24px 0 12px;}
+.sh::after{content:'';flex:1;height:1px;background:var(--br);}
+
+/* CARDS */
+.card{background:var(--bg3);border:1px solid var(--br);border-radius:14px;padding:18px;transition:border-color .2s;}
+.card:hover{border-color:var(--brh);}
+.ctitle{font-size:12px;font-weight:700;letter-spacing:1.8px;color:var(--t3);text-transform:uppercase;margin-bottom:14px;}
+
+/* STAT */
+.sr{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.sr:last-child{border-bottom:none;}
+.sl{font-size:12px;color:var(--t2);}
+.sv{font-size:13px;font-weight:600;font-family:'JetBrains Mono';}
+.up{color:var(--bull)}.down{color:var(--bear)}.neu{color:var(--t2)}
+
+/* MACRO GRID */
+.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.mchip{background:var(--bg3);border:1px solid var(--br);border-radius:12px;padding:16px;}
+.mchip .ml{font-size:11px;letter-spacing:2px;color:var(--t3);font-weight:700;margin-bottom:6px;text-transform:uppercase;}
+.mchip .mv{font-size:22px;font-weight:700;font-family:'JetBrains Mono';}
+.mchip .mc{font-size:12px;font-weight:600;margin-top:2px;}
+.mchip .md{font-size:11px;color:var(--t3);margin-top:6px;line-height:1.4;}
+
+/* HERO GRID */
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.hcard{background:var(--bg3);border:1px solid var(--br);border-radius:16px;padding:22px;cursor:pointer;transition:all .22s;position:relative;overflow:hidden;}
+.hcard::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .22s;}
+.hcard.zc::before{background:radial-gradient(circle at 80% 20%,rgba(255,211,42,.1),transparent 60%);}
+.hcard.zw::before{background:radial-gradient(circle at 80% 20%,rgba(0,232,138,.1),transparent 60%);}
+.hcard.zs::before{background:radial-gradient(circle at 80% 20%,rgba(255,159,67,.1),transparent 60%);}
+.hcard:hover::before{opacity:1;}.hcard:hover{border-color:var(--brh);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.4);}
+.htag{font-size:11px;letter-spacing:2px;color:var(--t3);font-weight:700;margin-bottom:10px;text-transform:uppercase;}
+.hemoji{font-size:36px;margin-bottom:8px;}
+.hcode{font-size:32px;font-weight:900;font-family:'JetBrains Mono';}
+.hname{font-size:14px;color:var(--t2);margin:4px 0 14px;}
+.hprice{font-size:26px;font-weight:700;font-family:'JetBrains Mono';}
+.hbias{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:6px;font-size:12px;font-weight:700;margin-top:10px;}
+.hbias.bull{background:rgba(0,232,138,.12);color:var(--bull);}
+.hbias.bear{background:rgba(255,71,87,.12);color:var(--bear);}
+.hbias.neu{background:rgba(255,211,42,.12);color:var(--yellow);}
+.hap{font-size:11px;color:var(--t2);margin-top:8px;line-height:1.5;font-style:italic;}
+.hcta{position:absolute;bottom:14px;right:14px;font-size:11px;color:var(--t3);}
+
+/* TABLE */
+.twrap{background:var(--bg3);border:1px solid var(--br);border-radius:14px;overflow:auto;}
+.dt{width:100%;border-collapse:collapse;font-size:13px;}
+.dt th{padding:10px 12px;font-size:11px;letter-spacing:1.5px;color:var(--t3);font-weight:700;text-transform:uppercase;border-bottom:1px solid var(--br);text-align:left;white-space:nowrap;}
+.dt td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.03);font-family:'JetBrains Mono';}
+.dt tr:last-child td{border-bottom:none;}
+.dt tr:hover td{background:rgba(255,255,255,.02);}
+.tbu{color:var(--bull);font-weight:700;}.tbe{color:var(--bear);font-weight:700;}
+.tlbl{font-family:'Inter';color:var(--t1);font-weight:600;}
+.tscen{font-family:'Inter';color:var(--t2);font-size:12px;}
+
+/* COMMODITY HEADER */
+.comh{display:flex;align-items:center;gap:20px;background:var(--bg3);border:1px solid var(--br);border-radius:16px;padding:22px 26px;margin-bottom:18px;position:relative;overflow:hidden;}
+.comglow{position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;filter:blur(60px);opacity:.12;}
+.comemoji{font-size:52px;}
+.cominfo{flex:1;}
+.comcode{font-size:36px;font-weight:900;font-family:'JetBrains Mono';line-height:1;}
+.comname{font-size:14px;color:var(--t2);margin-top:4px;}
+.comcontract{font-size:12px;color:var(--t3);font-family:'JetBrains Mono';margin-top:2px;}
+.comright{text-align:right;}
+.comanchorlbl{font-size:11px;color:var(--t3);letter-spacing:1px;text-transform:uppercase;}
+.comanchor{font-size:34px;font-weight:700;font-family:'JetBrains Mono';}
+.comaction{font-size:12px;color:var(--t2);margin-top:8px;max-width:280px;text-align:right;line-height:1.5;font-style:italic;}
+
+/* TREND PILLS */
+.tpills{display:flex;gap:0;margin-top:12px;border-radius:8px;overflow:hidden;border:1px solid var(--br);}
+.tp{flex:1;padding:8px 0;text-align:center;font-size:12px;font-weight:700;border-right:1px solid var(--br);}
+.tp:last-child{border-right:none;}
+.tp .tf{font-size:10px;color:var(--t3);font-weight:500;letter-spacing:1px;display:block;margin-bottom:3px;}
+.tp.bull{background:rgba(0,232,138,.07);color:var(--bull);}
+.tp.bear{background:rgba(255,71,87,.07);color:var(--bear);}
+.tp.neu{background:rgba(255,211,42,.07);color:var(--yellow);}
+
+/* COT BADGE */
+.cotb{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:7px;font-size:12px;font-weight:700;margin-top:8px;}
+.q1{background:rgba(0,232,138,.12);color:var(--bull);border:1px solid rgba(0,232,138,.25);}
+.q2{background:rgba(255,71,87,.1);color:var(--bear);border:1px solid rgba(255,71,87,.2);}
+.q3{background:rgba(255,71,87,.18);color:#ff2244;border:1px solid rgba(255,71,87,.35);}
+.q4{background:rgba(0,212,255,.1);color:var(--cyan);border:1px solid rgba(0,212,255,.25);}
+
+/* COM GRID */
+.cgrid{display:grid;grid-template-columns:1fr 330px;gap:18px;}
+.cright{display:flex;flex-direction:column;gap:14px;}
+
+/* CHART */
+.cpanel{background:var(--bg3);border:1px solid var(--br);border-radius:14px;padding:20px;}
+.chdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
+.ctitle2{font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--t3);text-transform:uppercase;}
+.cbias{font-size:22px;font-weight:800;font-family:'JetBrains Mono';}
+.brow{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
+.bb{font-size:11px;font-weight:600;padding:3px 9px;border-radius:5px;font-family:'JetBrains Mono';}
+.bb.pos{background:rgba(0,232,138,.1);color:var(--bull);border:1px solid rgba(0,232,138,.2);}
+.bb.neg{background:rgba(255,71,87,.1);color:var(--bear);border:1px solid rgba(255,71,87,.2);}
+.cwrap{position:relative;height:290px;margin-bottom:16px;}
+
+/* EVENTS */
+.evlist{display:flex;flex-direction:column;gap:6px;}
+.evrow{display:flex;gap:10px;align-items:flex-start;font-size:12px;}
+.evday{font-family:'JetBrains Mono';color:var(--t3);min-width:70px;font-size:11px;}
+.evdesc{color:var(--t1);flex:1;}
+
+/* CANDLE TABLE */
+.ctbwrap{overflow-x:auto;margin-top:14px;border-top:1px solid var(--br);padding-top:12px;}
+.ctb{width:100%;border-collapse:collapse;font-size:12px;}
+.ctb th{padding:6px 10px;font-size:10px;letter-spacing:1px;color:var(--t3);font-weight:700;border-bottom:1px solid var(--br);text-align:center;white-space:nowrap;}
+.ctb td{padding:8px 10px;text-align:center;border-bottom:1px solid rgba(255,255,255,.03);font-family:'JetBrains Mono';font-size:12px;}
+.ctb tr:hover td{background:rgba(255,255,255,.02);}
+.ctday{font-family:'Inter';font-weight:600;color:var(--t1);font-size:12px;}
+.ctsess{font-family:'Inter';color:var(--t2);font-size:11px;}
+.ctscen{font-family:'Inter';font-size:11px;text-align:left;max-width:200px;color:var(--purple);line-height:1.4;}
+
+/* SCENARIOS */
+.slist{display:flex;flex-direction:column;gap:8px;}
+.srow{background:var(--bg4);border-radius:8px;padding:12px 14px;display:flex;gap:12px;}
+.sday{font-size:12px;font-weight:700;color:var(--yellow);min-width:75px;font-family:'JetBrains Mono';}
+.scont{flex:1;}
+.sscen{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:4px;}
+.slogic{font-size:11px;color:var(--t2);line-height:1.5;}
+
+/* WEEK BOX */
+.wbox{background:var(--bg4);border-radius:10px;padding:14px;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:10px;}
+.wi{text-align:center;}
+.wl{font-size:10px;color:var(--t3);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.wv{font-size:17px;font-weight:700;font-family:'JetBrains Mono';}
+
+/* LEVELS */
+.lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px;}
+.lchip{background:var(--bg4);border-radius:8px;padding:10px;text-align:center;}
+.lchip .ll{font-size:10px;color:var(--t3);font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+.lchip .lv{font-size:17px;font-weight:700;font-family:'JetBrains Mono';margin-top:4px;}
+.ls{color:var(--bull)}.lr{color:var(--bear)}.le{color:var(--cyan)}
+
+/* MACRO MINI */
+.mmini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+.mmc{background:var(--bg4);border-radius:10px;padding:12px;}
+.mml{font-size:10px;color:var(--t3);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;}
+.mmv{font-size:18px;font-weight:700;font-family:'JetBrains Mono';}
+.mmi{font-size:11px;color:var(--t2);margin-top:5px;line-height:1.4;}
+
+/* STRATEGY */
+.strat-wrap{margin-top:20px;}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.sc{background:var(--bg3);border:1px solid var(--br);border-radius:14px;padding:18px;transition:all .2s;}
+.sc:hover{border-color:var(--brh);}
+.scl{font-size:10px;letter-spacing:2px;color:var(--t3);font-weight:700;text-transform:uppercase;margin-bottom:8px;}
+.sct{font-size:14px;font-weight:700;margin-bottom:12px;}
+.sc.long .sct{color:var(--bull)}.sc.short .sct{color:var(--bear)}.sc.dca .sct{color:var(--purple)}
+.scr{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;}
+.sck{color:var(--t3)}.scv{font-family:'JetBrains Mono';font-weight:600;}
+.ent{color:var(--cyan)}.slv{color:var(--bear)}.tpv{color:var(--bull)}.dtv{color:var(--yellow)}
+
+@media(max-width:1100px){.cgrid{grid-template-columns:1fr}.hgrid{grid-template-columns:1fr}.mgrid{grid-template-columns:repeat(2,1fr)}.sgrid{grid-template-columns:1fr}.wbox{grid-template-columns:repeat(3,1fr)}}
+
+.flashing-red { animation: blink 1s linear infinite; color: #ff4757; font-weight: bold; font-size: 13px; }
+.flashing-green { animation: blink 1s linear infinite; color: #00e88a; font-weight: bold; font-size: 13px; }
+@keyframes blink { 50% { opacity: 0; } }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="n-logo">CBOT MASTER<small>v3.2</small></div>
+  <div class="n-links">
+    <div class="nbtn ov active" onclick="showTab('ov',this)"><div class="pip"></div>Tổng Quan</div>
+    <div class="nbtn zc" onclick="showTab('zc',this)"><div class="pip"></div>🌽 Ngô ZC</div>
+    <div class="nbtn zw" onclick="showTab('zw',this)"><div class="pip"></div>🌾 Lúa Mì ZW</div>
+    <div class="nbtn zs" onclick="showTab('zs',this)"><div class="pip"></div>🌱 Đậu Tương ZS</div>
+    <div class="nbtn alarm" style="margin-left: 10px; color: var(--purple);" onclick="showTab('alarm',this)"><div class="pip" style="background:var(--purple);box-shadow:0 0 8px var(--purple)"></div>🚀 Entry Dashboard</div>
+  </div>
+  <div id="scan-btn" class="nbtn" style="background:var(--cyan); color:#000; border-radius:6px; margin-right:16px; font-weight:800; letter-spacing:0.5px;" onclick="runScan()">
+    🔄 SCAN DATA
+  </div>
+  <div id="ntime">—</div>
+</nav>
+
+<div class="pg">
+
+<!-- ===== OVERVIEW ===== -->
+<div class="tab active" id="tab-ov">
+  <div class="sh">Yếu Tố Vĩ Mô Chung <span id="macro-status-ov"></span></div>
+  <div class="mgrid">
+    <div class="mchip"><div class="ml">DẦU BRENT</div><div class="mv" id="brent-v">—</div><div class="mc" id="brent-c">—</div><div class="md">Ethanol (ZC) · Biodiesel (ZS) · Chi phí logistics</div></div>
+    <div class="mchip"><div class="ml">USD INDEX (DXY)</div><div class="mv" id="dxy-v">—</div><div class="mc" id="dxy-c">—</div><div class="md">DXY tăng → xuất khẩu nông sản Mỹ kém cạnh tranh</div></div>
+    <div class="mchip"><div class="ml">ENSO / LA NIÑA <span id="weather-status-ov"></span></div><div class="mv" style="font-size:15px;color:var(--cyan)" id="enso-v">Chuyển pha</div><div class="mc down" id="enso-c">XS 82% — Khô hạn Q3 2026</div><div class="md">La Niña → bất lợi ZC/ZW/ZS trong Q3-Q4</div></div>
+    <div class="mchip"><div class="ml">TUẦN DỰ BÁO AI</div><div class="mv" style="font-size:15px;color:var(--purple)" id="ov-week">Jun 15–19, 2026</div><div class="mc" style="color:var(--t3)">Future Chart Engine v2.0</div><div class="md">Mô phỏng nến 4H cho 3 mã độc lập</div></div>
+  </div>
+
+  <div class="sh">Hồ Sơ Từng Mã — Nhấn để xem chi tiết</div>
+  <div class="hgrid">
+    <!-- Template injected via JS -->
+  </div>
+
+  <div class="sh">Dự Báo Tuần — Tất Cả 3 Mã (Future Chart AI)</div>
+  <div class="twrap"><table class="dt">
+    <thead><tr><th>Mã</th><th>Ngày</th><th>Mở</th><th>Cao</th><th>Thấp</th><th>Đóng</th><th>±</th><th>Kịch bản</th><th>Logic</th></tr></thead>
+    <tbody id="ov-tbody"></tbody>
+  </table></div>
+</div>
+
+<!-- COMMODITY TEMPLATES WILL BE INJECTED HERE -->
+<div id="commodities-container"></div>
+
+<!-- ENTRY DASHBOARD -->
+<div class="tab" id="tab-alarm">
+  <div class="sh">Tín Hiệu Telegram Trực Tiếp (H1) <span class="status-dot status-green"></span></div>
+  <div id="entry-signals-container" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(350px, 1fr)); gap:20px; margin-top:16px;">
+    <!-- Rendered via JS -->
+  </div>
+</div>
+
+</div>
+
+<!-- DATA INJECTION -->
+<script>
+  window.APP_DATA = {"future_chart": {"ZC": {"meta": {"symbol": "ZC", "contract": "ZCU26 (September 2026)", "anchor_price": 425.25, "generated_at": "2026-06-19 10:05:28", "forecast_week": "June 22-26, 2026", "composite_bias": 1.0, "detailed_scores": {"V3_Technical": -0.5, "V4_Structure": -0.5, "ICT_Profile": 0.5, "Seasonality": 0.8, "Macro_DXY": 0.2, "Macro_Brent": -0.8, "COT_Report": 0.5, "Fundamentals": 0.8}, "key_levels": {"s1": 418.75, "s2": 414.5, "r1": 422.0, "r2": 491.25, "ema21": 420.43, "ema50": 421.11}, "key_events": {"Mon Jun 15": "USDA Crop Progress (G/E Ngô) - QUAN TRỌNG", "Tue Jun 16": "EIA Ethanol Production & Stocks - TRUNG BÌNH", "Thu Jun 18": "Export Sales Weekly (Corn) - TRUNG BÌNH", "Fri Jun 19": "Đóng vị thế cuối tuần, theo dõi thời tiết Midwest"}, "action_plan": "ZC thiếu catalyst mạnh. Chỉ mua khi giá test S1 (418.75) và confirm bullish H1. Theo dõi thời tiết Midwest tuần tới."}, "actual_data": [], "candles_4h": [{"day": "Mon 22/06", "session": "Asia 07-11", "open": 425.25, "high": 429.75, "low": 421.5, "close": 424.0, "net_change": -1.25, "bias": "🔴 BEAR", "scenario": "Tương quan ZW, Chờ USDA", "logic": "Ngô giảm nhẹ theo nhóm nông sản khi dầu yếu. Thị trường chờ USDA Crop Progress sau đóng cửa."}, {"day": "Mon 22/06", "session": "Asia 11-15", "open": 424.0, "high": 426.75, "low": 420.25, "close": 423.5, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Mon 22/06", "session": "London 15-19", "open": 423.5, "high": 426.25, "low": 420.25, "close": 423.25, "net_change": -0.25, "bias": "🔴 BEAR"}, {"day": "Mon 22/06", "session": "Pre-NY 19-21", "open": 423.25, "high": 427.0, "low": 418.75, "close": 423.75, "net_change": 0.5, "bias": "🟢 BULL"}, {"day": "Mon 22/06", "session": "NY Open 21-23", "open": 423.75, "high": 426.75, "low": 418.75, "close": 424.25, "net_change": 0.5, "bias": "🟢 BULL"}, {"day": "Mon 22/06", "session": "NY Close 23-01", "open": 424.25, "high": 427.5, "low": 420.75, "close": 424.0, "net_change": -0.25, "bias": "🔴 BEAR"}, {"day": "Tue 23/06", "session": "Asia 07-11", "open": 424.0, "high": 427.75, "low": 417.0, "close": 425.25, "net_change": 1.25, "bias": "🟢 BULL", "scenario": "USDA Reaction + EIA Ethanol", "logic": "G/E Ngô 65% — tốt hơn tuần trước. EIA Ethanol tích cực kéo lực mua. Giá hồi nhẹ từ đáy."}, {"day": "Tue 23/06", "session": "Asia 11-15", "open": 425.25, "high": 428.5, "low": 420.25, "close": 424.5, "net_change": -0.75, "bias": "🔴 BEAR"}, {"day": "Tue 23/06", "session": "London 15-19", "open": 424.5, "high": 428.25, "low": 419.25, "close": 425.0, "net_change": 0.5, "bias": "🟢 BULL"}, {"day": "Tue 23/06", "session": "Pre-NY 19-21", "open": 425.0, "high": 427.75, "low": 422.25, "close": 424.5, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Tue 23/06", "session": "NY Open 21-23", "open": 424.5, "high": 428.0, "low": 418.5, "close": 425.5, "net_change": 1.0, "bias": "🟢 BULL"}, {"day": "Tue 23/06", "session": "NY Close 23-01", "open": 425.5, "high": 428.25, "low": 423.0, "close": 425.75, "net_change": 0.25, "bias": "🟢 BULL"}, {"day": "Wed 24/06", "session": "Asia 07-11", "open": 425.75, "high": 428.5, "low": 423.25, "close": 425.25, "net_change": -0.5, "bias": "🔴 BEAR", "scenario": "Midwest Weather Alert", "logic": "Dự báo nhiệt độ cao tuần tới tại Iowa/Illinois trong giai đoạn pollination (7–10 ngày tới) tạo premium giá."}, {"day": "Wed 24/06", "session": "Asia 11-15", "open": 425.25, "high": 428.25, "low": 421.75, "close": 424.75, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Wed 24/06", "session": "London 15-19", "open": 424.75, "high": 428.25, "low": 420.0, "close": 425.25, "net_change": 0.5, "bias": "🟢 BULL"}, {"day": "Wed 24/06", "session": "Pre-NY 19-21", "open": 425.25, "high": 428.75, "low": 419.5, "close": 426.5, "net_change": 1.25, "bias": "🟢 BULL"}, {"day": "Wed 24/06", "session": "NY Open 21-23", "open": 426.5, "high": 432.25, "low": 420.75, "close": 427.0, "net_change": 0.5, "bias": "🟢 BULL"}, {"day": "Wed 24/06", "session": "NY Close 23-01", "open": 427.0, "high": 431.0, "low": 423.5, "close": 426.75, "net_change": -0.25, "bias": "🔴 BEAR"}, {"day": "Thu 25/06", "session": "Asia 07-11", "open": 426.75, "high": 429.0, "low": 423.75, "close": 426.25, "net_change": -0.5, "bias": "🔴 BEAR", "scenario": "Consolidation / Export Sales", "logic": "Export Sales ngô thấp hơn kỳ vọng do Brazil cạnh tranh mạnh. Giá chịu áp lực bán nhẹ."}, {"day": "Thu 25/06", "session": "Asia 11-15", "open": 426.25, "high": 428.5, "low": 421.75, "close": 426.5, "net_change": 0.25, "bias": "🟢 BULL"}, {"day": "Thu 25/06", "session": "London 15-19", "open": 426.5, "high": 430.0, "low": 424.5, "close": 426.25, "net_change": -0.25, "bias": "🔴 BEAR"}, {"day": "Thu 25/06", "session": "Pre-NY 19-21", "open": 426.25, "high": 429.75, "low": 422.25, "close": 425.75, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Thu 25/06", "session": "NY Open 21-23", "open": 425.75, "high": 430.5, "low": 422.5, "close": 424.75, "net_change": -1.0, "bias": "🔴 BEAR"}, {"day": "Thu 25/06", "session": "NY Close 23-01", "open": 424.75, "high": 428.0, "low": 422.75, "close": 425.0, "net_change": 0.25, "bias": "🟢 BULL"}, {"day": "Fri 26/06", "session": "Asia 07-11", "open": 425.0, "high": 428.75, "low": 421.5, "close": 424.5, "net_change": -0.5, "bias": "🔴 BEAR", "scenario": "Đóng vị thế cuối tuần", "logic": "Thị trường ngô không có catalyst mới. Giá dao động trong biên độ hẹp trước khi đóng cửa."}, {"day": "Fri 26/06", "session": "Asia 11-15", "open": 424.5, "high": 428.0, "low": 421.0, "close": 424.25, "net_change": -0.25, "bias": "🔴 BEAR"}, {"day": "Fri 26/06", "session": "London 15-19", "open": 424.25, "high": 427.0, "low": 421.5, "close": 424.5, "net_change": 0.25, "bias": "🟢 BULL"}, {"day": "Fri 26/06", "session": "Pre-NY 19-21", "open": 424.5, "high": 427.5, "low": 421.5, "close": 424.25, "net_change": -0.25, "bias": "🔴 BEAR"}, {"day": "Fri 26/06", "session": "NY Open 21-23", "open": 424.25, "high": 428.0, "low": 420.75, "close": 424.5, "net_change": 0.25, "bias": "🟢 BULL"}, {"day": "Fri 26/06", "session": "NY Close 23-01", "open": 424.5, "high": 428.5, "low": 422.75, "close": 424.0, "net_change": -0.5, "bias": "🔴 BEAR"}], "daily_summary": {"Mon 22/06": {"open": 425.25, "high": 429.75, "low": 418.75, "close": 424.0, "scenario": "Tương quan ZW, Chờ USDA", "logic": "Ngô giảm nhẹ theo nhóm nông sản khi dầu yếu. Thị trường chờ USDA Crop Progress sau đóng cửa."}, "Tue 23/06": {"open": 424.0, "high": 428.5, "low": 417.0, "close": 425.75, "scenario": "USDA Reaction + EIA Ethanol", "logic": "G/E Ngô 65% — tốt hơn tuần trước. EIA Ethanol tích cực kéo lực mua. Giá hồi nhẹ từ đáy."}, "Wed 24/06": {"open": 425.75, "high": 432.25, "low": 419.5, "close": 426.75, "scenario": "Midwest Weather Alert", "logic": "Dự báo nhiệt độ cao tuần tới tại Iowa/Illinois trong giai đoạn pollination (7–10 ngày tới) tạo premium giá."}, "Thu 25/06": {"open": 426.75, "high": 430.5, "low": 421.75, "close": 425.0, "scenario": "Consolidation / Export Sales", "logic": "Export Sales ngô thấp hơn kỳ vọng do Brazil cạnh tranh mạnh. Giá chịu áp lực bán nhẹ."}, "Fri 26/06": {"open": 425.0, "high": 428.75, "low": 420.75, "close": 424.0, "scenario": "Đóng vị thế cuối tuần", "logic": "Thị trường ngô không có catalyst mới. Giá dao động trong biên độ hẹp trước khi đóng cửa."}}, "week_forecast": {"open": 425.25, "close": 424.0, "high": 432.25, "low": 417.0, "net_change": -1.25, "direction": "BEARISH"}, "scenarios_text": "\n  PHASE 1 — MONDAY (Chờ USDA, Tương quan ZW):\n  Ngô giảm nhẹ theo xu hướng chung khi dầu giảm. Thị trường chờ đợi.\n\n  PHASE 2 — TUESDAY (USDA + EIA Ethanol):\n  G/E Ngô tốt hơn kỳ vọng kéo hồi nhẹ. EIA Ethanol bổ sung lực mua.\n\n  PHASE 3 — WEDNESDAY (Pollination Risk):\n  Tin thời tiết nóng Midwest tạo premium lo ngại mùa vụ — lực mua xuất hiện.\n\n  PHASE 4-5 — THURSDAY/FRIDAY (Xuất khẩu yếu + Range):\n  Brazil cạnh tranh làm Export Sales thất vọng. Giá đóng trong biên độ hẹp."}, "ZW": {"meta": {"symbol": "ZW", "contract": "ZWU26 (September 2026)", "anchor_price": 613.25, "generated_at": "2026-06-19 10:05:28", "forecast_week": "June 22-26, 2026", "composite_bias": 3.9, "detailed_scores": {"V3_Technical": 0.5, "V4_Structure": 1.0, "ICT_Profile": 1.2, "Seasonality": 0.7, "Macro_DXY": 0.2, "Macro_Brent": -1.5, "COT_Report": 0.8, "Fundamentals": 1.0}, "key_levels": {"support_ob": 583.5, "ote_low": 587.25, "mss_trigger": 592.25, "ema21": 597.0, "ema50": 598.15, "week_target": 603.75, "r2": 700.0}, "key_events": {"Mon Jun 15": "USDA Crop Progress (sau đóng cửa) - BIẾN ĐỘNG CAO", "Tue Jun 16": "Phản ứng USDA + Export Inspections", "Wed Jun 17": "EIA Storage (nhỏ), mid-week acceleration", "Thu Jun 18": "Export Sales Weekly (~20:30 ICT) - TRUNG BÌNH", "Fri Jun 19": "Đóng vị thế cuối tuần, ảnh hưởng options expiry"}, "action_plan": "Theo dõi phản ứng giá tại vùng S1 591.25. Long chỉ khi giá xác nhận MSS trên 592.25. Tránh Long trước tin USDA."}, "actual_data": [], "candles_4h": [{"day": "Mon 22/06", "session": "Asia 07-11", "open": 613.25, "high": 625.5, "low": 604.5, "close": 609.75, "net_change": -3.5, "bias": "🔴 BEAR", "scenario": "Peace Treaty Shock", "logic": "Tin tức hòa bình Iran-US đẩy Brent xuống $83, xóa toàn bộ premium địa chính trị của Lúa mì."}, {"day": "Mon 22/06", "session": "Asia 11-15", "open": 609.75, "high": 618.0, "low": 602.25, "close": 608.25, "net_change": -1.5, "bias": "🔴 BEAR"}, {"day": "Mon 22/06", "session": "London 15-19", "open": 608.25, "high": 622.5, "low": 595.25, "close": 605.75, "net_change": -2.5, "bias": "🔴 BEAR"}, {"day": "Mon 22/06", "session": "Pre-NY 19-21", "open": 605.75, "high": 620.25, "low": 599.0, "close": 604.75, "net_change": -1.0, "bias": "🔴 BEAR"}, {"day": "Mon 22/06", "session": "NY Open 21-23", "open": 604.75, "high": 616.75, "low": 596.0, "close": 606.75, "net_change": 2.0, "bias": "🟢 BULL"}, {"day": "Mon 22/06", "session": "NY Close 23-01", "open": 606.75, "high": 614.0, "low": 595.75, "close": 607.5, "net_change": 0.75, "bias": "🟢 BULL"}, {"day": "Tue 23/06", "session": "Asia 07-11", "open": 607.5, "high": 618.0, "low": 594.75, "close": 610.0, "net_change": 2.5, "bias": "🟢 BULL", "scenario": "USDA Recovery", "logic": "USDA xác nhận G/E 27% - cực kỳ thấp so với lịch sử. Short-covering bùng nổ, giá gap up từ vùng OTE."}, {"day": "Tue 23/06", "session": "Asia 11-15", "open": 610.0, "high": 624.25, "low": 598.75, "close": 609.0, "net_change": -1.0, "bias": "🔴 BEAR"}, {"day": "Tue 23/06", "session": "London 15-19", "open": 609.0, "high": 617.25, "low": 596.25, "close": 610.0, "net_change": 1.0, "bias": "🟢 BULL"}, {"day": "Tue 23/06", "session": "Pre-NY 19-21", "open": 610.0, "high": 620.25, "low": 603.75, "close": 610.5, "net_change": 0.5, "bias": "🟢 BULL"}, {"day": "Tue 23/06", "session": "NY Open 21-23", "open": 610.5, "high": 624.75, "low": 595.75, "close": 612.5, "net_change": 2.0, "bias": "🟢 BULL"}, {"day": "Tue 23/06", "session": "NY Close 23-01", "open": 612.5, "high": 620.5, "low": 607.0, "close": 612.25, "net_change": -0.25, "bias": "🔴 BEAR"}, {"day": "Wed 24/06", "session": "Asia 07-11", "open": 612.25, "high": 621.25, "low": 605.0, "close": 612.5, "net_change": 0.25, "bias": "🟢 BULL", "scenario": "MSS Fakeout", "logic": "Giá cố breakout R1 (592.25) nhưng macro fund bán đè tại NY. Bull trap hình thành."}, {"day": "Wed 24/06", "session": "Asia 11-15", "open": 612.5, "high": 618.75, "low": 607.25, "close": 612.0, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Wed 24/06", "session": "London 15-19", "open": 612.0, "high": 626.25, "low": 598.0, "close": 613.5, "net_change": 1.5, "bias": "🟢 BULL"}, {"day": "Wed 24/06", "session": "Pre-NY 19-21", "open": 613.5, "high": 624.5, "low": 600.5, "close": 614.0, "net_change": 0.5, "bias": "🟢 BULL"}, {"day": "Wed 24/06", "session": "NY Open 21-23", "open": 614.0, "high": 628.25, "low": 597.75, "close": 612.5, "net_change": -1.5, "bias": "🔴 BEAR"}, {"day": "Wed 24/06", "session": "NY Close 23-01", "open": 612.5, "high": 620.75, "low": 604.0, "close": 611.25, "net_change": -1.25, "bias": "🔴 BEAR"}, {"day": "Thu 25/06", "session": "Asia 07-11", "open": 611.25, "high": 621.75, "low": 603.75, "close": 610.75, "net_change": -0.5, "bias": "🔴 BEAR", "scenario": "Choppy Ranging", "logic": "Export Sales tốt giữ giá ổn định. Thị trường giằng co giữa fundamental tốt và macro yếu."}, {"day": "Thu 25/06", "session": "Asia 11-15", "open": 610.75, "high": 621.25, "low": 603.5, "close": 610.25, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Thu 25/06", "session": "London 15-19", "open": 610.25, "high": 621.25, "low": 603.0, "close": 611.25, "net_change": 1.0, "bias": "🟢 BULL"}, {"day": "Thu 25/06", "session": "Pre-NY 19-21", "open": 611.25, "high": 617.5, "low": 602.75, "close": 611.5, "net_change": 0.25, "bias": "🟢 BULL"}, {"day": "Thu 25/06", "session": "NY Open 21-23", "open": 611.5, "high": 619.25, "low": 602.0, "close": 613.25, "net_change": 1.75, "bias": "🟢 BULL"}, {"day": "Thu 25/06", "session": "NY Close 23-01", "open": 613.25, "high": 619.75, "low": 607.0, "close": 612.75, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Fri 26/06", "session": "Asia 07-11", "open": 612.75, "high": 622.0, "low": 606.25, "close": 612.0, "net_change": -0.75, "bias": "🔴 BEAR", "scenario": "Bearish Close (Oil weak)", "logic": "Các quỹ đóng Long trước cuối tuần. Brent yếu + thiếu catalyst địa chính trị khiến lực bán áp đảo."}, {"day": "Fri 26/06", "session": "Asia 11-15", "open": 612.0, "high": 619.5, "low": 606.0, "close": 611.0, "net_change": -1.0, "bias": "🔴 BEAR"}, {"day": "Fri 26/06", "session": "London 15-19", "open": 611.0, "high": 618.5, "low": 601.0, "close": 610.5, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Fri 26/06", "session": "Pre-NY 19-21", "open": 610.5, "high": 619.75, "low": 603.0, "close": 610.0, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Fri 26/06", "session": "NY Open 21-23", "open": 610.0, "high": 616.25, "low": 598.0, "close": 610.5, "net_change": 0.5, "bias": "🟢 BULL"}, {"day": "Fri 26/06", "session": "NY Close 23-01", "open": 610.5, "high": 616.0, "low": 604.5, "close": 609.5, "net_change": -1.0, "bias": "🔴 BEAR"}], "daily_summary": {"Mon 22/06": {"open": 613.25, "high": 625.5, "low": 595.25, "close": 607.5, "scenario": "Peace Treaty Shock", "logic": "Tin tức hòa bình Iran-US đẩy Brent xuống $83, xóa toàn bộ premium địa chính trị của Lúa mì."}, "Tue 23/06": {"open": 607.5, "high": 624.75, "low": 594.75, "close": 612.25, "scenario": "USDA Recovery", "logic": "USDA xác nhận G/E 27% - cực kỳ thấp so với lịch sử. Short-covering bùng nổ, giá gap up từ vùng OTE."}, "Wed 24/06": {"open": 612.25, "high": 628.25, "low": 597.75, "close": 611.25, "scenario": "MSS Fakeout", "logic": "Giá cố breakout R1 (592.25) nhưng macro fund bán đè tại NY. Bull trap hình thành."}, "Thu 25/06": {"open": 611.25, "high": 621.75, "low": 602.0, "close": 612.75, "scenario": "Choppy Ranging", "logic": "Export Sales tốt giữ giá ổn định. Thị trường giằng co giữa fundamental tốt và macro yếu."}, "Fri 26/06": {"open": 612.75, "high": 622.0, "low": 598.0, "close": 609.5, "scenario": "Bearish Close (Oil weak)", "logic": "Các quỹ đóng Long trước cuối tuần. Brent yếu + thiếu catalyst địa chính trị khiến lực bán áp đảo."}}, "week_forecast": {"open": 613.25, "close": 609.5, "high": 628.25, "low": 594.75, "net_change": -3.75, "direction": "BEARISH"}, "scenarios_text": "\n  PHASE 1 — MONDAY (Peace Treaty Shock):\n  Iran-US peace treaty xóa premium địa chính trị, Brent $83 kéo lúa mì giảm.\n  Judas Swing quét stop loss bên dưới vùng OTE (585-589) trước khi NY phục hồi.\n\n  PHASE 2 — TUESDAY (USDA Recovery):\n  USDA xác nhận G/E chỉ 25% (tệ nhất từ 2006). Short covering đẩy giá gap up.\n  Macro fund vẫn bán rally do dầu yếu, hạn chế biên độ hồi phục.\n\n  PHASE 3 — WEDNESDAY (MSS Fakeout):\n  Giá cố break R1 (592.25) nhưng thất bại tại phiên NY. Bull trap hình thành.\n  Close trở lại bên dưới vùng kháng cự quan trọng.\n\n  PHASE 4-5 — THURSDAY/FRIDAY (Ranging & Bearish Close):\n  Export Sales tốt giữ đà nhưng lực bán cuối tuần + dầu yếu khiến giá đóng thấp hơn anchor."}, "ZS": {"meta": {"symbol": "ZS", "contract": "ZSU26 (September 2026)", "anchor_price": 1128.0, "generated_at": "2026-06-19 10:05:28", "forecast_week": "June 22-26, 2026", "composite_bias": 0.1, "detailed_scores": {"V3_Technical": -0.5, "V4_Structure": -0.5, "ICT_Profile": 0.5, "Seasonality": 0.3, "Macro_DXY": 0.3, "Macro_Brent": -0.5, "COT_Report": -0.5, "Fundamentals": 1.0}, "key_levels": {"s1": 1127.75, "s2": 1121.75, "r1": 1135.75, "r2": 1214.0, "ema21": 1130.27, "ema50": 1132.07}, "key_events": {"Mon Jun 15": "USDA Crop Progress (G/E Đậu tương) + Theo dõi đơn mua Trung Quốc", "Tue Jun 16": "NOPA Crush Report tháng 5 - QUAN TRỌNG", "Thu Jun 18": "Export Sales Weekly (Soybeans) - QUAN TRỌNG", "Fri Jun 19": "Đóng vị thế cuối tuần"}, "action_plan": "ZS đang trong downtrend ngắn hạn. Chỉ mua nếu giá confirm hồi trên 1135.75. Theo dõi đơn mua Trung Quốc và NOPA Crush như catalyst chính."}, "actual_data": [], "candles_4h": [{"day": "Mon 22/06", "session": "Asia 07-11", "open": 1128.0, "high": 1134.0, "low": 1116.5, "close": 1125.5, "net_change": -2.5, "bias": "🔴 BEAR", "scenario": "Brazil Pressure vs China Buy", "logic": "Brazil xuất khẩu đậu tương tháng 6 đạt kỷ lục, tạo áp lực lên giá. Nhưng tin Trung Quốc mua thêm 500k tấn giữa phiên NY đảo ngược tình thế."}, {"day": "Mon 22/06", "session": "Asia 11-15", "open": 1125.5, "high": 1131.25, "low": 1117.25, "close": 1124.5, "net_change": -1.0, "bias": "🔴 BEAR"}, {"day": "Mon 22/06", "session": "London 15-19", "open": 1124.5, "high": 1134.25, "low": 1116.75, "close": 1124.0, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Mon 22/06", "session": "Pre-NY 19-21", "open": 1124.0, "high": 1131.0, "low": 1115.75, "close": 1125.0, "net_change": 1.0, "bias": "🟢 BULL"}, {"day": "Mon 22/06", "session": "NY Open 21-23", "open": 1125.0, "high": 1136.25, "low": 1111.25, "close": 1127.0, "net_change": 2.0, "bias": "🟢 BULL"}, {"day": "Mon 22/06", "session": "NY Close 23-01", "open": 1127.0, "high": 1135.0, "low": 1121.0, "close": 1126.5, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Tue 23/06", "session": "Asia 07-11", "open": 1126.5, "high": 1133.75, "low": 1117.75, "close": 1127.25, "net_change": 0.75, "bias": "🟢 BULL", "scenario": "NOPA Crush + USDA G/E", "logic": "NOPA Crush tháng 5 đạt 188 triệu bushel (trên kỳ vọng 185). USDA G/E Đậu tương 67% tốt, nhưng không đủ để đảo chiều xu hướng."}, {"day": "Tue 23/06", "session": "Asia 11-15", "open": 1127.25, "high": 1137.25, "low": 1120.5, "close": 1126.75, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Tue 23/06", "session": "London 15-19", "open": 1126.75, "high": 1133.5, "low": 1118.25, "close": 1127.25, "net_change": 0.5, "bias": "🟢 BULL"}, {"day": "Tue 23/06", "session": "Pre-NY 19-21", "open": 1127.25, "high": 1136.75, "low": 1121.25, "close": 1128.75, "net_change": 1.5, "bias": "🟢 BULL"}, {"day": "Tue 23/06", "session": "NY Open 21-23", "open": 1128.75, "high": 1136.5, "low": 1116.0, "close": 1130.0, "net_change": 1.25, "bias": "🟢 BULL"}, {"day": "Tue 23/06", "session": "NY Close 23-01", "open": 1130.0, "high": 1138.25, "low": 1122.0, "close": 1129.75, "net_change": -0.25, "bias": "🔴 BEAR"}, {"day": "Wed 24/06", "session": "Asia 07-11", "open": 1129.75, "high": 1135.5, "low": 1123.5, "close": 1128.75, "net_change": -1.0, "bias": "🔴 BEAR", "scenario": "Pullback — Brazil Hedge", "logic": "Nhà xuất khẩu Brazil hedge bán mạnh vào rally. Giá không thể vượt R1 (1135.75), hình thành cấu trúc giảm ngắn hạn."}, {"day": "Wed 24/06", "session": "Asia 11-15", "open": 1128.75, "high": 1136.5, "low": 1120.75, "close": 1128.0, "net_change": -0.75, "bias": "🔴 BEAR"}, {"day": "Wed 24/06", "session": "London 15-19", "open": 1128.0, "high": 1134.0, "low": 1120.25, "close": 1127.5, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Wed 24/06", "session": "Pre-NY 19-21", "open": 1127.5, "high": 1133.5, "low": 1120.75, "close": 1128.0, "net_change": 0.5, "bias": "🟢 BULL"}, {"day": "Wed 24/06", "session": "NY Open 21-23", "open": 1128.0, "high": 1140.75, "low": 1121.25, "close": 1126.5, "net_change": -1.5, "bias": "🔴 BEAR"}, {"day": "Wed 24/06", "session": "NY Close 23-01", "open": 1126.5, "high": 1135.75, "low": 1121.5, "close": 1126.0, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Thu 25/06", "session": "Asia 07-11", "open": 1126.0, "high": 1132.25, "low": 1121.5, "close": 1125.5, "net_change": -0.5, "bias": "🔴 BEAR", "scenario": "Export Sales Support", "logic": "Export Sales đậu tương tuần này đạt 800k tấn, vượt kỳ vọng 650k. Trung Quốc là người mua chính."}, {"day": "Thu 25/06", "session": "Asia 11-15", "open": 1125.5, "high": 1131.75, "low": 1115.75, "close": 1126.0, "net_change": 0.5, "bias": "🟢 BULL"}, {"day": "Thu 25/06", "session": "London 15-19", "open": 1126.0, "high": 1132.0, "low": 1117.0, "close": 1126.75, "net_change": 0.75, "bias": "🟢 BULL"}, {"day": "Thu 25/06", "session": "Pre-NY 19-21", "open": 1126.75, "high": 1133.0, "low": 1120.25, "close": 1127.25, "net_change": 0.5, "bias": "🟢 BULL"}, {"day": "Thu 25/06", "session": "NY Open 21-23", "open": 1127.25, "high": 1133.5, "low": 1116.5, "close": 1128.5, "net_change": 1.25, "bias": "🟢 BULL"}, {"day": "Thu 25/06", "session": "NY Close 23-01", "open": 1128.5, "high": 1135.0, "low": 1123.0, "close": 1128.25, "net_change": -0.25, "bias": "🔴 BEAR"}, {"day": "Fri 26/06", "session": "Asia 07-11", "open": 1128.25, "high": 1135.75, "low": 1123.75, "close": 1127.5, "net_change": -0.75, "bias": "🔴 BEAR", "scenario": "Đóng Long / Profit Taking", "logic": "Không có tin mới. Trader rút Long trước cuối tuần. Giá đóng bên dưới EMA50, xu hướng ngắn hạn giảm."}, {"day": "Fri 26/06", "session": "Asia 11-15", "open": 1127.5, "high": 1135.25, "low": 1120.75, "close": 1127.0, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Fri 26/06", "session": "London 15-19", "open": 1127.0, "high": 1132.75, "low": 1120.0, "close": 1126.75, "net_change": -0.25, "bias": "🔴 BEAR"}, {"day": "Fri 26/06", "session": "Pre-NY 19-21", "open": 1126.75, "high": 1134.0, "low": 1122.25, "close": 1126.25, "net_change": -0.5, "bias": "🔴 BEAR"}, {"day": "Fri 26/06", "session": "NY Open 21-23", "open": 1126.25, "high": 1131.5, "low": 1121.0, "close": 1126.5, "net_change": 0.25, "bias": "🟢 BULL"}, {"day": "Fri 26/06", "session": "NY Close 23-01", "open": 1126.5, "high": 1132.25, "low": 1121.0, "close": 1125.75, "net_change": -0.75, "bias": "🔴 BEAR"}], "daily_summary": {"Mon 22/06": {"open": 1128.0, "high": 1136.25, "low": 1111.25, "close": 1126.5, "scenario": "Brazil Pressure vs China Buy", "logic": "Brazil xuất khẩu đậu tương tháng 6 đạt kỷ lục, tạo áp lực lên giá. Nhưng tin Trung Quốc mua thêm 500k tấn giữa phiên NY đảo ngược tình thế."}, "Tue 23/06": {"open": 1126.5, "high": 1138.25, "low": 1116.0, "close": 1129.75, "scenario": "NOPA Crush + USDA G/E", "logic": "NOPA Crush tháng 5 đạt 188 triệu bushel (trên kỳ vọng 185). USDA G/E Đậu tương 67% tốt, nhưng không đủ để đảo chiều xu hướng."}, "Wed 24/06": {"open": 1129.75, "high": 1140.75, "low": 1120.25, "close": 1126.0, "scenario": "Pullback — Brazil Hedge", "logic": "Nhà xuất khẩu Brazil hedge bán mạnh vào rally. Giá không thể vượt R1 (1135.75), hình thành cấu trúc giảm ngắn hạn."}, "Thu 25/06": {"open": 1126.0, "high": 1135.0, "low": 1115.75, "close": 1128.25, "scenario": "Export Sales Support", "logic": "Export Sales đậu tương tuần này đạt 800k tấn, vượt kỳ vọng 650k. Trung Quốc là người mua chính."}, "Fri 26/06": {"open": 1128.25, "high": 1135.75, "low": 1120.0, "close": 1125.75, "scenario": "Đóng Long / Profit Taking", "logic": "Không có tin mới. Trader rút Long trước cuối tuần. Giá đóng bên dưới EMA50, xu hướng ngắn hạn giảm."}}, "week_forecast": {"open": 1128.0, "close": 1125.75, "high": 1140.75, "low": 1111.25, "net_change": -2.25, "direction": "BEARISH"}, "scenarios_text": "\n  PHASE 1 — MONDAY (Brazil vs China Tug-of-War):\n  Brazil xuất khẩu kỷ lục đối đầu với đơn mua Trung Quốc 500k tấn.\n  Phiên NY phục hồi mạnh sau tin China xác nhận mua hàng.\n\n  PHASE 2 — TUESDAY (NOPA Crush tốt):\n  Crush margin cao → cầu đậu tương nội địa Mỹ tốt. Rally được hỗ trợ.\n\n  PHASE 3 — WEDNESDAY (Brazil Hedge Selling):\n  Nhà xuất khẩu Brazil bán hedge vào rally, giá không vượt được R1.\n\n  PHASE 4-5 — THURSDAY/FRIDAY (Export Sales + Profit Taking):\n  Export Sales tốt giúp cân bằng, nhưng cuối tuần giảm nhẹ khi Long chốt lời."}}, "macro": {"timestamp": "2026-06-19 08:54:54", "brent": {"price": 79.29, "prev": 79.55, "pct": -0.327, "ticker": "BZ=F"}, "dxy": {"price": 100.824, "prev": 100.09, "pct": 0.733, "ticker": "DX-Y.NYB"}, "zw_ref": {"price": 613.25, "prev": 612.75, "pct": 0.082, "ticker": "ZW=F"}}, "fundamentals": {"last_updated_fundamentals": "2026-06-19", "last_updated_weather": "2026-06-12", "ZC": {"us_planting": {"latest": "97% đã gieo trồng", "next_date": "16/06/2026 lúc 03:00 (VN)", "forecast": "98% đã gieo trồng", "action": "Tiến độ nhanh -> Canh Short ngắn hạn", "logic": "Trung bình 5 năm đạt 96%. Tiến độ hiện tại được cập nhật mới nhất."}, "harvest_progress": {"latest": "Mỹ: 0% | Argentina: 66% (2/3 tiến độ)", "next_date": "Hàng tuần", "forecast": "Argentina: 72% thu hoạch", "action": "Argentina thu hoạch rộ -> Canh Short ngắn hạn / Gom Long dài hạn (DCA)", "logic": "Argentina đang thu hoạch rộ đạt 66%. Việc giá ngô giữ vững trên 445-450 cents bất bất chấp áp lực thu hoạch cho thấy ngô đã xác lập vùng đáy chu kỳ mùa vụ thành công."}, "crop_condition": {"latest": "68% Good to Excellent", "next_date": "23/06/2026 lúc 03:00 (VN)", "forecast": "70% G/E", "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn", "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh."}, "us_ending_stocks": {"next_date": "10/07/2026 lúc 23:00 (VN)", "forecast": "1,940 triệu bushels (Dự kiến giảm)", "action": "Tồn kho giảm -> Gom Long dài hạn (DCA)", "logic": "Giảm mạnh so với niên vụ trước (giảm ~8.6%) do diện tích gieo trồng giảm 6%.", "previous": "1,957 triệu bushels (2026/27)", "current": "1,960 triệu bushels (2026/27)", "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"}, "global_ending_stocks": {"next_date": "10/07/2026 lúc 23:00 (VN)", "forecast": "276.8 triệu tấn (Tiếp tục giảm)", "action": "Tồn kho thấp nhất 12 năm -> Gom Long dài hạn (DCA)", "logic": "Tồn kho ngô toàn cầu chạm mức thấp nhất 12 năm qua (kể từ niên vụ 2013/14).", "previous": "N/A (Báo cáo tháng trước)", "current": "281.22 triệu tấn (2026/27)", "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"}, "exports": {"latest": "Giao hàng (Inspections): 1,636,628 tấn (Tuần kết thúc Jun 15, 2026)", "next_date": "22/06/2026 lúc 22:00 (VN)", "forecast": "900,000 tấn (Dự báo tăng trưởng)", "action": "Xuất khẩu ổn định -> Gom Long trung hạn", "logic": "Báo cáo ngày 04/06 ghi nhận doanh số ròng 883,332 tấn ngô. Nhật Bản mua ròng lớn nhất với 336,300 tấn. Mặc dù doanh số giảm nhẹ 13% so với tuần trước, lượng giao hàng thực tế (exports) tăng 7% lên 1.72 triệu tấn.", "previous": "Giao hàng (Inspections): 1,911,112 tấn (Tuần kết thúc Jun 8, 2026)"}, "competitors": {"latest": "Brazil & Argentina", "next_date": "Liên tục (Cập nhật hàng ngày)", "forecast": "Khô hạn Safrinha Brazil; Argentina đạt 64M tấn", "action": "Brazil vụ 2 khô hạn -> Gom Long trung hạn", "logic": "Argentina: Dự báo sản lượng đạt kỷ lục 64 triệu tấn. Brazil: Vụ 1 kết thúc; ngô vụ 2 (Safrinha) đang chịu khô hạn cục bộ tại các bang phía Nam gây lo ngại sụt giảm năng suất."}, "weather": {"latest": "Trời nóng tại Midwest, mưa rải rác", "next_date": "Hàng ngày", "forecast": "Vành đai phía Bắc vẫn khô hạn cục bộ", "action": "Khô hạn đe dọa nảy mầm -> Gom Long dài hạn (DCA)", "logic": "Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại đang xuất hiện vùng khô hạn cục bộ ở rìa phía Bắc (Minnesota, Northern Plains) đe dọa trực tiếp tỷ lệ nảy mầm của cây ngô non."}, "cot_report": {"latest": "[2026-06-16] Net Short 120,000 HD | Change: -10,000 HD", "next_date": "19/06/2026 (Hang tuan, Thu Sau)", "forecast": "Q3 (DO DAM) - NHOI SHORT", "action": "Uu tien SHORT thuan xu huong.", "logic": "[2026-06-16] Managed Money nam giu vi the rong Short 120,000 hop dong. Tuan nay giam bot 10,000 HD. Xep hang Ma Tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.", "raw_data": {"net_position": -120000, "change": -10000, "long": 0, "short": 0}}, "import_demand": {"latest": "Thị trường cốt lõi", "next_date": "Hàng tuần", "forecast": "Mexico & Hàn Quốc mua ròng mạnh", "action": "Lực cầu vững chắc -> Gom Long dài hạn (DCA)", "logic": "Nhu cầu nhập khẩu cốt lõi từ Mexico (bền vững ở mức cao kỷ lục) và Hàn Quốc (flash sales gia tăng) liên tục hỗ trợ lực đỡ cho xuất khẩu Mỹ, bù đắp cho sự sụt giảm tạm thời của các thị trường khác."}, "weather_long_term": {"latest": "El Nino đang diễn ra (chính thức)", "next_date": "Định kỳ hàng tháng", "forecast": "Xác suất La Niña đạt 82% vào tháng 7", "action": "La Niña vĩ mô -> Gom Long dài hạn (DCA)", "logic": "Xác suất chuyển pha mạnh từ El Niño sang La Niña đạt 82% vào tháng 7/2026. Sự dịch chuyển này thường mang lại thời tiết khô hạn và nóng bất thường cho vành đai Midwest Mỹ vào giai đoạn thụ phấn then chốt tháng 7-8, tạo rủi ro mất mùa vĩ mô dài hạn."}, "competitor_weather": {"brazil_safrinha": "Bắt đầu thu hoạch, dự báo 107.8 triệu tấn", "argentina": "Khô ráo thuận lợi cho thu hoạch ngô (đạt 66%). Sản lượng dự kiến 64 triệu tấn.", "black_sea": "Nga: Sương giá muộn ảnh hưởng ngô vụ sớm. Ukraine: Điều kiện gieo trồng bình thường."}, "short_term_weather": "Mưa lớn kéo dài ở phía Đông Corn Belt (Illinois, Ohio).", "short_term_weather_logic": "📉 **Tác động ngắn hạn (Neutral/Bearish Intraday):** Mưa lớn bổ sung độ ẩm đất rất tốt, khiến thị trường phản ứng bán tháo ngắn hạn do kỳ vọng cây ngô phát triển thuận lợi lúc đầu. Tuy nhiên, mưa quá lớn gây úng cục bộ và cản trước giai đoạn gieo trồng cuối cùng, buộc nông dân phải tính đến replanting (gieo lại) hoặc chuyển diện tích sang đậu tương do sát ngày hết hạn bảo hiểm. Đây là cơ hội Mua khi giá điều chỉnh sâu (Buy on Dip).", "intraday_strategy": "LONG (Canh mua khi điều chỉnh giảm sâu).", "entry_zone": "417.26 - 421.24 cents (Canh mua vùng hỗ trợ)", "stop_loss": "412.23 cents (Dưới cản S2 + 1.5x ATR)", "take_profit_1": "423.00 cents", "take_profit_2": "487.50 cents", "seasonal_strategy": "Tích lũy mua gom dài hạn (DCA Long) phòng thủ khô hạn El Niño và tồn kho thế giới thấp kỷ lục.", "dca_brackets": "436.30 - 444.75 cents", "dca_logic": "Việc Argentina hoàn thành 2/3 vụ thu hoạch mà giá vẫn giữ vững trên 450 cents chứng minh đây là vùng đáy chu kỳ dài hạn lý tưởng để gom hàng.", "swing_trend": "Đi ngang tích lũy (Sideways Accumulation)", "swing_logic": "Giá ngô chốt phiên rút chân cực mạnh từ đáy S1/S2 và đang kẹp trong biên độ lớn 451.50 - 463.00. Với DXY ổn định và Brent trên $90, biên độ này cực kỳ lý tưởng cho chiến lược Đánh Biên (Swing Range) kiếm tối thiểu 10 giá.", "swing_long_entry": "425.50 - 426.59 cents", "swing_long_sl": "421.14 cents (Chống quét SL tuyệt đối)", "swing_long_tp": "491.00 cents (Ăn trọn biên độ ngô ~10.5 giá)", "swing_short_entry": "431.50 - 492.00 cents", "swing_short_sl": "496.36 cents", "swing_short_tp": "426.50 cents"}, "ZW": {"us_planting": {"latest": "Lúa mì đông đã thu hoạch (25%), Xuân 95% gieo", "next_date": "08/06/2026 (Hàng tuần)", "forecast": "Lúa xuân: 98%", "action": "Tiến độ ổn định -> Canh Short ngắn hạn", "logic": "Lúa mì xuân gieo trồng phát triển thuận lợi. Lúa mì đông đã trổ bông vượt trung bình."}, "harvest_progress": {"latest": "Mỹ: 25% lúa đông đã thu hoạch", "next_date": "23/06/2026 lúc 03:00 (VN)", "forecast": "Mỹ: 12% lúa đông đã thu hoạch", "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn", "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất."}, "crop_condition": {"latest": "27% Good to Excellent", "next_date": "23/06/2026 lúc 03:00 (VN)", "forecast": "Duy trì cực xấu 25-27% G/E", "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)", "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains."}, "us_ending_stocks": {"next_date": "10/07/2026 lúc 23:00 (VN)", "forecast": "755 triệu bushels (Dự kiến giảm)", "action": "Tồn kho thắt chặt -> Gom Long dài hạn (DCA)", "logic": "Giảm sâu 18.5% so với niên vụ trước, phản ánh thiệt hại sản lượng lúa mì đông nặng nề.", "previous": "762 triệu bushels (2026/27)", "current": "744 triệu bushels (2026/27)", "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"}, "global_ending_stocks": {"next_date": "10/07/2026 lúc 23:00 (VN)", "forecast": "274.2 triệu tấn (Tiếp tục giảm)", "action": "Cung toàn cầu giảm -> Gom Long dài hạn (DCA)", "logic": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.", "previous": "N/A (Báo cáo tháng trước)", "current": "275.42 triệu tấn (2026/27)", "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"}, "exports": {"latest": "Giao hàng (Inspections): 334,292 tấn (Tuần kết thúc Jun 15, 2026)", "next_date": "22/06/2026 lúc 22:00 (VN)", "forecast": "350,000 tấn (Dự kiến phục hồi)", "action": "Xuất khẩu giảm cơ học -> Gom Long trung hạn", "logic": "Tuần cuối niên vụ cũ ghi nhận mức âm ròng -642,239 tấn do các điều chỉnh hủy hàng/chuyển niên vụ. Tuy nhiên, doanh số niên vụ mới (2026/27) đạt mức rất cao là 838,500 tấn nhờ nhu cầu tăng mạnh trước lo ngại sụt giảm sản lượng.", "previous": "Giao hàng (Inspections): 319,730 tấn (Tuần kết thúc Jun 8, 2026)"}, "competitors": {"latest": "Úc & Argentina", "next_date": "Liên tục (Cập nhật hàng tuần)", "forecast": "Úc giảm 41% sản lượng, Arg giảm 25%", "action": "Thiệt hại kép -> Gom Long dài hạn (DCA)", "logic": "Úc: Diện tích gieo trồng dự kiến giảm sâu 20.4% xuống còn 9.8 triệu ha. Sản lượng dự kiến giảm mạnh 41% xuống 21.3 triệu tấn do hạn hán đầu vụ ở phía Bắc NSW/Nam Queensland. Argentina: Đã gieo trồng được 14.2% diện tích. Sản lượng dự kiến đạt 20.7 triệu tấn (giảm 25% so với mức kỷ lục niên vụ trước) do nông dân lo ngại chi phí phân bón cao và rủi ro bệnh dịch từ El Niño."}, "other_competitors": {"latest": "Nga, Ukraine & EU", "next_date": "Liên tục", "forecast": "Black Sea sương giá muộn, EU hạ yield", "action": "Mất mùa vĩ mô -> Gom Long dài hạn (DCA)", "logic": "Black Sea & EU: Nga có sương giá muộn, nông dân chuyển dịch sang nhóm hạt có dầu; Ukraine dự kiến sản lượng đạt 22.4 triệu tấn; EU MARS hạ dự báo yield do khô hạn tháng 4 tại Pháp/Đức."}, "weather": {"latest": "Hạn hán vĩ mô", "next_date": "Hàng ngày", "forecast": "Kansas đón mưa ngắn hạn nhưng muộn", "action": "Mưa ngắn hạn -> Canh Short ngắn hạn / Gom Long dài hạn (DCA)", "logic": "Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ) + Hạn hán mùa thu làm giảm 20% diện tích gieo trồng của Úc."}, "cot_report": {"latest": "[2026-06-16] Net Short 45,000 HD | Change: +5,000 HD", "next_date": "19/06/2026 (Hang tuan, Thu Sau)", "forecast": "Q4 (CAM) - COVER SHORT", "action": "Cam Short duoi. Canh LONG bat hoi.", "logic": "[2026-06-16] Managed Money nam giu vi the rong Short 45,000 hop dong. Tuan nay tang them 5,000 HD. Xep hang Ma Tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.", "raw_data": {"net_position": -45000, "change": 5000, "long": 0, "short": 0}}, "import_demand": {"latest": "Thị trường cốt lõi", "next_date": "Hàng tuần", "forecast": "Bắc Phi & Ai Cập đấu thầu liên tục", "action": "Cầu nhập khẩu duy trì cao -> Gom Long dài hạn (DCA)", "logic": "Nhu cầu nhập khẩu tại khu vực Bắc Phi (Ai Cập - GASC liên tục thầu thâu mua) và Trung Đông duy trì ở mức cao do mùa màng nội địa sụt giảm, củng cố nhu cầu thu mua lúa mì toàn cầu bền vững."}, "weather_long_term": {"latest": "Chu kỳ vĩ mô", "next_date": "Định kỳ hàng tháng", "forecast": "La Niña gây hạn hán Nam Bán Cầu", "action": "La Niña vĩ mô -> Gom Long dài hạn (DCA)", "logic": "Chu kỳ dịch chuyển thời tiết El Niño có xu hướng gây hạn hán nặng nề và làm nóng khu vực Đông Úc (Queensland, NSW) và Southern Plains của Mỹ, đe dọa trực tiếp năng suất và chất lượng lúa mì mùa đông."}, "competitor_weather": {"australia": "Hạn hán El Nino đe dọa mùa màng, sản lượng có thể giảm mạnh", "argentina": "Đã gieo trồng 14.2% diện tích lúa mì. Sản lượng dự kiến giảm 25% do chi phí phân bón cao và rủi ro El Niño.", "black_sea_eu": "Nga: Sản lượng nâng lên 91.5 triệu tấn. Sương giá muộn cục bộ. EU MARS hạ yield do khô hạn tháng 4 tại Pháp/Đức."}, "short_term_weather": "Mưa lớn bất ngờ xuất hiện tại vùng Southern Plains (Kansas, Oklahoma, Texas).", "short_term_weather_logic": "📉 **Tác động ngắn hạn (Bearish Intraday - Rất Mạnh):** Cơn mưa bất ngờ 2-3 ngày qua đã kích hoạt đợt bán tháo/chốt lời ồ ạt trên thị trường kỳ hạn lúa mì, đẩy giá sụt giảm từ đỉnh cũ về vùng 618.50. Tuy nhiên, về mặt sinh học nông nghiệp, **cơn mưa này đến quá muộn** để cứu vãn phần lớn lúa mì đông đã bị tàn phá (44% Poor/Very Poor). Do đó, nhịp giảm kỹ thuật do mưa này là cơ hội \"vàng\" để Gom vị thế mua giá rẻ (DCA Long).", "intraday_strategy": "SHORT (Canh bán khi giá hồi kỹ thuật chạm EMA 21/50).", "entry_zone": "624.50 - 626.50 cents (Vùng cản hội tụ EMA 21 và EMA 50 H1)", "stop_loss": "634.50 cents (Vượt lên trên hẳn vùng cản đỉnh R1/R2 để tránh bị quét SL ngắn hạn)", "take_profit_1": "618.50 cents", "take_profit_2": "615.00 cents", "seasonal_strategy": "Mua tích trữ dài hạn (DCA Long) dựa trên sự sụt giảm sản lượng kép (Mỹ giảm 18%, Úc giảm 41%, Argentina giảm 25%).", "dca_brackets": "600.00 - 612.00 cents", "dca_logic": "Sự đồng thuận giảm sản lượng từ tất cả các nước sản xuất lớn ở cả hai bán cầu sẽ đẩy ZW bứt phá lên vùng 650 - 680 cents trước khi Nam Bán Cầu bước vào thu hoạch vào tháng 10.", "swing_trend": "Giảm điều chỉnh tích lũy (Bearish Correction & Consolidation)", "swing_logic": "Lúa mì bị bán tháo mạnh từ đỉnh kháng cự lớn do tin mưa ngắn hạn, rơi về sát vùng hỗ trợ Price Action cứng. Do đó, xu hướng giảm trung hạn đang đi vào vùng quá bán cực đại (RSI sát 30), chuẩn bị cho nhịp hồi swing tối thiểu 15-20 giá khi thị trường nhận ra mưa không cứu được năng lượng lúa mì.", "swing_long_entry": "617.00 - 619.50 cents", "swing_long_sl": "609.50 cents (Dưới đáy lớn S2 + 2.0 ATR để bảo vệ an toàn vị thế trung hạn)", "swing_long_tp": "632.00 cents (Sát kháng cự R1 - Kỳ vọng lợi nhuận 14.5 giá)", "swing_short_entry": "631.50 - 633.50 cents", "swing_short_sl": "639.50 cents (Dưới trên đỉnh R2 + 2.0 ATR)", "swing_short_tp": "618.50 cents"}, "ZS": {"us_planting": {"latest": "95% đã gieo trồng", "next_date": "23/06/2026 lúc 03:00 (VN)", "forecast": "94% đã gieo trồng", "action": "Gieo trồng thần tốc -> Canh Short ngắn hạn", "logic": "Trung bình 5 năm đạt 88%. Tiến độ hiện tại được cập nhật mới nhất."}, "harvest_progress": {"latest": "Mỹ: 0% | Nam Mỹ: 75%", "next_date": "Hàng tuần", "forecast": "Argentina: 82% thu hoạch", "action": "Hết áp lực bán tháo -> Gom Long dài hạn (DCA)", "logic": "Mỹ bắt đầu thu hoạch vào tháng 9-11. Argentina đang thu hoạch đậu tương đạt 75% tiến độ. Việc Argentina sắp kết thúc thu hoạch rộ đồng nghĩa với việc áp lực bán tháo lớn nhất của Nam Mỹ đã phản ánh hoàn toàn vào giá (priced-in), tạo điều kiện cho giá đậu tương thiết lập đáy chu kỳ mùa vụ và bước vào pha tăng trưởng."}, "crop_condition": {"latest": "66% Good to Excellent", "next_date": "23/06/2026 lúc 03:00 (VN)", "forecast": "68% G/E", "action": "Chất lượng gieo trồng tốt -> Canh Short ngắn hạn / bảo thủ", "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6."}, "us_ending_stocks": {"next_date": "10/07/2026 lúc 23:00 (VN)", "forecast": "305 triệu bushels (Dự kiến giảm)", "action": "Nhu cầu Biodiesel cao -> Gom Long dài hạn (DCA)", "logic": "Giảm nhẹ so với niên vụ trước do nhu cầu ép dầu nội địa (Crush) sản xuất Biodiesel đạt mức cao kỷ lục.", "previous": "N/A (Báo cáo tháng trước)", "current": "310 triệu bushels (2026/27)", "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"}, "global_ending_stocks": {"next_date": "10/07/2026 lúc 23:00 (VN)", "forecast": "124.50 triệu tấn (Giảm nhẹ)", "action": "Cung cầu thắt chặt -> Gom Long dài hạn (DCA)", "logic": "Giảm nhẹ so với niên vụ trước, cho thấy cán quan cung cầu toàn cầu duy trì trạng thái thắt chặt vừa phải.", "previous": "N/A (Báo cáo tháng trước)", "current": "124.88 triệu tấn (2026/27)", "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"}, "exports": {"latest": "Giao hàng (Inspections): 522,687 tấn (Tuần kết thúc Jun 15, 2026)", "next_date": "22/06/2026 lúc 22:00 (VN)", "forecast": "300,000 tấn", "action": "Xuất khẩu ổn định -> Gom Long trung hạn", "logic": "Đạt 276,852 tấn trong tuần, giảm nhẹ 8% so với tuần trước. Trung Quốc vẫn là đối tác mua ròng hàng đầu với 74,800 tấn. Lượng bốc xếp thực tế duy trì ổn định ở mức 569,300 tấn.", "previous": "Giao hàng (Inspections): 398,186 tấn (Tuần kết thúc Jun 8, 2026)"}, "competitors": {"latest": "Brazil & Argentina", "next_date": "Liên tục (Cập nhật hàng ngày)", "forecast": "Brazil đạt kỷ lục 180M tấn, Arg 50.1M tấn", "action": "Cung Nam Mỹ dồi dào -> Canh Short trung hạn", "logic": "Brazil: Đang xuất khẩu mạnh mẽ dưới thời tiết khô ráo thuận lợi, sản lượng dự báo đạt kỷ lục 180 triệu tấn. Argentina: Thu hoạch đậu tương đạt 75% dưới thời tiết khô hanh, sản lượng ước đạt cao ở mức 50.1 triệu tấn."}, "weather": {"latest": "Ngập lụt Midwest", "next_date": "Hàng ngày", "forecast": "Ngập úng đe dọa replanting Ohio/Indiana", "action": "Úng ngập đe dọa replanting -> Gom Long dài hạn (DCA)", "logic": "Lũ lụt nghiêm trọng tại Đông Midwest (Ohio, Indiana, Illinois) đe dọa làm ngập úng hạt giống, bắt buộc gieo hạt lại (replanting) diện rộng, đe dọa năng suất thực tế."}, "cot_report": {"latest": "[2026-06-16] Net Long 85,000 HD | Change: +12,000 HD", "next_date": "19/06/2026 (Hang tuan, Thu Sau)", "forecast": "Q1 (XANH LA) - GOM LONG", "action": "Uu tien LONG. Xu huong tang ben vung.", "logic": "[2026-06-16] Managed Money nam giu vi the rong Long 85,000 hop dong. Tuan nay tang them 12,000 HD. Xep hang Ma Tran: Q1 (XANH LA) - GOM LONG. Khuyen nghi: Uu tien LONG. Xu huong tang ben vung.", "raw_data": {"net_position": 85000, "change": 12000, "long": 0, "short": 0}}, "import_demand": {"latest": "Thị trường cốt lõi", "next_date": "Hàng tuần", "forecast": "Trung Quốc nhập ròng mạnh liên tục", "action": "Lực cầu bền bỉ -> Gom Long dài hạn (DCA)", "logic": "Trung Quốc (nhà nhập khẩu đậu tương lớn nhất thế giới) liên tục duy trì tốc độ nhập khẩu ròng mạnh mẽ và bền bỉ trong tháng 5 để bổ sung tồn kho heo nội địa và tích trữ lương thực, tạo bệ đỡ vững chắc loại trừ rủi ro sụt giảm sâu cho ZS."}, "weather_long_term": {"latest": "Chu kỳ vĩ mô", "next_date": "Định kỳ hàng tháng", "forecast": "La Niña gây khô hạn miền Nam Mỹ cuối năm", "action": "Siêu sóng vĩ mô La Niña -> Gom Long dài hạn (DCA)", "logic": "La Niña dự kiến xuất hiện từ quý 3/2026 sẽ gây thời tiết khô hanh cục bộ cho miền Nam nước Mỹ và Brazil, là nhân tố chủ chốt kích hoạt các đợt sóng tăng giá dài hạn cực mạnh cho đậu tương giai đoạn gieo trồng Nam Mỹ cuối năm."}, "competitor_weather": {"brazil": "Thời tiết khô ráo thuận lợi cho xuất khẩu. Sản lượng dự báo đạt kỷ lục 180 triệu tấn.", "argentina": "Thu hoạch đậu tương đạt 75% dưới thời tiết khô hanh. Sản lượng 50.1 triệu tấn.", "china": "Trung Quốc nhập khẩu ròng mạnh liên tục để bổ sung tồn kho heo nội địa."}, "short_term_weather": "Bão và mưa cực lớn gây lũ lụt cục bộ tại vùng Đông Midwest (Ohio, Indiana).", "short_term_weather_logic": "🚀 **Tác động ngắn hạn (Highly Volatile / Bullish Reversal):** Mưa bão dữ dội 2 ngày qua ban đầu gây tâm lý hoảng loạn, kích hoạt đợt quét stop-loss (rũ bỏ) sụt giảm về 1186.63 đầu phiên. Ngay sau đó, phe Mua nhận diện nguy cơ úng hạt giống và đóng váng đất (soil crusting) cản trở nảy mầm buộc phải gieo lại (replanting), đẩy giá giật ngược hình chữ V tăng vọt đóng phiên sát đỉnh 1194.25. Tín hiệu cực tốt cho phe Long.", "intraday_strategy": "LONG (Canh mua khi điều chỉnh giảm về EMA 21 H1).", "entry_zone": "1189.50 - 1191.50 cents (Vùng hỗ trợ EMA 21/50 H1)", "stop_loss": "1181.50 cents (Đặt dưới hỗ trợ cứng S1 + 1.5 ATR)", "take_profit_1": "1198.50 cents", "take_profit_2": "1205.00 cents", "seasonal_strategy": "Mua tích lũy phòng thủ rủi ro replanting (gieo hạt lại) do ngập lụt tại Midwest Mỹ và nhu cầu dầu sinh học.", "dca_brackets": "1165.00 - 1175.00 cents", "dca_logic": "Chia vốn gom từ 1165.00 đến 1175.00 cents. Việc Argentina hoàn thành 75% thu hoạch đánh dấu áp lực cung tối đa đã trôi qua, củng cố đây là vùng đáy chu kỳ vững chắc để tích lũy.", "swing_trend": "Tăng mạnh trung hạn (Strong Bullish Trend)", "swing_logic": "Đậu tương đã kích hoạt Golden Cross H1 with a huge candle. Giá đã thoát ly khỏi vùng đáy tích lũy dưới và đang bám sát kênh tăng giá đi lên vùng kháng cự cao hơn. Chiến lược ưu tiên Canh mua biên dưới (Swing Long) để ăn trọn nhịp bứt phá 15-20 giá.", "swing_long_entry": "1188.00 - 1190.50 cents", "swing_long_sl": "1178.50 cents (Dưới đáy quét râu S2 + 2.0 ATR để loại trừ Stop-hunt hoàn toàn)", "swing_long_tp": "1206.50 cents (Sát kháng cự R2 - Lợi nhuận kỳ vọng 17 giá)", "swing_short_entry": "1205.00 - 1207.50 cents", "swing_short_sl": "1214.50 cents", "swing_short_tp": "1191.00 cents"}, "wasde_report_month": "Jun", "last_updated_cot": "2026-06-19 08:54:59"}, "cot": {"fetched_at": "2026-06-19 08:54:54", "source": "CFTC Public API (Disaggregated Futures Only)", "commodities": {"002602": {"commodity": "Ngô (ZC)", "cftc_code": "002602", "report_date": "2026-06-16", "long_curr": 0, "short_curr": 0, "net_position": -120000, "long_prev": 0, "short_prev": 0, "net_prev": -110000, "change": -10000, "quadrant": "Q3 (DO DAM) - NHOI SHORT", "action": "Uu tien SHORT thuan xu huong.", "fetched_at": "2026-06-19 08:54:58"}, "005602": {"commodity": "Đậu tương (ZS)", "cftc_code": "005602", "report_date": "2026-06-16", "long_curr": 0, "short_curr": 0, "net_position": 85000, "long_prev": 0, "short_prev": 0, "net_prev": 73000, "change": 12000, "quadrant": "Q1 (XANH LA) - GOM LONG", "action": "Uu tien LONG. Xu huong tang ben vung.", "fetched_at": "2026-06-19 08:54:58"}, "001602": {"commodity": "Lúa mì (ZW)", "cftc_code": "001602", "report_date": "2026-06-16", "long_curr": 0, "short_curr": 0, "net_position": -45000, "long_prev": 0, "short_prev": 0, "net_prev": -50000, "change": 5000, "quadrant": "Q4 (CAM) - COVER SHORT", "action": "Cam Short duoi. Canh LONG bat hoi.", "fetched_at": "2026-06-19 08:54:59"}, "007601": {"commodity": "Dầu đậu tương (ZL)", "cftc_code": "007601", "report_date": "2026-06-16", "long_curr": 0, "short_curr": 0, "net_position": 0, "long_prev": 0, "short_prev": 0, "net_prev": 0, "change": 0, "quadrant": "NEUTRAL", "action": "Cho tin hieu ro rang.", "fetched_at": "2026-06-19 08:54:59"}, "026603": {"commodity": "Khô đậu tương (ZM)", "cftc_code": "026603", "report_date": "2026-06-16", "long_curr": 0, "short_curr": 0, "net_position": 0, "long_prev": 0, "short_prev": 0, "net_prev": 0, "change": 0, "quadrant": "NEUTRAL", "action": "Cho tin hieu ro rang.", "fetched_at": "2026-06-19 08:54:59"}}}, "last_signals": {"ZC": {"msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCU26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 424.75\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 65%)</b>\n🎯 Vùng Entry: <b>425.28 - 426.65</b>\n🛑 Stoploss: 430.65 | 💵 Take Profit: 417.28\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>426.49 - 434.25</b>\n", "timestamp": "22:00 18/06/2026"}, "ZW": {"msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWU26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 620.25\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 75%)</b>\n🎯 Vùng Entry: <b>611.24 - 618.23</b>\n🛑 Stoploss: 606.20 | 💵 Take Profit: 628.30\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + Order Block + FVG ho tro + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>584.53 - 598.50</b>\n", "timestamp": "17:00 18/06/2026"}, "ZS": {"msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZSX26)</b> 🚨\n🌾 Mã: <b>Đậu Tương</b> | Giá H1: 1128.00\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 84%)</b>\n🎯 Vùng Entry: <b>1130.69 - 1131.15</b>\n🛑 Stoploss: 1136.90 | 💵 Take Profit: 1119.20\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZSX26)</b> 💎\nVùng chờ mua an toàn: <b>1107.05 - 1121.75</b>\n", "timestamp": "10:00 19/06/2026"}}, "rsi": {"zw": {"labels": ["11/06 21:00", "11/06 22:00", "11/06 23:00", "12/06 00:00", "12/06 01:00", "12/06 07:00", "12/06 08:00", "12/06 09:00", "12/06 10:00", "12/06 11:00", "12/06 12:00", "12/06 13:00", "12/06 14:00", "12/06 15:00", "12/06 16:00", "12/06 17:00", "12/06 18:00", "12/06 19:00", "12/06 20:00", "12/06 21:00", "12/06 22:00", "12/06 23:00", "13/06 00:00", "13/06 01:00", "15/06 07:00", "15/06 08:00", "15/06 09:00", "15/06 10:00", "15/06 11:00", "15/06 12:00", "15/06 13:00", "15/06 14:00", "15/06 15:00", "15/06 16:00", "15/06 17:00", "15/06 18:00", "15/06 19:00", "15/06 20:00", "15/06 21:00", "15/06 22:00", "15/06 23:00", "16/06 00:00", "16/06 01:00", "16/06 07:00", "16/06 08:00", "16/06 09:00", "16/06 10:00", "16/06 11:00", "16/06 12:00", "16/06 13:00", "16/06 14:00", "16/06 15:00", "16/06 16:00", "16/06 17:00", "16/06 18:00", "16/06 19:00", "16/06 20:00", "16/06 21:00", "16/06 22:00", "16/06 23:00", "17/06 00:00", "17/06 01:00", "17/06 07:00", "17/06 08:00", "17/06 09:00", "17/06 10:00", "17/06 11:00", "17/06 12:00", "17/06 13:00", "17/06 14:00", "17/06 15:00", "17/06 16:00", "17/06 17:00", "17/06 18:00", "17/06 19:00", "17/06 20:00", "17/06 21:00", "17/06 22:00", "17/06 23:00", "18/06 00:00", "18/06 01:00", "18/06 07:00", "18/06 08:00", "18/06 09:00", "18/06 10:00", "18/06 11:00", "18/06 12:00", "18/06 13:00", "18/06 14:00", "18/06 15:00", "18/06 16:00", "18/06 17:00", "18/06 18:00", "18/06 19:00", "18/06 20:00", "18/06 21:00", "18/06 22:00", "18/06 23:00", "19/06 00:00", "19/06 01:00"], "data": [49.98065101804897, 52.28939450982622, 47.02951984679057, 49.46270918386653, 47.69323306605211, 55.176324500911534, 55.70131965470922, 59.29529553657883, 54.53086055889933, 53.8649982085288, 54.46380066179204, 55.70216991648824, 39.91907149805677, 36.23358453075824, 38.27913355015051, 40.34016499684864, 43.713725778121216, 43.18773085004722, 59.09105604375719, 54.69421642714087, 55.143518860274966, 48.42079767704167, 46.093246407180295, 44.26027336099744, 37.44496083675492, 37.44496083675492, 37.44496083675492, 37.44496083675492, 36.99425233482841, 36.52085265313016, 33.73172618449969, 26.761781223659995, 29.24768201306638, 30.099389406024827, 30.099389406024827, 31.061840773169536, 26.041900642609235, 40.403583477375264, 60.86419325322466, 58.004725384655465, 58.70122983953358, 60.12562991302492, 62.5592992435653, 59.22277430265319, 56.00599195194177, 51.95394144778632, 50.96127053784074, 48.468015393708185, 52.00805064257376, 52.5099538293445, 51.92514494277476, 53.59486738042062, 57.80363330931971, 64.6994393420907, 69.41009015773778, 64.14272585309874, 71.20303090978896, 65.42275627506169, 66.30645184564531, 60.228332032159486, 60.228332032159486, 58.53126379304403, 58.94651597012323, 57.099258116700106, 58.94657824061933, 58.271032493631296, 63.65396715415008, 67.75958242200471, 58.67519204387485, 59.51032571532322, 59.51032571532322, 65.21696058581033, 64.51748927133025, 67.85867294542462, 72.23799640498706, 64.16756628701887, 67.72689326395992, 71.59427852961227, 71.59427852961227, 68.8599863602449, 72.28026588182561, 73.5822682361032, 69.37142334729452, 70.28700522310338, 64.09670107180634, 64.83781499574593, 68.03536647091755, 70.886519343765, 70.88651934376499, 64.91716746187835, 57.14380961613749, 57.599451886324445, 52.21846719297029, 52.74669080166308, 50.92775164666442, 44.34097592892368, 38.52749869087749, 38.52749869087749, 40.61141825560483, 44.65263111529476], "patterns": [{"type": "W", "start_idx": 4, "mid_idx": 7, "end_idx": 9, "start_time": "2026-06-12 01:00", "end_time": "2026-06-12 11:00", "start_val": 47.69323306605211, "mid_val": 59.29529553657883, "end_val": 53.8649982085288}, {"type": "W", "start_idx": 13, "mid_idx": 16, "end_idx": 17, "start_time": "2026-06-12 15:00", "end_time": "2026-06-12 19:00", "start_val": 36.23358453075824, "mid_val": 43.713725778121216, "end_val": 43.18773085004722}, {"type": "W", "start_idx": 39, "mid_idx": 42, "end_idx": 47, "start_time": "2026-06-15 22:00", "end_time": "2026-06-16 11:00", "start_val": 58.004725384655465, "mid_val": 62.5592992435653, "end_val": 48.468015393708185}, {"type": "W", "start_idx": 57, "mid_idx": 58, "end_idx": 61, "start_time": "2026-06-16 21:00", "end_time": "2026-06-17 01:00", "start_val": 65.42275627506169, "mid_val": 66.30645184564531, "end_val": 58.53126379304403}, {"type": "W", "start_idx": 65, "mid_idx": 67, "end_idx": 68, "start_time": "2026-06-17 10:00", "end_time": "2026-06-17 13:00", "start_val": 58.271032493631296, "mid_val": 67.75958242200471, "end_val": 58.67519204387485}, {"type": "W", "start_idx": 68, "mid_idx": 71, "end_idx": 72, "start_time": "2026-06-17 13:00", "end_time": "2026-06-17 17:00", "start_val": 58.67519204387485, "mid_val": 65.21696058581033, "end_val": 64.51748927133025}, {"type": "W", "start_idx": 72, "mid_idx": 74, "end_idx": 75, "start_time": "2026-06-17 17:00", "end_time": "2026-06-17 20:00", "start_val": 64.51748927133025, "mid_val": 72.23799640498706, "end_val": 64.16756628701887}, {"type": "W", "start_idx": 84, "mid_idx": 87, "end_idx": 90, "start_time": "2026-06-18 10:00", "end_time": "2026-06-18 16:00", "start_val": 64.09670107180634, "mid_val": 70.886519343765, "end_val": 57.14380961613749}, {"type": "M", "start_idx": 3, "mid_idx": 4, "end_idx": 7, "start_time": "2026-06-12 00:00", "end_time": "2026-06-12 09:00", "start_val": 49.46270918386653, "mid_val": 47.69323306605211, "end_val": 59.29529553657883}, {"type": "M", "start_idx": 58, "mid_idx": 61, "end_idx": 62, "start_time": "2026-06-16 22:00", "end_time": "2026-06-17 07:00", "start_val": 66.30645184564531, "mid_val": 58.53126379304403, "end_val": 58.94651597012323}, {"type": "M", "start_idx": 64, "mid_idx": 65, "end_idx": 67, "start_time": "2026-06-17 09:00", "end_time": "2026-06-17 12:00", "start_val": 58.94657824061933, "mid_val": 58.271032493631296, "end_val": 67.75958242200471}, {"type": "M", "start_idx": 67, "mid_idx": 68, "end_idx": 71, "start_time": "2026-06-17 12:00", "end_time": "2026-06-17 16:00", "start_val": 67.75958242200471, "mid_val": 58.67519204387485, "end_val": 65.21696058581033}, {"type": "M", "start_idx": 71, "mid_idx": 72, "end_idx": 74, "start_time": "2026-06-17 16:00", "end_time": "2026-06-17 19:00", "start_val": 65.21696058581033, "mid_val": 64.51748927133025, "end_val": 72.23799640498706}, {"type": "M", "start_idx": 74, "mid_idx": 75, "end_idx": 81, "start_time": "2026-06-17 19:00", "end_time": "2026-06-18 07:00", "start_val": 72.23799640498706, "mid_val": 64.16756628701887, "end_val": 73.5822682361032}, {"type": "M", "start_idx": 83, "mid_idx": 84, "end_idx": 87, "start_time": "2026-06-18 09:00", "end_time": "2026-06-18 13:00", "start_val": 70.28700522310338, "mid_val": 64.09670107180634, "end_val": 70.886519343765}], "is_forming": null}, "zc": {"labels": ["11/06 21:00", "11/06 22:00", "11/06 23:00", "12/06 00:00", "12/06 01:00", "12/06 07:00", "12/06 08:00", "12/06 09:00", "12/06 10:00", "12/06 11:00", "12/06 12:00", "12/06 13:00", "12/06 14:00", "12/06 15:00", "12/06 16:00", "12/06 17:00", "12/06 18:00", "12/06 19:00", "12/06 20:00", "12/06 21:00", "12/06 22:00", "12/06 23:00", "13/06 00:00", "13/06 01:00", "15/06 07:00", "15/06 08:00", "15/06 09:00", "15/06 10:00", "15/06 11:00", "15/06 12:00", "15/06 13:00", "15/06 14:00", "15/06 15:00", "15/06 16:00", "15/06 17:00", "15/06 18:00", "15/06 19:00", "15/06 20:00", "15/06 21:00", "15/06 22:00", "15/06 23:00", "16/06 00:00", "16/06 01:00", "16/06 07:00", "16/06 08:00", "16/06 09:00", "16/06 10:00", "16/06 11:00", "16/06 12:00", "16/06 13:00", "16/06 14:00", "16/06 15:00", "16/06 16:00", "16/06 17:00", "16/06 18:00", "16/06 19:00", "16/06 20:00", "16/06 21:00", "16/06 22:00", "16/06 23:00", "17/06 00:00", "17/06 01:00", "17/06 07:00", "17/06 08:00", "17/06 09:00", "17/06 10:00", "17/06 11:00", "17/06 12:00", "17/06 13:00", "17/06 14:00", "17/06 15:00", "17/06 16:00", "17/06 17:00", "17/06 18:00", "17/06 19:00", "17/06 20:00", "17/06 21:00", "17/06 22:00", "17/06 23:00", "18/06 00:00", "18/06 01:00", "18/06 07:00", "18/06 08:00", "18/06 09:00", "18/06 10:00", "18/06 11:00", "18/06 12:00", "18/06 13:00", "18/06 14:00", "18/06 15:00", "18/06 16:00", "18/06 17:00", "18/06 18:00", "18/06 19:00", "18/06 20:00", "18/06 21:00", "18/06 22:00", "18/06 23:00", "19/06 00:00", "19/06 01:00"], "data": [39.29065660695519, 45.35083020929935, 29.49633843694004, 26.95890839082803, 26.46848659913306, 33.028602411479426, 29.61427590554584, 33.325598180219444, 31.534908448475733, 32.830528760122405, 37.893336420875976, 41.457338188900415, 36.896921532096925, 32.416664699269006, 30.69635182239844, 33.23995385703772, 33.23995385703772, 41.89629397356301, 55.95440063278664, 55.95440063278664, 56.71354505228624, 48.595601381788285, 46.98606612764705, 46.16278115922947, 38.834764332348186, 39.862833039969885, 38.47013836746729, 38.47013836746729, 39.69194491339995, 42.16548135738138, 37.97237877847384, 33.021444009881705, 35.604830188547155, 35.604830188547155, 35.60483018854717, 35.60483018854717, 31.517130652572234, 49.12832467868372, 64.55422840367416, 60.094185499642826, 57.526067570782885, 58.16780386677144, 58.83756489570748, 54.16770023858233, 54.16770023858233, 53.18851063100787, 52.17283388693775, 51.12153489687245, 53.15465457960372, 56.104131319437386, 53.67771149267477, 49.10367351516481, 53.38173086803654, 55.400314061915935, 58.315969227057934, 53.31159841876676, 69.04542123851309, 55.3494756472952, 53.816634693784906, 53.81663469378491, 55.25380764922623, 55.25380764922623, 53.3291328977221, 51.40093827352784, 51.40093827352784, 51.40093827352784, 53.500777695817625, 56.53451957555838, 48.57152932430121, 48.57152932430121, 47.46389307135493, 58.637624437015205, 56.29329312594069, 65.26616212198351, 68.19596811834424, 59.54201941282341, 62.12969098211392, 63.390511594526686, 62.27411954482755, 64.30509487573917, 68.55844168173725, 60.76128602974333, 62.71823554799974, 63.37395536130562, 58.91061429793872, 59.67523456056652, 61.22918018397012, 64.87355364569328, 62.34895835331821, 54.37336475001115, 48.63106938328309, 48.63106938328309, 46.72348963953688, 52.71575796457614, 46.1886312071964, 45.32523858413486, 43.571012467809496, 40.218388698857474, 39.40212311906125, 47.4432680894288], "patterns": [{"type": "W", "start_idx": 8, "mid_idx": 11, "end_idx": 14, "start_time": "2026-06-12 10:00", "end_time": "2026-06-12 16:00", "start_val": 31.534908448475733, "mid_val": 41.457338188900415, "end_val": 30.69635182239844}, {"type": "W", "start_idx": 14, "mid_idx": 20, "end_idx": 24, "start_time": "2026-06-12 16:00", "end_time": "2026-06-15 07:00", "start_val": 30.69635182239844, "mid_val": 56.71354505228624, "end_val": 38.834764332348186}, {"type": "W", "start_idx": 24, "mid_idx": 29, "end_idx": 31, "start_time": "2026-06-15 07:00", "end_time": "2026-06-15 14:00", "start_val": 38.834764332348186, "mid_val": 42.16548135738138, "end_val": 33.021444009881705}, {"type": "W", "start_idx": 40, "mid_idx": 42, "end_idx": 47, "start_time": "2026-06-15 23:00", "end_time": "2026-06-16 11:00", "start_val": 57.526067570782885, "mid_val": 58.83756489570748, "end_val": 51.12153489687245}, {"type": "W", "start_idx": 47, "mid_idx": 49, "end_idx": 51, "start_time": "2026-06-16 11:00", "end_time": "2026-06-16 15:00", "start_val": 51.12153489687245, "mid_val": 56.104131319437386, "end_val": 49.10367351516481}, {"type": "W", "start_idx": 51, "mid_idx": 54, "end_idx": 55, "start_time": "2026-06-16 15:00", "end_time": "2026-06-16 19:00", "start_val": 49.10367351516481, "mid_val": 58.315969227057934, "end_val": 53.31159841876676}, {"type": "W", "start_idx": 55, "mid_idx": 56, "end_idx": 58, "start_time": "2026-06-16 19:00", "end_time": "2026-06-16 22:00", "start_val": 53.31159841876676, "mid_val": 69.04542123851309, "end_val": 53.816634693784906}, {"type": "W", "start_idx": 58, "mid_idx": 67, "end_idx": 70, "start_time": "2026-06-16 22:00", "end_time": "2026-06-17 15:00", "start_val": 53.816634693784906, "mid_val": 56.53451957555838, "end_val": 47.46389307135493}, {"type": "W", "start_idx": 72, "mid_idx": 74, "end_idx": 75, "start_time": "2026-06-17 17:00", "end_time": "2026-06-17 20:00", "start_val": 56.29329312594069, "mid_val": 68.19596811834424, "end_val": 59.54201941282341}, {"type": "W", "start_idx": 78, "mid_idx": 80, "end_idx": 81, "start_time": "2026-06-17 23:00", "end_time": "2026-06-18 07:00", "start_val": 62.27411954482755, "mid_val": 68.55844168173725, "end_val": 60.76128602974333}, {"type": "M", "start_idx": 7, "mid_idx": 8, "end_idx": 11, "start_time": "2026-06-12 09:00", "end_time": "2026-06-12 13:00", "start_val": 33.325598180219444, "mid_val": 31.534908448475733, "end_val": 41.457338188900415}, {"type": "M", "start_idx": 38, "mid_idx": 40, "end_idx": 42, "start_time": "2026-06-15 21:00", "end_time": "2026-06-16 01:00", "start_val": 64.55422840367416, "mid_val": 57.526067570782885, "end_val": 58.83756489570748}, {"type": "M", "start_idx": 42, "mid_idx": 47, "end_idx": 49, "start_time": "2026-06-16 01:00", "end_time": "2026-06-16 13:00", "start_val": 58.83756489570748, "mid_val": 51.12153489687245, "end_val": 56.104131319437386}, {"type": "M", "start_idx": 49, "mid_idx": 51, "end_idx": 54, "start_time": "2026-06-16 13:00", "end_time": "2026-06-16 18:00", "start_val": 56.104131319437386, "mid_val": 49.10367351516481, "end_val": 58.315969227057934}, {"type": "M", "start_idx": 67, "mid_idx": 70, "end_idx": 71, "start_time": "2026-06-17 12:00", "end_time": "2026-06-17 16:00", "start_val": 56.53451957555838, "mid_val": 47.46389307135493, "end_val": 58.637624437015205}, {"type": "M", "start_idx": 71, "mid_idx": 72, "end_idx": 74, "start_time": "2026-06-17 16:00", "end_time": "2026-06-17 19:00", "start_val": 58.637624437015205, "mid_val": 56.29329312594069, "end_val": 68.19596811834424}, {"type": "M", "start_idx": 74, "mid_idx": 75, "end_idx": 77, "start_time": "2026-06-17 19:00", "end_time": "2026-06-17 22:00", "start_val": 68.19596811834424, "mid_val": 59.54201941282341, "end_val": 63.390511594526686}, {"type": "M", "start_idx": 77, "mid_idx": 78, "end_idx": 80, "start_time": "2026-06-17 22:00", "end_time": "2026-06-18 01:00", "start_val": 63.390511594526686, "mid_val": 62.27411954482755, "end_val": 68.55844168173725}, {"type": "M", "start_idx": 80, "mid_idx": 81, "end_idx": 83, "start_time": "2026-06-18 01:00", "end_time": "2026-06-18 09:00", "start_val": 68.55844168173725, "mid_val": 60.76128602974333, "end_val": 63.37395536130562}], "is_forming": null}, "zs": {"labels": ["11/06 21:00", "11/06 22:00", "11/06 23:00", "12/06 00:00", "12/06 01:00", "12/06 07:00", "12/06 08:00", "12/06 09:00", "12/06 10:00", "12/06 11:00", "12/06 12:00", "12/06 13:00", "12/06 14:00", "12/06 15:00", "12/06 16:00", "12/06 17:00", "12/06 18:00", "12/06 19:00", "12/06 20:00", "12/06 21:00", "12/06 22:00", "12/06 23:00", "13/06 00:00", "13/06 01:00", "15/06 07:00", "15/06 08:00", "15/06 09:00", "15/06 10:00", "15/06 11:00", "15/06 12:00", "15/06 13:00", "15/06 14:00", "15/06 15:00", "15/06 16:00", "15/06 17:00", "15/06 18:00", "15/06 19:00", "15/06 20:00", "15/06 21:00", "15/06 22:00", "15/06 23:00", "16/06 00:00", "16/06 01:00", "16/06 07:00", "16/06 08:00", "16/06 09:00", "16/06 10:00", "16/06 11:00", "16/06 12:00", "16/06 13:00", "16/06 14:00", "16/06 15:00", "16/06 16:00", "16/06 17:00", "16/06 18:00", "16/06 19:00", "16/06 20:00", "16/06 21:00", "16/06 22:00", "16/06 23:00", "17/06 00:00", "17/06 01:00", "17/06 07:00", "17/06 08:00", "17/06 09:00", "17/06 10:00", "17/06 11:00", "17/06 12:00", "17/06 13:00", "17/06 14:00", "17/06 15:00", "17/06 16:00", "17/06 17:00", "17/06 18:00", "17/06 19:00", "17/06 20:00", "17/06 21:00", "17/06 22:00", "17/06 23:00", "18/06 00:00", "18/06 01:00", "18/06 07:00", "18/06 08:00", "18/06 09:00", "18/06 10:00", "18/06 11:00", "18/06 12:00", "18/06 13:00", "18/06 14:00", "18/06 15:00", "18/06 16:00", "18/06 17:00", "18/06 18:00", "18/06 19:00", "18/06 20:00", "18/06 21:00", "18/06 22:00", "18/06 23:00", "19/06 00:00", "19/06 01:00"], "data": [43.81849569655896, 41.33715026526757, 33.64329174509717, 31.93626173234368, 41.52229502902632, 40.00536326518614, 38.01137893896169, 41.16923755689978, 38.52717800493693, 37.49075129540837, 41.71231090971575, 51.57397459445176, 42.23055754162886, 37.4968795925528, 40.74802735881087, 40.74802735881087, 44.74779907031181, 44.21211697068185, 52.741674507869625, 47.69338843614116, 49.43094251728176, 44.164487626924966, 43.17376054512148, 44.51420051642505, 42.88027607971262, 49.53035864671472, 47.1649561673283, 48.48955261077867, 49.175653533153046, 51.27252831720577, 43.53527734204155, 37.44929991183106, 37.44929991183106, 38.2831365789469, 36.7024358959753, 35.64575614728234, 26.89122238228433, 33.58325646159163, 56.2335532620575, 52.989981435210936, 54.98717831520394, 53.998942954976805, 57.6844413863159, 52.63816180755133, 50.27018321167452, 46.653844029445466, 47.667418216460895, 44.48184267122296, 44.02916056539495, 46.93691509089352, 43.52755471731191, 39.15230953183885, 45.62673061023485, 44.69553068062504, 45.29669313975429, 44.26044893052831, 74.74639781501523, 64.64456405599842, 64.64456405599842, 63.87443583002018, 65.84625274288462, 65.4189871324736, 68.69985791288524, 70.31733351985434, 71.12091433093511, 69.10613298967652, 70.45803707409729, 73.19498450187604, 64.3106690486406, 60.36532502591737, 60.65415542260022, 64.29669326490657, 63.80734594741496, 66.5490566484256, 67.34818126748107, 59.22222843631184, 56.91132485433344, 58.97984750369687, 56.08054171234815, 53.7110381720828, 56.10766165087742, 51.77717538022644, 50.38129797530552, 53.10435132127656, 49.225324704447566, 49.225324704447566, 52.25864336896021, 56.88205315987772, 54.60413639957201, 45.72940300978362, 37.97484194602548, 37.32566274007067, 36.322614839295255, 42.929141964176665, 45.948735897518326, 41.24813734098686, 40.872889353397184, 42.56109791424609, 40.486276548288224, 42.30368238543221], "patterns": [{"type": "W", "start_idx": 3, "mid_idx": 4, "end_idx": 6, "start_time": "2026-06-12 00:00", "end_time": "2026-06-12 08:00", "start_val": 31.93626173234368, "mid_val": 41.52229502902632, "end_val": 38.01137893896169}, {"type": "W", "start_idx": 9, "mid_idx": 11, "end_idx": 13, "start_time": "2026-06-12 11:00", "end_time": "2026-06-12 15:00", "start_val": 37.49075129540837, "mid_val": 51.57397459445176, "end_val": 37.4968795925528}, {"type": "W", "start_idx": 13, "mid_idx": 16, "end_idx": 17, "start_time": "2026-06-12 15:00", "end_time": "2026-06-12 19:00", "start_val": 37.4968795925528, "mid_val": 44.74779907031181, "end_val": 44.21211697068185}, {"type": "W", "start_idx": 19, "mid_idx": 20, "end_idx": 22, "start_time": "2026-06-12 21:00", "end_time": "2026-06-13 00:00", "start_val": 47.69338843614116, "mid_val": 49.43094251728176, "end_val": 43.17376054512148}, {"type": "W", "start_idx": 41, "mid_idx": 42, "end_idx": 45, "start_time": "2026-06-16 00:00", "end_time": "2026-06-16 09:00", "start_val": 53.998942954976805, "mid_val": 57.6844413863159, "end_val": 46.653844029445466}, {"type": "W", "start_idx": 48, "mid_idx": 49, "end_idx": 51, "start_time": "2026-06-16 12:00", "end_time": "2026-06-16 15:00", "start_val": 44.02916056539495, "mid_val": 46.93691509089352, "end_val": 39.15230953183885}, {"type": "W", "start_idx": 65, "mid_idx": 67, "end_idx": 69, "start_time": "2026-06-17 10:00", "end_time": "2026-06-17 14:00", "start_val": 69.10613298967652, "mid_val": 73.19498450187604, "end_val": 60.36532502591737}, {"type": "W", "start_idx": 72, "mid_idx": 74, "end_idx": 76, "start_time": "2026-06-17 17:00", "end_time": "2026-06-17 21:00", "start_val": 63.80734594741496, "mid_val": 67.34818126748107, "end_val": 56.91132485433344}, {"type": "W", "start_idx": 92, "mid_idx": 94, "end_idx": 96, "start_time": "2026-06-18 18:00", "end_time": "2026-06-18 22:00", "start_val": 36.322614839295255, "mid_val": 45.948735897518326, "end_val": 40.872889353397184}, {"type": "M", "start_idx": 11, "mid_idx": 13, "end_idx": 16, "start_time": "2026-06-12 13:00", "end_time": "2026-06-12 18:00", "start_val": 51.57397459445176, "mid_val": 37.4968795925528, "end_val": 44.74779907031181}, {"type": "M", "start_idx": 20, "mid_idx": 22, "end_idx": 23, "start_time": "2026-06-12 22:00", "end_time": "2026-06-13 01:00", "start_val": 49.43094251728176, "mid_val": 43.17376054512148, "end_val": 44.51420051642505}, {"type": "M", "start_idx": 49, "mid_idx": 51, "end_idx": 52, "start_time": "2026-06-16 13:00", "end_time": "2026-06-16 16:00", "start_val": 46.93691509089352, "mid_val": 39.15230953183885, "end_val": 45.62673061023485}, {"type": "M", "start_idx": 56, "mid_idx": 59, "end_idx": 60, "start_time": "2026-06-16 20:00", "end_time": "2026-06-17 00:00", "start_val": 74.74639781501523, "mid_val": 63.87443583002018, "end_val": 65.84625274288462}, {"type": "M", "start_idx": 67, "mid_idx": 69, "end_idx": 71, "start_time": "2026-06-17 12:00", "end_time": "2026-06-17 16:00", "start_val": 73.19498450187604, "mid_val": 60.36532502591737, "end_val": 64.29669326490657}, {"type": "M", "start_idx": 74, "mid_idx": 76, "end_idx": 77, "start_time": "2026-06-17 19:00", "end_time": "2026-06-17 22:00", "start_val": 67.34818126748107, "mid_val": 56.91132485433344, "end_val": 58.97984750369687}], "is_forming": "W"}}};
+</script>
+
+<!-- APP LOGIC -->
+<script>
+function computeAge(dateStr) {
+  // Try to parse 'YYYY-MM-DD' or 'YYYY-MM-DD HH:MM:SS'
+  if (!dateStr) return 999;
+  var parts = dateStr.split(' ');
+  var dParts = parts[0].split('-');
+  if (dParts.length !== 3) return 999; // fallback
+  var dt = new Date(parseInt(dParts[0]), parseInt(dParts[1])-1, parseInt(dParts[2]));
+  var now = new Date();
+  var diffTime = Math.abs(now - dt);
+  return Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+}
+
+function getStatusHTML(ageInDays) {
+  if (ageInDays <= 3) return '<span class="status-dot status-green" title="Cập nhật gần đây (≤ 3 ngày)"></span>';
+  if (ageInDays <= 7) return '<span class="status-dot status-yellow" title="Cảnh báo: Dữ liệu đã '+ageInDays+' ngày tuổi"></span>';
+  return '<span class="status-dot status-red" title="Nguy hiểm: Dữ liệu quá cũ (> 7 ngày)"></span>';
+}
+
+function showTab(tid, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nbtn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-'+tid).classList.add('active');
+  if(el) el.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function runScan() {
+    var btn = document.getElementById('scan-btn');
+    btn.innerHTML = '⏳ Đang quét... (Chờ 30s)';
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.7';
+
+    fetch('/run-scan', { method: 'POST' })
+    .then(r => r.json())
+    .then(data => {
+        if (data.status === 'success') {
+            location.reload(); 
+        } else {
+            alert("Lỗi khi quét: " + data.message);
+            btn.innerHTML = '🔄 SCAN DATA';
+            btn.style.pointerEvents = 'auto';
+            btn.style.opacity = '1';
+        }
+    })
+    .catch(e => {
+        alert("Lỗi kết nối! Vui lòng đảm bảo bạn đang mở Web qua Local Server (START DASHBOARD.bat), không phải mở trực tiếp file HTML tĩnh.");
+        btn.innerHTML = '🔄 SCAN DATA';
+        btn.style.pointerEvents = 'auto';
+        btn.style.opacity = '1';
+    });
+}
+var chartInst = {};
+
+  function buildRSIChart(cid, rdata, lc) {
+    if(!rdata || !rdata.data || rdata.data.length === 0) return;
+    var ctx = document.getElementById(cid);
+    if(!ctx) return;
+    
+    // Check if is_forming
+    var alertBox = document.getElementById('rsi-alert-'+lc);
+    if(rdata.is_forming === 'W') {
+        alertBox.innerHTML = '🟢 TÍN HIỆU ĐẢO CHIỀU: RSI đang hình thành Đáy chữ W - Canh bắt đáy LONG!';
+        alertBox.className = 'flashing-green';
+        alertBox.style.display = 'block';
+    } else if(rdata.is_forming === 'M') {
+        alertBox.innerHTML = '🔴 TÍN HIỆU ĐẢO CHIỀU: RSI đang hình thành Đỉnh chữ M - Cẩn trọng, canh SHORT!';
+        alertBox.className = 'flashing-red';
+        alertBox.style.display = 'block';
+    }
+    
+    var annotations = {
+        line70: {
+            type: 'line',
+            yMin: 70, yMax: 70,
+            borderColor: 'rgba(255, 71, 87, 0.4)',
+            borderWidth: 1, borderDash: [5, 5]
+        },
+        line30: {
+            type: 'line',
+            yMin: 30, yMax: 30,
+            borderColor: 'rgba(0, 232, 138, 0.4)',
+            borderWidth: 1, borderDash: [5, 5]
+        }
+    };
+    
+    var annId = 1;
+    if(rdata.patterns && rdata.patterns.length > 0) {
+        rdata.patterns.forEach(function(p) {
+            var color = p.type === 'W' ? 'rgba(0, 232, 138, 1)' : 'rgba(255, 71, 87, 1)';
+            var bgColor = p.type === 'W' ? 'rgba(0, 232, 138, 0.1)' : 'rgba(255, 71, 87, 0.1)';
+            
+            // Highlight Box
+            annotations['box'+annId] = {
+                type: 'box',
+                xMin: p.start_idx,
+                xMax: p.end_idx,
+                yMin: 0, yMax: 100,
+                backgroundColor: bgColor,
+                borderWidth: 0,
+                label: {
+                    display: true,
+                    content: p.type + ' (' + p.start_time.split(' ')[0] + '->' + p.end_time.split(' ')[0] + ')',
+                    position: 'top',
+                    color: color,
+                    font: { size: 10, weight: 'bold' }
+                }
+            };
+            
+            // Draw Structural Lines if we have the values
+            if (p.start_val && p.mid_val && p.end_val) {
+                annotations['line1_'+annId] = {
+                    type: 'line',
+                    xMin: p.start_idx, xMax: p.mid_idx,
+                    yMin: p.start_val, yMax: p.mid_val,
+                    borderColor: color, borderWidth: 3
+                };
+                annotations['line2_'+annId] = {
+                    type: 'line',
+                    xMin: p.mid_idx, xMax: p.end_idx,
+                    yMin: p.mid_val, yMax: p.end_val,
+                    borderColor: color, borderWidth: 3
+                };
+            }
+            
+            annId++;
+        });
+    }
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: rdata.labels,
+        datasets: [{
+            label: 'RSI (H1)',
+            data: rdata.data,
+            borderColor: 'rgba(56, 173, 255, 0.7)',
+            backgroundColor: 'rgba(56, 173, 255, 0.1)',
+            borderWidth: 2,
+            pointRadius: 2,
+            pointBackgroundColor: 'rgba(56, 173, 255, 1)',
+            pointHoverRadius: 5,
+            tension: 0.3,
+            fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: 'RSI H1 (Actual Real Data)', color: '#aab2bd' },
+          annotation: { annotations: annotations }
+        },
+        scales: {
+          x: { display: false }, // hide x axis to save space, user just wants the shape
+          y: { 
+              min: 0, max: 100, 
+              grid: { color: 'rgba(255,255,255,0.05)' },
+              ticks: { color: '#888', stepSize: 30 }
+          }
+        }
+      }
+    });
+  }
+
+  function buildChart(cid, candles, actualData, highs, lows, cols, opens, closes, labels) {
+  var ctx = document.getElementById(cid);
+  if(!ctx) return;
+  if(chartInst[cid]) { chartInst[cid].destroy(); }
+  var actPrices = labels.map(function(lbl) {
+    var found = (actualData||[]).find(function(a){return a.label === lbl;});
+    return found ? found.price : null;
+  });
+  var wickPlugin = {id:'wick',afterDatasetsDraw:function(chart){
+    var c2=chart.ctx;
+    chart.getDatasetMeta(0).data.forEach(function(bar,i){
+      c2.save(); c2.strokeStyle=cols[i]; c2.lineWidth=1.5; c2.beginPath();
+      c2.moveTo(bar.x, chart.scales.y.getPixelForValue(highs[i]));
+      c2.lineTo(bar.x, chart.scales.y.getPixelForValue(lows[i]));
+      c2.stroke();
+      
+      c2.fillStyle = 'rgba(255,255,255,0.6)';
+      c2.font = '9px "JetBrains Mono", Arial';
+      c2.textAlign = 'center';
+      c2.fillText(highs[i].toFixed(1), bar.x, chart.scales.y.getPixelForValue(highs[i]) - 4);
+      c2.fillText(lows[i].toFixed(1), bar.x, chart.scales.y.getPixelForValue(lows[i]) + 10);
+      
+      c2.textAlign = 'left';
+      c2.fillText(closes[i].toFixed(1), bar.x + 5, chart.scales.y.getPixelForValue(closes[i]) + 3);
+      
+      c2.restore();
+    });
+  }};
+  var pad = (Math.max.apply(null,highs)-Math.min.apply(null,lows))*0.12;
+  chartInst[cid] = new Chart(ctx, {
+    type:'bar',
+    data:{labels:labels,datasets:[
+      {data:closes.map(function(c,i){return [opens[i],c];}),backgroundColor:cols,borderColor:cols,borderWidth:1,borderRadius:2,barPercentage:0.5},
+      {type:'line',data:actPrices,borderColor:'rgba(255,211,42,.8)',borderWidth:1.5,borderDash:[4,3],pointRadius:4,pointBackgroundColor:'rgba(255,211,42,1)',fill:false,tension:0.3,label:'Thực tế'}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{
+        title:function(items){return labels[items[0].dataIndex];},
+        label:function(item){
+          if(item.datasetIndex===0){var i=item.dataIndex;var chg=closes[i]-opens[i];return ['O:'+opens[i].toFixed(2)+' H:'+highs[i].toFixed(2)+' L:'+lows[i].toFixed(2)+' C:'+closes[i].toFixed(2),(chg>=0?'+':'')+chg.toFixed(2)+'¢'];}
+          return item.raw!==null?'Thực tế: '+item.raw.toFixed(2):null;
+        }
+      },backgroundColor:'rgba(8,11,18,.95)',borderColor:'rgba(99,130,255,.3)',borderWidth:1,titleColor:'#e8ecf8',bodyColor:'#8892b0',padding:10}},
+      scales:{x:{grid:{color:'rgba(255,255,255,.03)'},ticks:{color:'#5a6480',font:{size:11}}},
+        y:{min:Math.min.apply(null,lows)-pad,max:Math.max.apply(null,highs)+pad,grid:{color:'rgba(255,255,255,.03)'},ticks:{color:'#5a6480',font:{size:11},callback:function(v){return v.toFixed(2);}}}}
+    },plugins:[wickPlugin]
+  });
+}
+
+function initApp() {
+  if (!window.APP_DATA) {
+    document.body.innerHTML = "<h2 style='padding:50px'>Lỗi: Không tìm thấy dữ liệu (window.APP_DATA missing).</h2>";
+    return;
+  }
+  
+  var D = window.APP_DATA;
+  var now = new Date();
+  document.getElementById('ntime').textContent = 'Cập nhật: '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0')+' ICT';
+
+  // 1. Calculate Ages and Generate Dots
+  var ageMacro = computeAge(D.macro.timestamp ? D.macro.timestamp.split(' ')[0] : '2000-01-01');
+  var ageFund = computeAge(D.fundamentals.last_updated_fundamentals || '2000-01-01');
+  var ageWeath = computeAge(D.fundamentals.last_updated_weather || '2000-01-01');
+  var ageCot = computeAge(D.fundamentals.last_updated_cot ? D.fundamentals.last_updated_cot.split(' ')[0] : '2000-01-01');
+
+  var statMacro = getStatusHTML(ageMacro);
+  var statFund = getStatusHTML(ageFund);
+  var statWeath = getStatusHTML(ageWeath);
+  var statCot = getStatusHTML(ageCot);
+
+  // 2. Populate Overview Macro
+  document.getElementById('macro-status-ov').innerHTML = statMacro;
+  document.getElementById('weather-status-ov').innerHTML = statWeath;
+
+  if (D.macro.brent) {
+    var b = D.macro.brent;
+    document.getElementById('brent-v').textContent = '$'+b.price.toFixed(2);
+    document.getElementById('brent-v').className = 'mv ' + (b.pct>=0?'up':'down');
+    document.getElementById('brent-c').textContent = (b.pct>=0?'+':'')+b.pct.toFixed(2)+'%';
+    document.getElementById('brent-c').className = 'mc ' + (b.pct>=0?'up':'down');
+  }
+  if (D.macro.dxy) {
+    var d = D.macro.dxy;
+    document.getElementById('dxy-v').textContent = d.price.toFixed(2);
+    document.getElementById('dxy-v').className = 'mv ' + (d.pct>=0?'down':'up'); // strong dxy = bad
+    document.getElementById('dxy-c').textContent = (d.pct>=0?'+':'')+d.pct.toFixed(2)+'%';
+    document.getElementById('dxy-c').className = 'mc ' + (d.pct>=0?'neu':'neu');
+  }
+
+  // 3. Build Commodities HTML dynamically
+  var container = document.getElementById('commodities-container');
+  var overviewCards = '';
+  var ovTbody = '';
+  
+  var codes = ['ZC', 'ZW', 'ZS'];
+  var config = {
+    ZC: { color: 'var(--zc)', emoji: '🌽', name: 'NGÔ', desc: 'Chicago Board of Trade | CBOT Corn Futures' },
+    ZW: { color: 'var(--zw)', emoji: '🌾', name: 'LÚA MÌ', desc: 'Chicago Board of Trade | CBOT Wheat Futures' },
+    ZS: { color: 'var(--zs)', emoji: '🌱', name: 'ĐẬU TƯƠNG', desc: 'Chicago Board of Trade | CBOT Soybean Futures' }
+  };
+
+  codes.forEach(function(code, idx) {
+    var fc = D.future_chart[code] || {};
+    var meta = fc.meta || {};
+    var fund = D.fundamentals[code] || {};
+    var cot = (D.cot && D.cot.commodities) ? (D.cot.commodities[code === 'ZC' ? '002602' : code === 'ZW' ? '001602' : '005602'] || {}) : {};
+    var cfg = config[code];
+    var lc = code.toLowerCase();
+    var bias = meta.composite_bias || 0;
+    
+    // Overview Card
+    var dir = bias>1?'bull':bias<-1?'bear':'neu';
+    var lbl = bias>1?('🚀 Bullish (+'+(bias).toFixed(2)+')'): bias<-1?('🔻 Bearish ('+(bias).toFixed(2)+')'): ('↕️ Neutral ('+(bias>=0?'+':'')+bias.toFixed(2)+')');
+    
+    overviewCards += `
+      <div class="hcard ${lc}" onclick="showTab('${lc}',document.querySelectorAll('.nbtn')[${idx+1}])">
+        <div class="htag">${cfg.name} — ${cfg.desc.split('|')[1].trim().toUpperCase()}</div>
+        <div class="hemoji">${cfg.emoji}</div>
+        <div class="hcode" style="color:${cfg.color}">${code}</div>
+        <div class="hname">${meta.contract || ''}</div>
+        <div class="hprice" style="color:${cfg.color}">${(meta.anchor_price||0).toFixed(2)} ¢</div>
+        <div class="hbias ${dir}">${lbl}</div>
+        <div class="hap">${meta.action_plan || ''}</div>
+        <div class="hcta">Xem hồ sơ →</div>
+      </div>
+    `;
+
+    // Overview Table Rows
+    var daily = fc.daily_summary || {};
+    var prev = null;
+    Object.keys(daily).forEach(function(day) {
+      var d = daily[day];
+      var chg = prev !== null ? d.close - prev : d.close - d.open;
+      var cc = chg >= 0 ? 'tbu' : 'tbe';
+      ovTbody += '<tr><td><span style="color:'+cfg.color+';font-weight:700">'+cfg.emoji+' '+code+'</span></td><td class="tlbl">'+day+'</td><td>'+d.open.toFixed(2)+'</td><td class="tbu">'+d.high.toFixed(2)+'</td><td class="tbe">'+d.low.toFixed(2)+'</td><td class="'+cc+'" style="font-weight:700">'+d.close.toFixed(2)+'</td><td class="'+cc+'">'+(chg>=0?'+':'')+chg.toFixed(2)+'¢</td><td class="tscen">'+(d.scenario||'')+'</td><td class="tscen" style="color:var(--t3);font-size:11px">'+(d.logic||'')+'</td></tr>';
+      prev = d.close;
+    });
+    ovTbody += '<tr><td colspan="9" style="height:6px;border:none"></td></tr>';
+
+    // COT Formatting
+    var cotClass = 'q2', cotNet = '0', cotChg = '0', cotLogic = 'Chưa có data';
+    if (cot && cot.net_position !== undefined) {
+      cotNet = cot.net_position > 0 ? '+' + cot.net_position.toLocaleString() : cot.net_position.toLocaleString();
+      cotChg = cot.change > 0 ? '+' + cot.change.toLocaleString() : cot.change.toLocaleString();
+      cotClass = cot.quadrant && cot.quadrant.includes('Q1') ? 'q1' : cot.quadrant && cot.quadrant.includes('Q2') ? 'q2' : cot.quadrant && cot.quadrant.includes('Q3') ? 'q3' : 'q4';
+      cotLogic = cot.action || 'Data CFTC';
+    }
+
+    // USDA formatting
+    var usdaHTML = '';
+    if (fund.us_ending_stocks) usdaHTML += `<div class="sr"><span class="sl">Tồn kho Mỹ</span><span class="sv">${fund.us_ending_stocks.current||'N/A'}</span></div>`;
+    if (fund.global_ending_stocks) usdaHTML += `<div class="sr"><span class="sl">Tồn kho TG</span><span class="sv">${fund.global_ending_stocks.current||'N/A'}</span></div>`;
+    if (fund.us_planting) usdaHTML += `<div class="sr"><span class="sl">Gieo trồng US</span><span class="sv">${fund.us_planting.latest||'N/A'}</span></div>`;
+    if (fund.harvest_progress) usdaHTML += `<div class="sr"><span class="sl">Thu hoạch US</span><span class="sv">${fund.harvest_progress.latest||'N/A'}</span></div>`;
+    if (fund.crop_condition) usdaHTML += `<div class="sr"><span class="sl">Chất lượng G/E</span><span class="sv">${fund.crop_condition.latest||'N/A'}</span></div>`;
+    if (fund.exports) usdaHTML += `<div class="sr"><span class="sl">Xuất khẩu</span><span class="sv">${fund.exports.latest||'N/A'}</span></div>`;
+    if (fund.competitors) usdaHTML += `<div style="padding:6px 0; border-bottom:1px solid rgba(255,255,255,.04);"><div class="sl" style="margin-bottom:4px;">Cạnh tranh</div><div class="sv" style="font-family:'Inter',sans-serif;font-size:12px;line-height:1.4;color:var(--t1)">${fund.competitors.latest||'N/A'}</div></div>`;
+
+    // Weather formatting
+    var weatherHTML = '';
+    if (fund.weather_long_term) weatherHTML += `<div class="sr"><span class="sl">ENSO</span><span class="sv" style="color:var(--cyan)">${fund.weather_long_term.forecast||'N/A'}</span></div>`;
+    if (fund.short_term_weather) weatherHTML += `<div style="padding:6px 0; border-bottom:1px solid rgba(255,255,255,.04);"><div class="sl" style="margin-bottom:4px;">Thời tiết US</div><div class="sv" style="font-family:'Inter',sans-serif;font-size:12px;line-height:1.4;color:var(--t1)">${fund.short_term_weather||'N/A'}</div></div>`;
+    if (fund.competitor_weather) {
+      if(fund.competitor_weather.brazil) weatherHTML += `<div class="sr"><span class="sl">Brazil</span><span class="sv">${fund.competitor_weather.brazil}</span></div>`;
+      if(fund.competitor_weather.argentina) weatherHTML += `<div class="sr"><span class="sl">Argentina</span><span class="sv">${fund.competitor_weather.argentina}</span></div>`;
+      if(fund.competitor_weather.australia) weatherHTML += `<div class="sr"><span class="sl">Australia</span><span class="sv">${fund.competitor_weather.australia}</span></div>`;
+      if(fund.competitor_weather.china) weatherHTML += `<div class="sr"><span class="sl">China</span><span class="sv">${fund.competitor_weather.china}</span></div>`;
+    }
+
+    // Chart HTML building pieces
+    var bbHTML = '';
+    var scores = meta.detailed_scores || {};
+    Object.keys(scores).forEach(function(k) {
+      var v = scores[k];
+      bbHTML += '<span class="bb '+(v>=0?'pos':'neg')+'">'+k+': '+(v>=0?'+':'')+v.toFixed(1)+'</span>';
+    });
+
+    var eventsHTML = '';
+    var events = meta.key_events || {};
+    Object.keys(events).forEach(function(day) {
+      var desc = events[day];
+      var high = desc.indexOf('QUAN TRỌNG')>=0 || desc.indexOf('BIẾN ĐỘNG CAO')>=0;
+      eventsHTML += '<div class="evrow"><span class="evday">'+day+'</span><span class="evdesc">'+desc.replace(' - QUAN TRỌNG','').replace(' - BIẾN ĐỘNG CAO','').replace(' - TRUNG BÌNH','')+'</span><span>'+(high?'🔴':'🟡')+'</span></div>';
+    });
+
+    var ctbHTML = '';
+    (fc.candles_4h || []).forEach(function(c) {
+      var chg = c.net_change !== undefined ? c.net_change : (c.close - c.open);
+      var cc = chg >= 0 ? 'tbu' : 'tbe';
+      var bg = chg >= 0 ? 'rgba(0,232,138,.03)' : 'rgba(255,71,87,.03)';
+      ctbHTML += '<tr style="background:'+bg+'"><td class="ctday">'+c.day+'</td><td class="ctsess">'+c.session+'</td><td>'+c.open.toFixed(2)+'</td><td class="tbu">'+c.high.toFixed(2)+'</td><td class="tbe">'+c.low.toFixed(2)+'</td><td class="'+cc+'" style="font-weight:700">'+c.close.toFixed(2)+'</td><td class="'+cc+'">'+(chg>=0?'+':'')+chg.toFixed(2)+'</td><td>'+(c.bias||'')+'</td><td class="ctscen">'+(c.scenario||'')+(c.logic?'<br><span style="color:var(--t3);font-size:10px">'+c.logic+'</span>':'')+'</td></tr>';
+    });
+
+    var slistHTML = '';
+    Object.keys(daily).forEach(function(day) {
+      var d = daily[day];
+      var chg = d.close - d.open;
+      var cc = chg >= 0 ? 'tbu' : 'tbe';
+      slistHTML += '<div class="srow"><div class="sday">'+day+'</div><div class="scont"><div class="sscen">'+(d.scenario||'')+' — <span class="'+cc+'">'+(chg>=0?'+':'')+chg.toFixed(2)+'¢ ('+d.open.toFixed(2)+'→'+d.close.toFixed(2)+')</span></div><div class="slogic">'+(d.logic||'')+'</div></div></div>';
+    });
+
+    var wf = fc.week_forecast || {open:0,high:0,low:0,close:0,net_change:0};
+    var wcc = wf.net_change >= 0 ? 'tbu' : 'tbe';
+    var lv = meta.key_levels || {};
+
+    var tabHTML = `
+<div class="tab" id="tab-${lc}">
+  <div class="comh">
+    <div class="comglow" style="background:${cfg.color}"></div>
+    <div class="comemoji">${cfg.emoji}</div>
+    <div class="cominfo">
+      <div class="comcode" style="color:${cfg.color}">${code} — ${cfg.name}</div>
+      <div class="comname">${cfg.desc}</div>
+      <div class="comcontract">${meta.contract || ''}</div>
+      <div class="tpills">
+        <div class="tp bull"><span class="tf">DÀI HẠN</span>🐂 Tăng</div>
+        <div class="tp neu"><span class="tf">TRUNG HẠN</span>↕️ Biên độ</div>
+        <div class="tp bear"><span class="tf">NGẮN HẠN</span>🐻 Giảm</div>
+      </div>
+    </div>
+    <div class="comright">
+      <div class="comanchorlbl">GIÁ ANCHOR</div>
+      <div class="comanchor" style="color:${cfg.color}">${(meta.anchor_price||0).toFixed(2)} ¢</div>
+      <div class="cotb ${cotClass}">${cot.quadrant||'N/A'} — ${cot.action||''}</div>
+      <div class="comaction">${meta.action_plan||''}</div>
+    </div>
+  </div>
+  <div class="cgrid">
+    <div>
+      <div class="cpanel">
+        <div class="chdr">
+          <div><div class="ctitle2">🤖 Future Chart AI — ${code} ${cfg.name}</div><div class="brow">${bbHTML}</div></div>
+          <div class="cbias" style="color:${bias>0?'var(--bull)':bias<0?'var(--bear)':'var(--yellow)'}">${bias>=0?'+':''}${bias.toFixed(2)}</div>
+        </div>
+        
+        <div class="cwrap"><canvas id="chart-${lc}"></canvas></div>
+        
+        <div id="rsi-alert-${lc}" class="flashing-red" style="display: none; text-align: center; margin-top: 10px; padding: 5px; border-radius: 4px; background: rgba(255, 71, 87, 0.1);"></div>
+        <div class="cwrap" style="height: 180px; margin-top: 10px;"><canvas id="rsi-chart-${lc}"></canvas></div>
+
+        <div class="sh" style="margin-top:14px">Sự kiện trong tuần</div>
+        <div class="evlist">${eventsHTML}</div>
+      </div>
+      <div class="sh" style="margin-top:18px">Chi Tiết Nến 4H Từng Phiên — ${code}</div>
+      <div class="card" style="padding:0;overflow:hidden"><div class="ctbwrap" style="margin:0;border:none;padding:0">
+        <table class="ctb"><thead><tr><th>Ngày</th><th>Phiên</th><th>Mở</th><th>Cao</th><th>Thấp</th><th>Đóng</th><th>±</th><th>Bias</th><th style="text-align:left">Kịch bản &amp; Logic</th></tr></thead>
+        <tbody>${ctbHTML}</tbody></table>
+      </div></div>
+      <div class="sh" style="margin-top:18px">Kịch Bản Theo Ngày — ${code}</div>
+      <div class="slist">${slistHTML}</div>
+      <div class="sh" style="margin-top:18px">Tổng Kết Tuần — ${code}</div>
+      <div class="card"><div class="wbox">
+        <div class="wi"><div class="wl">Mở Tuần</div><div class="wv">${wf.open.toFixed(2)}</div></div>
+        <div class="wi"><div class="wl">Cao Tuần</div><div class="wv tbu">${wf.high.toFixed(2)}</div></div>
+        <div class="wi"><div class="wl">Thấp Tuần</div><div class="wv tbe">${wf.low.toFixed(2)}</div></div>
+        <div class="wi"><div class="wl">Đóng Tuần</div><div class="wv ${wcc}">${wf.close.toFixed(2)}</div></div>
+        <div class="wi"><div class="wl">Thay Đổi</div><div class="wv ${wcc}">${wf.net_change>=0?'+':''}${wf.net_change.toFixed(2)}¢</div></div>
+      </div></div>
+    </div>
+    <div class="cright">
+      <div class="card"><div class="ctitle">B. Vĩ Mô ${statMacro}</div>
+        <div class="mmini">
+          <div class="mmc"><div class="mml">Dầu Brent</div><div class="mmv ${(D.macro.brent.pct>=0?'up':'down')}">$${D.macro.brent.price.toFixed(2)}</div><div class="mmi">Tác động: ${code==='ZC'?'Biên lợi nhuận Ethanol':code==='ZS'?'Nhu cầu Biodiesel':'Premium địa chính trị'}</div></div>
+          <div class="mmc"><div class="mml">DXY Index</div><div class="mmv ${(D.macro.dxy.pct>=0?'down':'up')}">${D.macro.dxy.price.toFixed(2)}</div><div class="mmi">Tác động: Cạnh tranh xuất khẩu toàn cầu</div></div>
+        </div>
+        <div class="sr"><span class="sl">Vị thế ròng (Long trừ Short)</span><span class="sv">${cotNet}</span></div>
+        <div class="sr"><span class="sl">Thay đổi tuần qua</span><span class="sv">${cotChg}</span></div>
+        <div style="font-size:11px;color:var(--t2);margin-top:8px;line-height:1.5">${cotLogic}</div>
+      </div>
+      <div class="card"><div class="ctitle">C. Kỹ Thuật H1/M15</div>
+        <div class="lgrid">
+          <div class="lchip"><div class="ll">S2</div><div class="lv ls">${(lv.s2||lv.support_ob||0).toFixed(2)}</div></div>
+          <div class="lchip"><div class="ll">S1</div><div class="lv ls">${(lv.s1||lv.ote_low||0).toFixed(2)}</div></div>
+          <div class="lchip"><div class="ll">EMA 21</div><div class="lv le">${(lv.ema21||0).toFixed(2)}</div></div>
+          <div class="lchip"><div class="ll">EMA 50</div><div class="lv le">${(lv.ema50||0).toFixed(2)}</div></div>
+          <div class="lchip"><div class="ll">R1</div><div class="lv lr">${(lv.r1||lv.mss_trigger||0).toFixed(2)}</div></div>
+          <div class="lchip"><div class="ll">R2</div><div class="lv lr">${(lv.r2||lv.week_target||0).toFixed(2)}</div></div>
+        </div>
+      </div>
+      <div class="card"><div class="ctitle">D. Cơ Bản USDA ${statFund}</div>
+        ${usdaHTML}
+      </div>
+      <div class="card"><div class="ctitle">E. Thời Tiết &amp; Mùa Vụ ${statWeath}</div>
+        ${weatherHTML}
+      </div>
+      <div class="card"><div class="ctitle">Thông Tin Nguồn Dữ Liệu</div>
+        <div class="sr"><span class="sl">Macro Update</span><span class="sv">${D.macro.timestamp||'N/A'}</span></div>
+        <div class="sr"><span class="sl">USDA Update</span><span class="sv">${D.fundamentals.last_updated_fundamentals||'N/A'}</span></div>
+        <div class="sr"><span class="sl">COT Update</span><span class="sv">${D.fundamentals.last_updated_cot||'N/A'}</span></div>
+      </div>
+      <div class="card"><div class="ctitle">F. Ma Trận Dòng Tiền COT (Smart Money)</div>
+        <div style="font-size:12px;color:var(--t2);line-height:1.6">
+          <div style="margin-bottom:8px"><b>Vị thế ròng (Net Position)</b> = Tổng Long - Tổng Short.<br>Dấu âm (-) nghĩa là quỹ đang giữ lệnh BÁN KHỐNG (Short) nhiều hơn.</div>
+          <div style="padding:6px;background:rgba(0,232,138,0.05);border-left:3px solid var(--bull);margin-bottom:4px">
+            <b style="color:var(--bull)">Q1 (GOM LONG):</b> Đang ôm Long & Mua thêm. Xu hướng Tăng bùng nổ. Ưu tiên LONG.
+          </div>
+          <div style="padding:6px;background:rgba(255,165,2,0.05);border-left:3px solid var(--yellow);margin-bottom:4px">
+            <b style="color:var(--yellow)">Q2 (XẢ LONG):</b> Đang ôm Long nhưng Bán chốt lời/cắt lỗ. Sập rũ bỏ. Cấm bắt đáy.
+          </div>
+          <div style="padding:6px;background:rgba(255,71,87,0.05);border-left:3px solid var(--bear);margin-bottom:4px">
+            <b style="color:var(--bear)">Q3 (NHỒI SHORT):</b> Đang ôm Short & Bán khống thêm. Xu hướng Giảm bùng nổ. Ưu tiên SHORT.
+          </div>
+          <div style="padding:6px;background:rgba(0,168,255,0.05);border-left:3px solid #00a8ff;margin-bottom:4px">
+            <b style="color:#00a8ff">Q4 (COVER SHORT):</b> Đang ôm Short nhưng phải Mua lại (Short Squeeze). Tăng giật ngược. Canh nhúng mua LONG.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="strat-wrap"><div class="sh">F. Khuyến Nghị Giao Dịch — ${code}</div>
+  <div class="sgrid">
+    <div class="sc long"><div class="scl">Intraday — Ngắn hạn</div><div class="sct" style="color:var(--cyan);">🚀 ${fund.intraday_strategy||'Ngắn hạn'}</div>
+      <div class="scr"><span class="sck">Entry</span><span class="scv ent">${fund.entry_zone||'N/A'}</span></div>
+      <div class="scr"><span class="sck">Stop Loss</span><span class="scv slv">${fund.stop_loss||'N/A'}</span></div>
+      <div class="scr"><span class="sck">TP1 / TP2</span><span class="scv tpv">${fund.take_profit_1||'N/A'} / ${fund.take_profit_2||'N/A'}</span></div>
+    </div>
+    <div class="sc long"><div class="scl">Swing — Trung hạn</div><div class="sct" style="color:var(--purple);">📊 Trend: ${fund.swing_trend||'N/A'}</div>
+      <div class="scr"><span class="sck">Logic</span><span class="scv" style="font-size:12px; font-weight:normal; color:var(--t2); line-height:1.4;">${fund.swing_logic||'N/A'}</span></div>
+      <div class="scr" style="margin-top:8px;"><span class="sck">Entry</span><span class="scv ent">${fund.swing_long_entry||fund.swing_short_entry||'N/A'}</span></div>
+      <div class="scr"><span class="sck">Stop Loss</span><span class="scv slv">${fund.swing_long_sl||fund.swing_short_sl||'N/A'}</span></div>
+      <div class="scr"><span class="sck">Target</span><span class="scv tpv">${fund.swing_long_tp||fund.swing_short_tp||'N/A'}</span></div>
+    </div>
+    <div class="sc dca"><div class="scl">DCA — Đầu tư mùa vụ</div><div class="sct">💎 Vùng Gom Tích Lũy</div>
+      <div class="scr"><span class="sck">Vùng giá (Brackets)</span><span class="scv ent">${fund.dca_brackets||'N/A'}</span></div>
+      <div style="font-size:12px; padding:8px 0; border-top:1px dashed rgba(255,255,255,.06); margin-top:6px;">
+        <div class="sck" style="margin-bottom:6px;">Logic / Target</div>
+        <div class="scv tpv" style="font-family:'Inter',sans-serif; text-align:left; font-size:12.5px; line-height:1.6; font-weight:500;">${fund.dca_logic||'N/A'}</div>
+      </div>
+    </div>
+  </div></div>
+</div>`;
+    container.innerHTML += tabHTML;
+
+    // After DOM insertion, build the Chart!
+    setTimeout(function() {
+      var labels = [];
+      var opens = [];
+      var closes = [];
+      var highs = [];
+      var lows = [];
+      (fc.candles_4h || []).forEach(function(c) {
+        labels.push(c.day.split(' ')[0] + ' ' + c.day.split(' ')[1] + ' ' + c.session.split(' ').pop());
+        opens.push(c.open);
+        closes.push(c.close);
+        highs.push(c.high);
+        lows.push(c.low);
+      });
+      var cols = closes.map(function(c,i){return c>=opens[i]?'rgba(0,232,138,.85)':'rgba(255,71,87,.85)';});
+            buildChart('chart-'+lc, fc.candles_4h || [], fc.actual_data || [], highs, lows, cols, opens, closes, labels);
+      buildRSIChart('rsi-chart-'+lc, (D.rsi && D.rsi[lc]) ? D.rsi[lc] : null, lc);
+    }, 0);
+
+  });
+
+  document.querySelector('.hgrid').innerHTML = overviewCards;
+  document.getElementById('ov-tbody').innerHTML = ovTbody;
+  if (D.macro.forecast_week) document.getElementById('ov-week').textContent = D.macro.forecast_week;
+
+  // Render Entry Dashboard
+  if (D.last_signals) {
+    var signalsHTML = '';
+    for (var code in D.last_signals) {
+      var data = D.last_signals[code];
+      var msg = data.msg;
+      var ts = data.timestamp;
+      
+      var isLong = msg.includes("LONG") || msg.includes("BẮT ĐÁY") || msg.includes("MUA");
+      var isShort = msg.includes("SHORT") || msg.includes("BẮT ĐỈNH") || msg.includes("BÁN");
+      var color = isLong ? "var(--green)" : (isShort ? "var(--red)" : "var(--cyan)");
+      var bg = isLong ? "rgba(0,232,138,0.1)" : (isShort ? "rgba(255,71,87,0.1)" : "rgba(0,212,255,0.1)");
+      
+      var formattedMsg = msg
+          .replace(/🚨|🚀|💎|🧠|🛑|💵|🎯|📈|📉|🌾|🌱|🌽|☄️/g, '') 
+          .replace(/<b>(.*?)<\/b>/g, '<strong style="color:var(--t1);">$1</strong>')
+          .replace(/Tín hiệu: (.*?)(<br>|\n)/, '<div style="background:'+bg+'; color:'+color+'; padding:8px 12px; border-radius:6px; font-weight:700; display:inline-block; margin:8px 0;">Tín hiệu: $1</div><br>')
+          .replace(/Vùng Entry: (.*?)(<br>|\n)/, '<div style="background:var(--bg4); border-left:4px solid var(--cyan); padding:8px 12px; border-radius:4px; margin:4px 0;">Vùng Entry: <span style="color:var(--cyan); font-family:\'JetBrains Mono\'; font-weight:bold; font-size:15px;">$1</span></div>')
+          .replace(/Stoploss: (.*?) \| Take Profit: (.*?)(<br>|\n)/, '<div style="display:flex; gap:12px; margin:8px 0;"><div style="flex:1; background:rgba(255,71,87,0.05); border:1px solid rgba(255,71,87,0.2); border-radius:6px; padding:8px; text-align:center;"><div style="font-size:11px; color:var(--t3); text-transform:uppercase;">Stoploss</div><div style="color:var(--red); font-family:\'JetBrains Mono\'; font-weight:bold;">$1</div></div><div style="flex:1; background:rgba(0,232,138,0.05); border:1px solid rgba(0,232,138,0.2); border-radius:6px; padding:8px; text-align:center;"><div style="font-size:11px; color:var(--t3); text-transform:uppercase;">Take Profit</div><div style="color:var(--green); font-family:\'JetBrains Mono\'; font-weight:bold;">$2</div></div></div>')
+          .replace(/VÙNG GOM DCA DÀI HẠN(.*?)/, '<div style="color:var(--purple); font-weight:800; font-size:13px; letter-spacing:1px; margin-top:16px; border-top:1px dashed var(--br); padding-top:12px;">💎 VÙNG GOM DCA DÀI HẠN$1</div>')
+          .replace(/\n/g, '<br>');
+
+      var titles = {"ZC": "🌽 NGÔ (CORN)", "ZW": "🌾 LÚA MÌ (WHEAT)", "ZS": "🌱 ĐẬU TƯƠNG (SOYBEAN)"};
+      var title = titles[code] || code;
+
+      signalsHTML += `
+      <div style="background:var(--bg1); border:1px solid var(--br); border-radius:12px; padding:20px; position:relative; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 4px 24px rgba(0,0,0,0.2);">
+          <div style="position:absolute; top:0; left:0; width:4px; height:100%; background:${color};"></div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--br); padding-bottom:12px; margin-bottom:12px;">
+              <div style="font-weight:800; font-size:18px; color:var(--t1);">${title}</div>
+              <div style="font-size:12px; color:var(--t3); font-weight:600; background:var(--bg4); padding:4px 10px; border-radius:20px;">Cập nhật: ${ts}</div>
+          </div>
+          <div style="font-size:14px; color:var(--t2); line-height:1.6;">
+              ${formattedMsg}
+          </div>
+      </div>
+      `;
+    }
+    document.getElementById('entry-signals-container').innerHTML = signalsHTML || '<div style="color:var(--t3); font-style:italic;">Chưa có tín hiệu nào được ghi nhận.</div>';
+  }
+}
+
+// Khởi chạy khi DOM load xong
+document.addEventListener('DOMContentLoaded', initApp);
+</script>
+</body>
+</html>

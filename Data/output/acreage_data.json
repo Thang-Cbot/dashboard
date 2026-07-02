@@ -1,0 +1,247 @@
+{
+  "fetched_at": "2026-07-02 06:36:54",
+  "source": "USDA NASS via ESMIS API + Historical Records",
+  "data_note": "Đơn vị: Triệu mẫu Anh (Million Acres). Lịch sử 2015-2026.",
+  "live_report_date": "",
+  "commodities": {
+    "ZC": {
+      "name": "Ngô (Corn)",
+      "history": [
+        {
+          "year": 2015,
+          "planted_mln_acres": 88.0
+        },
+        {
+          "year": 2016,
+          "planted_mln_acres": 94.0
+        },
+        {
+          "year": 2017,
+          "planted_mln_acres": 90.2
+        },
+        {
+          "year": 2018,
+          "planted_mln_acres": 89.1
+        },
+        {
+          "year": 2019,
+          "planted_mln_acres": 91.7
+        },
+        {
+          "year": 2020,
+          "planted_mln_acres": 92.0
+        },
+        {
+          "year": 2021,
+          "planted_mln_acres": 93.2
+        },
+        {
+          "year": 2022,
+          "planted_mln_acres": 89.9
+        },
+        {
+          "year": 2023,
+          "planted_mln_acres": 94.6
+        },
+        {
+          "year": 2024,
+          "planted_mln_acres": 90.0
+        },
+        {
+          "year": 2025,
+          "planted_mln_acres": 95.3
+        }
+      ],
+      "latest_year": 2025,
+      "latest_planted_mln_acres": 95.3,
+      "prev_year": 2024,
+      "prev_planted_mln_acres": 90.0,
+      "yoy_delta_mln_acres": 5.3,
+      "yoy_pct": 5.9,
+      "yoy_direction": "↑ Tăng",
+      "signal": "🐻 BEARISH — Tăng cung → áp lực giảm giá",
+      "data_source": "USDA NASS Historical"
+    },
+    "ZW": {
+      "name": "Lúa mì (Wheat)",
+      "history": [
+        {
+          "year": 2015,
+          "planted_mln_acres": 55.4
+        },
+        {
+          "year": 2016,
+          "planted_mln_acres": 51.3
+        },
+        {
+          "year": 2017,
+          "planted_mln_acres": 46.0
+        },
+        {
+          "year": 2018,
+          "planted_mln_acres": 47.8
+        },
+        {
+          "year": 2019,
+          "planted_mln_acres": 45.2
+        },
+        {
+          "year": 2020,
+          "planted_mln_acres": 44.3
+        },
+        {
+          "year": 2021,
+          "planted_mln_acres": 46.4
+        },
+        {
+          "year": 2022,
+          "planted_mln_acres": 47.3
+        },
+        {
+          "year": 2023,
+          "planted_mln_acres": 49.6
+        },
+        {
+          "year": 2024,
+          "planted_mln_acres": 46.1
+        },
+        {
+          "year": 2025,
+          "planted_mln_acres": 46.0
+        }
+      ],
+      "latest_year": 2025,
+      "latest_planted_mln_acres": 46.0,
+      "prev_year": 2024,
+      "prev_planted_mln_acres": 46.1,
+      "yoy_delta_mln_acres": -0.1,
+      "yoy_pct": -0.2,
+      "yoy_direction": "↓ Giảm",
+      "signal": "⚖️ Neutral — Ít thay đổi",
+      "data_source": "USDA NASS Historical"
+    },
+    "ZS": {
+      "name": "Đậu tương (Soybeans)",
+      "history": [
+        {
+          "year": 2015,
+          "planted_mln_acres": 82.7
+        },
+        {
+          "year": 2016,
+          "planted_mln_acres": 83.7
+        },
+        {
+          "year": 2017,
+          "planted_mln_acres": 90.2
+        },
+        {
+          "year": 2018,
+          "planted_mln_acres": 89.1
+        },
+        {
+          "year": 2019,
+          "planted_mln_acres": 76.1
+        },
+        {
+          "year": 2020,
+          "planted_mln_acres": 83.1
+        },
+        {
+          "year": 2021,
+          "planted_mln_acres": 87.2
+        },
+        {
+          "year": 2022,
+          "planted_mln_acres": 87.5
+        },
+        {
+          "year": 2023,
+          "planted_mln_acres": 83.5
+        },
+        {
+          "year": 2024,
+          "planted_mln_acres": 86.1
+        },
+        {
+          "year": 2025,
+          "planted_mln_acres": 83.5
+        }
+      ],
+      "latest_year": 2025,
+      "latest_planted_mln_acres": 83.5,
+      "prev_year": 2024,
+      "prev_planted_mln_acres": 86.1,
+      "yoy_delta_mln_acres": -2.6,
+      "yoy_pct": -3.0,
+      "yoy_direction": "↓ Giảm",
+      "signal": "🐂 BULLISH — Giảm cung → hỗ trợ tăng giá",
+      "data_source": "USDA NASS Historical"
+    }
+  },
+  "report_calendar": [
+    {
+      "name": "Grain Stocks Q1 2026",
+      "date_et": "2026-01-12",
+      "publish_vn": "12/01/2026 lúc 23:00 VN",
+      "description": "Tồn kho ngũ cốc quý 1",
+      "impact": "Xác nhận cung tồn kho — tác động ngắn hạn",
+      "status": "✅ Đã phát hành",
+      "days_away": -171
+    },
+    {
+      "name": "Prospective Plantings 2026",
+      "date_et": "2026-03-31",
+      "publish_vn": "31/03/2026 lúc 23:00 VN",
+      "description": "Dự kiến diện tích gieo trồng cả năm 2026",
+      "impact": "⚡ CATALYST LỚN — thị trường biến động mạnh khi dự báo diện tích thay đổi",
+      "status": "✅ Đã phát hành",
+      "days_away": -93
+    },
+    {
+      "name": "Grain Stocks Q2 2026",
+      "date_et": "2026-03-31",
+      "publish_vn": "31/03/2026 lúc 23:00 VN",
+      "description": "Tồn kho ngũ cốc quý 2",
+      "impact": "Double catalyst cùng ngày Prospective Plantings",
+      "status": "✅ Đã phát hành",
+      "days_away": -93
+    },
+    {
+      "name": "Acreage 2026 (CHÍNH THỨC)",
+      "date_et": "2026-06-30",
+      "publish_vn": "30/06/2026 lúc 23:00 VN",
+      "description": "XÁC NHẬN chính thức diện tích đã gieo trồng 2026",
+      "impact": "⚡⚡ CATALYST #1 MÙA HÈ — Thị trường phản ứng tức thì",
+      "status": "✅ Đã phát hành",
+      "days_away": -2
+    },
+    {
+      "name": "Grain Stocks Q3 2026",
+      "date_et": "2026-06-30",
+      "publish_vn": "30/06/2026 lúc 23:00 VN",
+      "description": "Tồn kho ngũ cốc quý 3",
+      "impact": "Double catalyst cùng ngày Acreage — biến động lớn",
+      "status": "✅ Đã phát hành",
+      "days_away": -2
+    },
+    {
+      "name": "Grain Stocks Q4 2026",
+      "date_et": "2026-09-30",
+      "publish_vn": "30/09/2026 lúc 23:00 VN",
+      "description": "Tồn kho ngũ cốc quý 4",
+      "impact": "Trước mùa thu hoạch — quan trọng cho chiến lược mùa gặt",
+      "status": "📅 Còn 90 ngày",
+      "days_away": 90
+    }
+  ],
+  "next_report": {
+    "name": "Grain Stocks Q4 2026",
+    "date_et": "2026-09-30",
+    "publish_vn": "30/09/2026 lúc 23:00 VN",
+    "description": "Tồn kho ngũ cốc quý 4",
+    "impact": "Trước mùa thu hoạch — quan trọng cho chiến lược mùa gặt",
+    "status": "📅 Còn 90 ngày",
+    "days_away": 90
+  }
+}
