@@ -35,6 +35,14 @@
       "severity": "Cao",
       "bias": "BEARISH",
       "color": "var(--green)"
+    },
+    {
+      "region": "Biển Đen & Châu Âu (Nga, Ukraine, EU)",
+      "crop": "Lúa Mì (ZW) & Ngô (ZC)",
+      "effect": "Tháng 6-8 (Thu hoạch lúa đông / Phát triển ngô). Nguy cơ nắng nóng cực đoan và khô hạn làm giảm năng suất lúa mì xuân và gây stress nhiệt cho ngô. Đất khô hạn vào mùa thu có thể làm gián đoạn tiến độ gieo trồng lúa đông vụ mới.",
+      "severity": "Rất Cao",
+      "bias": "BULLISH",
+      "color": "var(--red)"
     }
   ]
 }
