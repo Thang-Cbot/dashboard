@@ -87,8 +87,7 @@ cot  = load_json("cot_data.json")
 meta = load_json("contracts_meta.json")
 
 data      = fund.get(code, {})
-cot_code  = "WHEAT-SRW" if code == "ZW" else "CORN"
-cot_data  = cot.get(cot_code, {})
+cot_data  = get_cot_by_code(cot, code)
 meta_data = meta.get(code, {})
 
 st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)

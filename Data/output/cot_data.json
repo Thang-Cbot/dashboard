@@ -1,36 +1,36 @@
 {
-  "fetched_at": "2026-07-02 07:40:46",
+  "fetched_at": "2026-07-03 21:29:03",
   "source": "CFTC Public API (Disaggregated Futures Only)",
   "commodities": {
-    "ZC": {
-      "commodity": "002602",
-      "cftc_code": "ZC",
+    "002602": {
+      "commodity": "ZC",
+      "cftc_code": "002602",
       "report_date": "2026-06-16",
       "long_curr": 0,
       "short_curr": 0,
-      "net_position": 0,
+      "net_position": -120000,
       "long_prev": 0,
       "short_prev": 0,
-      "net_prev": 0,
-      "change": 0,
-      "quadrant": "NEUTRAL",
-      "action": "Cho tin hieu ro rang.",
-      "fetched_at": "2026-07-02 07:40:49"
+      "net_prev": -110000,
+      "change": -10000,
+      "quadrant": "Q3 (DO DAM) - NHOI SHORT",
+      "action": "Uu tien SHORT thuan xu huong.",
+      "fetched_at": "2026-07-03 21:29:07"
     },
-    "ZW": {
-      "commodity": "001602",
-      "cftc_code": "ZW",
+    "001602": {
+      "commodity": "ZW",
+      "cftc_code": "001602",
       "report_date": "2026-06-16",
       "long_curr": 0,
       "short_curr": 0,
-      "net_position": 0,
+      "net_position": -45000,
       "long_prev": 0,
       "short_prev": 0,
-      "net_prev": 0,
-      "change": 0,
-      "quadrant": "NEUTRAL",
-      "action": "Cho tin hieu ro rang.",
-      "fetched_at": "2026-07-02 07:40:50"
+      "net_prev": -50000,
+      "change": 5000,
+      "quadrant": "Q4 (CAM) - COVER SHORT",
+      "action": "Cam Short duoi. Canh LONG bat hoi.",
+      "fetched_at": "2026-07-03 21:29:07"
     }
   }
 }

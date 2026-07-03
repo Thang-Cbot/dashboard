@@ -167,7 +167,7 @@ def fetch_all_cot():
     }
 
     print("  Fetching CFTC COT data...")
-    for name, code in CFTC_CODES.items():
+    for code, name in CFTC_CODES.items():
         result = fetch_single_cot(name, code)
         all_results["commodities"][code] = result
 

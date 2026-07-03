@@ -247,8 +247,7 @@ def make_world_fig(regions: dict) -> go.Figure:
                  showlakes=True, lakecolor="#0f1629",
                  showcoastlines=True, coastlinecolor="#334155",
                  showframe=False, bgcolor="#0f1629",
-                 projection_type="natural earth",
-                 center=dict(lat=20, lon=20)),
+                 projection_type="natural earth"),
         paper_bgcolor="#1a2035", plot_bgcolor="#1a2035",
         margin=dict(l=0,r=0,t=10,b=0), height=300, showlegend=False,
     )
@@ -300,7 +299,6 @@ def make_enso_world_fig(impacts: list) -> go.Figure:
                         f"Mức độ: {severity}<br>"
                         f"Chi tiết: {effect[:80]}..."
                     )
-                break
 
     isos   = list(iso_scores.keys())
     scores = [iso_scores[i] for i in isos]
@@ -322,8 +320,7 @@ def make_enso_world_fig(impacts: list) -> go.Figure:
                  showlakes=True, lakecolor="#0f1629",
                  showcoastlines=True, coastlinecolor="#334155",
                  showframe=False, bgcolor="#0f1629",
-                 projection_type="natural earth",
-                 center=dict(lat=20, lon=20)),
+                 projection_type="natural earth"),
         paper_bgcolor="#1a2035", plot_bgcolor="#1a2035",
         margin=dict(l=0,r=0,t=10,b=0), height=320, showlegend=False,
     )

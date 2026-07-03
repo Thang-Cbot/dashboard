@@ -31,14 +31,16 @@ def get_impacts(enso_status):
             {"region": "Châu Úc (Australia)", "crop": "Lúa Mì (ZW)", "effect": "Tháng 9-11 (Mùa sinh trưởng). Khô hạn nghiêm trọng làm giảm 15-20% sản lượng lúa mì vụ Đông.", "severity": "Cao", "bias": "BULLISH", "color": "var(--red)"},
             {"region": "Nam Mỹ (Argentina)", "crop": "Ngô (ZC) & Lúa Mì", "effect": "Tháng 10-12 (Gieo hạt). Mưa nhiều hơn trung bình. Thuận lợi gieo trồng nhưng rủi ro nấm mốc.", "severity": "Trung bình", "bias": "BEARISH", "color": "var(--green)"},
             {"region": "Nam Mỹ (Brazil)", "crop": "Ngô Safrinha (ZC)", "effect": "Tháng 4-6 (Giai đoạn trổ cờ vụ 2). Rủi ro khô hạn cục bộ tại phía Nam gây sụt giảm năng suất.", "severity": "Cao", "bias": "BULLISH", "color": "var(--red)"},
-            {"region": "Bắc Mỹ (US Plains)", "crop": "Lúa Mì (ZW)", "effect": "Tháng 9-11 (Gieo hạt vụ Đông sắp tới). Mưa ẩm hỗ trợ lúa mì mùa đông (HRW), giảm hạn hán.", "severity": "Cao", "bias": "BEARISH", "color": "var(--green)"}
+            {"region": "Bắc Mỹ (US Plains)", "crop": "Lúa Mì (ZW)", "effect": "Tháng 9-11 (Gieo hạt vụ Đông sắp tới). Mưa ẩm hỗ trợ lúa mì mùa đông (HRW), giảm hạn hán.", "severity": "Cao", "bias": "BEARISH", "color": "var(--green)"},
+            {"region": "Biển Đen & Châu Âu (Nga, Ukraine, EU)", "crop": "Lúa Mì (ZW) & Ngô (ZC)", "effect": "Tháng 6-8 (Thu hoạch lúa đông / Phát triển ngô). Nguy cơ nắng nóng cực đoan và khô hạn làm giảm năng suất lúa mì xuân và gây stress nhiệt cho ngô. Đất khô hạn vào mùa thu có thể làm gián đoạn tiến độ gieo trồng lúa đông vụ mới.", "severity": "Rất Cao", "bias": "BULLISH", "color": "var(--red)"}
         ]
     elif 'la ni' in status_lower or 'la nina' in status_lower:
         return [
             {"region": "Châu Úc (Australia)", "crop": "Lúa Mì (ZW)", "effect": "Tháng 9-11 (Sinh trưởng). Mưa nhiều, thuận lợi mùa màng, dự báo sản lượng tăng cao.", "severity": "Cao", "bias": "BEARISH", "color": "var(--green)"},
             {"region": "Nam Mỹ (Argentina)", "crop": "Ngô (ZC) & Lúa Mì", "effect": "Tháng 11-2 (Phát triển/Thụ phấn). Khô hạn nghiêm trọng. Giảm mạnh sản lượng Ngô và Lúa mì.", "severity": "Cao", "bias": "BULLISH", "color": "var(--red)"},
             {"region": "Nam Mỹ (Brazil)", "crop": "Ngô Safrinha (ZC)", "effect": "Tháng 4-6 (Phát triển vụ 2). Mưa thuận lợi, sản lượng có thể đạt kỷ lục.", "severity": "Trung bình", "bias": "BEARISH", "color": "var(--green)"},
-            {"region": "Bắc Mỹ (US Plains)", "crop": "Lúa Mì (ZW)", "effect": "Tháng 9-12 (Gieo hạt). Khô hạn và lạnh giá kéo dài, ảnh hưởng xấu đến lúa mì vụ đông.", "severity": "Cao", "bias": "BULLISH", "color": "var(--red)"}
+            {"region": "Bắc Mỹ (US Plains)", "crop": "Lúa Mì (ZW)", "effect": "Tháng 9-12 (Gieo hạt). Khô hạn và lạnh giá kéo dài, ảnh hưởng xấu đến lúa mì vụ đông.", "severity": "Cao", "bias": "BULLISH", "color": "var(--red)"},
+            {"region": "Biển Đen & Châu Âu (Nga, Ukraine, EU)", "crop": "Lúa Mì (ZW) & Ngô (ZC)", "effect": "Thời tiết mưa ẩm và ôn hòa hơn trung bình. Năng suất lúa mì và ngô có xu hướng thuận lợi và đạt kết quả tốt.", "severity": "Trung bình", "bias": "BEARISH", "color": "var(--green)"}
         ]
     else:
         return [

@@ -65,13 +65,6 @@ def render_candlestick(st, commodity: str, suffix: str = "active", n_candles: in
 
     fig = go.Figure()
 
-    # Xác định khung tuần giao dịch hiện tại (Thứ 2 đến Thứ 6)
-    now = datetime.datetime.now()
-    monday = now - datetime.timedelta(days=now.weekday())
-    monday = monday.replace(hour=0, minute=0, second=0, microsecond=0)
-    friday = monday + datetime.timedelta(days=4)
-    friday = friday.replace(hour=23, minute=59, second=59)
-
     # 1. Đọc dữ liệu mô phỏng AI
     sim_path = DATA_OUTPUT / "ai_simulated_h1.json"
     sim_df = None
@@ -84,6 +77,22 @@ def render_candlestick(st, commodity: str, suffix: str = "active", n_candles: in
                 sim_df["Datetime"] = pd.to_datetime(sim_df["Datetime"])
         except Exception as e:
             st.warning(f"Lỗi đọc AI simulation: {e}")
+
+    # Xác định khung hiển thị tuần giao dịch
+    now = datetime.datetime.now()
+    
+    # Nếu có dữ liệu giả lập, dịch khung hiển thị sang tuần bắt đầu của chuỗi giả lập
+    if sim_df is not None and not sim_df.empty:
+        target_date = sim_df["Datetime"].min()
+    else:
+        target_date = now
+
+    monday = target_date - datetime.timedelta(days=target_date.weekday())
+    monday = monday.replace(hour=0, minute=0, second=0, microsecond=0)
+    friday = monday + datetime.timedelta(days=4)
+    friday = friday.replace(hour=23, minute=59, second=59)
+
+    # (Đã di chuyển logic đọc AI lên trên)
 
     # 2. Vẽ nến (Ưu tiên nến AI, nếu không có thì dùng nến thực)
     df_actual = load_price_csv(commodity, suffix)

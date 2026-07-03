@@ -54,14 +54,15 @@
       "pct_change": -9.9
     },
     "exports": {
-      "latest": "Giao hàng (Inspections): 1,786,167 tấn (Tuần kết thúc Jun 29, 2026)",
+      "latest": "Doanh số ròng (Tuần kết thúc 25/06/2026): Vụ cũ 732k tấn | Vụ mới 768k tấn",
       "next_date": "06/07/2026 lúc 22:00 (VN)",
       "forecast": "900,000 tấn (Dự báo tăng trưởng)",
-      "action": "Xuất khẩu ổn định -> Gom Long trung hạn",
-      "logic": "Báo cáo ngày 04/06 ghi nhận doanh số ròng 883,332 tấn ngô. Nhật Bản mua ròng lớn nhất với 336,300 tấn. Mặc dù doanh số giảm nhẹ 13% so với tuần trước, lượng giao hàng thực tế (exports) tăng 7% lên 1.72 triệu tấn.",
-      "previous": "Giao hàng (Inspections): 1,454,252 tấn (Tuần kết thúc Jun 22, 2026)",
+      "action": "Xuất khẩu trong kỳ vọng -> Giá giằng co, canh vùng hỗ trợ gom Long",
+      "logic": "Báo cáo ngày 02/07 (tuần kết thúc 25/06) cho thấy doanh số ngô (cả vụ cũ 732k và vụ mới 768k) đều nằm trong vùng kỳ vọng, phản ánh nhu cầu ổn định.",
+      "previous": "Doanh số ròng (Tuần kết thúc 25/06/2026): Vụ cũ 732k tấn | Vụ mới 768k tấn",
       "previous_date": "Tuần kết thúc 15/06/2026",
-      "latest_date": "Tuần kết thúc 22/06/2026"
+      "latest_date": "Tuần kết thúc 25/06/2026",
+      "pct_change": 5.0
     },
     "competitors": {
       "latest": "Brazil & Argentina",
@@ -197,14 +198,15 @@
       "pct_change": -11.8
     },
     "exports": {
-      "latest": "Giao hàng (Inspections): 358,253 tấn (Tuần kết thúc Jun 29, 2026)",
+      "latest": "Doanh số ròng (Tuần kết thúc 25/06/2026): Vụ mới 300k tấn",
       "next_date": "06/07/2026 lúc 22:00 (VN)",
       "forecast": "350,000 tấn (Dự kiến phục hồi)",
-      "action": "Xuất khẩu giảm cơ học -> Gom Long trung hạn",
-      "logic": "Tuần cuối niên vụ cũ ghi nhận mức âm ròng -642,239 tấn do các điều chỉnh hủy hàng/chuyển niên vụ. Tuy nhiên, doanh số niên vụ mới (2026/27) đạt mức rất cao là 838,500 tấn nhờ nhu cầu tăng mạnh trước lo ngại sụt giảm sản lượng.",
-      "previous": "Giao hàng (Inspections): 393,150 tấn (Tuần kết thúc Jun 22, 2026)",
+      "action": "Xuất khẩu yếu -> Canh rũ bỏ (Judas Swing) để mua lên theo SMC",
+      "logic": "Báo cáo ngày 02/07 (tuần kết thúc 25/06) cho thấy doanh số ròng lúa mì vụ 26/27 chỉ đạt 300k tấn, chạm mức thấp nhất của dải kỳ vọng (300-600k). Nhu cầu yếu kết hợp nghỉ lễ sẽ tạo áp lực nhúng mồi đầu tuần.",
+      "previous": "Doanh số ròng (Tuần kết thúc 25/06/2026): Vụ mới 300k tấn",
       "previous_date": "Tuần kết thúc 15/06/2026",
-      "latest_date": "Tuần kết thúc 22/06/2026"
+      "latest_date": "Tuần kết thúc 25/06/2026",
+      "pct_change": -10.0
     },
     "competitors": {
       "latest": "Úc & Argentina",
@@ -411,5 +413,5 @@
     "swing_short_tp": "1191.00 cents"
   },
   "wasde_report_month": "Jun",
-  "last_updated_cot": "2026-07-02 07:40:50"
+  "last_updated_cot": "2026-07-03 21:29:07"
 }

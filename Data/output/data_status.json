@@ -10,12 +10,12 @@
     "prices": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-02 17:15:04"
+      "updated_at": "2026-07-03 00:15:03"
     },
     "macro": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-02 17:15:07"
+      "updated_at": "2026-07-03 00:15:06"
     },
     "cot": {
       "status": "OK",
@@ -23,9 +23,9 @@
       "updated_at": "2026-07-02 06:30:30"
     },
     "export_sales": {
-      "status": "OK",
-      "detail": "Export Sales updated",
-      "updated_at": "2026-07-02 06:30:34"
+      "status": "[OK]",
+      "detail": "Auto-fetch 23:47:20",
+      "updated_at": "2026-07-02 23:47:20"
     },
     "weather_short": {
       "status": "[OK]",
@@ -62,11 +62,21 @@
   "macro": {
     "status": "ERROR",
     "detail": "'charmap' codec can't encode characters in position 2-3: character maps to <undefined>",
-    "updated_at": "2026-07-02 17:15:07"
+    "updated_at": "2026-07-03 00:15:06"
   },
   "cot": {
     "status": "OK",
     "detail": "Fetched 2/2 commodities OK",
-    "updated_at": "2026-07-02 07:40:50"
+    "updated_at": "2026-07-03 21:29:07"
+  },
+  "export_sales": {
+    "status": "NoData",
+    "detail": "Tuần 28/06/2026: NoData",
+    "updated_at": "2026-07-02 23:47:20"
+  },
+  "weather_long": {
+    "status": "OK",
+    "detail": "Status: El Niño Advisory",
+    "updated_at": "2026-07-03 20:44:54"
   }
 }
