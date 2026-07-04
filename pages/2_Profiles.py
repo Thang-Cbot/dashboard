@@ -238,6 +238,105 @@ with col3:
 
     st.markdown("</div>", unsafe_allow_html=True)
 
+# ── Smart Money Matrix & Thanh Khoản ──
+st.markdown("<div class='card'><div style='font-size:14px;font-weight:700;color:#94a3b8;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase;'>🧠 SMART MONEY MATRIX & DÒNG TIỀN (VOLUME + OI)</div>", unsafe_allow_html=True)
+
+c_cot, c_vol = st.columns([1.5, 1], gap="large")
+
+with c_cot:
+    if cot_data:
+        report_date = cot_data.get("report_date", "—")
+        quadrant = cot_data.get("quadrant", "—")
+        action = cot_data.get("action", "—")
+        net = cot_data.get("net_position", 0)
+        chg = cot_data.get("change", 0)
+        
+        quad_color = "#ef4444" if "Q4" in quadrant or "Q3" in quadrant or "SHORT" in quadrant else "#22c55e"
+        chg_str = f"+{chg:,}" if chg > 0 else f"{chg:,}"
+        
+        st.markdown(f'''
+        <style>
+        .cot-table {{ width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 0; }}
+        .cot-table th {{ background: #1e293b; color: #cbd5e1; padding: 10px; text-align: left; border: 1px solid #334155; }}
+        .cot-table td {{ padding: 10px; border: 1px solid #334155; color: #e2e8f0; }}
+        .cot-table tr:nth-child(even) {{ background: #0f1629; }}
+        </style>
+        <table class="cot-table">
+            <tr>
+                <th style="width: 32%;">Báo cáo COT Managed Money</th>
+                <th style="width: 32%;">{selected_name}</th>
+                <th style="width: 36%;">Đánh giá & Hành động</th>
+            </tr>
+            <tr>
+                <td><b>Ngày Báo Cáo</b></td>
+                <td><b>{report_date}</b></td>
+                <td style="color:#94a3b8;">Cập nhật mới nhất từ CFTC</td>
+            </tr>
+            <tr>
+                <td><b>Trạng Thái Matrix</b></td>
+                <td style="color:{quad_color}; font-weight:700;">{quadrant}</td>
+                <td style="color:#cbd5e1; font-style:italic;">{action}</td>
+            </tr>
+            <tr>
+                <td><b>Net Position</b></td>
+                <td><b>{net:,}</b></td>
+                <td style="color:#94a3b8;">Hợp đồng (<span style="color:#22c55e;font-weight:bold;">Long</span> - <span style="color:#ef4444;font-weight:bold;">Short</span>)</td>
+            </tr>
+            <tr>
+                <td><b>Thay đổi Tuần qua</b></td>
+                <td><b>{chg_str}</b></td>
+                <td style="color:#94a3b8;">Hợp đồng thay đổi so với tuần trước</td>
+            </tr>
+        </table>
+        ''', unsafe_allow_html=True)
+    else:
+        st.info("Chưa có dữ liệu COT cho mã này.")
+
+with c_vol:
+    liq = meta_data.get("liquidity", {})
+    if liq:
+        vol_today = liq.get("today_volume", 0)
+        vol_prev = liq.get("prev_volume", 0)
+        oi_today = liq.get("today_oi", 0)
+        oi_prev = liq.get("prev_oi", 0)
+        trend = liq.get("trend", "—")
+        logic = liq.get("logic", "—")
+        
+        vol_chg = vol_today - vol_prev
+        oi_chg = oi_today - oi_prev
+        vol_pct = (vol_chg / vol_prev * 100) if vol_prev else 0
+        oi_pct = (oi_chg / oi_prev * 100) if oi_prev else 0
+        
+        vol_color = "#22c55e" if vol_chg >= 0 else "#ef4444"
+        oi_color = "#22c55e" if oi_chg >= 0 else "#ef4444"
+        vol_arrow = "▲" if vol_chg >= 0 else "▼"
+        oi_arrow = "▲" if oi_chg >= 0 else "▼"
+        
+        st.markdown(f"""
+        <div style='background:#0f1629; border-radius:8px; padding:14px; border:1px solid #1e2d45; height: 100%;'>
+            <div style='display:flex; justify-content:space-between; margin-bottom:12px;'>
+                <div style='flex:1;'>
+                    <div style='font-size:11px; color:#64748b;'>Khối lượng (Volume)</div>
+                    <div style='font-size:17px; font-weight:700; color:#e2e8f0;'>{vol_today:,.0f}</div>
+                    <div style='font-size:11px; font-weight:600; color:{vol_color}; margin-top:2px;'>{vol_arrow} {abs(vol_pct):.1f}%</div>
+                </div>
+                <div style='flex:1;'>
+                    <div style='font-size:11px; color:#64748b;'>Hợp đồng mở (OI)</div>
+                    <div style='font-size:17px; font-weight:700; color:#e2e8f0;'>{oi_today:,.0f}</div>
+                    <div style='font-size:11px; font-weight:600; color:{oi_color}; margin-top:2px;'>{oi_arrow} {abs(oi_pct):.1f}%</div>
+                </div>
+            </div>
+            <hr style='border-color:#1e2d45; margin:12px 0;'>
+            <div style='font-size:11px; font-weight:700; color:#94a3b8; margin-bottom:6px; letter-spacing:0.5px;'>🔍 XU HƯỚNG DÒNG TIỀN:</div>
+            <div style='font-size:13px; font-weight:700; color:#38bdf8; margin-bottom:6px;'>{trend}</div>
+            <div style='font-size:12px; color:#cbd5e1; line-height:1.6;'>{logic}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.info("Chưa có dữ liệu Volume & OI.")
+
+st.markdown("</div>", unsafe_allow_html=True)
+
 # ── Swing & DCA Logic ──
 swing_logic = data.get("swing_logic", "")
 dca_logic   = data.get("dca_logic", "")
