@@ -86,23 +86,34 @@ Dưới đây là danh sách các tin tức thô vừa được lấy từ hệ 
 {rss_text}
 
 Yêu cầu:
-1. Hãy tóm tắt các tin tức trên thành các ý chính SIÊU NGẮN GỌN (mỗi ý không quá 2 dòng).
-2. Dịch sang Tiếng Việt.
-3. Chỉ chọn lọc những tin quan trọng liên quan trực tiếp đến Lúa mì (Wheat) và Ngô (Corn), các yếu tố thời tiết, xuất khẩu, chính trị, bỏ qua các tin nhiễu hoặc không liên quan.
-4. BẮT BUỘC trình bày dưới dạng gạch đầu dòng bằng dấu "+".
-5. BẮT BUỘC chèn thêm thông tin Thời gian và Link bài viết NGAY LIỀN KỀ Ở CUỐI MỖI CÂU (KHÔNG XUỐNG DÒNG) theo đúng format HTML sau: <span style="font-size:11px; color:#94a3b8; font-style:italic;">(Nguồn: Thời gian) - <a href="Link" target="_blank" style="color:#38bdf8;">Đọc chi tiết</a></span>
+1. Đọc, chọn lọc và bóc tách tối đa 15 tin tức quan trọng nhất liên quan trực tiếp đến Lúa mì (Wheat) và Ngô (Corn).
+2. Tóm tắt từng tin tức một cách trung thực, KHÔNG làm sai lệch nội dung bài viết gốc. Dịch sang Tiếng Việt.
+3. Với mỗi tin tức, hãy chia thành 1 Tiêu đề (gây chú ý, khái quát) và 3-5 ý chính (details) tóm tắt được hết ý quan trọng của bài viết (số liệu, nguyên nhân, vĩ mô).
+4. Bạn BẮT BUỘC phải trả về kết quả dưới dạng một mảng JSON thuần túy (không chứa markdown ```json...```), với cấu trúc sau:
+[
+  {{
+    "title": "Tiêu đề tiếng Việt khái quát nội dung",
+    "details": [
+      "Ý chính 1...",
+      "Ý chính 2...",
+      "Ý chính 3..."
+    ],
+    "link": "Link gốc của bài viết lấy từ danh sách trên",
+    "source": "Thời gian và Nguồn (Ví dụ: 04 Jul 2026 - Yahoo Finance)"
+  }}
+]
 
-Ví dụ: 
-+ Trung Quốc vừa mới ký thỏa thuận mua đậu tương và ngô Mỹ với 10tr tấn. <span style="font-size:11px; color:#94a3b8; font-style:italic;">(Nguồn: 04 Jul 2026) - <a href="https://finance.yahoo.com/..." target="_blank" style="color:#38bdf8;">Đọc chi tiết</a></span>
-
-Không giải thích dài dòng, chỉ in ra các dấu +
+Tuyệt đối chỉ trả về JSON, không giải thích gì thêm.
 """
 
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
     headers = {"Content-Type": "application/json"}
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.2}
+        "generationConfig": {
+            "temperature": 0.2,
+            "responseMimeType": "application/json"
+        }
     }
     
     print("  [+] Đang gửi Prompt tới Google Gemini API...")
@@ -117,35 +128,20 @@ Không giải thích dài dòng, chỉ in ra các dấu +
             print("  [ERR] API trả về rỗng.")
             return False
             
-        # Parse bullet points
-        bullets = []
-        for line in text_output.split('\n'):
-            line = line.strip()
-            if not line:
-                continue
-                
-            if line.startswith('+') or line.startswith('-') or line.startswith('*'):
-                clean_line = '+ ' + line[1:].strip()
-                if "(Nguồn:" in clean_line and bullets and clean_line.startswith("+ <span") or clean_line.startswith("+ (Nguồn"):
-                    bullets[-1] = bullets[-1] + " " + clean_line[2:].strip()
-                else:
-                    bullets.append(clean_line)
-            elif "(Nguồn:" in line and bullets:
-                bullets[-1] = bullets[-1] + " " + line.strip()
-            else:
-                if bullets:
-                    bullets[-1] = bullets[-1] + " " + line
-                else:
-                    bullets.append('+ ' + line)
-                
-        if not bullets:
-            bullets = ["+ Không có tin tức nào nổi bật trong 24h qua."]
+        # Parse JSON
+        try:
+            news_array = json.loads(text_output)
+        except json.JSONDecodeError:
+            print("  [ERR] Lỗi khi parse JSON từ AI.")
+            # Khắc phục fallback nếu AI lỡ chèn markdown
+            text_output = text_output.replace("```json", "").replace("```", "").strip()
+            news_array = json.loads(text_output)
             
-        bullets = bullets[:15]
+        news_array = news_array[:15] # Giới hạn tối đa 15 tin
             
         result_data = {
             "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "bullets": bullets
+            "news": news_array
         }
         
         OUTPUT_DIR.mkdir(exist_ok=True, parents=True)

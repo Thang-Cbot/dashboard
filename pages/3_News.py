@@ -67,10 +67,21 @@ with tab2:
     ai_news = load_json("ai_news.json")
     if ai_news:
         st.markdown(f"<div style='font-size:12px; color:#64748b; margin-bottom:10px;'>Cập nhật lần cuối: {ai_news.get('timestamp', '—')}</div>", unsafe_allow_html=True)
-        st.markdown("<div class='card'>", unsafe_allow_html=True)
-        for bullet in ai_news.get("bullets", []):
-            st.markdown(f"<div style='font-size:14px; color:#e2e8f0; margin-bottom:8px; line-height:1.6;'><b>{bullet}</b></div>", unsafe_allow_html=True)
-        st.markdown("</div>", unsafe_allow_html=True)
+        news_list = ai_news.get("news", [])
+        
+        if not news_list:
+            # Hỗ trợ dữ liệu cũ
+            st.markdown("<div class='card'>", unsafe_allow_html=True)
+            for bullet in ai_news.get("bullets", []):
+                st.markdown(f"<div style='font-size:14px; color:#e2e8f0; margin-bottom:8px; line-height:1.6;'><b>{bullet}</b></div>", unsafe_allow_html=True)
+            st.markdown("</div>", unsafe_allow_html=True)
+        else:
+            # Giao diện Drop Down mới
+            for item in news_list:
+                with st.expander(f"🔹 {item.get('title', 'Tin tức mới')}"):
+                    for detail in item.get('details', []):
+                        st.markdown(f"<div style='font-size:14px; color:#cbd5e1; margin-bottom:6px; line-height:1.6;'>• {detail}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div style='margin-top:10px; font-size:12px; color:#94a3b8; font-style:italic;'>(Nguồn: {item.get('source', '')}) - <a href='{item.get('link', '#')}' target='_blank' style='color:#38bdf8;'>Đọc chi tiết</a></div>", unsafe_allow_html=True)
     else:
         st.info("Chưa có tin tức nào được tóm tắt. Vui lòng nhấn nút Cập nhật phía trên.")
 

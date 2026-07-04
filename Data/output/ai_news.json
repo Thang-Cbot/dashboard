@@ -1,17 +1,131 @@
 {
-  "timestamp": "2026-07-04 14:04:03",
-  "bullets": [
-    "+ Giá lúa mì tăng 2-4 cent vào sáng thứ Năm, tiếp nối đà tăng từ thứ Tư (4-11.25 cent). <span style=\"font-size:11px; color:#94a3b8; font-style:italic;\">(Nguồn: 02 Jul 2026) - <a href=\"https://www.barchart.com/story/news/3097784/wheat-showing-early-thursday-gains?.tsrc=rss\" target=\"_blank\" style=\"color:#38bdf8;\">Đọc chi tiết</a></span>",
-    "+ Giá ngô tăng 3-6 cent sau báo cáo Tồn kho ngũ cốc tích cực của USDA. <span style=\"font-size:11px; color:#94a3b8; font-style:italic;\">(Nguồn: 30 Jun 2026) - <a href=\"https://www.barchart.com/story/news/3059368/corn-bulls-gaining-ground-following-usda-reports-with-bullish-stocks-data?.tsrc=rss\" target=\"_blank\" style=\"color:#38bdf8;\">Đọc chi tiết</a></span>",
-    "+ Kỳ nghỉ Lễ Độc lập (4/7) thường là giai đoạn quan trọng, có thể đẩy nhanh hoặc đảo ngược xu hướng giá ngũ cốc hiện tại. <span style=\"font-size:11px; color:#94a3b8; font-style:italic;\">(Nguồn: 29 Jun 2026) - <a href=\"https://www.barchart.com/story/news/3038807/the-most-critical-2-week-period-of-the-year-for-grain-prices-is-just-days-away?.tsrc=rss\" target=\"_blank\" style=\"color:#38bdf8;\">Đọc chi tiết</a></span>",
-    "+ Giá lúa mì giảm vào thứ Sáu, với SRW Chicago giảm 11-13 cent và HRW Kansas City giảm 8-10.5 cent. <span style=\"font-size:11px; color:#94a3b8; font-style:italic;\">(Nguồn: 26 Jun 2026) - <a href=\"https://www.barchart.com/story/news/3003693/wheat-trading-lower-on-friday?.tsrc=rss\" target=\"_blank\" style=\"color:#38bdf8;\">Đọc chi tiết</a></span>",
-    "+ Giá ngô kỳ hạn tháng 12 đã giảm xuống mức thấp mới trong năm 2026 vào ngày 15 tháng 6, đang tiếp cận các mức hỗ trợ kỹ thuật quan trọng. <span style=\"font-size:11px; color:#94a3b8; font-style:italic;\">(Nguồn: 25 Jun 2026) - <a href=\"https://www.barchart.com/story/news/1766/what-did-the-june-wasde-report-tell-the-corn-futures-market?.tsrc=rss\" target=\"_blank\" style=\"color:#38bdf8;\">Đọc chi tiết</a></span>",
-    "+ Giá lúa mì biến động trái chiều vào thứ Năm, với SRW Chicago tăng nhẹ và HRW Kansas City giảm 1-2 cent. <span style=\"font-size:11px; color:#94a3b8; font-style:italic;\">(Nguồn: 25 Jun 2026) - <a href=\"https://www.barchart.com/story/news/2894/wheat-trading-mixed-at-midday?.tsrc=rss\" target=\"_blank\" style=\"color:#38bdf8;\">Đọc chi tiết</a></span>",
-    "+ Giá lúa mì giảm vào thứ Tư, với SRW Chicago ổn định đến giảm 1 cent và HRW Kansas City giảm nhẹ. <span style=\"font-size:11px; color:#94a3b8; font-style:italic;\">(Nguồn: 24 Jun 2026) - <a href=\"https://www.barchart.com/story/news/2636406/wheat-fades-back-on-wednesday?.tsrc=rss\" target=\"_blank\" style=\"color:#38bdf8;\">Đọc chi tiết</a></span>",
-    "+ Giá lúa mì tăng vào thứ Tư, với SRW Chicago tăng 7-8 cent và HRW Kansas City tăng 5-6.5 cent, một phần do mưa. <span style=\"font-size:11px; color:#94a3b8; font-style:italic;\">(Nguồn: 24 Jun 2026) - <a href=\"https://www.barchart.com/story/news/2631309/wheat-bouncing-higher-on-wednesday?.tsrc=rss\" target=\"_blank\" style=\"color:#38bdf8;\">Đọc chi tiết</a></span>",
-    "+ Giá lúa mì giảm mạnh vào thứ Ba, với SRW Chicago giảm 8.25-10.75 cent và HRW Kansas City giảm 13-15.25 cent. <span style=\"font-size:11px; color:#94a3b8; font-style:italic;\">(Nguồn: 23 Jun 2026) - <a href=\"https://www.barchart.com/story/news/2613994/wheat-collapses-lower-on-tuesday?.tsrc=rss\" target=\"_blank\" style=\"color:#38bdf8;\">Đọc chi tiết</a></span>",
-    "+ Giá lúa mì tiếp tục giảm vào thứ Ba, với lúa mì vụ xuân dẫn đầu đà giảm; SRW Chicago giảm 6-8.25 cent. <span style=\"font-size:11px; color:#94a3b8; font-style:italic;\">(Nguồn: 23 Jun 2026) - <a href=\"https://www.barchart.com/story/news/2609567/wheat-falling-on-tuesday-with-spring-wheat-leading-the-bears?.tsrc=rss\" target=\"_blank\" style=\"color:#38bdf8;\">Đọc chi tiết</a></span>",
-    "+ Giá lúa mì vụ đông đỏ mềm tháng 12 được dự báo sẽ tăng, tạo cơ hội mua vào khi giá tiếp tục mạnh lên. <span style=\"font-size:11px; color:#94a3b8; font-style:italic;\">(Nguồn: 23 Jun 2026) - <a href=\"https://www.barchart.com/story/news/2606012/wheat-prices-are-headed-higher-how-to-trade-them-now?.tsrc=rss\" target=\"_blank\" style=\"color:#38bdf8;\">Đọc chi tiết</a></span>",
-    "+ Giá lúa mì giảm vào sáng thứ Ba, tiếp nối đà giảm từ thứ Hai; SRW Chicago giảm 6-8.25 cent. <span style=\"font-size:11px; color:#94a3b8; font-style:italic;\">(Nguồn: 23 Jun 2026) - <a href=\"https://www.barchart.com/story/news/2602672/wheat-slipping-on-tuesday-morning?.tsrc=rss\" target=\"_blank\" style=\"color:#38bdf8;\">Đọc chi tiết</a></span>"
+  "timestamp": "2026-07-04 14:25:45",
+  "news": [
+    {
+      "title": "Lúa mì tăng giá vào sáng thứ Năm",
+      "details": [
+        "Giá lúa mì tăng từ 2 đến 4 cent trên hầu hết các hợp đồng vào sáng thứ Năm.",
+        "Thị trường lúa mì cũng đã tăng giá trên cả ba sàn giao dịch vào thứ Tư.",
+        "Hợp đồng lúa mì SRW Chicago tăng từ 4 đến 11 ¼ cent trong phiên giao dịch thứ Tư.",
+        "Dữ liệu hợp đồng mở cho thấy sự luân chuyển quyền sở hữu, giảm nhẹ 244 hợp đồng."
+      ],
+      "link": "https://www.barchart.com/story/news/3097784/wheat-showing-early-thursday-gains?.tsrc=rss",
+      "source": "02 Jul 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giá ngô tăng mạnh sau báo cáo tồn kho tích cực của USDA",
+      "details": [
+        "Hợp đồng tương lai ngô tăng từ 3 đến 6 cent sau báo cáo Tồn kho ngũ cốc thuận lợi.",
+        "Có 44 thông báo giao hàng vào ngày thông báo đầu tiên cho hợp đồng tương lai tháng 7.",
+        "Giá ngô giao ngay trung bình toàn quốc của CmdtyView tăng 5 ½ cent, đạt 3,81 ½ USD.",
+        "Dữ liệu diện tích trồng trọt cũng được đề cập trong báo cáo."
+      ],
+      "link": "https://www.barchart.com/story/news/3059368/corn-bulls-gaining-ground-following-usda-reports-with-bullish-stocks-data?.tsrc=rss",
+      "source": "30 Jun 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giai đoạn 2 tuần quan trọng nhất năm đối với giá ngũ cốc sắp đến",
+      "details": [
+        "Kỳ nghỉ lễ Quốc khánh 4 tháng 7 được biết đến là yếu tố có thể đẩy nhanh hoặc đảo ngược các xu hướng hiện có của giá ngũ cốc.",
+        "Đây là giai đoạn được coi là cực kỳ quan trọng đối với thị trường ngũ cốc hàng năm."
+      ],
+      "link": "https://www.barchart.com/story/news/3038807/the-most-critical-2-week-period-of-the-year-for-grain-prices-is-just-days-away?.tsrc=rss",
+      "source": "29 Jun 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giá lúa mì giảm vào thứ Sáu",
+      "details": [
+        "Thị trường lúa mì ghi nhận mức giảm trên hầu hết các hợp đồng vào thứ Sáu.",
+        "Hợp đồng lúa mì SRW Chicago giảm từ 11 đến 13 cent đối với các tháng gần nhất.",
+        "Hợp đồng tương lai lúa mì HRW Kansas City giảm từ 8 đến 10 ½ cent.",
+        "Lúa mì vụ xuân Minneapolis giảm 8 cent đối với các hợp đồng gần nhất."
+      ],
+      "link": "https://www.barchart.com/story/news/3003693/wheat-trading-lower-on-friday?.tsrc=rss",
+      "source": "26 Jun 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Báo cáo WASDE tháng 6 và tác động đến thị trường ngô tương lai",
+      "details": [
+        "Sau khi đạt đỉnh năm 2026 vào ngày 13 tháng 5, hợp đồng tương lai ngô vụ mới tháng 12 của CBOT đã giảm giá.",
+        "Giá ngô đã chạm mức thấp mới trong năm 2026 vào ngày 15 tháng 6.",
+        "Hợp đồng tương lai ngô đang tiếp cận các mức hỗ trợ kỹ thuật quan trọng vào cuối tháng 6 năm 2026."
+      ],
+      "link": "https://www.barchart.com/story/news/1766/what-did-the-june-wasde-report-tell-the-corn-futures-market?.tsrc=rss",
+      "source": "25 Jun 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giá lúa mì biến động trái chiều vào giữa ngày thứ Năm",
+      "details": [
+        "Thị trường lúa mì ghi nhận sự biến động trái chiều vào thứ Năm.",
+        "Hợp đồng lúa mì SRW Chicago tăng nhẹ vào giữa ngày.",
+        "Hợp đồng mở giảm 11.876 hợp đồng vào thứ Tư.",
+        "Hợp đồng tương lai lúa mì HRW Kansas City giảm từ 1 đến 2 cent.",
+        "Lúa mì vụ xuân Minneapolis biến động trái chiều, với một số hợp đồng tăng ¼ cent đến 3 ¾ cent."
+      ],
+      "link": "https://www.barchart.com/story/news/2894/wheat-trading-mixed-at-midday?.tsrc=rss",
+      "source": "25 Jun 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giá lúa mì giảm nhẹ vào cuối ngày thứ Tư",
+      "details": [
+        "Các hợp đồng lúa mì giảm giá vào thứ Tư.",
+        "Hợp đồng lúa mì SRW Chicago ổn định đến giảm 1 cent khi đóng cửa.",
+        "Hợp đồng tương lai lúa mì HRW Kansas City tháng 7 giảm 1 cent, các hợp đồng khác tăng nhẹ đến 2 ¾ cent.",
+        "Lúa mì vụ xuân Minneapolis biến động trái chiều, với một số hợp đồng giảm 3 cent."
+      ],
+      "link": "https://www.barchart.com/story/news/2636406/wheat-fades-back-on-wednesday?.tsrc=rss",
+      "source": "24 Jun 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giá lúa mì phục hồi vào thứ Tư",
+      "details": [
+        "Hầu hết các hợp đồng lúa mì đều tăng giá vào thứ Tư.",
+        "Hợp đồng lúa mì SRW Chicago tăng từ 7 đến 8 cent.",
+        "Hợp đồng tương lai lúa mì HRW Kansas City tăng từ 5 đến 6 ½ cent.",
+        "Lúa mì vụ xuân Minneapolis biến động trái chiều, với một số hợp đồng giảm 3 cent và một số tăng 2 ½ cent.",
+        "Lượng mưa có thể là một yếu tố ảnh hưởng."
+      ],
+      "link": "https://www.barchart.com/story/news/2631309/wheat-bouncing-higher-on-wednesday?.tsrc=rss",
+      "source": "24 Jun 2026 - Yahoo Finance"
+    },
+    {
+      "title": "ADAMA ra mắt thuốc diệt cỏ Novali™ mới cho cây trồng hàng",
+      "details": [
+        "ADAMA Ltd. đã công bố ra mắt Novali™, một loại thuốc diệt cỏ Pyroxasulfone dạng lỏng đậm đặc.",
+        "Sản phẩm được thiết kế để cung cấp giải pháp kiểm soát cỏ dại tồn dư hiệu quả và linh hoạt.",
+        "Novali™ hướng đến các nhà sản xuất cây trồng hàng, bao gồm đậu tương và ngô."
+      ],
+      "link": "https://finance.yahoo.com/markets/commodities/articles/adama-announces-launch-novali-high-134700684.html?.tsrc=rss",
+      "source": "24 Jun 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Thị trường ngũ cốc trầm lắng trước kỳ nghỉ lễ",
+      "details": [
+        "Thị trường ngũ cốc nhìn chung khá yên tĩnh trong phiên giao dịch trước kỳ nghỉ lễ Quốc khánh.",
+        "Sự thiếu vắng biến động mạnh cho thấy tâm lý chờ đợi của thị trường."
+      ],
+      "link": "https://www.farmprogress.com/markets-and-quotes/afternoon-market-recap",
+      "source": "02 Jul 2026 - Farm Progress"
+    },
+    {
+      "title": "Mẹo hàng đầu: Tận dụng thị trường ngũ cốc theo thời tiết vào tháng 7",
+      "details": [
+        "Sau dữ liệu diện tích và tồn kho bất ngờ của USDA, các chuyên gia chia sẻ chiến lược.",
+        "Mục tiêu là tận dụng các cơ hội định giá khi thị trường theo dõi dự báo thời tiết.",
+        "Thời tiết sẽ là yếu tố chính định hình thị trường ngũ cốc trong tháng 7."
+      ],
+      "link": "https://www.farmprogress.com/management/top-tips-how-to-leverage-weather-driven-grain-markets-in-july",
+      "source": "02 Jul 2026 - Farm Progress"
+    },
+    {
+      "title": "El Nino và sự cần thiết theo dõi sát sao các đợt tăng giá do thời tiết",
+      "details": [
+        "Giá ngô và đậu tương tiếp tục đà tăng sau báo cáo USDA qua đêm.",
+        "Triển vọng thời tiết hỗn hợp tạo ra sự không chắc chắn trước kỳ nghỉ lễ cuối tuần.",
+        "Hiện tượng El Nino đòi hỏi sự chú ý đặc biệt đến các đợt tăng giá do yếu tố thời tiết."
+      ],
+      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
+      "source": "02 Jul 2026 - Farm Progress"
+    }
   ]
 }
