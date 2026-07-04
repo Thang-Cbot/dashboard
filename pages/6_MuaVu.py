@@ -305,10 +305,11 @@ with tab_zw:
             <div class='scenario-box' style='background:#0f2a1a; border-color:#22c55e;'>
               <div style='font-size:12px; font-weight:700; color:#86efac;'>🟢 Kịch Bản NĂM 2026 — KHỦNG HOẢNG (El Niño / 2018 & 2020)</div>
               <div style='font-size:12px; color:#d1fae5; margin-top:6px; line-height:1.7;'>
-                • Lúa đông 26% G/E → Hạn hán Southern Plains đã tàn phá<br>
-                • Tháng 7: Weather Rally giả (Bull Trap) — Giá có thể bật lên <b>620–640 cents</b><br>
-                • Cuối T8: Áp lực gặt Lúa xuân → Nhịp rũ bỏ về <b>555–585 cents</b> (ZWU26)<br>
-                • Q4: Khủng hoảng hụt cung → Siêu sóng tăng
+                • Diện tích Lúa xuân thấp kỷ lục 56 năm (9.39m) + Nắng nóng thiêu đốt<br>
+                • Đầu-Giữa T7: Lúa đông Mỹ gặt (48%-60%) tạo <b>Đáy 1</b><br>
+                • Cuối T7: Lúa Nga trễ hẹn đổ ra bến cảng kéo dài vùng đáy <b>(Đáy U-Shape)</b><br>
+                • T8: Rũ bỏ cuối cùng (Gặt lúa xuân) tạo <b>Đáy 2 (555-585 cents ZWU26)</b><br>
+                • Q4: Thiếu hụt vật chất đẩy giá bùng nổ, nhưng bị "Giảm xóc" bởi mưa Thu gieo vụ mới.
               </div>
             </div>
             <div class='scenario-box' style='background:#1c1a0f; border-color:#64748b;'>
@@ -335,8 +336,9 @@ with tab_zw:
             <div>
               <div style='font-size:12px; font-weight:700; color:#fde68a;'>📅 Tháng 7 — Bull Trap (Cú Lừa)</div>
               <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                El Niño gây nắng hóng đe dọa Lúa xuân → Thị trường sợ hãi → Giá bật lên <b style='color:#f59e0b;'>620–640 cents</b>.<br>
-                ❌ KHÔNG mua theo — Đây là Bull Trap. Cân nhắc Short ngắn hạn.
+                <b>Đầu T7:</b> Gặt Lúa đông Mỹ tạo Đáy 1 (Tâm bão).<br>
+                <b>Cuối T7:</b> Lúa Nga xả hàng kéo dài hình thái đáy (Cưa chân bàn).<br>
+                ❌ KHÔNG All-in. Rải 20-30% vốn để phòng thủ vùng đáy lê lết.
               </div>
             </div>
           </div>
@@ -346,9 +348,9 @@ with tab_zw:
             <div>
               <div style='font-size:12px; font-weight:700; color:#fca5a5;'>📅 Giữa→Cuối Tháng 8 — Đáy Tuyệt Đối (Bottom 2)</div>
               <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                Lúa xuân bắt đầu gặt (40%) → Cash selling đổ bộ → Giá rơi về<br>
+                Lúa xuân Mỹ (diện tích thấp nhất 56 năm) bị đem ra gặt + Nga xả hàng.<br>
                 <b style='color:#ef4444;'>555–585 cents ({zw_swing_ticker}) ≈ 570–585 cents ({zw_dca_ticker})</b><br>
-                ✅ ĐÂY LÀ VÙNG GOM DÀI HẠN (Golden Zone)
+                ✅ Xây móng bê tông xong. Vùng Gom Hỏa Lực Mạnh Nhất!
               </div>
             </div>
           </div>
@@ -358,8 +360,9 @@ with tab_zw:
             <div>
               <div style='font-size:12px; font-weight:700; color:#86efac;'>📅 Q4 (Tháng 10→12) — Siêu Sóng Tăng</div>
               <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                El Niño giáng đòn vào Úc & Argentina (Nam bán cầu) → Hụt cung toàn cầu → Bùng nổ giá.<br>
-                🎯 Target: Khu vực <b style='color:#22c55e;'>650–700 cents</b>
+                El Niño tàn phá Úc & Argentina → Siêu bão thiếu hụt.<br>
+                Mưa mùa thu Mỹ (T9-T11) làm nắp đập (Cap) ngăn ngáo giá.<br>
+                🎯 Target: Bùng nổ vùng <b style='color:#22c55e;'>680–760 cents</b>
               </div>
             </div>
           </div>
@@ -578,9 +581,9 @@ with tab_zc:
           <div class='scenario-box' style='background:#2d1800; border-color:#f59e0b; margin-bottom:10px;'>
             <div style='font-size:12px; font-weight:700; color:#fcd34d;'>⚠️ Rủi ro: Tháng 7 — Giai Đoạn Pollination</div>
             <div style='font-size:12px; color:#fde68a; margin-top:6px; line-height:1.7;'>
-              • Tháng 7 là giai đoạn thụ phấn (Pollination) — cực kỳ nhạy cảm với nắng nóng<br>
-              • El Niño 82% có thể mang Heatwave tấn công vành đai Midwest<br>
-              • Nếu nhiệt độ &gt;35°C kéo dài 3-5 ngày trong Pollination Window → mất 10-20% sản lượng
+              • Diện tích giảm 3% nhưng Tồn kho nội địa tăng mạnh 14% (WASDE 30/06).<br>
+              • El Niño mang nắng nóng đe dọa trực tiếp Midwest (Thụ phấn).<br>
+              • Mưa ngập lụt đầu vụ + nắng nóng giữa vụ đè nặng năng suất thực tế.
             </div>
           </div>
           <div class='scenario-box' style='background:#0f1a2d; border-color:#60a5fa;'>

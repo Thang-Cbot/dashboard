@@ -45,6 +45,7 @@ st.sidebar.page_link("pages/2_Profiles.py", label="📈 Hồ Sơ Mã")
 st.sidebar.page_link("pages/3_News.py",     label="📰 Tin Tức & Cung Cầu")
 st.sidebar.page_link("pages/4_Weather.py",  label="🌤️ Thời Tiết")
 st.sidebar.page_link("pages/5_AgriMap.py",  label="🗺️ Bản Đồ Nông Sản")
+    st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ 2026")
 
 st.markdown("## 🌤️ Báo Cáo Thời Tiết")
 
