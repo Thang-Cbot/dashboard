@@ -25,27 +25,45 @@ def get_api_key():
     return key if key else None
 
 def fetch_rss_news():
+    news_items = []
+    
+    # 1. Yahoo Finance RSS
     print("  [+] Đang tải tin tức từ Yahoo Finance RSS...")
-    url = "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ZC=F,ZW=F"
-    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    yahoo_url = "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ZC=F,ZW=F"
+    req_yahoo = urllib.request.Request(yahoo_url, headers={'User-Agent': 'Mozilla/5.0'})
     try:
-        response = urllib.request.urlopen(req, timeout=15)
-        tree = ET.parse(response)
-        
-        news_items = []
-        for item in tree.findall('.//item')[:15]:
+        resp_yahoo = urllib.request.urlopen(req_yahoo, timeout=15)
+        tree_yahoo = ET.parse(resp_yahoo)
+        for item in tree_yahoo.findall('.//item')[:10]:
             title = item.find('title').text if item.find('title') is not None else ""
             desc = item.find('description').text if item.find('description') is not None else ""
             link = item.find('link').text if item.find('link') is not None else ""
             pub_date = item.find('pubDate').text if item.find('pubDate') is not None else ""
-            
             if title:
-                news_items.append(f"Tiêu đề: {title}\nMô tả: {desc}\nLink: {link}\nThời gian: {pub_date}\n")
-                
-        return "\n".join(news_items)
+                news_items.append(f"Nguồn: Yahoo Finance\nTiêu đề: {title}\nMô tả: {desc}\nLink: {link}\nThời gian: {pub_date}\n")
     except Exception as e:
-        print(f"  [ERR] Lỗi khi tải RSS: {e}")
-        return ""
+        print(f"  [ERR] Lỗi khi tải Yahoo RSS: {e}")
+        
+    # 2. Farm Progress RSS
+    print("  [+] Đang tải tin tức từ Farm Progress RSS...")
+    fp_url = "https://www.farmprogress.com/rss.xml"
+    req_fp = urllib.request.Request(fp_url, headers={'User-Agent': 'Mozilla/5.0'})
+    try:
+        resp_fp = urllib.request.urlopen(req_fp, timeout=15)
+        tree_fp = ET.parse(resp_fp)
+        for item in tree_fp.findall('.//item')[:10]:
+            title = item.find('title').text if item.find('title') is not None else ""
+            desc = item.find('description').text if item.find('description') is not None else ""
+            # Loai bo bot HTML trong desc neu qua dai, hoac cu de nguyen
+            desc = desc[:300] + "..." if len(desc) > 300 else desc
+            link = item.find('link').text if item.find('link') is not None else ""
+            pub_date = item.find('pubDate').text if item.find('pubDate') is not None else ""
+            if title:
+                news_items.append(f"Nguồn: Farm Progress\nTiêu đề: {title}\nMô tả: {desc}\nLink: {link}\nThời gian: {pub_date}\n")
+    except Exception as e:
+        print(f"  [ERR] Lỗi khi tải Farm Progress RSS: {e}")
+        
+    return "\n".join(news_items)
 
 def summarize_news():
     print("\n=======================================================")
