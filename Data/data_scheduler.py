@@ -174,7 +174,7 @@ EXPORT_SCRIPT    = str(DATA_DIR / "reports" / "export_sales.py")
 WEATHER_S_SCRIPT = str(DATA_DIR / "weather" / "weather_short.py")
 WEATHER_L_SCRIPT = str(DATA_DIR / "weather" / "weather_long.py")
 ACREAGE_SCRIPT   = str(DATA_DIR / "reports" / "fetch_acreage.py")
-
+AI_NEWS_SCRIPT   = str(DATA_DIR / "fetch_news.py")
 
 def job_prices():
     """Giá H1: chạy phút :15 mỗi giờ (giờ giao dịch CBOT 20:00 - 08:00 sáng hôm sau VN)."""
@@ -245,6 +245,18 @@ def job_acreage():
         run_script("USDA Acreage", ACREAGE_SCRIPT, "acreage", max_retry=3)
 
 
+def job_ai_news():
+    """Điểm tin AI: 06:00 và 20:00 hàng ngày."""
+    while True:
+        now = datetime.datetime.now(VN_TZ)
+        t1 = now.replace(hour=6, minute=0, second=2, microsecond=0)
+        t2 = now.replace(hour=20, minute=0, second=2, microsecond=0)
+        candidates = [t for t in [t1, t2, t1 + datetime.timedelta(days=1)] if t > now]
+        target = min(candidates)
+        sleep_until(target, "AI News")
+        run_script("AI Điểm Tin", AI_NEWS_SCRIPT, "ai_news")
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 def main():
     log("=" * 60)
@@ -259,6 +271,7 @@ def main():
     log("  [Thời Tiết Ngắn]    : 06:00 hàng ngày")
     log("  [ENSO Long-Term]    : Thứ Hai 06:30 VN")
     log("  [USDA Acreage]      : 05:30 hàng ngày")
+    log("  [AI Điểm Tin]       : 06:00 và 20:00 hàng ngày")
     log("-" * 60)
 
     # Chạy mỗi job trong thread daemon riêng biệt
@@ -266,6 +279,7 @@ def main():
         job_prices, job_cot, job_crop_progress,
         job_export_sales, job_wasde,
         job_weather_short, job_weather_long, job_acreage,
+        job_ai_news,
     ]
     threads = []
     for job in jobs:
