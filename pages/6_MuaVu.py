@@ -84,18 +84,36 @@ def load_fund():
     if not p.exists(): return {}
     try:
         return json.loads(p.read_text(encoding="utf-8"))
-    except: return {}
-
 @st.cache_data(ttl=60)
 def load_contracts():
     p = DATA_OUTPUT / "contracts_meta.json"
     if not p.exists(): return {}
-    try:
-        return json.loads(p.read_text(encoding="utf-8"))
+    try: return json.loads(p.read_text(encoding="utf-8"))
+    except: return {}
+
+@st.cache_data(ttl=60)
+def load_status():
+    p = DATA_OUTPUT / "data_status.json"
+    if not p.exists(): return {}
+    try: return json.loads(p.read_text(encoding="utf-8"))
+    except: return {}
+
+@st.cache_data(ttl=60)
+def load_blacksea():
+    p = DATA_OUTPUT / "blacksea_wheat.json"
+    if not p.exists(): return {}
+    try: return json.loads(p.read_text(encoding="utf-8"))
     except: return {}
 
 fund = load_fund()
 meta = load_contracts()
+status = load_status()
+bs_data = load_blacksea()
+
+usda_up = status.get("modules", {}).get("usda", {}).get("updated_at", "—")
+price_up = status.get("modules", {}).get("prices", {}).get("updated_at", "—")
+acreage_up = status.get("acreage", {}).get("updated_at", "—")
+bs_up = bs_data.get("timestamp", "—")
 
 # ── Header ─────────────────────────────────────────────────────────────────────
 st.markdown("""
@@ -186,7 +204,7 @@ with tab_zw:
           </div>
 
           <!-- BLOCK I: MUA VU -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>I. Tình Trạng Mùa Vụ</div>
+          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>I. Tình Trạng Mùa Vụ <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {usda_up})</span></div>
           <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
             <div class='metric-box' style='border-color:#ef4444;'>
               <div style='font-size:10px; color:#64748b;'>Chất Lượng (G/E)</div>
@@ -206,7 +224,7 @@ with tab_zw:
           </div>
 
           <!-- BLOCK II: DIEN TICH GIEO TRONG (USDA Acreage 30/06) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>II. Diện Tích Gieo Trồng 📊<span style='font-size:9px; color:#f59e0b; font-weight:400; margin-left:6px; text-transform:none;'>BC: {zw_acreage.get('report_date','—')}</span></div>
+          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>II. Diện Tích Gieo Trồng 📊<span style='font-size:9px; color:#f59e0b; font-weight:400; margin-left:6px; text-transform:none;'>BC: {zw_acreage.get('report_date','—')}</span> <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {acreage_up})</span></div>
           <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
             <div class='metric-box' style='border-color:#60a5fa;'>
               <div style='font-size:10px; color:#64748b;'>Hiện Tại (BC mới nhất)</div>
@@ -229,7 +247,7 @@ with tab_zw:
           </div>
 
           <!-- BLOCK III: TON KHO CUOI VU (Ending Stocks WASDE) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>III. Tồn Kho Cuối Vụ WASDE</div>
+          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>III. Tồn Kho Cuối Vụ WASDE <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {usda_up})</span></div>
 
           <div style='font-size:11px; color:#34d399; font-weight:600; margin-bottom:5px;'>🇺🇸 Tồn Kho Mỹ (US Ending Stocks)</div>
           <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:10px;'>
@@ -266,7 +284,7 @@ with tab_zw:
           </div>
 
           <!-- BLOCK IV: GRAIN STOCKS (vat ly) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>IV. Tồn Kho Vật Lý (Grain Stocks 01/06) 📊<span style='font-size:9px; color:#f59e0b; font-weight:400; margin-left:6px; text-transform:none;'>BC: {zw_grain_stk.get('report_date','—')}</span></div>
+          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>IV. Tồn Kho Vật Lý (Grain Stocks 01/06) 📊<span style='font-size:9px; color:#f59e0b; font-weight:400; margin-left:6px; text-transform:none;'>BC: {zw_grain_stk.get('report_date','—')}</span> <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {acreage_up})</span></div>
           <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
             <div class='metric-box' style='border-color:#10b981;'>
               <div style='font-size:10px; color:#64748b;'>Hiện Tại</div>
@@ -284,7 +302,7 @@ with tab_zw:
           </div>
 
           <!-- BLOCK V: GIA + LICH BC -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>V. Giá & Lịch Báo Cáo</div>
+          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>V. Giá & Lịch Báo Cáo <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {price_up})</span></div>
           <div style='display:grid; grid-template-columns:1fr 1fr; gap:8px;'>
             <div class='metric-box' style='border-color:#60a5fa;'>
               <div style='font-size:10px; color:#64748b;'>Giá Tham Chiếu ({zw_swing_ticker})</div>
@@ -297,7 +315,7 @@ with tab_zw:
           </div>
           
           <!-- BLOCK RUSSIAN WHEAT -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; margin-top:14px;'>VI. Sự Thống Trị Của Nga (Biển Đen) 🇷🇺</div>
+          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; margin-top:14px;'>VI. Sự Thống Trị Của Nga (Biển Đen) 🇷🇺 <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {bs_up})</span></div>
           <div class='card' style='border-color:#3b0764; background:#1e1b4b; padding:12px; margin-bottom:14px;'>
             <div style='display:flex; gap:8px; margin-bottom:8px;'>
               <div class='metric-box' style='flex:1; border-color:#8b5cf6; background:#2e1065; padding:8px;'>
@@ -478,7 +496,7 @@ with tab_zc:
           </div>
 
           <!-- BLOCK 1: MUA VU (3 cols) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>I. Tình Trạng Mùa Vụ</div>
+          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>I. Tình Trạng Mùa Vụ <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {usda_up})</span></div>
           <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
             <div class='metric-box' style='border-color:#22c55e;'>
               <div style='font-size:10px; color:#64748b;'>Chất Lượng (G/E)</div>
@@ -498,7 +516,7 @@ with tab_zc:
           </div>
 
           <!-- BLOCK II: DIEN TICH GIEO TRONG (USDA Acreage 30/06) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>II. Diện Tích Gieo Trồng 📊<span style='font-size:9px; color:#f59e0b; font-weight:400; margin-left:6px; text-transform:none;'>BC: {zc_acreage.get('report_date','—')}</span></div>
+          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>II. Diện Tích Gieo Trồng 📊<span style='font-size:9px; color:#f59e0b; font-weight:400; margin-left:6px; text-transform:none;'>BC: {zc_acreage.get('report_date','—')}</span> <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {acreage_up})</span></div>
           <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
             <div class='metric-box' style='border-color:#f59e0b;'>
               <div style='font-size:10px; color:#64748b;'>Hiện Tại (BC mới nhất)</div>
@@ -517,7 +535,7 @@ with tab_zc:
           </div>
 
           <!-- BLOCK III: TON KHO CUOI VU (Ending Stocks WASDE) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>III. Tồn Kho Cuối Vụ WASDE</div>
+          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>III. Tồn Kho Cuối Vụ WASDE <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {usda_up})</span></div>
 
           <div style='font-size:11px; color:#34d399; font-weight:600; margin-bottom:5px;'>🇺🇸 Tồn Kho Mỹ</div>
           <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:10px;'>
@@ -554,7 +572,7 @@ with tab_zc:
           </div>
 
           <!-- BLOCK IV: GRAIN STOCKS (vat ly) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>IV. Tồn Kho Vật Lý (Grain Stocks 01/06) 📊<span style='font-size:9px; color:#f59e0b; font-weight:400; margin-left:6px; text-transform:none;'>BC: {zc_grain_stk.get('report_date','—')}</span></div>
+          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>IV. Tồn Kho Vật Lý (Grain Stocks 01/06) 📊<span style='font-size:9px; color:#f59e0b; font-weight:400; margin-left:6px; text-transform:none;'>BC: {zc_grain_stk.get('report_date','—')}</span> <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {acreage_up})</span></div>
           <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
             <div class='metric-box' style='border-color:#10b981;'>
               <div style='font-size:10px; color:#64748b;'>Hiện Tại</div>
@@ -572,7 +590,7 @@ with tab_zc:
           </div>
 
           <!-- BLOCK V: GIA + LICH BC -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>V. Giá & Lịch Báo Cáo</div>
+          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>V. Giá & Lịch Báo Cáo <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {price_up})</span></div>
           <div style='display:grid; grid-template-columns:1fr 1fr; gap:8px;'>
             <div class='metric-box' style='border-color:#f59e0b;'>
               <div style='font-size:10px; color:#64748b;'>Giá Tham Chiếu ({zc_swing_ticker})</div>
