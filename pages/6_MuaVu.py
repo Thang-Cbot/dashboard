@@ -182,6 +182,7 @@ with tab_zw:
             <span class='badge' style='background:#7f1d1d; color:#fca5a5;'>🔴 Lúa Đông: 26% G/E — Cực Xấu</span>
             <span class='badge' style='background:#1c3d5a; color:#93c5fd;'>🌾 Lúa Xuân: 54% G/E — Trung Bình</span>
             <span class='badge' style='background:#1e3a1e; color:#86efac;'>El Niño 82%</span>
+            <span class='badge' style='background:#581c87; color:#d8b4fe;'>🇷🇺 Biển Đen: Đáy U-Shape & Bull Trap</span>
           </div>
 
           <!-- BLOCK I: MUA VU -->
@@ -294,6 +295,26 @@ with tab_zw:
               <div style='font-size:13px; font-weight:700; color:#a5b4fc;'>{zw_us_stocks.get('next_date','—')}</div>
             </div>
           </div>
+          
+          <!-- BLOCK RUSSIAN WHEAT -->
+          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; margin-top:14px;'>VI. Sự Thống Trị Của Nga (Biển Đen) 🇷🇺</div>
+          <div class='card' style='border-color:#3b0764; background:#1e1b4b; padding:12px; margin-bottom:14px;'>
+            <div style='display:flex; gap:8px; margin-bottom:8px;'>
+              <div class='metric-box' style='flex:1; border-color:#8b5cf6; background:#2e1065; padding:8px;'>
+                <div style='font-size:10px; color:#c4b5fd;'>Tiến Độ Thu Hoạch</div>
+                <div style='font-size:14px; font-weight:700; color:#ddd6fe;'>Đạt 3%</div>
+                <div style='font-size:10px; color:#a78bfa; margin-top:3px;'>Trễ 1-2 tuần (Khủng hoảng nhiên liệu)</div>
+              </div>
+              <div class='metric-box' style='flex:1; border-color:#d946ef; background:#4a044e; padding:8px;'>
+                <div style='font-size:10px; color:#f5d0fe;'>Sản Lượng Dự Báo</div>
+                <div style='font-size:14px; font-weight:700; color:#fdf4ff;'>88.9 Tr. Tấn</div>
+                <div style='font-size:10px; color:#e879f9; margin-top:3px;'>(SovEcon) Diện tích gieo: 25.8m ha</div>
+              </div>
+            </div>
+            <div style='font-size:11px; color:#c4b5fd; line-height:1.6;'>
+              📌 <b>Áp lực Mùa gặt (Harvest Pressure):</b> Bất chấp Mỹ đang hạn hán, lúa Nga xả hàng ra Biển Đen sẽ ép giá lúa mì Mỹ phải "Price Match" để cạnh tranh xuất khẩu. Tình trạng thiếu hụt dầu diesel đang làm chậm dòng cung ứng, tạo rủi ro suy giảm chất lượng nếu lúa ngâm quá lâu trên đồng.
+            </div>
+          </div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -334,11 +355,11 @@ with tab_zw:
           <div class='timeline-item'>
             <div class='timeline-dot' style='background:#f59e0b;'></div>
             <div>
-              <div style='font-size:12px; font-weight:700; color:#fde68a;'>📅 Tháng 7 — Bull Trap (Cú Lừa)</div>
+              <div style='font-size:12px; font-weight:700; color:#fde68a;'>📅 Tháng 7 — Rủi Ro Bull Trap (Bẫy Tăng Giá)</div>
               <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                <b>Đầu T7:</b> Gặt Lúa đông Mỹ tạo Đáy 1 (Tâm bão).<br>
-                <b>Cuối T7:</b> Lúa Nga xả hàng kéo dài hình thái đáy (Cưa chân bàn).<br>
-                ❌ KHÔNG All-in. Rải 20-30% vốn để phòng thủ vùng đáy lê lết.
+                <b>Đầu T7:</b> Mỹ gặt lúa đông kết hợp với Nga bắt đầu đưa hàng ra Biển Đen.<br>
+                <b>Tâm lý:</b> Trader lao vào mua do hạn hán của Mỹ sẽ dính bẫy (Bull Trap) vì giá CBOT bị Nga đè bẹp.<br>
+                ❌ Nghiêm cấm All-in. Vùng 570-585 là rẻ nhưng chỉ giải ngân 20-30% để dò đường.
               </div>
             </div>
           </div>
@@ -346,11 +367,11 @@ with tab_zw:
           <div class='timeline-item'>
             <div class='timeline-dot' style='background:#ef4444;'></div>
             <div>
-              <div style='font-size:12px; font-weight:700; color:#fca5a5;'>📅 Giữa→Cuối Tháng 8 — Đáy Tuyệt Đối (Bottom 2)</div>
+              <div style='font-size:12px; font-weight:700; color:#fca5a5;'>📅 Tháng 8 & Tháng 9 — Điểm Mua Vàng (Inflection Point)</div>
               <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                Lúa xuân Mỹ (diện tích thấp nhất 56 năm) bị đem ra gặt + Nga xả hàng.<br>
-                <b style='color:#ef4444;'>555–585 cents ({zw_swing_ticker}) ≈ 570–585 cents ({zw_dca_ticker})</b><br>
-                ✅ Xây móng bê tông xong. Vùng Gom Hỏa Lực Mạnh Nhất!
+                Nga qua đỉnh xả hàng. Lúa xuân Mỹ (diện tích thấp kỷ lục 56 năm) bộc lộ năng suất thảm hại do nắng nóng.<br>
+                <b style='color:#ef4444;'>Áp lực Nga giảm + Cú sốc Mỹ tăng = ĐIỂM UỐN MÙA VỤ</b><br>
+                ✅ Phục kích cú nổ (Breakout). Tìm tín hiệu MSS trên H4/D1 vùng 570-585. Dồn hỏa lực MUA MẠNH.
               </div>
             </div>
           </div>
