@@ -374,9 +374,9 @@ with tab_zw:
           <div class='timeline-item'>
             <div class='timeline-dot' style='background:#f59e0b;'></div>
             <div>
-              <div style='font-size:12px; font-weight:700; color:#fde68a;'>📅 Tháng 7 — Rủi Ro Bull Trap (Bẫy Tăng Giá)</div>
+              <div style='font-size:12px; font-weight:700; color:#fde68a;'>📅 Đầu đến Giữa Tháng 7 — Rủi Ro Bull Trap</div>
               <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                <b>Đầu T7:</b> Mỹ gặt lúa đông kết hợp với Nga bắt đầu đưa hàng ra Biển Đen.<br>
+                <b>Đầu T7:</b> Mỹ gặt lúa đông kết hợp với Nga mới chớm đưa hàng ra Biển Đen.<br>
                 <b>Tâm lý:</b> Trader lao vào mua do hạn hán của Mỹ sẽ dính bẫy (Bull Trap) vì giá CBOT bị Nga đè bẹp.<br>
                 ❌ Nghiêm cấm All-in. Vùng 570-585 là rẻ nhưng chỉ giải ngân 20-30% để dò đường.
               </div>
@@ -386,11 +386,11 @@ with tab_zw:
           <div class='timeline-item'>
             <div class='timeline-dot' style='background:#ef4444;'></div>
             <div>
-              <div style='font-size:12px; font-weight:700; color:#fca5a5;'>📅 Tháng 8 & Tháng 9 — Điểm Mua Vàng (Inflection Point)</div>
+              <div style='font-size:12px; font-weight:700; color:#fca5a5;'>📅 Cuối T7 & Đầu T8 — Điểm Mua Vàng (Golden Zone)</div>
               <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                Nga qua đỉnh xả hàng. Lúa xuân Mỹ (diện tích thấp kỷ lục 56 năm) bộc lộ năng suất thảm hại do nắng nóng.<br>
-                <b style='color:#ef4444;'>Áp lực Nga giảm + Cú sốc Mỹ tăng = ĐIỂM UỐN MÙA VỤ</b><br>
-                ✅ Phục kích cú nổ (Breakout). Tìm tín hiệu MSS trên H4/D1 vùng 570-585. Dồn hỏa lực MUA MẠNH.
+                Hội tụ 3 dòng thác nguồn cung: Mỹ dọn xong kho lúa đông + Nga xả lũ mạnh nhất + lúa xuân Mỹ chớm gặt.<br>
+                <b style='color:#ef4444;'>Áp lực cực đại = ĐÁY TUYỆT ĐỐI CỦA MÙA VỤ</b><br>
+                ✅ Tín hiệu MSS trên H4/D1 vùng 570-585. <b>DỒN HỎA LỰC MUA MẠNH.</b>
               </div>
             </div>
           </div>
@@ -437,7 +437,7 @@ with tab_zw:
           <div style='font-size:11px; color:#94a3b8; line-height:1.8;'>
             <b style='color:#60a5fa;'>Đáy 1 (Hiện tại, Cuối T6):</b> Lúa đông gặt 40% → Risk Premium vẫn còn. Giá neo ~{zw_close:.0f} cents<br>
             <b style='color:#f59e0b;'>Pullback T7:</b> Bull Trap Weather Rally → 620–640 cents<br>
-            <b style='color:#ef4444;'>Đáy 2 (Cuối T8):</b> Lúa xuân gặt 40% + Nga/EU xả hàng → <b>555–585 cents (Bottom Tuyệt Đối)</b><br>
+            <b style='color:#ef4444;'>Đáy 2 (Cuối T7 - Đầu T8):</b> Điểm hội tụ nguồn cung (Mỹ lúa đông + Nga xả + lúa xuân) → <b>555–585 cents (Bottom Tuyệt Đối)</b><br>
             <b style='color:#22c55e;'>Bùng nổ Q4:</b> El Niño Nam Bán Cầu → Thiếu cung → 650–700 cents+
           </div>
           <div style='text-align:center; margin-top:12px; font-size:28px; letter-spacing:4px;'>
