@@ -10,6 +10,7 @@ API_KEY_FILE = DATA_DIR / "api_key.txt"
 AI_ANALYSIS_FILE = OUTPUT_DIR / "ai_analysis.json"
 FUNDAMENTAL_FILE = OUTPUT_DIR / "fundamental_data.json"
 ACREAGE_FILE = OUTPUT_DIR / "acreage_data.json"
+RUSSIAN_METRICS_FILE = OUTPUT_DIR / "russian_metrics.json"
 
 def get_api_key():
     if not API_KEY_FILE.exists():
@@ -48,8 +49,16 @@ def analyze():
         except Exception as e:
             print(f"  [WARN] Lỗi đọc acreage JSON: {e}")
             
+    russian_data = {}
+    if RUSSIAN_METRICS_FILE.exists():
+        try:
+            with open(RUSSIAN_METRICS_FILE, "r", encoding="utf-8") as f:
+                russian_data = json.load(f)
+        except Exception as e:
+            print(f"  [WARN] Lỗi đọc russian_metrics JSON: {e}")
+            
     prompt = f"""Bạn là một Chuyên gia Giao dịch Định lượng (Quant) Nông sản CBOT. 
-Dưới đây là dữ liệu tổng hợp hiện tại của thị trường (bao gồm thời tiết, báo cáo USDA, dòng tiền COT, xuất khẩu, và các mốc cản Price Action của mã Ngô (ZC) và Lúa mì (ZW)):
+Dưới đây là dữ liệu tổng hợp hiện tại của thị trường (bao gồm thời tiết, báo cáo USDA, dòng tiền COT, xuất khẩu, các mốc cản Price Action của mã Ngô (ZC) và Lúa mì (ZW), cùng số liệu đặc biệt về Lúa mì Nga/Biển Đen):
 
 --- DỮ LIỆU CƠ BẢN VÀ KỸ THUẬT ---
 ```json
@@ -59,6 +68,11 @@ Dưới đây là dữ liệu tổng hợp hiện tại của thị trường (b
 --- DỮ LIỆU DIỆN TÍCH GIEO TRỒNG (PLANTED ACREAGE) ---
 ```json
 {json.dumps(acreage_data, ensure_ascii=False)}
+```
+
+--- DỮ LIỆU LÚA MÌ NGA & BIỂN ĐEN (BLACK SEA WHEAT) ---
+```json
+{json.dumps(russian_data, ensure_ascii=False)}
 ```
 
 Nhiệm vụ của bạn:
@@ -75,7 +89,8 @@ Hãy trình bày theo định dạng sau:
 - **🔥 Xu hướng:** (Đánh giá mạnh: Bullish / Bearish / Neutral)
 - **🎯 Lý do cốt lõi:**
   1. (Kết hợp số liệu tiến độ gặt/mùa vụ + Thời tiết)
-  2. (Kết hợp dòng tiền COT + Technical S1/R1)
+  2. (BẮT BUỘC ĐÁNH GIÁ YẾU TỐ XẢ HÀNG & GIÁ FOB CỦA NGA tác động làm Đáy/Trần cho ZW)
+  3. (Kết hợp dòng tiền COT + Technical S1/R1)
 
 ### 💡 Lời Khuyên Quản Trị Rủi Ro
 - (1-2 câu lời khuyên sắc bén nhất về cách canh điểm vào lệnh hoặc mức độ rủi ro chung).
