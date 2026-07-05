@@ -53,7 +53,32 @@ st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ 2026")
 
 st.markdown("## 📰 Tin Tức, Cung Cầu & Xuất Khẩu")
 
-tab1, tab2 = st.tabs(["📊 Số liệu & Báo cáo (USDA)", "⚡ Điểm Tin Nóng (AI)"])
+tab1, tab2, tab3 = st.tabs(["📊 Số liệu & Báo cáo (USDA)", "⚡ Điểm Tin Nóng (AI)", "🇷🇺 Tình Hình Biển Đen (Nga/EU)"])
+
+with tab3:
+    st.markdown("<div class='section-header'>🌾 AI Tóm Tắt Tình Hình Lúa Mì Nga & Châu Âu</div>", unsafe_allow_html=True)
+    if st.button("🔄 CẬP NHẬT TIN BIỂN ĐEN MỚI NHẤT", use_container_width=True, key="update_blacksea"):
+        import subprocess
+        with st.spinner("AI đang quét và tóm tắt tin tức Biển Đen... (Vui lòng đợi 10-15s)"): 
+            subprocess.run([sys.executable, str(Path(__file__).parent.parent / "Data" / "fetch_blacksea.py")])
+            st.cache_data.clear()
+            st.rerun()
+
+    blacksea_news = load_json("blacksea_wheat.json")
+    if blacksea_news:
+        st.markdown(f"<div style='font-size:12px; color:#64748b; margin-bottom:10px;'>Cập nhật lần cuối: {blacksea_news.get('timestamp', '—')}</div>", unsafe_allow_html=True)
+        news_list = blacksea_news.get("news", [])
+        
+        if not news_list:
+            st.info("Không có tin tức nào về Biển Đen được tìm thấy.")
+        else:
+            for item in news_list:
+                with st.expander(f"🇷🇺 {item.get('title', 'Tin tức lúa mì Nga mới')}"):
+                    for detail in item.get('details', []):
+                        st.markdown(f"<div style='font-size:14px; color:#cbd5e1; margin-bottom:6px; line-height:1.6;'>• {detail}</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div style='margin-top:10px; font-size:12px; color:#94a3b8; font-style:italic;'>(Nguồn: {item.get('source', '')}) - <a href='{item.get('link', '#')}' target='_blank' style='color:#38bdf8;'>Đọc chi tiết</a></div>", unsafe_allow_html=True)
+    else:
+        st.info("Chưa có tin tức lúa mì Biển Đen nào được tóm tắt. Vui lòng nhấn nút Cập nhật phía trên.")
 
 with tab2:
     st.markdown("<div class='section-header'>⚡ AI Tóm Tắt Tin Tức Thị Trường (Yahoo RSS)</div>", unsafe_allow_html=True)

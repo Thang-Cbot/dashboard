@@ -175,6 +175,7 @@ WEATHER_S_SCRIPT = str(DATA_DIR / "weather" / "weather_short.py")
 WEATHER_L_SCRIPT = str(DATA_DIR / "weather" / "weather_long.py")
 ACREAGE_SCRIPT   = str(DATA_DIR / "reports" / "fetch_acreage.py")
 AI_NEWS_SCRIPT   = str(DATA_DIR / "fetch_news.py")
+BLACKSEA_SCRIPT  = str(DATA_DIR / "fetch_blacksea.py")
 
 def job_prices():
     """Giá H1: chạy phút :15 mỗi giờ (giờ giao dịch CBOT 20:00 - 08:00 sáng hôm sau VN)."""
@@ -257,6 +258,18 @@ def job_ai_news():
         run_script("AI Điểm Tin", AI_NEWS_SCRIPT, "ai_news")
 
 
+def job_blacksea_news():
+    """Tin tức Lúa mì Nga/Biển Đen: 07:00 mỗi Thứ Tư và Chủ Nhật."""
+    while True:
+        now = datetime.datetime.now(VN_TZ)
+        t1 = next_occurrence(weekday=2, hour=7, minute=0)  # Thứ Tư = 2
+        t2 = next_occurrence(weekday=6, hour=7, minute=0)  # Chủ Nhật = 6
+        candidates = [t for t in [t1, t2] if t > now]
+        target = min(candidates) if candidates else next_occurrence(weekday=2, hour=7, minute=0) + datetime.timedelta(days=7)
+        sleep_until(target, "Black Sea News")
+        run_script("AI Điểm Tin Biển Đen", BLACKSEA_SCRIPT, "blacksea_news")
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 def main():
     log("=" * 60)
@@ -272,6 +285,7 @@ def main():
     log("  [ENSO Long-Term]    : Thứ Hai 06:30 VN")
     log("  [USDA Acreage]      : 05:30 hàng ngày")
     log("  [AI Điểm Tin]       : 06:00 và 20:00 hàng ngày")
+    log("  [AI Tin Biển Đen]   : Thứ Tư & Chủ Nhật 07:00 VN")
     log("-" * 60)
 
     # Chạy mỗi job trong thread daemon riêng biệt
@@ -279,7 +293,7 @@ def main():
         job_prices, job_cot, job_crop_progress,
         job_export_sales, job_wasde,
         job_weather_short, job_weather_long, job_acreage,
-        job_ai_news,
+        job_ai_news, job_blacksea_news,
     ]
     threads = []
     for job in jobs:
