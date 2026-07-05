@@ -303,7 +303,7 @@ def main():
         job_prices, job_cot, job_crop_progress,
         job_export_sales, job_wasde,
         job_weather_short, job_weather_long, job_acreage,
-        job_ai_news, job_blacksea_news, job_russian_metrics,
+        job_ai_news, job_blacksea_news,
     ]
     threads = []
     for job in jobs:

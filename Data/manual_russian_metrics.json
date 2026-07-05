@@ -1,0 +1,30 @@
+{
+  "updated_at": "Tháng 7/2026",
+  "metrics": [
+    {
+      "Chỉ Tiêu": "Diện tích gieo trồng (Acreage)",
+      "Số Liệu Cập Nhật": "25.8 triệu ha",
+      "Nguồn & Chú thích": "SovEcon (Thấp nhất từ 2014, Xuân: 9.9m, Đông: 15.9m)"
+    },
+    {
+      "Chỉ Tiêu": "Sản lượng dự báo (Production)",
+      "Số Liệu Cập Nhật": "88.9 triệu tấn",
+      "Nguồn & Chú thích": "SovEcon giảm dự báo. (IKAR: 86-91.5m)"
+    },
+    {
+      "Chỉ Tiêu": "Tiến độ thu hoạch (Progress)",
+      "Số Liệu Cập Nhật": "Đạt 3%",
+      "Nguồn & Chú thích": "Trễ 1-2 tuần do mưa lạnh mùa xuân."
+    },
+    {
+      "Chỉ Tiêu": "Giá FOB giao tháng 7",
+      "Số Liệu Cập Nhật": "$242 / tấn (12.5% pro)",
+      "Nguồn & Chú thích": "Giá đang được neo cao do nông dân găm hàng."
+    },
+    {
+      "Chỉ Tiêu": "Thời gian & Vấn đề mùa vụ",
+      "Số Liệu Cập Nhật": "Thiếu hụt nhiên liệu",
+      "Nguồn & Chú thích": "Nông dân thiếu dầu Diesel để chạy máy gặt."
+    }
+  ]
+}
