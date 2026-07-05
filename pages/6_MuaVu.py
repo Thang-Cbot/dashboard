@@ -84,6 +84,7 @@ def load_fund():
     if not p.exists(): return {}
     try:
         return json.loads(p.read_text(encoding="utf-8"))
+    except: return {}
 @st.cache_data(ttl=60)
 def load_contracts():
     p = DATA_OUTPUT / "contracts_meta.json"
