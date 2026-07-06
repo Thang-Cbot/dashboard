@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-07-02",
+  "last_updated_fundamentals": "2026-07-07",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -24,7 +24,7 @@
     },
     "crop_condition": {
       "latest": "67% Good to Excellent",
-      "next_date": "07/07/2026 lúc 03:00 (VN)",
+      "next_date": "14/07/2026 lúc 03:00 (VN)",
       "forecast": "70% G/E",
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
@@ -54,12 +54,12 @@
       "pct_change": -9.9
     },
     "exports": {
-      "latest": "Doanh số ròng (Tuần kết thúc 25/06/2026): Vụ cũ 732k tấn | Vụ mới 768k tấn",
-      "next_date": "06/07/2026 lúc 22:00 (VN)",
+      "latest": "Giao hàng (Inspections): 1,641,777 tấn (Tuần kết thúc Jul 06, 2026)",
+      "next_date": "13/07/2026 lúc 22:00 (VN)",
       "forecast": "900,000 tấn (Dự báo tăng trưởng)",
       "action": "Xuất khẩu trong kỳ vọng -> Giá giằng co, canh vùng hỗ trợ gom Long",
       "logic": "Báo cáo ngày 02/07 (tuần kết thúc 25/06) cho thấy doanh số ngô (cả vụ cũ 732k và vụ mới 768k) đều nằm trong vùng kỳ vọng, phản ánh nhu cầu ổn định.",
-      "previous": "Doanh số ròng (Tuần kết thúc 25/06/2026): Vụ cũ 732k tấn | Vụ mới 768k tấn",
+      "previous": "Giao hàng (Inspections): 1,786,167 tấn (Tuần kết thúc Jun 29, 2026)",
       "previous_date": "Tuần kết thúc 15/06/2026",
       "latest_date": "Tuần kết thúc 25/06/2026",
       "pct_change": 5.0
@@ -157,8 +157,8 @@
       "latest_date": "Tuần này (23/06)"
     },
     "harvest_progress": {
-      "latest": "Mỹ: 48% lúa đông đã thu hoạch",
-      "next_date": "07/07/2026 lúc 03:00 (VN)",
+      "latest": "Mỹ: 59% lúa đông đã thu hoạch",
+      "next_date": "14/07/2026 lúc 03:00 (VN)",
       "forecast": "Mỹ: 12% lúa đông đã thu hoạch",
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
@@ -168,7 +168,7 @@
     },
     "crop_condition": {
       "latest": "26% Good to Excellent",
-      "next_date": "07/07/2026 lúc 03:00 (VN)",
+      "next_date": "14/07/2026 lúc 03:00 (VN)",
       "forecast": "Duy trì cực xấu 25-27% G/E",
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
@@ -198,12 +198,12 @@
       "pct_change": -11.8
     },
     "exports": {
-      "latest": "Doanh số ròng (Tuần kết thúc 25/06/2026): Vụ mới 300k tấn",
-      "next_date": "06/07/2026 lúc 22:00 (VN)",
+      "latest": "Giao hàng (Inspections): 133,652 tấn (Tuần kết thúc Jul 06, 2026)",
+      "next_date": "13/07/2026 lúc 22:00 (VN)",
       "forecast": "350,000 tấn (Dự kiến phục hồi)",
       "action": "Xuất khẩu yếu -> Canh rũ bỏ (Judas Swing) để mua lên theo SMC",
       "logic": "Báo cáo ngày 02/07 (tuần kết thúc 25/06) cho thấy doanh số ròng lúa mì vụ 26/27 chỉ đạt 300k tấn, chạm mức thấp nhất của dải kỳ vọng (300-600k). Nhu cầu yếu kết hợp nghỉ lễ sẽ tạo áp lực nhúng mồi đầu tuần.",
-      "previous": "Doanh số ròng (Tuần kết thúc 25/06/2026): Vụ mới 300k tấn",
+      "previous": "Giao hàng (Inspections): 358,253 tấn (Tuần kết thúc Jun 29, 2026)",
       "previous_date": "Tuần kết thúc 15/06/2026",
       "latest_date": "Tuần kết thúc 25/06/2026",
       "pct_change": -10.0
@@ -413,5 +413,5 @@
     "swing_short_tp": "1191.00 cents"
   },
   "wasde_report_month": "Jun",
-  "last_updated_cot": "2026-07-03 21:29:07"
+  "last_updated_cot": "2026-07-06 06:30:35"
 }
