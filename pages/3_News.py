@@ -118,7 +118,7 @@ with tab1:
     # ── Xuất Khẩu ────────────────────────────────────────────────────────────────
     zc_exp = fund.get("ZC", {}).get("exports", {}) if fund else {}
     ts = zc_exp.get("latest_date", "—") if isinstance(zc_exp, dict) else "—"
-    ts_html = f"<span style='font-size:11px; color:#64748b; font-weight:400; float:right; margin-top:4px;'>Cập nhật: {ts}</span>"
+    ts_html = f"<span style='font-size:11px; color:#94a3b8; font-weight:400; font-style:italic; float:right; margin-top:4px;'>(Dữ liệu từ: {ts})</span>"
     st.markdown(f"<div class='section-header'>🚢 Báo Cáo Xuất Khẩu (Export Sales) {ts_html}</div>", unsafe_allow_html=True)
 
     export_sales = fund.get("export_sales", {}) if fund else {}
@@ -150,7 +150,10 @@ with tab1:
 
 
     # ── USDA Cung Cầu ──────────────────────────────────────────────────────────────
-    st.markdown(f"<div class='section-header'>📊 Cung Cầu Mùa Vụ (USDA Crop Progress)</div>", unsafe_allow_html=True)
+    zc_cp = fund.get("ZC", {}).get("harvest_progress", {}) if fund else {}
+    cp_ts = zc_cp.get("latest_date", "—") if isinstance(zc_cp, dict) else "—"
+    cp_html = f"<span style='font-size:11px; color:#94a3b8; font-weight:400; font-style:italic; float:right; margin-top:4px;'>(Dữ liệu: {cp_ts})</span>"
+    st.markdown(f"<div class='section-header'>📊 Cung Cầu Mùa Vụ (USDA Crop Progress) {cp_html}</div>", unsafe_allow_html=True)
 
     USDA_METRICS = [
         ("planting_progress", "Tiến độ gieo trồng"),
@@ -184,10 +187,9 @@ with tab1:
 
     # ── WASDE Tồn Kho ──────────────────────────────────────────────────────────────
     wasde_month = fund.get("ZC", {}).get("wasde", {}).get("month", "—") if fund else "—"
-    st.markdown(f"<div class='section-header'>🏛️ WASDE — Tồn Kho & Cân Đối Cung Cầu</div>", unsafe_allow_html=True)
-    st.markdown(f"""
-    <div style='font-size:12px; color:#64748b; margin-bottom:10px;'>Báo cáo WASDE tháng: <b style='color:#e2e8f0;'>{wasde_month} 2026</b></div>""",
-    unsafe_allow_html=True)
+    wasde_dt = "Tháng 06/2026" # Hoặc trích xuất linh động nếu có
+    wasde_html = f"<span style='font-size:11px; color:#94a3b8; font-weight:400; font-style:italic; float:right; margin-top:4px;'>(Kỳ báo cáo: {wasde_month} 2026)</span>"
+    st.markdown(f"<div class='section-header'>🏛️ WASDE — Tồn Kho & Cân Đối Cung Cầu {wasde_html}</div>", unsafe_allow_html=True)
 
     if fund:
         cols2 = st.columns(2)
