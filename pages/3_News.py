@@ -238,14 +238,13 @@ with tab1:
                         lines_html = f"<div><span class='prev'>{prev_str}</span> ➔ <span class='curr'>{curr_str}</span></div>"
                         
                     curr_dt = meta.get("latest_date", "")
-                    html_content += f"""
-                    <div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
-                        <span style='color:#cbd5e1; font-size:13px; margin-top:2px;'>{metric_label}</span>
-                        <div style='text-align:right;'>
-                            <div style='font-size:13px; line-height:1.4;'>{lines_html}</div>
-                            <div style='font-size:10px; color:#475569;'>{curr_dt}</div>
-                        </div>
-                    </div>"""
+                    html_content += f"""<div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
+<span style='color:#cbd5e1; font-size:13px; margin-top:2px;'>{metric_label}</span>
+<div style='text-align:right;'>
+<div style='font-size:13px; line-height:1.4;'>{lines_html}</div>
+<div style='font-size:10px; color:#475569;'>{curr_dt}</div>
+</div>
+</div>"""
                 html_content += "</div>"
                 st.markdown(html_content, unsafe_allow_html=True)
 
@@ -266,13 +265,12 @@ with tab1:
                     if not meta: continue
                     curr = meta.get("current", meta.get("latest", "—"))
                     prev = meta.get("previous", "—")
-                    html_content += f"""
-                    <div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
-                        <span style='color:#cbd5e1; font-size:13px;'>{metric_label}</span>
-                        <div style='text-align:right;'>
-                            <div style='font-size:13px;'><span class='prev'>{prev}</span> ➔ <span class='curr'>{curr}</span></div>
-                        </div>
-                    </div>"""
+                    html_content += f"""<div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
+<span style='color:#cbd5e1; font-size:13px;'>{metric_label}</span>
+<div style='text-align:right;'>
+<div style='font-size:13px;'><span class='prev'>{prev}</span> ➔ <span class='curr'>{curr}</span></div>
+</div>
+</div>"""
                 html_content += "</div>"
                 st.markdown(html_content, unsafe_allow_html=True)
 
