@@ -115,15 +115,59 @@ with tab1:
     fund = load_json("fundamental_data.json")
     acreage_data = load_json("acreage_data.json")
 
-    # ── Xuất Khẩu ────────────────────────────────────────────────────────────────
+    # ── BÁN HÀNG XUẤT KHẨU (Export Sales - Thứ 5, từ PDF USDA) ─────────────────
+    zc_sales = fund.get("ZC", {}).get("export_sales_weekly", {}) if fund else {}
+    sales_ts = zc_sales.get("latest_date", "—") if isinstance(zc_sales, dict) else "—"
+    sales_ts_html = f"<span style='font-size:11px; color:#f59e0b; font-weight:400; font-style:italic; float:right; margin-top:4px;'>(Dữ liệu: {sales_ts})</span>"
+    st.markdown(f"""
+    <div style='background:linear-gradient(90deg,#1a2035,#1e2a1e); border:1px solid #2d5a27; border-radius:10px; padding:10px 16px; margin:20px 0 12px 0; display:flex; align-items:center; justify-content:space-between;'>
+        <span style='font-size:15px; font-weight:800; color:#4ade80; letter-spacing:0.5px;'>📋 BÁN HÀNG Xuất Khẩu (Export Sales) — <span style='font-size:12px; color:#86efac; font-weight:500;'>Báo cáo Thứ 5 hàng tuần</span></span>
+        {sales_ts_html}
+    </div>""", unsafe_allow_html=True)
+
+    if fund:
+        cols2 = st.columns(2)
+        for i, (code, name, emoji) in enumerate([("ZC", "Ngô", "🌽"), ("ZW", "Lúa Mì", "🌾")]):
+            d = fund.get(code, {}).get("export_sales_weekly", {})
+            with cols2[i]:
+                net_sales = d.get("latest_net_sales", "N/A") if d else "N/A"
+                shipments = d.get("latest_shipments", "N/A") if d else "N/A"
+                outstanding = d.get("outstanding_sales", "N/A") if d else "N/A"
+                week_end = d.get("week_ending", "—") if d else "—"
+                next_rpt = d.get("next_report", "—") if d else "—"
+                note = d.get("note", "") if d else ""
+                is_na = "N/A" in net_sales
+                badge_color = "#64748b" if is_na else "#22c55e"
+                st.markdown(f"""
+                <div class='card' style='border-color:#2d5a27;'>
+                    <div style='font-size:14px; font-weight:700; color:#e2e8f0; margin-bottom:10px;'>{emoji} {name}</div>
+                    <div style='display:flex; justify-content:space-between; margin-bottom:6px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
+                        <span style='color:#94a3b8; font-size:12px;'>📦 Net Sales (Doanh số ròng)</span>
+                        <span style='color:{badge_color}; font-weight:700; font-size:13px;'>{net_sales}</span>
+                    </div>
+                    <div style='display:flex; justify-content:space-between; margin-bottom:6px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
+                        <span style='color:#94a3b8; font-size:12px;'>🚢 Shipments (Giao trong tuần)</span>
+                        <span style='color:#cbd5e1; font-size:13px;'>{shipments}</span>
+                    </div>
+                    <div style='display:flex; justify-content:space-between; margin-bottom:8px;'>
+                        <span style='color:#94a3b8; font-size:12px;'>📊 Outstanding Sales (Tồn đơn)</span>
+                        <span style='color:#cbd5e1; font-size:13px;'>{outstanding}</span>
+                    </div>
+                    <div style='font-size:10px; color:#475569; border-top:1px solid #1e2d45; padding-top:6px;'>
+                        📅 Tuần kết thúc: <b style='color:#64748b;'>{week_end}</b> &nbsp;|&nbsp; Báo cáo tiếp: <b style='color:#f59e0b;'>{next_rpt}</b>
+                    </div>
+                    {f"<div style='font-size:10px; color:#334155; margin-top:4px;'>{note[:80]}...</div>" if note else ""}
+                </div>""", unsafe_allow_html=True)
+
+    # ── GIAO HÀNG XUẤT KHẨU (Export Inspections - Thứ 2) ────────────────────────
     zc_exp = fund.get("ZC", {}).get("exports", {}) if fund else {}
     ts = zc_exp.get("latest_date", "—") if isinstance(zc_exp, dict) else "—"
-    ts_html = f"<span style='font-size:11px; color:#94a3b8; font-weight:400; font-style:italic; float:right; margin-top:4px;'>(Dữ liệu từ: {ts})</span>"
-    st.markdown(f"<div class='section-header'>🚢 Báo Cáo Xuất Khẩu (Export Sales) {ts_html}</div>", unsafe_allow_html=True)
-
-    export_sales = fund.get("export_sales", {}) if fund else {}
-    curr_week = export_sales.get("week_ending", "—") if export_sales else "—"
-    prev_week = export_sales.get("previous_week_ending", "—") if export_sales else "—"
+    ts_html = f"<span style='font-size:11px; color:#38bdf8; font-weight:400; font-style:italic; float:right; margin-top:4px;'>(Dữ liệu: {ts})</span>"
+    st.markdown(f"""
+    <div style='background:linear-gradient(90deg,#1a2035,#1a2535); border:1px solid #1e4a7a; border-radius:10px; padding:10px 16px; margin:20px 0 12px 0; display:flex; align-items:center; justify-content:space-between;'>
+        <span style='font-size:15px; font-weight:800; color:#38bdf8; letter-spacing:0.5px;'>🚢 GIAO HÀNG Xuất Khẩu (Export Inspections) — <span style='font-size:12px; color:#7dd3fc; font-weight:500;'>Báo cáo Thứ 2 hàng tuần</span></span>
+        {ts_html}
+    </div>""", unsafe_allow_html=True)
 
     if fund:
         cols2 = st.columns(2)
@@ -138,7 +182,7 @@ with tab1:
                     bias = "bull" if pct > 5 else ("bear" if pct < -5 else "")
                     badge = f'<span class="{bias}">' + ("▲ BULL" if bias == "bull" else "▼ BEAR" if bias == "bear" else "—") + '</span>' if bias else "—"
                     st.markdown(f"""
-                    <div class='card'>
+                    <div class='card' style='border-color:#1e4a7a;'>
                     <div style='font-size:14px; font-weight:700; color:#e2e8f0;'>{name}</div>
                     <div style='display:flex; justify-content:space-between; margin-top:8px;'>
                         <span class='prev'>Kỳ trước: {prev}</span>

@@ -53,7 +53,18 @@
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -9.9
     },
+    "export_sales_weekly": {
+      "report_type": "BAN_HANG",
+      "latest_net_sales": "N/A (Chưa lấy báo cáo Thứ 5 tuần này)",
+      "latest_shipments": "N/A",
+      "outstanding_sales": "N/A",
+      "week_ending": "25/06/2026",
+      "latest_date": "25/06/2026",
+      "next_report": "10/07/2026 lúc 21:30 (VN) - Thứ 6",
+      "note": "Số liệu từ PDF: https://apps.fas.usda.gov/esrqs/StaticReports/CWRCommoditySummary.pdf"
+    },
     "exports": {
+      "report_type": "GIAO_HANG",
       "latest": "Giao hàng (Inspections): 1,641,777 tấn (Tuần kết thúc Jul 06, 2026)",
       "next_date": "13/07/2026 lúc 22:00 (VN)",
       "forecast": "900,000 tấn (Dự báo tăng trưởng)",
@@ -200,7 +211,18 @@
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -11.8
     },
+    "export_sales_weekly": {
+      "report_type": "BAN_HANG",
+      "latest_net_sales": "58.4 nghìn tấn (Net Sales tuần kết thúc 25/06/2026)",
+      "latest_shipments": "95.2 nghìn tấn (Shipments trong tuần)",
+      "outstanding_sales": "952.1 nghìn tấn (Outstanding Sales lũy kế)",
+      "week_ending": "25/06/2026",
+      "latest_date": "25/06/2026",
+      "next_report": "10/07/2026 lúc 21:30 (VN) - Thứ 6",
+      "note": "Bao gồm: Hard Red Winter 58.4k + Soft Red Winter 25.2k + Hard Red Spring + White + Durum. Lấy từ: CWRCommoditySummary.pdf"
+    },
     "exports": {
+      "report_type": "GIAO_HANG",
       "latest": "Giao hàng (Inspections): 133,652 tấn (Tuần kết thúc Jul 06, 2026)",
       "next_date": "13/07/2026 lúc 22:00 (VN)",
       "forecast": "350,000 tấn (Dự kiến phục hồi)",
