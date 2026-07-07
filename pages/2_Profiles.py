@@ -208,7 +208,7 @@ with col3:
         arrow = "▲" if chg > 0 else "▼"
         st.markdown(f"""
         <div style='background:#0f1629; border-radius:6px; padding:10px; margin-bottom:8px;'>
-            <div style='font-size:11px; color:#64748b;'>COT Managed Money</div>
+            <div style='font-size:11px; color:#64748b;'>COT Managed Money <span style='float:right; font-size:9px; color:#475569;'>{cot_data.get("report_date", "—")}</span></div>
             <div style='font-size:18px; font-weight:700; color:{nc}; margin:4px 0;'>{net:+,} HD</div>
             <div style='font-size:11px; color:{nc};'>{arrow} {abs(chg):,} HD tuần này</div>
             <div style='font-size:11px; color:#94a3b8; margin-top:4px;'>{quad}</div>
@@ -239,7 +239,9 @@ with col3:
     st.markdown("</div>", unsafe_allow_html=True)
 
 # ── Smart Money Matrix & Thanh Khoản ──
-st.markdown("<div class='card'><div style='font-size:14px;font-weight:700;color:#94a3b8;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase;'>🧠 SMART MONEY MATRIX & DÒNG TIỀN (VOLUME + OI)</div>", unsafe_allow_html=True)
+updated_at_str = meta.get("updated_at", "")[:10]
+date_html = f"<div style='font-size:10px;color:#475569;font-weight:400;text-transform:none;letter-spacing:0;'>Dữ liệu: {updated_at_str}</div>" if updated_at_str else ""
+st.markdown(f"<div class='card'><div style='display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;'><div style='font-size:14px;font-weight:700;color:#94a3b8;letter-spacing:1px;text-transform:uppercase;'>🧠 SMART MONEY MATRIX & DÒNG TIỀN</div>{date_html}</div>", unsafe_allow_html=True)
 
 c_cot, c_vol = st.columns([1.5, 1], gap="large")
 
