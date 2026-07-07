@@ -166,22 +166,22 @@
   },
   "ZW": {
     "us_planting": {
-      "latest": "Lúa mì đông đã thu hoạch (25%), Xuân 95% gieo",
+      "latest": "Đông 100% gieo, Xuân 95% gieo",
       "next_date": "08/06/2026 (Hàng tuần)",
       "forecast": "Lúa xuân: 98%",
       "action": "Tiến độ ổn định -> Canh Short ngắn hạn",
       "logic": "Lúa mì xuân gieo trồng phát triển thuận lợi. Lúa mì đông đã trổ bông vượt trung bình.",
-      "previous": "Xuân 93% gieo",
+      "previous": "Đông 100% gieo, Xuân 93% gieo",
       "previous_date": "Tuần trước (16/06)",
       "latest_date": "06/07/2026"
     },
     "harvest_progress": {
-      "latest": "Mỹ: 59% lúa đông đã thu hoạch",
+      "latest": "Đông 59% thu hoạch, Xuân 0% thu hoạch",
       "next_date": "14/07/2026 lúc 03:00 (VN)",
       "forecast": "Mỹ: 12% lúa đông đã thu hoạch",
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
-      "previous": "Mỹ: 25% lúa đông đã thu hoạch",
+      "previous": "Đông 25% thu hoạch, Xuân 0% thu hoạch",
       "previous_date": "Tuần trước (16/06)",
       "latest_date": "06/07/2026"
     },
