@@ -222,8 +222,7 @@ with tab1:
         for i, (code, name, emoji) in enumerate([("ZC", "Ngô", "🌽"), ("ZW", "Lúa Mì", "🌾")]):
             d = fund.get(code, {})
             with cols2[i]:
-                st.markdown(f"<div class='card'>", unsafe_allow_html=True)
-                st.markdown(f"<div style='font-weight:700; color:#e2e8f0; margin-bottom:12px; font-size:14px;'>{emoji} {name}</div>", unsafe_allow_html=True)
+                html_content = f"<div class='card'>\n<div style='font-weight:700; color:#e2e8f0; margin-bottom:12px; font-size:14px;'>{emoji} {name}</div>\n"
                 for metric_key, metric_label in USDA_METRICS:
                     meta = d.get(metric_key, {})
                     if not meta: continue
@@ -239,20 +238,20 @@ with tab1:
                         lines_html = f"<div><span class='prev'>{prev_str}</span> ➔ <span class='curr'>{curr_str}</span></div>"
                         
                     curr_dt = meta.get("latest_date", "")
-                    st.markdown(f"""
+                    html_content += f"""
                     <div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
                         <span style='color:#cbd5e1; font-size:13px; margin-top:2px;'>{metric_label}</span>
                         <div style='text-align:right;'>
                             <div style='font-size:13px; line-height:1.4;'>{lines_html}</div>
                             <div style='font-size:10px; color:#475569;'>{curr_dt}</div>
                         </div>
-                    </div>""", unsafe_allow_html=True)
-                st.markdown(f"</div>", unsafe_allow_html=True)
+                    </div>"""
+                html_content += "</div>"
+                st.markdown(html_content, unsafe_allow_html=True)
 
 
     # ── WASDE Tồn Kho ──────────────────────────────────────────────────────────────
     wasde_month = fund.get("ZC", {}).get("wasde", {}).get("month", "—") if fund else "—"
-    wasde_dt = "Tháng 06/2026" # Hoặc trích xuất linh động nếu có
     wasde_html = f"<span style='font-size:11px; color:#94a3b8; font-weight:400; font-style:italic; float:right; margin-top:4px;'>(Kỳ báo cáo: {wasde_month} 2026)</span>"
     st.markdown(f"<div class='section-header'>🏛️ WASDE — Tồn Kho & Cân Đối Cung Cầu {wasde_html}</div>", unsafe_allow_html=True)
 
@@ -261,21 +260,21 @@ with tab1:
         for i, (code, name, emoji) in enumerate([("ZC", "Ngô", "🌽"), ("ZW", "Lúa Mì", "🌾")]):
             d = fund.get(code, {})
             with cols2[i]:
-                st.markdown(f"<div class='card'>", unsafe_allow_html=True)
-                st.markdown(f"<div style='font-weight:700; color:#e2e8f0; margin-bottom:12px; font-size:14px;'>{emoji} {name}</div>", unsafe_allow_html=True)
+                html_content = f"<div class='card'>\n<div style='font-weight:700; color:#e2e8f0; margin-bottom:12px; font-size:14px;'>{emoji} {name}</div>\n"
                 for metric_key, metric_label in [("us_ending_stocks", "Tồn Kho Mỹ"), ("global_ending_stocks", "Tồn Kho TG")]:
                     meta = d.get(metric_key, {})
                     if not meta: continue
                     curr = meta.get("current", meta.get("latest", "—"))
                     prev = meta.get("previous", "—")
-                    st.markdown(f"""
+                    html_content += f"""
                     <div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
                         <span style='color:#cbd5e1; font-size:13px;'>{metric_label}</span>
                         <div style='text-align:right;'>
                             <div style='font-size:13px;'><span class='prev'>{prev}</span> ➔ <span class='curr'>{curr}</span></div>
                         </div>
-                    </div>""", unsafe_allow_html=True)
-                st.markdown(f"</div>", unsafe_allow_html=True)
+                    </div>"""
+                html_content += "</div>"
+                st.markdown(html_content, unsafe_allow_html=True)
 
     # ── Diện Tích Gieo Trồng (Acreage) ─────────────────────────────────────────────
     if acreage_data:
