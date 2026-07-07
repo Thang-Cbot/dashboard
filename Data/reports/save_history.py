@@ -26,22 +26,43 @@ def setup_sheet(wb, sheet_name, headers, col_widths):
         ws = wb.create_sheet(sheet_name)
     
     if ws.max_row == 1 and ws.cell(row=1, column=1).value is None:
-        header_fill = PatternFill(start_color='1F497D', end_color='1F497D', fill_type='solid')
-        header_font = Font(color='FFFFFF', bold=True)
-        align = Alignment(horizontal='center', vertical='center', wrap_text=True)
-        border = Border(left=Side(style='thin'), right=Side(style='thin'), top=Side(style='thin'), bottom=Side(style='thin'))
+        font_bold_black = Font(color='000000', bold=True)
+        align_center = Alignment(horizontal='center', vertical='center', wrap_text=True)
+        border_thin = Border(left=Side(style='thin'), right=Side(style='thin'), top=Side(style='thin'), bottom=Side(style='thin'))
+        fill_orange = PatternFill(start_color='F4B084', end_color='F4B084', fill_type='solid')
+        fill_yellow = PatternFill(start_color='FFD966', end_color='FFD966', fill_type='solid')
+        fill_darkblue = PatternFill(start_color='1F497D', end_color='1F497D', fill_type='solid')
         
+        gap_col = -1
+        for i, h in enumerate(headers, 1):
+            if h == ' ': gap_col = i
+
         for col, h in enumerate(headers, 1):
             cell = ws.cell(row=1, column=col)
             cell.value = h
-            cell.fill = header_fill
-            cell.font = header_font
-            cell.alignment = align
-            cell.border = border
+            cell.font = font_bold_black
+            cell.alignment = align_center
+            cell.border = border_thin
+            
+            if gap_col != -1:
+                if col < gap_col: cell.fill = fill_orange
+                elif col == gap_col: cell.fill = fill_darkblue
+                else: cell.fill = fill_yellow
+            else:
+                cell.fill = fill_orange
+                
             if h == ' ':
                 ws.column_dimensions[get_column_letter(col)].width = 2
             else:
                 ws.column_dimensions[get_column_letter(col)].width = col_widths.get(col, 15)
+                
+        # Format empty rows with borders and gap column
+        for r in range(2, 51):
+            for c in range(1, len(headers) + 1):
+                cell = ws.cell(row=r, column=c)
+                cell.border = border_thin
+                if c == gap_col: cell.fill = fill_darkblue
+                
         ws.freeze_panes = 'A2'
     return ws
 
@@ -49,12 +70,16 @@ def append_row(ws, row_data, date_val):
     for r in range(2, ws.max_row + 1):
         if ws.cell(row=r, column=1).value == date_val:
             return # Skip if date exists
-    
-    ws.append(row_data)
-    row_idx = ws.max_row
-    for col in range(2, len(row_data) + 1):
+            
+    # Find first empty row in column A
+    row_idx = 2
+    while ws.cell(row=row_idx, column=1).value is not None:
+        row_idx += 1
+        
+    for col, val in enumerate(row_data, 1):
         cell = ws.cell(row=row_idx, column=col)
-        if isinstance(cell.value, (int, float)):
+        cell.value = val
+        if isinstance(val, (int, float)):
             header = ws.cell(row=1, column=col).value
             if header and '%' in header:
                 cell.number_format = '0.00'
@@ -81,7 +106,15 @@ def update_excel_history(data_dir=Path('../output'), excel_path=Path('../../USDA
     zc_sales = fund.get('ZC', {}).get('export_sales_weekly', {})
     zw_sales = fund.get('ZW', {}).get('export_sales_weekly', {})
     if zc_sales and zw_sales:
+        prev_date = zc_sales.get('previous_week_ending')
         curr_date = zc_sales.get('latest_date')
+        if prev_date:
+            append_row(ws_sales, [
+                prev_date,
+                extract_number(zw_sales.get('previous_net_sales')), None, None, None,
+                '',
+                extract_number(zc_sales.get('previous_net_sales')), None, None, None
+            ], prev_date)
         if curr_date:
             append_row(ws_sales, [
                 curr_date,
@@ -98,7 +131,15 @@ def update_excel_history(data_dir=Path('../output'), excel_path=Path('../../USDA
     zc_insp = fund.get('ZC', {}).get('exports', {})
     zw_insp = fund.get('ZW', {}).get('exports', {})
     if zc_insp and zw_insp:
+        prev_date = zc_insp.get('previous_date')
         curr_date = zc_insp.get('latest_date')
+        if prev_date:
+            append_row(ws_insp, [
+                prev_date,
+                extract_number(zw_insp.get('previous')), None,
+                '',
+                extract_number(zc_insp.get('previous')), None
+            ], prev_date)
         if curr_date:
             append_row(ws_insp, [
                 curr_date,
@@ -112,7 +153,14 @@ def update_excel_history(data_dir=Path('../output'), excel_path=Path('../../USDA
     ws_cp = setup_sheet(wb, 'Crop_Progress', cp_headers, {1:15})
     zc_cp_p = fund.get('ZC', {}).get('us_planting', {})
     if zc_cp_p:
+        prev_date = zc_cp_p.get('previous_date')
         curr_date = zc_cp_p.get('latest_date')
+        if prev_date:
+            append_row(ws_cp, [
+                prev_date,
+                None, None, None, None, None, None, '',
+                extract_number(zc_cp_p.get('previous')), extract_number(fund.get('ZC', {}).get('harvest_progress', {}).get('previous')), extract_number(fund.get('ZC', {}).get('crop_condition', {}).get('previous'))
+            ], prev_date)
         if curr_date:
             append_row(ws_cp, [
                 curr_date,
