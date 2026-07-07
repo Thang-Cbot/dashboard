@@ -179,18 +179,18 @@ with col2:
             curr, prev, date = str(meta) if meta else "—", "—", ""
         st.markdown(f"""
         <div style='background:#0f1629; border-radius:6px; padding:10px; margin-bottom:8px;'>
-            <div style='font-size:11px; color:#64748b; margin-bottom:4px;'>{label}</div>
+            <div style='font-size:13px; font-weight:600; color:#94a3b8; margin-bottom:6px;'>{label}</div>
             <div style='display:flex; gap:12px;'>
                 <div style='flex:1;'>
-                    <div style='font-size:10px; color:#475569;'>Kỳ trước</div>
-                    <div style='font-size:12px; color:#94a3b8;'>{prev}</div>
+                    <div style='font-size:11px; color:#475569;'>Kỳ trước</div>
+                    <div style='font-size:13px; color:#94a3b8;'>{prev}</div>
                 </div>
                 <div style='flex:1;'>
-                    <div style='font-size:10px; color:#166534;'>Hiện tại</div>
-                    <div style='font-size:12px; color:#22c55e; font-weight:700;'>{curr}</div>
+                    <div style='font-size:11px; color:#166534;'>Hiện tại</div>
+                    <div style='font-size:13px; color:#22c55e; font-weight:700;'>{curr}</div>
                 </div>
             </div>
-            {f'<div style="font-size:10px;color:#374151;margin-top:4px;">{date}</div>' if date else ''}
+            {f'<div style="font-size:11px;color:#475569;margin-top:6px;">{date}</div>' if date else ''}
         </div>""", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
@@ -208,11 +208,11 @@ with col3:
         arrow = "▲" if chg > 0 else "▼"
         st.markdown(f"""
         <div style='background:#0f1629; border-radius:6px; padding:10px; margin-bottom:8px;'>
-            <div style='font-size:11px; color:#64748b;'>COT Managed Money <span style='float:right; font-size:9px; color:#475569;'>{cot_data.get("report_date", "—")}</span></div>
-            <div style='font-size:18px; font-weight:700; color:{nc}; margin:4px 0;'>{net:+,} HD</div>
-            <div style='font-size:11px; color:{nc};'>{arrow} {abs(chg):,} HD tuần này</div>
-            <div style='font-size:11px; color:#94a3b8; margin-top:4px;'>{quad}</div>
-            <div style='font-size:11px; color:#64748b; margin-top:2px;'>{action[:60] if action else ""}</div>
+            <div style='font-size:13px; font-weight:600; color:#94a3b8;'>COT Managed Money <span style='float:right; font-size:10px; color:#475569;'>{cot_data.get("report_date", "—")}</span></div>
+            <div style='font-size:20px; font-weight:700; color:{nc}; margin:4px 0;'>{net:+,} HD</div>
+            <div style='font-size:12px; color:{nc};'>{arrow} {abs(chg):,} HD tuần này</div>
+            <div style='font-size:12px; color:#94a3b8; font-weight:600; margin-top:4px;'>{quad}</div>
+            <div style='font-size:12px; color:#64748b; margin-top:2px;'>{action[:60] if action else ""}</div>
         </div>""", unsafe_allow_html=True)
     else:
         st.markdown("<div style='font-size:12px;color:#64748b;padding:8px;'>Chưa có dữ liệu COT.</div>", unsafe_allow_html=True)
@@ -227,11 +227,11 @@ with col3:
         ec = "#22c55e" if pct > 0 else "#ef4444"
         st.markdown(f"""
         <div style='background:#0f1629; border-radius:6px; padding:10px;'>
-            <div style='font-size:11px; color:#64748b;'>Xuất Khẩu Tuần Này</div>
-            <div style='font-size:12px; color:#22c55e; font-weight:600; margin:4px 0;'>{curr}</div>
-            <div style='font-size:11px; color:#64748b;'>Kỳ trước: <span style="color:#94a3b8;">{prev}</span></div>
-            <div style='font-size:13px; color:{ec}; font-weight:700; margin-top:4px;'>Δ {pct:+.1f}%</div>
-            <div style='font-size:10px; color:#475569; margin-top:4px;'>{logic[:80] if logic else ""}...</div>
+            <div style='font-size:13px; font-weight:600; color:#94a3b8;'>Xuất Khẩu Tuần Này</div>
+            <div style='font-size:13px; color:#22c55e; font-weight:600; margin:6px 0;'>{curr}</div>
+            <div style='font-size:12px; color:#64748b;'>Kỳ trước: <span style="color:#94a3b8;">{prev}</span></div>
+            <div style='font-size:14px; color:{ec}; font-weight:700; margin-top:4px;'>Δ {pct:+.1f}%</div>
+            <div style='font-size:11px; color:#64748b; margin-top:4px;'>{logic[:80] if logic else ""}...</div>
         </div>""", unsafe_allow_html=True)
     else:
         st.markdown("<div style='font-size:12px;color:#64748b;padding:8px;'>Chưa có dữ liệu xuất khẩu.</div>", unsafe_allow_html=True)
