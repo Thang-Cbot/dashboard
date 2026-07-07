@@ -151,33 +151,55 @@ def update_excel_history(data_dir=Path('../output'), excel_path=Path('../../USDA
     # 3. Crop Progress
     cp_headers = ['Ngày Báo Cáo', 'ZW Winter Gieo (%)', 'ZW Winter Thu Hoạch (%)', 'ZW Winter G/E (%)', 'ZW Spring Gieo (%)', 'ZW Spring Thu Hoạch (%)', 'ZW Spring G/E (%)', ' ', 'ZC Gieo Trồng (%)', 'ZC Thu Hoạch (%)', 'ZC G/E (%)']
     ws_cp = setup_sheet(wb, 'Crop_Progress', cp_headers, {1:15})
-    zc_cp_p = fund.get('ZC', {}).get('us_planting', {})
-    if zc_cp_p:
-        prev_date = zc_cp_p.get('previous_date')
-        curr_date = zc_cp_p.get('latest_date')
+    zc_cp = fund.get('ZC', {})
+    zw_cp = fund.get('ZW', {})
+    
+    if zc_cp.get('us_planting'):
+        prev_date = zc_cp.get('us_planting', {}).get('previous_date')
+        curr_date = zc_cp.get('us_planting', {}).get('latest_date')
+        
+        def extract_zw_cp(zw_obj, is_prev=False):
+            key = 'previous' if is_prev else 'latest'
+            plant_str = zw_obj.get('us_planting', {}).get(key, '')
+            harv_str = zw_obj.get('harvest_progress', {}).get(key, '')
+            cond_str = zw_obj.get('crop_condition', {}).get(key, '')
+            
+            w_plant = extract_number(plant_str.split('Xuân')[0]) if 'đông' in plant_str.lower() and 'gieo' in plant_str.lower() else None
+            w_harv = extract_number(harv_str.split('Xuân')[0]) if 'đông' in harv_str.lower() else None
+            w_cond = extract_number(cond_str) if 'đông' in cond_str.lower() or 'lúa' not in cond_str.lower() else None
+            
+            s_plant = extract_number(plant_str.split('Xuân')[-1]) if 'Xuân' in plant_str else None
+            s_harv = extract_number(harv_str.split('Xuân')[-1]) if 'Xuân' in harv_str else None
+            s_cond = extract_number(cond_str.split('Xuân')[-1]) if 'Xuân' in cond_str else None
+            
+            return w_plant, w_harv, w_cond, s_plant, s_harv, s_cond
+
         if prev_date:
+            w_p, w_h, w_c, s_p, s_h, s_c = extract_zw_cp(zw_cp, True)
             append_row(ws_cp, [
                 prev_date,
-                None, None, None, None, None, None, '',
-                extract_number(zc_cp_p.get('previous')), extract_number(fund.get('ZC', {}).get('harvest_progress', {}).get('previous')), extract_number(fund.get('ZC', {}).get('crop_condition', {}).get('previous'))
+                w_p, w_h, w_c, s_p, s_h, s_c, '',
+                extract_number(zc_cp.get('us_planting', {}).get('previous')), extract_number(zc_cp.get('harvest_progress', {}).get('previous')), extract_number(zc_cp.get('crop_condition', {}).get('previous'))
             ], prev_date)
         if curr_date:
+            w_p, w_h, w_c, s_p, s_h, s_c = extract_zw_cp(zw_cp, False)
             append_row(ws_cp, [
                 curr_date,
-                None, None, None, None, None, None, '',
-                extract_number(zc_cp_p.get('latest')), extract_number(fund.get('ZC', {}).get('harvest_progress', {}).get('latest')), extract_number(fund.get('ZC', {}).get('crop_condition', {}).get('latest'))
+                w_p, w_h, w_c, s_p, s_h, s_c, '',
+                extract_number(zc_cp.get('us_planting', {}).get('latest')), extract_number(zc_cp.get('harvest_progress', {}).get('latest')), extract_number(zc_cp.get('crop_condition', {}).get('latest'))
             ], curr_date)
 
     # 4. WASDE
     w_headers = ['Kỳ Báo Cáo', 'ZW Tồn Kho Mỹ (tr bu)', 'ZW Tồn Kho TG (tr tấn)', ' ', 'ZC Tồn Kho Mỹ (tr bu)', 'ZC Tồn Kho TG (tr tấn)']
     ws_w = setup_sheet(wb, 'WASDE', w_headers, {1:15, 2:25, 3:25, 5:25, 6:25})
-    zc_w_us = fund.get('ZC', {}).get('us_ending_stocks', {})
-    if zc_w_us:
-        curr_date = zc_w_us.get('latest_date', 'Tháng 6/2026')
+    zc_w = fund.get('ZC', {})
+    zw_w = fund.get('ZW', {})
+    if zc_w.get('us_ending_stocks'):
+        curr_date = zc_w.get('us_ending_stocks', {}).get('latest_date', 'Tháng 6/2026')
         append_row(ws_w, [
             curr_date,
-            None, None, '',
-            extract_number(zc_w_us.get('current')), extract_number(fund.get('ZC', {}).get('global_ending_stocks', {}).get('current'))
+            extract_number(zw_w.get('us_ending_stocks', {}).get('current')), extract_number(zw_w.get('global_ending_stocks', {}).get('current')), '',
+            extract_number(zc_w.get('us_ending_stocks', {}).get('current')), extract_number(zc_w.get('global_ending_stocks', {}).get('current'))
         ], curr_date)
 
     # 5. Acreage
