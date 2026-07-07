@@ -227,14 +227,23 @@ with tab1:
                 for metric_key, metric_label in USDA_METRICS:
                     meta = d.get(metric_key, {})
                     if not meta: continue
-                    curr = meta.get("latest", "—").replace(", ", "<br>")
-                    prev = meta.get("previous", "—").replace(", ", "<br>")
+                    curr_str = str(meta.get("latest", "—"))
+                    prev_str = str(meta.get("previous", "—"))
+                    
+                    curr_parts = [p.strip() for p in curr_str.split(",")]
+                    prev_parts = [p.strip() for p in prev_str.split(",")]
+                    
+                    if len(curr_parts) == len(prev_parts) and len(curr_parts) > 1:
+                        lines_html = "".join([f"<div><span class='prev'>{p}</span> ➔ <span class='curr'>{c}</span></div>" for p, c in zip(prev_parts, curr_parts)])
+                    else:
+                        lines_html = f"<div><span class='prev'>{prev_str}</span> ➔ <span class='curr'>{curr_str}</span></div>"
+                        
                     curr_dt = meta.get("latest_date", "")
                     st.markdown(f"""
                     <div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
                         <span style='color:#cbd5e1; font-size:13px; margin-top:2px;'>{metric_label}</span>
                         <div style='text-align:right;'>
-                            <div style='font-size:13px; line-height:1.4;'><span class='prev'>{prev}</span> ➔ <span class='curr'>{curr}</span></div>
+                            <div style='font-size:13px; line-height:1.4;'>{lines_html}</div>
                             <div style='font-size:10px; color:#475569;'>{curr_dt}</div>
                         </div>
                     </div>""", unsafe_allow_html=True)
