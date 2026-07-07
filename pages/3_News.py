@@ -8,7 +8,7 @@ import json
 import streamlit as st
 from pathlib import Path
 
-st.set_page_config(page_title="Tin Tức — CBOT", page_icon="📰", layout="wide")
+st.set_page_config(page_title="Báo Cáo USDA & Tin Tức", page_icon="📰", layout="wide")
 
 DATA_OUTPUT = Path(__file__).parent.parent / "Data" / "output"
 
@@ -28,7 +28,7 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
 .stApp { background-color: #0f1629; }
-[data-testid="stSidebar"] { background: #0d1424 !important; border-right: 1px solid #1e2d45; min-width: 220px !important; max-width: 220px !important; width: 220px !important; }
+[data-testid="stSidebar"] { background: #0d1424 !important; border-right: 1px solid #1e2d45; min-width: 260px !important; max-width: 260px !important; width: 260px !important; }
 [data-testid="stSidebarNav"] { display: none !important; }
 .card { background: #1a2035; border: 1px solid #2a3a5c; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
 .section-header { font-size:15px; font-weight:800; color:#e2e8f0; margin:20px 0 12px 0; letter-spacing:0.5px; }
@@ -51,7 +51,7 @@ st.sidebar.page_link("pages/4_Weather.py",  label="🌤️ Thời Tiết")
 st.sidebar.page_link("pages/5_AgriMap.py",  label="🗺️ Bản Đồ Thời Tiết & ENSO")
 st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ 2026")
 
-st.markdown("## 📰 Tin Tức, Cung Cầu & Xuất Khẩu")
+st.markdown("## 📰 Báo Cáo USDA & Tin Tức")
 
 tab1, tab2, tab3 = st.tabs(["📊 Số liệu & Báo cáo (USDA)", "⚡ Điểm Tin Nóng (AI)", "🇷🇺 Tình Hình Biển Đen (Nga/EU)"])
 
