@@ -3,19 +3,19 @@
   "elapsed_seconds": 164.7,
   "modules": {
     "usda": {
-      "status": "OK",
-      "detail": "WASDE + Crop Progress updated",
-      "updated_at": "2026-07-06 06:30:22"
+      "status": "[ERROR]",
+      "detail": "Failed after 10 attempts",
+      "updated_at": "2026-07-07 08:49:12"
     },
     "prices": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-06 21:15:11"
+      "updated_at": "2026-07-07 10:15:04"
     },
     "macro": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-06 21:15:19"
+      "updated_at": "2026-07-07 10:15:09"
     },
     "cot": {
       "status": "OK",
@@ -46,12 +46,17 @@
       "status": "OK",
       "detail": "Planted acreage ZC/ZW/ZS updated",
       "updated_at": "2026-07-06 06:32:47"
+    },
+    "ai_news": {
+      "status": "[OK]",
+      "detail": "Auto-fetch 06:49:38",
+      "updated_at": "2026-07-07 06:49:38"
     }
   },
   "all_ok": true,
   "macro": {
     "status": "ERROR",
     "detail": "'charmap' codec can't encode characters in position 2-3: character maps to <undefined>",
-    "updated_at": "2026-07-06 21:15:19"
+    "updated_at": "2026-07-07 10:15:09"
   }
 }

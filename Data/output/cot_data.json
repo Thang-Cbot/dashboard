@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-03 21:29:03",
+  "fetched_at": "2026-07-06 06:30:29",
   "source": "CFTC Public API (Disaggregated Futures Only)",
   "commodities": {
     "002602": {
@@ -15,7 +15,7 @@
       "change": -10000,
       "quadrant": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "fetched_at": "2026-07-03 21:29:07"
+      "fetched_at": "2026-07-06 06:30:34"
     },
     "001602": {
       "commodity": "ZW",
@@ -30,7 +30,7 @@
       "change": 5000,
       "quadrant": "Q4 (CAM) - COVER SHORT",
       "action": "Cam Short duoi. Canh LONG bat hoi.",
-      "fetched_at": "2026-07-03 21:29:07"
+      "fetched_at": "2026-07-06 06:30:35"
     }
   }
 }

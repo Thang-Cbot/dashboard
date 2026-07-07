@@ -1,14 +1,14 @@
 {
   "ZC": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCU26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 425.00\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 72%)</b>\n🎯 Vùng Entry: <b>420.94 - 423.63</b>\n🛑 Stoploss: 416.94 | 💵 Take Profit: 431.63\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>426.49 - 434.25</b>\n",
-    "timestamp": "23:16 02/07/2026"
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCU26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 438.25\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 77%)</b>\n🎯 Vùng Entry: <b>429.79 - 435.03</b>\n🛑 Stoploss: 425.79 | 💵 Take Profit: 443.03\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>426.49 - 434.25</b>\n",
+    "timestamp": "10:16 07/07/2026"
   },
   "ZW": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWU26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 601.25\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 65%)</b>\n🎯 Vùng Entry: <b>597.05 - 600.93</b>\n🛑 Stoploss: 592.69 | 💵 Take Profit: 609.65\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>584.53 - 598.50</b>\n",
-    "timestamp": "23:16 02/07/2026"
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWU26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 611.50\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 74%)</b>\n🎯 Vùng Entry: <b>604.91 - 609.63</b>\n🛑 Stoploss: 600.91 | 💵 Take Profit: 617.63\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>584.53 - 598.50</b>\n",
+    "timestamp": "10:16 07/07/2026"
   },
   "ZS": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZSX26)</b> 🚨\n🌾 Mã: <b>Đậu Tương</b> | Giá H1: 1140.75\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 76%)</b>\n🎯 Vùng Entry: <b>1135.15 - 1138.91</b>\n🛑 Stoploss: 1131.15 | 💵 Take Profit: 1146.91\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + Order Block + FVG ho tro\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZSX26)</b> 💎\nVùng chờ mua an toàn: <b>1107.05 - 1121.75</b>\n",
-    "timestamp": "21:16 02/07/2026"
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZSX26)</b> 🚨\n🌾 Mã: <b>Đậu Tương</b> | Giá H1: 1182.50\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 77%)</b>\n🎯 Vùng Entry: <b>1156.36 - 1170.02</b>\n🛑 Stoploss: 1148.55 | 💵 Take Profit: 1185.64\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZSX26)</b> 💎\nVùng chờ mua an toàn: <b>1107.05 - 1121.75</b>\n",
+    "timestamp": "10:16 07/07/2026"
   }
 }
