@@ -420,7 +420,7 @@ with tab_zw:
           </div>
           <div class='metric-box' style='border-color:#22c55e; text-align:center;'>
             <div style='font-size:11px; color:#64748b;'>🎯 VÙNG GOM GOLDEN ZONE</div>
-            <div style='font-size:24px; font-weight:800; color:#22c55e;'>570 – 585 cents</div>
+            <div style='font-size:24px; font-weight:800; color:#22c55e;'>{zw.get('dca_brackets', '570 – 585 cents')}</div>
             <div style='font-size:11px; color:#86efac;'>Tương đương 555–565 cents {zw_swing_ticker} + Contango 15-25c</div>
           </div>
           <div style='font-size:11px; color:#94a3b8; line-height:1.7; margin-top:10px;'>
@@ -685,7 +685,7 @@ with tab_zc:
           </div>
           <div class='metric-box' style='border-color:#f59e0b; text-align:center;'>
             <div style='font-size:11px; color:#64748b;'>🎯 VÙNG GOM DCA TỐI ƯU</div>
-            <div style='font-size:24px; font-weight:800; color:#f59e0b;'>436 – 445 cents</div>
+            <div style='font-size:24px; font-weight:800; color:#f59e0b;'>{zc.get('dca_brackets', '436 – 445 cents')}</div>
             <div style='font-size:11px; color:#fde68a;'>Đáy thu hoạch kỳ vọng, Tháng 8 – đầu T9</div>
           </div>
           <div class='metric-box' style='border-color:#22c55e; text-align:center;'>
