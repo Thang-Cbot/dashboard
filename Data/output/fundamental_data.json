@@ -95,16 +95,16 @@
       "logic": "Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại đang xuất hiện vùng khô hạn cục bộ ở rìa phía Bắc (Minnesota, Northern Plains) đe dọa trực tiếp tỷ lệ nảy mầm của cây ngô non."
     },
     "cot_report": {
-      "latest": "[2026-06-16] Net Short 120,000 HD | Change: -10,000 HD",
-      "next_date": "19/06/2026 (Hang tuan, Thu Sau)",
-      "forecast": "Q3 (DO DAM) - NHOI SHORT",
-      "action": "Uu tien SHORT thuan xu huong.",
-      "logic": "[2026-06-16] Managed Money nam giu vi the rong Short 120,000 hop dong. Tuan nay giam bot 10,000 HD. Xep hang Ma Tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.",
+      "latest": "[2026-06-30] Net Short 66,996 HD | Change: +7,823 HD",
+      "next_date": "03/07/2026 (Hang tuan, Thu Sau)",
+      "forecast": "Q4 (CAM) - COVER SHORT",
+      "action": "Cam Short duoi. Canh LONG bat hoi.",
+      "logic": "[2026-06-30] Managed Money nam giu vi the rong Short 66,996 hop dong. Tuan nay tang them 7,823 HD. Xep hang Ma Tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.",
       "raw_data": {
-        "net_position": -120000,
-        "change": -10000,
-        "long": 0,
-        "short": 0
+        "net_position": -66996.0,
+        "change": 7823.0,
+        "long": 293291.0,
+        "short": 360287.0
       }
     },
     "import_demand": {
@@ -265,16 +265,16 @@
       "logic": "Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ) + Hạn hán mùa thu làm giảm 20% diện tích gieo trồng của Úc."
     },
     "cot_report": {
-      "latest": "[2026-06-16] Net Short 45,000 HD | Change: +5,000 HD",
-      "next_date": "19/06/2026 (Hang tuan, Thu Sau)",
+      "latest": "[2026-06-30] Net Short 67,561 HD | Change: +2,872 HD",
+      "next_date": "03/07/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q4 (CAM) - COVER SHORT",
       "action": "Cam Short duoi. Canh LONG bat hoi.",
-      "logic": "[2026-06-16] Managed Money nam giu vi the rong Short 45,000 hop dong. Tuan nay tang them 5,000 HD. Xep hang Ma Tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.",
+      "logic": "[2026-06-30] Managed Money nam giu vi the rong Short 67,561 hop dong. Tuan nay tang them 2,872 HD. Xep hang Ma Tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.",
       "raw_data": {
-        "net_position": -45000,
-        "change": 5000,
-        "long": 0,
-        "short": 0
+        "net_position": -67561.0,
+        "change": 2872.0,
+        "long": 69102.0,
+        "short": 136663.0
       }
     },
     "import_demand": {
@@ -451,5 +451,5 @@
     "swing_short_tp": "1191.00 cents"
   },
   "wasde_report_month": "Jun",
-  "last_updated_cot": "2026-07-06 06:30:35"
+  "last_updated_cot": "2026-07-07 12:37:08"
 }
