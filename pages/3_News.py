@@ -131,32 +131,44 @@ with tab1:
             d = fund.get(code, {}).get("export_sales_weekly", {})
             with cols2[i]:
                 net_sales = d.get("latest_net_sales", "N/A") if d else "N/A"
+                prev_sales = d.get("previous_net_sales", "N/A") if d else "N/A"
                 shipments = d.get("latest_shipments", "N/A") if d else "N/A"
                 outstanding = d.get("outstanding_sales", "N/A") if d else "N/A"
+                pct = d.get("pct_change", 0) if d else 0
+                logic = d.get("logic", "") if d else ""
                 week_end = d.get("week_ending", "—") if d else "—"
                 next_rpt = d.get("next_report", "—") if d else "—"
                 note = d.get("note", "") if d else ""
+                
                 is_na = "N/A" in net_sales
-                badge_color = "#64748b" if is_na else "#22c55e"
+                
+                bias = "bull" if pct > 5 else ("bear" if pct < -5 else "")
+                badge = f'<span class="{bias}">' + ("▲ BULL" if bias == "bull" else "▼ BEAR" if bias == "bear" else "—") + '</span>' if bias else "—"
+                
                 st.markdown(f"""
                 <div class='card' style='border-color:#2d5a27;'>
                     <div style='font-size:14px; font-weight:700; color:#e2e8f0; margin-bottom:10px;'>{emoji} {name}</div>
-                    <div style='display:flex; justify-content:space-between; margin-bottom:6px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
-                        <span style='color:#94a3b8; font-size:12px;'>📦 Net Sales (Doanh số ròng)</span>
-                        <span style='color:{badge_color}; font-weight:700; font-size:13px;'>{net_sales}</span>
+                    <div style='display:flex; justify-content:space-between; margin-bottom:6px;'>
+                        <span style='color:#94a3b8; font-size:12px;'>Kỳ trước: {prev_sales}</span>
+                        <span style='color:{"#64748b" if is_na else "#22c55e"}; font-weight:700; font-size:13px;'>{net_sales}</span>
                     </div>
-                    <div style='display:flex; justify-content:space-between; margin-bottom:6px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
+                    <div style='margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:8px;'>
+                        {badge} &nbsp; {f'<span style="color:#22c55e;">+{pct:.2f}%</span>' if pct > 0 else f'<span style="color:#ef4444;">{pct:.2f}%</span>' if pct < 0 else '<span style="color:#94a3b8;">0.0%</span>'}
+                    </div>
+                    <div style='display:flex; justify-content:space-between; margin-bottom:6px; padding-bottom:6px;'>
                         <span style='color:#94a3b8; font-size:12px;'>🚢 Shipments (Giao trong tuần)</span>
                         <span style='color:#cbd5e1; font-size:13px;'>{shipments}</span>
                     </div>
-                    <div style='display:flex; justify-content:space-between; margin-bottom:8px;'>
-                        <span style='color:#94a3b8; font-size:12px;'>📊 Outstanding Sales (Tồn đơn)</span>
+                    <div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
+                        <span style='color:#94a3b8; font-size:12px;'>📊 Outstanding (Tồn đơn)</span>
                         <span style='color:#cbd5e1; font-size:13px;'>{outstanding}</span>
                     </div>
-                    <div style='font-size:10px; color:#475569; border-top:1px solid #1e2d45; padding-top:6px;'>
-                        📅 Tuần kết thúc: <b style='color:#64748b;'>{week_end}</b> &nbsp;|&nbsp; Báo cáo tiếp: <b style='color:#f59e0b;'>{next_rpt}</b>
+                    <div style='font-size:11px; color:#64748b; margin-top:8px; margin-bottom:8px;'>
+                        {logic[:150]}...
                     </div>
-                    {f"<div style='font-size:10px; color:#334155; margin-top:4px;'>{note[:80]}...</div>" if note else ""}
+                    <div style='font-size:10px; color:#475569; border-top:1px solid #1e2d45; padding-top:6px;'>
+                        📅 Kỳ báo cáo: <b style='color:#64748b;'>{week_end}</b> &nbsp;|&nbsp; Kế tiếp: <b style='color:#f59e0b;'>{next_rpt}</b>
+                    </div>
                 </div>""", unsafe_allow_html=True)
 
     # ── GIAO HÀNG XUẤT KHẨU (Export Inspections - Thứ 2) ────────────────────────

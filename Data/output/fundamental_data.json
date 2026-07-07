@@ -55,13 +55,18 @@
     },
     "export_sales_weekly": {
       "report_type": "BAN_HANG",
-      "latest_net_sales": "N/A (Chưa lấy báo cáo Thứ 5 tuần này)",
-      "latest_shipments": "N/A",
-      "outstanding_sales": "N/A",
+      "latest_net_sales": "732.1 nghìn tấn",
+      "previous_net_sales": "743.1 nghìn tấn",
+      "pct_change": -1.48,
+      "latest_shipments": "1,816.5 nghìn tấn",
+      "outstanding_sales": "15,768.7 nghìn tấn",
       "week_ending": "25/06/2026",
+      "previous_week_ending": "18/06/2026",
       "latest_date": "25/06/2026",
-      "next_report": "10/07/2026 lúc 21:30 (VN) - Thứ 6",
-      "note": "Số liệu từ PDF: https://apps.fas.usda.gov/esrqs/StaticReports/CWRCommoditySummary.pdf"
+      "next_report": "10/07/2026 lúc 21:30 (VN)",
+      "action": "Bán hàng ổn định -> Gom Long ngắn hạn",
+      "logic": "Doanh số ngô duy trì ở mức 732.1k tấn, giảm nhẹ không đáng kể so với 743.1k tấn của tuần trước. Mức này nằm trong kỳ vọng, hỗ trợ giá giữ vững vùng đáy.",
+      "note": "Số liệu từ CWRCommoditySummary.pdf"
     },
     "exports": {
       "report_type": "GIAO_HANG",
@@ -213,13 +218,18 @@
     },
     "export_sales_weekly": {
       "report_type": "BAN_HANG",
-      "latest_net_sales": "58.4 nghìn tấn (Net Sales tuần kết thúc 25/06/2026)",
-      "latest_shipments": "95.2 nghìn tấn (Shipments trong tuần)",
-      "outstanding_sales": "952.1 nghìn tấn (Outstanding Sales lũy kế)",
+      "latest_net_sales": "300.1 nghìn tấn",
+      "previous_net_sales": "504.5 nghìn tấn",
+      "pct_change": -40.52,
+      "latest_shipments": "364.8 nghìn tấn",
+      "outstanding_sales": "4,370.6 nghìn tấn",
       "week_ending": "25/06/2026",
+      "previous_week_ending": "18/06/2026",
       "latest_date": "25/06/2026",
-      "next_report": "10/07/2026 lúc 21:30 (VN) - Thứ 6",
-      "note": "Bao gồm: Hard Red Winter 58.4k + Soft Red Winter 25.2k + Hard Red Spring + White + Durum. Lấy từ: CWRCommoditySummary.pdf"
+      "next_report": "10/07/2026 lúc 21:30 (VN)",
+      "action": "Bán hàng giảm mạnh -> Canh Short rũ bỏ (Judas Swing)",
+      "logic": "Doanh số ròng lúa mì giảm mạnh 40% xuống còn 300.1k tấn (chạm mức thấp nhất của dải kỳ vọng). Lực cầu yếu tạo áp lực giảm giá ngắn hạn.",
+      "note": "Tổng của tất cả các loại lúa mì (ALL WHEAT). Nguồn: CWRCommoditySummary.pdf"
     },
     "exports": {
       "report_type": "GIAO_HANG",
