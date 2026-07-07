@@ -325,6 +325,17 @@ def run_crawler_and_update():
             # Crop Progress
             if code in prog_data:
                 p_data = prog_data[code]
+                
+                # Lưu ngày báo cáo
+                if prog_date:
+                    if "us_planting" not in fund[code]: fund[code]["us_planting"] = {}
+                    if "crop_condition" not in fund[code]: fund[code]["crop_condition"] = {}
+                    if "harvest_progress" not in fund[code]: fund[code]["harvest_progress"] = {}
+                    
+                    fund[code]["us_planting"]["latest_date"] = prog_date
+                    fund[code]["crop_condition"]["latest_date"] = prog_date
+                    fund[code]["harvest_progress"]["latest_date"] = prog_date
+
                 if "planted" in p_data:
                     fund[code]["us_planting"]["latest"] = f"{p_data['planted']}% đã gieo trồng"
                     fund[code]["us_planting"]["next_date"] = cp_next

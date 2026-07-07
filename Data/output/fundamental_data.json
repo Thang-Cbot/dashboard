@@ -10,7 +10,7 @@
       "logic": "Trung bình 5 năm đạt 96%. Tiến độ hiện tại được cập nhật mới nhất.",
       "previous": "95% đã gieo trồng",
       "previous_date": "Tuần trước (16/06)",
-      "latest_date": "Tuần này (23/06)"
+      "latest_date": "06/07/2026"
     },
     "harvest_progress": {
       "latest": "Mỹ: 0% | Argentina: 66% (2/3 tiến độ)",
@@ -20,7 +20,7 @@
       "logic": "Argentina đang thu hoạch rộ đạt 66%. Việc giá ngô giữ vững trên 445-450 cents bất bất chấp áp lực thu hoạch cho thấy ngô đã xác lập vùng đáy chu kỳ mùa vụ thành công.",
       "previous": "Mỹ: 0% | Argentina: 58% (tiến độ)",
       "previous_date": "Tuần trước (16/06)",
-      "latest_date": "Tuần này (23/06)"
+      "latest_date": "06/07/2026"
     },
     "crop_condition": {
       "latest": "67% Good to Excellent",
@@ -30,7 +30,7 @@
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
       "previous": "69% Good to Excellent",
       "previous_date": "Tuần trước (16/06)",
-      "latest_date": "Tuần này (23/06)"
+      "latest_date": "06/07/2026"
     },
     "us_ending_stocks": {
       "next_date": "10/07/2026 lúc 23:00 (VN)",
@@ -143,6 +143,9 @@
       "previous": "4.64 tỷ bushels (01/06/2025)",
       "pct_change": 14.0,
       "note": "Tăng 14% so với cùng kỳ 2025. Tồn kho vật lý dồi dào do Argentina thu hoạch lớn."
+    },
+    "wasde": {
+      "month": "Tháng 06"
     }
   },
   "ZW": {
@@ -154,7 +157,7 @@
       "logic": "Lúa mì xuân gieo trồng phát triển thuận lợi. Lúa mì đông đã trổ bông vượt trung bình.",
       "previous": "Xuân 93% gieo",
       "previous_date": "Tuần trước (16/06)",
-      "latest_date": "Tuần này (23/06)"
+      "latest_date": "06/07/2026"
     },
     "harvest_progress": {
       "latest": "Mỹ: 59% lúa đông đã thu hoạch",
@@ -164,7 +167,7 @@
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Mỹ: 25% lúa đông đã thu hoạch",
       "previous_date": "Tuần trước (16/06)",
-      "latest_date": "Tuần này (23/06)"
+      "latest_date": "06/07/2026"
     },
     "crop_condition": {
       "latest": "26% Good to Excellent",
@@ -174,7 +177,7 @@
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "27% Good to Excellent",
       "previous_date": "Tuần trước (16/06)",
-      "latest_date": "Tuần này (23/06)"
+      "latest_date": "06/07/2026"
     },
     "us_ending_stocks": {
       "next_date": "10/07/2026 lúc 23:00 (VN)",
@@ -297,6 +300,9 @@
       "previous": "852 triệu bushels (01/06/2025)",
       "pct_change": 8.0,
       "note": "Tăng 8% so với cùng kỳ 2025. Tuy nhiên chất lượng lúa đông kém → hạn chế giá trị sử dụng."
+    },
+    "wasde": {
+      "month": "Tháng 06"
     }
   },
   "ZS": {
