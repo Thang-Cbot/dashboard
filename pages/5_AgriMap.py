@@ -339,7 +339,7 @@ fetched_at    = ws.get("fetched_at", "—")
 # Header
 st.markdown(f"""
 <div style='margin-bottom:18px;'>
-    <div style='font-size:22px; font-weight:800; color:#e2e8f0;'>🗺️ Bản Đồ Nông Sản Thế Giới</div>
+    <div style='font-size:22px; font-weight:800; color:#e2e8f0;'>🗺️ Bản Đồ Thời Tiết & ENSO Thế Giới</div>
     <div style='font-size:12px; color:#64748b; margin-top:4px;'>
         Dữ liệu thời tiết cập nhật lúc: <b style='color:#94a3b8;'>{fetched_at}</b>
         &nbsp;|&nbsp;
