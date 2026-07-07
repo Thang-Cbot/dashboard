@@ -212,7 +212,7 @@ with tab1:
     st.markdown(f"<div class='section-header'>📊 Cung Cầu Mùa Vụ (USDA Crop Progress) {cp_html}</div>", unsafe_allow_html=True)
 
     USDA_METRICS = [
-        ("planting_progress", "Tiến độ gieo trồng"),
+        ("us_planting", "Tiến độ gieo trồng"),
         ("harvest_progress", "Tiến độ thu hoạch"),
         ("crop_condition", "Chất lượng (Good/Exc)"),
     ]
@@ -227,14 +227,14 @@ with tab1:
                 for metric_key, metric_label in USDA_METRICS:
                     meta = d.get(metric_key, {})
                     if not meta: continue
-                    curr = meta.get("latest", "—")
-                    prev = meta.get("previous", "—")
+                    curr = meta.get("latest", "—").replace(", ", "<br>")
+                    prev = meta.get("previous", "—").replace(", ", "<br>")
                     curr_dt = meta.get("latest_date", "")
                     st.markdown(f"""
                     <div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
-                        <span style='color:#cbd5e1; font-size:13px;'>{metric_label}</span>
+                        <span style='color:#cbd5e1; font-size:13px; margin-top:2px;'>{metric_label}</span>
                         <div style='text-align:right;'>
-                            <div style='font-size:13px;'><span class='prev'>{prev}</span> ➔ <span class='curr'>{curr}</span></div>
+                            <div style='font-size:13px; line-height:1.4;'><span class='prev'>{prev}</span> ➔ <span class='curr'>{curr}</span></div>
                             <div style='font-size:10px; color:#475569;'>{curr_dt}</div>
                         </div>
                     </div>""", unsafe_allow_html=True)
