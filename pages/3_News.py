@@ -124,6 +124,7 @@ with tab1:
         if st.button("🔄 Cập Nhật Báo Cáo Mới Nhất", use_container_width=True, key="refresh_usda_tab"):
             import subprocess
             msgs = []
+            placeholders = st.empty()
             with st.spinner("⏳ Đang quét dữ liệu USDA, Export Sales, Acreage và COT..."):
                 scripts = [
                     ("Export Sales",   str(Path(__file__).parent.parent / "Data" / "reports" / "export_sales.py")),
@@ -138,17 +139,50 @@ with tab1:
                             capture_output=True, text=True, timeout=60
                         )
                         if result.returncode == 0:
-                            msgs.append(f"✅ {name}: Thành công")
+                            msgs.append(("✅", name, "Thành công"))
                         else:
-                            msgs.append(f"⚠️ {name}: {result.stderr[-100:] if result.stderr else 'Lỗi không xác định'}")
+                            err = result.stderr.strip()[-120:] if result.stderr else "Lỗi không xác định"
+                            msgs.append(("⚠️", name, err))
                     except subprocess.TimeoutExpired:
-                        msgs.append(f"⏱️ {name}: Timeout (>60s)")
+                        msgs.append(("⏱️", name, "Timeout (>60s)"))
                     except Exception as e:
-                        msgs.append(f"❌ {name}: {str(e)[:80]}")
+                        msgs.append(("❌", name, str(e)[:100]))
                 st.cache_data.clear()
-            for m in msgs:
-                st.markdown(f"<div style='font-size:13px; margin-bottom:4px;'>{m}</div>", unsafe_allow_html=True)
-            st.rerun()
+            # Lưu vào session_state để hiển thị sau khi load lại
+            st.session_state["usda_update_msgs"] = msgs
+
+    # Hiển thị kết quả cập nhật (tồn tại qua các lần render)
+    if "usda_update_msgs" in st.session_state and st.session_state["usda_update_msgs"]:
+        msgs = st.session_state["usda_update_msgs"]
+        rows_html = "".join([
+            f"<div style='display:flex; align-items:center; gap:10px; padding:6px 10px; "
+            f"border-radius:6px; margin-bottom:4px; "
+            f"background:{\"#14532d\" if icon==\"✅\" else \"#7f1d1d\" if icon in [\"⚠️\",\"❌\"] else \"#1e293b\"};'>"
+            f"<span style='font-size:16px;'>{icon}</span>"
+            f"<span style='color:#e2e8f0; font-size:13px; font-weight:600; min-width:110px;'>{name}</span>"
+            f"<span style='color:{\"#4ade80\" if icon==\"✅\" else \"#f87171\" if icon in [\"⚠️\",\"❌\"] else \"#94a3b8\"}; font-size:12px;'>{msg}</span>"
+            f"</div>"
+            for icon, name, msg in msgs
+        ])
+        all_ok = all(i == "✅" for i, _, _ in msgs)
+        summary_color = "#22c55e" if all_ok else "#f59e0b"
+        summary_text = "Tất cả báo cáo đã được cập nhật thành công!" if all_ok else "Một số báo cáo gặp lỗi, kiểm tra chi tiết bên dưới."
+        st.markdown(f"""
+        <div style='background:#1a2035; border:1px solid #2a3a5c; border-radius:10px; padding:14px 16px; margin:8px 0 12px 0;'>
+            <div style='font-size:13px; font-weight:700; color:{summary_color}; margin-bottom:10px;'>
+                📋 Kết quả cập nhật — <span style='font-weight:400;'>{summary_text}</span>
+            </div>
+            {rows_html}
+        </div>""", unsafe_allow_html=True)
+        col_reload, col_clear = st.columns([1, 1])
+        with col_reload:
+            if st.button("🔃 Tải lại trang để xem dữ liệu mới", use_container_width=True, key="reload_after_update"):
+                st.session_state.pop("usda_update_msgs", None)
+                st.rerun()
+        with col_clear:
+            if st.button("✖ Đóng thông báo", use_container_width=True, key="close_update_msgs"):
+                st.session_state.pop("usda_update_msgs", None)
+                st.rerun()
 
     st.markdown("<hr style='border-color:#1e2d45; margin:8px 0 16px 0;'>", unsafe_allow_html=True)
 
