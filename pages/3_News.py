@@ -115,15 +115,53 @@ with tab1:
     fund = load_json("fundamental_data.json")
     acreage_data = load_json("acreage_data.json")
 
+    # ── HEADER + NÚT CẬP NHẬT ──────────────────────────────────────────────────
+    hdr_col, btn_col = st.columns([3, 1.2])
+    with hdr_col:
+        st.markdown("<div style='font-size:16px; font-weight:800; color:#e2e8f0; margin-top:16px;'>📊 Số liệu & Báo cáo (USDA)</div>", unsafe_allow_html=True)
+    with btn_col:
+        st.markdown("<div style='margin-top:12px;'></div>", unsafe_allow_html=True)
+        if st.button("🔄 Cập Nhật Báo Cáo Mới Nhất", use_container_width=True, key="refresh_usda_tab"):
+            import subprocess
+            msgs = []
+            with st.spinner("⏳ Đang quét dữ liệu USDA, Export Sales, Acreage và COT..."):
+                scripts = [
+                    ("Export Sales",   str(Path(__file__).parent.parent / "Data" / "reports" / "export_sales.py")),
+                    ("Acreage",        str(Path(__file__).parent.parent / "Data" / "reports" / "fetch_acreage.py")),
+                    ("USDA/WASDE",     str(Path(__file__).parent.parent / "Data" / "fetch_usda.py")),
+                    ("COT",            str(Path(__file__).parent.parent / "Data" / "price" / "cot.py")),
+                ]
+                for name, script in scripts:
+                    try:
+                        result = subprocess.run(
+                            [sys.executable, script],
+                            capture_output=True, text=True, timeout=60
+                        )
+                        if result.returncode == 0:
+                            msgs.append(f"✅ {name}: Thành công")
+                        else:
+                            msgs.append(f"⚠️ {name}: {result.stderr[-100:] if result.stderr else 'Lỗi không xác định'}")
+                    except subprocess.TimeoutExpired:
+                        msgs.append(f"⏱️ {name}: Timeout (>60s)")
+                    except Exception as e:
+                        msgs.append(f"❌ {name}: {str(e)[:80]}")
+                st.cache_data.clear()
+            for m in msgs:
+                st.markdown(f"<div style='font-size:13px; margin-bottom:4px;'>{m}</div>", unsafe_allow_html=True)
+            st.rerun()
+
+    st.markdown("<hr style='border-color:#1e2d45; margin:8px 0 16px 0;'>", unsafe_allow_html=True)
+
     # ── BÁN HÀNG XUẤT KHẨU (Export Sales - Thứ 5, từ PDF USDA) ─────────────────
     zc_sales = fund.get("ZC", {}).get("export_sales_weekly", {}) if fund else {}
     sales_ts = zc_sales.get("latest_date", "—") if isinstance(zc_sales, dict) else "—"
     sales_ts_html = f"<span style='font-size:11px; color:#f59e0b; font-weight:400; font-style:italic; float:right; margin-top:4px;'>(Dữ liệu: {sales_ts})</span>"
     st.markdown(f"""
-    <div style='background:linear-gradient(90deg,#1a2035,#1e2a1e); border:1px solid #2d5a27; border-radius:10px; padding:10px 16px; margin:20px 0 12px 0; display:flex; align-items:center; justify-content:space-between;'>
+    <div style='background:linear-gradient(90deg,#1a2035,#1e2a1e); border:1px solid #2d5a27; border-radius:10px; padding:10px 16px; margin:0 0 12px 0; display:flex; align-items:center; justify-content:space-between;'>
         <span style='font-size:15px; font-weight:800; color:#4ade80; letter-spacing:0.5px;'>📋 BÁN HÀNG Xuất Khẩu (Export Sales) — <span style='font-size:12px; color:#86efac; font-weight:500;'>Báo cáo Thứ 5 hàng tuần</span></span>
         {sales_ts_html}
     </div>""", unsafe_allow_html=True)
+
 
     if fund:
         cols2 = st.columns(2)
