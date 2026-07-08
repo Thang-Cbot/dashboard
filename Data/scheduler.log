@@ -757,3 +757,204 @@ UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: cha
 UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
 
 [2026-07-07 13:15:06] [INFO] ⏰ Đợi Giá H1: còn 1.00h (07/07 14:15:02 VN)
+[2026-07-07 14:15:02] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-07 14:15:04] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-07 14:15:04] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-07 14:15:07] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-07 14:15:07] [INFO] ⏰ Đợi Giá H1: còn 1.00h (07/07 15:15:02 VN)
+[2026-07-07 16:50:42] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-07 16:50:46] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-07 16:50:46] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-07 16:50:49] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-07 16:50:49] [INFO] ⏰ Đợi Giá H1: còn 0.40h (07/07 17:15:02 VN)
+[2026-07-07 17:15:02] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-07 17:15:03] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-07 17:15:03] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-07 17:15:06] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-07 17:15:06] [INFO] ⏰ Đợi Giá H1: còn 1.00h (07/07 18:15:02 VN)
+[2026-07-07 18:33:03] [INFO] ▶ Kích hoạt: USDA Acreage
+[2026-07-07 18:33:10] [INFO] ✅ USDA Acreage hoàn thành (attempt 1)
+[2026-07-07 18:33:10] [INFO] ⏰ Đợi Acreage Reports: còn 10.95h (08/07 05:30:02 VN)
+[2026-07-07 19:16:59] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-07 19:17:00] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-07 19:17:00] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-07 19:17:04] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-07 19:17:04] [INFO] ⏰ Đợi Giá H1: còn 0.97h (07/07 20:15:02 VN)
+[2026-07-07 19:26:40] [INFO] ▶ Kích hoạt: Thời Tiết Ngắn Hạn
+[2026-07-07 19:27:11] [INFO] ✅ Thời Tiết Ngắn Hạn hoàn thành (attempt 1)
+[2026-07-07 19:27:11] [INFO] ⏰ Đợi Weather Short: còn 10.55h (08/07 06:00:02 VN)
+[2026-07-07 20:45:39] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-07 20:45:42] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-07 20:45:42] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-07 20:45:45] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-07 20:45:45] [INFO] ⏰ Đợi Giá H1: còn 0.49h (07/07 21:15:02 VN)
+[2026-07-07 21:15:02] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-07 21:15:03] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-07 21:15:03] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-07 21:15:05] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-07 21:15:05] [INFO] ⏰ Đợi Giá H1: còn 1.00h (07/07 22:15:02 VN)
+[2026-07-07 22:15:02] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-07 22:15:03] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-07 22:15:03] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-07 22:15:06] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-07 22:15:06] [INFO] ⏰ Đợi Giá H1: còn 1.00h (07/07 23:15:02 VN)
+[2026-07-07 23:55:07] [INFO] ▶ Kích hoạt: AI Điểm Tin
+[2026-07-07 23:55:46] [INFO] ✅ AI Điểm Tin hoàn thành (attempt 1)
+[2026-07-07 23:55:46] [INFO] ⏰ Đợi AI News: còn 6.07h (08/07 06:00:02 VN)
+[2026-07-08 00:01:51] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-08 00:01:53] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-08 00:01:53] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-08 00:01:56] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-08 00:01:56] [INFO] ⏰ Đợi Giá H1: còn 0.22h (08/07 00:15:02 VN)
+[2026-07-08 00:15:02] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-08 00:15:03] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-08 00:15:03] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-08 00:15:07] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-08 00:15:07] [INFO] ⏰ Đợi Giá H1: còn 1.00h (08/07 01:15:02 VN)
+[2026-07-08 07:33:15] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-08 07:33:16] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-08 07:33:16] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-08 07:33:19] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-08 07:33:19] [INFO] ⏰ Đợi Giá H1: còn 0.70h (08/07 08:15:02 VN)
+[2026-07-08 08:15:02] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-08 08:15:03] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-08 08:15:03] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-08 08:15:06] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-08 08:15:06] [INFO] ⏰ Đợi Giá H1: còn 1.00h (08/07 09:15:02 VN)
+[2026-07-08 10:16:13] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-08 10:16:23] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-08 10:16:23] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-08 10:16:30] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-08 10:16:30] [INFO] ⏰ Đợi Giá H1: còn 0.98h (08/07 11:15:02 VN)
+[2026-07-08 12:46:38] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-08 12:46:47] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-08 12:46:47] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-08 12:46:54] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-08 12:46:54] [INFO] ⏰ Đợi Giá H1: còn 0.47h (08/07 13:15:02 VN)
+[2026-07-08 13:28:40] [INFO] ============================================================
+[2026-07-08 13:28:40] [INFO]   CBOT PRECISION SCHEDULER V2 — KHỞI ĐỘNG
+[2026-07-08 13:28:40] [INFO] ============================================================
+[2026-07-08 13:28:40] [INFO] Lịch trình đang chạy:
+[2026-07-08 13:28:40] [INFO]   [Giá H1 + Macro]    : Phút :15 mỗi giờ giao dịch
+[2026-07-08 13:28:40] [INFO]   [COT CFTC]          : Thứ Bảy 07:15 VN
+[2026-07-08 13:28:40] [INFO]   [USDA Crop Progress]: Thứ Hai 22:00 VN
+[2026-07-08 13:28:40] [INFO]   [Export Sales]      : Thứ Năm 21:32 VN
+[2026-07-08 13:28:40] [INFO]   [WASDE Monthly]     : Ngày 10 hàng tháng, 23:00 VN
+[2026-07-08 13:28:40] [INFO]   [Thời Tiết Ngắn]    : 06:00 hàng ngày
+[2026-07-08 13:28:40] [INFO]   [ENSO Long-Term]    : Thứ Hai 06:30 VN
+[2026-07-08 13:28:40] [INFO]   [USDA Acreage]      : 05:30 hàng ngày
+[2026-07-08 13:28:40] [INFO]   [AI Điểm Tin]       : 06:00 và 20:00 hàng ngày
+[2026-07-08 13:28:40] [INFO]   [AI Tin Biển Đen]   : Thứ Tư & Chủ Nhật 07:00 VN
+[2026-07-08 13:28:40] [INFO]   [Số Liệu Mùa Vụ Nga]: 07:30 hàng ngày
+[2026-07-08 13:28:40] [INFO] ------------------------------------------------------------
+[2026-07-08 13:28:40] [INFO]   ✅ Thread khởi động: job_prices
+15:02 VN)
+[2026-07-08 13:28:40] [INFO]   ✅ Thread khởi động: job_cot
+7 07:15:02 VN)
+[2026-07-08 13:28:40] [INFO]   ✅ Thread khởi động: job_crop_progress
+:00:02 VN)
+[2026-07-08 13:28:40] [INFO]   ✅ Thread khởi động: job_export_sales
+32:02 VN)
+[2026-07-08 13:28:40] [INFO]   ✅ Thread khởi động: job_wasde
+0/07 23:00:02 VN)
+[2026-07-08 13:28:40] [INFO]   ✅ Thread khởi động: job_weather_short
+00:02 VN)
+[2026-07-08 13:28:40] [INFO]   ✅ Thread khởi động: job_weather_long
+06:30:02 VN)
+[2026-07-08 13:28:40] [INFO]   ✅ Thread khởi động: job_acreage
+9/07 05:30:02 VN)
+[2026-07-08 13:28:40] [INFO]   ✅ Thread khởi động: job_ai_news
+0:02 VN)
+[2026-07-08 13:28:40] [INFO]   ✅ Thread khởi động: job_blacksea_news
+:00:02 VN)
+[2026-07-08 13:28:40] [INFO] ============================================================
+[2026-07-08 13:28:40] [INFO] Scheduler đang chạy ngầm. Nhấn Ctrl+C để dừng.
+[2026-07-08 14:15:02] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-08 14:15:03] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-08 14:15:03] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-08 14:15:06] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-08 14:15:06] [INFO] ⏰ Đợi Giá H1: còn 1.00h (08/07 15:15:02 VN)

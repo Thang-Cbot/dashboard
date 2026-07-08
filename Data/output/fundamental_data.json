@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-07-07",
+  "last_updated_fundamentals": "2026-07-08",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -176,7 +176,7 @@
       "latest_date": "06/07/2026"
     },
     "harvest_progress": {
-      "latest": "Đông 59% thu hoạch, Xuân 0% thu hoạch",
+      "latest": "Mỹ: 59% lúa đông đã thu hoạch",
       "next_date": "14/07/2026 lúc 03:00 (VN)",
       "forecast": "Mỹ: 12% lúa đông đã thu hoạch",
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
@@ -186,7 +186,7 @@
       "latest_date": "06/07/2026"
     },
     "crop_condition": {
-      "latest": "Đông 26% G/E, Xuân 72% G/E",
+      "latest": "26% Good to Excellent",
       "next_date": "14/07/2026 lúc 03:00 (VN)",
       "forecast": "Duy trì cực xấu 25-27% G/E",
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
@@ -353,8 +353,8 @@
       "logic": "Mỹ bắt đầu thu hoạch vào tháng 9-11. Argentina đang thu hoạch đậu tương đạt 75% tiến độ. Việc Argentina sắp kết thúc thu hoạch rộ đồng nghĩa với việc áp lực bán tháo lớn nhất của Nam Mỹ đã phản ánh hoàn toàn vào giá (priced-in), tạo điều kiện cho giá đậu tương thiết lập đáy chu kỳ mùa vụ và bước vào pha tăng trưởng."
     },
     "crop_condition": {
-      "latest": "65% Good to Excellent",
-      "next_date": "07/07/2026 lúc 03:00 (VN)",
+      "latest": "64% Good to Excellent",
+      "next_date": "14/07/2026 lúc 03:00 (VN)",
       "forecast": "68% G/E",
       "action": "Chất lượng gieo trồng tốt -> Canh Short ngắn hạn / bảo thủ",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6."
@@ -378,12 +378,12 @@
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"
     },
     "exports": {
-      "latest": "Giao hàng (Inspections): 419,124 tấn (Tuần kết thúc Jun 29, 2026)",
-      "next_date": "06/07/2026 lúc 22:00 (VN)",
+      "latest": "Giao hàng (Inspections): 528,350 tấn (Tuần kết thúc Jul 06, 2026)",
+      "next_date": "13/07/2026 lúc 22:00 (VN)",
       "forecast": "300,000 tấn",
       "action": "Xuất khẩu ổn định -> Gom Long trung hạn",
       "logic": "Đạt 276,852 tấn trong tuần, giảm nhẹ 8% so với tuần trước. Trung Quốc vẫn là đối tác mua ròng hàng đầu với 74,800 tấn. Lượng bốc xếp thực tế duy trì ổn định ở mức 569,300 tấn.",
-      "previous": "Giao hàng (Inspections): 241,045 tấn (Tuần kết thúc Jun 22, 2026)"
+      "previous": "Giao hàng (Inspections): 419,124 tấn (Tuần kết thúc Jun 29, 2026)"
     },
     "competitors": {
       "latest": "Brazil & Argentina",
@@ -451,5 +451,5 @@
     "swing_short_tp": "1191.00 cents"
   },
   "wasde_report_month": "Jun",
-  "last_updated_cot": "2026-07-07 12:37:08"
+  "last_updated_cot": "2026-07-08 14:31:26"
 }

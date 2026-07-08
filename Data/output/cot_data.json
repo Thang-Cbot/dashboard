@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-07 12:37:07",
+  "fetched_at": "2026-07-08 14:31:25",
   "source": "CFTC ZIP (Disaggregated Futures Only)",
   "commodities": {
     "002602": {
@@ -15,7 +15,7 @@
       "change": 7823.0,
       "quadrant": "Q4 (CAM) - COVER SHORT",
       "action": "Cam Short duoi. Canh LONG bat hoi.",
-      "fetched_at": "2026-07-07 12:37:08"
+      "fetched_at": "2026-07-08 14:31:26"
     },
     "001602": {
       "commodity": "ZW",
@@ -30,7 +30,7 @@
       "change": 2872.0,
       "quadrant": "Q4 (CAM) - COVER SHORT",
       "action": "Cam Short duoi. Canh LONG bat hoi.",
-      "fetched_at": "2026-07-07 12:37:08"
+      "fetched_at": "2026-07-08 14:31:26"
     }
   }
 }

@@ -40,7 +40,7 @@ scan_lock = threading.Lock()
 # File lưu tín hiệu cuối cùng — đọc từ Data/output/
 LAST_SIGNAL_FILE = _data_path("last_signals.json")
 
-def save_last_signal(code, msg, timestamp):
+def save_last_signal(code, msg, timestamp, setup=None):
     """Lưu tín hiệu mới nhất theo mã hàng hóa"""
     data = {}
     if os.path.exists(LAST_SIGNAL_FILE):
@@ -49,7 +49,13 @@ def save_last_signal(code, msg, timestamp):
                 data = json.load(f)
         except:
             pass
-    data[code] = {"msg": msg, "timestamp": timestamp}
+            
+    signal_data = {"msg": msg, "timestamp": timestamp}
+    if setup:
+        signal_data['setup_type'] = setup.get('type')
+        signal_data['setup_entry_range'] = setup.get('entryRange')
+        
+    data[code] = signal_data
     try:
         with open(LAST_SIGNAL_FILE, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
@@ -228,6 +234,16 @@ def is_cbot_open():
         print(f"Lỗi khi check lịch giao dịch: {e}")
         return True # Fallback để vẫn quét nếu lỗi thư viện
 
+def extract_avg_entry(entry_range_str):
+    if not entry_range_str: return 0.0
+    try:
+        parts = entry_range_str.split('-')
+        if len(parts) == 2:
+            return (float(parts[0].strip()) + float(parts[1].strip())) / 2.0
+    except:
+        pass
+    return 0.0
+
 def run_analysis():
     """Chạy script cập nhật dữ liệu và kiểm tra MSS trên H1. Trả về True nếu có bất kỳ tín hiệu nào được phát hiện."""
     print(f"\n--- [{datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime('%Y-%m-%d %H:%M:%S')}] BẮT ĐẦU QUÉT THỊ TRƯỜNG ---")
@@ -339,17 +355,28 @@ def run_analysis():
                 )
             
             if msg:
-                # Tránh gửi lặp lại tín hiệu giống hệt tín hiệu trước đó
+                # Tránh gửi lặp lại tín hiệu giống hệt hoặc chưa thay đổi nhiều so với lần quét trước
                 last_signals = load_last_signals()
-                if code in last_signals and last_signals[code].get('msg') == msg:
-                    print(f"{code}: Tín hiệu giống hệt lần quét trước. Bỏ qua gửi Telegram để tránh spam.")
+                is_duplicate = False
+                
+                if code in last_signals:
+                    old_sig = last_signals[code]
+                    if setup and old_sig.get('setup_type') == setup.get('type'):
+                        old_entry = extract_avg_entry(old_sig.get('setup_entry_range', ''))
+                        new_entry = extract_avg_entry(setup.get('entryRange', ''))
+                        
+                        if old_entry > 0 and new_entry > 0 and abs(new_entry - old_entry) < 2.0:
+                            is_duplicate = True
+                            
+                if is_duplicate:
+                    print(f"{code}: Tín hiệu giống lần quét trước (cùng loại, chênh lệch Entry < 2 giá). Bỏ qua gửi Telegram để tránh spam.")
                 else:
                     print(f"Phát hiện tín hiệu trên {code}! Đang gửi Telegram...")
                     send_telegram_message(msg)
                     any_signal_sent = True
                     # Lưu lại tín hiệu vừa phát hiện
                     ts = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime("%H:%M %d/%m/%Y")
-                    save_last_signal(code, msg, ts)
+                    save_last_signal(code, msg, ts, setup)
             else:
                 print(f"{code}: Không có tín hiệu MSS hoặc Bắt đáy/đỉnh đạt chuẩn.")
                 

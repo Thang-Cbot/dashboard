@@ -1,105 +1,95 @@
 {
-  "timestamp": "2026-07-05 08:56:02",
+  "timestamp": "2026-07-08 13:49:57",
   "news": [
     {
-      "title": "Sản lượng lúa mì Biển Đen gần đạt mức kỷ lục, trong khi vụ đông của Mỹ giảm",
+      "title": "Sản lượng lúa mì Biển Đen gần đạt kỷ lục trong khi Mỹ giảm",
       "details": [
-        "Khu vực Biển Đen (Nga, Ukraine) dự kiến có vụ mùa lúa mì gần đạt mức kỷ lục.",
-        "Điều này có thể tạo áp lực giảm giá trên thị trường toàn cầu.",
-        "Ngược lại, vụ lúa mì đông của Mỹ được dự báo sẽ giảm."
+        "Sản lượng lúa mì khu vực Biển Đen (Nga, Ukraine) được dự báo gần đạt mức kỷ lục, cho thấy nguồn cung dồi dào từ khu vực này.",
+        "Ngược lại, sản lượng lúa mì vụ đông của Mỹ đang có xu hướng giảm, tạo ra sự tương phản rõ rệt giữa hai thị trường lớn.",
+        "Tình hình này có thể ảnh hưởng đến cán cân cung cầu và giá cả trên thị trường lúa mì toàn cầu."
       ],
       "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQVGNOanBJUDRPcU5xZllJTVZRSjZQMFlROUFzR1VZNGlsZmttSGNrWlZKRFROVWtvaTU2OFpCRGltcnV3NzhtYUFuOFF4VmpSa0N5Tm1JaTlBR1BHQzFNblRkVFJNZDh3WU5fRWdYMWtfRWlGRHVLU2U2OFl3THdwbWVzaw?oc=5",
-      "source": "Fri, 12 Jun 2026 07:00:00 GMT (Nguồn: Google News)"
+      "source": "Fri, 12 Jun 2026 07:00:00 GMT"
     },
     {
-      "title": "Thiếu nhiên liệu và thời tiết bất lợi gây khó khăn cho vụ mùa Nga",
+      "title": "Thiếu nhiên liệu và thời tiết xấu đe dọa vụ mùa lúa mì Nga",
       "details": [
-        "Nông dân Nga đang đối mặt với thách thức lớn từ tình trạng thiếu nhiên liệu.",
-        "Thời tiết khắc nghiệt cũng đang ảnh hưởng tiêu cực đến tiến độ và năng suất vụ mùa.",
-        "Những yếu tố này có thể làm giảm dự báo sản lượng lúa mì của Nga."
+        "Vụ mùa lúa mì của Nga đang đối mặt với những thách thức đáng kể từ tình trạng thiếu hụt nhiên liệu, gây khó khăn cho hoạt động nông nghiệp.",
+        "Thời tiết bất lợi, bao gồm các điều kiện khắc nghiệt, cũng là yếu tố cản trở tiến độ gieo trồng và năng suất thu hoạch.",
+        "Những yếu tố này có thể dẫn đến việc giảm sản lượng dự kiến và ảnh hưởng đến nguồn cung lúa mì từ Nga."
       ],
       "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNTmQ1U0JSWVJiYm92RG1IRGdaZTBHclRmcldPRVRoclpXNVFQbWJhQlNDRkdNa2YwUmRtSW1wbkczbkVsYzhINGRDenpVTGFmVm1GRnpWUGpzVFd4ZkRnSW5mbkNSN0JtVUlXclZGdFFZaUxWY19HYmhUQXNrWGpKcDdGV1pOSGgtdVF2Zy13b3FxbDQ?oc=5",
-      "source": "Wed, 01 Jul 2026 06:17:53 GMT (Nguồn: Google News)"
-    },
-    {
-      "title": "Giá lúa mì Chicago tăng nhẹ do xung đột Nga-Ukraine",
-      "details": [
-        "Giá lúa mì kỳ hạn tại Chicago đã tăng nhẹ.",
-        "Thị trường đang tập trung vào diễn biến của cuộc xung đột Nga-Ukraine.",
-        "Xung đột tiếp tục là yếu tố chính gây biến động và lo ngại về nguồn cung toàn cầu."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNRGJ2NzdJNHcyWk4zU0hId2duaEUtdjJQZHIzdHNJZ01VQzQ4RWtkV3hiR3J4YjRMcENValJrUkh5TXVUbW9idnNhc3dVdXRJNnFVWXo0cEttaXlYYU8wLUMxWXBYSHBlb3RMek5SU0FnMmRlX1ZFejV1ZGZ4emFnY0lIZE1kSWhoLTJoZXpkWnh5eVhnVDRDXzU3SkFSR21vdHFhRk1jcWhHWGcxcWY2SQ?oc=5",
-      "source": "Mon, 22 Dec 2025 08:00:00 GMT (Nguồn: Google News)"
-    },
-    {
-      "title": "Nông dân Ukraine chịu ảnh hưởng kép từ chiến tranh Nga và xung đột Iran",
-      "details": [
-        "Nông dân Ukraine tiếp tục đối mặt với khó khăn do chiến tranh kéo dài với Nga.",
-        "Xung đột ở Iran đang tạo ra thêm áp lực và bất ổn cho hoạt động nông nghiệp của họ.",
-        "Những yếu tố địa chính trị này đe dọa khả năng sản xuất và xuất khẩu ngũ cốc của Ukraine."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPczlQSC01QnYwZXJjeDhTOXpMdEtkalI2QVFaZXQtTzlHNjVhQlYwanpGdXhsZkh0dU8tMm5QV05md1Y2R2xQSU42cDlfX0tSMTdtY0JyYzh6aUs1MkhoakhzSkRSLVdIUmp0NHJpSWpqNzljRHFnZHJNa3BENkoxWngzcVNSVmdieWU4cVJqS013anVoano5VDFuV1hpQkJvRnBsazMzVEwyMV84a0o0X01XQjIwOE1ZTklKMnB3?oc=5",
-      "source": "Sat, 11 Apr 2026 07:00:00 GMT (Nguồn: Google News)"
+      "source": "Wed, 01 Jul 2026 06:17:53 GMT"
     },
     {
       "title": "Giá lúa mì Nga tăng vọt do khó khăn vận chuyển",
       "details": [
-        "Giá lúa mì của Nga đã tăng mạnh trên thị trường.",
-        "Nguyên nhân chính là do những khó khăn trong hoạt động vận chuyển và logistics.",
-        "Các vấn đề về vận tải biển đang hạn chế nguồn cung và đẩy giá lên cao."
+        "Giá lúa mì của Nga đã tăng mạnh trên thị trường quốc tế, phản ánh những áp lực về nguồn cung và chi phí.",
+        "Nguyên nhân chính được xác định là do những khó khăn trong hoạt động vận chuyển và logistics, đặc biệt là các tuyến đường biển.",
+        "Các vấn đề về vận tải biển ảnh hưởng đến khả năng xuất khẩu của Nga, làm giảm nguồn cung sẵn có và đẩy giá lên cao."
       ],
       "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBrcU5xWUlxQWMzbV9lZUtQdnJvMlo4Q3NZYkxmN1AwQTVwVUR5QlZ2Z19NQUZIY0h5ZE42bDVScDlSdjVrRXZwV3hURF9UQlphZzBIMm1zcWlXTXN2SS04M3hPa09NRUhLSXpBX0NicFl6ZGp6WExHRV9Rc3Zud0U?oc=5",
-      "source": "Mon, 16 Feb 2026 08:00:00 GMT (Nguồn: Google News)"
+      "source": "Mon, 16 Feb 2026 08:00:00 GMT"
     },
     {
-      "title": "Dự báo sản lượng lúa mì Nga giảm vào năm 2026 do nông dân chuyển sang cây có dầu",
+      "title": "Vụ lúa mì 2026 rút ngắn: Cơ hội cho nông dân Biển Đen?",
       "details": [
-        "Sản lượng lúa mì của Nga dự kiến sẽ giảm trong năm 2026.",
-        "Nguyên nhân là do nông dân đang chuyển hướng sang trồng các loại cây có dầu (oilseeds).",
-        "Sự thay đổi này có thể ảnh hưởng đến cân bằng cung cầu lúa mì toàn cầu."
+        "Vụ mùa lúa mì năm 2026 được dự báo sẽ rút ngắn thời gian thu hoạch, có thể do điều kiện thời tiết hoặc các yếu tố nông học.",
+        "Điều này đặt ra câu hỏi về cơ hội và thách thức cho nông dân khu vực Biển Đen trong việc tối ưu hóa sản lượng và lợi nhuận.",
+        "Các yếu tố như thời tiết, điều kiện thị trường và chính sách hỗ trợ có thể ảnh hưởng đến khả năng tận dụng cơ hội của nông dân."
       ],
-      "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQR25SM29iaTNSWXhvVEVYVWQ0eEUxRi1wcVdsWkE4MGZHa2ttRlRCaEt3TW9CU1J4UGFQOExIMVV2dmFNVVU4ZFpMZS14dlh5RDdDcUxZNC02YXFvc2tzd2RyUFF0X1ZlLTJyeXZPcFpkUXlyN2RGSk5FTlpTX0lRbFpjQmRLS2wzTDU1cHBvcFp5Um9NTExhY21SN01OUTR6ZVp0Q0ItRTdCaGhTR1poZmdOVTRsVUx2M1l6QU1yZmtMM2p0S1N5Tko1ZnpBU0dXVXNjZHNtOWk3XzRXeGJKMzRJU1VoamlUSVNwUXhIbWp2OEw3MFE?oc=5",
-      "source": "Mon, 15 Dec 2025 08:00:00 GMT (Nguồn: Google News)"
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNbXpteUpxWEhfSHRHQnU2bHJVQmtsVV9zMkpKeFBTRERGaFMyZ0tuSzkwczZMTVN1bmU0NjJPc2hxZDVrWFp0TXAwdUpFSThiTVZCdEVIMHo3SHhOdHJ6SmtPc0tjaDBBc2phREhZbHNGcmpHeVU2SUpfdXNOcDU0WlF6T2Znc1h0UUtCRXoydlAtQnlpb3dmUHc0clNmYnRRbXdVQ1ltdw?oc=5",
+      "source": "Sun, 24 May 2026 07:00:00 GMT"
     },
     {
-      "title": "Khủng hoảng Iran có thể gây ra đợt tăng giá lương thực mới",
+      "title": "Ngành nông nghiệp Nga khủng hoảng do thiếu máy móc, đe dọa năng suất",
       "details": [
-        "Khủng hoảng tại Iran đang làm dấy lên lo ngại về một đợt tăng giá lương thực toàn cầu mới.",
-        "Các yếu tố địa chính trị có thể ảnh hưởng đến chuỗi cung ứng và chi phí vận chuyển.",
-        "Điều này có thể tác động đến giá lúa mì và các mặt hàng nông sản khác."
+        "Ngành nông nghiệp Nga đang đối mặt với một cuộc khủng hoảng nghiêm trọng do tình trạng thiếu hụt máy móc và thiết bị.",
+        "Tình trạng thiếu máy móc nông nghiệp đe dọa trực tiếp đến năng suất cây trồng, bao gồm cả lúa mì.",
+        "Điều này có thể ảnh hưởng lớn đến tổng sản lượng lúa mì của quốc gia và khả năng đáp ứng nhu cầu thị trường."
       ],
-      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQZUNfcHlUQk9qOVF4VEVTc1V2Ny1aWWZBd3NvVU9iS2ZzVmwwYk0tYmZCbnJwVjhpMUNUNTFlYlozVE9HNXZWNWtZN2tvSEp2YVY3MXRwOGdiY0QtSWZLZzZoRm5QYnBuaTBTRFZodHVXVng1T2w0NXBZajdKMTgtWVFVN3VsSENuYXd4TFM5TXIzVVBZZEE?oc=5",
-      "source": "Tue, 07 Apr 2026 07:00:00 GMT (Nguồn: Google News)"
+      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNV0NpazRkVVNOVnc2U0VKNGwwUGdCWmtiOUROY2xHdElWY1NCNnVBZ2VSVENXSnl0M1J0cTdGeDVMRm9VNTd2Ylk2Z29qdGRWelNqbllEYWdxM0ZsS1NMUzIta0pZYU9LTWY3YjRiaXZJaF_zYnIxcGZ5bkVNMEpRaGl4X2VnUDZFV3FiTVl3eDZOT2lMYVRmUTY0VXpNandjdnZ0T3hEVXNlZF9UbkZEYUY2OGlSVnU5ckJfRVk0VGtubGZYd0VN?oc=5",
+      "source": "Fri, 27 Feb 2026 08:00:00 GMT"
     },
     {
-      "title": "Những thay đổi chính trên thị trường lúa mì Nga nửa đầu niên vụ 2025/26",
+      "title": "Giá xuất khẩu lúa mì Nga giảm khi vụ mùa mới đến gần",
       "details": [
-        "Thị trường lúa mì Nga dự kiến sẽ có những thay đổi đáng kể trong nửa đầu niên vụ 2025/26.",
-        "Các yếu tố như chính sách xuất khẩu, sản lượng và nhu cầu nội địa sẽ được theo dõi chặt chẽ.",
-        "Những thay đổi này có thể định hình lại bức tranh xuất khẩu lúa mì của Nga trong năm 2026."
+        "Giá xuất khẩu lúa mì của Nga đang có xu hướng giảm, một dấu hiệu cho thấy sự thay đổi trên thị trường.",
+        "Nguyên nhân chính là do vụ thu hoạch mới đang đến gần, dự kiến sẽ tăng nguồn cung lúa mì ra thị trường.",
+        "Sự thay đổi này có thể ảnh hưởng đến giá FOB và tạo áp lực giảm giá trên thị trường lúa mì toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1Tbjlrb29XbFU1clBTT3dKV1NLRU5QUDFLZXJpdjJlck9DSldOT0RaWUtYQlliZ1dXQzhqZHRQN09WWnlCME9YcV9KcVRCQVVSYlBKX0930gFWQVVfeXFMTVNuOWtvb1dsVTVyUFNPd0pXU0tFTlBQMUtlcml2MmVyT0NKV05PRFpZS1hCWWJnV1dDOGpkdFA3T1ZaeUIwT1hxX0pxVEJBVVJiUEpfT3c?oc=5",
+      "source": "Tue, 23 Jun 2026 01:31:35 GMT"
+    },
+    {
+      "title": "Thay đổi chính trên thị trường lúa mì Nga nửa đầu niên vụ 2025/26 và dự báo 2026",
+      "details": [
+        "Bài phân tích chuyên sâu về các thay đổi quan trọng trên thị trường lúa mì Nga trong nửa đầu niên vụ 2025/26.",
+        "Nội dung bao gồm đánh giá các yếu tố như chính sách xuất khẩu, sản lượng dự kiến và nhu cầu thị trường nội địa.",
+        "Bài viết cung cấp cái nhìn tổng quan và dự báo cho thị trường lúa mì Nga trong năm 2026, giúp các nhà đầu tư đưa ra quyết định."
       ],
       "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPbTluMTZuWHluQ2libnNkVFBQTGRqZVQtbDV0Y043bVhwY0RTaE1zZXB2U0Z1UmxudE1XTVFkLUV1SzUyUnpMem1EMTFqVUhRenV4WTVqdElsdEoyZzV2RHNIdEpGVVltTl9qaGhJLVFiYzhjOXRzTTAxX01MNXFHVXhWaUptcEczeDZ2ZnU4NFNLbUlEbVRndVdob04yOEJjWUhOYS1CZVJkb0tfcGYzVWZLUmxRdw?oc=5",
-      "source": "Tue, 20 Jan 2026 08:00:00 GMT (Nguồn: Google News)"
+      "source": "Tue, 20 Jan 2026 08:00:00 GMT"
     },
     {
-      "title": "Ngành nông nghiệp Nga đối mặt khủng hoảng thiếu máy móc, đe dọa năng suất cây trồng",
+      "title": "Xuất khẩu lúa mì Biển Đen đối mặt thách thức logistics và thời tiết",
       "details": [
-        "Ngành nông nghiệp Nga đang trải qua một cuộc khủng hoảng do thiếu hụt máy móc.",
-        "Tình trạng này đe dọa nghiêm trọng đến năng suất và hiệu quả của vụ mùa.",
-        "Việc thiếu thiết bị có thể làm giảm khả năng sản xuất lúa mì của Nga trong tương lai."
+        "Hoạt động xuất khẩu lúa mì từ khu vực Biển Đen đang gặp nhiều trở ngại do các vấn đề về logistics và chuỗi cung ứng.",
+        "Các khó khăn trong vận chuyển và cơ sở hạ tầng đang gây chậm trễ và tăng chi phí cho các nhà xuất khẩu.",
+        "Thời tiết bất lợi cũng là một yếu tố chính ảnh hưởng đến lịch trình và khối lượng xuất khẩu, làm tăng rủi ro cho các giao dịch."
       ],
-      "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNV0NpazRkVVNOVnc2U0VKNGwwUGdCWmtiOUROY2xHdElWY1NCNnVBZ2VSVENXSnl0M1J0cTdGeDVMRm9VNTd2Ylk2Z29qdGRWelNqbllEYWdxM0ZsS1NMUzIta0pZYU9LTWY3YjRiaXZJaF_3YnIxcGZ5bkVNMEpRaGl4X2VnUDZFV3FiTVl3eDZOT2lMYVRmUTY0VXpNandjdnZ0T3hEVXNlZF9UbkZEYUY2OGlSVnU5ckJfRVk0VGtubGZYd0VN?oc=5",
-      "source": "Fri, 27 Feb 2026 08:00:00 GMT (Nguồn: Google News)"
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQUGR1d2VDU2pGYnNHWlhBOGkxSmNmeFJrVFNVaWIwLWxNMUFYTkVNNG9nZEJOWDljU0hBLTNGTnBmVWw0RzlzeThLRkcxQWJSTnhtN0ZFLThrOC1zUm9WajZ6T09aYllleXBIeFJMd1c3RVQwTFZiejNKQjNfOF92ZUdmY2l2RXZ1SjcxbnIteTBSTTgxTVRWeFh1bFp0SzZlRmtGUWVLanBTeEtkazRPMGd30gHCAUFVX3lxTE0yM2lCeUNMY3FibEt2QlNzQXJlMzM5VU5JOTJlZC1KRUk4bU0yVHp6bkc3XzFLeDUyNzNWdlFhVUdINjZROFBlYlVnZmI4LVRObVZJWnpIVnBpMmxQV05GSTc3bUtnc3ZNQVg2Qm9paWQ3ZmJLMXZreGp5ZU1jR0FOWXE1aUZkS1E0M2JVZTlDWlpGUzNPUzBUcE5SU0c5V0l1QTVSTU5zY1NUcTRsem9rTmRTOFNCQVozTEF0blREMWhB?oc=5",
+      "source": "Tue, 27 Jan 2026 08:00:00 GMT"
     },
     {
-      "title": "Nga tăng cường xuất khẩu ngũ cốc bằng sản lượng từ các khu vực kiểm soát ở Ukraine",
+      "title": "Ukraine đặt mục tiêu tăng sản lượng và xuất khẩu ngũ cốc",
       "details": [
-        "Nga đang gia tăng xuất khẩu ngũ cốc, một phần nhờ vào sản lượng thu hoạch từ các khu vực của Ukraine mà họ đang kiểm soát.",
-        "Hoạt động này có thể ảnh hưởng đến thị trường ngũ cốc toàn cầu và nguồn cung từ Ukraine.",
-        "Đây là một yếu tố địa chính trị quan trọng tác động đến dòng chảy thương mại lúa mì."
+        "Ukraine có kế hoạch tăng cường sản lượng ngũ cốc trong thời gian tới, nhằm củng cố vị thế là nhà cung cấp lớn trên thị trường toàn cầu.",
+        "Quốc gia này cũng đặt mục tiêu đẩy mạnh hoạt động xuất khẩu ngũ cốc, bao gồm lúa mì, để tăng doanh thu và ổn định kinh tế.",
+        "Động thái này có thể tác động đến nguồn cung và giá cả trên thị trường toàn cầu, đặc biệt là khu vực Biển Đen."
       ],
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQUTNrQmxqNmw5OFhPUmtJNk5uYXRoNGNoMTk1MUIteWZyTXJxVnR2Nk1WZkFKMj5Fb1dHT0FFVFNBNC1vekZiZUM0T2Qtc0EwbE14MkpQUzBqWDRaZmpDNFFZeExoNzFGd1FaZVhIZTZXN3lURkVLUWl3azl3Vml2SzVRV3psRW5LOEF1eTF3NFZXTkVSNWE2T1NOZFZMa2NtSU5LMnhGeEdaVjRjaGIwRkQxN25IcHhnanVHZA?oc=5",
-      "source": "Wed, 06 Aug 2025 07:00:00 GMT (Nguồn: Google News)"
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRTUtSDEyRnU2Wm1vOHV1aHdNUUIxeE1FUTF3aDA1b09FUnlaTVFnLThRRVowNVBURnJWdFItX1p4TmtmVmNQS3FoT1d3aUR5U1JPdlZGbUEyaUNVVlc1VlM0bHRYYzAzajBxVkFiZ3pqN1RQNm9TWGtpOE9pWWFBMw?oc=5",
+      "source": "Thu, 30 Apr 2026 07:00:00 GMT"
     }
   ]
 }
