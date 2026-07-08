@@ -134,9 +134,12 @@ with tab1:
                 ]
                 for name, script in scripts:
                     try:
+                        import os
+                        env = os.environ.copy()
+                        env["PYTHONIOENCODING"] = "utf-8"
                         result = subprocess.run(
                             [sys.executable, script],
-                            capture_output=True, text=True, timeout=60
+                            capture_output=True, text=True, encoding="utf-8", env=env, timeout=60
                         )
                         if result.returncode == 0:
                             msgs.append(("✅", name, "Thành công"))
