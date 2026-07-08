@@ -154,16 +154,19 @@ with tab1:
     # Hiển thị kết quả cập nhật (tồn tại qua các lần render)
     if "usda_update_msgs" in st.session_state and st.session_state["usda_update_msgs"]:
         msgs = st.session_state["usda_update_msgs"]
-        rows_html = "".join([
-            f"<div style='display:flex; align-items:center; gap:10px; padding:6px 10px; "
-            f"border-radius:6px; margin-bottom:4px; "
-            f"background:{\"#14532d\" if icon==\"✅\" else \"#7f1d1d\" if icon in [\"⚠️\",\"❌\"] else \"#1e293b\"};'>"
-            f"<span style='font-size:16px;'>{icon}</span>"
-            f"<span style='color:#e2e8f0; font-size:13px; font-weight:600; min-width:110px;'>{name}</span>"
-            f"<span style='color:{\"#4ade80\" if icon==\"✅\" else \"#f87171\" if icon in [\"⚠️\",\"❌\"] else \"#94a3b8\"}; font-size:12px;'>{msg}</span>"
-            f"</div>"
-            for icon, name, msg in msgs
-        ])
+        rows_html = ""
+        for icon, name, msg in msgs:
+            bg    = "#14532d" if icon == "✅" else "#7f1d1d" if icon in ("⚠️", "❌") else "#1e293b"
+            color = "#4ade80" if icon == "✅" else "#f87171" if icon in ("⚠️", "❌") else "#94a3b8"
+            rows_html += (
+                f"<div style='display:flex; align-items:center; gap:10px; padding:6px 10px; "
+                f"border-radius:6px; margin-bottom:4px; background:{bg};'>"
+                f"<span style='font-size:16px;'>{icon}</span>"
+                f"<span style='color:#e2e8f0; font-size:13px; font-weight:600; min-width:110px;'>{name}</span>"
+                f"<span style='color:{color}; font-size:12px;'>{msg}</span>"
+                f"</div>"
+            )
+
         all_ok = all(i == "✅" for i, _, _ in msgs)
         summary_color = "#22c55e" if all_ok else "#f59e0b"
         summary_text = "Tất cả báo cáo đã được cập nhật thành công!" if all_ok else "Một số báo cáo gặp lỗi, kiểm tra chi tiết bên dưới."
