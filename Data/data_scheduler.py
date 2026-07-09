@@ -189,6 +189,25 @@ def job_prices():
         sleep_until(next_h, "Giá H1")
         run_script("Giá H1 + Macro", PRICE_SCRIPT, "prices")
         run_script("Vĩ Mô (Macro)",   MACRO_SCRIPT, "macro")
+        
+        # Đợi 30 giây sau khi báo Tele xong rồi Push lên Github để đồng bộ Online
+        import time
+        import subprocess
+        log(f"Đợi 30 giây trước khi đồng bộ lên Github...", "Sync")
+        time.sleep(30)
+        try:
+            log(f"Bắt đầu đẩy dữ liệu lên Github...", "Sync")
+            # Commit các file trong Data/output
+            subprocess.run(["git", "add", "Data/output/."], cwd=str(CBOT_ROOT), capture_output=True)
+            subprocess.run(["git", "add", "Future chart/."], cwd=str(CBOT_ROOT), capture_output=True)
+            subprocess.run(["git", "commit", "-m", "Auto sync: H1 data update"], cwd=str(CBOT_ROOT), capture_output=True)
+            res = subprocess.run(["git", "push"], cwd=str(CBOT_ROOT), capture_output=True, text=True)
+            if res.returncode == 0:
+                log("✅ Đồng bộ Github thành công!", "Sync")
+            else:
+                log(f"⚠️ Github Push (Không có thay đổi hoặc Lỗi): {res.stderr.strip()[-100:]}", "Sync")
+        except Exception as e:
+            log(f"❌ Lỗi đồng bộ Github: {e}", "Sync")
 
 
 def job_cot():
