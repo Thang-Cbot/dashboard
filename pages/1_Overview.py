@@ -71,12 +71,15 @@ def render_overview():
         with st.sidebar:
             with st.spinner("AI đang phân tích..."):
                 import subprocess
+                import os
                 base = Path(__file__).parent.parent
+                env = os.environ.copy()
+                env["PYTHONIOENCODING"] = "utf-8"
                 res = subprocess.run(
                     [sys.executable, str(base / "Data" / "ai_analyzer.py")],
-                    capture_output=True, text=True, timeout=60
+                    capture_output=True, text=True, encoding="utf-8", env=env, timeout=60
                 )
-                if res.returncode == 0 and "Thành công" in res.stdout or "thành công" in res.stdout or "OK" in res.stdout:
+                if res.returncode == 0 and ("Thành công" in res.stdout or "thành công" in res.stdout or "OK" in res.stdout):
                     st.success("AI đã phân tích xong!")
                 else:
                     st.error("Lỗi hoặc chưa có API Key!")
