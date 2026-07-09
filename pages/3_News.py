@@ -56,7 +56,25 @@ st.markdown("## 📰 Báo Cáo USDA & Tin Tức")
 tab1, tab2, tab3 = st.tabs(["📊 Số liệu & Báo cáo (USDA)", "⚡ Điểm Tin Nóng (AI)", "🇷🇺 Tình Hình Biển Đen (Nga/EU)"])
 
 with tab3:
-    st.markdown("<div class='section-header'>🌾 AI Tóm Tắt Tình Hình Lúa Mì Nga & Châu Âu</div>", unsafe_allow_html=True)
+    st.markdown("<div class='section-header'>🇷🇺 Chiến Lược & Thông Số Mùa Vụ Nga (Golden Zone)</div>", unsafe_allow_html=True)
+    
+    st.info("""
+    **Điểm hội tụ nguồn cung (Cuối Tháng 7 đến Giữa Tháng 8):** 
+    Khoảnh khắc 3 dòng thác va chạm: Mỹ dọn xong kho lúa đông + Nga xả lũ mạnh nhất ra Biển Đen + lúa xuân Mỹ chớm gặt. Sức ép này ép giá xuống MỨC ĐÁY TUYỆT ĐỐI.
+    
+    👉 **Đây chính là "Vùng Vàng" để dồn toàn bộ hỏa lực MUA MẠNH (DCA) khi xuất hiện tín hiệu SMC.**
+    """)
+    
+    import pandas as pd
+    manual_data = load_json("manual_russian_metrics.json")
+    if manual_data and "metrics" in manual_data:
+        st.markdown(f"<div style='font-size:12px; color:#64748b; margin-bottom:10px;'>Bảng Thông Số Tĩnh (Cập nhật thủ công): {manual_data.get('updated_at', 'Gần nhất')}</div>", unsafe_allow_html=True)
+        df = pd.DataFrame(manual_data["metrics"])
+        st.table(df)
+        
+    st.markdown("<hr style='border-color:#1e2d45; margin:20px 0;'>", unsafe_allow_html=True)
+    
+    st.markdown("<div class='section-header'>🗞️ AI Quét Tin Tức Tự Động (Biển Đen)</div>", unsafe_allow_html=True)
     if st.button("🔄 CẬP NHẬT TIN BIỂN ĐEN MỚI NHẤT", use_container_width=True, key="update_blacksea"):
         import subprocess
         with st.spinner("AI đang quét và tóm tắt tin tức Biển Đen... (Vui lòng đợi 10-15s)"): 
