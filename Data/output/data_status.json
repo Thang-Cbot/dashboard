@@ -1,77 +1,77 @@
 {
-  "last_full_update": "2026-07-08 13:31:30",
-  "elapsed_seconds": 141.4,
+  "last_full_update": "2026-07-09 06:31:54",
+  "elapsed_seconds": 112.1,
   "modules": {
     "usda": {
       "status": "OK",
       "detail": "WASDE + Crop Progress updated",
-      "updated_at": "2026-07-08 13:29:25"
+      "updated_at": "2026-07-09 06:30:18"
     },
     "prices": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-08 14:15:03"
+      "updated_at": "2026-07-09 09:15:04"
     },
     "macro": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-08 14:15:06"
+      "updated_at": "2026-07-09 09:15:08"
     },
     "cot": {
       "status": "PARTIAL",
       "detail": "COT CFTC updated (fallback if 403)",
-      "updated_at": "2026-07-08 13:29:32"
+      "updated_at": "2026-07-09 06:30:25"
     },
     "export_sales": {
       "status": "OK",
       "detail": "Export Sales updated",
-      "updated_at": "2026-07-08 13:29:37"
+      "updated_at": "2026-07-09 06:30:29"
     },
     "weather_short": {
       "status": "OK",
       "detail": "Weather short-term updated",
-      "updated_at": "2026-07-08 13:30:04"
+      "updated_at": "2026-07-09 06:30:55"
     },
     "weather_long": {
       "status": "OK",
       "detail": "ENSO/El Nino updated",
-      "updated_at": "2026-07-08 13:30:08"
+      "updated_at": "2026-07-09 06:30:58"
     },
     "ai": {
-      "status": "OK",
-      "detail": "Generated AI narrative",
-      "updated_at": "2026-07-08 13:30:30"
+      "status": "SKIPPED",
+      "detail": "Missing API Key or Error",
+      "updated_at": "2026-07-09 06:31:02"
     },
     "acreage": {
       "status": "OK",
       "detail": "Planted acreage ZC/ZW/ZS updated",
-      "updated_at": "2026-07-08 13:31:30"
+      "updated_at": "2026-07-09 06:31:54"
     }
   },
   "all_ok": true,
   "macro": {
     "status": "ERROR",
     "detail": "'charmap' codec can't encode characters in position 2-3: character maps to <undefined>",
-    "updated_at": "2026-07-08 14:15:06"
+    "updated_at": "2026-07-09 09:15:08"
   },
   "export_sales": {
     "status": "NoData",
     "detail": "Tuần 05/07/2026: NoData",
-    "updated_at": "2026-07-08 14:31:01"
+    "updated_at": "2026-07-09 07:22:27"
   },
   "acreage": {
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-07-08 14:31:09"
+    "updated_at": "2026-07-09 07:22:32"
+  },
+  "usda": {
+    "status": "OK",
+    "detail": "Updated: 2026-07-09 | WASDE: Jun",
+    "updated_at": "2026-07-09 07:22:45"
   },
   "cot": {
     "status": "[OK] Success",
     "detail": "",
-    "updated_at": "2026-07-08 14:31:26"
-  },
-  "usda": {
-    "status": "OK",
-    "detail": "Updated: 2026-07-08 | WASDE: Jun",
-    "updated_at": "2026-07-08 14:31:24"
+    "updated_at": "2026-07-09 07:22:48"
   }
 }
