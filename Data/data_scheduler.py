@@ -197,13 +197,12 @@ def job_prices():
         time.sleep(30)
         try:
             log(f"Bắt đầu đẩy dữ liệu lên Github...", "Sync")
-            # Commit các file trong Data/output
-            subprocess.run(["git", "add", "Data/output/."], cwd=str(CBOT_ROOT), capture_output=True)
-            subprocess.run(["git", "add", "Future chart/."], cwd=str(CBOT_ROOT), capture_output=True)
-            subprocess.run(["git", "commit", "-m", "Auto sync: H1 data update"], cwd=str(CBOT_ROOT), capture_output=True)
+            # Đồng bộ 100% toàn bộ file local (code, data, báo cáo word...)
+            subprocess.run(["git", "add", "-A"], cwd=str(CBOT_ROOT), capture_output=True)
+            subprocess.run(["git", "commit", "-m", "Auto sync: H1 100% Local Backup"], cwd=str(CBOT_ROOT), capture_output=True)
             res = subprocess.run(["git", "push"], cwd=str(CBOT_ROOT), capture_output=True, text=True)
             if res.returncode == 0:
-                log("✅ Đồng bộ Github thành công!", "Sync")
+                log("✅ Đồng bộ Github thành công 100%!", "Sync")
             else:
                 log(f"⚠️ Github Push (Không có thay đổi hoặc Lỗi): {res.stderr.strip()[-100:]}", "Sync")
         except Exception as e:
