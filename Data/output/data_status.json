@@ -51,8 +51,8 @@
   "all_ok": true,
   "macro": {
     "status": "OK",
-    "detail": "Brent=76.62, DXY=100.806",
-    "updated_at": "2026-07-10 12:45:59"
+    "detail": "Brent=76.6, DXY=100.807",
+    "updated_at": "2026-07-10 12:51:54"
   },
   "export_sales": {
     "status": "OK",
