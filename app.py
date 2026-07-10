@@ -111,6 +111,7 @@ def sidebar_status():
     st.sidebar.markdown("---")
     if st.sidebar.button("🧹 LÀM MỚI TRẠNG THÁI", use_container_width=True):
         st.cache_data.clear()
+        st.toast("✅ Đã làm mới dữ liệu hệ thống!", icon="✅")
         st.rerun()
 
     if st.sidebar.button("🔄 RUN ALL DATA", use_container_width=True):
@@ -177,6 +178,7 @@ with c2:
 with c3:
     if st.button("🧹 LÀM MỚI TRẠNG THÁI (Xóa Cache)", use_container_width=True):
         st.cache_data.clear()
+        st.toast("✅ Đã làm mới dữ liệu hệ thống!", icon="✅")
         st.rerun()
 
 st.markdown("<br>", unsafe_allow_html=True)
