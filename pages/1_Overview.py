@@ -109,20 +109,27 @@ def render_overview():
             <span style='font-size:14px; font-weight:800; color:#818cf8; letter-spacing:1px; text-transform:uppercase;'>AI Trading Desk</span>
         </div>""", unsafe_allow_html=True)
         
-    if not api_key_path.exists():
-        st.warning("⚠️ Chưa tìm thấy API Key. Hãy lấy API Key Gemini (miễn phí) và lưu vào file `Data/api_key.txt` để kích hoạt trợ lý AI phân tích tự động.")
+    has_api_key = False
+    try:
+        if "GEMINI_API_KEY" in st.secrets: has_api_key = True
+    except: pass
+    if os.environ.get("GEMINI_API_KEY") or api_key_path.exists():
+        has_api_key = True
+
+    if not has_api_key:
+        st.warning("⚠️ Chưa tìm thấy API Key. Hãy lấy API Key Gemini (miễn phí) và cấu hình trong Streamlit Secrets (Online) hoặc lưu vào file `Data/api_key.txt` (Local) để phân tích tự động.")
+
+    if ai_path.exists():
+        try:
+            ai_data = json.loads(ai_path.read_text(encoding="utf-8"))
+            ai_text = ai_data.get("analysis", "")
+            ai_time = ai_data.get("timestamp", "")
+            st.markdown(f"<div style='font-size:11px; color:#64748b; margin-bottom:10px;'>Phân tích lúc: {ai_time}</div>", unsafe_allow_html=True)
+            st.markdown(ai_text)
+        except Exception:
+            st.error("Không thể đọc dữ liệu AI.")
     else:
-        if ai_path.exists():
-            try:
-                ai_data = json.loads(ai_path.read_text(encoding="utf-8"))
-                ai_text = ai_data.get("analysis", "")
-                ai_time = ai_data.get("timestamp", "")
-                st.markdown(f"<div style='font-size:11px; color:#64748b; margin-bottom:10px;'>Phân tích lúc: {ai_time}</div>", unsafe_allow_html=True)
-                st.markdown(ai_text)
-            except Exception:
-                st.error("Không thể đọc dữ liệu AI.")
-        else:
-            st.info("Nhấn nút '🧠 AI Phân Tích' ở thanh menu bên trái để tạo nhận định mới nhất.")
+        st.info("Nhấn nút '🧠 AI Phân Tích' ở thanh menu bên trái để tạo nhận định mới nhất.")
             
     st.markdown("</div>", unsafe_allow_html=True)
 
