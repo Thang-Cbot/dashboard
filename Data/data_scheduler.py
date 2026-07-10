@@ -277,6 +277,26 @@ def job_ai_news():
         run_script("AI Điểm Tin", AI_NEWS_SCRIPT, "ai_news")
 
 
+AI_ANALYZER_SCRIPT = str(DATA_DIR / "ai_analyzer.py")
+
+def job_ai_analysis():
+    """Phân tích AI chuyên sâu SMC+COT+Mùa Vụ: 06:30 và 20:00 hàng ngày (ngày giao dịch CBOT)."""
+    while True:
+        now = datetime.datetime.now(VN_TZ)
+        t1 = now.replace(hour=6, minute=30, second=2, microsecond=0)
+        t2 = now.replace(hour=20, minute=0, second=2, microsecond=0)
+        candidates = [t for t in [t1, t2, t1 + datetime.timedelta(days=1)] if t > now]
+        target = min(candidates)
+        sleep_until(target, "AI Phân Tích")
+        # Chỉ chạy vào ngày giao dịch CBOT (Thứ 2 đến Thứ 6)
+        now = datetime.datetime.now(VN_TZ)
+        if now.weekday() < 5:  # 0=Thứ 2 ... 4=Thứ 6
+            run_script("AI Phân Tích Chuyên Sâu", AI_ANALYZER_SCRIPT, "ai_analysis")
+        else:
+            log("Bỏ qua AI Phân Tích (cuối tuần — CBOT không giao dịch)", "AI Phân Tích")
+
+
+
 def job_blacksea_news():
     """Tin tức Lúa mì Nga/Biển Đen: 07:00 mỗi Thứ Tư và Chủ Nhật."""
     while True:
@@ -314,6 +334,7 @@ def main():
     log("  [AI Điểm Tin]       : 06:00 và 20:00 hàng ngày")
     log("  [AI Tin Biển Đen]   : Thứ Tư & Chủ Nhật 07:00 VN")
     log("  [Số Liệu Mùa Vụ Nga]: 07:30 hàng ngày")
+    log("  [🧠 AI Phân Tích]   : 06:30 và 20:00 hàng ngày (T2-T6)")
     log("-" * 60)
 
     # Chạy mỗi job trong thread daemon riêng biệt
@@ -321,7 +342,7 @@ def main():
         job_prices, job_cot, job_crop_progress,
         job_export_sales, job_wasde,
         job_weather_short, job_weather_long, job_acreage,
-        job_ai_news, job_blacksea_news,
+        job_ai_news, job_blacksea_news, job_ai_analysis,
     ]
     threads = []
     for job in jobs:
