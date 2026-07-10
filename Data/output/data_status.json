@@ -10,12 +10,12 @@
     "prices": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-10 08:15:04"
+      "updated_at": "2026-07-10 12:15:04"
     },
     "macro": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-10 08:15:09"
+      "updated_at": "2026-07-10 12:15:08"
     },
     "cot": {
       "status": "PARTIAL",
@@ -23,9 +23,9 @@
       "updated_at": "2026-07-10 06:30:29"
     },
     "export_sales": {
-      "status": "OK",
-      "detail": "Export Sales updated",
-      "updated_at": "2026-07-10 06:30:35"
+      "status": "[OK]",
+      "detail": "Auto-fetch 12:25:33",
+      "updated_at": "2026-07-10 12:25:33"
     },
     "weather_short": {
       "status": "OK",
@@ -50,13 +50,28 @@
   },
   "all_ok": true,
   "macro": {
-    "status": "ERROR",
-    "detail": "'charmap' codec can't encode characters in position 2-3: character maps to <undefined>",
-    "updated_at": "2026-07-10 08:15:09"
+    "status": "OK",
+    "detail": "Brent=76.62, DXY=100.806",
+    "updated_at": "2026-07-10 12:45:59"
   },
   "export_sales": {
-    "status": "NoData",
-    "detail": "Tuần 05/07/2026: NoData",
-    "updated_at": "2026-07-10 07:19:20"
+    "status": "OK",
+    "detail": "Kỳ: June 26-July 2, 2026 | ZW=313,100 MT, ZC=565,800 MT",
+    "updated_at": "2026-07-10 12:25:33"
+  },
+  "usda": {
+    "status": "OK",
+    "detail": "Updated: 2026-07-10 | WASDE: Jun",
+    "updated_at": "2026-07-10 10:17:40"
+  },
+  "acreage": {
+    "status": "OK",
+    "detail": "ZC=95.3M, ZW=46.0M acres",
+    "updated_at": "2026-07-10 10:17:26"
+  },
+  "cot": {
+    "status": "[OK] Success",
+    "detail": "",
+    "updated_at": "2026-07-10 10:17:42"
   }
 }
