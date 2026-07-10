@@ -313,6 +313,25 @@ with tab1:
         ("crop_condition", "Chất lượng (Good/Exc)"),
     ]
 
+    import re
+    def apply_delta(p_str, c_str):
+        if c_str == "—" or not p_str or not c_str:
+            return c_str
+        prev_nums = [int(m) for m in re.findall(r'(\d+)%', p_str)]
+        def replacer(match):
+            curr_val = int(match.group(1))
+            if prev_nums:
+                prev_val = prev_nums.pop(0)
+                delta = curr_val - prev_val
+                if delta > 0:
+                    return f"{curr_val}% <span style='color:#22c55e; font-size:11px; font-weight:700;'>(+{delta}%)</span>"
+                elif delta < 0:
+                    return f"{curr_val}% <span style='color:#ef4444; font-size:11px; font-weight:700;'>({delta}%)</span>"
+                else:
+                    return f"{curr_val}% <span style='color:#94a3b8; font-size:11px; font-weight:700;'>(0%)</span>"
+            return f"{curr_val}%"
+        return re.sub(r'(\d+)%', replacer, c_str)
+
     if fund:
         cols2 = st.columns(2)
         for i, (code, name, emoji) in enumerate([("ZC", "Ngô", "🌽"), ("ZW", "Lúa Mì", "🌾")]):
@@ -339,18 +358,21 @@ with tab1:
                             else:
                                 c1 = curr_str
                             
-                            lines_html = (f"<div><span class='prev'>{prev_parts[0]}</span> ➔ <span class='curr'>{c1}</span></div>"
-                                          f"<div><span class='prev'>{prev_parts[1]}</span> ➔ <span class='curr'>{c2}</span></div>")
+                            c1_html = apply_delta(prev_parts[0], c1)
+                            c2_html = apply_delta(prev_parts[1], c2)
+                            lines_html = (f"<div><span class='prev'>{prev_parts[0]}</span> ➔ <span class='curr'>{c1_html}</span></div>"
+                                          f"<div><span class='prev'>{prev_parts[1]}</span> ➔ <span class='curr'>{c2_html}</span></div>")
                         else:
                             c_parts = curr_parts[:]
                             while len(c_parts) < 2: c_parts.append("—")
-                            lines_html = "".join([f"<div><span class='prev'>{p}</span> ➔ <span class='curr'>{c}</span></div>" for p, c in zip(prev_parts, c_parts)])
+                            lines_html = "".join([f"<div><span class='prev'>{p}</span> ➔ <span class='curr'>{apply_delta(p, c)}</span></div>" for p, c in zip(prev_parts, c_parts)])
                     elif len(prev_parts) > 1:
                         c_parts = curr_parts[:]
                         while len(c_parts) < len(prev_parts): c_parts.append("—")
-                        lines_html = "".join([f"<div><span class='prev'>{p}</span> ➔ <span class='curr'>{c}</span></div>" for p, c in zip(prev_parts, c_parts)])
+                        lines_html = "".join([f"<div><span class='prev'>{p}</span> ➔ <span class='curr'>{apply_delta(p, c)}</span></div>" for p, c in zip(prev_parts, c_parts)])
                     else:
-                        lines_html = f"<div><span class='prev'>{prev_str}</span> ➔ <span class='curr'>{curr_str}</span></div>"
+                        c_html = apply_delta(prev_str, curr_str)
+                        lines_html = f"<div><span class='prev'>{prev_str}</span> ➔ <span class='curr'>{c_html}</span></div>"
                         
                     curr_dt = meta.get("latest_date", "")
                     html_content += f"""<div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
@@ -378,12 +400,33 @@ with tab1:
                 for metric_key, metric_label in [("us_ending_stocks", "Tồn Kho Mỹ"), ("global_ending_stocks", "Tồn Kho TG")]:
                     meta = d.get(metric_key, {})
                     if not meta: continue
-                    curr = meta.get("current", meta.get("latest", "—"))
-                    prev = meta.get("previous", "—")
+                    curr = str(meta.get("current", meta.get("latest", "—")))
+                    prev = str(meta.get("previous", "—"))
+                    
+                    import re
+                    def get_first_num(s):
+                        m = re.search(r'(\d{1,3}(?:,\d{3})*(?:\.\d+)?|\d+(?:\.\d+)?)', s)
+                        if m:
+                            try: return float(m.group(1).replace(',', ''))
+                            except: pass
+                        return None
+                    
+                    p_val = get_first_num(prev)
+                    c_val = get_first_num(curr)
+                    delta_html = ""
+                    if p_val is not None and c_val is not None and p_val != 0:
+                        pct = (c_val - p_val) / p_val * 100
+                        if pct > 0:
+                            delta_html = f" <span style='color:#22c55e; font-size:11px; font-weight:700;'>(+{pct:.1f}%)</span>"
+                        elif pct < 0:
+                            delta_html = f" <span style='color:#ef4444; font-size:11px; font-weight:700;'>({pct:.1f}%)</span>"
+                        else:
+                            delta_html = f" <span style='color:#94a3b8; font-size:11px; font-weight:700;'>(0.0%)</span>"
+                            
                     html_content += f"""<div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
 <span style='color:#cbd5e1; font-size:13px;'>{metric_label}</span>
 <div style='text-align:right;'>
-<div style='font-size:13px;'><span class='prev'>{prev}</span> ➔ <span class='curr'>{curr}</span></div>
+<div style='font-size:13px;'><span class='prev'>{prev}</span> ➔ <span class='curr'>{curr}{delta_html}</span></div>
 </div>
 </div>"""
                 html_content += "</div>"
