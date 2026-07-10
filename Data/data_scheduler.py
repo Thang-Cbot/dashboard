@@ -118,7 +118,7 @@ def run_script(module_name: str, script_path: str, module_key: str, max_retry: i
         try:
             result = subprocess.run(
                 [sys.executable, script_path],
-                capture_output=True, text=True, timeout=120,
+                capture_output=True, text=True, encoding='utf-8', timeout=120,
                 cwd=str(CBOT_ROOT)
             )
             if result.returncode == 0:
