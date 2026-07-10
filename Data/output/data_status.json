@@ -10,12 +10,12 @@
     "prices": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-10 07:15:04"
+      "updated_at": "2026-07-10 08:15:04"
     },
     "macro": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-10 07:15:07"
+      "updated_at": "2026-07-10 08:15:09"
     },
     "cot": {
       "status": "PARTIAL",
@@ -52,7 +52,7 @@
   "macro": {
     "status": "ERROR",
     "detail": "'charmap' codec can't encode characters in position 2-3: character maps to <undefined>",
-    "updated_at": "2026-07-10 07:15:07"
+    "updated_at": "2026-07-10 08:15:09"
   },
   "export_sales": {
     "status": "NoData",

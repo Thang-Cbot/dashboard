@@ -78,115 +78,147 @@ def analyze():
     macro    = _load_json(MACRO_FILE)
     exports  = _load_json(EXPORT_FILE)
     blacksea = _load_json(BLACKSEA_FILE)
+    signals  = _load_json(OUTPUT_DIR / "last_signals.json")
+    meta     = _load_json(OUTPUT_DIR / "contracts_meta.json")
 
-    # Tóm lược dữ liệu giá & kỹ thuật
+    # ── Trích xuất số liệu cốt lõi (thay vì dump JSON thô) ──────────────────
     zw = fund.get("ZW", {})
     zc = fund.get("ZC", {})
 
+    # Giá từ contracts_meta (cập nhật H1)
+    zw_close = meta.get("ZW", {}).get("liquidity", {}).get("today_close", "N/A")
+    zc_close = meta.get("ZC", {}).get("liquidity", {}).get("today_close", "N/A")
+    zw_trend = meta.get("ZW", {}).get("liquidity", {}).get("trend", zw.get("swing_trend", "N/A"))
+    zc_trend = meta.get("ZC", {}).get("liquidity", {}).get("trend", zc.get("swing_trend", "N/A"))
+    zw_vol   = meta.get("ZW", {}).get("liquidity", {}).get("today_volume", "N/A")
+    zc_vol   = meta.get("ZC", {}).get("liquidity", {}).get("today_volume", "N/A")
+    zw_oi    = meta.get("ZW", {}).get("liquidity", {}).get("today_oi", "N/A")
+    zc_oi    = meta.get("ZC", {}).get("liquidity", {}).get("today_oi", "N/A")
+
+    # Tín hiệu ICT MSS mới nhất
+    zw_sig   = signals.get("ZW", {})
+    zc_sig   = signals.get("ZC", {})
+
+    # COT
+    def _cot(code):
+        c = cot.get(code, {})
+        if not c:
+            for v in cot.values():
+                if isinstance(v, dict) and v.get("commodity") == code:
+                    c = v; break
+        return c
+    cot_zw = _cot("ZW")
+    cot_zc = _cot("ZC")
+
+    # Thời tiết tóm tắt
+    wx_alerts = []
+    if isinstance(weather, dict):
+        for k, v in weather.items():
+            if isinstance(v, dict) and v.get("alert"):
+                wx_alerts.append(f"{k}: {v.get('alert','')[:80]}")
+            elif isinstance(v, list):
+                for item in v[:2]:
+                    if isinstance(item, dict) and item.get("summary"):
+                        wx_alerts.append(f"{k}: {str(item.get('summary',''))[:80]}")
+                        break
+    wx_str = "\n".join(wx_alerts[:5]) if wx_alerts else "Không có cảnh báo đặc biệt"
+
+    # Mùa vụ
+    zw_harvest = zw.get("harvest_progress", {})
+    zc_harvest = zc.get("harvest_progress", {})
+    zw_harv_str = f"Mỹ: {zw_harvest.get('latest','N/A')} (kỳ trước: {zw_harvest.get('previous','N/A')})" if isinstance(zw_harvest, dict) else str(zw_harvest)
+    zc_harv_str = f"Mỹ: {zc_harvest.get('latest','N/A')} (kỳ trước: {zc_harvest.get('previous','N/A')})" if isinstance(zc_harvest, dict) else str(zc_harvest)
+
+    # Acreage
+    zw_area = acreage.get("ZW", {}).get("planted_acres", acreage.get("ZW", {}).get("latest", "N/A"))
+    zc_area = acreage.get("ZC", {}).get("planted_acres", acreage.get("ZC", {}).get("latest", "N/A"))
+
+    # Blacksea tóm tắt
+    bs_news = blacksea.get("news", [])
+    bs_str = "; ".join([n.get("title", "")[:80] for n in bs_news[:3]]) if bs_news else "Không có tin mới"
+
+    # DCA zones
+    zw_dca = zw.get("dca_brackets", "N/A")
+    zc_dca = zc.get("dca_brackets", "N/A")
+
     now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
-    prompt = f"""Bạn là một Chuyên gia Giao dịch Định lượng (Quant) Nông sản CBOT hàng đầu, \
-chuyên phân tích theo trường phái Smart Money Concepts (SMC/ICT), kết hợp phân tích Mùa Vụ, \
-Thời Tiết ENSO và Cấu Trúc Hợp Đồng Kỳ Hạn.
+    prompt = f"""Bạn là Chuyên gia Giao dịch Định lượng (Quant) Nông sản CBOT, \
+phân tích theo SMC/ICT + Mùa Vụ + ENSO + Lúa Mì Nga.
 
-Thời điểm phân tích: {now_str} (Giờ Việt Nam)
+Thời điểm: {now_str} (Giờ VN)
 
-=== KIẾN THỨC NỀN TẢNG (KHÔNG ĐƯỢC PHÉP BỎ QUA) ===
+=== KIẾN THỨC NỀN TẢNG ===
+[Mùa Vụ 2026]
+- ZW: Diện tích -6% (USDA 30/06) → Q4 Bullish mạnh. Đáy 1: Cuối T6/Đầu T7 khi gặt 40-50%. Đáy 2: Cuối T8. DCA lý tưởng: 570-585 cents (ZWZ6 T12, Contango +15-25c).
+- ZC: Tồn kho +14% YoY, diện tích -3%, ngập lũ Midwest. DCA: 436-445 cents.
 
-[MODULE 1 - MÙA VỤ 2026]
-- LÚA MÌ (ZW): Diện tích gieo trồng 2026 giảm 6% (USDA 30/06) → Lò xo nén cực mạnh cho Q4.
-  * Đáy 1 (Chữ W): Cuối T6/Đầu T7 khi gặt lúa đông 40-50%. Đây là điểm DCA chiến lược.
-  * Đáy 2 (Thấp hơn): Cuối T8 do áp lực gặt lúa xuân (diện tích giảm 6% → đáy cạn hơn Đáy 1).
-- NGÔ (ZC): Tồn kho +14% YoY nhưng diện tích giảm -3% + rủi ro ngập lũ Midwest.
-  * Đáy thiết lập sớm khi gặt 5-10% (Tháng 9). Vùng DCA vững: 436-445 cents.
+[SMC/ICT] Judas Swing T2-T3. MSS = nến H1/H4 vượt R1/S1 + FVG. Entry tại OTE 0.618-0.786, H1/M15.
 
-[MODULE 2 - SMART MONEY CONCEPTS (ICT)]
-- Judas Swing (Bẫy thanh khoản): Tìm kiếm fake-down/up vào Thứ 2-3. Quét stop loss trước khi chạy hướng thật.
-- MSS Breakout: Chỉ xác nhận đảo chiều khi nến H1/H4 đóng cửa vượt mạnh R1/S1 + tạo FVG.
-- Entry an toàn: KHÔNG mua đuổi. Đợi hồi về OTE (0.618-0.786 Fibonacci) + lấp FVG. Khung H1/M15.
+[ENSO] El Niño xác suất cao → Bullish ZW. Khi ENSO >70%: ưu tiên rủi ro vĩ mô.
 
-[MODULE 3 - THỜI TIẾT ENSO]
-- El Niño (xác suất cao): Gây hạn hán ở Úc, Argentina, Vành đai Nam nước Mỹ → Cực Bullish ZW.
-- Khi xác suất ENSO > 70%: Mọi dữ liệu cơ bản ngắn hạn PHẢI nhường chỗ cho rủi ro vĩ mô này.
+[Lúa Mì Nga U-Shape 2026]
+- Đầu-Giữa T7: Nga xả lũ + Mỹ gặt lúa đông → NGHIÊM CẤM All-in Long (chỉ dò 20-30% vốn).
+- Cuối T7-Giữa T8 GOLDEN ZONE: Đáy Tuyệt Đối → Dồn hỏa lực DCA.
+- Nửa sau T8-T9: Điểm Uốn → Bứt phá mạnh.
 
-[MODULE 4 - HỢP ĐỒNG KỲ HẠN]
-- Dùng ZWZ6 (Tháng 12) để tính DCA dài hạn. Contango: ZW T12 cao hơn giao ngay ~15-25 cents.
-- Vùng DCA lý tưởng ZW: 570-585 cents (kỳ hạn Tháng 12).
+=== DỮ LIỆU THỰC TẾ ===
+[Giá & Volume & OI - H1 mới nhất]
+ZW: Giá={zw_close}c | Volume={zw_vol} | OI={zw_oi} | Xu hướng: {zw_trend}
+ZC: Giá={zc_close}c | Volume={zc_vol} | OI={zc_oi} | Xu hướng: {zc_trend}
 
-[MODULE 5 - LÚA MÌ NGA & BIỂN ĐEN (U-Shape 2026)]
-- Nga = 25% thị phần xuất khẩu toàn cầu → định hình giá trần (Ceiling Price).
-- QUY TẮC: Khi Nga xả hàng mạnh ra Biển Đen (T6-T7), ZC/ZW BUỘC phải giảm dù Mỹ mất mùa.
-- MÁ TRẬN 2026:
-  * Đầu-Giữa T7: Nga xả lũ + Mỹ gặt lúa đông → NGHIÊM CẤM All-in Long. Chỉ dò 20-30% vốn.
-  * Cuối T7-Giữa T8 (GOLDEN ZONE): Cực đại áp lực cung → ĐÁY TUYỆT ĐỐI. Dồn hỏa lực DCA khi có tín hiệu SMC.
-  * Nửa cuối T8-T9 (Điểm Uốn): Nga qua đỉnh xả + Mỹ lộ thiệt hại thu hoạch → Bứt phá mạnh.
-- Biến số: Thiếu diesel → gặt trễ 1-2 tuần → giảm tạm thời áp lực Dump (dư địa nảy giá ngắn hạn).
+[Tín hiệu ICT MSS mới nhất (H1)]
+ZW: {zw_sig.get('setup_type','N/A')} | Entry={zw_sig.get('setup_entry_range','N/A')} | Lúc={zw_sig.get('timestamp','N/A')}
+ZC: {zc_sig.get('setup_type','N/A')} | Entry={zc_sig.get('setup_entry_range','N/A')} | Lúc={zc_sig.get('timestamp','N/A')}
 
-=== DỮ LIỆU THỰC TẾ HIỆN TẠI ===
+[COT - Dòng tiền tổ chức]
+ZW: Net={cot_zw.get('net_position','N/A')} | Thay đổi={cot_zw.get('change','N/A')} | Góc phần tư={cot_zw.get('quadrant','N/A')}
+ZC: Net={cot_zc.get('net_position','N/A')} | Thay đổi={cot_zc.get('change','N/A')} | Góc phần tư={cot_zc.get('quadrant','N/A')}
 
-[GIÁ & KỸ THUẬT]
-ZW (Lúa Mì): Giá={zw.get('price','N/A')} | S1={zw.get('s1','N/A')} | R1={zw.get('r1','N/A')} | RSI={zw.get('rsi','N/A')} | Xu hướng={zw.get('trend','N/A')}
-ZC (Ngô):    Giá={zc.get('price','N/A')} | S1={zc.get('s1','N/A')} | R1={zc.get('r1','N/A')} | RSI={zc.get('rsi','N/A')} | Xu hướng={zc.get('trend','N/A')}
+[Tiến độ Thu hoạch]
+ZW: {zw_harv_str}
+ZC: {zc_harv_str}
 
-[VĨ MÔ]
-```json
-{json.dumps(macro, ensure_ascii=False, indent=None)}
-```
+[Diện tích Gieo trồng 2026]
+ZW: {zw_area} | ZC: {zc_area}
 
-[COT - DÒNG TIỀN TỔ CHỨC]
-```json
-{json.dumps(cot, ensure_ascii=False, indent=None)}
-```
+[Vĩ Mô]
+DXY={macro.get('dxy',{}).get('price','N/A')} ({macro.get('dxy',{}).get('pct','N/A')}%) | Brent={macro.get('brent',{}).get('price','N/A')}
 
-[THỜI TIẾT NGẮN HẠN]
-```json
-{json.dumps(weather, ensure_ascii=False, indent=None)}
-```
+[Thời tiết Ngắn hạn]
+{wx_str}
 
-[XUẤT KHẨU (EXPORT SALES/INSPECTIONS)]
-```json
-{json.dumps(exports, ensure_ascii=False, indent=None)}
-```
+[Tin Biển Đen / Nga]
+{bs_str}
 
-[DIỆN TÍCH GIEO TRỒNG (USDA ACREAGE)]
-```json
-{json.dumps(acreage, ensure_ascii=False, indent=None)}
-```
-
-[TIN TỨC BIỂN ĐEN / LÚA MÌ NGA]
-```json
-{json.dumps(blacksea, ensure_ascii=False, indent=None)}
-```
+[DCA Zones (Dài hạn)]
+ZW DCA: {zw_dca} | ZC DCA: {zc_dca}
 
 === YÊU CẦU PHÂN TÍCH ===
 
-Dựa trên 5 module kiến thức nền tảng + toàn bộ dữ liệu thực tế trên, hãy phân tích ngắn gọn, sắc bén, chính xác:
-
 ### 🌽 NGÔ (ZC) — Phân Tích Hiện Tại
-- **Xu Hướng Ngắn Hạn:** [Bullish / Bearish / Neutral + Lý do 1 câu]
-- **Tín Hiệu SMC:** [Có Judas Swing / MSS / FVG không? Cụ thể]
-- **Vùng Hành Động:** [DCA ở đâu? Cản R1/S1 nào quan trọng?]
-- **Rủi Ro Chính:** [1 câu]
+- **Xu Hướng Ngắn Hạn:** [Bullish/Bearish/Neutral + lý do 1 câu dựa trên giá, Volume, OI]
+- **Tín Hiệu SMC:** [Tín hiệu H1 hiện tại? Có Judas Swing/MSS/FVG không?]
+- **Vùng Hành Động:** [Entry/DCA ở đâu? S1/R1 quan trọng?]
+- **Rủi Ro:** [1 câu]
 
 ### 🌾 LÚA MÌ (ZW) — Phân Tích Hiện Tại
-- **Vị Trí Mùa Vụ:** [Đang ở giai đoạn nào của U-Shape 2026? Đáy 1 / Golden Zone / Điểm Uốn?]
-- **Xu Hướng Ngắn Hạn:** [Bullish / Bearish / Neutral + Lý do 1 câu]
-- **Tín Hiệu SMC:** [Có Judas Swing / MSS / FVG không? Cụ thể]
-- **Yếu Tố Nga/Biển Đen:** [Nga đang ở pha nào? Ảnh hưởng thế nào đến giá trần?]
-- **Vùng Hành Động:** [DCA ở đâu? Cản R1/S1 nào quan trọng?]
-- **Rủi Ro Chính:** [1 câu]
+- **Vị Trí Mùa Vụ:** [Đang ở giai đoạn nào U-Shape 2026? Đáy 1/Golden Zone/Điểm Uốn?]
+- **Xu Hướng Ngắn Hạn:** [Bullish/Bearish/Neutral + lý do dựa trên giá, tiến độ gặt, COT]
+- **Tín Hiệu SMC:** [Tín hiệu H1 hiện tại? Có Judas Swing/MSS/FVG không?]
+- **Yếu Tố Nga:** [Nga đang ở pha nào? Ảnh hưởng giá trần?]
+- **Vùng Hành Động:** [Entry/DCA? S1/R1 quan trọng?]
+- **Rủi Ro:** [1 câu]
 
-### ⚡ NHẬN ĐỊNH TỔNG THỂ & LỜI KHUYÊN HÀNH ĐỘNG
-- [2-3 câu sắc bén nhất: Nên làm gì với ZW và ZC trong 24-48h tới? Mức độ rủi ro toàn danh mục?]
+### ⚡ NHẬN ĐỊNH TỔNG THỂ
+- [2-3 câu sắc bén: Nên làm gì với ZW và ZC trong 24-48h tới?]
 
-KHÔNG giải thích lý thuyết, KHÔNG nói chung chung. Chỉ kết luận dựa trên số liệu thực tế và framework trên.
+KHÔNG giải thích lý thuyết. Chỉ kết luận dựa trên số liệu thực tế.
 """
 
     # Thử các model theo thứ tự ưu tiên (dùng đúng tên theo API)
     models = [
-        "gemini-2.5-flash-lite",       # Nhẹ nhất, dễ qua quota
-        "gemini-2.0-flash-lite",        # Fallback nhẹ
-        "gemini-2.5-flash",             # Full power
+        "gemini-2.5-flash",             # Full power, ổn định nhất
         "gemini-2.0-flash",             # Fallback
     ]
 

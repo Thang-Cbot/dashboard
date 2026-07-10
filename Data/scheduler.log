@@ -1281,3 +1281,14 @@ UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: cha
 UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
 
 [2026-07-10 07:15:07] [INFO] ⏰ Đợi Giá H1: còn 1.00h (10/07 08:15:02 VN)
+[2026-07-10 08:15:02] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-10 08:15:04] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-10 08:15:04] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-10 08:15:09] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: ,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+[2026-07-10 08:15:09] [INFO] ⏰ Đợi Giá H1: còn 1.00h (10/07 09:15:02 VN)
