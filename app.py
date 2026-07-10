@@ -75,6 +75,7 @@ def sidebar_status():
     st.sidebar.page_link("pages/4_Weather.py",  label="🌤️ Thời Tiết")
     st.sidebar.page_link("pages/5_AgriMap.py",  label="🗺️ Bản Đồ Thời Tiết & ENSO")
     st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ 2026")
+    st.sidebar.page_link("pages/7_System_Logs.py", label="⚙️ System Logs")
     
     st.sidebar.markdown("---")
 
@@ -181,7 +182,7 @@ with c3:
 st.markdown("<br>", unsafe_allow_html=True)
 
 # Quick nav — dùng st.page_link để có thể click
-col1, col2, col3, col4, col5, col6 = st.columns(6, gap="medium")
+col1, col2, col3, col4, col5, col6, col7 = st.columns(7, gap="small")
 for col, icon, title, desc, page in [
     (col1, "📊", "Tổng Quan",       "Tóm tắt thị trường & Alert",  "pages/1_Overview.py"),
     (col2, "📈", "Hồ Sơ Mã",       "Biểu đồ H1 & chiến lược",     "pages/2_Profiles.py"),
@@ -189,16 +190,17 @@ for col, icon, title, desc, page in [
     (col4, "🌤️","Thời Tiết",      "ENSO & dự báo ngắn hạn",       "pages/4_Weather.py"),
     (col5, "🗺️","Bản Đồ Nông Sản","Mỹ + Thế Giới, cập nhật thời tiết", "pages/5_AgriMap.py"),
     (col6, "🌾","Mùa Vụ 2026",   "Chiến lược mùa vụ, DCA dài hạn", "pages/6_MuaVu.py"),
+    (col7, "⚙️","System Logs",   "Sức khỏe hệ thống, Đồng bộ", "pages/7_System_Logs.py"),
 ]:
     with col:
         st.markdown(f"""
         <div style='background:#1a2035; border:1px solid #2a3a5c; border-radius:12px;
-                    padding:20px 12px; text-align:center; height:130px;'>
-            <div style='font-size:30px; margin-bottom:6px;'>{icon}</div>
-            <div style='font-size:15px; font-weight:700; color:#e2e8f0;'>{title}</div>
-            <div style='font-size:11px; color:#64748b; margin-top:4px;'>{desc}</div>
+                    padding:15px 5px; text-align:center; height:135px;'>
+            <div style='font-size:26px; margin-bottom:4px;'>{icon}</div>
+            <div style='font-size:13px; font-weight:700; color:#e2e8f0; line-height:1.2; margin-bottom:4px;'>{title}</div>
+            <div style='font-size:10px; color:#64748b; margin-top:2px; line-height:1.2;'>{desc}</div>
         </div>""", unsafe_allow_html=True)
-        st.page_link(page, label=f"→ Mở {title}", use_container_width=True)
+        st.page_link(page, label=f"Mở", use_container_width=True)
 
 st.markdown("""
 <div style='text-align:center; padding:16px; color:#475569; font-size:12px;'>
