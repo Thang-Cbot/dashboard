@@ -182,11 +182,12 @@ Dựa trên 5 module kiến thức nền tảng + toàn bộ dữ liệu thực 
 KHÔNG giải thích lý thuyết, KHÔNG nói chung chung. Chỉ kết luận dựa trên số liệu thực tế và framework trên.
 """
 
-    # Thử các model theo thứ tự ưu tiên
+    # Thử các model theo thứ tự ưu tiên (dùng đúng tên theo API)
     models = [
-        "gemini-2.0-flash",
-        "gemini-1.5-flash",
-        "gemini-1.5-pro",
+        "gemini-2.5-flash-lite",       # Nhẹ nhất, dễ qua quota
+        "gemini-2.0-flash-lite",        # Fallback nhẹ
+        "gemini-2.5-flash",             # Full power
+        "gemini-2.0-flash",             # Fallback
     ]
 
     headers = {"Content-Type": "application/json"}

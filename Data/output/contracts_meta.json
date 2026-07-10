@@ -16,12 +16,12 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 197661.0,
-      "prev_volume": 238737.0,
-      "today_oi": 741449,
-      "prev_oi": 641119,
-      "today_close": 454.5,
-      "prev_close": 464.25,
+      "today_volume": 183890.0,
+      "prev_volume": 247867.0,
+      "today_oi": 738128,
+      "prev_oi": 633343,
+      "today_close": 451.75,
+      "prev_close": 456.25,
       "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
       "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 68199.0,
-      "prev_volume": 69775.0,
-      "today_oi": 215483,
-      "prev_oi": 215122,
-      "today_close": 606.25,
-      "prev_close": 618.5,
-      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
-      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
+      "today_volume": 81712.0,
+      "prev_volume": 71950.0,
+      "today_oi": 215571,
+      "prev_oi": 215548,
+      "today_close": 619.0,
+      "prev_close": 607.75,
+      "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
+      "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
     }
   },
-  "updated_at": "2026-07-09 06:30:24"
+  "updated_at": "2026-07-10 06:30:29"
 }
