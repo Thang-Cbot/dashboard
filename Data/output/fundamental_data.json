@@ -37,8 +37,8 @@
       "forecast": "1,940 triệu bushels (Dự kiến giảm)",
       "action": "Tồn kho giảm -> Gom Long dài hạn (DCA)",
       "logic": "Giảm mạnh so với niên vụ trước (giảm ~8.6%) do diện tích gieo trồng giảm 6%.",
-      "previous": "2,122 triệu bu",
-      "current": "1,960 triệu bushels (2026/27)",
+      "previous": "1,960 triệu bushels (2026/27)",
+      "current": "1,790 triệu bushels (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -7.6,
       "pct_vs_prev_report": -8.6
@@ -48,8 +48,8 @@
       "forecast": "276.8 triệu tấn (Tiếp tục giảm)",
       "action": "Tồn kho thấp nhất 12 năm -> Gom Long dài hạn (DCA)",
       "logic": "Tồn kho ngô toàn cầu chạm mức thấp nhất 12 năm qua (kể từ niên vụ 2013/14).",
-      "previous": "312.3 triệu tấn",
-      "current": "281.22 triệu tấn (2026/27)",
+      "previous": "281.22 triệu tấn (2026/27)",
+      "current": "275.26 triệu tấn (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -9.9
     },
@@ -198,8 +198,8 @@
       "forecast": "755 triệu bushels (Dự kiến giảm)",
       "action": "Tồn kho thắt chặt -> Gom Long dài hạn (DCA)",
       "logic": "Giảm sâu 18.5% so với niên vụ trước, phản ánh thiệt hại sản lượng lúa mì đông nặng nề.",
-      "previous": "2,122 triệu bu",
-      "current": "744 triệu bushels (2026/27)",
+      "previous": "744 triệu bushels (2026/27)",
+      "current": "722 triệu bushels (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -64.9,
       "pct_vs_prev_report": -1.6
@@ -209,8 +209,8 @@
       "forecast": "274.2 triệu tấn (Tiếp tục giảm)",
       "action": "Cung toàn cầu giảm -> Gom Long dài hạn (DCA)",
       "logic": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
-      "previous": "312.3 triệu tấn",
-      "current": "275.42 triệu tấn (2026/27)",
+      "previous": "275.42 triệu tấn (2026/27)",
+      "current": "272.84 triệu tấn (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -11.8
     },
@@ -360,7 +360,7 @@
       "forecast": "305 triệu bushels (Dự kiến giảm)",
       "action": "Nhu cầu Biodiesel cao -> Gom Long dài hạn (DCA)",
       "logic": "Giảm nhẹ so với niên vụ trước do nhu cầu ép dầu nội địa (Crush) sản xuất Biodiesel đạt mức cao kỷ lục.",
-      "previous": "N/A (Báo cáo tháng trước)",
+      "previous": "310 triệu bushels (2026/27)",
       "current": "310 triệu bushels (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"
     },
@@ -369,8 +369,8 @@
       "forecast": "124.50 triệu tấn (Giảm nhẹ)",
       "action": "Cung cầu thắt chặt -> Gom Long dài hạn (DCA)",
       "logic": "Giảm nhẹ so với niên vụ trước, cho thấy cán quan cung cầu toàn cầu duy trì trạng thái thắt chặt vừa phải.",
-      "previous": "N/A (Báo cáo tháng trước)",
-      "current": "124.88 triệu tấn (2026/27)",
+      "previous": "124.88 triệu tấn (2026/27)",
+      "current": "124.17 triệu tấn (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"
     },
     "exports": {
@@ -446,6 +446,6 @@
     "swing_short_sl": "1214.50 cents",
     "swing_short_tp": "1191.00 cents"
   },
-  "wasde_report_month": "Jun",
-  "last_updated_cot": "2026-07-10 10:17:42"
+  "wasde_report_month": "Jul",
+  "last_updated_cot": "2026-07-10 23:02:48"
 }
