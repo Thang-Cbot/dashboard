@@ -71,7 +71,6 @@ def render_overview():
         with st.sidebar:
             with st.spinner("AI đang phân tích..."):
                 import subprocess
-                import os
                 base = Path(__file__).parent.parent
                 env = os.environ.copy()
                 env["PYTHONIOENCODING"] = "utf-8"
