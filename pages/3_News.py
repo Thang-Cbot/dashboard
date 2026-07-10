@@ -328,8 +328,27 @@ with tab1:
                     curr_parts = [p.strip() for p in curr_str.split(",")]
                     prev_parts = [p.strip() for p in prev_str.split(",")]
                     
-                    if len(curr_parts) == len(prev_parts) and len(curr_parts) > 1:
-                        lines_html = "".join([f"<div><span class='prev'>{p}</span> ➔ <span class='curr'>{c}</span></div>" for p, c in zip(prev_parts, curr_parts)])
+                    if code == "ZW" and len(prev_parts) == 2 and ("đông" in prev_parts[0].lower() or "xuân" in prev_parts[1].lower()):
+                        if len(curr_parts) == 1:
+                            curr_lower = curr_str.lower()
+                            c1, c2 = "—", "—"
+                            if "đông" in curr_lower and "xuân" not in curr_lower:
+                                c1 = curr_str
+                            elif "xuân" in curr_lower and "đông" not in curr_lower:
+                                c2 = curr_str
+                            else:
+                                c1 = curr_str
+                            
+                            lines_html = (f"<div><span class='prev'>{prev_parts[0]}</span> ➔ <span class='curr'>{c1}</span></div>"
+                                          f"<div><span class='prev'>{prev_parts[1]}</span> ➔ <span class='curr'>{c2}</span></div>")
+                        else:
+                            c_parts = curr_parts[:]
+                            while len(c_parts) < 2: c_parts.append("—")
+                            lines_html = "".join([f"<div><span class='prev'>{p}</span> ➔ <span class='curr'>{c}</span></div>" for p, c in zip(prev_parts, c_parts)])
+                    elif len(prev_parts) > 1:
+                        c_parts = curr_parts[:]
+                        while len(c_parts) < len(prev_parts): c_parts.append("—")
+                        lines_html = "".join([f"<div><span class='prev'>{p}</span> ➔ <span class='curr'>{c}</span></div>" for p, c in zip(prev_parts, c_parts)])
                     else:
                         lines_html = f"<div><span class='prev'>{prev_str}</span> ➔ <span class='curr'>{curr_str}</span></div>"
                         

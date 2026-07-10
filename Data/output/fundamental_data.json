@@ -33,7 +33,7 @@
       "latest_date": "06/07/2026"
     },
     "us_ending_stocks": {
-      "next_date": "10/07/2026 lúc 23:00 (VN)",
+      "next_date": "12/08/2026 lúc 23:00 (VN)",
       "forecast": "1,940 triệu bushels (Dự kiến giảm)",
       "action": "Tồn kho giảm -> Gom Long dài hạn (DCA)",
       "logic": "Giảm mạnh so với niên vụ trước (giảm ~8.6%) do diện tích gieo trồng giảm 6%.",
@@ -44,7 +44,7 @@
       "pct_vs_prev_report": -8.6
     },
     "global_ending_stocks": {
-      "next_date": "10/07/2026 lúc 23:00 (VN)",
+      "next_date": "12/08/2026 lúc 23:00 (VN)",
       "forecast": "276.8 triệu tấn (Tiếp tục giảm)",
       "action": "Tồn kho thấp nhất 12 năm -> Gom Long dài hạn (DCA)",
       "logic": "Tồn kho ngô toàn cầu chạm mức thấp nhất 12 năm qua (kể từ niên vụ 2013/14).",
@@ -69,14 +69,14 @@
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
-      "latest": "Net Sales (Bán hàng): 565,800 MT (Kỳ June 26-July 2, 2026)",
-      "previous": "Net Sales (Tuần trước): 565,800 MT (June 26-July 2, 2026)",
+      "latest": "Giao hàng (Inspections): 1,641,777 tấn (Tuần kết thúc Jul 06, 2026)",
+      "previous": "Net Sales (Bán hàng): 565,800 MT (Kỳ June 26-July 2, 2026)",
       "latest_raw": 565800.0,
       "latest_date": "June 26-July 2, 2026",
       "previous_date": "June 26-July 2, 2026",
       "pct_change": 0.0,
       "logic": "Giảm nhẹ 0.0% so tuần trước. Trung tính.",
-      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)"
+      "next_date": "13/07/2026 lúc 22:00 (VN)"
     },
     "competitors": {
       "latest": "Brazil & Argentina",
@@ -194,7 +194,7 @@
       "latest_date": "06/07/2026"
     },
     "us_ending_stocks": {
-      "next_date": "10/07/2026 lúc 23:00 (VN)",
+      "next_date": "12/08/2026 lúc 23:00 (VN)",
       "forecast": "755 triệu bushels (Dự kiến giảm)",
       "action": "Tồn kho thắt chặt -> Gom Long dài hạn (DCA)",
       "logic": "Giảm sâu 18.5% so với niên vụ trước, phản ánh thiệt hại sản lượng lúa mì đông nặng nề.",
@@ -205,7 +205,7 @@
       "pct_vs_prev_report": -1.6
     },
     "global_ending_stocks": {
-      "next_date": "10/07/2026 lúc 23:00 (VN)",
+      "next_date": "12/08/2026 lúc 23:00 (VN)",
       "forecast": "274.2 triệu tấn (Tiếp tục giảm)",
       "action": "Cung toàn cầu giảm -> Gom Long dài hạn (DCA)",
       "logic": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
@@ -230,14 +230,14 @@
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
-      "latest": "Net Sales (Bán hàng): 313,100 MT (Kỳ June 26-July 2, 2026)",
-      "previous": "Net Sales (Tuần trước): 313,100 MT (June 26-July 2, 2026)",
+      "latest": "Giao hàng (Inspections): 133,652 tấn (Tuần kết thúc Jul 06, 2026)",
+      "previous": "Net Sales (Bán hàng): 313,100 MT (Kỳ June 26-July 2, 2026)",
       "latest_raw": 313100.0,
       "latest_date": "June 26-July 2, 2026",
       "previous_date": "June 26-July 2, 2026",
       "pct_change": 0.0,
       "logic": "Giảm nhẹ 0.0% so tuần trước. Trung tính.",
-      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)"
+      "next_date": "13/07/2026 lúc 22:00 (VN)"
     },
     "competitors": {
       "latest": "Úc & Argentina",
@@ -356,7 +356,7 @@
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6."
     },
     "us_ending_stocks": {
-      "next_date": "10/07/2026 lúc 23:00 (VN)",
+      "next_date": "12/08/2026 lúc 23:00 (VN)",
       "forecast": "305 triệu bushels (Dự kiến giảm)",
       "action": "Nhu cầu Biodiesel cao -> Gom Long dài hạn (DCA)",
       "logic": "Giảm nhẹ so với niên vụ trước do nhu cầu ép dầu nội địa (Crush) sản xuất Biodiesel đạt mức cao kỷ lục.",
@@ -365,7 +365,7 @@
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"
     },
     "global_ending_stocks": {
-      "next_date": "10/07/2026 lúc 23:00 (VN)",
+      "next_date": "12/08/2026 lúc 23:00 (VN)",
       "forecast": "124.50 triệu tấn (Giảm nhẹ)",
       "action": "Cung cầu thắt chặt -> Gom Long dài hạn (DCA)",
       "logic": "Giảm nhẹ so với niên vụ trước, cho thấy cán quan cung cầu toàn cầu duy trì trạng thái thắt chặt vừa phải.",

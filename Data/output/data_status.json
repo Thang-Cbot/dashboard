@@ -10,12 +10,12 @@
     "prices": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-10 12:15:04"
+      "updated_at": "2026-07-10 22:15:04"
     },
     "macro": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-10 12:15:08"
+      "updated_at": "2026-07-10 22:15:07"
     },
     "cot": {
       "status": "PARTIAL",
@@ -28,9 +28,9 @@
       "updated_at": "2026-07-10 12:25:33"
     },
     "weather_short": {
-      "status": "OK",
-      "detail": "Weather short-term updated",
-      "updated_at": "2026-07-10 06:31:00"
+      "status": "[OK]",
+      "detail": "Auto-fetch 13:48:43",
+      "updated_at": "2026-07-10 13:48:43"
     },
     "weather_long": {
       "status": "OK",
@@ -43,16 +43,26 @@
       "updated_at": "2026-07-10 06:31:05"
     },
     "acreage": {
-      "status": "OK",
-      "detail": "Planted acreage ZC/ZW/ZS updated",
-      "updated_at": "2026-07-10 06:31:57"
+      "status": "[OK]",
+      "detail": "Auto-fetch 13:18:23",
+      "updated_at": "2026-07-10 13:18:23"
+    },
+    "github_sync": {
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 12:54:00 (Nguồn: Thử nghiệm Manual Sync)",
+      "updated_at": "2026-07-10 12:54:00"
+    },
+    "ai_news": {
+      "status": "[OK]",
+      "detail": "Auto-fetch 20:00:12",
+      "updated_at": "2026-07-10 20:00:12"
     }
   },
   "all_ok": true,
   "macro": {
-    "status": "OK",
-    "detail": "Brent=76.6, DXY=100.807",
-    "updated_at": "2026-07-10 12:51:54"
+    "status": "ERROR",
+    "detail": "'charmap' codec can't encode characters in position 2-3: character maps to <undefined>",
+    "updated_at": "2026-07-10 22:15:06"
   },
   "export_sales": {
     "status": "OK",
@@ -62,12 +72,12 @@
   "usda": {
     "status": "OK",
     "detail": "Updated: 2026-07-10 | WASDE: Jun",
-    "updated_at": "2026-07-10 10:17:40"
+    "updated_at": "2026-07-10 23:00:42"
   },
   "acreage": {
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-07-10 10:17:26"
+    "updated_at": "2026-07-10 13:18:23"
   },
   "cot": {
     "status": "[OK] Success",
@@ -78,5 +88,10 @@
     "status": "OK",
     "detail": "ZC+ZW updated at 12:51",
     "updated_at": "2026-07-10 12:51:20"
+  },
+  "weather_short": {
+    "status": "OK",
+    "detail": "24/24 fetched",
+    "updated_at": "2026-07-10 13:48:43"
   }
 }
