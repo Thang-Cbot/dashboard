@@ -234,43 +234,60 @@ def render_overview():
 
         st.markdown("</div>", unsafe_allow_html=True)
 
-        # Hồ sơ 3 mã
+        # Hồ sơ 3 mã — dùng last_signals.json (H1 live) + contracts_meta.json
         st.markdown("""<div style='font-size:13px; font-weight:700; color:#94a3b8;
             letter-spacing:1px; text-transform:uppercase; margin:16px 0 8px;'>
             📋 Hồ Sơ Từng Mã</div>""", unsafe_allow_html=True)
 
-        # Đọc contracts_meta để lấy mã hợp đồng
+        # ── Nguồn dữ liệu live (cập nhật H1 tự động) ──
         meta_path = DATA_OUTPUT / "contracts_meta.json"
+        sig_path  = DATA_OUTPUT / "last_signals.json"
         meta_data = {}
+        sig_data  = {}
         if meta_path.exists():
-            try:
-                meta_data = json.loads(meta_path.read_text(encoding="utf-8"))
-            except:
-                pass
+            try: meta_data = json.loads(meta_path.read_text(encoding="utf-8"))
+            except: pass
+        if sig_path.exists():
+            try: sig_data = json.loads(sig_path.read_text(encoding="utf-8"))
+            except: pass
 
+        import re
         cols2 = st.columns(2)
         for col, code, name, emoji, color in [
-            (cols2[0], "ZC", "Ngô",        "🌽", "#f59e0b"),
-            (cols2[1], "ZW", "Lúa Mì",     "🌾", "#60a5fa"),
+            (cols2[0], "ZC", "Ngô",    "🌽", "#f59e0b"),
+            (cols2[1], "ZW", "Lúa Mì", "🌾", "#60a5fa"),
         ]:
-            d       = fund.get(code, {})
-            swing   = d.get("swing_trend", "—")
-            hp      = d.get("harvest_progress", {})
-            harvest = hp.get("latest", "—") if isinstance(hp, dict) else str(hp)
-            
-            # Mã hợp đồng
-            contract_ticker = meta_data.get(code, {}).get("swing", {}).get("ticker", "")
-            contract_display = contract_ticker.replace(".CBT", "") if contract_ticker else code
-            
-            # Determine direction based on trend
-            trend_lower = swing.lower()
-            is_short = "giảm" in trend_lower or "bán" in trend_lower or "short" in trend_lower
-            prefix = "swing_short" if is_short else "swing_long"
-            direction_label = "LỆNH BÁN (SHORT)" if is_short else "LỆNH MUA (LONG)"
-            direction_color = "#ef4444" if is_short else "#22c55e"
-            
-            entry   = d.get(f"{prefix}_entry", "—")
-            sl      = d.get(f"{prefix}_sl", "—")
+            # ── Dữ liệu từ last_signals.json (live H1) ──
+            sig = sig_data.get(code, {})
+            setup_type  = sig.get("setup_type", "")          # LONG / SHORT
+            entry_range = sig.get("setup_entry_range", "—")
+            sig_ts      = sig.get("timestamp", "—")
+            sig_msg     = sig.get("msg", "")
+            sl_m = re.search(r"Stoploss:\s*([\d.]+)", sig_msg)
+            tp_m = re.search(r"Take Profit:\s*([\d.]+)", sig_msg)
+            live_sl = sl_m.group(1) + "c" if sl_m else "—"
+            live_tp = tp_m.group(1) + "c" if tp_m else "—"
+
+            # ── Xu hướng & thanh khoản từ contracts_meta ──
+            liq   = meta_data.get(code, {}).get("liquidity", {})
+            trend = liq.get("trend", "—")
+            price = liq.get("today_close", "—")
+            vol   = liq.get("today_volume", "—")
+            meta_trend_logic = liq.get("logic", "")
+
+            # ── Tiến độ thu hoạch từ fundamental (chỉ dữ liệu USDA hàng tuần) ──
+            d        = fund.get(code, {})
+            hp       = d.get("harvest_progress", {})
+            harvest  = hp.get("latest", "—") if isinstance(hp, dict) else str(hp) or "—"
+
+            # ── Mã hợp đồng ──
+            ticker = meta_data.get(code, {}).get("swing", {}).get("ticker", code)
+            contract_display = ticker.replace(".CBT", "")
+
+            # ── Nhãn tín hiệu ──
+            is_short = setup_type == "SHORT"
+            direction_label = "LỆNH BÁN (SHORT)" if is_short else ("LỆNH MUA (LONG)" if setup_type == "LONG" else "CHỜ TÍN HIỆU")
+            direction_color = "#ef4444" if is_short else ("#22c55e" if setup_type == "LONG" else "#94a3b8")
 
             with col:
                 st.markdown(f"""
@@ -281,17 +298,20 @@ def render_overview():
                     </div>
                     <div style='font-size:12px; color:#64748b; margin-bottom:8px;'>{name}</div>
                     <div style='font-size:11px; color:#64748b;'>Xu hướng</div>
-                    <div style='font-size:12px; color:#e2e8f0; font-weight:600; margin-bottom:6px;'>{swing[:50] if swing else '—'}</div>
-                    <div style='font-size:11px; color:#64748b;'>Thu hoạch</div>
-                    <div style='font-size:12px; color:#e2e8f0;'>{harvest}</div>
-                    <div style='font-size:11px; color:#64748b; margin-top:6px;'>Entry Zone</div>
-                    <div style='font-size:12px; color:{color}; font-weight:600;'>{entry}</div>
-                    <div style='font-size:11px; color:#64748b;'>Stop Loss</div>
-                    <div style='font-size:12px; color:#ef4444;'>{sl}</div>
+                    <div style='font-size:12px; color:#e2e8f0; font-weight:600; margin-bottom:6px;'>{trend[:60] if trend else '—'}</div>
+                    <div style='font-size:11px; color:#64748b;'>Giá H1 / Thu hoạch</div>
+                    <div style='font-size:12px; color:#e2e8f0; margin-bottom:6px;'>{price}c &nbsp;|&nbsp; {harvest}</div>
+                    <div style='font-size:11px; color:#64748b;'>Entry Zone <span style='color:#475569; font-weight:400;'>({sig_ts})</span></div>
+                    <div style='font-size:12px; color:{color}; font-weight:600;'>{entry_range} cents</div>
+                    <div style='font-size:11px; color:#64748b;'>Stop Loss &nbsp;/&nbsp; Take Profit</div>
+                    <div style='font-size:12px; color:#ef4444;'>{live_sl} &nbsp;<span style='color:#22c55e;'>/ {live_tp}</span></div>
                 </div>""", unsafe_allow_html=True)
+
+
 
     with col_alert:
         render_alert_panel(st)
 
 
 render_overview()
+
