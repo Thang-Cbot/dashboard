@@ -74,16 +74,31 @@ def render_overview():
                 base = Path(__file__).parent.parent
                 env = os.environ.copy()
                 env["PYTHONIOENCODING"] = "utf-8"
+                # Truyền API key từ Streamlit Secrets vào subprocess (cho môi trường Online)
+                try:
+                    if "GEMINI_API_KEY" in st.secrets:
+                        env["GEMINI_API_KEY"] = st.secrets["GEMINI_API_KEY"]
+                except Exception:
+                    pass
                 res = subprocess.run(
                     [sys.executable, str(base / "Data" / "ai_analyzer.py")],
                     capture_output=True, text=True, encoding="utf-8", env=env, timeout=60
                 )
                 if res.returncode == 0 and ("Thành công" in res.stdout or "thành công" in res.stdout or "OK" in res.stdout):
-                    st.success("AI đã phân tích xong!")
+                    st.session_state["ai_msg"] = ("success", "✅ AI đã phân tích xong! Kết quả được cập nhật bên dưới.")
                 else:
-                    st.error("Lỗi hoặc chưa có API Key!")
-                    st.code(res.stdout)
+                    err = res.stdout.strip()[-300:] if res.stdout else res.stderr.strip()[-300:]
+                    st.session_state["ai_msg"] = ("error", f"❌ Lỗi phân tích:\n{err}")
+                st.cache_data.clear()
                 st.rerun()
+
+    # Hiển thị kết quả nút bấm (tồn tại qua rerun)
+    if "ai_msg" in st.session_state:
+        kind, txt = st.session_state.pop("ai_msg")
+        if kind == "success":
+            st.sidebar.success(txt)
+        else:
+            st.sidebar.error(txt)
 
     fund   = load_json("fundamental_data.json")
     macro  = load_json("macro_data.json")
