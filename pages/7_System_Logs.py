@@ -12,6 +12,27 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+def sidebar_nav():
+    st.sidebar.markdown("""
+    <div style='text-align:center; padding:16px 0 8px;'>
+        <div style='font-size:24px; font-weight:800; color:#e2e8f0;'>📊 CBOT</div>
+        <div style='font-size:11px; color:#64748b; letter-spacing:2px;'>TRADING DASHBOARD</div>
+    </div>
+    """, unsafe_allow_html=True)
+    st.sidebar.markdown("---")
+    st.sidebar.page_link("app.py",              label="🏠 Trang Chủ")
+    st.sidebar.page_link("pages/1_Overview.py", label="📊 Tổng Quan")
+    st.sidebar.page_link("pages/2_Profiles.py", label="📈 Hồ Sơ Từng Mã")
+    st.sidebar.page_link("pages/3_News.py",     label="📰 Báo Cáo USDA & Tin Tức")
+    st.sidebar.page_link("pages/4_Weather.py",  label="🌤️ Thời Tiết")
+    st.sidebar.page_link("pages/5_AgriMap.py",  label="🗺️ Bản Đồ Thời Tiết & ENSO")
+    st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ 2026")
+    st.sidebar.page_link("pages/7_System_Logs.py", label="⚙️ System Logs")
+    st.sidebar.markdown("---")
+
+sidebar_nav()
+
+
 # ── HÀM TIỆN ÍCH ─────────────────────────────────────────────────────────────
 def load_json(filepath):
     if os.path.exists(filepath):
