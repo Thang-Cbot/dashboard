@@ -193,7 +193,7 @@ KHÔNG giải thích lý thuyết, KHÔNG nói chung chung. Chỉ kết luận d
     headers = {"Content-Type": "application/json"}
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.25, "maxOutputTokens": 1500}
+        "generationConfig": {"temperature": 0.25, "maxOutputTokens": 4096}
     }
 
     print("  [+] Đang gửi Prompt tới Google Gemini API...")

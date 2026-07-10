@@ -90,6 +90,8 @@ meta = load_json("contracts_meta.json")
 data      = fund.get(code, {})
 cot_data  = get_cot_by_code(cot, code)
 meta_data = meta.get(code, {})
+all_signals = load_json("last_signals.json")
+live_sig    = all_signals.get(code, {})
 
 st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
@@ -135,30 +137,44 @@ with col1:
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
-    trend_str = data.get("swing_trend", "").lower()
-    is_short = "giảm" in trend_str or "bán" in trend_str or "short" in trend_str
 
-    prefix = "swing_short" if is_short else "swing_long"
-    dir_label = "(Short)" if is_short else "(Long)"
+    # ── Tín hiệu THỰC TẾ từ last_signals.json (cập nhật mỗi H1) ──
+    live_setup   = live_sig.get("setup_type", "")      # "LONG" / "SHORT"
+    live_entry   = live_sig.get("setup_entry_range", "—")
+    live_ts      = live_sig.get("timestamp", "—")
+    live_msg     = live_sig.get("msg", "")
+    # Tách SL và TP từ msg nếu có
+    import re
+    sl_match = re.search(r"Stoploss:\s*([\d.]+)", live_msg)
+    tp_match = re.search(r"Take Profit:\s*([\d.]+)", live_msg)
+    live_sl  = sl_match.group(1) + " cents" if sl_match else "—"
+    live_tp  = tp_match.group(1) + " cents" if tp_match else "—"
+    # DCA zone tu fundamental_data
+    dca_val  = data.get("dca_brackets", "—") or "—"
+    # Xu huong tu contracts_meta
+    liq_trend = meta_data.get("liquidity", {}).get("trend", data.get("swing_trend", "—"))
 
-    for label, key in [
-        ("Xu hướng Swing",   "swing_trend"),
-        ("Intraday",         "intraday_strategy"),
-        (f"Entry Zone {dir_label}", f"{prefix}_entry"),
-        (f"Stop Loss {dir_label}",  f"{prefix}_sl"),
-        (f"Take Profit {dir_label}",f"{prefix}_tp"),
-        ("DCA Zone",         "dca_brackets"),
+    signal_color = "#22c55e" if "LONG" in live_setup else "#ef4444" if "SHORT" in live_setup else "#94a3b8"
+    signal_bg    = "#14532d" if "LONG" in live_setup else "#7f1d1d" if "SHORT" in live_setup else "#1e293b"
+    signal_label = f"🟢 LỆNH MUA (LONG)" if "LONG" in live_setup else f"🔴 LỆNH BÁN (SHORT)" if "SHORT" in live_setup else "⏳ Chờ tín hiệu"
+
+    st.markdown(f"""
+    <div style='background:{signal_bg}; border:1px solid {signal_color}; border-radius:8px; padding:10px; margin-bottom:10px; text-align:center;'>
+        <div style='font-size:14px; font-weight:800; color:{signal_color};'>{signal_label}</div>
+        <div style='font-size:11px; color:#94a3b8; margin-top:4px;'>Cập nhật: {live_ts}</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    for label, val in [
+        ("📈 Xu hướng",        liq_trend),
+        ("🎯 Entry Zone",      live_entry + " cents" if live_entry != "—" else "—"),
+        ("🛑 Stop Loss",       live_sl),
+        ("💵 Take Profit",     live_tp),
+        ("💎 DCA Zone (DH)",   dca_val + (f" <br><span style='font-size:10px;color:#f59e0b;font-weight:600;'>Mã áp dụng: {dca_contract}</span>" if dca_contract else "")),
     ]:
-        val = data.get(key, "—") or "—"
-        if key == "dca_brackets" and dca_contract:
-            val = f"{val} <br><span style='font-size:10px;color:#f59e0b;font-weight:600;'>Mã áp dụng: {dca_contract}</span>"
-            
-        # Bỏ rút gọn 80 ký tự để hiển thị đầy đủ logic SL/TP
-        val_disp = str(val)
         st.markdown(f"""<div class='kv'>
             <div class='lbl'>{label}</div>
-            <div class='val'>{val_disp}</div>
+            <div class='val'>{val}</div>
         </div>""", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
