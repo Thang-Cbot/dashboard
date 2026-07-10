@@ -84,6 +84,29 @@ def write_trigger():
         pass
 
 
+def sync_to_github(source_name: str):
+    """Đồng bộ ngay lập tức lên GitHub sau khi tải dữ liệu thành công."""
+    import subprocess
+    log(f"Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: {source_name})...", "Sync")
+    try:
+        subprocess.run(["git", "add", "-A"], cwd=str(CBOT_ROOT), capture_output=True)
+        subprocess.run(["git", "commit", "-m", f"Auto sync: Dữ liệu {source_name} mới"], cwd=str(CBOT_ROOT), capture_output=True)
+        res = subprocess.run(["git", "push"], cwd=str(CBOT_ROOT), capture_output=True, text=True)
+        if res.returncode == 0:
+            log(f"✅ Đồng bộ Github thành công ({source_name})!", "Sync")
+            update_status("github_sync", "[OK]", f"Đẩy thành công lúc {datetime.datetime.now().strftime('%H:%M:%S')} (Nguồn: {source_name})")
+        else:
+            err_msg = res.stderr.strip()[-150:] if res.stderr else "Không có thay đổi"
+            if "Everything up-to-date" in res.stdout or "nothing to commit" in res.stdout:
+                log(f"⏩ Không có dữ liệu mới để đẩy ({source_name}).", "Sync")
+                update_status("github_sync", "[OK]", f"Không có thay đổi (Nguồn: {source_name})")
+            else:
+                log(f"⚠️ Lỗi Github Push: {err_msg}", "Sync")
+                update_status("github_sync", "[ERROR]", f"Lỗi Push: {err_msg}")
+    except Exception as e:
+        log(f"❌ Lỗi đồng bộ Github: {e}", "Sync")
+        update_status("github_sync", "[ERROR]", f"Exception: {e}")
+
 # ── Script Runner ──────────────────────────────────────────────────────────────
 def run_script(module_name: str, script_path: str, module_key: str, max_retry: int = 1):
     """
@@ -102,6 +125,9 @@ def run_script(module_name: str, script_path: str, module_key: str, max_retry: i
                 log(f"✅ {module_name} hoàn thành (attempt {attempt+1})")
                 update_status(module_key, "[OK]", f"Auto-fetch {datetime.datetime.now().strftime('%H:%M:%S')}")
                 write_trigger()
+                
+                # Gọi đồng bộ Github ngay lập tức
+                sync_to_github(module_name)
                 return True
             else:
                 err = result.stderr[-200:] if result.stderr else "unknown error"
@@ -189,24 +215,6 @@ def job_prices():
         sleep_until(next_h, "Giá H1")
         run_script("Giá H1 + Macro", PRICE_SCRIPT, "prices")
         run_script("Vĩ Mô (Macro)",   MACRO_SCRIPT, "macro")
-        
-        # Đợi 30 giây sau khi báo Tele xong rồi Push lên Github để đồng bộ Online
-        import time
-        import subprocess
-        log(f"Đợi 30 giây trước khi đồng bộ lên Github...", "Sync")
-        time.sleep(30)
-        try:
-            log(f"Bắt đầu đẩy dữ liệu lên Github...", "Sync")
-            # Đồng bộ 100% toàn bộ file local (code, data, báo cáo word...)
-            subprocess.run(["git", "add", "-A"], cwd=str(CBOT_ROOT), capture_output=True)
-            subprocess.run(["git", "commit", "-m", "Auto sync: H1 100% Local Backup"], cwd=str(CBOT_ROOT), capture_output=True)
-            res = subprocess.run(["git", "push"], cwd=str(CBOT_ROOT), capture_output=True, text=True)
-            if res.returncode == 0:
-                log("✅ Đồng bộ Github thành công 100%!", "Sync")
-            else:
-                log(f"⚠️ Github Push (Không có thay đổi hoặc Lỗi): {res.stderr.strip()[-100:]}", "Sync")
-        except Exception as e:
-            log(f"❌ Lỗi đồng bộ Github: {e}", "Sync")
 
 
 def job_cot():
