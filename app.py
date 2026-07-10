@@ -9,6 +9,7 @@ import os
 sys.path.insert(0, os.path.dirname(__file__))
 
 import json
+import time
 import subprocess
 import streamlit as st
 from pathlib import Path
@@ -112,6 +113,7 @@ def sidebar_status():
     if st.sidebar.button("🧹 LÀM MỚI TRẠNG THÁI", use_container_width=True):
         st.cache_data.clear()
         st.toast("✅ Đã làm mới dữ liệu hệ thống!", icon="✅")
+        time.sleep(1)
         st.rerun()
 
     if st.sidebar.button("🔄 RUN ALL DATA", use_container_width=True):
@@ -179,6 +181,7 @@ with c3:
     if st.button("🧹 LÀM MỚI TRẠNG THÁI (Xóa Cache)", use_container_width=True):
         st.cache_data.clear()
         st.toast("✅ Đã làm mới dữ liệu hệ thống!", icon="✅")
+        time.sleep(1)
         st.rerun()
 
 st.markdown("<br>", unsafe_allow_html=True)
