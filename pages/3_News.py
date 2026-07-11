@@ -59,10 +59,13 @@ with tab3:
     st.markdown("<div class='section-header'>🇷🇺 Chiến Lược & Thông Số Mùa Vụ Nga (Golden Zone)</div>", unsafe_allow_html=True)
     
     st.info("""
-    **Điểm hội tụ nguồn cung (Cuối Tháng 7 đến Giữa Tháng 8):** 
-    Khoảnh khắc 3 dòng thác va chạm: Mỹ dọn xong kho lúa đông + Nga xả lũ mạnh nhất ra Biển Đen + lúa xuân Mỹ chớm gặt. Sức ép này ép giá xuống MỨC ĐÁY TUYỆT ĐỐI.
+    **Điểm hội tụ nguồn cung (Cuối Tháng 7 đến Giữa Tháng 8): Khoảnh khắc 3 dòng thác va chạm:**
+    + Mỹ dọn xong kho lúa đông.
+    + Nga xả lũ mạnh nhất ra Biển Đen.
+    + Lúa xuân Mỹ chớm gặt.
+    + **TIN NÓNG:** Nga chính thức hạ thuế xuất khẩu lúa mì về 0% từ ngày 15/07.
     
-    👉 **Đây chính là "Vùng Vàng" để dồn toàn bộ hỏa lực MUA MẠNH (DCA) khi xuất hiện tín hiệu SMC.**
+    👉 **KẾT LUẬN:** Sức ép khổng lồ này sẽ ép giá xuống MỨC ĐÁY TUYỆT ĐỐI. Đây chính là "Vùng Vàng" để dồn toàn bộ hỏa lực MUA MẠNH (DCA) khi xuất hiện tín hiệu SMC.
     """)
     
     import pandas as pd
@@ -86,6 +89,13 @@ with tab3:
     if blacksea_news:
         st.markdown(f"<div style='font-size:12px; color:#64748b; margin-bottom:10px;'>Cập nhật lần cuối: {blacksea_news.get('timestamp', '—')}</div>", unsafe_allow_html=True)
         news_list = blacksea_news.get("news", [])
+        
+        import pandas as pd
+        def parse_news_date(item):
+            s = item.get("source", "").split("-")[0].split("(")[0].strip()
+            try: return pd.to_datetime(s)
+            except: return pd.to_datetime('1970-01-01')
+        news_list = sorted(news_list, key=parse_news_date, reverse=True)
         
         if not news_list:
             st.info("Không có tin tức nào về Biển Đen được tìm thấy.")
@@ -111,6 +121,13 @@ with tab2:
     if ai_news:
         st.markdown(f"<div style='font-size:12px; color:#64748b; margin-bottom:10px;'>Cập nhật lần cuối: {ai_news.get('timestamp', '—')}</div>", unsafe_allow_html=True)
         news_list = ai_news.get("news", [])
+        
+        import pandas as pd
+        def parse_news_date_ai(item):
+            s = item.get("source", "").split("-")[0].split("(")[0].strip()
+            try: return pd.to_datetime(s)
+            except: return pd.to_datetime('1970-01-01')
+        news_list = sorted(news_list, key=parse_news_date_ai, reverse=True)
         
         if not news_list:
             # Hỗ trợ dữ liệu cũ

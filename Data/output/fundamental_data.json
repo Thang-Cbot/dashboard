@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-07-10",
+  "last_updated_fundamentals": "2026-07-11",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -69,14 +69,14 @@
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
-      "latest": "Giao hàng (Inspections): 1,641,777 tấn (Tuần kết thúc Jul 06, 2026)",
-      "previous": "Net Sales (Bán hàng): 565,800 MT (Kỳ June 26-July 2, 2026)",
+      "latest": "Net Sales (Bán hàng): 565,800 MT (Kỳ June 26-July 2, 2026)",
+      "previous": "Net Sales (Tuần trước): 565,800 MT (June 26-July 2, 2026)",
       "latest_raw": 565800.0,
       "latest_date": "June 26-July 2, 2026",
       "previous_date": "June 26-July 2, 2026",
       "pct_change": 0.0,
       "logic": "Giảm nhẹ 0.0% so tuần trước. Trung tính.",
-      "next_date": "13/07/2026 lúc 22:00 (VN)"
+      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)"
     },
     "competitors": {
       "latest": "Brazil & Argentina",
@@ -230,14 +230,14 @@
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
-      "latest": "Giao hàng (Inspections): 133,652 tấn (Tuần kết thúc Jul 06, 2026)",
-      "previous": "Net Sales (Bán hàng): 313,100 MT (Kỳ June 26-July 2, 2026)",
+      "latest": "Net Sales (Bán hàng): 313,100 MT (Kỳ June 26-July 2, 2026)",
+      "previous": "Net Sales (Tuần trước): 313,100 MT (June 26-July 2, 2026)",
       "latest_raw": 313100.0,
       "latest_date": "June 26-July 2, 2026",
       "previous_date": "June 26-July 2, 2026",
       "pct_change": 0.0,
       "logic": "Giảm nhẹ 0.0% so tuần trước. Trung tính.",
-      "next_date": "13/07/2026 lúc 22:00 (VN)"
+      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)"
     },
     "competitors": {
       "latest": "Úc & Argentina",
