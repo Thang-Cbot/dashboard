@@ -16,9 +16,15 @@ from pathlib import Path
 
 DATA_OUTPUT = Path(__file__).parent / "Data" / "output"
 
+try:
+    from PIL import Image
+    favicon = Image.open(Path(__file__).parent / "favicon.png")
+except Exception:
+    favicon = "📊"
+
 st.set_page_config(
     page_title="CBOT Dashboard",
-    page_icon="📊",
+    page_icon=favicon,
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={"About": "CBOT Agri-Trading Dashboard | Powered by Streamlit"}

@@ -7,7 +7,7 @@ import pandas as pd
 # ── CẤU HÌNH TRANG ─────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="System Health & Logs",
-    page_icon="⚙️",
+    page_icon="favicon.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )

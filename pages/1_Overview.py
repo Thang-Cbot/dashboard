@@ -11,7 +11,7 @@ from components.alert_panel import render_alert_panel
 # Force reload alert panel
 from components.charts import render_macro_bar
 
-st.set_page_config(page_title="Tổng Quan — CBOT", page_icon="📊", layout="wide")
+st.set_page_config(page_title="Tổng Quan — CBOT", page_icon="favicon.png", layout="wide")
 
 DATA_OUTPUT = Path(__file__).parent.parent / "Data" / "output"
 

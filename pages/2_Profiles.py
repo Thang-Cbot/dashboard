@@ -13,7 +13,7 @@ import components.charts as charts
 importlib.reload(charts)
 from components.charts import render_candlestick
 
-st.set_page_config(page_title="Hồ Sơ Mã — CBOT", page_icon="📈", layout="wide")
+st.set_page_config(page_title="Hồ Sơ Mã — CBOT", page_icon="favicon.png", layout="wide")
 
 DATA_OUTPUT = Path(__file__).parent.parent / "Data" / "output"
 

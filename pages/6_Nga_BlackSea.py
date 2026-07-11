@@ -3,7 +3,7 @@ import json
 import pandas as pd
 from pathlib import Path
 
-st.set_page_config(page_title="CBOT - Lúa Mì Nga", page_icon="🇷🇺", layout="wide")
+st.set_page_config(page_title="CBOT - Lúa Mì Nga", page_icon="favicon.png", layout="wide")
 
 def load_json(filename):
     filepath = Path(__file__).parent.parent / "Data" / filename

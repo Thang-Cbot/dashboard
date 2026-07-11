@@ -15,7 +15,7 @@ import streamlit as st
 import plotly.graph_objects as go
 from pathlib import Path
 
-st.set_page_config(page_title="Bản Đồ Nông Sản – CBOT", page_icon="🗺️", layout="wide")
+st.set_page_config(page_title="Bản Đồ Nông Sản – CBOT", page_icon="favicon.png", layout="wide")
 
 DATA_OUTPUT = Path(__file__).parent.parent / "Data" / "output"
 

@@ -8,7 +8,7 @@ import json
 import streamlit as st
 from pathlib import Path
 
-st.set_page_config(page_title="Báo Cáo USDA & Tin Tức", page_icon="📰", layout="wide")
+st.set_page_config(page_title="Báo Cáo USDA & Tin Tức", page_icon="favicon.png", layout="wide")
 
 DATA_OUTPUT = Path(__file__).parent.parent / "Data" / "output"
 
