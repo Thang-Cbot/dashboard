@@ -199,7 +199,7 @@ ZW DCA: {zw_dca} | ZC DCA: {zc_dca}
 ### 🌽 NGÔ (ZC) — Phân Tích Hiện Tại
 - **Xu Hướng Ngắn Hạn:** [Bullish/Bearish/Neutral + lý do 1 câu dựa trên giá, Volume, OI]
 - **Tín Hiệu SMC:** [Tín hiệu H1 hiện tại? Có Judas Swing/MSS/FVG không?]
-- **Vùng Hành Động:** [Entry/DCA ở đâu? S1/R1 quan trọng?]
+- **Vùng Hành Động:** [Entry/DCA ở đâu? LƯU Ý ĐẶC BIỆT: Phải ghi rõ giá DCA là của "Hợp đồng tháng 12", không phải tháng 9. S1/R1 quan trọng?]
 - **Rủi Ro:** [1 câu]
 
 ### 🌾 LÚA MÌ (ZW) — Phân Tích Hiện Tại
@@ -207,7 +207,7 @@ ZW DCA: {zw_dca} | ZC DCA: {zc_dca}
 - **Xu Hướng Ngắn Hạn:** [Bullish/Bearish/Neutral + lý do dựa trên giá, tiến độ gặt, COT]
 - **Tín Hiệu SMC:** [Tín hiệu H1 hiện tại? Có Judas Swing/MSS/FVG không?]
 - **Yếu Tố Nga:** [Nga đang ở pha nào? Ảnh hưởng giá trần?]
-- **Vùng Hành Động:** [Entry/DCA? S1/R1 quan trọng?]
+- **Vùng Hành Động:** [Entry/DCA? LƯU Ý ĐẶC BIỆT: Phải ghi rõ giá DCA là của "Hợp đồng tháng 12", không phải tháng 9. S1/R1 quan trọng?]
 - **Rủi Ro:** [1 câu]
 
 ### ⚡ NHẬN ĐỊNH TỔNG THỂ
