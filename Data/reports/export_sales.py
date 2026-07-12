@@ -77,9 +77,11 @@ def _try_weekly_highlights_pdf():
         wheat_match = re.search(r'Wheat:.*?Net sales of ([\d,]+)\s*metric tons \(MT\)', text_clean, re.IGNORECASE)
         if not wheat_match:
             wheat_match = re.search(r'Wheat.*?Net sales of ([\d,]+)\s*MT', text_clean, re.IGNORECASE)
+        wheat_ship_match = re.search(r'Wheat:.*?Exports of\s+([\d,]+)\s*MT', text_clean, re.IGNORECASE)
             
         # Extract Corn
         corn_match = re.search(r'Corn.*?:.*?Net sales of ([\d,]+)\s*MT', text_clean, re.IGNORECASE)
+        corn_ship_match = re.search(r'Corn.*?:.*?Exports of\s+([\d,]+)\s*MT', text_clean, re.IGNORECASE)
         
         def to_float(s):
             return float(s.replace(',', '')) if s else 0
@@ -87,10 +89,12 @@ def _try_weekly_highlights_pdf():
         results = {
             'ZW': {
                 'current_mt': to_float(wheat_match.group(1) if wheat_match else '0'),
+                'shipments_mt': to_float(wheat_ship_match.group(1) if wheat_ship_match else '0'),
                 'prev_mt': 0
             },
             'ZC': {
                 'current_mt': to_float(corn_match.group(1) if corn_match else '0'),
+                'shipments_mt': to_float(corn_ship_match.group(1) if corn_ship_match else '0'),
                 'prev_mt': 0
             }
         }
@@ -174,12 +178,20 @@ def _update_fundamental_exports(parsed, period_str):
             if code not in fdata:
                 fdata[code] = {}
                 
+            # Lấy dữ liệu net_sales và shipments
             curr_mt = data.get("current_mt", 0)
+            ship_mt = data.get("shipments_mt", 0)
             
-            old_latest = fdata[code].get("exports", {}).get("latest_raw", 0)
-            old_date = fdata[code].get("exports", {}).get("latest_date", "Tuần trước")
+            # Lấy dữ liệu của tuần trước từ file cũ
+            old_sales_weekly = fdata[code].get("export_sales_weekly", {})
+            old_net = old_sales_weekly.get("latest_net_sales", "0")
+            # Parse old_net từ chuỗi (VD: "504.5 nghìn tấn" -> 504.5 * 1000)
+            try:
+                prev_mt = float(old_net.split()[0].replace(',', '')) * 1000
+            except Exception:
+                prev_mt = 0
             
-            prev_mt = old_latest if old_latest else 0
+            old_date = old_sales_weekly.get("latest_date", "Tuần trước")
             
             pct_change = ((curr_mt - prev_mt) / prev_mt * 100) if prev_mt else 0
 
@@ -196,6 +208,23 @@ def _update_fundamental_exports(parsed, period_str):
                     f"{'Tín hiệu BULLISH — cầu xuất khẩu tăng.' if pct_change > 5 else 'Tín hiệu BEARISH — cầu xuất khẩu yếu.' if pct_change < -5 else 'Trung tính.'}"
                 ),
                 "next_date": "Thứ 5 hàng tuần, 21:30 (VN)",
+            }
+            
+            # Update `export_sales_weekly` for the UI
+            fdata[code]["export_sales_weekly"] = {
+                "report_type": "BAN_HANG",
+                "latest_net_sales": f"{curr_mt/1000:,.1f} nghìn tấn",
+                "previous_net_sales": f"{prev_mt/1000:,.1f} nghìn tấn" if prev_mt else "—",
+                "pct_change": round(pct_change, 2),
+                "latest_shipments": f"{ship_mt/1000:,.1f} nghìn tấn" if ship_mt else "N/A",
+                "outstanding_sales": "N/A",
+                "week_ending": period_str,
+                "previous_week_ending": old_date,
+                "latest_date": period_str,
+                "next_report": "Thứ 5 hàng tuần lúc 21:30 (VN)",
+                "action": "BULLISH" if pct_change > 5 else "BEARISH" if pct_change < -5 else "NEUTRAL",
+                "logic": f"Doanh số ròng {'tăng' if pct_change > 0 else 'giảm'} {abs(pct_change):.1f}% xuống còn {curr_mt/1000:,.1f}k tấn. {'Lực cầu mạnh tạo đà tăng giá' if pct_change > 5 else 'Lực cầu yếu tạo áp lực giảm giá' if pct_change < -5 else 'Trung lập'}.",
+                "note": "Nguồn: WeeklyHighlightsReport.pdf"
             }
 
         with open(FUNDAMENTAL_DATA, "w", encoding="utf-8") as f:

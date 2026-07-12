@@ -3,19 +3,19 @@
   "elapsed_seconds": 84.6,
   "modules": {
     "usda": {
-      "status": "OK",
-      "detail": "WASDE + Crop Progress updated",
-      "updated_at": "2026-07-11 06:30:17"
+      "status": "[ERROR]",
+      "detail": "Failed after 15 attempts",
+      "updated_at": "2026-07-12 08:14:20"
     },
     "prices": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-11 08:15:14"
+      "updated_at": "2026-07-13 05:15:03"
     },
     "macro": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-11 08:15:21"
+      "updated_at": "2026-07-13 05:15:06"
     },
     "cot": {
       "status": "PARTIAL",
@@ -28,9 +28,9 @@
       "updated_at": "2026-07-11 06:30:37"
     },
     "weather_short": {
-      "status": "OK",
-      "detail": "Weather short-term updated",
-      "updated_at": "2026-07-11 06:31:02"
+      "status": "[OK]",
+      "detail": "Auto-fetch 14:01:47",
+      "updated_at": "2026-07-11 14:01:47"
     },
     "weather_long": {
       "status": "OK",
@@ -43,15 +43,30 @@
       "updated_at": "2026-07-11 06:31:22"
     },
     "acreage": {
-      "status": "OK",
-      "detail": "Planted acreage ZC/ZW/ZS updated",
-      "updated_at": "2026-07-11 06:31:27"
+      "status": "[OK]",
+      "detail": "Auto-fetch 05:30:06",
+      "updated_at": "2026-07-13 05:30:06"
+    },
+    "ai_news": {
+      "status": "[OK]",
+      "detail": "Auto-fetch 22:30:22",
+      "updated_at": "2026-07-11 22:30:23"
     }
   },
   "all_ok": true,
   "macro": {
     "status": "ERROR",
     "detail": "'charmap' codec can't encode characters in position 2-3: character maps to <undefined>",
-    "updated_at": "2026-07-11 08:15:21"
+    "updated_at": "2026-07-13 05:15:06"
+  },
+  "acreage": {
+    "status": "OK",
+    "detail": "ZC=95.3M, ZW=46.0M acres",
+    "updated_at": "2026-07-13 05:30:06"
+  },
+  "weather_short": {
+    "status": "OK",
+    "detail": "24/24 fetched",
+    "updated_at": "2026-07-11 14:01:47"
   }
 }

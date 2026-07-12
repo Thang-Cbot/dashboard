@@ -150,7 +150,7 @@ Thời điểm: {now_str} (Giờ VN)
 
 === KIẾN THỨC NỀN TẢNG ===
 [Mùa Vụ 2026]
-- ZW: Diện tích -6% (USDA 30/06) → Q4 Bullish mạnh. Đáy 1: Cuối T6/Đầu T7 khi gặt 40-50%. Đáy 2: Cuối T8. DCA lý tưởng: 570-585 cents (ZWZ6 T12, Contango +15-25c).
+- ZW: Diện tích -6% (USDA 30/06) → Q4 Bullish mạnh. Đáy 1: Cuối T6/Đầu T7 khi gặt 40-50%. Đáy 2: Cuối T8. DCA lý tưởng: 590-610 cents (Áp dụng cho kỳ hạn ZWZ6 T12, vì có Contango +15-25c so với tháng 9).
 - ZC: Tồn kho +14% YoY, diện tích -3%, ngập lũ Midwest. DCA: 436-445 cents.
 
 [SMC/ICT] Judas Swing T2-T3. MSS = nến H1/H4 vượt R1/S1 + FVG. Entry tại OTE 0.618-0.786, H1/M15.
