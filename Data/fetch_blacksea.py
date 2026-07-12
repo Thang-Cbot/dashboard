@@ -28,8 +28,8 @@ def get_api_key():
 def fetch_blacksea_rss():
     print("  [+] Đang tải tin tức từ Google News (Từ khóa: Russian, Black Sea, EU Wheat)...")
     
-    # Query for Russian, Black Sea, and EU wheat news
-    query = "Russia OR \"Black Sea\" OR EU wheat export crop"
+    # Query for Russian, Black Sea, Don-Azov, Kerch Strait and EU wheat news
+    query = "Russia OR \"Black Sea\" OR \"Don-Azov\" OR \"Kerch Strait\" OR \"Azov Sea\" wheat export crop"
     encoded_query = urllib.parse.quote(query)
     url = f"https://news.google.com/rss/search?q={encoded_query}&hl=en-US&gl=US&ceid=US:en"
     
@@ -75,7 +75,7 @@ Dưới đây là danh sách các tin tức thô lấy từ Google News về lú
 {rss_text}
 
 Yêu cầu:
-1. Đọc và lọc ra tối đa 8-10 tin tức QUAN TRỌNG NHẤT liên quan đến: Sản lượng lúa mì Nga/EU, thời tiết, tiến độ thu hoạch, chính sách thuế xuất khẩu, cấm vận, hoặc biến động giá FOB.
+1. Đọc và lọc ra tối đa 8-10 tin tức QUAN TRỌNG NHẤT liên quan đến: Sản lượng lúa mì Nga/EU, thời tiết, tiến độ thu hoạch, chính sách thuế xuất khẩu, biến động giá FOB, và đặc biệt là rủi ro địa chính trị Biển Đen (tắc nghẽn eo biển Kerch, Kênh đào Don-Azov, cấm vận, tấn công quân sự).
 2. Dịch và tóm tắt sang Tiếng Việt. KHÔNG làm sai lệch nội dung bài gốc.
 3. Cấu trúc mỗi tin tức gồm: 1 Tiêu đề tóm tắt và 3-4 ý chính (details) bóc tách số liệu cụ thể.
 4. Bạn BẮT BUỘC phải trả về kết quả dưới dạng một mảng JSON thuần túy (không chứa markdown ```json...```), với cấu trúc sau:
