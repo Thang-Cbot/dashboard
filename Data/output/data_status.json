@@ -10,12 +10,12 @@
     "prices": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-13 05:15:03"
+      "updated_at": "2026-07-13 06:15:01"
     },
     "macro": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-13 05:15:06"
+      "updated_at": "2026-07-13 06:15:04"
     },
     "cot": {
       "status": "PARTIAL",
@@ -33,9 +33,9 @@
       "updated_at": "2026-07-13 06:00:25"
     },
     "weather_long": {
-      "status": "OK",
-      "detail": "ENSO/El Nino updated",
-      "updated_at": "2026-07-11 06:31:09"
+      "status": "[OK]",
+      "detail": "Auto-fetch 06:30:04",
+      "updated_at": "2026-07-13 06:30:04"
     },
     "ai": {
       "status": "SKIPPED",
@@ -54,15 +54,20 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 06:00:09 (Nguồn: AI Điểm Tin)",
-      "updated_at": "2026-07-13 06:00:09"
+      "detail": "Đẩy thành công lúc 06:00:29 (Nguồn: Thời Tiết Ngắn Hạn)",
+      "updated_at": "2026-07-13 06:00:29"
+    },
+    "ai_analysis": {
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-07-13 06:30:02"
     }
   },
   "all_ok": true,
   "macro": {
     "status": "ERROR",
     "detail": "'charmap' codec can't encode characters in position 2-3: character maps to <undefined>",
-    "updated_at": "2026-07-13 05:15:06"
+    "updated_at": "2026-07-13 06:15:04"
   },
   "acreage": {
     "status": "OK",
@@ -73,5 +78,10 @@
     "status": "PARTIAL",
     "detail": "21/24 fetched",
     "updated_at": "2026-07-13 06:00:25"
+  },
+  "weather_long": {
+    "status": "OK",
+    "detail": "Status: El Niño Advisory",
+    "updated_at": "2026-07-13 06:30:04"
   }
 }

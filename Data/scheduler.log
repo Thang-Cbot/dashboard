@@ -1884,3 +1884,22 @@ UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: cha
 [2026-07-13 06:00:09] [INFO] ⏰ Đợi AI News: còn 14.00h (13/07 20:00:02 VN)
 [2026-07-13 06:00:25] [INFO] ✅ Thời Tiết Ngắn Hạn hoàn thành (attempt 1)
 [2026-07-13 06:00:25] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Thời Tiết Ngắn Hạn)...
+[2026-07-13 06:00:29] [Sync] ✅ Đồng bộ Github thành công (Thời Tiết Ngắn Hạn)!
+[2026-07-13 06:00:29] [INFO] ⏰ Đợi Weather Short: còn 23.99h (14/07 06:00:02 VN)
+[2026-07-13 06:15:00] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-13 06:15:01] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-13 06:15:01] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-13 06:15:04] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: unknown error
+[2026-07-13 06:15:04] [INFO] ⏰ Đợi Giá H1: còn 1.00h (13/07 07:15:02 VN)
+[2026-07-13 06:30:00] [INFO] ▶ Kích hoạt: ENSO / Weather Long
+n Sâu
+[2026-07-13 06:30:00] [WARN] ⚠ AI Phân Tích Chuyên Sâu lỗi attempt 1: unknown error
+[2026-07-13 06:30:00] [INFO] ⏰ Đợi AI Phân Tích: còn 0.00h (13/07 06:30:02 VN)
+[2026-07-13 06:30:02] [INFO] ▶ Kích hoạt: AI Phân Tích Chuyên Sâu
+[2026-07-13 06:30:02] [WARN] ⚠ AI Phân Tích Chuyên Sâu lỗi attempt 1: unknown error
+[2026-07-13 06:30:02] [INFO] ⏰ Đợi AI Phân Tích: còn 13.50h (13/07 20:00:02 VN)
+[2026-07-13 06:30:04] [INFO] ✅ ENSO / Weather Long hoàn thành (attempt 1)
+[2026-07-13 06:30:04] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: ENSO / Weather Long)...
