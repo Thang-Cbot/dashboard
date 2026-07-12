@@ -29,8 +29,8 @@
     },
     "weather_short": {
       "status": "[OK]",
-      "detail": "Auto-fetch 14:01:47",
-      "updated_at": "2026-07-11 14:01:47"
+      "detail": "Auto-fetch 06:00:25",
+      "updated_at": "2026-07-13 06:00:25"
     },
     "weather_long": {
       "status": "OK",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 05:30:12 (Nguồn: USDA Acreage)",
-      "updated_at": "2026-07-13 05:30:12"
+      "detail": "Đẩy thành công lúc 06:00:09 (Nguồn: AI Điểm Tin)",
+      "updated_at": "2026-07-13 06:00:09"
     }
   },
   "all_ok": true,
@@ -70,8 +70,8 @@
     "updated_at": "2026-07-13 05:30:06"
   },
   "weather_short": {
-    "status": "OK",
-    "detail": "24/24 fetched",
-    "updated_at": "2026-07-11 14:01:47"
+    "status": "PARTIAL",
+    "detail": "21/24 fetched",
+    "updated_at": "2026-07-13 06:00:25"
   }
 }
