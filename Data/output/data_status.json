@@ -8,14 +8,14 @@
       "updated_at": "2026-07-14 06:30:15"
     },
     "prices": {
-      "status": "OK",
-      "detail": "ZC+ZW H1 updated",
-      "updated_at": "2026-07-14 06:30:22"
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-07-14 06:39:11"
     },
     "macro": {
-      "status": "OK",
-      "detail": "Brent/DXY updated",
-      "updated_at": "2026-07-14 06:30:22"
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-07-14 06:39:15"
     },
     "cot": {
       "status": "PARTIAL",
@@ -53,5 +53,10 @@
       "updated_at": "2026-07-14 06:32:36"
     }
   },
-  "all_ok": true
+  "all_ok": true,
+  "macro": {
+    "status": "ERROR",
+    "detail": "'charmap' codec can't encode characters in position 2-3: character maps to <undefined>",
+    "updated_at": "2026-07-14 06:39:15"
+  }
 }

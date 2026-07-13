@@ -2044,3 +2044,11 @@ huyên Sâu
 [2026-07-14 06:30:02] [INFO] ▶ Kích hoạt: AI Phân Tích Chuyên Sâu
 [2026-07-14 06:30:02] [WARN] ⚠ AI Phân Tích Chuyên Sâu lỗi attempt 1: unknown error
 [2026-07-14 06:30:02] [INFO] ⏰ Đợi AI Phân Tích: còn 13.50h (14/07 20:00:02 VN)
+[2026-07-14 06:39:09] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-14 06:39:11] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-14 06:39:11] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-14 06:39:15] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: unknown error
+[2026-07-14 06:39:15] [INFO] ⏰ Đợi Giá H1: còn 0.60h (14/07 07:15:02 VN)

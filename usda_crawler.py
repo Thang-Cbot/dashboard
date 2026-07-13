@@ -161,83 +161,78 @@ def parse_wasde(text):
 def parse_crop_progress(text):
     res = {"ZC": {}, "ZS": {}, "ZW": {}}
     
-    pos = text.find("Corn Planted - Selected States")
-    if pos != -1:
-        sub = text[pos:pos+5000]
-        for line in sub.split('\n'):
-            if re.match(r'^\s*18\s+States\s+\.+:', line):
-                parts = line.split()
-                res["ZC"]["planted"] = parse_val(parts[5])
-                res["ZC"]["planted_avg"] = parse_val(parts[6])
-                break
-                
-    pos = text.find("Corn Condition - Selected States")
-    if pos != -1:
-        sub = text[pos:pos+5000]
-        for line in sub.split('\n'):
-            if re.match(r'^\s*18\s+States\s+\.+:', line):
-                parts = line.split()
-                res["ZC"]["condition"] = parse_val(parts[6]) + parse_val(parts[7])
-                break
+    def parse_condition_section(header, num_states):
+        pos = text.find(header)
+        if pos != -1:
+            sub = text[pos:pos+5000]
+            curr_cond = None
+            prev_cond = None
+            for line in sub.split('\n'):
+                if re.match(r'^\s*' + str(num_states) + r'\s+States\s+\.+:', line):
+                    parts = line.split()
+                    curr_cond = parse_val(parts[6]) + parse_val(parts[7])
+                elif curr_cond is not None and re.match(r'^\s*Previous week\s*\.+:', line):
+                    parts = line.split()
+                    prev_cond = parse_val(parts[6]) + parse_val(parts[7])
+                    break
+            return curr_cond, prev_cond
+        return None, None
 
-    pos = text.find("Soybeans Planted - Selected States")
-    if pos == -1: pos = text.find("Soybean Planted - Selected States")
-    if pos != -1:
-        sub = text[pos:pos+5000]
-        for line in sub.split('\n'):
-            if re.match(r'^\s*18\s+States\s+\.+:', line):
-                parts = line.split()
-                res["ZS"]["planted"] = parse_val(parts[5])
-                res["ZS"]["planted_avg"] = parse_val(parts[6])
-                break
+    def parse_progress_section(header, num_states):
+        pos = text.find(header)
+        if pos != -1:
+            sub = text[pos:pos+5000]
+            for line in sub.split('\n'):
+                if re.match(r'^\s*' + str(num_states) + r'\s+States\s+\.+:', line):
+                    parts = line.split()
+                    curr_val = parse_val(parts[5])
+                    prev_val = parse_val(parts[4])
+                    return curr_val, prev_val
+        return None, None
 
-    pos = text.find("Soybeans Condition - Selected States")
-    if pos == -1: pos = text.find("Soybean Condition - Selected States")
-    if pos != -1:
-        sub = text[pos:pos+5000]
-        for line in sub.split('\n'):
-            if re.match(r'^\s*18\s+States\s+\.+:', line):
-                parts = line.split()
-                res["ZS"]["condition"] = parse_val(parts[6]) + parse_val(parts[7])
-                break
-
-    pos = text.find("Winter Wheat Condition - Selected States")
-    if pos != -1:
-        sub = text[pos:pos+5000]
-        for line in sub.split('\n'):
-            if re.match(r'^\s*18\s+States\s+\.+:', line):
-                parts = line.split()
-                res["ZW"]["ww_condition"] = parse_val(parts[6]) + parse_val(parts[7])
-                break
-
-    pos = text.find("Spring Wheat Condition - Selected States")
-    if pos != -1:
-        sub = text[pos:pos+5000]
-        for line in sub.split('\n'):
-            if re.match(r'^\s*6\s+States\s+\.+:', line):
-                parts = line.split()
-                res["ZW"]["sw_condition"] = parse_val(parts[6]) + parse_val(parts[7])
-                break
-
-    pos = text.find("Winter Wheat Harvested - Selected States")
-    if pos != -1:
-        sub = text[pos:pos+5000]
-        for line in sub.split('\n'):
-            if re.match(r'^\s*18\s+States\s+\.+:', line):
-                parts = line.split()
-                res["ZW"]["ww_harvested"] = parse_val(parts[5])
-                res["ZW"]["ww_harvested_avg"] = parse_val(parts[6])
-                break
-
-    pos = text.find("Spring Wheat Harvested - Selected States")
-    if pos != -1:
-        sub = text[pos:pos+5000]
-        for line in sub.split('\n'):
-            if re.match(r'^\s*6\s+States\s+\.+:', line):
-                parts = line.split()
-                res["ZW"]["sw_harvested"] = parse_val(parts[5])
-                break
-                
+    
+    cp, cp_prev = parse_progress_section("Corn Planted", 18)
+    if cp is not None:
+        res["ZC"]["planted"] = cp
+        if cp_prev is not None: res["ZC"]["planted_prev"] = cp_prev
+        
+    cc, cc_prev = parse_condition_section("Corn Condition", 18)
+    if cc is not None:
+        res["ZC"]["condition"] = cc
+        if cc_prev is not None: res["ZC"]["condition_prev"] = cc_prev
+        
+    sp, sp_prev = parse_progress_section("Soybeans Planted", 18)
+    if sp is None: sp, sp_prev = parse_progress_section("Soybean Planted", 18)
+    if sp is not None:
+        res["ZS"]["planted"] = sp
+        if sp_prev is not None: res["ZS"]["planted_prev"] = sp_prev
+        
+    sc, sc_prev = parse_condition_section("Soybeans Condition", 18)
+    if sc is None: sc, sc_prev = parse_condition_section("Soybean Condition", 18)
+    if sc is not None:
+        res["ZS"]["condition"] = sc
+        if sc_prev is not None: res["ZS"]["condition_prev"] = sc_prev
+        
+    ww_c, ww_c_prev = parse_condition_section("Winter Wheat Condition", 18)
+    if ww_c is not None:
+        res["ZW"]["ww_condition"] = ww_c
+        if ww_c_prev is not None: res["ZW"]["ww_condition_prev"] = ww_c_prev
+        
+    sw_c, sw_c_prev = parse_condition_section("Spring Wheat Condition", 6)
+    if sw_c is not None:
+        res["ZW"]["sw_condition"] = sw_c
+        if sw_c_prev is not None: res["ZW"]["sw_condition_prev"] = sw_c_prev
+        
+    ww_h, ww_h_prev = parse_progress_section("Winter Wheat Harvested", 18)
+    if ww_h is not None:
+        res["ZW"]["ww_harvested"] = ww_h
+        if ww_h_prev is not None: res["ZW"]["ww_harvested_prev"] = ww_h_prev
+        
+    sw_h, sw_h_prev = parse_progress_section("Spring Wheat Harvested", 6)
+    if sw_h is not None:
+        res["ZW"]["sw_harvested"] = sw_h
+        if sw_h_prev is not None: res["ZW"]["sw_harvested_prev"] = sw_h_prev
+        
     return res
 
 def parse_inspections():
@@ -391,30 +386,46 @@ def run_crawler_and_update():
                     except:
                         fmt_date = prog_date[:10]
                         
-                def _upd_cp(f_name, new_val):
+                def _upd_cp(f_name, new_val, new_prev=None):
                     old_val = fund[code][f_name].get("latest", "")
-                    if old_val and old_val != new_val:
+                    
+                    if new_prev:
+                        fund[code][f_name]["previous"] = new_prev
+                    elif old_val and old_val != new_val:
                         fund[code][f_name]["previous"] = old_val
-                        old_dt = fund[code][f_name].get("latest_date", "")
-                        if old_dt: fund[code][f_name]["previous_date"] = old_dt
+                        
+                    old_dt = fund[code][f_name].get("latest_date", "")
+                    if old_dt: fund[code][f_name]["previous_date"] = old_dt
+                    
                     fund[code][f_name]["latest"] = new_val
                     fund[code][f_name]["next_date"] = cp_next
                     if fmt_date: fund[code][f_name]["latest_date"] = fmt_date
 
                 if "planted" in p_data:
-                    _upd_cp("us_planting", f"{p_data['planted']}% đã gieo trồng")
+                    _upd_cp("us_planting", f"{p_data['planted']}% đã gieo trồng", f"{p_data.get('planted_prev', '')}% đã gieo trồng" if 'planted_prev' in p_data else None)
                 
                 if code == "ZW":
                     ww_c = f"Đông {p_data['ww_condition']}% G/E" if "ww_condition" in p_data else "Đông N/A (Cuối vụ)"
                     sw_c = f"Xuân {p_data['sw_condition']}% G/E" if "sw_condition" in p_data else "Xuân N/A"
-                    _upd_cp("crop_condition", f"{ww_c}, {sw_c}")
+                    
+                    # For ZW previous condition, we need to extract from old JSON if it's missing from report
+                    old_latest_cond = fund[code]["crop_condition"].get("latest", "")
+                    ww_c_prev = f"Đông {p_data['ww_condition_prev']}% G/E" if "ww_condition_prev" in p_data else (old_latest_cond.split(',')[0].strip() if old_latest_cond else "Đông N/A")
+                    sw_c_prev = f"Xuân {p_data['sw_condition_prev']}% G/E" if "sw_condition_prev" in p_data else "Xuân N/A"
+                    
+                    _upd_cp("crop_condition", f"{ww_c}, {sw_c}", f"{ww_c_prev}, {sw_c_prev}")
                     
                     ww_h = f"Đông {p_data['ww_harvested']}% thu hoạch" if "ww_harvested" in p_data else "Đông N/A"
                     sw_h = f"Xuân {p_data['sw_harvested']}% thu hoạch" if "sw_harvested" in p_data else "Xuân N/A"
-                    _upd_cp("harvest_progress", f"{ww_h}, {sw_h}")
+                    
+                    old_latest_harv = fund[code]["harvest_progress"].get("latest", "")
+                    ww_h_prev = f"Đông {p_data['ww_harvested_prev']}% thu hoạch" if "ww_harvested_prev" in p_data else (old_latest_harv.split(',')[0].strip() if old_latest_harv else "Đông N/A")
+                    sw_h_prev = f"Xuân {p_data['sw_harvested_prev']}% thu hoạch" if "sw_harvested_prev" in p_data else "Xuân N/A"
+                    
+                    _upd_cp("harvest_progress", f"{ww_h}, {sw_h}", f"{ww_h_prev}, {sw_h_prev}")
                 else:
                     if "condition" in p_data and p_data["condition"] > 0:
-                        _upd_cp("crop_condition", f"{p_data['condition']}% Good to Excellent")
+                        _upd_cp("crop_condition", f"{p_data['condition']}% Good to Excellent", f"{p_data.get('condition_prev', '')}% Good to Excellent" if 'condition_prev' in p_data else None)
             # Export Inspections
             if code in inspections_data:
                 insp = inspections_data[code]
