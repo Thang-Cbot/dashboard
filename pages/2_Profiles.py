@@ -11,7 +11,7 @@ from pathlib import Path
 import importlib
 import components.charts as charts
 importlib.reload(charts)
-from components.charts import render_candlestick
+from components.charts import render_candlestick, get_smc_zones_for_display
 
 st.set_page_config(page_title="Hồ Sơ Mã — CBOT", page_icon="favicon.png", layout="wide")
 
@@ -95,8 +95,8 @@ live_sig    = all_signals.get(code, {})
 
 st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
-# ── Biểu đồ nến ──
-render_candlestick(st, code, suffix, n_candles=120)
+# ── Biểu đồ nến thực tế + SMC Zones ──
+render_candlestick(st, code, suffix, n_candles=150)
 
 # ── 3 cột thông tin ──
 col1, col2, col3 = st.columns(3)
@@ -107,34 +107,46 @@ with col1:
     swing_month = meta_data.get("swing", {}).get("month", "")
     dca_contract = meta_data.get("dca", {}).get("ticker", "")
     month_str = f"(Kỳ Tháng {swing_month})" if swing_month else ""
-    
-    # Load TA levels from CSV
-    s1, s2, r1, r2 = "—", "—", "—", "—"
-    csv_path = DATA_OUTPUT / f"{code}_{suffix}_H1.csv"
-    if csv_path.exists():
-        try:
-            df = pd.read_csv(csv_path)
-            if not df.empty:
-                last_row = df.iloc[-1]
-                s1 = f"{last_row.get('S1', 0):.2f}"
-                s2 = f"{last_row.get('S2', 0):.2f}"
-                r1 = f"{last_row.get('R1', 0):.2f}"
-                r2 = f"{last_row.get('R2', 0):.2f}"
-        except Exception:
-            pass
-            
+
+    # ── Tính SMC Liquidity Zones thực tế ──
+    smc_zones = get_smc_zones_for_display(code, suffix)
+    pdh_val = f"{smc_zones['pdh']:.2f}" if smc_zones.get("pdh") else "—"
+    pdl_val = f"{smc_zones['pdl']:.2f}" if smc_zones.get("pdl") else "—"
+    fvg_list = smc_zones.get("fvg_list", [])
+
     st.markdown(f"<div class='card'><div style='font-size:12px;font-weight:700;color:#94a3b8;letter-spacing:1px;margin-bottom:12px;'>📋 CHIẾN LƯỢC — {swing_contract} {month_str}</div>", unsafe_allow_html=True)
-    
+
+    # ── Bảng SMC Liquidity Zones (thay thế S1/R1 cũ) ──
+    fvg_html = ""
+    for fvg in fvg_list:
+        fvg_color = "#22c55e" if fvg["type"] == "bullish" else "#ef4444"
+        fvg_label = "🟢 FVG Bullish" if fvg["type"] == "bullish" else "🔴 FVG Bearish"
+        fvg_html += f"""
+        <div style='display:flex; justify-content:space-between; align-items:center;
+                    background:rgba({34 if fvg['type']=='bullish' else 239},{197 if fvg['type']=='bullish' else 68},{94 if fvg['type']=='bullish' else 68},0.08);
+                    border-left:3px solid {fvg_color}; border-radius:4px;
+                    padding:5px 8px; margin-bottom:4px;'>
+            <span style='font-size:11px; color:{fvg_color}; font-weight:700;'>{fvg_label}</span>
+            <span style='font-size:12px; color:#cbd5e1; font-weight:600;'>{fvg['bottom']:.2f} – {fvg['top']:.2f}</span>
+        </div>"""
+    if not fvg_html:
+        fvg_html = "<div style='font-size:11px;color:#475569;padding:4px;'>Không phát hiện FVG chưa lấp.</div>"
+
     st.markdown(f"""
-    <div style='display:flex; justify-content:space-between; margin-bottom:12px; background:#0f1629; padding:8px; border-radius:6px; border: 1px solid #1e2d45;'>
-        <div style='text-align:center; flex:1; border-right: 1px solid #1e2d45;'>
-            <div style='font-size:10px; color:#ef4444; font-weight:700;'>KHÁNG CỰ (R1/R2)</div>
-            <div style='font-size:13px; font-weight:700; color:#cbd5e1; margin-top:2px;'>{r1} / {r2}</div>
+    <div style='background:#0f1629; border-radius:8px; padding:10px; margin-bottom:12px; border:1px solid #1e2d45;'>
+        <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:8px;'>📍 VÙNG THANH KHOẢN SMC</div>
+        <div style='display:flex; gap:8px; margin-bottom:8px;'>
+            <div style='flex:1; text-align:center; background:#1a1234; border:1px solid #7c3aed; border-radius:6px; padding:6px;'>
+                <div style='font-size:10px; color:#a78bfa; font-weight:700;'>PDH (Đỉnh hôm qua)</div>
+                <div style='font-size:14px; font-weight:800; color:#c4b5fd; margin-top:2px;'>{pdh_val}</div>
+            </div>
+            <div style='flex:1; text-align:center; background:#0c1a1a; border:1px solid #0891b2; border-radius:6px; padding:6px;'>
+                <div style='font-size:10px; color:#67e8f9; font-weight:700;'>PDL (Đáy hôm qua)</div>
+                <div style='font-size:14px; font-weight:800; color:#a5f3fc; margin-top:2px;'>{pdl_val}</div>
+            </div>
         </div>
-        <div style='text-align:center; flex:1;'>
-            <div style='font-size:10px; color:#22c55e; font-weight:700;'>HỖ TRỢ (S1/S2)</div>
-            <div style='font-size:13px; font-weight:700; color:#cbd5e1; margin-top:2px;'>{s1} / {s2}</div>
-        </div>
+        <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:6px;'>⚡ FVG CHƯA LẤP (OTE ZONE)</div>
+        {fvg_html}
     </div>
     """, unsafe_allow_html=True)
 

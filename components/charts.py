@@ -2,6 +2,7 @@
 components/charts.py
 ====================
 Plotly chart components dùng chung cho toàn bộ Streamlit Dashboard.
+v3 — Real H1 Candles + SMC Liquidity Zones (PDH/PDL/FVG) + EMA 21/50 + Volume
 """
 import json
 import datetime
@@ -10,7 +11,7 @@ from pathlib import Path
 try:
     import pandas as pd
     import plotly.graph_objects as go
-    import plotly.express as px
+    from plotly.subplots import make_subplots
     HAS_PLOTLY = True
 except ImportError:
     HAS_PLOTLY = False
@@ -18,8 +19,8 @@ except ImportError:
 DATA_OUTPUT = Path(__file__).parent.parent / "Data" / "output"
 
 COLORS = {
-    "ZC": "#f59e0b",   # Vàng — Ngô
-    "ZW": "#60a5fa",   # Xanh dương - Lúa Mì
+    "ZC": "#f59e0b",
+    "ZW": "#60a5fa",
     "bg": "#0f1629",
     "grid": "#1e2d45",
     "text": "#e2e8f0",
@@ -29,10 +30,8 @@ CHART_LAYOUT = dict(
     paper_bgcolor=COLORS["bg"],
     plot_bgcolor=COLORS["bg"],
     font=dict(color=COLORS["text"], family="Inter"),
-    xaxis=dict(gridcolor=COLORS["grid"], showgrid=True, zeroline=False),
-    yaxis=dict(gridcolor=COLORS["grid"], showgrid=True, zeroline=False),
-    margin=dict(l=10, r=10, t=40, b=10),
-    legend=dict(bgcolor="rgba(0,0,0,0)", bordercolor=COLORS["grid"]),
+    margin=dict(l=10, r=10, t=45, b=10),
+    legend=dict(bgcolor="rgba(0,0,0,0)", bordercolor=COLORS["grid"], orientation="h", y=1.08, x=0),
 )
 
 
@@ -45,143 +44,230 @@ def load_price_csv(commodity: str, suffix: str = "active") -> "pd.DataFrame | No
         return None
     try:
         df = pd.read_csv(path)
-        # Chuẩn hóa tên cột
         df.columns = [c.strip() for c in df.columns]
         date_col = next((c for c in df.columns if c.lower() in ['datetime', 'date', 'timestamp', 'time']), None)
         if date_col:
             df[date_col] = pd.to_datetime(df[date_col], errors='coerce')
-            df = df.dropna(subset=[date_col]).sort_values(date_col)
+            df = df.dropna(subset=[date_col]).sort_values(date_col).reset_index(drop=True)
             df = df.rename(columns={date_col: "Datetime"})
         return df
     except Exception:
         return None
 
 
-def render_candlestick(st, commodity: str, suffix: str = "active", n_candles: int = 100):
-    """Render biểu đồ nến H1: Nến giả lập (AI) nguyên tuần + Chấm vàng giá thực tế."""
+def compute_smc_zones(df: "pd.DataFrame") -> dict:
+    """
+    Tính toán các vùng Thanh Khoản theo chuẩn SMC từ DataFrame H1 thực tế.
+    Trả về dict gồm: pdh, pdl, fvg_list (các Fair Value Gap H1 gần nhất).
+    """
+    zones = {"pdh": None, "pdl": None, "fvg_list": []}
+    if df is None or df.empty or len(df) < 5:
+        return zones
+
+    # ── PDH / PDL: Đỉnh và Đáy của ngày giao dịch hoàn chỉnh gần nhất ──
+    try:
+        df["_date"] = df["Datetime"].dt.date
+        today_date = df["_date"].max()
+        # Lấy ngày hôm qua (ngày giao dịch trước ngày mới nhất trong data)
+        unique_dates = sorted(df["_date"].unique())
+        if len(unique_dates) >= 2:
+            prev_date = unique_dates[-2]
+            prev_day_df = df[df["_date"] == prev_date]
+            if not prev_day_df.empty:
+                zones["pdh"] = float(prev_day_df["High"].max())
+                zones["pdl"] = float(prev_day_df["Low"].min())
+        df.drop(columns=["_date"], inplace=True, errors="ignore")
+    except Exception:
+        pass
+
+    # ── FVG (Fair Value Gap): Tìm trong 80 nến gần nhất ──
+    # FVG Bullish: Low[i] > High[i-2]  → khoảng trống không được lấp bên dưới
+    # FVG Bearish: High[i] < Low[i-2]  → khoảng trống không được lấp bên trên
+    try:
+        recent = df.tail(80).reset_index(drop=True)
+        fvg_list = []
+        for i in range(2, len(recent)):
+            h_i2 = recent.loc[i - 2, "High"]
+            l_i2 = recent.loc[i - 2, "Low"]
+            h_i  = recent.loc[i, "High"]
+            l_i  = recent.loc[i, "Low"]
+            dt_i = recent.loc[i, "Datetime"]
+
+            # Bullish FVG
+            if l_i > h_i2:
+                fvg_list.append({
+                    "type": "bullish",
+                    "top": float(l_i),
+                    "bottom": float(h_i2),
+                    "time": dt_i,
+                })
+            # Bearish FVG
+            elif h_i < l_i2:
+                fvg_list.append({
+                    "type": "bearish",
+                    "top": float(l_i2),
+                    "bottom": float(h_i),
+                    "time": dt_i,
+                })
+
+        # Chỉ giữ 3 FVG gần nhất chưa bị lấp
+        last_close = float(df["Close"].iloc[-1])
+        unfilled = []
+        for fvg in reversed(fvg_list):
+            if fvg["type"] == "bullish" and last_close > fvg["bottom"]:
+                unfilled.append(fvg)
+            elif fvg["type"] == "bearish" and last_close < fvg["top"]:
+                unfilled.append(fvg)
+            if len(unfilled) >= 3:
+                break
+        zones["fvg_list"] = unfilled
+    except Exception:
+        pass
+
+    return zones
+
+
+def render_candlestick(st, commodity: str, suffix: str = "active", n_candles: int = 150):
+    """
+    Render biểu đồ nến H1 thực tế với:
+    - 150 nến H1 thực tế gần nhất
+    - EMA 21 (xanh dương) + EMA 50 (vàng)
+    - PDH / PDL (đường nét đứt)
+    - FVG Zones (ô màu mờ)
+    - Volume subplot phía dưới
+    """
     if not HAS_PLOTLY:
         st.warning("Cần cài plotly: `pip install plotly`")
         return
 
-    fig = go.Figure()
+    df = load_price_csv(commodity, suffix)
+    if df is None or df.empty:
+        st.warning(f"Chưa có dữ liệu H1 thực tế cho {commodity} ({suffix}). Hãy chạy lệnh cập nhật dữ liệu.")
+        return
 
-    # 1. Đọc dữ liệu mô phỏng AI
-    sim_path = DATA_OUTPUT / "ai_simulated_h1.json"
-    sim_df = None
-    if sim_path.exists():
-        try:
-            with open(sim_path, "r", encoding="utf-8") as f:
-                sim_data = json.load(f)
-            if commodity in sim_data:
-                sim_df = pd.DataFrame(sim_data[commodity])
-                sim_df["Datetime"] = pd.to_datetime(sim_df["Datetime"])
-        except Exception as e:
-            st.warning(f"Lỗi đọc AI simulation: {e}")
+    # Lấy n_candles nến gần nhất
+    df = df.tail(n_candles).reset_index(drop=True)
 
-    # Xác định khung hiển thị tuần giao dịch
-    now = datetime.datetime.now()
-    
-    # Nếu có dữ liệu giả lập, dịch khung hiển thị sang tuần bắt đầu của chuỗi giả lập
-    if sim_df is not None and not sim_df.empty:
-        target_date = sim_df["Datetime"].min()
-    else:
-        target_date = now
+    # Tính SMC zones
+    smc = compute_smc_zones(load_price_csv(commodity, suffix))
 
-    monday = target_date - datetime.timedelta(days=target_date.weekday())
-    monday = monday.replace(hour=0, minute=0, second=0, microsecond=0)
-    friday = monday + datetime.timedelta(days=4)
-    friday = friday.replace(hour=23, minute=59, second=59)
+    names = {"ZC": "Ngô (Corn)", "ZW": "Lúa Mì (Wheat)"}
+    contract_name = names.get(commodity, commodity)
+    last_dt = df["Datetime"].iloc[-1]
+    last_close = df["Close"].iloc[-1]
 
-    # (Đã di chuyển logic đọc AI lên trên)
+    # Subplot: 2 hàng (nến + volume)
+    has_vol = "Volume" in df.columns and df["Volume"].sum() > 0
+    row_heights = [0.75, 0.25] if has_vol else [1.0]
+    rows = 2 if has_vol else 1
 
-    # 2. Vẽ nến (Ưu tiên nến AI, nếu không có thì dùng nến thực)
-    df_actual = load_price_csv(commodity, suffix)
-    
-    if sim_df is not None and not sim_df.empty:
-        fig.add_trace(go.Candlestick(
-            x=sim_df["Datetime"],
-            open=sim_df["Open"],
-            high=sim_df["High"],
-            low=sim_df["Low"],
-            close=sim_df["Close"],
-            name=f"{commodity} AI Forecast",
-            increasing_line_color="#22c55e",
-            decreasing_line_color="#ef4444",
-            opacity=1.0 # Người dùng yêu cầu màu bình thường
-        ))
-    elif df_actual is not None and not df_actual.empty:
-        # Fallback: Nếu không có AI simulation, hiển thị nến thật cắt theo tuần
-        df_real_week = df_actual[df_actual["Datetime"] >= monday]
-        fig.add_trace(go.Candlestick(
-            x=df_real_week["Datetime"],
-            open=df_real_week["Open"],
-            high=df_real_week["High"],
-            low=df_real_week["Low"],
-            close=df_real_week["Close"],
-            name=f"{commodity} Real H1",
-            increasing_line_color="#22c55e",
-            decreasing_line_color="#ef4444",
-        ))
+    fig = make_subplots(
+        rows=rows, cols=1,
+        shared_xaxes=True,
+        vertical_spacing=0.03,
+        row_heights=row_heights,
+    )
 
-    # 3. Vẽ đường giá thực tế (chấm vàng)
-    if df_actual is not None and not df_actual.empty:
-        # Lọc dữ liệu thực tế chỉ lấy từ Thứ 2 trở đi
-        df_real_week = df_actual[df_actual["Datetime"] >= monday]
-        if not df_real_week.empty:
-            fig.add_trace(go.Scatter(
-                x=df_real_week["Datetime"],
-                y=df_real_week["Close"],
-                mode="lines+markers",
-                name="Giá Thực Tế",
-                line=dict(color="#facc15", width=2), # Yellow
-                marker=dict(color="#facc15", size=6, symbol="circle")
-            ))
+    # ── 1. Nến H1 thực tế ──
+    fig.add_trace(go.Candlestick(
+        x=df["Datetime"],
+        open=df["Open"], high=df["High"],
+        low=df["Low"], close=df["Close"],
+        name="H1 Thực Tế",
+        increasing_line_color="#22c55e",
+        decreasing_line_color="#ef4444",
+        increasing_fillcolor="#166534",
+        decreasing_fillcolor="#7f1d1d",
+    ), row=1, col=1)
 
-        # Thêm EMA & Cản dựa trên dữ liệu thực tế MỚI NHẤT
-        last_row = df_real_week.iloc[-1] if not df_real_week.empty else df_actual.iloc[-1]
-        
-        if "EMA_21" in df_actual.columns:
-            fig.add_trace(go.Scatter(
-                x=df_real_week["Datetime"], y=df_real_week["EMA_21"],
-                name="EMA 21", line=dict(color="#60a5fa", width=1.5), mode="lines"
-            ))
-        if "EMA_50" in df_actual.columns:
-            fig.add_trace(go.Scatter(
-                x=df_real_week["Datetime"], y=df_real_week["EMA_50"],
-                name="EMA 50", line=dict(color="#f59e0b", width=1.5, dash="dot"), mode="lines"
-            ))
+    # ── 2. EMA 21 & EMA 50 ──
+    if "EMA_21" in df.columns:
+        fig.add_trace(go.Scatter(
+            x=df["Datetime"], y=df["EMA_21"],
+            name="EMA 21", mode="lines",
+            line=dict(color="#60a5fa", width=1.5),
+        ), row=1, col=1)
+    if "EMA_50" in df.columns:
+        fig.add_trace(go.Scatter(
+            x=df["Datetime"], y=df["EMA_50"],
+            name="EMA 50", mode="lines",
+            line=dict(color="#f59e0b", width=1.5, dash="dot"),
+        ), row=1, col=1)
 
-        for level_col, level_name, lcolor in [
-            ("S1", "S1", "#ef4444"), ("S2", "S2", "#dc2626"),
-            ("R1", "R1", "#22c55e"), ("R2", "R2", "#16a34a"),
-        ]:
-            if level_col in df_actual.columns and not pd.isna(last_row[level_col]):
-                fig.add_hline(
-                    y=last_row[level_col],
-                    line_dash="dot", line_color=lcolor, line_width=1,
-                    annotation_text=f"{level_name}: {last_row[level_col]:.2f}",
-                    annotation_font=dict(size=10, color=lcolor),
-                )
+    # ── 3. PDH / PDL (Đỉnh/Đáy ngày hôm qua) ──
+    x_start = df["Datetime"].iloc[0]
+    x_end   = df["Datetime"].iloc[-1] + datetime.timedelta(hours=4)  # kéo dài chút
 
-    names = {"ZC": "Ngô (Corn)", "ZW": "Lúa Mì (Wheat)", "ZS": "Đậu Tương (Soybeans)"}
-    
-    # Thiết lập khung hiển thị cố định trong 1 tuần
+    if smc["pdh"] is not None:
+        fig.add_hline(
+            y=smc["pdh"], line_dash="dash", line_color="#fb923c", line_width=1.2,
+            annotation_text=f"PDH {smc['pdh']:.2f}",
+            annotation_font=dict(size=10, color="#fb923c"),
+            annotation_position="top right",
+            row=1, col=1,
+        )
+    if smc["pdl"] is not None:
+        fig.add_hline(
+            y=smc["pdl"], line_dash="dash", line_color="#a78bfa", line_width=1.2,
+            annotation_text=f"PDL {smc['pdl']:.2f}",
+            annotation_font=dict(size=10, color="#a78bfa"),
+            annotation_position="bottom right",
+            row=1, col=1,
+        )
+
+    # ── 4. FVG Zones (Vùng chưa lấp) ──
+    for fvg in smc.get("fvg_list", []):
+        color = "rgba(34,197,94,0.12)" if fvg["type"] == "bullish" else "rgba(239,68,68,0.12)"
+        border = "#22c55e" if fvg["type"] == "bullish" else "#ef4444"
+        label  = f"FVG {'🟢' if fvg['type'] == 'bullish' else '🔴'} {fvg['bottom']:.0f}-{fvg['top']:.0f}"
+        fig.add_hrect(
+            y0=fvg["bottom"], y1=fvg["top"],
+            fillcolor=color, opacity=1.0,
+            line_width=0.8, line_color=border, line_dash="dot",
+            annotation_text=label,
+            annotation_font=dict(size=9, color=border),
+            annotation_position="top left",
+            row=1, col=1,
+        )
+
+    # ── 5. Volume subplot ──
+    if has_vol:
+        vol_colors = [
+            "#22c55e" if df["Close"].iloc[i] >= df["Open"].iloc[i] else "#ef4444"
+            for i in range(len(df))
+        ]
+        fig.add_trace(go.Bar(
+            x=df["Datetime"], y=df["Volume"],
+            name="Volume", marker_color=vol_colors,
+            opacity=0.7, showlegend=False,
+        ), row=2, col=1)
+
+    # ── Layout ──
     fig.update_layout(
         **CHART_LAYOUT,
-        title=dict(text=f"📈 {names.get(commodity, commodity)} — Tuần Này ({monday.strftime('%d/%m')} - {friday.strftime('%d/%m')})", font=dict(size=14)),
+        title=dict(
+            text=f"📈 {contract_name} — {n_candles} nến H1 thực tế | Giá: <b>{last_close:.2f}¢</b> | {last_dt.strftime('%d/%m %H:%M')}",
+            font=dict(size=13),
+        ),
         xaxis_rangeslider_visible=False,
-        xaxis_range=[monday, friday],
-        height=420,
+        height=500,
     )
-    
+
+    # Ẩn khoảng trắng ngoài giờ giao dịch (Thứ 7, CN)
     fig.update_xaxes(
-        rangebreaks=[
-            dict(bounds=["sat", "mon"]),  # Ẩn thứ 7, Chủ nhật
-            dict(bounds=[2, 7], pattern="hour"),  # Ẩn khoảng trống từ 2h sáng đến 7h sáng
-        ]
+        gridcolor=COLORS["grid"], showgrid=True, zeroline=False,
+        rangebreaks=[dict(bounds=["sat", "mon"])],
     )
-    
+    fig.update_yaxes(gridcolor=COLORS["grid"], showgrid=True, zeroline=False)
+
     st.plotly_chart(fig, use_container_width=True)
+    return smc  # trả về để 2_Profiles.py dùng hiển thị bảng
+
+
+def get_smc_zones_for_display(commodity: str, suffix: str = "active") -> dict:
+    """Hàm tiện ích: trả về dict SMC zones để hiển thị trong bảng UI."""
+    df = load_price_csv(commodity, suffix)
+    return compute_smc_zones(df)
 
 
 def render_macro_bar(st, macro_data: dict):
