@@ -6,9 +6,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZCH27.CBT",
-      "year": 2027,
-      "month": 3
+      "ticker": "ZCZ26.CBT",
+      "year": 2026,
+      "month": 12
     },
     "dca": {
       "ticker": "ZCZ26.CBT",
@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 105057.0,
+      "today_volume": 228095.0,
       "prev_volume": 19653.0,
       "today_oi": 743946,
       "prev_oi": 627617,
-      "today_close": 466.0,
+      "today_close": 463.0,
       "prev_close": 445.25,
       "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
       "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 50626.0,
+      "today_volume": 87200.0,
       "prev_volume": 7777.0,
       "today_oi": 209619,
       "prev_oi": 215763,
-      "today_close": 636.0,
+      "today_close": 635.25,
       "prev_close": 646.25,
       "trend": "Giảm do phe Long tháo chạy (Long Liquidation)",
       "logic": "Giá giảm đi kèm Volume tăng nhưng OI giảm. Phe Long đang chủ động đóng vị thế hàng loạt để cắt lỗ, lực bán tháo kỹ thuật mạnh."
     }
   },
-  "updated_at": "2026-07-13 21:24:55"
+  "updated_at": "2026-07-14 06:30:22"
 }

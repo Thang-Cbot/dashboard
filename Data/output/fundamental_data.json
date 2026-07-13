@@ -174,24 +174,24 @@
       "latest_date": "06/07/2026"
     },
     "harvest_progress": {
-      "latest": "Mỹ: 67% lúa đông đã thu hoạch",
+      "latest": "Đông 67% thu hoạch, Xuân N/A",
       "next_date": "21/07/2026 lúc 03:00 (VN)",
       "forecast": "Mỹ: 12% lúa đông đã thu hoạch",
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
-      "previous": "Đông 25% thu hoạch, Xuân 0% thu hoạch",
-      "previous_date": "Tuần trước (16/06)",
+      "previous": "Đông 59% thu hoạch, Xuân N/A",
+      "previous_date": "06/07/2026",
       "latest_date": "13/07/2026"
     },
     "crop_condition": {
-      "latest": "26% Good to Excellent",
-      "next_date": "14/07/2026 lúc 03:00 (VN)",
+      "latest": "Đông N/A (Cuối vụ), Xuân 58% G/E",
+      "next_date": "21/07/2026 lúc 03:00 (VN)",
       "forecast": "Duy trì cực xấu 25-27% G/E",
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông 27% G/E, Xuân 74% G/E",
-      "previous_date": "Tuần trước (16/06)",
-      "latest_date": "06/07/2026"
+      "previous_date": "06/07/2026",
+      "latest_date": "13/07/2026"
     },
     "us_ending_stocks": {
       "next_date": "12/08/2026 lúc 23:00 (VN)",

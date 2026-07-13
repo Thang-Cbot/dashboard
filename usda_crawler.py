@@ -207,7 +207,16 @@ def parse_crop_progress(text):
         for line in sub.split('\n'):
             if re.match(r'^\s*18\s+States\s+\.+:', line):
                 parts = line.split()
-                res["ZW"]["condition"] = parse_val(parts[6]) + parse_val(parts[7])
+                res["ZW"]["ww_condition"] = parse_val(parts[6]) + parse_val(parts[7])
+                break
+
+    pos = text.find("Spring Wheat Condition - Selected States")
+    if pos != -1:
+        sub = text[pos:pos+5000]
+        for line in sub.split('\n'):
+            if re.match(r'^\s*6\s+States\s+\.+:', line):
+                parts = line.split()
+                res["ZW"]["sw_condition"] = parse_val(parts[6]) + parse_val(parts[7])
                 break
 
     pos = text.find("Winter Wheat Harvested - Selected States")
@@ -216,8 +225,17 @@ def parse_crop_progress(text):
         for line in sub.split('\n'):
             if re.match(r'^\s*18\s+States\s+\.+:', line):
                 parts = line.split()
-                res["ZW"]["harvested"] = parse_val(parts[5])
-                res["ZW"]["harvested_avg"] = parse_val(parts[6])
+                res["ZW"]["ww_harvested"] = parse_val(parts[5])
+                res["ZW"]["ww_harvested_avg"] = parse_val(parts[6])
+                break
+
+    pos = text.find("Spring Wheat Harvested - Selected States")
+    if pos != -1:
+        sub = text[pos:pos+5000]
+        for line in sub.split('\n'):
+            if re.match(r'^\s*6\s+States\s+\.+:', line):
+                parts = line.split()
+                res["ZW"]["sw_harvested"] = parse_val(parts[5])
                 break
                 
     return res
@@ -385,11 +403,18 @@ def run_crawler_and_update():
 
                 if "planted" in p_data:
                     _upd_cp("us_planting", f"{p_data['planted']}% đã gieo trồng")
-                if "condition" in p_data and p_data["condition"] > 0:
-                    _upd_cp("crop_condition", f"{p_data['condition']}% Good to Excellent")
-                if "harvested" in p_data and code == "ZW":
-                    _upd_cp("harvest_progress", f"Mỹ: {p_data['harvested']}% lúa đông đã thu hoạch")
+                
+                if code == "ZW":
+                    ww_c = f"Đông {p_data['ww_condition']}% G/E" if "ww_condition" in p_data else "Đông N/A (Cuối vụ)"
+                    sw_c = f"Xuân {p_data['sw_condition']}% G/E" if "sw_condition" in p_data else "Xuân N/A"
+                    _upd_cp("crop_condition", f"{ww_c}, {sw_c}")
                     
+                    ww_h = f"Đông {p_data['ww_harvested']}% thu hoạch" if "ww_harvested" in p_data else "Đông N/A"
+                    sw_h = f"Xuân {p_data['sw_harvested']}% thu hoạch" if "sw_harvested" in p_data else "Xuân N/A"
+                    _upd_cp("harvest_progress", f"{ww_h}, {sw_h}")
+                else:
+                    if "condition" in p_data and p_data["condition"] > 0:
+                        _upd_cp("crop_condition", f"{p_data['condition']}% Good to Excellent")
             # Export Inspections
             if code in inspections_data:
                 insp = inspections_data[code]

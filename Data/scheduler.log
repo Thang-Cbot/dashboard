@@ -2039,3 +2039,8 @@ huyên Sâu
 [2026-07-14 06:23:57] [INFO] ⏰ Đợi AI Phân Tích: còn 0.10h (14/07 06:30:02 VN)
 [2026-07-14 06:24:31] [INFO] ✅ AI Điểm Tin hoàn thành (attempt 1)
 [2026-07-14 06:24:31] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: AI Điểm Tin)...
+[2026-07-14 06:24:35] [Sync] ✅ Đồng bộ Github thành công (AI Điểm Tin)!
+[2026-07-14 06:24:35] [INFO] ⏰ Đợi AI News: còn 13.59h (14/07 20:00:02 VN)
+[2026-07-14 06:30:02] [INFO] ▶ Kích hoạt: AI Phân Tích Chuyên Sâu
+[2026-07-14 06:30:02] [WARN] ⚠ AI Phân Tích Chuyên Sâu lỗi attempt 1: unknown error
+[2026-07-14 06:30:02] [INFO] ⏰ Đợi AI Phân Tích: còn 13.50h (14/07 20:00:02 VN)
