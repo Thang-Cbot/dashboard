@@ -8,9 +8,9 @@
       "updated_at": "2026-07-13 06:30:12"
     },
     "prices": {
-      "status": "[ERROR]",
-      "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-13 14:15:03"
+      "status": "[OK]",
+      "detail": "Auto-fetch 14:34:45",
+      "updated_at": "2026-07-13 14:34:45"
     },
     "macro": {
       "status": "[OK]",
@@ -46,6 +46,11 @@
       "status": "OK",
       "detail": "Planted acreage ZC/ZW/ZS updated",
       "updated_at": "2026-07-13 06:32:08"
+    },
+    "github_sync": {
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 14:34:39 (Nguồn: Vĩ Mô)",
+      "updated_at": "2026-07-13 14:34:39"
     }
   },
   "all_ok": true,
@@ -56,7 +61,7 @@
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 13:40",
-    "updated_at": "2026-07-13 13:40:45"
+    "detail": "ZC+ZW updated at 14:34",
+    "updated_at": "2026-07-13 14:34:45"
   }
 }
