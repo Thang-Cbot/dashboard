@@ -51,6 +51,16 @@
       "status": "[OK]",
       "detail": "Đẩy thành công lúc 14:34:49 (Nguồn: Giá H1)",
       "updated_at": "2026-07-13 14:34:49"
+    },
+    "ai_analysis": {
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-07-14 06:23:57"
+    },
+    "ai_news": {
+      "status": "[OK]",
+      "detail": "Auto-fetch 06:24:31",
+      "updated_at": "2026-07-14 06:24:31"
     }
   },
   "all_ok": true,
