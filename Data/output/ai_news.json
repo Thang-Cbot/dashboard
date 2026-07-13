@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-07-11 22:30:22",
+  "timestamp": "2026-07-13 19:30:08",
   "news": [
     {
       "title": "Lúa mì dẫn đầu đà tăng của ngũ cốc vào thứ Sáu",
       "details": [
-        "Giá lúa mì tăng mạnh vào thứ Sáu, với mức tăng hai chữ số trên cả ba sàn giao dịch.",
-        "Hợp đồng lúa mì SRW Chicago tăng từ 15.25 đến 20.75 cent trong ngày.",
-        "Hợp đồng tháng 9 tăng 40.5 cent trong tuần.",
-        "Hợp đồng lúa mì HRW KC tăng 17 cent."
+        "Thị trường lúa mì tăng mạnh vào thứ Sáu, với mức tăng hai chữ số trên cả ba sàn giao dịch.",
+        "Hợp đồng lúa mì SRW Chicago tăng từ 15 ¼ đến 20 ¾ cent trong ngày.",
+        "Hợp đồng tháng 9 tăng 40 ½ cent trong tuần.",
+        "Hợp đồng lúa mì HRW Kansas City tăng 17 cent."
       ],
       "link": "https://www.barchart.com/story/news/3231938/wheat-leads-the-grains-rally-on-friday?.tsrc=rss",
       "source": "10 Jul 2026 - Yahoo Finance"
@@ -15,95 +15,112 @@
     {
       "title": "Lúa mì tăng giá mạnh vào thứ Sáu do tin đồn về Nga",
       "details": [
-        "Giá lúa mì tăng hai chữ số trên hầu hết các hợp đồng vào thứ Sáu.",
-        "Hợp đồng SRW Chicago tăng từ 19 đến 23.5 cent vào giữa ngày.",
-        "Đà tăng được cho là do các tin đồn liên quan đến Nga.",
-        "Có 2 lượt giao hàng đối với lúa mì CBT qua đêm và 53 lượt đối với lúa mì KC tháng 7."
+        "Thị trường lúa mì ghi nhận mức tăng hai chữ số trên hầu hết các hợp đồng vào thứ Sáu.",
+        "Hợp đồng lúa mì SRW Chicago tăng từ 19 đến 23 ½ cent vào giữa ngày.",
+        "Tin đồn liên quan đến Nga được cho là nguyên nhân thúc đẩy đà tăng này.",
+        "Có 2 giao hàng đối với lúa mì CBT và 53 giao hàng đối với lúa mì KC tháng 7 qua đêm."
       ],
       "link": "https://www.barchart.com/story/news/3227946/wheat-rallying-on-friday-with-russian-rumors?.tsrc=rss",
       "source": "10 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "Giá vận chuyển đường sắt biến động gây khó khăn cho ngành ngũ cốc Canada",
+      "title": "Giá cước vận tải đường sắt biến động gây khó khăn cho ngành ngũ cốc Canada",
       "details": [
-        "Ngành ngũ cốc Canada đang đối mặt với vấn đề giá vận chuyển đường sắt không ổn định.",
+        "Ngành ngũ cốc Canada đang đối mặt với vấn đề giá cước vận tải đường sắt không ổn định.",
         "Chính phủ Ottawa kiểm soát tổng doanh thu mà các công ty đường sắt có thể kiếm được từ việc vận chuyển ngũ cốc.",
-        "Tuy nhiên, những thay đổi giá ngắn hạn gây ra nhiều vấn đề trong các giai đoạn cao điểm."
+        "Tuy nhiên, những thay đổi giá cước ngắn hạn gây ra nhiều vấn đề trong các giai đoạn cao điểm.",
+        "Điều này ảnh hưởng đến chi phí và lợi nhuận của việc vận chuyển ngũ cốc."
       ],
       "link": "https://financialpost.com/opinion/opinion-volatile-rail-pricing-plagues-canadas-grain-industry?.tsrc=rss",
       "source": "09 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "Lúa mì giảm giá vào giữa tuần",
+      "title": "FMC nộp hồ sơ đăng ký toàn cầu đầu tiên cho thuốc diệt cỏ mới Rimisoxafen tại EPA",
       "details": [
-        "Giá lúa mì ghi nhận mức giảm vào giữa ngày thứ Tư.",
-        "Hợp đồng SRW Chicago giảm từ 2 đến 8 cent.",
-        "Hợp đồng lúa mì HRW KC giảm từ 3 đến 7 cent vào giữa ngày.",
-        "Có 4 lượt giao hàng đối với hợp đồng tháng 7 qua đêm."
+        "FMC Corporation đã nộp hồ sơ đăng ký rimisoxafen lên Cơ quan Bảo vệ Môi trường Hoa Kỳ (EPA).",
+        "Đây là lần nộp hồ sơ quy định toàn cầu đầu tiên cho hoạt chất thuốc diệt cỏ mới này.",
+        "Thuốc diệt cỏ rimisoxafen được đề xuất sử dụng cho ngô, đậu tương, hướng dương và một số cây họ đậu.",
+        "Việc phê duyệt có thể mang lại giải pháp mới cho nông dân trong việc kiểm soát cỏ dại."
+      ],
+      "link": "https://finance.yahoo.com/healthcare/articles/fmc-corporation-files-first-global-203000662.html?.tsrc=rss",
+      "source": "08 Jul 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giá lúa mì giảm trở lại vào thứ Tư",
+      "details": [
+        "Thị trường lúa mì ghi nhận mức giảm vào giữa ngày thứ Tư.",
+        "Hợp đồng lúa mì SRW Chicago giảm từ 2 đến 8 cent.",
+        "Hợp đồng lúa mì HRW Kansas City giảm từ 3 đến 7 cent vào giữa ngày.",
+        "Có 4 giao hàng đối với hợp đồng tháng 7 qua đêm."
       ],
       "link": "https://www.barchart.com/story/news/3189365/wheat-falling-back-on-wednesday?.tsrc=rss",
       "source": "08 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "Lúa mì tăng giá vào thứ Ba",
+      "title": "Lúa mì tăng giá vào đầu ngày thứ Tư",
       "details": [
-        "Giá lúa mì tìm thấy động lực tăng vào cuối phiên giao dịch thứ Ba.",
-        "Hợp đồng SRW Chicago tăng từ 3.25 đến 7.25 cent trong ngày.",
-        "Hợp đồng lúa mì HRW KC tăng từ 1.25 đến 4.75 cent khi đóng cửa.",
-        "Lúa mì vụ xuân MPLS cũng tăng từ 1.25 đến 4.5 cent."
+        "Giá lúa mì tăng từ 3 đến 5 cent vào sáng thứ Tư.",
+        "Thị trường lúa mì đã tìm thấy động lực tăng giá vào cuối phiên giao dịch thứ Ba.",
+        "Hợp đồng lúa mì SRW Chicago tăng từ 3 ¼ đến 7 ¼ cent vào thứ Ba.",
+        "Số lượng hợp đồng mở tăng 3.610 hợp đồng vào thứ Ba."
+      ],
+      "link": "https://www.barchart.com/story/news/3183545/wheat-posting-early-wednesday-strength?.tsrc=rss",
+      "source": "08 Jul 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Lúa mì ghi nhận mức tăng vào thứ Ba",
+      "details": [
+        "Thị trường lúa mì đã tìm thấy động lực tăng giá vào cuối phiên giao dịch thứ Ba.",
+        "Hợp đồng lúa mì SRW Chicago tăng từ 3 ¼ đến 7 ¼ cent trong ngày.",
+        "Hợp đồng lúa mì HRW Kansas City tăng từ 1 ¼ đến 4 ¾ cent khi đóng cửa.",
+        "Lúa mì vụ xuân Minneapolis tăng từ 1 ¼ đến 4 ½ cent."
       ],
       "link": "https://www.barchart.com/story/news/3173056/wheat-sees-gains-on- मंगलवार?.tsrc=rss",
       "source": "07 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "Triển vọng lúa mì: Khả năng tăng giá ngắn hạn và thách thức cạnh tranh toàn cầu",
+      "title": "Giao dịch lúa mì biến động trái chiều vào thứ Ba",
       "details": [
-        "Diện tích gieo trồng lúa mì thấp hơn dự kiến có thể thúc đẩy một đợt tăng giá vào giữa mùa hè.",
-        "Tuy nhiên, đợt tăng giá này có thể chỉ là một sự tăng vọt ngắn hạn.",
-        "Trên thị trường toàn cầu, lúa mì của Mỹ đang dần mất khả năng cạnh tranh về giá."
+        "Thị trường lúa mì có xu hướng biến động trái chiều vào thứ Ba.",
+        "Hợp đồng lúa mì SRW Chicago ghi nhận mức tăng từ 1 đến 2 cent.",
+        "Có 3 giao hàng đối với lúa mì Chicago và 1 giao hàng đối với lúa mì KC tháng 7 qua đêm.",
+        "Hợp đồng lúa mì HRW Kansas City giảm từ 3 đến 4 cent vào giữa ngày."
       ],
-      "link": "https://www.farmprogress.com/wheat/where-does-wheat-go-from-here-",
-      "source": "10 Jul 2026 - Farm Progress"
+      "link": "https://www.barchart.com/story/news/3167703/wheat-posting-mixed-tuesday-trade?.tsrc=rss",
+      "source": "07 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "Lúa mì tăng giá mạnh do dữ liệu sản lượng thấp",
+      "title": "Tâm lý nông dân suy giảm do chi phí đầu vào tăng cao",
       "details": [
-        "Giá lúa mì tăng mạnh vào cuối tuần.",
-        "Nguyên nhân chính là do dữ liệu sản lượng lúa mì được công bố thấp hơn dự kiến.",
-        "Giá ngô và đậu tương cũng duy trì đà tăng vững chắc khi kết thúc tuần giao dịch."
+        "Tâm lý của nông dân đang giảm sút, mặc dù triển vọng chăn nuôi và niềm tin vào giá đất nông nghiệp vẫn mạnh mẽ.",
+        "Nguyên nhân chính là do chi phí sản xuất tăng cao.",
+        "Chi phí đầu vào nặng nề làm giảm sự lạc quan của người sản xuất khi bước vào cuối mùa hè.",
+        "Điều này có thể ảnh hưởng đến quyết định gieo trồng và sản lượng trong tương lai."
       ],
-      "link": "https://www.farmprogress.com/markets-and-quotes/afternoon-market-recap",
-      "source": "10 Jul 2026 - Farm Progress"
+      "link": "https://www.farmprogress.com/max-armstrong/farmer-sentiment-dips-as-input-costs-weigh-heavy",
+      "source": "13 Jul 2026 - Farm Progress"
     },
     {
-      "title": "Dữ liệu WASDE hỗ trợ giá ngũ cốc",
+      "title": "Ứng dụng thuốc diệt nấm có thể gây thua lỗ cho ngô",
       "details": [
-        "Báo cáo WASDE của USDA đã có tác động tích cực đến giá ngũ cốc.",
-        "Giá ngô, đậu tương và lúa mì vụ đông đều tăng ngay sau khi báo cáo được công bố.",
-        "Báo cáo cung cấp thông tin quan trọng về cung và cầu, ảnh hưởng đến tâm lý thị trường."
+        "Một thử nghiệm năm 2025 cho thấy việc sử dụng thuốc diệt nấm trên các giống ngô lai kháng bệnh có thể gây thua lỗ.",
+        "Lợi nhuận tốt nhất từ việc phun thuốc diệt nấm là khi áp dụng cho giống lai nhạy cảm ở giai đoạn R1 (giai đoạn sữa).",
+        "Việc trồng muộn cũng có thể ảnh hưởng tiêu cực đến lợi tức đầu tư từ việc sử dụng thuốc diệt nấm.",
+        "Nông dân cần cân nhắc kỹ lưỡng về giống cây trồng và thời điểm phun thuốc để tối ưu hóa lợi nhuận."
       ],
-      "link": "https://www.farmprogress.com/marketing/wasde-data-proved-helpful-for-grain-prices",
-      "source": "10 Jul 2026 - Farm Progress"
+      "link": "https://www.farmprogress.com/management/yes-you-can-lose-money-applying-a-fungicide",
+      "source": "13 Jul 2026 - Farm Progress"
     },
     {
-      "title": "Trung Quốc mua đậu tương, năm tiếp thị ngô và đậu tương sắp bắt đầu",
+      "title": "Ngô bắt đầu trổ cờ sau lượng mưa lớn ở Illinois",
       "details": [
-        "Báo cáo xuất khẩu của USDA cho thấy Trung Quốc đã mua đậu tương.",
-        "Năm tiếp thị 2026-27 cho ngô và đậu tương sẽ bắt đầu vào ngày 1 tháng 9.",
-        "Các giao dịch mua bán lớn từ Trung Quốc thường có tác động đáng kể đến thị trường nông sản."
+        "Cây ngô ở Hạt Lee, Illinois, đã đạt đến giai đoạn VT (trổ cờ).",
+        "Điều này diễn ra sau khi khu vực này nhận được 12 inch (khoảng 30 cm) lượng mưa trong tháng qua.",
+        "Lượng mưa lớn có thể ảnh hưởng đến sự phát triển và năng suất của cây ngô.",
+        "Thông tin này cung cấp cái nhìn về tình hình mùa vụ ngô hiện tại."
       ],
-      "link": "https://www.farmprogress.com/marketing/flash-sales",
-      "source": "10 Jul 2026 - Farm Progress"
-    },
-    {
-      "title": "Giá ngô và đậu tương giảm nhẹ trước báo cáo WASDE",
-      "details": [
-        "Hợp đồng tương lai ngô và đậu tương đã kéo dài đà suy yếu qua đêm.",
-        "Các nhà giao dịch đang chờ đợi báo cáo WASDE của USDA vào thứ Sáu.",
-        "Tâm lý thị trường thận trọng trước các dữ liệu quan trọng có thể ảnh hưởng đến giá."
-      ],
-      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
-      "source": "10 Jul 2026 - Farm Progress"
+      "link": "https://www.farmprogress.com/crops/corn-tasseling-begins-after-12-inches-of-rain",
+      "source": "13 Jul 2026 - Farm Progress"
     }
   ]
 }

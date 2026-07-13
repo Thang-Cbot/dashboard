@@ -8,14 +8,14 @@
       "updated_at": "2026-07-13 06:30:12"
     },
     "prices": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 14:34:45",
-      "updated_at": "2026-07-13 14:34:45"
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-07-13 21:15:04"
     },
     "macro": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 14:34:34",
-      "updated_at": "2026-07-13 14:34:34"
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-07-13 21:15:06"
     },
     "cot": {
       "status": "PARTIAL",
@@ -49,19 +49,19 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 14:34:39 (Nguồn: Vĩ Mô)",
-      "updated_at": "2026-07-13 14:34:39"
+      "detail": "Đẩy thành công lúc 14:34:49 (Nguồn: Giá H1)",
+      "updated_at": "2026-07-13 14:34:49"
     }
   },
   "all_ok": true,
   "macro": {
-    "status": "OK",
-    "detail": "Brent=78.86, DXY=101.063",
-    "updated_at": "2026-07-13 14:34:34"
+    "status": "ERROR",
+    "detail": "'charmap' codec can't encode characters in position 2-3: character maps to <undefined>",
+    "updated_at": "2026-07-13 21:15:06"
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 14:34",
-    "updated_at": "2026-07-13 14:34:45"
+    "detail": "ZC+ZW updated at 21:24",
+    "updated_at": "2026-07-13 21:24:55"
   }
 }

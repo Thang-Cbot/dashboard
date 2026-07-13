@@ -21,6 +21,7 @@ import os
 sys.path.insert(0, os.path.dirname(__file__))
 
 # Fix encoding cho Windows console
+os.environ["PYTHONIOENCODING"] = "utf-8"
 if hasattr(sys.stdout, 'reconfigure'):
     try:
         sys.stdout.reconfigure(encoding='utf-8')
@@ -74,7 +75,7 @@ def run_all():
     ensure_output_dir()
 
     results = {}
-    TOTAL_STEPS = 9
+    TOTAL_STEPS = 10
 
     def _make_mod(status_str, detail_str=""):
         """Tạo dict chuẩn cho từng module, dùng để lưu vào data_status.json."""
@@ -219,6 +220,23 @@ def run_all():
         _fail(f"Acreage: {e}")
         results["acreage"] = {"status": "ERROR", "detail": str(e)[:80], "updated_at": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime("%Y-%m-%d %H:%M:%S")}
 
+    # -------------------------------------------------------------------------
+    # Bước 10: TÓM TẮT TIN TỨC (AI NEWS)
+    # -------------------------------------------------------------------------
+    _banner(10, TOTAL_STEPS, "AI NEWS AGGREGATOR")
+    try:
+        import subprocess
+        res = subprocess.run([sys.executable, str(Path(__file__).parent / "fetch_news.py")], capture_output=True, text=True)
+        if res.returncode == 0:
+            _ok("AI News updated successfully.")
+            results["ai_news"] = {"status": "OK", "detail": "Điểm tin AI thành công", "updated_at": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime("%Y-%m-%d %H:%M:%S")}
+        else:
+            _fail(f"AI News error: {res.stderr[-100:]}")
+            results["ai_news"] = {"status": "ERROR", "detail": "Lỗi điểm tin AI", "updated_at": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime("%Y-%m-%d %H:%M:%S")}
+    except Exception as e:
+        _fail(f"AI News: {e}")
+        results["ai_news"] = {"status": "ERROR", "detail": str(e)[:80], "updated_at": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime("%Y-%m-%d %H:%M:%S")}
+
     # ─────────────────────────────────────────────────────────────────────────
     # TỔNG KẾT
     # ─────────────────────────────────────────────────────────────────────────
@@ -243,6 +261,8 @@ def run_all():
     print(f"  [6] Weather Short  : {_res('weather_short')}")
     print(f"  [7] Weather Long   : {_res('weather_long')}")
     print(f"  [8] AI Analyzer    : {_res('ai')}")
+    print(f"  [9] Acreage (PSD)  : {_res('acreage')}")
+    print(f"  [10] AI News       : {_res('ai_news')}")
     print("+======================================================+")
     print(f"|  Hoan thanh: {finish_time.strftime('%H:%M:%S')} | Thoi gian: {elapsed:.0f}s               |")
     print("+======================================================+")

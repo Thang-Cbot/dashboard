@@ -69,11 +69,25 @@ st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ 2026")
 
 st.markdown("## 📈 Hồ Sơ Chi Tiết Từng Mã")
 
-# Thêm nút Làm mới trạng thái
-if st.button("🧹 LÀM MỚI TRẠNG THÁI", key="refresh_profile", use_container_width=True):
-    st.cache_data.clear()
-    st.rerun()
-
+# Các nút điều khiển thủ công
+col_btn1, col_btn2 = st.columns(2)
+with col_btn1:
+    if st.button("🧹 XÓA BỘ NHỚ TẠM (CACHE)", key="refresh_profile", use_container_width=True):
+        st.cache_data.clear()
+        st.rerun()
+with col_btn2:
+    if st.button("🔄 TẢI GIÁ H1 & PHÂN TÍCH LẠI", key="force_fetch", use_container_width=True):
+        import subprocess
+        import os
+        root_dir = str(Path(__file__).parent.parent)
+        env = os.environ.copy()
+        env["PYTHONIOENCODING"] = "utf-8"
+        with st.spinner("Đang tải dữ liệu H1 từ TV và phân tích lại SMC... (Đợi 15-20s)"):
+            subprocess.run([sys.executable, str(Path(root_dir) / "Data" / "fetch_prices.py")], env=env)
+            subprocess.run([sys.executable, "-c", "import entry_alarm; entry_alarm.run_analysis()"], cwd=root_dir, env=env)
+            subprocess.run([sys.executable, "run_pro_plus.py"], cwd=root_dir, env=env)
+            st.cache_data.clear()
+            st.rerun()
 c1, c2 = st.columns([1, 1])
 with c1:
     selected_name = st.selectbox("Mã hàng hóa", list(COMMODITIES.keys()), index=1)
@@ -368,7 +382,7 @@ with col1:
     st.markdown(f"""
     <div style='background:{signal_bg}; border:1px solid {signal_color}; border-radius:8px; padding:10px; margin-bottom:10px; text-align:center;'>
         <div style='font-size:14px; font-weight:800; color:{signal_color};'>{signal_label}</div>
-        <div style='font-size:11px; color:#94a3b8; margin-top:4px;'>Cập nhật: {live_ts}</div>
+        <div style='font-size:11px; color:#94a3b8; margin-top:4px;'>Phát tín hiệu: {live_ts}</div>
     </div>
     """, unsafe_allow_html=True)
 

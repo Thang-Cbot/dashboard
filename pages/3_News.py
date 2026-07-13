@@ -80,8 +80,11 @@ with tab3:
     st.markdown("<div class='section-header'>🗞️ AI Quét Tin Tức Tự Động (Biển Đen)</div>", unsafe_allow_html=True)
     if st.button("🔄 CẬP NHẬT TIN BIỂN ĐEN MỚI NHẤT", use_container_width=True, key="update_blacksea"):
         import subprocess
+        import os
+        env = os.environ.copy()
+        env["PYTHONIOENCODING"] = "utf-8"
         with st.spinner("AI đang quét và tóm tắt tin tức Biển Đen... (Vui lòng đợi 10-15s)"): 
-            subprocess.run([sys.executable, str(Path(__file__).parent.parent / "Data" / "fetch_blacksea.py")])
+            subprocess.run([sys.executable, str(Path(__file__).parent.parent / "Data" / "fetch_blacksea.py")], env=env)
             st.cache_data.clear()
             st.rerun()
 
@@ -112,8 +115,11 @@ with tab2:
     st.markdown("<div class='section-header'>⚡ AI Tóm Tắt Tin Tức Thị Trường (Yahoo RSS)</div>", unsafe_allow_html=True)
     if st.button("🔄 CẬP NHẬT TIN TỨC MỚI NHẤT (AI)", use_container_width=True):
         import subprocess
+        import os
+        env = os.environ.copy()
+        env["PYTHONIOENCODING"] = "utf-8"
         with st.spinner("AI đang quét và tóm tắt tin tức... (Vui lòng đợi 10-15s)"): 
-            subprocess.run([sys.executable, str(Path(__file__).parent.parent / "Data" / "fetch_news.py")])
+            subprocess.run([sys.executable, str(Path(__file__).parent.parent / "Data" / "fetch_news.py")], env=env)
             st.cache_data.clear()
             st.rerun()
 
