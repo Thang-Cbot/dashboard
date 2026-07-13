@@ -366,15 +366,29 @@ def run_crawler_and_update():
             # Crop Progress
             if code in prog_data:
                 p_data = prog_data[code]
+                fmt_date = ""
+                if prog_date:
+                    try:
+                        fmt_date = datetime.datetime.strptime(prog_date[:10], "%Y-%m-%d").strftime("%d/%m/%Y")
+                    except:
+                        fmt_date = prog_date[:10]
+                        
+                def _upd_cp(f_name, new_val):
+                    old_val = fund[code][f_name].get("latest", "")
+                    if old_val and old_val != new_val:
+                        fund[code][f_name]["previous"] = old_val
+                        old_dt = fund[code][f_name].get("latest_date", "")
+                        if old_dt: fund[code][f_name]["previous_date"] = old_dt
+                    fund[code][f_name]["latest"] = new_val
+                    fund[code][f_name]["next_date"] = cp_next
+                    if fmt_date: fund[code][f_name]["latest_date"] = fmt_date
+
                 if "planted" in p_data:
-                    fund[code]["us_planting"]["latest"] = f"{p_data['planted']}% đã gieo trồng"
-                    fund[code]["us_planting"]["next_date"] = cp_next
+                    _upd_cp("us_planting", f"{p_data['planted']}% đã gieo trồng")
                 if "condition" in p_data and p_data["condition"] > 0:
-                    fund[code]["crop_condition"]["latest"] = f"{p_data['condition']}% Good to Excellent"
-                    fund[code]["crop_condition"]["next_date"] = cp_next
+                    _upd_cp("crop_condition", f"{p_data['condition']}% Good to Excellent")
                 if "harvested" in p_data and code == "ZW":
-                    fund[code]["harvest_progress"]["latest"] = f"Mỹ: {p_data['harvested']}% lúa đông đã thu hoạch"
-                    fund[code]["harvest_progress"]["next_date"] = cp_next
+                    _upd_cp("harvest_progress", f"Mỹ: {p_data['harvested']}% lúa đông đã thu hoạch")
                     
             # Export Inspections
             if code in inspections_data:

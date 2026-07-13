@@ -2025,3 +2025,11 @@ UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: cha
 [2026-07-13 21:15:04] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
 [2026-07-13 21:15:06] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: unknown error
 [2026-07-13 21:15:06] [INFO] ⏰ Đợi Giá H1: còn 1.00h (13/07 22:15:02 VN)
+[2026-07-13 22:15:02] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-13 22:15:12] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 4-5: character maps to <undefined>
+
+[2026-07-13 22:15:13] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-13 22:15:19] [WARN] ⚠ Vĩ Mô (Macro) lỗi attempt 1: unknown error
+[2026-07-13 22:15:19] [INFO] ⏰ Đợi Giá H1: còn 1.00h (13/07 23:15:02 VN)
