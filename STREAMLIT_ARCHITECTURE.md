@@ -68,3 +68,13 @@ Cbot/
 
 *   **`Data/ai_analyzer.py`**: Đóng vai trò **Giám đốc Phân tích**. Sau khi toàn bộ dữ liệu (Thời tiết, Mùa vụ, COT, Giá) được gom về dạng JSON thô, tệp này sẽ tổng hợp lại thành 1 văn bản cực dài (Prompt) và gửi cho Google Gemini. AI sẽ nhận định thị trường dựa trên tư duy SMC và đưa ra lời khuyên mua/bán gom dài hạn. Kết quả được lưu ra file để Streamlit đọc.
 *   **`Data/ai_chart_engine.py`**: Đóng vai trò **Trader & Kỹ thuật viên mô phỏng**. Đọc giá đóng cửa mới nhất của thị trường, sau đó hỏi AI xem mục tiêu của các ngày tiếp theo trong tuần là gì (Daily High, Low, Close). Khi có được mục tiêu từ AI, tập lệnh này sử dụng thuật toán nội suy ngẫu nhiên (Interpolation) để tự động sinh ra từng cây nến H1 khớp liền mạch với giá thực tế, vẽ nên con đường di chuyển của giá trong tương lai. Có cơ chế fallback 3 lần (giữa Gemini 2.5 Flash và 1.5 Flash) để chống đứt gãy kết nối mạng.
+
+---
+
+## 4. Kiến trúc Đồng bộ Nguyên khối (V2 Unified Data Pipeline)
+
+Vào tháng 07/2026, luồng xử lý dữ liệu (Data Pipeline) đã được tối ưu hóa để loại bỏ độ trễ và xung đột giữa các module (đặc biệt là giữa Data Scheduler và Entry Alarm):
+
+1. **Gom dữ liệu tại nguồn (Data Scheduler):** Tại phút 15 mỗi giờ giao dịch, `Data/data_scheduler.py` kích hoạt `fetch_prices.py` để tải dữ liệu H1 và Vĩ mô.
+2. **Kích hoạt đồng bộ tuần tự (Synchronous Trigger):** Ngay khi việc tải dữ liệu hoàn tất thành công, Scheduler sẽ **lập tức** gọi lệnh phân tích tín hiệu Telegram (`entry_alarm.py` qua lệnh `-c`), cập nhật trạng thái Snapshot (`run_pro_plus.py`) và tạo lại giao diện web (`gen_dashboard.py`).
+3. **Chế độ người lắng nghe (Listener Mode):** Tệp `entry_alarm.py` không còn vòng lặp tải dữ liệu độc lập vào phút thứ 16 nữa. Nó chạy thuần túy ở chế độ Telegram Listener, giúp tiết kiệm tài nguyên hệ thống, ngăn chặn việc ghi đè dữ liệu cũ, và đảm bảo mọi thông tin (từ Telegram Alarm, FVG Profile, Dashboard HTML) đồng bộ chính xác trong cùng một tích tắc.
