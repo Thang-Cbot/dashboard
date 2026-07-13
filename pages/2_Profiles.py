@@ -372,12 +372,30 @@ with col1:
     </div>
     """, unsafe_allow_html=True)
 
+    # Xu Hướng
+    st.markdown(f"""<div class='kv'>
+        <div class='lbl'>📈 Xu hướng</div>
+        <div class='val'>{liq_trend}</div>
+    </div>""", unsafe_allow_html=True)
+    
+    # 2 Entry Zones side-by-side
+    entry_1_val = live_entry + " cents" if live_entry != "—" else "—"
+    dca_sub = f"<br><span style='font-size:10px;color:#f59e0b;font-weight:600;'>Mã áp dụng: {dca_contract}</span>" if dca_contract else ""
+    st.markdown(f"""<div style='display:flex; gap:12px; margin-bottom:12px;'>
+        <div style='flex:1; background:#1a2035; padding:10px; border-radius:6px; border-left:3px solid #38bdf8;'>
+            <div style='font-size:11px; color:#94a3b8; font-weight:600; margin-bottom:4px;'>🎯 Vùng 1 (Ngắn Hạn)</div>
+            <div style='font-size:13px; font-weight:700; color:#e2e8f0;'>{entry_1_val}</div>
+        </div>
+        <div style='flex:1; background:#1a2035; padding:10px; border-radius:6px; border-left:3px solid #f59e0b;'>
+            <div style='font-size:11px; color:#94a3b8; font-weight:600; margin-bottom:4px;'>💎 Vùng 2 (Trung Hạn)</div>
+            <div style='font-size:13px; font-weight:700; color:#e2e8f0;'>{dca_val}{dca_sub}</div>
+        </div>
+    </div>""", unsafe_allow_html=True)
+
+    # Stop Loss & Take Profit
     for label, val in [
-        ("📈 Xu hướng",        liq_trend),
-        ("🎯 Entry Zone",      live_entry + " cents" if live_entry != "—" else "—"),
         ("🛑 Stop Loss",       live_sl),
         ("💵 Take Profit",     live_tp),
-        ("💎 DCA Zone (DH)",   dca_val + (f" <br><span style='font-size:10px;color:#f59e0b;font-weight:600;'>Mã áp dụng: {dca_contract}</span>" if dca_contract else "")),
     ]:
         st.markdown(f"""<div class='kv'>
             <div class='lbl'>{label}</div>
