@@ -102,9 +102,9 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import numpy as np
 
-st.markdown("""
+st.markdown(f"""
 <div style='font-size:16px; font-weight:800; color:#e2e8f0; letter-spacing:0.5px; margin-bottom:4px;'>
-    📊 PHÂN TÍCH BIÊN ĐỘ GIÁ (VOLATILITY DASHBOARD)
+    📊 PHÂN TÍCH BIÊN ĐỘ GIÁ (VOLATILITY DASHBOARD) - <span style='color:#f59e0b;'>{selected_name}</span> <span style='font-size:14px; color:#94a3b8;'>({selected_contract})</span>
 </div>
 <div style='font-size:12px; color:#64748b; margin-bottom:12px;'>
     Độ lệch Open↔Close và High↔Low từng ngày | 3 tuần gần nhất + Dự báo xu thế
