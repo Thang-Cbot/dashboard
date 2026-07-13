@@ -333,11 +333,11 @@ with col1:
 
             lvl_str = f"{mss['level']:.2f}"
             html_content += f"""
-            <div style='display:flex;justify-content:space-between;align-items:center;background:{bg_rgba};border-left:3px solid {mss_color};border-radius:4px;padding:6px 10px;margin-bottom:6px;'>
-                <span style='font-size:11px;font-weight:700;{text_style}'>{mss_label} <span style='font-weight:400; font-size:10px;'>{status_label}</span></span>
-                <span style='font-size:12px;font-weight:600;{text_style}'>{lvl_str}</span>
-            </div>
-            """
+<div style='display:flex;justify-content:space-between;align-items:center;background:{bg_rgba};border-left:3px solid {mss_color};border-radius:4px;padding:6px 10px;margin-bottom:6px;'>
+<span style='font-size:11px;font-weight:700;{text_style}'>{mss_label} <span style='font-weight:400; font-size:10px;'>{status_label}</span></span>
+<span style='font-size:12px;font-weight:600;{text_style}'>{lvl_str}</span>
+</div>
+"""
     else:
         html_content += "<div style='font-size:11px;color:#475569;margin-bottom:12px;'>Không phát hiện MSS nào gần đây.</div>"
 
@@ -364,11 +364,11 @@ with col1:
             top_str = f"{fvg['top']:.2f}"
             
             html_content += f"""
-            <div style='display:flex;justify-content:space-between;align-items:center;background:{bg_rgba};border-left:3px solid {fvg_color};border-radius:4px;padding:6px 10px;margin-bottom:6px;'>
-                <span style='font-size:11px;font-weight:700;{text_style}'>{fvg_label} <span style='font-weight:400; font-size:10px;'>{status_label}</span></span>
-                <span style='font-size:12px;font-weight:600;{text_style}'>{bot_str} – {top_str}</span>
-            </div>
-            """
+<div style='display:flex;justify-content:space-between;align-items:center;background:{bg_rgba};border-left:3px solid {fvg_color};border-radius:4px;padding:6px 10px;margin-bottom:6px;'>
+<span style='font-size:11px;font-weight:700;{text_style}'>{fvg_label} <span style='font-weight:400; font-size:10px;'>{status_label}</span></span>
+<span style='font-size:12px;font-weight:600;{text_style}'>{bot_str} – {top_str}</span>
+</div>
+"""
     else:
         html_content += "<div style='font-size:11px;color:#475569;margin-bottom:4px;'>Không phát hiện FVG nào.</div>"
 
