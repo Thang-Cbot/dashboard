@@ -595,15 +595,15 @@ st.markdown("""
 <div style='display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:16px;'>
 
 <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #7c3aed;'>
-<div style='font-size:12px; font-weight:700; color:#c4b5fd; margin-bottom:4px;'>PDH / PDL (Previous Day High / Low)</div>
-<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
+<div style='font-size:13px; font-weight:700; color:#c4b5fd; margin-bottom:4px;'>PDH / PDL (Previous Day High / Low)</div>
+<div style='font-size:12px; color:#94a3b8; line-height:1.5;'>
 Mức giá Cao nhất (PDH) và Thấp nhất (PDL) của ngày giao dịch trước đó. Trong SMC, đây là các vùng thanh khoản quan trọng (Liquidity Pools) mà giá thường có xu hướng quét qua để lấy thanh khoản trước khi đảo chiều.
 </div>
 </div>
 
 <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #0891b2;'>
-<div style='font-size:12px; font-weight:700; color:#67e8f9; margin-bottom:4px;'>FVG (OTE ZONE)</div>
-<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
+<div style='font-size:13px; font-weight:700; color:#67e8f9; margin-bottom:4px;'>FVG (OTE ZONE)</div>
+<div style='font-size:12px; color:#94a3b8; line-height:1.5;'>
 <b>FVG (Fair Value Gap - Khoảng trống giá):</b> Khoảng trống tạo ra bởi một nến có thân rất dài, thể hiện dòng tiền lớn vừa đổ vào.<br/>
 <b>Chưa lấp (Unmitigated):</b> Giá chưa quay lại khu vực này. Nó đóng vai trò như thỏi nam châm hút giá về để tạo điểm vào lệnh tối ưu (OTE).<br/>
 <b style='color:#22c55e;'>FVG Bullish:</b> Khoảng trống tạo ra bởi nến tăng mạnh. Giá thường quay về đây để tạo hỗ trợ -> <b>Canh lệnh LONG (Mua)</b>.<br/>
@@ -612,8 +612,8 @@ Mức giá Cao nhất (PDH) và Thấp nhất (PDL) của ngày giao dịch trư
 </div>
 
 <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #ec4899;'>
-<div style='font-size:12px; font-weight:700; color:#f472b6; margin-bottom:4px;'>MSS (Market Structure Shift)</div>
-<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
+<div style='font-size:13px; font-weight:700; color:#f472b6; margin-bottom:4px;'>MSS (Market Structure Shift)</div>
+<div style='font-size:12px; color:#94a3b8; line-height:1.5;'>
 <b>MSS (Sự thay đổi cấu trúc thị trường):</b> Xảy ra khi giá phá vỡ một Đỉnh hoặc Đáy quan trọng (Swing High/Low) tạo ra sự đảo chiều cấu trúc. Đây là <b>vùng vào lệnh có tỷ lệ Win cực cao</b>.<br/>
 <b>Chưa test:</b> Giá chưa quay lại retest vùng giá bị phá vỡ. Thường giá sẽ quay về đây kiểm tra trước khi chạy tiếp.<br/>
 <b style='color:#22c55e;'>MSS Bullish:</b> Giá phá vỡ Đỉnh cũ để đi lên. Vùng đỉnh cũ trở thành Hỗ trợ -> <b>Canh lệnh LONG</b>.<br/>
@@ -622,15 +622,15 @@ Mức giá Cao nhất (PDH) và Thấp nhất (PDL) của ngày giao dịch trư
 </div>
 
 <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #f59e0b;'>
-<div style='font-size:12px; font-weight:700; color:#fcd34d; margin-bottom:4px;'>ATR (Average True Range)</div>
-<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
+<div style='font-size:13px; font-weight:700; color:#fcd34d; margin-bottom:4px;'>ATR (Average True Range)</div>
+<div style='font-size:12px; color:#94a3b8; line-height:1.5;'>
 Chỉ báo đo lường biến động giá (Volatility). ATR càng cao nghĩa là biên độ dao động trong ngày càng rộng. Chúng ta dùng ATR để ước tính vùng kháng cự (R1) và hỗ trợ (S1) kỳ vọng cho ngày giao dịch tiếp theo.
 </div>
 </div>
 
 <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #22c55e;'>
-<div style='font-size:12px; font-weight:700; color:#86efac; margin-bottom:4px;'>ΔOC / HL Range</div>
-<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
+<div style='font-size:13px; font-weight:700; color:#86efac; margin-bottom:4px;'>ΔOC / HL Range</div>
+<div style='font-size:12px; color:#94a3b8; line-height:1.5;'>
 <b>ΔOC (Open-Close):</b> Chênh lệch giữa giá Mở cửa và Đóng cửa (chiều dài thân nến). Thể hiện hướng đi dứt khoát của ngày hôm đó.<br/>
 <b>HL Range (High-Low):</b> Khoảng cách từ đỉnh cao nhất đến đáy thấp nhất. Thể hiện tổng biên độ quét (biến động) toàn ngày.
 </div>
@@ -639,25 +639,25 @@ Chỉ báo đo lường biến động giá (Volatility). ATR càng cao nghĩa l
 </div>
 
 <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #38bdf8; grid-column: 1 / -1;'>
-<div style='font-size:12px; font-weight:700; color:#7dd3fc; margin-bottom:8px;'>📅 Q1 – Q4 (CAM — Quarterly Action Model)</div>
-<div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
+<div style='font-size:13px; font-weight:700; color:#7dd3fc; margin-bottom:8px;'>📅 Q1 – Q4 (CAM — Quarterly Action Model)</div>
+<div style='font-size:12px; color:#94a3b8; line-height:1.6;'>
 CAM là mô hình phân tích thị trường theo <b>4 quý trong năm</b>, lấy ý tưởng từ lý thuyết ICT (Inner Circle Trader). Mỗi quý là một "mùa" có đặc tính hành động giá riêng biệt và có xu hướng lặp lại theo chu kỳ năm.
 <div style='display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:8px; margin-top:10px;'>
 <div style='background:#0f1629; border-radius:6px; padding:8px; border-top:2px solid #22c55e;'>
-<div style='font-size:11px; font-weight:700; color:#22c55e; margin-bottom:4px;'>Q1 — Tháng 1 / 2 / 3</div>
-<div style='font-size:10px; color:#94a3b8; line-height:1.5;'><b>Giai đoạn Tích luỹ (Accumulation).</b> Smart Money bắt đầu gom hàng ở vùng thấp sau Q4. Giá thường sideway hoặc tạo đáy giả (Judas Swing) trước khi bứt phá. Đây là giai đoạn <b>dễ bẫy nhà đầu tư nhỏ lẻ nhất</b>.</div>
+<div style='font-size:12px; font-weight:700; color:#22c55e; margin-bottom:4px;'>Q1 — Tháng 1 / 2 / 3</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'><b>Giai đoạn Tích luỹ (Accumulation).</b> Smart Money bắt đầu gom hàng ở vùng thấp sau Q4. Giá thường sideway hoặc tạo đáy giả (Judas Swing) trước khi bứt phá. Đây là giai đoạn <b>dễ bẫy nhà đầu tư nhỏ lẻ nhất</b>.</div>
 </div>
 <div style='background:#0f1629; border-radius:6px; padding:8px; border-top:2px solid #60a5fa;'>
-<div style='font-size:11px; font-weight:700; color:#60a5fa; margin-bottom:4px;'>Q2 — Tháng 4 / 5 / 6</div>
-<div style='font-size:10px; color:#94a3b8; line-height:1.5;'><b>Giai đoạn Phân phối (Distribution) / Tăng mạnh.</b> Sau khi Q1 tích luỹ xong, Q2 thường là quý có biến động lớn nhất. Xu hướng chính hình thành rõ ràng. Các breakout mạnh thường xảy ra trong Q2. <b>Mùa vụ ngũ cốc (CBOT) cũng tập trung ở đây</b>.</div>
+<div style='font-size:12px; font-weight:700; color:#60a5fa; margin-bottom:4px;'>Q2 — Tháng 4 / 5 / 6</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'><b>Giai đoạn Phân phối (Distribution) / Tăng mạnh.</b> Sau khi Q1 tích luỹ xong, Q2 thường là quý có biến động lớn nhất. Xu hướng chính hình thành rõ ràng. Các breakout mạnh thường xảy ra trong Q2. <b>Mùa vụ ngũ cốc (CBOT) cũng tập trung ở đây</b>.</div>
 </div>
 <div style='background:#0f1629; border-radius:6px; padding:8px; border-top:2px solid #f59e0b;'>
-<div style='font-size:11px; font-weight:700; color:#fcd34d; margin-bottom:4px;'>Q3 — Tháng 7 / 8 / 9</div>
-<div style='font-size:10px; color:#94a3b8; line-height:1.5;'><b>Giai đoạn Tái phân phối (Re-Distribution) / Điều chỉnh.</b> Thị trường thường pullback hoặc consolidate sau đà tăng Q2. Smart Money chốt lời một phần và tái cân bằng danh mục. <b>Thu hoạch ngũ cốc, dữ liệu USDA quan trọng nhất trong Q3</b>.</div>
+<div style='font-size:12px; font-weight:700; color:#fcd34d; margin-bottom:4px;'>Q3 — Tháng 7 / 8 / 9</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'><b>Giai đoạn Tái phân phối (Re-Distribution) / Điều chỉnh.</b> Thị trường thường pullback hoặc consolidate sau đà tăng Q2. Smart Money chốt lời một phần và tái cân bằng danh mục. <b>Thu hoạch ngũ cốc, dữ liệu USDA quan trọng nhất trong Q3</b>.</div>
 </div>
 <div style='background:#0f1629; border-radius:6px; padding:8px; border-top:2px solid #ef4444;'>
-<div style='font-size:11px; font-weight:700; color:#fca5a5; margin-bottom:4px;'>Q4 — Tháng 10 / 11 / 12</div>
-<div style='font-size:10px; color:#94a3b8; line-height:1.5;'><b>Giai đoạn Phân phối cuối / Đảo chiều chuẩn bị năm mới.</b> Smart Money chốt lời hoàn toàn hoặc bắt đầu build lại vị thế ngược chiều. Giá thường tạo đỉnh/đáy năm trong Q4. <b>Với CBOT: giá ngũ cốc kỳ tháng 12 (Z6) phản ánh triển vọng niên vụ mới</b>.</div>
+<div style='font-size:12px; font-weight:700; color:#fca5a5; margin-bottom:4px;'>Q4 — Tháng 10 / 11 / 12</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'><b>Giai đoạn Phân phối cuối / Đảo chiều chuẩn bị năm mới.</b> Smart Money chốt lời hoàn toàn hoặc bắt đầu build lại vị thế ngược chiều. Giá thường tạo đỉnh/đáy năm trong Q4. <b>Với CBOT: giá ngũ cốc kỳ tháng 12 (Z6) phản ánh triển vọng niên vụ mới</b>.</div>
 </div>
 </div>
 </div>
