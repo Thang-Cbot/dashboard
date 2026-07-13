@@ -213,8 +213,18 @@ def job_prices():
         if now.minute >= 15:
             next_h += datetime.timedelta(hours=1)
         sleep_until(next_h, "Giá H1")
-        run_script("Giá H1 + Macro", PRICE_SCRIPT, "prices")
+        
+        success = run_script("Giá H1 + Macro", PRICE_SCRIPT, "prices")
         run_script("Vĩ Mô (Macro)",   MACRO_SCRIPT, "macro")
+        
+        # Ngay sau khi có giá mới, cập nhật Hồ sơ & Gửi cảnh báo
+        if success:
+            log("Đang quét tín hiệu Telegram Alarm (SMC)...")
+            subprocess.run([sys.executable, "-c", "import entry_alarm; entry_alarm.run_analysis()"], cwd=str(CBOT_ROOT))
+            
+            log("Đang chạy cập nhật Hồ sơ mã (run_pro_plus) và tạo Dashboard (gen_dashboard)...")
+            subprocess.run([sys.executable, "run_pro_plus.py"], cwd=str(CBOT_ROOT))
+            subprocess.run([sys.executable, "gen_dashboard.py"], cwd=str(CBOT_ROOT))
 
 
 def job_cot():

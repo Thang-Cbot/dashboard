@@ -248,13 +248,8 @@ def run_analysis():
     """Chạy script cập nhật dữ liệu và kiểm tra MSS trên H1. Trả về True nếu có bất kỳ tín hiệu nào được phát hiện."""
     print(f"\n--- [{datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime('%Y-%m-%d %H:%M:%S')}] BẮT ĐẦU QUÉT THỊ TRƯỜNG ---")
     
-    # 1. Chạy cập nhật dữ liệu
-    try:
-        print("Đang tải dữ liệu H1 mới nhất...")
-        subprocess.run(["python", "update_active_data.py"], check=True)
-    except Exception as e:
-        print(f"Lỗi khi chạy update_active_data.py: {e}")
-        return False
+    # Dữ liệu đã được tải từ data_scheduler.py -> fetch_prices.py
+    # Tiến hành phân tích trực tiếp từ file CSV.
 
     # 2. Đọc DCA data và Active data từ v3_state_snapshot.json
     dca_data = {}
@@ -398,44 +393,15 @@ def main():
     polling_thread.start()
     
     # Gửi tin nhắn test lúc khởi động để đảm bảo Bot hoạt động
-    send_telegram_message("✅ <b>Hệ thống CBOT Entry Alarm đã kích hoạt!</b>\nBot sẽ tự động quét tín hiệu MSS (H1) mỗi khi đóng nến 1 giờ trong khung thời gian giao dịch của CBOT.")
+    send_telegram_message("✅ <b>Hệ thống CBOT Entry Alarm đã kích hoạt!</b>\nBot hoạt động ở chế độ Telegram Listener. Phân tích tự động sẽ được trigger bởi Data Scheduler ngay sau khi có giá mới.")
     print("Bot đang chạy ngầm... Nhấn Ctrl+C để dừng.")
     
-    last_run_hour = -1
-    
-    while True:
-        now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7)))
-        
-        # Chỉ quét nếu thị trường đang mở cửa
-        if is_cbot_open():
-            if now.minute == 16 and now.hour != last_run_hour:
-                if now.second < 1:
-                    time.sleep(1) # Chờ đúng 1 giây để nến đóng cửa hoàn toàn
-                run_analysis()
-                
-                # TỰ ĐỘNG HÓA V2: Chạy lệnh xuất Báo cáo và HTML Dashboard
-                print(f"[{now.strftime('%H:%M:%S')}] Đang tự động xuất Báo cáo V3 và Dashboard HTML...")
-                try:
-                    # KHÔNG CẦN CHẠY DATA UPDATE NỮA VÌ DATA SCHEDULER ĐÃ CHẠY LÚC PHÚT 15
-                    subprocess.run([sys.executable, "run_pro_plus.py"], cwd=os.path.dirname(__file__), check=False)
-                    subprocess.run([sys.executable, "gen_dashboard.py"], cwd=os.path.dirname(__file__), check=False)
-                    print(f"[{now.strftime('%H:%M:%S')}] Đã cập nhật Dashboard HTML thành công!")
-                except Exception as e:
-                    print(f"Lỗi khi cập nhật Dashboard: {e}")
-                
-                last_run_hour = now.hour
-        else:
-            # Thông báo ngủ đông nếu là phút đầu tiên của giờ đang đóng cửa
-            if now.minute == 15 and now.hour != last_run_hour:
-                print(f"[{now.strftime('%H:%M:%S')}] Thị trường CBOT đang đóng cửa. Bot ngủ đông...")
-                last_run_hour = now.hour
-                
-        # Nghỉ 30 giây trước khi lặp lại để giảm tải CPU
-        # Nếu sắp đến phút 16, ngủ ngắn hơn để không bỏ lỡ giây đầu tiên
-        if now.minute == 15 and now.second >= 30:
-            time.sleep(60 - now.second)
-        else:
-            time.sleep(30)
+    try:
+        # Giữ main thread sống để telegram polling thread chạy ngầm
+        while True:
+            time.sleep(3600)
+    except KeyboardInterrupt:
+        print("Đã dừng Bot.")
 
 if __name__ == "__main__":
     main()
