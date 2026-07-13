@@ -378,16 +378,31 @@ with col1:
         <div class='val'>{liq_trend}</div>
     </div>""", unsafe_allow_html=True)
     
-    # 2 Entry Zones side-by-side
-    entry_1_val = live_entry + " cents" if live_entry != "—" else "—"
+    # Logic to extract FVG for Intraday (Ngắn Hạn)
+    fvg_intraday = "—"
+    if fvg_list:
+        target_type = "bullish" if "LONG" in live_setup else ("bearish" if "SHORT" in live_setup else None)
+        if target_type:
+            # fvg_list is usually ordered by time, reversed gets the most recent ones
+            for fvg in reversed(fvg_list):
+                if fvg["type"] == target_type and not fvg.get("mitigated", False):
+                    fvg_intraday = f"{fvg['bottom']:.2f} - {fvg['top']:.2f} cents"
+                    break
+    
+    # 3 Entry Zones side-by-side
+    entry_2_val = live_entry + " cents" if live_entry != "—" else "—"
     dca_sub = f"<br><span style='font-size:10px;color:#f59e0b;font-weight:600;'>Mã áp dụng: {dca_contract}</span>" if dca_contract else ""
-    st.markdown(f"""<div style='display:flex; gap:12px; margin-bottom:12px;'>
-        <div style='flex:1; background:#1a2035; padding:10px; border-radius:6px; border-left:3px solid #38bdf8;'>
+    st.markdown(f"""<div style='display:flex; gap:8px; margin-bottom:12px;'>
+        <div style='flex:1; background:#1a2035; padding:10px; border-radius:6px; border-left:3px solid #f43f5e;'>
             <div style='font-size:11px; color:#94a3b8; font-weight:600; margin-bottom:4px;'>🎯 Vùng 1 (Ngắn Hạn)</div>
-            <div style='font-size:13px; font-weight:700; color:#e2e8f0;'>{entry_1_val}</div>
+            <div style='font-size:13px; font-weight:700; color:#e2e8f0;'>{fvg_intraday}</div>
+        </div>
+        <div style='flex:1; background:#1a2035; padding:10px; border-radius:6px; border-left:3px solid #38bdf8;'>
+            <div style='font-size:11px; color:#94a3b8; font-weight:600; margin-bottom:4px;'>💎 Vùng 2 (Trung Hạn)</div>
+            <div style='font-size:13px; font-weight:700; color:#e2e8f0;'>{entry_2_val}</div>
         </div>
         <div style='flex:1; background:#1a2035; padding:10px; border-radius:6px; border-left:3px solid #f59e0b;'>
-            <div style='font-size:11px; color:#94a3b8; font-weight:600; margin-bottom:4px;'>💎 Vùng 2 (Trung Hạn)</div>
+            <div style='font-size:11px; color:#94a3b8; font-weight:600; margin-bottom:4px;'>📦 Vùng 3 (Mùa Vụ)</div>
             <div style='font-size:13px; font-weight:700; color:#e2e8f0;'>{dca_val}{dca_sub}</div>
         </div>
     </div>""", unsafe_allow_html=True)
