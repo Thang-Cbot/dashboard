@@ -311,31 +311,44 @@ with col1:
                 <div style='font-size:14px; font-weight:800; color:#a5f3fc; margin-top:2px;'>{pdl_val}</div>
             </div>
         </div>
-        <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:6px;'>⚡ FVG CHƯA LẤP (OTE ZONE)</div>
+        <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:6px;'>⚡ FVG (OTE ZONE)</div>
     </div>
     """, unsafe_allow_html=True)
 
     # Render từng FVG item riêng để tránh lỗi escape HTML
     if fvg_list:
-        for fvg in fvg_list:
+        for fvg in reversed(fvg_list): # Reverse to show most recent at the top
             fvg_type   = fvg["type"]
+            mitigated  = fvg.get("mitigated", False)
+            
             fvg_color  = "#22c55e" if fvg_type == "bullish" else "#ef4444"
             fvg_label  = "🟢 FVG Bullish" if fvg_type == "bullish" else "🔴 FVG Bearish"
-            bg_rgba    = "rgba(34,197,94,0.10)" if fvg_type == "bullish" else "rgba(239,68,68,0.10)"
+            
+            if mitigated:
+                bg_rgba = "rgba(100,116,139,0.10)"  # Grayish bg for mitigated
+                text_style = "text-decoration: line-through; color: #64748b;"
+                fvg_color = "#64748b" # Gray out border
+                status_label = "(Đã lấp)"
+            else:
+                bg_rgba = "rgba(34,197,94,0.10)" if fvg_type == "bullish" else "rgba(239,68,68,0.10)"
+                text_style = "color: #cbd5e1;"
+                status_label = "(Chưa lấp)"
+
             bot_str    = f"{fvg['bottom']:.2f}"
             top_str    = f"{fvg['top']:.2f}"
+            
             st.markdown(
                 f"<div style='display:flex;justify-content:space-between;align-items:center;"
                 f"background:{bg_rgba};border-left:3px solid {fvg_color};border-radius:4px;"
                 f"padding:5px 8px;margin-bottom:4px;'>"
-                f"<span style='font-size:11px;color:{fvg_color};font-weight:700;'>{fvg_label}</span>"
-                f"<span style='font-size:12px;color:#cbd5e1;font-weight:600;'>{bot_str} – {top_str}</span>"
+                f"<span style='font-size:11px;color:{fvg_color};font-weight:700;'>{fvg_label} <span style='font-weight:400; font-size:10px;'>{status_label}</span></span>"
+                f"<span style='font-size:12px;font-weight:600;{text_style}'>{bot_str} – {top_str}</span>"
                 f"</div>",
                 unsafe_allow_html=True
             )
     else:
         st.markdown(
-            "<div style='font-size:11px;color:#475569;padding:4px 10px;margin-bottom:8px;'>Không phát hiện FVG chưa lấp.</div>",
+            "<div style='font-size:11px;color:#475569;padding:4px 10px;margin-bottom:8px;'>Không phát hiện FVG nào.</div>",
             unsafe_allow_html=True
         )
 
@@ -585,42 +598,44 @@ if swing_logic or dca_logic:
 st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
 st.markdown("""
 <div style='background:#0f1629; border-radius:12px; padding:16px; border:1px solid #1e2d45; margin-top:16px;'>
-    <div style='font-size:14px; font-weight:800; color:#e2e8f0; letter-spacing:0.5px; margin-bottom:12px; display:flex; align-items:center; gap:8px;'>
-        <span>📚</span> CHÚ GIẢI THUẬT NGỮ (GLOSSARY)
-    </div>
-    <div style='display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:16px;'>
-        
-        <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #7c3aed;'>
-            <div style='font-size:12px; font-weight:700; color:#c4b5fd; margin-bottom:4px;'>PDH / PDL (Previous Day High / Low)</div>
-            <div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
-                Mức giá Cao nhất (PDH) và Thấp nhất (PDL) của ngày giao dịch trước đó. Trong SMC, đây là các vùng thanh khoản quan trọng (Liquidity Pools) mà giá thường có xu hướng quét qua để lấy thanh khoản trước khi đảo chiều.
-            </div>
-        </div>
+<div style='font-size:14px; font-weight:800; color:#e2e8f0; letter-spacing:0.5px; margin-bottom:12px; display:flex; align-items:center; gap:8px;'>
+<span>📚</span> CHÚ GIẢI THUẬT NGỮ (GLOSSARY)
+</div>
+<div style='display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:16px;'>
 
-        <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #0891b2;'>
-            <div style='font-size:12px; font-weight:700; color:#67e8f9; margin-bottom:4px;'>FVG CHƯA LẤP (OTE ZONE)</div>
-            <div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
-                <b>FVG (Fair Value Gap - Khoảng trống giá):</b> Vùng mất cân bằng giữa Phe Mua và Phe Bán tạo ra bởi một nến thân rất dài, để lại một khoảng trống chưa được giao dịch giữa râu nến trước và sau nó. <br/>
-                <b>Chưa lấp:</b> Giá chưa quay lại giao dịch tại vùng này. Khu vực này đóng vai trò như thỏi nam châm hút giá về (OTE - Optimal Trade Entry) để tái cân bằng thị trường trước khi tiếp tục xu hướng.
-            </div>
-        </div>
+<div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #7c3aed;'>
+<div style='font-size:12px; font-weight:700; color:#c4b5fd; margin-bottom:4px;'>PDH / PDL (Previous Day High / Low)</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
+Mức giá Cao nhất (PDH) và Thấp nhất (PDL) của ngày giao dịch trước đó. Trong SMC, đây là các vùng thanh khoản quan trọng (Liquidity Pools) mà giá thường có xu hướng quét qua để lấy thanh khoản trước khi đảo chiều.
+</div>
+</div>
 
-        <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #f59e0b;'>
-            <div style='font-size:12px; font-weight:700; color:#fcd34d; margin-bottom:4px;'>ATR (Average True Range)</div>
-            <div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
-                Chỉ báo đo lường biến động giá (Volatility). ATR càng cao nghĩa là biên độ dao động trong ngày càng rộng. Chúng ta dùng ATR để ước tính vùng kháng cự (R1) và hỗ trợ (S1) kỳ vọng cho ngày giao dịch tiếp theo.
-            </div>
-        </div>
-        
-        <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #22c55e;'>
-            <div style='font-size:12px; font-weight:700; color:#86efac; margin-bottom:4px;'>ΔOC / HL Range</div>
-            <div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
-                <b>ΔOC (Open-Close):</b> Chênh lệch giữa giá Mở cửa và Đóng cửa (chiều dài thân nến). Thể hiện hướng đi dứt khoát của ngày hôm đó.<br/>
-                <b>HL Range (High-Low):</b> Khoảng cách từ đỉnh cao nhất đến đáy thấp nhất. Thể hiện tổng biên độ quét (biến động) toàn ngày.
-            </div>
-        </div>
+<div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #0891b2;'>
+<div style='font-size:12px; font-weight:700; color:#67e8f9; margin-bottom:4px;'>FVG CHƯA LẤP (OTE ZONE)</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
+<b>FVG (Fair Value Gap - Khoảng trống giá):</b> Khoảng trống tạo ra bởi một nến có thân rất dài, thể hiện dòng tiền lớn vừa đổ vào.<br/>
+<b>Chưa lấp (Unmitigated):</b> Giá chưa quay lại khu vực này. Nó đóng vai trò như thỏi nam châm hút giá về để tạo điểm vào lệnh tối ưu (OTE).<br/>
+<b style='color:#22c55e;'>FVG Bullish:</b> Khoảng trống tạo ra bởi nến tăng mạnh. Giá thường quay về đây để tạo hỗ trợ -> <b>Canh lệnh LONG (Mua)</b>.<br/>
+<b style='color:#ef4444;'>FVG Bearish:</b> Khoảng trống tạo ra bởi nến giảm mạnh. Giá thường quay về đây để tạo kháng cự -> <b>Canh lệnh SHORT (Bán)</b>.
+</div>
+</div>
 
-    </div>
+<div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #f59e0b;'>
+<div style='font-size:12px; font-weight:700; color:#fcd34d; margin-bottom:4px;'>ATR (Average True Range)</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
+Chỉ báo đo lường biến động giá (Volatility). ATR càng cao nghĩa là biên độ dao động trong ngày càng rộng. Chúng ta dùng ATR để ước tính vùng kháng cự (R1) và hỗ trợ (S1) kỳ vọng cho ngày giao dịch tiếp theo.
+</div>
+</div>
+
+<div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #22c55e;'>
+<div style='font-size:12px; font-weight:700; color:#86efac; margin-bottom:4px;'>ΔOC / HL Range</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
+<b>ΔOC (Open-Close):</b> Chênh lệch giữa giá Mở cửa và Đóng cửa (chiều dài thân nến). Thể hiện hướng đi dứt khoát của ngày hôm đó.<br/>
+<b>HL Range (High-Low):</b> Khoảng cách từ đỉnh cao nhất đến đáy thấp nhất. Thể hiện tổng biên độ quét (biến động) toàn ngày.
+</div>
+</div>
+
+</div>
 </div>
 """, unsafe_allow_html=True)
 

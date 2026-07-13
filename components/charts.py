@@ -81,8 +81,6 @@ def compute_smc_zones(df: "pd.DataFrame") -> dict:
         pass
 
     # ── FVG (Fair Value Gap): Tìm trong 80 nến gần nhất ──
-    # FVG Bullish: Low[i] > High[i-2]  → khoảng trống không được lấp bên dưới
-    # FVG Bearish: High[i] < Low[i-2]  → khoảng trống không được lấp bên trên
     try:
         recent = df.tail(80).reset_index(drop=True)
         fvg_list = []
@@ -93,34 +91,35 @@ def compute_smc_zones(df: "pd.DataFrame") -> dict:
             l_i  = recent.loc[i, "Low"]
             dt_i = recent.loc[i, "Datetime"]
 
-            # Bullish FVG
-            if l_i > h_i2:
+            if l_i > h_i2:  # Bullish FVG
+                sub_lows = recent.loc[i+1:, "Low"]
+                mitigated = False
+                # Nếu giá quét xuống dưới bottom (h_i2) là đã lấp toàn bộ
+                if not sub_lows.empty and sub_lows.min() <= h_i2:
+                    mitigated = True
                 fvg_list.append({
                     "type": "bullish",
                     "top": float(l_i),
                     "bottom": float(h_i2),
                     "time": dt_i,
+                    "mitigated": mitigated
                 })
-            # Bearish FVG
-            elif h_i < l_i2:
+            elif h_i < l_i2:  # Bearish FVG
+                sub_highs = recent.loc[i+1:, "High"]
+                mitigated = False
+                # Nếu giá quét lên trên top (l_i2) là đã lấp toàn bộ
+                if not sub_highs.empty and sub_highs.max() >= l_i2:
+                    mitigated = True
                 fvg_list.append({
                     "type": "bearish",
                     "top": float(l_i2),
                     "bottom": float(h_i),
                     "time": dt_i,
+                    "mitigated": mitigated
                 })
 
-        # Chỉ giữ 3 FVG gần nhất chưa bị lấp
-        last_close = float(df["Close"].iloc[-1])
-        unfilled = []
-        for fvg in reversed(fvg_list):
-            if fvg["type"] == "bullish" and last_close > fvg["bottom"]:
-                unfilled.append(fvg)
-            elif fvg["type"] == "bearish" and last_close < fvg["top"]:
-                unfilled.append(fvg)
-            if len(unfilled) >= 3:
-                break
-        zones["fvg_list"] = unfilled
+        # Lấy 5 FVG gần nhất để hiển thị
+        zones["fvg_list"] = fvg_list[-5:]
     except Exception:
         pass
 
