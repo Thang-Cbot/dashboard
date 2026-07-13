@@ -1,15 +1,75 @@
 {
-  "fetched_at": "2026-07-13 06:00:00",
+  "fetched_at": "2026-07-13 06:30:26",
   "source": "Open-Meteo API",
   "regions": {
     "US_Wheat_Kansas": {
-      "error": "503 Server Error: Service Unavailable for url: https://api.open-meteo.com/v1/forecast?latitude=38.5&longitude=-98.0&daily=temperature_2m_max,precipitation_sum&forecast_days=3&timezone=auto"
+      "desc": "Lúa mì HRW",
+      "forecast": [
+        {
+          "date": "2026-07-12",
+          "max_temp_C": 32.3,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-07-13",
+          "max_temp_C": 33.2,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-07-14",
+          "max_temp_C": 35.3,
+          "precip_mm": 0.0
+        }
+      ],
+      "total_3d_rain_mm": 0.0,
+      "max_temp_C": 35.3,
+      "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
     },
     "US_Wheat_Montana": {
-      "error": "503 Server Error: Service Unavailable for url: https://api.open-meteo.com/v1/forecast?latitude=46.87&longitude=-110.36&daily=temperature_2m_max,precipitation_sum&forecast_days=3&timezone=auto"
+      "desc": "Lúa mì HRS",
+      "forecast": [
+        {
+          "date": "2026-07-12",
+          "max_temp_C": 36.5,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-07-13",
+          "max_temp_C": 31.3,
+          "precip_mm": 0.4
+        },
+        {
+          "date": "2026-07-14",
+          "max_temp_C": 28.9,
+          "precip_mm": 6.8
+        }
+      ],
+      "total_3d_rain_mm": 7.2,
+      "max_temp_C": 36.5,
+      "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "US_Wheat_Washington": {
-      "error": "503 Server Error: Service Unavailable for url: https://api.open-meteo.com/v1/forecast?latitude=47.0&longitude=-120.5&daily=temperature_2m_max,precipitation_sum&forecast_days=3&timezone=auto"
+      "desc": "Lúa mì SW",
+      "forecast": [
+        {
+          "date": "2026-07-12",
+          "max_temp_C": 25.6,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-07-13",
+          "max_temp_C": 31.2,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-07-14",
+          "max_temp_C": 36.9,
+          "precip_mm": 0.0
+        }
+      ],
+      "total_3d_rain_mm": 0.0,
+      "max_temp_C": 36.9,
+      "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
     },
     "US_Wheat_Oklahoma": {
       "desc": "Lúa mì HRW",

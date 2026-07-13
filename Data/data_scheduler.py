@@ -17,6 +17,9 @@ Chạy:
 import sys
 import os
 sys.path.insert(0, os.path.dirname(__file__))
+
+# Đảm bảo Scheduler và TẤT CẢ các tiến trình con đều in UTF-8 ra console
+os.environ["PYTHONIOENCODING"] = "utf-8"
 if hasattr(sys.stdout, 'reconfigure'):
     try:
         sys.stdout.reconfigure(encoding='utf-8')
@@ -114,12 +117,14 @@ def run_script(module_name: str, script_path: str, module_key: str, max_retry: i
     Nếu max_retry > 1: thử lại mỗi 1 giây (dùng cho báo cáo precision).
     """
     log(f"▶ Kích hoạt: {module_name}")
+    env = os.environ.copy()
+    env["PYTHONIOENCODING"] = "utf-8"
     for attempt in range(max_retry):
         try:
             result = subprocess.run(
                 [sys.executable, script_path],
                 capture_output=True, text=True, encoding='utf-8', timeout=120,
-                cwd=str(CBOT_ROOT)
+                cwd=str(CBOT_ROOT), env=env
             )
             if result.returncode == 0:
                 log(f"✅ {module_name} hoàn thành (attempt {attempt+1})")

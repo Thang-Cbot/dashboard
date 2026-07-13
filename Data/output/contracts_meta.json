@@ -6,9 +6,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZCZ26.CBT",
-      "year": 2026,
-      "month": 12
+      "ticker": "ZCH27.CBT",
+      "year": 2027,
+      "month": 3
     },
     "dca": {
       "ticker": "ZCZ26.CBT",
@@ -16,12 +16,12 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 292843.0,
-      "prev_volume": 205691.0,
+      "today_volume": 37371.0,
+      "prev_volume": 19653.0,
       "today_oi": 738178,
       "prev_oi": 627617,
-      "today_close": 460.25,
-      "prev_close": 452.0,
+      "today_close": 466.25,
+      "prev_close": 445.25,
       "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
       "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
     }
@@ -33,9 +33,9 @@
       "month": 9
     },
     "swing": {
-      "ticker": "ZWZ26.CBT",
+      "ticker": "ZWU26.CBT",
       "year": 2026,
-      "month": 12
+      "month": 9
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 150447.0,
-      "prev_volume": 73080.0,
+      "today_volume": 11055.0,
+      "prev_volume": 7777.0,
       "today_oi": 215763,
-      "prev_oi": 215782,
-      "today_close": 639.25,
-      "prev_close": 619.75,
-      "trend": "Tăng do phe Short chốt lời (Short Covering)",
-      "logic": "Giá tăng đi kèm Volume tăng nhưng OI giảm. Cho thấy phe Short đang ồ ạt cắt lỗ/chốt vị thế bán khống, giúp giá đẩy lên nhanh nhưng thiếu dòng tiền mới mua lên."
+      "prev_oi": 215763,
+      "today_close": 640.25,
+      "prev_close": 646.25,
+      "trend": "Giảm do phe Long tháo chạy (Long Liquidation)",
+      "logic": "Giá giảm đi kèm Volume tăng nhưng OI giảm. Phe Long đang chủ động đóng vị thế hàng loạt để cắt lỗ, lực bán tháo kỹ thuật mạnh."
     }
   },
-  "updated_at": "2026-07-11 06:30:29"
+  "updated_at": "2026-07-13 13:40:45"
 }
