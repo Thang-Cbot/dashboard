@@ -294,6 +294,7 @@ with col1:
     pdh_val = f"{smc_zones['pdh']:.2f}" if smc_zones.get("pdh") else "—"
     pdl_val = f"{smc_zones['pdl']:.2f}" if smc_zones.get("pdl") else "—"
     fvg_list = smc_zones.get("fvg_list", [])
+    mss_list = smc_zones.get("mss_list", [])
 
     st.markdown(f"<div class='card'><div style='font-size:12px;font-weight:700;color:#94a3b8;letter-spacing:1px;margin-bottom:12px;'>📋 CHIẾN LƯỢC — {swing_contract} {month_str}</div>", unsafe_allow_html=True)
 
@@ -311,6 +312,49 @@ with col1:
                 <div style='font-size:14px; font-weight:800; color:#a5f3fc; margin-top:2px;'>{pdl_val}</div>
             </div>
         </div>
+        
+        <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:6px; margin-top:12px;'>⚡ MSS (MARKET STRUCTURE SHIFT)</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Render MSS item
+    if mss_list:
+        for mss in reversed(mss_list): # Hiện cái mới nhất lên đầu
+            mss_type   = mss["type"]
+            mitigated  = mss.get("mitigated", False)
+            
+            mss_color  = "#22c55e" if mss_type == "bullish" else "#ef4444"
+            mss_label  = "🟢 MSS Bullish" if mss_type == "bullish" else "🔴 MSS Bearish"
+            
+            if mitigated:
+                bg_rgba = "rgba(100,116,139,0.10)"
+                text_style = "text-decoration: line-through; color: #64748b;"
+                mss_color = "#64748b"
+                status_label = "(Đã test)"
+            else:
+                bg_rgba = "rgba(34,197,94,0.10)" if mss_type == "bullish" else "rgba(239,68,68,0.10)"
+                text_style = "color: #cbd5e1;"
+                status_label = "(Chưa test)"
+
+            lvl_str = f"{mss['level']:.2f}"
+            
+            st.markdown(
+                f"<div style='display:flex;justify-content:space-between;align-items:center;"
+                f"background:{bg_rgba};border-left:3px solid {mss_color};border-radius:4px;"
+                f"padding:5px 8px;margin-bottom:4px;'>"
+                f"<span style='font-size:11px;font-weight:700;{text_style}'>{mss_label} <span style='font-weight:400; font-size:10px;'>{status_label}</span></span>"
+                f"<span style='font-size:12px;font-weight:600;{text_style}'>{lvl_str}</span>"
+                f"</div>",
+                unsafe_allow_html=True
+            )
+    else:
+        st.markdown(
+            "<div style='font-size:11px;color:#475569;padding:4px 10px;margin-bottom:8px;'>Không phát hiện MSS nào gần đây.</div>",
+            unsafe_allow_html=True
+        )
+
+    st.markdown("""
+    <div style='background:#0f1629; border-radius:8px; padding:0 10px 10px 10px; margin-bottom:4px; border:1px solid #1e2d45; border-top:none;'>
         <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:6px;'>⚡ FVG (OTE ZONE)</div>
     </div>
     """, unsafe_allow_html=True)
@@ -341,7 +385,7 @@ with col1:
                 f"<div style='display:flex;justify-content:space-between;align-items:center;"
                 f"background:{bg_rgba};border-left:3px solid {fvg_color};border-radius:4px;"
                 f"padding:5px 8px;margin-bottom:4px;'>"
-                f"<span style='font-size:11px;color:{fvg_color};font-weight:700;'>{fvg_label} <span style='font-weight:400; font-size:10px;'>{status_label}</span></span>"
+                f"<span style='font-size:11px;font-weight:700;{text_style}'>{fvg_label} <span style='font-weight:400; font-size:10px;'>{status_label}</span></span>"
                 f"<span style='font-size:12px;font-weight:600;{text_style}'>{bot_str} – {top_str}</span>"
                 f"</div>",
                 unsafe_allow_html=True
@@ -611,12 +655,22 @@ Mức giá Cao nhất (PDH) và Thấp nhất (PDL) của ngày giao dịch trư
 </div>
 
 <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #0891b2;'>
-<div style='font-size:12px; font-weight:700; color:#67e8f9; margin-bottom:4px;'>FVG CHƯA LẤP (OTE ZONE)</div>
+<div style='font-size:12px; font-weight:700; color:#67e8f9; margin-bottom:4px;'>FVG (OTE ZONE)</div>
 <div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
 <b>FVG (Fair Value Gap - Khoảng trống giá):</b> Khoảng trống tạo ra bởi một nến có thân rất dài, thể hiện dòng tiền lớn vừa đổ vào.<br/>
 <b>Chưa lấp (Unmitigated):</b> Giá chưa quay lại khu vực này. Nó đóng vai trò như thỏi nam châm hút giá về để tạo điểm vào lệnh tối ưu (OTE).<br/>
 <b style='color:#22c55e;'>FVG Bullish:</b> Khoảng trống tạo ra bởi nến tăng mạnh. Giá thường quay về đây để tạo hỗ trợ -> <b>Canh lệnh LONG (Mua)</b>.<br/>
 <b style='color:#ef4444;'>FVG Bearish:</b> Khoảng trống tạo ra bởi nến giảm mạnh. Giá thường quay về đây để tạo kháng cự -> <b>Canh lệnh SHORT (Bán)</b>.
+</div>
+</div>
+
+<div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #ec4899;'>
+<div style='font-size:12px; font-weight:700; color:#f472b6; margin-bottom:4px;'>MSS (Market Structure Shift)</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>
+<b>MSS (Sự thay đổi cấu trúc thị trường):</b> Xảy ra khi giá phá vỡ một Đỉnh hoặc Đáy quan trọng (Swing High/Low) tạo ra sự đảo chiều cấu trúc. Đây là <b>vùng vào lệnh có tỷ lệ Win cực cao</b>.<br/>
+<b>Chưa test:</b> Giá chưa quay lại retest vùng giá bị phá vỡ. Thường giá sẽ quay về đây kiểm tra trước khi chạy tiếp.<br/>
+<b style='color:#22c55e;'>MSS Bullish:</b> Giá phá vỡ Đỉnh cũ để đi lên. Vùng đỉnh cũ trở thành Hỗ trợ -> <b>Canh lệnh LONG</b>.<br/>
+<b style='color:#ef4444;'>MSS Bearish:</b> Giá phá vỡ Đáy cũ để đi xuống. Vùng đáy cũ trở thành Kháng cự -> <b>Canh lệnh SHORT</b>.
 </div>
 </div>
 

@@ -60,7 +60,7 @@ def compute_smc_zones(df: "pd.DataFrame") -> dict:
     Tính toán các vùng Thanh Khoản theo chuẩn SMC từ DataFrame H1 thực tế.
     Trả về dict gồm: pdh, pdl, fvg_list (các Fair Value Gap H1 gần nhất).
     """
-    zones = {"pdh": None, "pdl": None, "fvg_list": []}
+    zones = {"pdh": None, "pdl": None, "fvg_list": [], "mss_list": []}
     if df is None or df.empty or len(df) < 5:
         return zones
 
@@ -77,6 +77,48 @@ def compute_smc_zones(df: "pd.DataFrame") -> dict:
                 zones["pdh"] = float(prev_day_df["High"].max())
                 zones["pdl"] = float(prev_day_df["Low"].min())
         df.drop(columns=["_date"], inplace=True, errors="ignore")
+    except Exception:
+        pass
+
+    # ── MSS (Market Structure Shift) ──
+    try:
+        recent = df.tail(120).reset_index(drop=True)
+        mss_list = []
+        last_sh = None
+        last_sl = None
+        
+        for i in range(2, len(recent) - 2):
+            is_sh = recent.loc[i, "High"] > max(recent.loc[i-1, "High"], recent.loc[i-2, "High"], recent.loc[i+1, "High"], recent.loc[i+2, "High"])
+            is_sl = recent.loc[i, "Low"] < min(recent.loc[i-1, "Low"], recent.loc[i-2, "Low"], recent.loc[i+1, "Low"], recent.loc[i+2, "Low"])
+            
+            if is_sh:
+                last_sh = {"index": i, "price": recent.loc[i, "High"], "time": recent.loc[i, "Datetime"]}
+            if is_sl:
+                last_sl = {"index": i, "price": recent.loc[i, "Low"], "time": recent.loc[i, "Datetime"]}
+                
+            close_price = recent.loc[i, "Close"]
+            
+            # Bullish MSS
+            if last_sh and close_price > last_sh["price"] and i > last_sh["index"]:
+                mss_level = last_sh["price"]
+                sub_lows = recent.loc[i+1:, "Low"]
+                mitigated = False
+                if not sub_lows.empty and sub_lows.min() <= mss_level:
+                    mitigated = True
+                mss_list.append({"type": "bullish", "level": float(mss_level), "mitigated": mitigated})
+                last_sh = None # reset
+                
+            # Bearish MSS
+            elif last_sl and close_price < last_sl["price"] and i > last_sl["index"]:
+                mss_level = last_sl["price"]
+                sub_highs = recent.loc[i+1:, "High"]
+                mitigated = False
+                if not sub_highs.empty and sub_highs.max() >= mss_level:
+                    mitigated = True
+                mss_list.append({"type": "bearish", "level": float(mss_level), "mitigated": mitigated})
+                last_sl = None # reset
+
+        zones["mss_list"] = mss_list[-3:] # Giữ 3 cái gần nhất
     except Exception:
         pass
 
