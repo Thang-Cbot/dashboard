@@ -298,83 +298,50 @@ with col1:
 
     st.markdown(f"<div class='card'><div style='font-size:12px;font-weight:700;color:#94a3b8;letter-spacing:1px;margin-bottom:12px;'>📋 CHIẾN LƯỢC — {swing_contract} {month_str}</div>", unsafe_allow_html=True)
 
-    html_content = f"""
-<div style='background:#0f1629; border-radius:8px; padding:12px; margin-bottom:12px; border:1px solid #1e2d45;'>
-    <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:8px;'>📍 VÙNG THANH KHOẢN SMC</div>
-    <div style='display:flex; gap:8px; margin-bottom:16px;'>
-        <div style='flex:1; text-align:center; background:#1a1234; border:1px solid #7c3aed; border-radius:6px; padding:8px;'>
-            <div style='font-size:10px; color:#a78bfa; font-weight:700;'>PDH (Đỉnh hôm qua)</div>
-            <div style='font-size:14px; font-weight:800; color:#c4b5fd; margin-top:2px;'>{pdh_val}</div>
-        </div>
-        <div style='flex:1; text-align:center; background:#0c1a1a; border:1px solid #0891b2; border-radius:6px; padding:8px;'>
-            <div style='font-size:10px; color:#67e8f9; font-weight:700;'>PDL (Đáy hôm qua)</div>
-            <div style='font-size:14px; font-weight:800; color:#a5f3fc; margin-top:2px;'>{pdl_val}</div>
-        </div>
-    </div>
-    
-    <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:8px;'>⚡ MSS (MARKET STRUCTURE SHIFT)</div>
-"""
+    # ── Build toàn bộ SMC HTML bằng string concatenation (tránh triple-quote indent bug) ──
+    H = ""
+    H += "<div style='background:#0f1629;border-radius:8px;padding:12px;margin-bottom:12px;border:1px solid #1e2d45;'>"
+    H += "<div style='font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:8px;'>📍 VÙNG THANH KHOẢN SMC</div>"
+    H += "<div style='display:flex;gap:8px;margin-bottom:16px;'>"
+    H += f"<div style='flex:1;text-align:center;background:#1a1234;border:1px solid #7c3aed;border-radius:6px;padding:8px;'><div style='font-size:10px;color:#a78bfa;font-weight:700;'>PDH (Đỉnh hôm qua)</div><div style='font-size:14px;font-weight:800;color:#c4b5fd;margin-top:2px;'>{pdh_val}</div></div>"
+    H += f"<div style='flex:1;text-align:center;background:#0c1a1a;border:1px solid #0891b2;border-radius:6px;padding:8px;'><div style='font-size:10px;color:#67e8f9;font-weight:700;'>PDL (Đáy hôm qua)</div><div style='font-size:14px;font-weight:800;color:#a5f3fc;margin-top:2px;'>{pdl_val}</div></div>"
+    H += "</div>"
+
+    # ── MSS ──
+    H += "<div style='font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:8px;margin-top:4px;'>⚡ MSS (MARKET STRUCTURE SHIFT)</div>"
     if mss_list:
         for mss in reversed(mss_list):
-            mss_type   = mss["type"]
-            mitigated  = mss.get("mitigated", False)
-            mss_color  = "#22c55e" if mss_type == "bullish" else "#ef4444"
-            mss_label  = "🟢 MSS Bullish" if mss_type == "bullish" else "🔴 MSS Bearish"
-            
-            if mitigated:
-                bg_rgba = "rgba(100,116,139,0.10)"
-                text_style = "text-decoration: line-through; color: #64748b;"
-                mss_color = "#64748b"
-                status_label = "(Đã test)"
-            else:
-                bg_rgba = "rgba(34,197,94,0.10)" if mss_type == "bullish" else "rgba(239,68,68,0.10)"
-                text_style = "color: #cbd5e1;"
-                status_label = "(Chưa test)"
-
-            lvl_str = f"{mss['level']:.2f}"
-            html_content += f"""
-<div style='display:flex;justify-content:space-between;align-items:center;background:{bg_rgba};border-left:3px solid {mss_color};border-radius:4px;padding:6px 10px;margin-bottom:6px;'>
-<span style='font-size:11px;font-weight:700;{text_style}'>{mss_label} <span style='font-weight:400; font-size:10px;'>{status_label}</span></span>
-<span style='font-size:12px;font-weight:600;{text_style}'>{lvl_str}</span>
-</div>
-"""
+            mt = mss["type"]
+            mg = mss.get("mitigated", False)
+            mc = "#64748b" if mg else ("#22c55e" if mt == "bullish" else "#ef4444")
+            ml = ("🟢 MSS Bullish" if mt == "bullish" else "🔴 MSS Bearish")
+            mbg = "rgba(100,116,139,0.10)" if mg else ("rgba(34,197,94,0.10)" if mt == "bullish" else "rgba(239,68,68,0.10)")
+            mts = "text-decoration:line-through;color:#64748b;" if mg else "color:#cbd5e1;"
+            msl = "(Đã test)" if mg else "(Chưa test)"
+            mlv = f"{mss['level']:.2f}"
+            H += f"<div style='display:flex;justify-content:space-between;align-items:center;background:{mbg};border-left:3px solid {mc};border-radius:4px;padding:6px 10px;margin-bottom:6px;'><span style='font-size:11px;font-weight:700;{mts}'>{ml} <span style='font-weight:400;font-size:10px;'>{msl}</span></span><span style='font-size:12px;font-weight:600;{mts}'>{mlv}</span></div>"
     else:
-        html_content += "<div style='font-size:11px;color:#475569;margin-bottom:12px;'>Không phát hiện MSS nào gần đây.</div>"
+        H += "<div style='font-size:11px;color:#475569;margin-bottom:12px;'>Không phát hiện MSS nào gần đây.</div>"
 
-    html_content += "<div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:8px; margin-top:16px;'>⚡ FVG (OTE ZONE)</div>"
-    
+    # ── FVG ──
+    H += "<div style='font-size:10px;color:#94a3b8;font-weight:700;letter-spacing:0.5px;margin-bottom:8px;margin-top:16px;'>⚡ FVG (OTE ZONE)</div>"
     if fvg_list:
         for fvg in reversed(fvg_list):
-            fvg_type   = fvg["type"]
-            mitigated  = fvg.get("mitigated", False)
-            fvg_color  = "#22c55e" if fvg_type == "bullish" else "#ef4444"
-            fvg_label  = "🟢 FVG Bullish" if fvg_type == "bullish" else "🔴 FVG Bearish"
-            
-            if mitigated:
-                bg_rgba = "rgba(100,116,139,0.10)"
-                text_style = "text-decoration: line-through; color: #64748b;"
-                fvg_color = "#64748b"
-                status_label = "(Đã lấp)"
-            else:
-                bg_rgba = "rgba(34,197,94,0.10)" if fvg_type == "bullish" else "rgba(239,68,68,0.10)"
-                text_style = "color: #cbd5e1;"
-                status_label = "(Chưa lấp)"
-
-            bot_str = f"{fvg['bottom']:.2f}"
-            top_str = f"{fvg['top']:.2f}"
-            
-            html_content += f"""
-<div style='display:flex;justify-content:space-between;align-items:center;background:{bg_rgba};border-left:3px solid {fvg_color};border-radius:4px;padding:6px 10px;margin-bottom:6px;'>
-<span style='font-size:11px;font-weight:700;{text_style}'>{fvg_label} <span style='font-weight:400; font-size:10px;'>{status_label}</span></span>
-<span style='font-size:12px;font-weight:600;{text_style}'>{bot_str} – {top_str}</span>
-</div>
-"""
+            ft = fvg["type"]
+            fg = fvg.get("mitigated", False)
+            fc = "#64748b" if fg else ("#22c55e" if ft == "bullish" else "#ef4444")
+            fl = ("🟢 FVG Bullish" if ft == "bullish" else "🔴 FVG Bearish")
+            fbg = "rgba(100,116,139,0.10)" if fg else ("rgba(34,197,94,0.10)" if ft == "bullish" else "rgba(239,68,68,0.10)")
+            fts = "text-decoration:line-through;color:#64748b;" if fg else "color:#cbd5e1;"
+            fsl = "(Đã lấp)" if fg else "(Chưa lấp)"
+            fbot = f"{fvg['bottom']:.2f}"
+            ftop = f"{fvg['top']:.2f}"
+            H += f"<div style='display:flex;justify-content:space-between;align-items:center;background:{fbg};border-left:3px solid {fc};border-radius:4px;padding:6px 10px;margin-bottom:6px;'><span style='font-size:11px;font-weight:700;{fts}'>{fl} <span style='font-weight:400;font-size:10px;'>{fsl}</span></span><span style='font-size:12px;font-weight:600;{fts}'>{fbot} – {ftop}</span></div>"
     else:
-        html_content += "<div style='font-size:11px;color:#475569;margin-bottom:4px;'>Không phát hiện FVG nào.</div>"
+        H += "<div style='font-size:11px;color:#475569;margin-bottom:4px;'>Không phát hiện FVG nào.</div>"
 
-    html_content += "</div>" # close main container
-    
-    st.markdown(html_content, unsafe_allow_html=True)
+    H += "</div>"
+    st.markdown(H, unsafe_allow_html=True)
 
 
 
