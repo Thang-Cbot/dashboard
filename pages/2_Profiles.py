@@ -116,24 +116,9 @@ with col1:
 
     st.markdown(f"<div class='card'><div style='font-size:12px;font-weight:700;color:#94a3b8;letter-spacing:1px;margin-bottom:12px;'>📋 CHIẾN LƯỢC — {swing_contract} {month_str}</div>", unsafe_allow_html=True)
 
-    # ── Bảng SMC Liquidity Zones (thay thế S1/R1 cũ) ──
-    fvg_html = ""
-    for fvg in fvg_list:
-        fvg_color = "#22c55e" if fvg["type"] == "bullish" else "#ef4444"
-        fvg_label = "🟢 FVG Bullish" if fvg["type"] == "bullish" else "🔴 FVG Bearish"
-        fvg_html += f"""
-        <div style='display:flex; justify-content:space-between; align-items:center;
-                    background:rgba({34 if fvg['type']=='bullish' else 239},{197 if fvg['type']=='bullish' else 68},{94 if fvg['type']=='bullish' else 68},0.08);
-                    border-left:3px solid {fvg_color}; border-radius:4px;
-                    padding:5px 8px; margin-bottom:4px;'>
-            <span style='font-size:11px; color:{fvg_color}; font-weight:700;'>{fvg_label}</span>
-            <span style='font-size:12px; color:#cbd5e1; font-weight:600;'>{fvg['bottom']:.2f} – {fvg['top']:.2f}</span>
-        </div>"""
-    if not fvg_html:
-        fvg_html = "<div style='font-size:11px;color:#475569;padding:4px;'>Không phát hiện FVG chưa lấp.</div>"
-
+    # ── Bảng SMC Liquidity Zones — render từng phần riêng biệt ──
     st.markdown(f"""
-    <div style='background:#0f1629; border-radius:8px; padding:10px; margin-bottom:12px; border:1px solid #1e2d45;'>
+    <div style='background:#0f1629; border-radius:8px; padding:10px; margin-bottom:4px; border:1px solid #1e2d45;'>
         <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:8px;'>📍 VÙNG THANH KHOẢN SMC</div>
         <div style='display:flex; gap:8px; margin-bottom:8px;'>
             <div style='flex:1; text-align:center; background:#1a1234; border:1px solid #7c3aed; border-radius:6px; padding:6px;'>
@@ -146,9 +131,34 @@ with col1:
             </div>
         </div>
         <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:6px;'>⚡ FVG CHƯA LẤP (OTE ZONE)</div>
-        {fvg_html}
     </div>
     """, unsafe_allow_html=True)
+
+    # Render từng FVG item riêng để tránh lỗi escape HTML
+    if fvg_list:
+        for fvg in fvg_list:
+            fvg_type   = fvg["type"]
+            fvg_color  = "#22c55e" if fvg_type == "bullish" else "#ef4444"
+            fvg_label  = "🟢 FVG Bullish" if fvg_type == "bullish" else "🔴 FVG Bearish"
+            bg_rgba    = "rgba(34,197,94,0.10)" if fvg_type == "bullish" else "rgba(239,68,68,0.10)"
+            bot_str    = f"{fvg['bottom']:.2f}"
+            top_str    = f"{fvg['top']:.2f}"
+            st.markdown(
+                f"<div style='display:flex;justify-content:space-between;align-items:center;"
+                f"background:{bg_rgba};border-left:3px solid {fvg_color};border-radius:4px;"
+                f"padding:5px 8px;margin-bottom:4px;'>"
+                f"<span style='font-size:11px;color:{fvg_color};font-weight:700;'>{fvg_label}</span>"
+                f"<span style='font-size:12px;color:#cbd5e1;font-weight:600;'>{bot_str} – {top_str}</span>"
+                f"</div>",
+                unsafe_allow_html=True
+            )
+    else:
+        st.markdown(
+            "<div style='font-size:11px;color:#475569;padding:4px 10px;margin-bottom:8px;'>Không phát hiện FVG chưa lấp.</div>",
+            unsafe_allow_html=True
+        )
+
+
 
     # ── Tín hiệu THỰC TẾ từ last_signals.json (cập nhật mỗi H1) ──
     live_setup   = live_sig.get("setup_type", "")      # "LONG" / "SHORT"
