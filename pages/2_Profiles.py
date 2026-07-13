@@ -300,22 +300,22 @@ with col1:
 
     # ── Bảng SMC Liquidity Zones — render từng phần riêng biệt ──
     st.markdown(f"""
-    <div style='background:#0f1629; border-radius:8px; padding:10px; margin-bottom:4px; border:1px solid #1e2d45;'>
-        <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:8px;'>📍 VÙNG THANH KHOẢN SMC</div>
-        <div style='display:flex; gap:8px; margin-bottom:8px;'>
-            <div style='flex:1; text-align:center; background:#1a1234; border:1px solid #7c3aed; border-radius:6px; padding:6px;'>
-                <div style='font-size:10px; color:#a78bfa; font-weight:700;'>PDH (Đỉnh hôm qua)</div>
-                <div style='font-size:14px; font-weight:800; color:#c4b5fd; margin-top:2px;'>{pdh_val}</div>
-            </div>
-            <div style='flex:1; text-align:center; background:#0c1a1a; border:1px solid #0891b2; border-radius:6px; padding:6px;'>
-                <div style='font-size:10px; color:#67e8f9; font-weight:700;'>PDL (Đáy hôm qua)</div>
-                <div style='font-size:14px; font-weight:800; color:#a5f3fc; margin-top:2px;'>{pdl_val}</div>
-            </div>
-        </div>
-        
-        <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:6px; margin-top:12px;'>⚡ MSS (MARKET STRUCTURE SHIFT)</div>
-    </div>
-    """, unsafe_allow_html=True)
+<div style='background:#0f1629; border-radius:8px; padding:10px; margin-bottom:4px; border:1px solid #1e2d45;'>
+<div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:8px;'>📍 VÙNG THANH KHOẢN SMC</div>
+<div style='display:flex; gap:8px; margin-bottom:8px;'>
+<div style='flex:1; text-align:center; background:#1a1234; border:1px solid #7c3aed; border-radius:6px; padding:6px;'>
+<div style='font-size:10px; color:#a78bfa; font-weight:700;'>PDH (Đỉnh hôm qua)</div>
+<div style='font-size:14px; font-weight:800; color:#c4b5fd; margin-top:2px;'>{pdh_val}</div>
+</div>
+<div style='flex:1; text-align:center; background:#0c1a1a; border:1px solid #0891b2; border-radius:6px; padding:6px;'>
+<div style='font-size:10px; color:#67e8f9; font-weight:700;'>PDL (Đáy hôm qua)</div>
+<div style='font-size:14px; font-weight:800; color:#a5f3fc; margin-top:2px;'>{pdl_val}</div>
+</div>
+</div>
+
+<div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:6px; margin-top:12px;'>⚡ MSS (MARKET STRUCTURE SHIFT)</div>
+</div>
+""", unsafe_allow_html=True)
 
     # Render MSS item
     if mss_list:
@@ -354,10 +354,10 @@ with col1:
         )
 
     st.markdown("""
-    <div style='background:#0f1629; border-radius:8px; padding:0 10px 10px 10px; margin-bottom:4px; border:1px solid #1e2d45; border-top:none;'>
-        <div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:6px;'>⚡ FVG (OTE ZONE)</div>
-    </div>
-    """, unsafe_allow_html=True)
+<div style='background:#0f1629; border-radius:8px; padding:0 10px 10px 10px; margin-bottom:4px; border:1px solid #1e2d45; border-top:none;'>
+<div style='font-size:10px; color:#94a3b8; font-weight:700; letter-spacing:0.5px; margin-bottom:6px;'>⚡ FVG (OTE ZONE)</div>
+</div>
+""", unsafe_allow_html=True)
 
     # Render từng FVG item riêng để tránh lỗi escape HTML
     if fvg_list:
