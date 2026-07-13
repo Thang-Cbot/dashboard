@@ -639,25 +639,25 @@ Chỉ báo đo lường biến động giá (Volatility). ATR càng cao nghĩa l
 </div>
 
 <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #38bdf8; grid-column: 1 / -1;'>
-<div style='font-size:13px; font-weight:700; color:#7dd3fc; margin-bottom:8px;'>📅 Q1 – Q4 (CAM — Quarterly Action Model)</div>
+<div style='font-size:13px; font-weight:700; color:#7dd3fc; margin-bottom:8px;'>🌊 Q1 – Q4 (SMART MONEY MATRIX / DÒNG TIỀN)</div>
 <div style='font-size:12px; color:#94a3b8; line-height:1.6;'>
-CAM là mô hình phân tích thị trường theo <b>4 quý trong năm</b>, lấy ý tưởng từ lý thuyết ICT (Inner Circle Trader). Mỗi quý là một "mùa" có đặc tính hành động giá riêng biệt và có xu hướng lặp lại theo chu kỳ năm.
+Trạng thái <b>Dòng Tiền Thông Minh (Smart Money - Managed Money)</b> dựa trên báo cáo COT. Ma trận này chia dòng tiền thành 4 góc phần tư (Quadrants) phản ánh chu kỳ mua/bán của Cá mập:
 <div style='display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:8px; margin-top:10px;'>
 <div style='background:#0f1629; border-radius:6px; padding:8px; border-top:2px solid #22c55e;'>
-<div style='font-size:12px; font-weight:700; color:#22c55e; margin-bottom:4px;'>Q1 — Tháng 1 / 2 / 3</div>
-<div style='font-size:11px; color:#94a3b8; line-height:1.5;'><b>Giai đoạn Tích luỹ (Accumulation).</b> Smart Money bắt đầu gom hàng ở vùng thấp sau Q4. Giá thường sideway hoặc tạo đáy giả (Judas Swing) trước khi bứt phá. Đây là giai đoạn <b>dễ bẫy nhà đầu tư nhỏ lẻ nhất</b>.</div>
-</div>
-<div style='background:#0f1629; border-radius:6px; padding:8px; border-top:2px solid #60a5fa;'>
-<div style='font-size:12px; font-weight:700; color:#60a5fa; margin-bottom:4px;'>Q2 — Tháng 4 / 5 / 6</div>
-<div style='font-size:11px; color:#94a3b8; line-height:1.5;'><b>Giai đoạn Phân phối (Distribution) / Tăng mạnh.</b> Sau khi Q1 tích luỹ xong, Q2 thường là quý có biến động lớn nhất. Xu hướng chính hình thành rõ ràng. Các breakout mạnh thường xảy ra trong Q2. <b>Mùa vụ ngũ cốc (CBOT) cũng tập trung ở đây</b>.</div>
-</div>
-<div style='background:#0f1629; border-radius:6px; padding:8px; border-top:2px solid #f59e0b;'>
-<div style='font-size:12px; font-weight:700; color:#fcd34d; margin-bottom:4px;'>Q3 — Tháng 7 / 8 / 9</div>
-<div style='font-size:11px; color:#94a3b8; line-height:1.5;'><b>Giai đoạn Tái phân phối (Re-Distribution) / Điều chỉnh.</b> Thị trường thường pullback hoặc consolidate sau đà tăng Q2. Smart Money chốt lời một phần và tái cân bằng danh mục. <b>Thu hoạch ngũ cốc, dữ liệu USDA quan trọng nhất trong Q3</b>.</div>
+<div style='font-size:12px; font-weight:700; color:#22c55e; margin-bottom:4px;'>Q1 (XANH) — GOM LONG</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>Vị thế Net (Ròng) lớn hơn 0 và đang Tăng. Smart Money đang đổ tiền vào mua (Long). Động lượng mạnh, xu hướng tăng giá rõ rệt. <b>-> Ưu tiên đánh LONG.</b></div>
 </div>
 <div style='background:#0f1629; border-radius:6px; padding:8px; border-top:2px solid #ef4444;'>
-<div style='font-size:12px; font-weight:700; color:#fca5a5; margin-bottom:4px;'>Q4 — Tháng 10 / 11 / 12</div>
-<div style='font-size:11px; color:#94a3b8; line-height:1.5;'><b>Giai đoạn Phân phối cuối / Đảo chiều chuẩn bị năm mới.</b> Smart Money chốt lời hoàn toàn hoặc bắt đầu build lại vị thế ngược chiều. Giá thường tạo đỉnh/đáy năm trong Q4. <b>Với CBOT: giá ngũ cốc kỳ tháng 12 (Z6) phản ánh triển vọng niên vụ mới</b>.</div>
+<div style='font-size:12px; font-weight:700; color:#fca5a5; margin-bottom:4px;'>Q2 (ĐỎ) — XẢ LONG</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>Vị thế Net vẫn lớn hơn 0 nhưng đang Giảm. Smart Money bắt đầu chốt lời lệnh Long cũ, dòng tiền rút ra. Giá có thể điều chỉnh giảm ngắn hạn. <b>-> Không mua đuổi, cẩn trọng đảo chiều.</b></div>
+</div>
+<div style='background:#0f1629; border-radius:6px; padding:8px; border-top:2px solid #eab308;'>
+<div style='font-size:12px; font-weight:700; color:#fde047; margin-bottom:4px;'>Q3 (VÀNG) — ĐẨY SHORT</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>Vị thế Net nhỏ hơn 0 và tiếp tục Giảm sâu hơn. Smart Money đang gia tăng bán khống (Short). Xu hướng giảm mạnh, lực ép giá rất lớn. <b>-> Ưu tiên đánh SHORT.</b></div>
+</div>
+<div style='background:#0f1629; border-radius:6px; padding:8px; border-top:2px solid #f97316;'>
+<div style='font-size:12px; font-weight:700; color:#fdba74; margin-bottom:4px;'>Q4 (CAM) — COVER SHORT</div>
+<div style='font-size:11px; color:#94a3b8; line-height:1.5;'>Vị thế Net nhỏ hơn 0 nhưng đang Tăng trở lại. Smart Money đang mua lại để chốt lời lệnh Short (Cover Short). Sức ép bán giảm bớt, giá thường tạo đáy và bật lên. <b>-> Canh LONG bắt sóng hồi.</b></div>
 </div>
 </div>
 </div>
