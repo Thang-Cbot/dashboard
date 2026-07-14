@@ -135,25 +135,72 @@ def _should_use_next_for_swing(active_info, next_info, active_data, current_date
 # 2. TẢI VÀ PHÂN TÍCH DỮ LIỆU
 # ─────────────────────────────────────────────────────────────────────
 
+def _fetch_from_tradingview(ticker_symbol: str) -> pd.DataFrame:
+    """
+    Chuyển đổi ZCU26.CBT -> ZCU2026 và fetch 300 nến H1 từ TradingView.
+    """
+    try:
+        from tvDatafeed import TvDatafeed, Interval
+        tv = TvDatafeed()
+        # Chuyển ZCU26.CBT -> ZCU2026
+        # ticker_symbol: ZCU26.CBT
+        base = ticker_symbol.split('.')[0] # ZCU26
+        # extract symbol and year
+        sym = base[:-2] # ZCU
+        yr = base[-2:]  # 26
+        tv_sym = f"{sym}20{yr}"
+        
+        # Retry up to 3 times
+        import time
+        for attempt in range(3):
+            try:
+                df = tv.get_hist(symbol=tv_sym, exchange='CBOT', interval=Interval.in_1_hour, n_bars=200)
+                if df is not None and not df.empty:
+                    # df index is datetime (local naive)
+                    df = df.reset_index()
+                    df["Time"] = df["datetime"].dt.strftime("%Y-%m-%d %H:%M")
+                    # Rename columns to match Yahoo
+                    df = df.rename(columns={"open": "Open", "high": "High", "low": "Low", "close": "Close", "volume": "Volume"})
+                    df["OpenInterest"] = 0
+                    return df[["Time", "Open", "High", "Low", "Close", "Volume", "OpenInterest"]]
+            except Exception as e:
+                print(f"      [TV attempt {attempt+1}] Lỗi: {e}")
+            time.sleep(1)
+            
+    except ImportError:
+        print("      ⚠️ tvDatafeed chưa được cài đặt.")
+    except Exception as e:
+        print(f"      Lỗi TradingView API: {e}")
+        
+    return pd.DataFrame()
+
 def download_and_analyze(commodity: str, ticker_symbol: str, suffix: str) -> bool:
     """Tải H1 data, lưu CSV vào Data/output/, chạy technical analysis."""
     csv_path = get_csv_str(commodity, suffix)
     try:
         print(f"    Tải H1: {ticker_symbol} ({suffix})...")
-        ticker = yf.Ticker(ticker_symbol)
-        df = ticker.history(period="30d", interval="1h")
+        
+        # 1. Thử TradingView trước (Real-time H1 chốt nến)
+        df = _fetch_from_tradingview(ticker_symbol)
+        
+        # 2. Fallback sang Yahoo Finance
         if df.empty:
-            print(f"    ⚠️  Không lấy được data cho {ticker_symbol}. Giữ file cũ.")
-            return False
+            print(f"    ⚠️  TradingView thất bại, Fallback sang Yahoo Finance...")
+            ticker = yf.Ticker(ticker_symbol)
+            df = ticker.history(period="30d", interval="1h")
+            if df.empty:
+                print(f"    ⚠️  Không lấy được data từ cả TV và Yahoo cho {ticker_symbol}.")
+                return False
 
-        df = df.reset_index()
-        df["Time"] = df["Datetime"].dt.tz_convert('Asia/Ho_Chi_Minh').dt.strftime("%Y-%m-%d %H:%M")
-        try:
-            oi_val = ticker.info.get("openInterest", 0) or 0
-        except Exception:
-            oi_val = 0
-        df["OpenInterest"] = oi_val
-        df = df[["Time", "Open", "High", "Low", "Close", "Volume", "OpenInterest"]]
+            df = df.reset_index()
+            df["Time"] = df["Datetime"].dt.tz_convert('Asia/Ho_Chi_Minh').dt.strftime("%Y-%m-%d %H:%M")
+            try:
+                oi_val = ticker.info.get("openInterest", 0) or 0
+            except Exception:
+                oi_val = 0
+            df["OpenInterest"] = oi_val
+            df = df[["Time", "Open", "High", "Low", "Close", "Volume", "OpenInterest"]]
+            
         df.to_csv(csv_path, index=False)
         print(f"    ✅ Đã lưu {len(df)} nến → {csv_path}")
         analyze_cbot_data(csv_path)
