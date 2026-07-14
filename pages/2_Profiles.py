@@ -313,6 +313,39 @@ with _tab_h4:
             _dfh4["EMA21"] = _dfh4["Close"].ewm(span=21, adjust=False).mean()
             _dfh4["EMA50"] = _dfh4["Close"].ewm(span=50, adjust=False).mean()
 
+            # Xác định Đỉnh/Đáy (Swing High / Swing Low) bằng Fractal 5 nến
+            _dfh4['Swing_High'] = False
+            _dfh4['Swing_Low'] = False
+            for i in range(2, len(_dfh4)-2):
+                if _dfh4.loc[i, 'High'] > _dfh4.loc[i-1, 'High'] and _dfh4.loc[i, 'High'] > _dfh4.loc[i-2, 'High'] and \
+                   _dfh4.loc[i, 'High'] > _dfh4.loc[i+1, 'High'] and _dfh4.loc[i, 'High'] > _dfh4.loc[i+2, 'High']:
+                    _dfh4.loc[i, 'Swing_High'] = True
+                if _dfh4.loc[i, 'Low'] < _dfh4.loc[i-1, 'Low'] and _dfh4.loc[i, 'Low'] < _dfh4.loc[i-2, 'Low'] and \
+                   _dfh4.loc[i, 'Low'] < _dfh4.loc[i+1, 'Low'] and _dfh4.loc[i, 'Low'] < _dfh4.loc[i+2, 'Low']:
+                    _dfh4.loc[i, 'Swing_Low'] = True
+
+            # Xác định Thay đổi cấu trúc / Phá vỡ (ChoCh / BOS)
+            _dfh4['BOS_Bull'] = False
+            _dfh4['BOS_Bear'] = False
+            _last_sh_val = None
+            _last_sl_val = None
+
+            for i in range(len(_dfh4)):
+                # Đánh giá xem nến đóng cửa có vượt qua Đỉnh/Đáy gần nhất không
+                if _last_sh_val is not None and _dfh4.loc[i, 'Close'] > _last_sh_val:
+                    _dfh4.loc[i, 'BOS_Bull'] = True
+                    _last_sh_val = None  # Reset để chờ đỉnh mới
+                if _last_sl_val is not None and _dfh4.loc[i, 'Close'] < _last_sl_val:
+                    _dfh4.loc[i, 'BOS_Bear'] = True
+                    _last_sl_val = None
+                    
+                # Cập nhật Đỉnh/Đáy vừa được xác nhận (Nến i-2 được xác nhận khi nến i đóng cửa)
+                if i >= 2:
+                    if _dfh4.loc[i-2, 'Swing_High']:
+                        _last_sh_val = _dfh4.loc[i-2, 'High']
+                    if _dfh4.loc[i-2, 'Swing_Low']:
+                        _last_sl_val = _dfh4.loc[i-2, 'Low']
+
             # Nhãn hiển thị trục X: ngày + giờ VN
             _dfh4["Label"] = _dfh4["Datetime"].dt.strftime("%d/%m %H:%M")
 
@@ -360,6 +393,53 @@ with _tab_h4:
                 line=dict(color="#a78bfa", width=1.8, dash="solid"),
                 opacity=0.9,
             ), row=1, col=1)
+
+            # --- Đánh dấu Đỉnh (Swing High) ---
+            _y_pad_marker = (_dfh4["High"].max() - _dfh4["Low"].min()) * 0.08
+            _sh_df = _dfh4[_dfh4['Swing_High']]
+            if not _sh_df.empty:
+                _fig_h4.add_trace(go.Scatter(
+                    x=_sh_df["Label"], y=_sh_df["High"] + (_y_pad_marker * 0.1),
+                    mode="markers+text", name="Đỉnh H4",
+                    marker=dict(symbol="triangle-down", size=6, color="#ef4444"),
+                    text="▼", textposition="top center", textfont=dict(color="#ef4444", size=9),
+                    hoverinfo="skip", showlegend=False
+                ), row=1, col=1)
+
+            # --- Đánh dấu Đáy (Swing Low) ---
+            _sl_df = _dfh4[_dfh4['Swing_Low']]
+            if not _sl_df.empty:
+                _fig_h4.add_trace(go.Scatter(
+                    x=_sl_df["Label"], y=_sl_df["Low"] - (_y_pad_marker * 0.1),
+                    mode="markers+text", name="Đáy H4",
+                    marker=dict(symbol="triangle-up", size=6, color="#22c55e"),
+                    text="▲", textposition="bottom center", textfont=dict(color="#22c55e", size=9),
+                    hoverinfo="skip", showlegend=False
+                ), row=1, col=1)
+
+            # --- Đánh dấu Break Cấu Trúc Tăng (ChoCh/BOS Bull) ---
+            _bull_break = _dfh4[_dfh4['BOS_Bull']]
+            if not _bull_break.empty:
+                _fig_h4.add_trace(go.Scatter(
+                    x=_bull_break["Label"], y=_bull_break["Low"] - (_y_pad_marker * 0.3),
+                    mode="markers+text", name="Break Tăng",
+                    marker=dict(symbol="star", size=10, color="#38bdf8"),
+                    text="<b>🚀 Đảo chiều/Tiếp diễn Tăng</b>", textposition="bottom center",
+                    textfont=dict(color="#38bdf8", size=10),
+                    hoverinfo="skip"
+                ), row=1, col=1)
+
+            # --- Đánh dấu Break Cấu Trúc Giảm (ChoCh/BOS Bear) ---
+            _bear_break = _dfh4[_dfh4['BOS_Bear']]
+            if not _bear_break.empty:
+                _fig_h4.add_trace(go.Scatter(
+                    x=_bear_break["Label"], y=_bear_break["High"] + (_y_pad_marker * 0.3),
+                    mode="markers+text", name="Break Giảm",
+                    marker=dict(symbol="star", size=10, color="#fb7185"),
+                    text="<b>🩸 Đảo chiều/Tiếp diễn Giảm</b>", textposition="top center",
+                    textfont=dict(color="#fb7185", size=10),
+                    hoverinfo="skip"
+                ), row=1, col=1)
 
             # Volume bars
             _vol_colors = [_clr_up if r["Close"] >= r["Open"] else _clr_dn for _, r in _dfh4.iterrows()]
