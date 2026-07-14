@@ -540,9 +540,9 @@ with _tab_h4:
                 yaxis2=dict(gridcolor="#1e2d45", title="Volume", title_font=dict(size=10)),
                 showlegend=True,
                 legend=dict(
-                    x=0.01, y=0.99, bgcolor="rgba(15,22,41,0.7)",
+                    x=0.01, y=0.99, bgcolor="rgba(15,22,41,0.5)",
                     bordercolor="#334155", borderwidth=1,
-                    font=dict(size=11),
+                    font=dict(size=9), itemwidth=30,
                 ),
                 height=640,  # chiều cao đủ lớn + không gian cho thanh trượt
                 hovermode="x unified",
