@@ -82,8 +82,9 @@ with col_btn2:
         root_dir = str(Path(__file__).parent.parent)
         env = os.environ.copy()
         env["PYTHONIOENCODING"] = "utf-8"
-        with st.spinner("Đang tải dữ liệu H1 từ TV và phân tích lại SMC... (Đợi 15-20s)"):
+        with st.spinner("Đang tải dữ liệu H1 & H4 từ TV và phân tích lại SMC... (Đợi 15-30s)"):
             subprocess.run([sys.executable, str(Path(root_dir) / "Data" / "fetch_prices.py")], env=env)
+            subprocess.run([sys.executable, str(Path(root_dir) / "Data" / "fetch_prices_H4.py")], env=env)
             subprocess.run([sys.executable, "-c", "import entry_alarm; entry_alarm.run_analysis()"], cwd=root_dir, env=env)
             subprocess.run([sys.executable, "run_pro_plus.py"], cwd=root_dir, env=env)
             st.cache_data.clear()

@@ -198,6 +198,7 @@ def next_daily(hour: int, minute: int, tz=VN_TZ) -> datetime.datetime:
 
 # ── Jobs ───────────────────────────────────────────────────────────────────────
 PRICE_SCRIPT     = str(DATA_DIR / "fetch_prices.py")
+PRICE_H4_SCRIPT  = str(DATA_DIR / "fetch_prices_H4.py")
 MACRO_SCRIPT     = str(DATA_DIR / "fetch_macro.py")
 COT_SCRIPT       = str(DATA_DIR / "fetch_cot.py")
 USDA_SCRIPT      = str(DATA_DIR / "fetch_usda.py")
@@ -221,6 +222,7 @@ def job_prices():
         sleep_until(next_h, "Giá H1")
         
         success = run_script("Giá H1 + Macro", PRICE_SCRIPT, "prices")
+        run_script("Giá H4", PRICE_H4_SCRIPT, "prices_h4")
         run_script("Vĩ Mô (Macro)",   MACRO_SCRIPT, "macro")
         
         # Ngay sau khi có giá mới, cập nhật Hồ sơ & Gửi cảnh báo
