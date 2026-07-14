@@ -13,9 +13,9 @@
       "updated_at": "2026-07-14 10:27:53"
     },
     "macro": {
-      "status": "[ERROR]",
-      "detail": "Failed after 1 attempts",
-      "updated_at": "2026-07-14 09:15:09"
+      "status": "[OK]",
+      "detail": "Auto-fetch 10:28:01",
+      "updated_at": "2026-07-14 10:28:01"
     },
     "cot": {
       "status": "PARTIAL",
@@ -51,13 +51,18 @@
       "status": "OK",
       "detail": "Điểm tin AI thành công",
       "updated_at": "2026-07-14 06:32:36"
+    },
+    "github_sync": {
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 10:27:58 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-07-14 10:27:58"
     }
   },
   "all_ok": true,
   "macro": {
-    "status": "ERROR",
-    "detail": "'charmap' codec can't encode characters in position 2-3: character maps to <undefined>",
-    "updated_at": "2026-07-14 09:15:09"
+    "status": "OK",
+    "detail": "Brent=84.92, DXY=101.203",
+    "updated_at": "2026-07-14 10:28:01"
   },
   "prices": {
     "status": "OK",
