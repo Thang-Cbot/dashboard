@@ -176,9 +176,15 @@
     },
     "2026-07-13": {
       "volume": 302994.0,
-      "open_interest": 750676,
+      "open_interest": 611673,
       "close": 463.25,
       "open": 467.0
+    },
+    "2026-07-14": {
+      "volume": 19575.0,
+      "open_interest": 750676,
+      "close": 459.75,
+      "open": 462.0
     }
   },
   "ZW": {
@@ -361,6 +367,12 @@
       "open_interest": 210854,
       "close": 635.25,
       "open": 646.5
+    },
+    "2026-07-14": {
+      "volume": 5000.0,
+      "open_interest": 210854,
+      "close": 637.5,
+      "open": 636.0
     }
   },
   "ZS": {
