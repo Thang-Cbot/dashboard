@@ -380,18 +380,41 @@ with _tab_h4:
                 row=1, col=1
             )
 
-            # Layout
-            _price_range = _dfh4["High"].max() - _dfh4["Low"].min()
-            _y_pad = _price_range * 0.08  # 8% padding trên dưới để nến không quá ngắn
+            # Layout — mặc định hiển thị 10 ngày (50 nến H4), có thể kéo xem thêm
+            _total_bars = len(_dfh4)
+            _default_bars = 50  # 10 ngày * 5 nến H4/ngày
+            _x_start_idx = max(0, _total_bars - _default_bars)  # index bắt đầu hiển thị
+            _x_start_label = _dfh4["Label"].iloc[_x_start_idx]
+            _x_end_label   = _dfh4["Label"].iloc[-1]
+
+            # Y-range chỉ cho 10 ngày hiển thị, + padding
+            _vis_df  = _dfh4.iloc[_x_start_idx:]
+            _y_lo    = _vis_df["Low"].min()
+            _y_hi    = _vis_df["High"].max()
+            _y_pad   = (_y_hi - _y_lo) * 0.08
+
             _fig_h4.update_layout(
                 paper_bgcolor="#0f1629",
                 plot_bgcolor="#0d1425",
                 font=dict(color="#e2e8f0", family="Inter"),
-                margin=dict(l=10, r=60, t=40, b=20),
-                xaxis=dict(gridcolor="#1e2d45", tickangle=-45, tickfont=dict(size=10)),
+                margin=dict(l=10, r=60, t=40, b=60),
+                xaxis=dict(
+                    gridcolor="#1e2d45",
+                    tickangle=-45,
+                    tickfont=dict(size=9),
+                    range=[_x_start_label, _x_end_label],  # mặc định hiển thị 10 ngày
+                    rangeslider=dict(
+                        visible=True,
+                        bgcolor="#0d1425",
+                        bordercolor="#334155",
+                        borderwidth=1,
+                        thickness=0.04,  # chiều cao thanh trượt mỏng
+                    ),
+                    type="category",  # dùng category để không bị khoảng trống cuối tuần
+                ),
                 yaxis=dict(
                     gridcolor="#1e2d45", tickformat=".2f",
-                    range=[_dfh4["Low"].min() - _y_pad, _dfh4["High"].max() + _y_pad],
+                    range=[_y_lo - _y_pad, _y_hi + _y_pad],
                     title="Giá (¢/bu)", title_font=dict(size=11),
                 ),
                 xaxis2=dict(gridcolor="#1e2d45", tickangle=-45, tickfont=dict(size=9)),
@@ -402,8 +425,7 @@ with _tab_h4:
                     bordercolor="#334155", borderwidth=1,
                     font=dict(size=11),
                 ),
-                height=620,  # chiều cao đủ lớn để nến dễ nhìn
-                xaxis_rangeslider_visible=False,
+                height=640,  # chiều cao đủ lớn + không gian cho thanh trượt
                 hovermode="x unified",
             )
             _fig_h4.update_yaxes(showgrid=True, zeroline=False)
@@ -416,14 +438,14 @@ with _tab_h4:
                     _dates_seen.add(_d)
                     _fig_h4.add_vline(
                         x=_lbl_i, line_dash="dot",
-                        line_color="rgba(100,116,139,0.4)", line_width=1
+                        line_color="rgba(100,116,139,0.35)", line_width=1
                     )
 
             # Tiêu đề cập nhật dữ liệu
             _h4_last_time = _dfh4["Datetime"].iloc[-1].strftime("%d/%m/%Y %H:%M")
             st.markdown(
                 f"<div style='font-size:11px;color:#64748b;margin-bottom:8px;'>"
-                f"Nến H4 · 1 tuần gần nhất · Cập nhật đến: "
+                f"Nến H4 · 30 ngày gần nhất · Hiển thị mặc định: 10 ngày (kéo thanh trượt bên dưới để xem thêm) · Cập nhật đến: "
                 f"<span style='color:#f59e0b;font-weight:700;'>{_h4_last_time} (VN)</span> · "
                 f"EMA <span style='color:#f59e0b;'>21 (vàng)</span> · "
                 f"EMA <span style='color:#a78bfa;'>50 (tím)</span>"

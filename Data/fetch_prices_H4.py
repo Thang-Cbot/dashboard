@@ -10,9 +10,8 @@ from fetch_prices import get_active_contract
 
 def _fetch_from_tradingview_h4(ticker_symbol: str) -> pd.DataFrame:
     """
-    Fetch 1 week of H4 data from TradingView.
-    1 week of H4 candles for CBOT (roughly 5 trading days * ~4 H4 bars/day = ~20-30 bars).
-    We fetch 50 bars to be safe.
+    Fetch 30 days of H4 data from TradingView.
+    30 days * ~5 H4 bars/day = ~150 bars. Fetch 200 to be safe.
     """
     try:
         from tvDatafeed import TvDatafeed, Interval
@@ -27,15 +26,15 @@ def _fetch_from_tradingview_h4(ticker_symbol: str) -> pd.DataFrame:
         # Retry up to 3 times
         for attempt in range(3):
             try:
-                # Lấy số lượng nến tương đương 1 tuần (thừa để lọc lại)
-                df = tv.get_hist(symbol=tv_sym, exchange='CBOT', interval=Interval.in_4_hour, n_bars=42)
+                # Lấy số lượng nến tương đương 30 ngày
+                df = tv.get_hist(symbol=tv_sym, exchange='CBOT', interval=Interval.in_4_hour, n_bars=200)
                 
                 if df is not None and not df.empty:
                     df = df.reset_index()
-                    # TV datetime index is naive local time (VN time)
-                    # Lọc chỉ lấy 1 tuần gần nhất
-                    one_week_ago = datetime.datetime.now() - datetime.timedelta(days=7)
-                    df = df[df['datetime'] >= one_week_ago]
+                    # TV datetime index là giờ VN (naive)
+                    # Lọc lấy 30 ngày gần nhất
+                    thirty_days_ago = datetime.datetime.now() - datetime.timedelta(days=30)
+                    df = df[df['datetime'] >= thirty_days_ago]
                     
                     # Format time: YYYY-MM-DD HH:MM
                     df["Time"] = df["datetime"].dt.strftime("%Y-%m-%d %H:%M")
