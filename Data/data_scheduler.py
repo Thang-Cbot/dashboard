@@ -213,9 +213,10 @@ def job_prices():
     """Giá H1: chạy phút :15 mỗi giờ (giờ giao dịch CBOT 20:00 - 08:00 sáng hôm sau VN)."""
     while True:
         now = datetime.datetime.now(VN_TZ)
-        # Tính phút :00 của giờ tiếp theo (+5 giây buffer cho nến đóng)
+        # Tính phút :00 của giờ hiện tại (+5 giây buffer cho nến đóng)
         next_h = now.replace(minute=0, second=5, microsecond=0)
-        if now.minute >= 0:
+        # Nếu thời điểm hiện tại đã qua mốc này, thì hẹn sang giờ tiếp theo
+        if now >= next_h:
             next_h += datetime.timedelta(hours=1)
         sleep_until(next_h, "Giá H1")
         
