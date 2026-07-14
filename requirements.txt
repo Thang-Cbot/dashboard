@@ -6,3 +6,4 @@ beautifulsoup4
 numpy<2.0.0
 yfinance
 tvdatafeed @ git+https://github.com/rongardF/tvdatafeed.git
+streamlit-autorefresh

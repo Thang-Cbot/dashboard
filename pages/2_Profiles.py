@@ -17,6 +17,23 @@ st.set_page_config(page_title="Hồ Sơ Mã — CBOT", page_icon="favicon.png", 
 
 DATA_OUTPUT = Path(__file__).parent.parent / "Data" / "output"
 
+try:
+    from streamlit_autorefresh import st_autorefresh
+    # Tự động chạy lại script mỗi 30s
+    st_autorefresh(interval=30000, limit=None, key="auto_refresh")
+    
+    _trigger_file = DATA_OUTPUT / ".streamlit_trigger"
+    _current_mtime = _trigger_file.stat().st_mtime if _trigger_file.exists() else 0
+    if "last_trigger_mtime" not in st.session_state:
+        st.session_state["last_trigger_mtime"] = _current_mtime
+        
+    if _current_mtime > st.session_state["last_trigger_mtime"]:
+        st.session_state["last_trigger_mtime"] = _current_mtime
+        st.cache_data.clear()
+        st.rerun()
+except ImportError:
+    pass
+
 COMMODITIES  = {"🌽 ZC — Ngô": "ZC", "🌾 ZW — Lúa Mì": "ZW"}
 CONTRACT_TYPES = {"Active (Giao dịch chính)": "active", "Swing (Trung hạn)": "swing", "DCA (Dài hạn)": "dca"}
 CFTC_TO_CODE = {"002602": "ZC", "001602": "ZW"}
