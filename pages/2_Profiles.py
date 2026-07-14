@@ -325,18 +325,30 @@ with _tab_h4:
                     _dfh4.loc[i, 'Swing_Low'] = True
 
             # Xác định Thay đổi cấu trúc / Phá vỡ (ChoCh / BOS)
+            _dfh4['ChoCh_Bull'] = False
             _dfh4['BOS_Bull'] = False
+            _dfh4['ChoCh_Bear'] = False
             _dfh4['BOS_Bear'] = False
             _last_sh_val = None
             _last_sl_val = None
+            _current_trend = None
 
             for i in range(len(_dfh4)):
                 # Đánh giá xem nến đóng cửa có vượt qua Đỉnh/Đáy gần nhất không
                 if _last_sh_val is not None and _dfh4.loc[i, 'Close'] > _last_sh_val:
-                    _dfh4.loc[i, 'BOS_Bull'] = True
+                    if _current_trend == 'Bearish' or _current_trend is None:
+                        _dfh4.loc[i, 'ChoCh_Bull'] = True
+                    else:
+                        _dfh4.loc[i, 'BOS_Bull'] = True
+                    _current_trend = 'Bullish'
                     _last_sh_val = None  # Reset để chờ đỉnh mới
+                    
                 if _last_sl_val is not None and _dfh4.loc[i, 'Close'] < _last_sl_val:
-                    _dfh4.loc[i, 'BOS_Bear'] = True
+                    if _current_trend == 'Bullish' or _current_trend is None:
+                        _dfh4.loc[i, 'ChoCh_Bear'] = True
+                    else:
+                        _dfh4.loc[i, 'BOS_Bear'] = True
+                    _current_trend = 'Bearish'
                     _last_sl_val = None
                     
                 # Cập nhật Đỉnh/Đáy vừa được xác nhận (Nến i-2 được xác nhận khi nến i đóng cửa)
@@ -417,27 +429,51 @@ with _tab_h4:
                     hoverinfo="skip", showlegend=True
                 ), row=1, col=1)
 
-            # --- Đánh dấu Break Cấu Trúc Tăng (ChoCh/BOS Bull) ---
-            _bull_break = _dfh4[_dfh4['BOS_Bull']]
-            if not _bull_break.empty:
+            # --- Đánh dấu Đảo Cấu Trúc Tăng (ChoCh Bull) ---
+            _choch_bull = _dfh4[_dfh4['ChoCh_Bull']]
+            if not _choch_bull.empty:
                 _fig_h4.add_trace(go.Scatter(
-                    x=_bull_break["Label"], y=_bull_break["Low"] - (_y_pad_marker * 0.3),
-                    mode="markers+text", name="Break Tăng",
-                    marker=dict(symbol="star", size=10, color="#38bdf8"),
-                    text="<b>🚀 Đảo chiều/Tiếp diễn Tăng</b>", textposition="bottom center",
-                    textfont=dict(color="#38bdf8", size=10),
+                    x=_choch_bull["Label"], y=_choch_bull["Low"] - (_y_pad_marker * 0.4),
+                    mode="markers+text", name="Đảo chiều Tăng",
+                    marker=dict(symbol="star", size=11, color="#38bdf8"),
+                    text="<b>🚀 Đảo Cấu Trúc (TĂNG)</b>", textposition="bottom center",
+                    textfont=dict(color="#38bdf8", size=11),
                     hoverinfo="skip"
                 ), row=1, col=1)
 
-            # --- Đánh dấu Break Cấu Trúc Giảm (ChoCh/BOS Bear) ---
-            _bear_break = _dfh4[_dfh4['BOS_Bear']]
-            if not _bear_break.empty:
+            # --- Đánh dấu Tiếp Diễn Tăng (BOS Bull) ---
+            _bos_bull = _dfh4[_dfh4['BOS_Bull']]
+            if not _bos_bull.empty:
                 _fig_h4.add_trace(go.Scatter(
-                    x=_bear_break["Label"], y=_bear_break["High"] + (_y_pad_marker * 0.3),
-                    mode="markers+text", name="Break Giảm",
-                    marker=dict(symbol="star", size=10, color="#fb7185"),
-                    text="<b>🩸 Đảo chiều/Tiếp diễn Giảm</b>", textposition="top center",
-                    textfont=dict(color="#fb7185", size=10),
+                    x=_bos_bull["Label"], y=_bos_bull["Low"] - (_y_pad_marker * 0.25),
+                    mode="markers+text", name="Tiếp diễn Tăng",
+                    marker=dict(symbol="star-triangle-up", size=9, color="#60a5fa"),
+                    text="<b>↑ Tiếp diễn (TĂNG)</b>", textposition="bottom center",
+                    textfont=dict(color="#60a5fa", size=9),
+                    hoverinfo="skip"
+                ), row=1, col=1)
+
+            # --- Đánh dấu Đảo Cấu Trúc Giảm (ChoCh Bear) ---
+            _choch_bear = _dfh4[_dfh4['ChoCh_Bear']]
+            if not _choch_bear.empty:
+                _fig_h4.add_trace(go.Scatter(
+                    x=_choch_bear["Label"], y=_choch_bear["High"] + (_y_pad_marker * 0.4),
+                    mode="markers+text", name="Đảo chiều Giảm",
+                    marker=dict(symbol="star", size=11, color="#fb7185"),
+                    text="<b>🩸 Đảo Cấu Trúc (GIẢM)</b>", textposition="top center",
+                    textfont=dict(color="#fb7185", size=11),
+                    hoverinfo="skip"
+                ), row=1, col=1)
+
+            # --- Đánh dấu Tiếp Diễn Giảm (BOS Bear) ---
+            _bos_bear = _dfh4[_dfh4['BOS_Bear']]
+            if not _bos_bear.empty:
+                _fig_h4.add_trace(go.Scatter(
+                    x=_bos_bear["Label"], y=_bos_bear["High"] + (_y_pad_marker * 0.25),
+                    mode="markers+text", name="Tiếp diễn Giảm",
+                    marker=dict(symbol="star-triangle-down", size=9, color="#f43f5e"),
+                    text="<b>↓ Tiếp diễn (GIẢM)</b>", textposition="top center",
+                    textfont=dict(color="#f43f5e", size=9),
                     hoverinfo="skip"
                 ), row=1, col=1)
 
