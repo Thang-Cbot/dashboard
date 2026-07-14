@@ -125,171 +125,348 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-_csv_vol_path = DATA_OUTPUT / f"{code}_{suffix}_H1.csv"
-if _csv_vol_path.exists():
-    try:
-        _dfv = pd.read_csv(_csv_vol_path)
-        _dfv.columns = [c.strip() for c in _dfv.columns]
-        _dcol = next((c for c in _dfv.columns if c.lower() in ['time','datetime','date','timestamp']), None)
-        if _dcol:
-            _dfv[_dcol] = pd.to_datetime(_dfv[_dcol], errors='coerce')
-            _dfv = _dfv.dropna(subset=[_dcol]).rename(columns={_dcol: "Datetime"})
+# ── TAB: D1 và Giá H4 ────────────────────────────────────────
+_tab_d1, _tab_h4 = st.tabs(["📅 Tab D1", "📊 Giá H4"])
 
-        _dfv["Date"] = _dfv["Datetime"].dt.date
-        _daily = _dfv.groupby("Date").agg(
-            Open=("Open", "first"), High=("High", "max"),
-            Low=("Low", "min"), Close=("Close", "last"),
-            Volume=("Volume", "sum"), ATR=("ATR", "mean"),
-        ).reset_index()
-        _daily["Date"] = pd.to_datetime(_daily["Date"])
-        _daily = _daily[_daily["Date"].dt.weekday < 5].tail(15).reset_index(drop=True)
+# ─── TAB D1: Giữ nguyên nội dung cũ ─────────────────────────
+with _tab_d1:
+    _csv_vol_path = DATA_OUTPUT / f"{code}_{suffix}_H1.csv"
+    if _csv_vol_path.exists():
+        try:
+            _dfv = pd.read_csv(_csv_vol_path)
+            _dfv.columns = [c.strip() for c in _dfv.columns]
+            _dcol = next((c for c in _dfv.columns if c.lower() in ['time','datetime','date','timestamp']), None)
+            if _dcol:
+                _dfv[_dcol] = pd.to_datetime(_dfv[_dcol], errors='coerce')
+                _dfv = _dfv.dropna(subset=[_dcol]).rename(columns={_dcol: "Datetime"})
 
-        _daily["OC_Delta"]  = (_daily["Close"] - _daily["Open"]).round(2)
-        _daily["HL_Range"]  = (_daily["High"]  - _daily["Low"]).round(2)
-        _daily["OC_Abs"]    = _daily["OC_Delta"].abs()
-        _daily["Day_Label"] = _daily["Date"].dt.strftime("%a %d/%m")
+            _dfv["Date"] = _dfv["Datetime"].dt.date
+            _daily = _dfv.groupby("Date").agg(
+                Open=("Open", "first"), High=("High", "max"),
+                Low=("Low", "min"), Close=("Close", "last"),
+                Volume=("Volume", "sum"), ATR=("ATR", "mean"),
+            ).reset_index()
+            _daily["Date"] = pd.to_datetime(_daily["Date"])
+            _daily = _daily[_daily["Date"].dt.weekday < 5].tail(15).reset_index(drop=True)
 
-        _idx_max = _daily["HL_Range"].idxmax()
-        _idx_min = _daily["HL_Range"].idxmin()
-        _day_max = _daily.loc[_idx_max, "Day_Label"]; _range_max = _daily.loc[_idx_max, "HL_Range"]
-        _day_min = _daily.loc[_idx_min, "Day_Label"]; _range_min = _daily.loc[_idx_min, "HL_Range"]
+            _daily["OC_Delta"]  = (_daily["Close"] - _daily["Open"]).round(2)
+            _daily["HL_Range"]  = (_daily["High"]  - _daily["Low"]).round(2)
+            _daily["OC_Abs"]    = _daily["OC_Delta"].abs()
+            _daily["Day_Label"] = _daily["Date"].dt.strftime("%a %d/%m")
 
-        _last_date  = _daily["Date"].max()
-        _week_start = _last_date - pd.Timedelta(days=_last_date.weekday())
-        _tw = _daily[_daily["Date"] >= _week_start]
-        _woc  = _tw["OC_Delta"].sum().round(2)
-        _whl  = _tw["HL_Range"].sum().round(2)
-        _whlm = _tw["HL_Range"].mean().round(2)
-        _wg   = (_tw["OC_Delta"] > 0).sum()
-        _wr   = (_tw["OC_Delta"] < 0).sum()
+            _idx_max = _daily["HL_Range"].idxmax()
+            _idx_min = _daily["HL_Range"].idxmin()
+            _day_max = _daily.loc[_idx_max, "Day_Label"]; _range_max = _daily.loc[_idx_max, "HL_Range"]
+            _day_min = _daily.loc[_idx_min, "Day_Label"]; _range_min = _daily.loc[_idx_min, "HL_Range"]
 
-        _ratr = _daily["ATR"].tail(5).mean()
-        _patr = _daily["ATR"].head(5).mean()
-        _atr_trend = "📈 Tăng" if _ratr > _patr * 1.05 else ("📉 Giảm" if _ratr < _patr * 0.95 else "➡️ Ổn định")
-        _l3   = _daily["OC_Delta"].tail(3).tolist()
-        _mscore = sum(1 if x > 0 else -1 for x in _l3)
-        _mstr = "🟢 Bullish (3 ngày đều tăng)" if _mscore == 3 else \
-                "🟢 Bullish nhẹ" if _mscore > 0 else \
-                "🔴 Bearish nhẹ" if _mscore < 0 else "⚪ Trung lập"
-        _close_now = _daily["Close"].iloc[-1]
-        _r1e = round(_close_now + _ratr, 2); _s1e = round(_close_now - _ratr, 2)
-        _exp = round(_ratr, 2)
+            _last_date  = _daily["Date"].max()
+            _week_start = _last_date - pd.Timedelta(days=_last_date.weekday())
+            _tw = _daily[_daily["Date"] >= _week_start]
+            _woc  = _tw["OC_Delta"].sum().round(2)
+            _whl  = _tw["HL_Range"].sum().round(2)
+            _whlm = _tw["HL_Range"].mean().round(2)
+            _wg   = (_tw["OC_Delta"] > 0).sum()
+            _wr   = (_tw["OC_Delta"] < 0).sum()
 
-        # Block 1 — 5 thẻ tóm tắt tuần
-        _wkc = "#22c55e" if _woc >= 0 else "#ef4444"
-        _vc1, _vc2, _vc3, _vc4, _vc5 = st.columns(5)
-        for _col_w, _lbl, _val, _clr in [
-            (_vc1, "Tổng ΔOC Tuần",        f"{'+' if _woc>=0 else ''}{_woc}¢",   _wkc),
-            (_vc2, "Tổng Biên Độ HL",       f"{_whl}¢",                            "#f59e0b"),
-            (_vc3, "Biên Độ TB/Ngày",       f"{_whlm}¢",                           "#94a3b8"),
-            (_vc4, "🔥 Ngày Biến Động Cao",  f"{_day_max} ({_range_max}¢)",        "#fb923c"),
-            (_vc5, "🧊 Ngày Biến Động Thấp", f"{_day_min} ({_range_min}¢)",        "#a78bfa"),
-        ]:
-            _col_w.markdown(
-                f"<div style='background:#1a2035;border-radius:10px;padding:12px;text-align:center;"
-                f"border:1px solid #2a3a5c;height:76px;display:flex;flex-direction:column;justify-content:center;'>"
-                f"<div style='font-size:10px;color:#64748b;font-weight:600;margin-bottom:4px;'>{_lbl}</div>"
-                f"<div style='font-size:14px;font-weight:800;color:{_clr};'>{_val}</div></div>",
+            _ratr = _daily["ATR"].tail(5).mean()
+            _patr = _daily["ATR"].head(5).mean()
+            _atr_trend = "📈 Tăng" if _ratr > _patr * 1.05 else ("📉 Giảm" if _ratr < _patr * 0.95 else "➡️ Ổn định")
+            _l3   = _daily["OC_Delta"].tail(3).tolist()
+            _mscore = sum(1 if x > 0 else -1 for x in _l3)
+            _mstr = "🟢 Bullish (3 ngày đều tăng)" if _mscore == 3 else \
+                    "🟢 Bullish nhẹ" if _mscore > 0 else \
+                    "🔴 Bearish nhẹ" if _mscore < 0 else "⚪ Trung lập"
+            _close_now = _daily["Close"].iloc[-1]
+            _r1e = round(_close_now + _ratr, 2); _s1e = round(_close_now - _ratr, 2)
+            _exp = round(_ratr, 2)
+
+            # Block 1 — 5 thẻ tóm tắt tuần
+            _wkc = "#22c55e" if _woc >= 0 else "#ef4444"
+            _vc1, _vc2, _vc3, _vc4, _vc5 = st.columns(5)
+            for _col_w, _lbl, _val, _clr in [
+                (_vc1, "Tổng ΔOC Tuần",        f"{'+' if _woc>=0 else ''}{_woc}¢",   _wkc),
+                (_vc2, "Tổng Biên Độ HL",       f"{_whl}¢",                            "#f59e0b"),
+                (_vc3, "Biên Độ TB/Ngày",       f"{_whlm}¢",                           "#94a3b8"),
+                (_vc4, "🔥 Ngày Biến Động Cao",  f"{_day_max} ({_range_max}¢)",        "#fb923c"),
+                (_vc5, "🧊 Ngày Biến Động Thấp", f"{_day_min} ({_range_min}¢)",        "#a78bfa"),
+            ]:
+                _col_w.markdown(
+                    f"<div style='background:#1a2035;border-radius:10px;padding:12px;text-align:center;"
+                    f"border:1px solid #2a3a5c;height:76px;display:flex;flex-direction:column;justify-content:center;'>"
+                    f"<div style='font-size:10px;color:#64748b;font-weight:600;margin-bottom:4px;'>{_lbl}</div>"
+                    f"<div style='font-size:14px;font-weight:800;color:{_clr};'>{_val}</div></div>",
+                    unsafe_allow_html=True
+                )
+
+            st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
+
+            # Block 2 — Biểu đồ 2 hàng
+            _bar_oc = ["#22c55e" if x >= 0 else "#ef4444" for x in _daily["OC_Delta"]]
+            _fig_v = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.08,
+                                   row_heights=[0.55, 0.45])
+            _fig_v.add_trace(go.Bar(
+                x=_daily["Day_Label"], y=_daily["HL_Range"], name="High-Low Range",
+                marker_color=["#fb923c" if i==_idx_max else "#a78bfa" if i==_idx_min else "#38bdf8" for i in range(len(_daily))],
+                text=[f"{v:.1f}¢" for v in _daily["HL_Range"]], textposition="outside",
+                textfont=dict(size=10, color="#94a3b8"),
+            ), row=1, col=1)
+            _fig_v.add_hline(y=_daily["ATR"].mean(), row=1, col=1, line_dash="dash", line_color="#f59e0b",
+                             line_width=1.5, annotation_text=f"ATR TB: {_daily['ATR'].mean():.2f}¢",
+                             annotation_font=dict(size=10, color="#f59e0b"))
+            _fig_v.add_trace(go.Bar(
+                x=_daily["Day_Label"], y=_daily["OC_Delta"], name="Open→Close",
+                marker_color=_bar_oc,
+                text=[f"{'+' if v>=0 else ''}{v:.1f}¢" for v in _daily["OC_Delta"]],
+                textposition="outside", textfont=dict(size=10),
+            ), row=2, col=1)
+            _fig_v.add_hline(y=0, row=2, col=1, line_color="#475569", line_width=1)
+            _fig_v.update_layout(
+                paper_bgcolor="#0f1629", plot_bgcolor="#0f1629",
+                font=dict(color="#e2e8f0", family="Inter"),
+                margin=dict(l=10, r=10, t=30, b=10),
+                xaxis=dict(gridcolor="#1e2d45"), yaxis=dict(gridcolor="#1e2d45", title="¢"),
+                xaxis2=dict(gridcolor="#1e2d45"), yaxis2=dict(gridcolor="#1e2d45", title="¢"),
+                showlegend=False, height=440,
+            )
+            st.plotly_chart(_fig_v, use_container_width=True)
+
+            # Block 3 — Bảng chi tiết
+            st.markdown("<div style='font-size:12px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;margin-bottom:8px;'>📋 BẢNG CHI TIẾT TỪNG NGÀY</div>", unsafe_allow_html=True)
+            _th = ("<table style='width:100%;border-collapse:collapse;font-size:12px;font-family:Inter,sans-serif;'>"
+                   "<thead><tr style='background:#1e293b;color:#94a3b8;'>"
+                   "<th style='padding:7px 10px;text-align:left;border-bottom:1px solid #334155;'>Ngày</th>"
+                   "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Open</th>"
+                   "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>High</th>"
+                   "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Low</th>"
+                   "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Close</th>"
+                   "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>ΔOC</th>"
+                   "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>HL Range</th>"
+                   "<th style='padding:7px 10px;text-align:center;border-bottom:1px solid #334155;'>Nến</th>"
+                   "</tr></thead><tbody>")
+            for _i, _r in _daily.iterrows():
+                _oc_c = "#22c55e" if _r["OC_Delta"] >= 0 else "#ef4444"
+                _sgn  = "+" if _r["OC_Delta"] >= 0 else ""
+                _rbg  = "background:#0c1a12;" if _i==_idx_max else "background:#1a0c1a;" if _i==_idx_min else ""
+                _bdg  = " 🔥" if _i==_idx_max else " 🧊" if _i==_idx_min else ""
+                _cnd  = "🟢" if _r["OC_Delta"] >= 0 else "🔴"
+                _th += (f"<tr style='border-bottom:1px solid #1e2d45;{_rbg}'>"
+                        f"<td style='padding:6px 10px;color:#cbd5e1;font-weight:600;'>{_r['Day_Label']}{_bdg}</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:#94a3b8;'>{_r['Open']:.2f}</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:#fb923c;'>{_r['High']:.2f}</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:#a78bfa;'>{_r['Low']:.2f}</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:#e2e8f0;font-weight:700;'>{_r['Close']:.2f}</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:{_oc_c};font-weight:700;'>{_sgn}{_r['OC_Delta']:.2f}¢</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:#38bdf8;font-weight:700;'>{_r['HL_Range']:.2f}¢</td>"
+                        f"<td style='padding:6px 10px;text-align:center;'>{_cnd}</td></tr>")
+            _woc_c = "#22c55e" if _woc >= 0 else "#ef4444"
+            _woc_s = "+" if _woc >= 0 else ""
+            _th += (f"<tr style='background:#1e293b;border-top:2px solid #334155;font-weight:700;'>"
+                    f"<td style='padding:7px 10px;color:#f59e0b;'>📅 TUẦN NÀY</td>"
+                    f"<td></td><td></td><td></td><td></td>"
+                    f"<td style='padding:7px 10px;text-align:right;color:{_woc_c};'>{_woc_s}{_woc:.2f}¢</td>"
+                    f"<td style='padding:7px 10px;text-align:right;color:#f59e0b;'>{_whl:.2f}¢</td>"
+                    f"<td style='padding:7px 10px;text-align:center;color:#94a3b8;'>🟢×{_wg} 🔴×{_wr}</td></tr>"
+                    "</tbody></table>")
+            st.markdown(_th, unsafe_allow_html=True)
+            st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
+
+            # Block 4 — Dự báo xu thế
+            _fc  = "#22c55e" if _mscore > 0 else "#ef4444" if _mscore < 0 else "#94a3b8"
+            _vtc = "#ef4444" if "Tăng" in _atr_trend else "#22c55e" if "Giảm" in _atr_trend else "#f59e0b"
+            st.markdown(
+                f"<div style='background:#1a2035;border-radius:12px;padding:14px;border:1px solid #2a3a5c;'>"
+                f"<div style='font-size:11px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;margin-bottom:10px;'>"
+                f"🔮 DỰ BÁO XU THẾ (ATR & Momentum 3 ngày gần nhất)</div>"
+                f"<div style='display:flex;gap:12px;flex-wrap:wrap;'>"
+                f"<div style='flex:1;min-width:150px;background:#0f1629;border-radius:8px;padding:10px;border-left:3px solid {_fc};'>"
+                f"<div style='font-size:10px;color:#64748b;margin-bottom:3px;'>MOMENTUM GIÁ</div>"
+                f"<div style='font-size:13px;font-weight:700;color:{_fc};'>{_mstr}</div></div>"
+                f"<div style='flex:1;min-width:150px;background:#0f1629;border-radius:8px;padding:10px;border-left:3px solid {_vtc};'>"
+                f"<div style='font-size:10px;color:#64748b;margin-bottom:3px;'>BIẾN ĐỘNG (ATR)</div>"
+                f"<div style='font-size:13px;font-weight:700;color:{_vtc};'>{_atr_trend} | {_ratr:.2f}¢</div></div>"
+                f"<div style='flex:1;min-width:150px;background:#0f1629;border-radius:8px;padding:10px;border-left:3px solid #38bdf8;'>"
+                f"<div style='font-size:10px;color:#64748b;margin-bottom:3px;'>VÙNG KỲ VỌNG NGÀY TỚI</div>"
+                f"<div style='font-size:13px;font-weight:700;color:#38bdf8;'>🟢 {_r1e}¢ &nbsp;|&nbsp; 🔴 {_s1e}¢</div>"
+                f"<div style='font-size:10px;color:#475569;margin-top:2px;'>±{_exp:.2f}¢ (1× ATR)</div></div>"
+                f"</div></div>",
                 unsafe_allow_html=True
             )
+        except Exception as _ve:
+            st.warning(f"Lỗi Volatility Dashboard: {_ve}")
+    else:
+        st.info("Chưa có dữ liệu H1 để phân tích biên độ giá.")
 
-        st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
+# ─── TAB H4: Biểu đồ Nến H4 + EMA 21/50 ────────────────────
+with _tab_h4:
+    _csv_h4_path = DATA_OUTPUT / f"{code}_active_H4.csv"
+    if _csv_h4_path.exists():
+        try:
+            _dfh4 = pd.read_csv(_csv_h4_path)
+            _dfh4.columns = [c.strip() for c in _dfh4.columns]
+            _tcol = next((c for c in _dfh4.columns if c.lower() in ['time','datetime','date','timestamp']), None)
+            if _tcol:
+                _dfh4[_tcol] = pd.to_datetime(_dfh4[_tcol], errors='coerce')
+                _dfh4 = _dfh4.dropna(subset=[_tcol]).rename(columns={_tcol: "Datetime"})
+            _dfh4 = _dfh4.sort_values("Datetime").reset_index(drop=True)
 
-        # Block 2 — Biểu đồ 2 hàng
-        _bar_oc = ["#22c55e" if x >= 0 else "#ef4444" for x in _daily["OC_Delta"]]
-        _fig_v = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.08,
-                               row_heights=[0.55, 0.45])
-        _fig_v.add_trace(go.Bar(
-            x=_daily["Day_Label"], y=_daily["HL_Range"], name="High-Low Range",
-            marker_color=["#fb923c" if i==_idx_max else "#a78bfa" if i==_idx_min else "#38bdf8" for i in range(len(_daily))],
-            text=[f"{v:.1f}¢" for v in _daily["HL_Range"]], textposition="outside",
-            textfont=dict(size=10, color="#94a3b8"),
-        ), row=1, col=1)
-        _fig_v.add_hline(y=_daily["ATR"].mean(), row=1, col=1, line_dash="dash", line_color="#f59e0b",
-                         line_width=1.5, annotation_text=f"ATR TB: {_daily['ATR'].mean():.2f}¢",
-                         annotation_font=dict(size=10, color="#f59e0b"))
-        _fig_v.add_trace(go.Bar(
-            x=_daily["Day_Label"], y=_daily["OC_Delta"], name="Open→Close",
-            marker_color=_bar_oc,
-            text=[f"{'+' if v>=0 else ''}{v:.1f}¢" for v in _daily["OC_Delta"]],
-            textposition="outside", textfont=dict(size=10),
-        ), row=2, col=1)
-        _fig_v.add_hline(y=0, row=2, col=1, line_color="#475569", line_width=1)
-        _fig_v.update_layout(
-            paper_bgcolor="#0f1629", plot_bgcolor="#0f1629",
-            font=dict(color="#e2e8f0", family="Inter"),
-            margin=dict(l=10, r=10, t=30, b=10),
-            xaxis=dict(gridcolor="#1e2d45"), yaxis=dict(gridcolor="#1e2d45", title="¢"),
-            xaxis2=dict(gridcolor="#1e2d45"), yaxis2=dict(gridcolor="#1e2d45", title="¢"),
-            showlegend=False, height=440,
-        )
-        st.plotly_chart(_fig_v, use_container_width=True)
+            # Tính EMA 21 và EMA 50 trên chuỗi Close
+            _dfh4["EMA21"] = _dfh4["Close"].ewm(span=21, adjust=False).mean()
+            _dfh4["EMA50"] = _dfh4["Close"].ewm(span=50, adjust=False).mean()
 
-        # Block 3 — Bảng chi tiết
-        st.markdown("<div style='font-size:12px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;margin-bottom:8px;'>📋 BẢNG CHI TIẾT TỪNG NGÀY</div>", unsafe_allow_html=True)
-        _th = ("<table style='width:100%;border-collapse:collapse;font-size:12px;font-family:Inter,sans-serif;'>"
-               "<thead><tr style='background:#1e293b;color:#94a3b8;'>"
-               "<th style='padding:7px 10px;text-align:left;border-bottom:1px solid #334155;'>Ngày</th>"
-               "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Open</th>"
-               "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>High</th>"
-               "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Low</th>"
-               "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Close</th>"
-               "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>ΔOC</th>"
-               "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>HL Range</th>"
-               "<th style='padding:7px 10px;text-align:center;border-bottom:1px solid #334155;'>Nến</th>"
-               "</tr></thead><tbody>")
-        for _i, _r in _daily.iterrows():
-            _oc_c = "#22c55e" if _r["OC_Delta"] >= 0 else "#ef4444"
-            _sgn  = "+" if _r["OC_Delta"] >= 0 else ""
-            _rbg  = "background:#0c1a12;" if _i==_idx_max else "background:#1a0c1a;" if _i==_idx_min else ""
-            _bdg  = " 🔥" if _i==_idx_max else " 🧊" if _i==_idx_min else ""
-            _cnd  = "🟢" if _r["OC_Delta"] >= 0 else "🔴"
-            _th += (f"<tr style='border-bottom:1px solid #1e2d45;{_rbg}'>"
-                    f"<td style='padding:6px 10px;color:#cbd5e1;font-weight:600;'>{_r['Day_Label']}{_bdg}</td>"
-                    f"<td style='padding:6px 10px;text-align:right;color:#94a3b8;'>{_r['Open']:.2f}</td>"
-                    f"<td style='padding:6px 10px;text-align:right;color:#fb923c;'>{_r['High']:.2f}</td>"
-                    f"<td style='padding:6px 10px;text-align:right;color:#a78bfa;'>{_r['Low']:.2f}</td>"
-                    f"<td style='padding:6px 10px;text-align:right;color:#e2e8f0;font-weight:700;'>{_r['Close']:.2f}</td>"
-                    f"<td style='padding:6px 10px;text-align:right;color:{_oc_c};font-weight:700;'>{_sgn}{_r['OC_Delta']:.2f}¢</td>"
-                    f"<td style='padding:6px 10px;text-align:right;color:#38bdf8;font-weight:700;'>{_r['HL_Range']:.2f}¢</td>"
-                    f"<td style='padding:6px 10px;text-align:center;'>{_cnd}</td></tr>")
-        _woc_c = "#22c55e" if _woc >= 0 else "#ef4444"
-        _woc_s = "+" if _woc >= 0 else ""
-        _th += (f"<tr style='background:#1e293b;border-top:2px solid #334155;font-weight:700;'>"
-                f"<td style='padding:7px 10px;color:#f59e0b;'>📅 TUẦN NÀY</td>"
-                f"<td></td><td></td><td></td><td></td>"
-                f"<td style='padding:7px 10px;text-align:right;color:{_woc_c};'>{_woc_s}{_woc:.2f}¢</td>"
-                f"<td style='padding:7px 10px;text-align:right;color:#f59e0b;'>{_whl:.2f}¢</td>"
-                f"<td style='padding:7px 10px;text-align:center;color:#94a3b8;'>🟢×{_wg} 🔴×{_wr}</td></tr>"
-                "</tbody></table>")
-        st.markdown(_th, unsafe_allow_html=True)
-        st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
+            # Nhãn hiển thị trục X: ngày + giờ VN
+            _dfh4["Label"] = _dfh4["Datetime"].dt.strftime("%d/%m %H:%M")
 
-        # Block 4 — Dự báo xu thế
-        _fc  = "#22c55e" if _mscore > 0 else "#ef4444" if _mscore < 0 else "#94a3b8"
-        _vtc = "#ef4444" if "Tăng" in _atr_trend else "#22c55e" if "Giảm" in _atr_trend else "#f59e0b"
-        st.markdown(
-            f"<div style='background:#1a2035;border-radius:12px;padding:14px;border:1px solid #2a3a5c;'>"
-            f"<div style='font-size:11px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;margin-bottom:10px;'>"
-            f"🔮 DỰ BÁO XU THẾ (ATR & Momentum 3 ngày gần nhất)</div>"
-            f"<div style='display:flex;gap:12px;flex-wrap:wrap;'>"
-            f"<div style='flex:1;min-width:150px;background:#0f1629;border-radius:8px;padding:10px;border-left:3px solid {_fc};'>"
-            f"<div style='font-size:10px;color:#64748b;margin-bottom:3px;'>MOMENTUM GIÁ</div>"
-            f"<div style='font-size:13px;font-weight:700;color:{_fc};'>{_mstr}</div></div>"
-            f"<div style='flex:1;min-width:150px;background:#0f1629;border-radius:8px;padding:10px;border-left:3px solid {_vtc};'>"
-            f"<div style='font-size:10px;color:#64748b;margin-bottom:3px;'>BIẾN ĐỘNG (ATR)</div>"
-            f"<div style='font-size:13px;font-weight:700;color:{_vtc};'>{_atr_trend} | {_ratr:.2f}¢</div></div>"
-            f"<div style='flex:1;min-width:150px;background:#0f1629;border-radius:8px;padding:10px;border-left:3px solid #38bdf8;'>"
-            f"<div style='font-size:10px;color:#64748b;margin-bottom:3px;'>VÙNG KỲ VỌNG NGÀY TỚI</div>"
-            f"<div style='font-size:13px;font-weight:700;color:#38bdf8;'>🟢 {_r1e}¢ &nbsp;|&nbsp; 🔴 {_s1e}¢</div>"
-            f"<div style='font-size:10px;color:#475569;margin-top:2px;'>±{_exp:.2f}¢ (1× ATR)</div></div>"
-            f"</div></div>",
-            unsafe_allow_html=True
-        )
-    except Exception as _ve:
-        st.warning(f"Lỗi Volatility Dashboard: {_ve}")
-else:
-    st.info("Chưa có dữ liệu H1 để phân tích biên độ giá.")
+            # Màu nến: Bullish = xanh, Bearish = đỏ
+            _clr_up   = "#22c55e"
+            _clr_dn   = "#ef4444"
+            _clr_up_b = "rgba(34,197,94,0.15)"
+            _clr_dn_b = "rgba(239,68,68,0.15)"
+
+            _colors_fill   = [_clr_up   if r["Close"] >= r["Open"] else _clr_dn   for _, r in _dfh4.iterrows()]
+            _colors_border = [_clr_up   if r["Close"] >= r["Open"] else _clr_dn   for _, r in _dfh4.iterrows()]
+
+            _fig_h4 = make_subplots(
+                rows=2, cols=1,
+                shared_xaxes=True,
+                vertical_spacing=0.05,
+                row_heights=[0.80, 0.20],
+                subplot_titles=[f"Biểu đồ nến H4 — {selected_name} ({selected_contract})", "Volume"]
+            )
+
+            # Nến Candlestick
+            _fig_h4.add_trace(go.Candlestick(
+                x=_dfh4["Label"],
+                open=_dfh4["Open"],
+                high=_dfh4["High"],
+                low=_dfh4["Low"],
+                close=_dfh4["Close"],
+                name="H4 Candle",
+                increasing=dict(line=dict(color=_clr_up, width=1.5), fillcolor=_clr_up),
+                decreasing=dict(line=dict(color=_clr_dn, width=1.5), fillcolor=_clr_dn),
+            ), row=1, col=1)
+
+            # EMA 21 (màu vàng)
+            _fig_h4.add_trace(go.Scatter(
+                x=_dfh4["Label"], y=_dfh4["EMA21"],
+                mode="lines", name="EMA 21",
+                line=dict(color="#f59e0b", width=1.8, dash="solid"),
+                opacity=0.9,
+            ), row=1, col=1)
+
+            # EMA 50 (màu tím nhạt)
+            _fig_h4.add_trace(go.Scatter(
+                x=_dfh4["Label"], y=_dfh4["EMA50"],
+                mode="lines", name="EMA 50",
+                line=dict(color="#a78bfa", width=1.8, dash="solid"),
+                opacity=0.9,
+            ), row=1, col=1)
+
+            # Volume bars
+            _vol_colors = [_clr_up if r["Close"] >= r["Open"] else _clr_dn for _, r in _dfh4.iterrows()]
+            _fig_h4.add_trace(go.Bar(
+                x=_dfh4["Label"], y=_dfh4["Volume"],
+                name="Volume", marker_color=_vol_colors, opacity=0.6,
+            ), row=2, col=1)
+
+            # Nhãn giá Close nến cuối cùng
+            _last_close = _dfh4["Close"].iloc[-1]
+            _last_label = _dfh4["Label"].iloc[-1]
+            _last_color = _clr_up if _dfh4["Close"].iloc[-1] >= _dfh4["Open"].iloc[-1] else _clr_dn
+            _fig_h4.add_annotation(
+                x=_last_label, y=_last_close,
+                text=f"  {_last_close:.2f}",
+                showarrow=False, xanchor="left",
+                font=dict(color=_last_color, size=12, family="Inter"),
+                row=1, col=1
+            )
+
+            # Layout
+            _price_range = _dfh4["High"].max() - _dfh4["Low"].min()
+            _y_pad = _price_range * 0.08  # 8% padding trên dưới để nến không quá ngắn
+            _fig_h4.update_layout(
+                paper_bgcolor="#0f1629",
+                plot_bgcolor="#0d1425",
+                font=dict(color="#e2e8f0", family="Inter"),
+                margin=dict(l=10, r=60, t=40, b=20),
+                xaxis=dict(gridcolor="#1e2d45", tickangle=-45, tickfont=dict(size=10)),
+                yaxis=dict(
+                    gridcolor="#1e2d45", tickformat=".2f",
+                    range=[_dfh4["Low"].min() - _y_pad, _dfh4["High"].max() + _y_pad],
+                    title="Giá (¢/bu)", title_font=dict(size=11),
+                ),
+                xaxis2=dict(gridcolor="#1e2d45", tickangle=-45, tickfont=dict(size=9)),
+                yaxis2=dict(gridcolor="#1e2d45", title="Volume", title_font=dict(size=10)),
+                showlegend=True,
+                legend=dict(
+                    x=0.01, y=0.99, bgcolor="rgba(15,22,41,0.7)",
+                    bordercolor="#334155", borderwidth=1,
+                    font=dict(size=11),
+                ),
+                height=620,  # chiều cao đủ lớn để nến dễ nhìn
+                xaxis_rangeslider_visible=False,
+                hovermode="x unified",
+            )
+            _fig_h4.update_yaxes(showgrid=True, zeroline=False)
+
+            # Phân tách ngày bằng đường kẻ dọc
+            _dates_seen = set()
+            for _lbl_i, _dt_i in zip(_dfh4["Label"], _dfh4["Datetime"]):
+                _d = _dt_i.strftime("%d/%m")
+                if _d not in _dates_seen:
+                    _dates_seen.add(_d)
+                    _fig_h4.add_vline(
+                        x=_lbl_i, line_dash="dot",
+                        line_color="rgba(100,116,139,0.4)", line_width=1
+                    )
+
+            # Tiêu đề cập nhật dữ liệu
+            _h4_last_time = _dfh4["Datetime"].iloc[-1].strftime("%d/%m/%Y %H:%M")
+            st.markdown(
+                f"<div style='font-size:11px;color:#64748b;margin-bottom:8px;'>"
+                f"Nến H4 · 1 tuần gần nhất · Cập nhật đến: "
+                f"<span style='color:#f59e0b;font-weight:700;'>{_h4_last_time} (VN)</span> · "
+                f"EMA <span style='color:#f59e0b;'>21 (vàng)</span> · "
+                f"EMA <span style='color:#a78bfa;'>50 (tím)</span>"
+                f"</div>",
+                unsafe_allow_html=True
+            )
+            st.plotly_chart(_fig_h4, use_container_width=True)
+
+            # Bảng tóm tắt nến H4 cuối cùng
+            st.markdown("<div style='font-size:12px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;margin:8px 0 6px;'>📋 CÁC NẾN H4 GẦN NHẤT</div>", unsafe_allow_html=True)
+            _th4 = ("<table style='width:100%;border-collapse:collapse;font-size:12px;font-family:Inter,sans-serif;'>"
+                    "<thead><tr style='background:#1e293b;color:#94a3b8;'>"
+                    "<th style='padding:7px 10px;text-align:left;border-bottom:1px solid #334155;'>Thời gian (VN)</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Open</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>High</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Low</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Close</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>EMA21</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>EMA50</th>"
+                    "<th style='padding:7px 10px;text-align:center;border-bottom:1px solid #334155;'>Nến</th>"
+                    "</tr></thead><tbody>")
+            for _, _rh4 in _dfh4.tail(10).iloc[::-1].iterrows():
+                _bul = _rh4["Close"] >= _rh4["Open"]
+                _cc  = "#22c55e" if _bul else "#ef4444"
+                _cn4 = "🟢" if _bul else "🔴"
+                _e21 = f"{_rh4['EMA21']:.2f}" if not pd.isna(_rh4.get("EMA21", float('nan'))) else "—"
+                _e50 = f"{_rh4['EMA50']:.2f}" if not pd.isna(_rh4.get("EMA50", float('nan'))) else "—"
+                _th4 += (f"<tr style='border-bottom:1px solid #1e2d45;'>"
+                         f"<td style='padding:6px 10px;color:#94a3b8;font-weight:600;'>{_rh4['Label']}</td>"
+                         f"<td style='padding:6px 10px;text-align:right;color:#cbd5e1;'>{_rh4['Open']:.2f}</td>"
+                         f"<td style='padding:6px 10px;text-align:right;color:#fb923c;'>{_rh4['High']:.2f}</td>"
+                         f"<td style='padding:6px 10px;text-align:right;color:#a78bfa;'>{_rh4['Low']:.2f}</td>"
+                         f"<td style='padding:6px 10px;text-align:right;color:#e2e8f0;font-weight:700;'>{_rh4['Close']:.2f}</td>"
+                         f"<td style='padding:6px 10px;text-align:right;color:#f59e0b;'>{_e21}</td>"
+                         f"<td style='padding:6px 10px;text-align:right;color:#a78bfa;'>{_e50}</td>"
+                         f"<td style='padding:6px 10px;text-align:center;'>{_cn4}</td></tr>")
+            _th4 += "</tbody></table>"
+            st.markdown(_th4, unsafe_allow_html=True)
+
+        except Exception as _he:
+            st.warning(f"Lỗi vẽ biểu đồ H4: {_he}")
+    else:
+        st.info("Chưa có file dữ liệu H4. Hãy chạy: python Data/fetch_prices_H4.py")
 
 st.markdown("<hr style='border-color:#1e2d45;margin:18px 0;'>", unsafe_allow_html=True)
 
