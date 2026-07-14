@@ -403,7 +403,7 @@ with _tab_h4:
                     mode="markers+text", name="Đỉnh H4",
                     marker=dict(symbol="triangle-down", size=6, color="#ef4444"),
                     text="▼", textposition="top center", textfont=dict(color="#ef4444", size=9),
-                    hoverinfo="skip", showlegend=False
+                    hoverinfo="skip", showlegend=True
                 ), row=1, col=1)
 
             # --- Đánh dấu Đáy (Swing Low) ---
@@ -414,7 +414,7 @@ with _tab_h4:
                     mode="markers+text", name="Đáy H4",
                     marker=dict(symbol="triangle-up", size=6, color="#22c55e"),
                     text="▲", textposition="bottom center", textfont=dict(color="#22c55e", size=9),
-                    hoverinfo="skip", showlegend=False
+                    hoverinfo="skip", showlegend=True
                 ), row=1, col=1)
 
             # --- Đánh dấu Break Cấu Trúc Tăng (ChoCh/BOS Bull) ---
@@ -483,13 +483,7 @@ with _tab_h4:
                     tickangle=-45,
                     tickfont=dict(size=9),
                     range=[_x_start_label, _x_end_label],  # mặc định hiển thị 10 ngày
-                    rangeslider=dict(
-                        visible=True,
-                        bgcolor="#0d1425",
-                        bordercolor="#334155",
-                        borderwidth=1,
-                        thickness=0.04,  # chiều cao thanh trượt mỏng
-                    ),
+                    rangeslider=dict(visible=False),
                     type="category",  # dùng category để không bị khoảng trống cuối tuần
                 ),
                 yaxis=dict(
@@ -497,7 +491,16 @@ with _tab_h4:
                     range=[_y_lo - _y_pad, _y_hi + _y_pad],
                     title="Giá (¢/bu)", title_font=dict(size=11),
                 ),
-                xaxis2=dict(gridcolor="#1e2d45", tickangle=-45, tickfont=dict(size=9)),
+                xaxis2=dict(
+                    gridcolor="#1e2d45", tickangle=-45, tickfont=dict(size=9),
+                    rangeslider=dict(
+                        visible=True,
+                        bgcolor="#0d1425",
+                        bordercolor="#334155",
+                        borderwidth=1,
+                        thickness=0.04,  # chiều cao thanh trượt mỏng
+                    ),
+                ),
                 yaxis2=dict(gridcolor="#1e2d45", title="Volume", title_font=dict(size=10)),
                 showlegend=True,
                 legend=dict(
