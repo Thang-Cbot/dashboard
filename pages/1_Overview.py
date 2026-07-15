@@ -15,11 +15,8 @@ st.set_page_config(page_title="Tổng Quan — CBOT", page_icon="favicon.png", l
 
 DATA_OUTPUT = Path(__file__).parent.parent / "Data" / "output"
 
-try:
-    from streamlit_autorefresh import st_autorefresh
-    # Tự động chạy lại script mỗi 30s
-    st_autorefresh(interval=30000, limit=None, key="auto_refresh")
-    
+@st.fragment(run_every="30s")
+def check_trigger_update():
     _trigger_file = DATA_OUTPUT / ".streamlit_trigger"
     _current_mtime = _trigger_file.stat().st_mtime if _trigger_file.exists() else 0
     if "last_trigger_mtime" not in st.session_state:
@@ -29,8 +26,8 @@ try:
         st.session_state["last_trigger_mtime"] = _current_mtime
         st.cache_data.clear()
         st.rerun()
-except ImportError:
-    pass
+
+check_trigger_update()
 
 # ── CFTC code → commodity code map ─────────────────────────────────────────────
 CFTC_TO_CODE = {"002602": "ZC", "001602": "ZW"}
