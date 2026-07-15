@@ -211,7 +211,7 @@ BLACKSEA_SCRIPT  = str(DATA_DIR / "fetch_blacksea.py")
 RUSSIAN_METRICS_SCRIPT = str(DATA_DIR / "fetch_russian_metrics.py")
 
 def job_prices():
-    """Giá H1: chạy phút :15 mỗi giờ (giờ giao dịch CBOT 20:00 - 08:00 sáng hôm sau VN)."""
+    """Giá H1: chạy phút :00 mỗi giờ (giờ giao dịch CBOT 20:00 - 08:00 sáng hôm sau VN)."""
     while True:
         now = datetime.datetime.now(VN_TZ)
         # Tính phút :00 của giờ hiện tại (+5 giây buffer cho nến đóng)
@@ -233,6 +233,9 @@ def job_prices():
             log("Đang chạy cập nhật Hồ sơ mã (run_pro_plus) và tạo Dashboard (gen_dashboard)...")
             subprocess.run([sys.executable, "run_pro_plus.py"], cwd=str(CBOT_ROOT))
             subprocess.run([sys.executable, "gen_dashboard.py"], cwd=str(CBOT_ROOT))
+            
+            # Đồng bộ các file phân tích (Pro V2) và HTML lên GitHub
+            sync_to_github("Cập nhật Phân tích & Giao diện")
 
 
 def job_cot():
