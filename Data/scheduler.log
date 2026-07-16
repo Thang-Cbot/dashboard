@@ -3095,3 +3095,12 @@ huyên Sâu
 [2026-07-17 06:00:33] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Thời Tiết Ngắn Hạn)...
 [2026-07-17 06:00:35] [INFO] ✅ AI Điểm Tin hoàn thành (attempt 1)
 [2026-07-17 06:00:35] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: AI Điểm Tin)...
+[2026-07-17 06:00:36] [Sync] ✅ Đồng bộ Github thành công (Giá H1 + Macro)!
+[2026-07-17 06:00:36] [INFO] ▶ Kích hoạt: Giá H4
+[2026-07-17 06:00:37] [Sync] ⚠️ Lỗi Github Push: b7736379da94d2 but expected 7a347d9e74cfc980199cb73cbb59dd1cf5c12d71)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-07-17 06:00:37] [INFO] ⏰ Đợi Weather Short: còn 23.99h (18/07 06:00:02 VN)
+[2026-07-17 06:00:38] [Sync] ✅ Đồng bộ Github thành công (AI Điểm Tin)!
+[2026-07-17 06:00:39] [INFO] ⏰ Đợi AI News: còn 13.99h (17/07 20:00:02 VN)
+[2026-07-17 06:00:43] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-07-17 06:00:43] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
