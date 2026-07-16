@@ -28,9 +28,9 @@
       "updated_at": "2026-07-14 06:30:26"
     },
     "weather_short": {
-      "status": "OK",
-      "detail": "Weather short-term updated",
-      "updated_at": "2026-07-14 06:30:53"
+      "status": "[OK]",
+      "detail": "Auto-fetch 06:00:33",
+      "updated_at": "2026-07-17 06:00:33"
     },
     "weather_long": {
       "status": "OK",
@@ -78,5 +78,10 @@
     "status": "OK",
     "detail": "ZC+ZW updated at 06:00",
     "updated_at": "2026-07-17 06:00:29"
+  },
+  "weather_short": {
+    "status": "PARTIAL",
+    "detail": "23/24 fetched",
+    "updated_at": "2026-07-17 06:00:33"
   }
 }
