@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 146517.0,
+      "today_volume": 199279.0,
       "prev_volume": 140081.0,
       "today_oi": 748070,
       "prev_oi": 599860,
-      "today_close": 463.75,
+      "today_close": 463.5,
       "prev_close": 469.5,
       "trend": "Giảm mạnh mẽ (Strong Bearish / Short Buildup)",
       "logic": "Giá giảm đi kèm Volume tăng và OI tăng. Phe Bán khống mới đang ồ ạt gia nhập thị trường, củng cố xu hướng giảm tiếp diễn."
@@ -33,9 +33,9 @@
       "month": 9
     },
     "swing": {
-      "ticker": "ZWZ26.CBT",
+      "ticker": "ZWU26.CBT",
       "year": 2026,
-      "month": 12
+      "month": 9
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 95592.0,
+      "today_volume": 117429.0,
       "prev_volume": 67276.0,
       "today_oi": 217046,
       "prev_oi": 217045,
-      "today_close": 673.5,
+      "today_close": 674.25,
       "prev_close": 677.5,
       "trend": "Giảm mạnh mẽ (Strong Bearish / Short Buildup)",
       "logic": "Giá giảm đi kèm Volume tăng và OI tăng. Phe Bán khống mới đang ồ ạt gia nhập thị trường, củng cố xu hướng giảm tiếp diễn."
     }
   },
-  "updated_at": "2026-07-16 23:00:16"
+  "updated_at": "2026-07-17 06:00:29"
 }
