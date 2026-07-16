@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-07-14",
+  "last_updated_fundamentals": "2026-07-17",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -189,7 +189,7 @@
       "forecast": "Duy trì cực xấu 25-27% G/E",
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
-      "previous": "Đông 26% G/E, Xuân 57% G/E",
+      "previous": "Đông N/A (Cuối vụ), Xuân 57% G/E",
       "previous_date": "13/07/2026",
       "latest_date": "13/07/2026"
     },

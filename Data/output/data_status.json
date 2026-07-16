@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 06:00:53 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-07-17 06:00:53"
+      "detail": "Đẩy thành công lúc 06:01:09 (Nguồn: Cập nhật Phân tích & Giao diện)",
+      "updated_at": "2026-07-17 06:01:09"
     },
     "ai_analysis": {
       "status": "[OK]",
-      "detail": "Auto-fetch 22:33:28",
-      "updated_at": "2026-07-16 22:33:28"
+      "detail": "Auto-fetch 06:30:25",
+      "updated_at": "2026-07-17 06:30:25"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -71,17 +71,22 @@
   "all_ok": true,
   "macro": {
     "status": "OK",
-    "detail": "Brent=84.89, DXY=100.708",
-    "updated_at": "2026-07-17 06:00:49"
+    "detail": "Brent=84.94, DXY=100.708",
+    "updated_at": "2026-07-17 06:30:24"
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 06:00",
-    "updated_at": "2026-07-17 06:00:29"
+    "detail": "ZC+ZW updated at 06:30",
+    "updated_at": "2026-07-17 06:30:24"
   },
   "weather_short": {
     "status": "PARTIAL",
     "detail": "23/24 fetched",
     "updated_at": "2026-07-17 06:00:33"
+  },
+  "usda": {
+    "status": "OK",
+    "detail": "Updated: 2026-07-17 | WASDE: Jul",
+    "updated_at": "2026-07-17 06:30:17"
   }
 }
