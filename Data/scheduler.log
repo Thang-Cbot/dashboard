@@ -2901,3 +2901,6 @@ huyên Sâu
 [2026-07-16 14:00:50] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Cập nhật Phân tích & Giao diện)...
 [2026-07-16 14:00:55] [Sync] ✅ Đồng bộ Github thành công (Cập nhật Phân tích & Giao diện)!
 [2026-07-16 14:00:55] [INFO] ⏰ Đợi Giá H1: còn 0.99h (16/07 15:00:05 VN)
+[2026-07-16 16:34:57] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-16 16:35:15] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-07-16 16:35:15] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...

@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 14:00:19",
-      "updated_at": "2026-07-16 14:00:19"
+      "detail": "Auto-fetch 16:35:15",
+      "updated_at": "2026-07-16 16:35:15"
     },
     "macro": {
       "status": "[OK]",
@@ -76,7 +76,7 @@
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 16:30",
-    "updated_at": "2026-07-16 16:30:56"
+    "detail": "ZC+ZW updated at 16:34",
+    "updated_at": "2026-07-16 16:35:15"
   }
 }
