@@ -373,8 +373,8 @@ with _tab_h4:
                     if _dfh4.loc[i-2, 'Swing_Low']:
                         _last_sl_val = _dfh4.loc[i-2, 'Low']
 
-            # Nhãn hiển thị trục X: ngày + giờ VN
-            _dfh4["Label"] = _dfh4["Datetime"].dt.strftime("%d/%m %H:%M")
+            # Nhãn hiển thị trục X: ngày + giờ VN (thêm chữ VN để Plotly không tự ý convert timezone)
+            _dfh4["Label"] = _dfh4["Datetime"].dt.strftime("%d/%m %H:%M VN")
 
             # Màu nến: Bullish = xanh, Bearish = đỏ
             _clr_up   = "#22c55e"
@@ -544,6 +544,7 @@ with _tab_h4:
                 ),
                 xaxis2=dict(
                     gridcolor="#1e2d45", tickangle=-45, tickfont=dict(size=9),
+                    type="category",
                     rangeslider=dict(
                         visible=True,
                         bgcolor="#0d1425",
