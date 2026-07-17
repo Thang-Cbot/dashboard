@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 11:00:41",
-      "updated_at": "2026-07-17 11:00:41"
+      "detail": "Auto-fetch 12:00:16",
+      "updated_at": "2026-07-17 12:00:16"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 11:01:04 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-07-17 11:01:04"
+      "detail": "Đẩy thành công lúc 11:01:17 (Nguồn: Cập nhật Phân tích & Giao diện)",
+      "updated_at": "2026-07-17 11:01:17"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -65,9 +65,9 @@
   },
   "all_ok": true,
   "prices": {
-    "status": "OK",
-    "detail": "ZC+ZW updated at 11:00",
-    "updated_at": "2026-07-17 11:00:41"
+    "status": "PARTIAL (1 errors)",
+    "detail": "ZC: [Errno 13] Permission denied: 'C:\\\\Users\\\\Admin\\\\OneDrive - w2kfp\\\\Thang_Docs\\\\Dau tu thu dong\\\\hang hoa tai sinh\\\\Antigravity\\\\Cbot\\\\Data\\\\output\\\\ZC_active_H1.csv'",
+    "updated_at": "2026-07-17 12:00:15"
   },
   "macro": {
     "status": "OK",
