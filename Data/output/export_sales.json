@@ -1,16 +1,16 @@
 {
-  "fetched_at": "2026-07-14 06:30:23",
-  "current_week_ending": "June 26-July 2, 2026",
+  "fetched_at": "2026-07-17 06:30:25",
+  "current_week_ending": "July 3-9, 2026",
   "previous_week_ending": "Tuần trước",
   "status": "OK",
   "commodities": {
     "ZW": {
-      "current_mt": 313100.0,
+      "current_mt": 235100.0,
       "prev_mt": 0,
       "pct_change": 0
     },
     "ZC": {
-      "current_mt": 565800.0,
+      "current_mt": 315000.0,
       "prev_mt": 0,
       "pct_change": 0
     }

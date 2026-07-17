@@ -3117,3 +3117,8 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-07-17 06:30:02] [INFO] ▶ Kích hoạt: AI Phân Tích Chuyên Sâu
 [2026-07-17 06:30:25] [INFO] ✅ AI Phân Tích Chuyên Sâu hoàn thành (attempt 1)
 [2026-07-17 06:30:25] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: AI Phân Tích Chuyên Sâu)...
+[2026-07-17 06:30:28] [Sync] ✅ Đồng bộ Github thành công (AI Phân Tích Chuyên Sâu)!
+[2026-07-17 06:30:28] [INFO] ⏰ Đợi AI Phân Tích: còn 13.49h (17/07 20:00:02 VN)
+[2026-07-17 07:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-17 07:00:18] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-07-17 07:00:18] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...

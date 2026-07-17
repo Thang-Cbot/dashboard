@@ -1,9 +1,29 @@
 {
-  "fetched_at": "2026-07-17 06:00:04",
+  "fetched_at": "2026-07-17 06:30:29",
   "source": "Open-Meteo API",
   "regions": {
     "US_Wheat_Kansas": {
-      "error": "503 Server Error: Service Unavailable for url: https://api.open-meteo.com/v1/forecast?latitude=38.5&longitude=-98.0&daily=temperature_2m_max,precipitation_sum&forecast_days=3&timezone=auto"
+      "desc": "Lúa mì HRW",
+      "forecast": [
+        {
+          "date": "2026-07-16",
+          "max_temp_C": 32.3,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-07-17",
+          "max_temp_C": 33.0,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-07-18",
+          "max_temp_C": 37.5,
+          "precip_mm": 0.0
+        }
+      ],
+      "total_3d_rain_mm": 0.0,
+      "max_temp_C": 37.5,
+      "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
     },
     "US_Wheat_Montana": {
       "desc": "Lúa mì HRS",

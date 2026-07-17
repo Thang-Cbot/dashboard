@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-07-14 06:32:04",
+  "fetched_at": "2026-07-17 06:31:53",
   "source": "USDA NASS via ESMIS API + Historical Records",
   "data_note": "Đơn vị: Triệu mẫu Anh (Million Acres). Lịch sử 2015-2026.",
   "live_report_date": "",
@@ -187,7 +187,7 @@
       "description": "Tồn kho ngũ cốc quý 1",
       "impact": "Xác nhận cung tồn kho — tác động ngắn hạn",
       "status": "✅ Đã phát hành",
-      "days_away": -183
+      "days_away": -186
     },
     {
       "name": "Prospective Plantings 2026",
@@ -196,7 +196,7 @@
       "description": "Dự kiến diện tích gieo trồng cả năm 2026",
       "impact": "⚡ CATALYST LỚN — thị trường biến động mạnh khi dự báo diện tích thay đổi",
       "status": "✅ Đã phát hành",
-      "days_away": -105
+      "days_away": -108
     },
     {
       "name": "Grain Stocks Q2 2026",
@@ -205,7 +205,7 @@
       "description": "Tồn kho ngũ cốc quý 2",
       "impact": "Double catalyst cùng ngày Prospective Plantings",
       "status": "✅ Đã phát hành",
-      "days_away": -105
+      "days_away": -108
     },
     {
       "name": "Acreage 2026 (CHÍNH THỨC)",
@@ -214,7 +214,7 @@
       "description": "XÁC NHẬN chính thức diện tích đã gieo trồng 2026",
       "impact": "⚡⚡ CATALYST #1 MÙA HÈ — Thị trường phản ứng tức thì",
       "status": "✅ Đã phát hành",
-      "days_away": -14
+      "days_away": -17
     },
     {
       "name": "Grain Stocks Q3 2026",
@@ -223,7 +223,7 @@
       "description": "Tồn kho ngũ cốc quý 3",
       "impact": "Double catalyst cùng ngày Acreage — biến động lớn",
       "status": "✅ Đã phát hành",
-      "days_away": -14
+      "days_away": -17
     },
     {
       "name": "Grain Stocks Q4 2026",
@@ -231,8 +231,8 @@
       "publish_vn": "30/09/2026 lúc 23:00 VN",
       "description": "Tồn kho ngũ cốc quý 4",
       "impact": "Trước mùa thu hoạch — quan trọng cho chiến lược mùa gặt",
-      "status": "📅 Còn 78 ngày",
-      "days_away": 78
+      "status": "📅 Còn 75 ngày",
+      "days_away": 75
     }
   ],
   "next_report": {
@@ -241,7 +241,7 @@
     "publish_vn": "30/09/2026 lúc 23:00 VN",
     "description": "Tồn kho ngũ cốc quý 4",
     "impact": "Trước mùa thu hoạch — quan trọng cho chiến lược mùa gặt",
-    "status": "📅 Còn 78 ngày",
-    "days_away": 78
+    "status": "📅 Còn 75 ngày",
+    "days_away": 75
   }
 }
