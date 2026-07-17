@@ -6,9 +6,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZCH27.CBT",
-      "year": 2027,
-      "month": 3
+      "ticker": "ZCZ26.CBT",
+      "year": 2026,
+      "month": 12
     },
     "dca": {
       "ticker": "ZCZ26.CBT",
@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 28732.0,
+      "today_volume": 48618.0,
       "prev_volume": 237293.0,
       "today_oi": 749020,
       "prev_oi": 600582,
-      "today_close": 462.0,
+      "today_close": 465.25,
       "prev_close": 464.0,
-      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
-      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
+      "trend": "Tăng nhẹ tích lũy (Accumulation Rally)",
+      "logic": "Giá tăng nhẹ với các chỉ số thanh khoản hỗn hợp, cho thấy thị trường đang tích lũy lực cầu hoặc đi ngang."
     }
   },
   "ZW": {
@@ -33,9 +33,9 @@
       "month": 9
     },
     "swing": {
-      "ticker": "ZWU26.CBT",
+      "ticker": "ZWZ26.CBT",
       "year": 2026,
-      "month": 9
+      "month": 12
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 13727.0,
+      "today_volume": 21176.0,
       "prev_volume": 147052.0,
       "today_oi": 217637,
       "prev_oi": 217637,
-      "today_close": 673.25,
+      "today_close": 679.0,
       "prev_close": 674.75,
-      "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
-      "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
+      "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
+      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
-  "updated_at": "2026-07-17 16:00:25"
+  "updated_at": "2026-07-17 19:52:04"
 }
