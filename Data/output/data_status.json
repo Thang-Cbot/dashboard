@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 21:00:39",
-      "updated_at": "2026-07-18 21:00:39"
+      "detail": "Auto-fetch 06:31:00",
+      "updated_at": "2026-07-19 06:31:00"
     },
     "cot": {
       "status": "PARTIAL",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 06:30:45 (Nguồn: Giá H1 + Macro)",
-      "updated_at": "2026-07-19 06:30:45"
+      "detail": "Đẩy thành công lúc 06:30:57 (Nguồn: Giá H4)",
+      "updated_at": "2026-07-19 06:30:57"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -72,7 +72,7 @@
   "macro": {
     "status": "OK",
     "detail": "Brent=88.1, DXY=100.75",
-    "updated_at": "2026-07-19 06:30:25"
+    "updated_at": "2026-07-19 06:31:00"
   },
   "usda": {
     "status": "OK",
@@ -83,5 +83,15 @@
     "status": "OK",
     "detail": "Kỳ: July 3-9, 2026 | ZW=235,100 MT, ZC=315,000 MT",
     "updated_at": "2026-07-19 06:30:29"
+  },
+  "weather_short": {
+    "status": "OK",
+    "detail": "24/24 fetched",
+    "updated_at": "2026-07-19 06:30:56"
+  },
+  "weather_long": {
+    "status": "OK",
+    "detail": "Status: El Niño Advisory",
+    "updated_at": "2026-07-19 06:30:58"
   }
 }
