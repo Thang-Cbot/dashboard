@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 21:00:20",
-      "updated_at": "2026-07-18 21:00:20"
+      "detail": "Auto-fetch 06:30:41",
+      "updated_at": "2026-07-19 06:30:41"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 21:00:43 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-07-18 21:00:43"
+      "detail": "Đẩy thành công lúc 21:00:53 (Nguồn: Cập nhật Phân tích & Giao diện)",
+      "updated_at": "2026-07-18 21:00:53"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -66,12 +66,22 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 21:00",
-    "updated_at": "2026-07-18 21:00:20"
+    "detail": "ZC+ZW updated at 06:30",
+    "updated_at": "2026-07-19 06:30:41"
   },
   "macro": {
     "status": "OK",
     "detail": "Brent=88.1, DXY=100.75",
-    "updated_at": "2026-07-18 21:00:39"
+    "updated_at": "2026-07-19 06:30:25"
+  },
+  "usda": {
+    "status": "OK",
+    "detail": "Updated: 2026-07-19 | WASDE: Jul",
+    "updated_at": "2026-07-19 06:30:16"
+  },
+  "export_sales": {
+    "status": "OK",
+    "detail": "Kỳ: July 3-9, 2026 | ZW=235,100 MT, ZC=315,000 MT",
+    "updated_at": "2026-07-19 06:30:29"
   }
 }

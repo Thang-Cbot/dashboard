@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-07-17",
+  "last_updated_fundamentals": "2026-07-19",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -56,26 +56,26 @@
     "export_sales_weekly": {
       "report_type": "BAN_HANG",
       "latest_net_sales": "315.0 nghìn tấn",
-      "previous_net_sales": "565.8 nghìn tấn",
-      "pct_change": -44.33,
+      "previous_net_sales": "315.0 nghìn tấn",
+      "pct_change": 0.0,
       "latest_shipments": "1,588.3 nghìn tấn",
       "outstanding_sales": "N/A",
       "week_ending": "July 3-9, 2026",
-      "previous_week_ending": "June 26-July 2, 2026",
+      "previous_week_ending": "July 3-9, 2026",
       "latest_date": "July 3-9, 2026",
       "next_report": "Thứ 5 hàng tuần lúc 21:30 (VN)",
-      "action": "BEARISH",
-      "logic": "Doanh số ròng giảm 44.3% xuống còn 315.0k tấn. Lực cầu yếu tạo áp lực giảm giá.",
+      "action": "NEUTRAL",
+      "logic": "Doanh số ròng giảm 0.0% xuống còn 315.0k tấn. Trung lập.",
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
       "latest": "Net Sales (Bán hàng): 315,000 MT (Kỳ July 3-9, 2026)",
-      "previous": "Net Sales (Tuần trước): 565,800 MT (June 26-July 2, 2026)",
+      "previous": "Net Sales (Tuần trước): 315,000 MT (July 3-9, 2026)",
       "latest_raw": 315000.0,
       "latest_date": "July 3-9, 2026",
-      "previous_date": "June 26-July 2, 2026",
-      "pct_change": -44.3,
-      "logic": "Giảm mạnh 44.3% so tuần trước. Tín hiệu BEARISH — cầu xuất khẩu yếu.",
+      "previous_date": "July 3-9, 2026",
+      "pct_change": 0.0,
+      "logic": "Giảm nhẹ 0.0% so tuần trước. Trung tính.",
       "next_date": "Thứ 5 hàng tuần, 21:30 (VN)"
     },
     "competitors": {
@@ -217,26 +217,26 @@
     "export_sales_weekly": {
       "report_type": "BAN_HANG",
       "latest_net_sales": "235.1 nghìn tấn",
-      "previous_net_sales": "313.1 nghìn tấn",
-      "pct_change": -24.91,
+      "previous_net_sales": "235.1 nghìn tấn",
+      "pct_change": 0.0,
       "latest_shipments": "422.1 nghìn tấn",
       "outstanding_sales": "N/A",
       "week_ending": "July 3-9, 2026",
-      "previous_week_ending": "June 26-July 2, 2026",
+      "previous_week_ending": "July 3-9, 2026",
       "latest_date": "July 3-9, 2026",
       "next_report": "Thứ 5 hàng tuần lúc 21:30 (VN)",
-      "action": "BEARISH",
-      "logic": "Doanh số ròng giảm 24.9% xuống còn 235.1k tấn. Lực cầu yếu tạo áp lực giảm giá.",
+      "action": "NEUTRAL",
+      "logic": "Doanh số ròng giảm 0.0% xuống còn 235.1k tấn. Trung lập.",
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
       "latest": "Net Sales (Bán hàng): 235,100 MT (Kỳ July 3-9, 2026)",
-      "previous": "Net Sales (Tuần trước): 313,100 MT (June 26-July 2, 2026)",
+      "previous": "Net Sales (Tuần trước): 235,100 MT (July 3-9, 2026)",
       "latest_raw": 235100.0,
       "latest_date": "July 3-9, 2026",
-      "previous_date": "June 26-July 2, 2026",
-      "pct_change": -24.9,
-      "logic": "Giảm mạnh 24.9% so tuần trước. Tín hiệu BEARISH — cầu xuất khẩu yếu.",
+      "previous_date": "July 3-9, 2026",
+      "pct_change": 0.0,
+      "logic": "Giảm nhẹ 0.0% so tuần trước. Trung tính.",
       "next_date": "Thứ 5 hàng tuần, 21:30 (VN)"
     },
     "competitors": {
