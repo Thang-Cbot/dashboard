@@ -3767,3 +3767,13 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-07-20 13:00:48] [INFO] Đang quét tín hiệu Telegram Alarm (SMC)...
 [2026-07-20 13:00:51] [INFO] Đang chạy cập nhật Hồ sơ mã (run_pro_plus) và tạo Dashboard (gen_dashboard)...
 [2026-07-20 13:00:59] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Cập nhật Phân tích & Giao diện)...
+[2026-07-20 13:01:03] [Sync] ✅ Đồng bộ Github thành công (Cập nhật Phân tích & Giao diện)!
+[2026-07-20 13:01:03] [INFO] ⏰ Đợi Giá H1: còn 0.98h (20/07 14:00:05 VN)
+[2026-07-20 14:35:43] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-20 14:35:59] [WARN] ⚠ Giá H1 + Macro lỗi attempt 1: nSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\pandas\core\indexes\base.py", line 3648, in get_loc
+    raise KeyError(key) from err
+KeyError: 'EMA_21'
+
+[2026-07-20 14:35:59] [INFO] ▶ Kích hoạt: Giá H4
+[2026-07-20 14:36:05] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-07-20 14:36:05] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
