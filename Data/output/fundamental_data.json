@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-07-19",
+  "last_updated_fundamentals": "2026-07-21",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -23,14 +23,14 @@
       "latest_date": "06/07/2026"
     },
     "crop_condition": {
-      "latest": "68% Good to Excellent",
-      "next_date": "21/07/2026 lúc 03:00 (VN)",
+      "latest": "67% Good to Excellent",
+      "next_date": "28/07/2026 lúc 03:00 (VN)",
       "forecast": "70% G/E",
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
-      "previous": "67% Good to Excellent",
+      "previous": "68% Good to Excellent",
       "previous_date": "13/07/2026",
-      "latest_date": "13/07/2026"
+      "latest_date": "20/07/2026"
     },
     "us_ending_stocks": {
       "next_date": "12/08/2026 lúc 23:00 (VN)",
@@ -69,14 +69,14 @@
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
-      "latest": "Net Sales (Bán hàng): 315,000 MT (Kỳ July 3-9, 2026)",
-      "previous": "Net Sales (Tuần trước): 315,000 MT (July 3-9, 2026)",
+      "latest": "Giao hàng (Inspections): 1,549,849 tấn (Tuần kết thúc Jul 20, 2026)",
+      "previous": "Net Sales (Bán hàng): 315,000 MT (Kỳ July 3-9, 2026)",
       "latest_raw": 315000.0,
       "latest_date": "July 3-9, 2026",
       "previous_date": "July 3-9, 2026",
       "pct_change": 0.0,
       "logic": "Giảm nhẹ 0.0% so tuần trước. Trung tính.",
-      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)"
+      "next_date": "27/07/2026 lúc 22:00 (VN)"
     },
     "competitors": {
       "latest": "Brazil & Argentina",
@@ -93,16 +93,16 @@
       "logic": "Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại đang xuất hiện vùng khô hạn cục bộ ở rìa phía Bắc (Minnesota, Northern Plains) đe dọa trực tiếp tỷ lệ nảy mầm của cây ngô non."
     },
     "cot_report": {
-      "latest": "[2026-07-07] Net Short 14,999 HD | Change: +51,997 HD",
-      "next_date": "10/07/2026 (Hang tuan, Thu Sau)",
-      "forecast": "Q4 (CAM) - COVER SHORT",
-      "action": "Cam Short duoi. Canh LONG bat hoi.",
-      "logic": "[2026-07-07] Managed Money nam giu vi the rong Short 14,999 hop dong. Tuan nay tang them 51,997 HD. Xep hang Ma Tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.",
+      "latest": "[2026-07-14] Net Long 11,361 HD | Change: +26,360 HD",
+      "next_date": "17/07/2026 (Hang tuan, Thu Sau)",
+      "forecast": "Q1 (XANH LA) - GOM LONG",
+      "action": "Uu tien LONG. Xu huong tang ben vung.",
+      "logic": "[2026-07-14] Managed Money nam giu vi the rong Long 11,361 hop dong. Tuan nay tang them 26,360 HD. Xep hang Ma Tran: Q1 (XANH LA) - GOM LONG. Khuyen nghi: Uu tien LONG. Xu huong tang ben vung.",
       "raw_data": {
-        "net_position": -14999.0,
-        "change": 51997.0,
-        "long": 287447.0,
-        "short": 302446.0
+        "net_position": 11361.0,
+        "change": 26360.0,
+        "long": 294328.0,
+        "short": 282967.0
       }
     },
     "import_demand": {
@@ -174,24 +174,24 @@
       "latest_date": "06/07/2026"
     },
     "harvest_progress": {
-      "latest": "Đông 67% thu hoạch, Xuân N/A",
-      "next_date": "21/07/2026 lúc 03:00 (VN)",
+      "latest": "Đông 74% thu hoạch, Xuân N/A",
+      "next_date": "28/07/2026 lúc 03:00 (VN)",
       "forecast": "Mỹ: 12% lúa đông đã thu hoạch",
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
-      "previous": "Đông 59% thu hoạch, Xuân N/A",
+      "previous": "Đông 67% thu hoạch, Xuân N/A",
       "previous_date": "13/07/2026",
-      "latest_date": "13/07/2026"
+      "latest_date": "20/07/2026"
     },
     "crop_condition": {
-      "latest": "Đông N/A (Cuối vụ), Xuân 58% G/E",
-      "next_date": "21/07/2026 lúc 03:00 (VN)",
+      "latest": "Đông N/A (Cuối vụ), Xuân 53% G/E",
+      "next_date": "28/07/2026 lúc 03:00 (VN)",
       "forecast": "Duy trì cực xấu 25-27% G/E",
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
-      "previous": "Đông N/A (Cuối vụ), Xuân 57% G/E",
+      "previous": "Đông N/A (Cuối vụ), Xuân 58% G/E",
       "previous_date": "13/07/2026",
-      "latest_date": "13/07/2026"
+      "latest_date": "20/07/2026"
     },
     "us_ending_stocks": {
       "next_date": "12/08/2026 lúc 23:00 (VN)",
@@ -230,14 +230,14 @@
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
-      "latest": "Net Sales (Bán hàng): 235,100 MT (Kỳ July 3-9, 2026)",
-      "previous": "Net Sales (Tuần trước): 235,100 MT (July 3-9, 2026)",
+      "latest": "Giao hàng (Inspections): 213,993 tấn (Tuần kết thúc Jul 20, 2026)",
+      "previous": "Net Sales (Bán hàng): 235,100 MT (Kỳ July 3-9, 2026)",
       "latest_raw": 235100.0,
       "latest_date": "July 3-9, 2026",
       "previous_date": "July 3-9, 2026",
       "pct_change": 0.0,
       "logic": "Giảm nhẹ 0.0% so tuần trước. Trung tính.",
-      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)"
+      "next_date": "27/07/2026 lúc 22:00 (VN)"
     },
     "competitors": {
       "latest": "Úc & Argentina",
@@ -261,16 +261,16 @@
       "logic": "Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ) + Hạn hán mùa thu làm giảm 20% diện tích gieo trồng của Úc."
     },
     "cot_report": {
-      "latest": "[2026-07-07] Net Short 60,432 HD | Change: +7,129 HD",
-      "next_date": "10/07/2026 (Hang tuan, Thu Sau)",
+      "latest": "[2026-07-14] Net Short 34,887 HD | Change: +25,545 HD",
+      "next_date": "17/07/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q4 (CAM) - COVER SHORT",
       "action": "Cam Short duoi. Canh LONG bat hoi.",
-      "logic": "[2026-07-07] Managed Money nam giu vi the rong Short 60,432 hop dong. Tuan nay tang them 7,129 HD. Xep hang Ma Tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.",
+      "logic": "[2026-07-14] Managed Money nam giu vi the rong Short 34,887 hop dong. Tuan nay tang them 25,545 HD. Xep hang Ma Tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.",
       "raw_data": {
-        "net_position": -60432.0,
-        "change": 7129.0,
-        "long": 73719.0,
-        "short": 134151.0
+        "net_position": -34887.0,
+        "change": 25545.0,
+        "long": 76020.0,
+        "short": 110907.0
       }
     },
     "import_demand": {
@@ -349,13 +349,13 @@
       "logic": "Mỹ bắt đầu thu hoạch vào tháng 9-11. Argentina đang thu hoạch đậu tương đạt 75% tiến độ. Việc Argentina sắp kết thúc thu hoạch rộ đồng nghĩa với việc áp lực bán tháo lớn nhất của Nam Mỹ đã phản ánh hoàn toàn vào giá (priced-in), tạo điều kiện cho giá đậu tương thiết lập đáy chu kỳ mùa vụ và bước vào pha tăng trưởng."
     },
     "crop_condition": {
-      "latest": "65% Good to Excellent",
-      "next_date": "21/07/2026 lúc 03:00 (VN)",
+      "latest": "66% Good to Excellent",
+      "next_date": "28/07/2026 lúc 03:00 (VN)",
       "forecast": "68% G/E",
       "action": "Chất lượng gieo trồng tốt -> Canh Short ngắn hạn / bảo thủ",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6.",
-      "latest_date": "13/07/2026",
-      "previous": "64% Good to Excellent",
+      "latest_date": "20/07/2026",
+      "previous": "65% Good to Excellent",
       "previous_date": "13/07/2026"
     },
     "us_ending_stocks": {
@@ -377,12 +377,12 @@
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"
     },
     "exports": {
-      "latest": "Giao hàng (Inspections): 418,592 tấn (Tuần kết thúc Jul 13, 2026)",
-      "next_date": "20/07/2026 lúc 22:00 (VN)",
+      "latest": "Giao hàng (Inspections): 296,972 tấn (Tuần kết thúc Jul 20, 2026)",
+      "next_date": "27/07/2026 lúc 22:00 (VN)",
       "forecast": "300,000 tấn",
       "action": "Xuất khẩu ổn định -> Gom Long trung hạn",
       "logic": "Đạt 276,852 tấn trong tuần, giảm nhẹ 8% so với tuần trước. Trung Quốc vẫn là đối tác mua ròng hàng đầu với 74,800 tấn. Lượng bốc xếp thực tế duy trì ổn định ở mức 569,300 tấn.",
-      "previous": "Giao hàng (Inspections): 528,350 tấn (Tuần kết thúc Jul 06, 2026)"
+      "previous": "Giao hàng (Inspections): 418,592 tấn (Tuần kết thúc Jul 13, 2026)"
     },
     "competitors": {
       "latest": "Brazil & Argentina",
@@ -450,5 +450,5 @@
     "swing_short_tp": "1191.00 cents"
   },
   "wasde_report_month": "Jul",
-  "last_updated_cot": "2026-07-14 06:16:59"
+  "last_updated_cot": "2026-07-21 06:09:44"
 }
