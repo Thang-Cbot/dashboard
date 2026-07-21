@@ -4266,3 +4266,7 @@ KeyError: 'EMA_21'
 huyên Sâu
 [2026-07-21 23:16:20] [INFO] ✅ AI Phân Tích Chuyên Sâu hoàn thành (attempt 1)
 [2026-07-21 23:16:20] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: AI Phân Tích Chuyên Sâu)...
+[2026-07-21 23:16:25] [Sync] ✅ Đồng bộ Github thành công (AI Phân Tích Chuyên Sâu)!
+[2026-07-21 23:16:25] [INFO] ⏰ Đợi AI Phân Tích: còn 7.23h (22/07 06:30:02 VN)
+[2026-07-21 23:16:45] [INFO] ✅ AI Điểm Tin hoàn thành (attempt 1)
+[2026-07-21 23:16:45] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: AI Điểm Tin)...
