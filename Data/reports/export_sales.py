@@ -167,7 +167,9 @@ def fetch_export_sales():
 
 
 def _update_fundamental_exports(parsed, period_str):
-    """Ghi kết quả export vào fundamental_data.json."""
+    """Ghi kết quả export vào fundamental_data.json.
+    ANTI-DUPLICATE: Bỏ qua nếu period_str trùng với kỳ đã lưu (báo cáo chưa ra mới).
+    """
     if not FUNDAMENTAL_DATA.exists():
         return
     try:
@@ -177,7 +179,14 @@ def _update_fundamental_exports(parsed, period_str):
         for code, data in parsed.items():
             if code not in fdata:
                 fdata[code] = {}
-                
+
+            # ── ANTI-DUPLICATE CHECK ──────────────────────────────────────────
+            existing_week = fdata[code].get("export_sales_weekly", {}).get("week_ending", "")
+            if existing_week and existing_week == period_str:
+                print(f"  [SKIP ExportSales] {code}: Kỳ '{period_str}' đã có. Báo cáo chưa ra mới, bỏ qua ghi.")
+                continue
+            # ─────────────────────────────────────────────────────────────────
+
             # Lấy dữ liệu net_sales và shipments
             curr_mt = data.get("current_mt", 0)
             ship_mt = data.get("shipments_mt", 0)

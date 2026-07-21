@@ -236,28 +236,76 @@ def parse_crop_progress(text):
     return res
 
 def parse_inspections():
+    """Parse bảng tổng hợp từ AMS text: lấy Actual, Week Ago, Year Ago, Current YTD, Previous YTD."""
     url = "https://www.ams.usda.gov/mnreports/wa_gr101.txt"
     res = {}
     try:
         r = requests.get(url, timeout=15)
-        if r.status_code == 200:
-            lines = r.text.split('\n')
-            report_date = ""
-            for line in lines[:5]:
-                if "USDA Market News" in line:
-                    match = re.search(r'([A-Za-z]+ \d+, \d{4})', line)
-                    if not match: match = re.search(r'([A-Za-z]+ \d+, \d{2})', line)
-                    if not match: match = re.search(r'([A-Za-z]+ \d+ \d{4})', line)
-                    if not match: report_date = line.replace("Washington, DC", "").replace("USDA Market News", "").strip()
-                    else: report_date = match.group(1).strip()
-            
-            for line in lines:
-                line_upper = line.upper()
-                if line_upper.startswith("CORN ") or line_upper.startswith("SOYBEANS ") or line_upper.startswith("WHEAT "):
-                    parts = line.split()
-                    if len(parts) >= 2 and parts[1].replace(',', '').isdigit():
-                        code = "ZC" if parts[0] == "CORN" else ("ZS" if parts[0] == "SOYBEANS" else "ZW")
-                        res[code] = {"volume": parse_val(parts[1]), "date": report_date}
+        if r.status_code != 200:
+            return res
+        text = r.text
+        lines = text.split('\n')
+        
+        # --- Lấy ngày báo cáo từ tiêu đề ---
+        report_date = ""
+        week_ending = ""  # VD: "Jul 16, 2026"
+        for line in lines[:10]:
+            if "USDA Market News" in line:
+                match = re.search(r'([A-Za-z]+ \d+, \d{4})', line)
+                if match:
+                    report_date = match.group(1).strip()
+        # Lấy tuần kết thúc từ tiêu đề bảng tổng hợp
+        for line in lines:
+            m = re.search(r'REPORTED IN WEEK ENDING\s+([A-Z]{3}\s+\d+,?\s+\d{4})', line)
+            if m:
+                week_ending = m.group(1).strip()
+                break
+        if not week_ending:
+            week_ending = report_date
+
+        # --- Lấy ngày cột từ header bảng tổng hợp ---
+        # Header dạng: GRAIN  07/16/2026  07/09/2026  07/17/2025  CURRENT...  PREVIOUS...
+        col_dates = []
+        for line in lines:
+            dates = re.findall(r'(\d{2}/\d{2}/\d{4})', line)
+            if len(dates) >= 2:
+                col_dates = dates
+                break
+        week_ago_date = col_dates[1] if len(col_dates) > 1 else ""
+        year_ago_date = col_dates[2] if len(col_dates) > 2 else ""
+
+        # --- Parse bảng tổng hợp chính ---
+        # Dòng dạng: CORN    1,549,849   1,554,620     984,901   73,772,659   58,818,344
+        grain_map = {"CORN": "ZC", "WHEAT": "ZW"}
+        for line in lines:
+            stripped = line.strip()
+            parts = stripped.split()
+            if not parts:
+                continue
+            grain_key = parts[0].upper()
+            if grain_key in grain_map and len(parts) >= 6:
+                # Cố gắng parse 5 số liệu: actual, week_ago, year_ago, ytd_curr, ytd_prev
+                nums = []
+                for p in parts[1:]:
+                    clean = p.replace(',', '')
+                    if clean.lstrip('-').isdigit():
+                        nums.append(int(clean))
+                if len(nums) >= 5:
+                    code = grain_map[grain_key]
+                    res[code] = {
+                        "volume":       nums[0],
+                        "week_ago":     nums[1],
+                        "year_ago":     nums[2],
+                        "ytd_current":  nums[3],
+                        "ytd_previous": nums[4],
+                        "date":         week_ending,
+                        "week_ago_date": week_ago_date,
+                    }
+                    # Tính % YoY so với năm trước
+                    if nums[4] > 0:
+                        res[code]["ytd_yoy_pct"] = round((nums[3] - nums[4]) / nums[4] * 100, 1)
+                    else:
+                        res[code]["ytd_yoy_pct"] = 0
     except Exception as e:
         print(f"Error fetching AMS inspections: {e}")
     return res
@@ -426,19 +474,34 @@ def run_crawler_and_update():
                 else:
                     if "condition" in p_data and p_data["condition"] > 0:
                         _upd_cp("crop_condition", f"{p_data['condition']}% Good to Excellent", f"{p_data.get('condition_prev', '')}% Good to Excellent" if 'condition_prev' in p_data else None)
-            # Export Inspections
+            # Export Inspections — có chống duplicate theo ngày tuần kết thúc
             if code in inspections_data:
                 insp = inspections_data[code]
-                existing_latest = fund[code]["exports"].get("latest", "")
-                sales_match = re.search(r'(Bán hàng ròng:[^\|]*\d[^\|]*)', existing_latest)
-                if not sales_match: sales_match = re.search(r'(doanh số ròng[^\|]*\d[^\|]*)', existing_latest)
-                sales_part = " | " + sales_match.group(1).strip() if sales_match else ""
+                new_date = insp.get("date", "")
+                existing_insp_date = fund[code].get("exports", {}).get("inspections_week_ending", "")
                 
-                new_latest = f"Giao hàng (Inspections): {format_num(insp['volume'])} tấn (Tuần kết thúc {insp['date']}){sales_part}"
-                if existing_latest and existing_latest != new_latest:
-                    fund[code]["exports"]["previous"] = existing_latest
-                fund[code]["exports"]["latest"] = new_latest
-                fund[code]["exports"]["next_date"] = insp_next
+                if new_date and new_date == existing_insp_date:
+                    print(f"  [SKIP Inspections] {code}: Kỳ '{new_date}' đã có, báo cáo chưa cập nhật mới.")
+                else:
+                    # Lưu dữ liệu cũ vào previous
+                    old_insp = fund[code].get("exports", {}).get("inspections", {})
+                    if old_insp:
+                        fund[code]["exports"]["inspections_previous"] = old_insp
+                    
+                    # Lưu dữ liệu mới
+                    fund[code]["exports"]["inspections"] = {
+                        "volume":       insp.get("volume", 0),
+                        "week_ago":     insp.get("week_ago", 0),
+                        "year_ago":     insp.get("year_ago", 0),
+                        "ytd_current":  insp.get("ytd_current", 0),
+                        "ytd_previous": insp.get("ytd_previous", 0),
+                        "ytd_yoy_pct":  insp.get("ytd_yoy_pct", 0),
+                        "week_ending":  new_date,
+                        "week_ago_date": insp.get("week_ago_date", ""),
+                    }
+                    fund[code]["exports"]["inspections_week_ending"] = new_date
+                    fund[code]["exports"]["next_date"] = insp_next
+                    print(f"  [OK Inspections] {code}: Đã cập nhật kỳ '{new_date}', volume={insp.get('volume',0):,}")
                 
         with open(filename, "w", encoding="utf-8") as f:
             json.dump(fund, f, ensure_ascii=False, indent=2)

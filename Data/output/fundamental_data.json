@@ -29,7 +29,7 @@
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
       "previous": "68% Good to Excellent",
-      "previous_date": "13/07/2026",
+      "previous_date": "20/07/2026",
       "latest_date": "20/07/2026"
     },
     "us_ending_stocks": {
@@ -69,14 +69,14 @@
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
-      "latest": "Giao hàng (Inspections): 1,549,849 tấn (Tuần kết thúc Jul 20, 2026)",
-      "previous": "Net Sales (Bán hàng): 315,000 MT (Kỳ July 3-9, 2026)",
+      "latest": "Net Sales (Bán hàng): 315,000 MT (Kỳ July 3-9, 2026)",
+      "previous": "Net Sales (Tuần trước): 315,000 MT (July 3-9, 2026)",
       "latest_raw": 315000.0,
       "latest_date": "July 3-9, 2026",
       "previous_date": "July 3-9, 2026",
       "pct_change": 0.0,
       "logic": "Giảm nhẹ 0.0% so tuần trước. Trung tính.",
-      "next_date": "27/07/2026 lúc 22:00 (VN)"
+      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)"
     },
     "competitors": {
       "latest": "Brazil & Argentina",
@@ -180,7 +180,7 @@
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Đông 67% thu hoạch, Xuân N/A",
-      "previous_date": "13/07/2026",
+      "previous_date": "20/07/2026",
       "latest_date": "20/07/2026"
     },
     "crop_condition": {
@@ -190,7 +190,7 @@
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông N/A (Cuối vụ), Xuân 58% G/E",
-      "previous_date": "13/07/2026",
+      "previous_date": "20/07/2026",
       "latest_date": "20/07/2026"
     },
     "us_ending_stocks": {
@@ -230,14 +230,14 @@
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
-      "latest": "Giao hàng (Inspections): 213,993 tấn (Tuần kết thúc Jul 20, 2026)",
-      "previous": "Net Sales (Bán hàng): 235,100 MT (Kỳ July 3-9, 2026)",
+      "latest": "Net Sales (Bán hàng): 235,100 MT (Kỳ July 3-9, 2026)",
+      "previous": "Net Sales (Tuần trước): 235,100 MT (July 3-9, 2026)",
       "latest_raw": 235100.0,
       "latest_date": "July 3-9, 2026",
       "previous_date": "July 3-9, 2026",
       "pct_change": 0.0,
       "logic": "Giảm nhẹ 0.0% so tuần trước. Trung tính.",
-      "next_date": "27/07/2026 lúc 22:00 (VN)"
+      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)"
     },
     "competitors": {
       "latest": "Úc & Argentina",
@@ -356,7 +356,7 @@
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6.",
       "latest_date": "20/07/2026",
       "previous": "65% Good to Excellent",
-      "previous_date": "13/07/2026"
+      "previous_date": "20/07/2026"
     },
     "us_ending_stocks": {
       "next_date": "12/08/2026 lúc 23:00 (VN)",

@@ -264,6 +264,10 @@ with tab1:
                 bias = "bull" if pct > 5 else ("bear" if pct < -5 else "")
                 badge = f'<span class="{bias}">' + ("▲ BULL" if bias == "bull" else "▼ BEAR" if bias == "bear" else "—") + '</span>' if bias else "—"
                 
+                # Bàdge “chưa cập nhật” nếu % thay đổi = 0 và có dữ liệu tuần trước
+                is_stale = (abs(pct) < 0.01) and prev_sales not in ("N/A", "—", "")
+                stale_badge = "<div style='margin-top:6px; margin-bottom:4px;'><span style='background:#78350f; color:#fbbf24; font-size:10px; font-weight:700; padding:2px 8px; border-radius:4px;'>\u23f3 CHƯA CẬP NHẬT — báo cáo chưa ra mới</span></div>" if is_stale else ""
+                
                 st.markdown(f"""
                 <div class='card' style='border-color:#2d5a27;'>
                     <div style='font-size:14px; font-weight:700; color:#e2e8f0; margin-bottom:10px;'>{emoji} {name}</div>
@@ -271,6 +275,7 @@ with tab1:
                         <span style='color:#94a3b8; font-size:12px;'>Kỳ trước: {prev_sales}</span>
                         <span style='color:{"#64748b" if is_na else "#22c55e"}; font-weight:700; font-size:13px;'>{net_sales}</span>
                     </div>
+                    {stale_badge}
                     <div style='margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:8px;'>
                         {badge} &nbsp; {f'<span style="color:#22c55e;">+{pct:.2f}%</span>' if pct > 0 else f'<span style="color:#ef4444;">{pct:.2f}%</span>' if pct < 0 else '<span style="color:#94a3b8;">0.0%</span>'}
                     </div>
@@ -290,38 +295,7 @@ with tab1:
                     </div>
                 </div>""", unsafe_allow_html=True)
 
-    # ── GIAO HÀNG XUẤT KHẨU (Export Inspections - Thứ 2) ────────────────────────
-    zc_exp = fund.get("ZC", {}).get("exports", {}) if fund else {}
-    ts = zc_exp.get("latest_date", "—") if isinstance(zc_exp, dict) else "—"
-    ts_html = f"<span style='font-size:11px; color:#38bdf8; font-weight:400; font-style:italic; float:right; margin-top:4px;'>(Dữ liệu: {ts})</span>"
-    st.markdown(f"""
-    <div style='background:linear-gradient(90deg,#1a2035,#1a2535); border:1px solid #1e4a7a; border-radius:10px; padding:10px 16px; margin:20px 0 12px 0; display:flex; align-items:center; justify-content:space-between;'>
-        <span style='font-size:15px; font-weight:800; color:#38bdf8; letter-spacing:0.5px;'>🚢 GIAO HÀNG Xuất Khẩu (Export Inspections) — <span style='font-size:12px; color:#7dd3fc; font-weight:500;'>Báo cáo Thứ 2 hàng tuần</span></span>
-        {ts_html}
-    </div>""", unsafe_allow_html=True)
 
-    if fund:
-        cols2 = st.columns(2)
-        for i, (code, name) in enumerate([("ZC", "🌽 Ngô"), ("ZW", "🌾 Lúa Mì")]):
-            d = fund.get(code, {}).get("exports", {})
-            with cols2[i]:
-                if d:
-                    curr = d.get("latest", "N/A")
-                    prev = d.get("previous", "N/A")
-                    pct = d.get("pct_change", 0) or 0
-                    logic = d.get("logic", "")
-                    bias = "bull" if pct > 5 else ("bear" if pct < -5 else "")
-                    badge = f'<span class="{bias}">' + ("▲ BULL" if bias == "bull" else "▼ BEAR" if bias == "bear" else "—") + '</span>' if bias else "—"
-                    st.markdown(f"""
-                    <div class='card' style='border-color:#1e4a7a;'>
-                    <div style='font-size:14px; font-weight:700; color:#e2e8f0;'>{name}</div>
-                    <div style='display:flex; justify-content:space-between; margin-top:8px;'>
-                        <span class='prev'>Kỳ trước: {prev}</span>
-                        <span class='curr'>{curr}</span>
-                    </div>
-                    <div style='margin-top:8px;'>{badge} &nbsp; {f'<span style="color:#22c55e;">+{pct:.1f}%</span>' if pct > 0 else f'<span style="color:#ef4444;">{pct:.1f}%</span>'}</div>
-                    <div style='font-size:11px; color:#64748b; margin-top:8px;'>{logic[:100]}...</div>
-                    </div>""", unsafe_allow_html=True)
 
 
     # ── USDA Cung Cầu ──────────────────────────────────────────────────────────────
