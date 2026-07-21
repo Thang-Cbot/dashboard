@@ -4146,3 +4146,7 @@ KeyError: 'EMA_21'
 [2026-07-21 17:46:32] [INFO] ▶ Kích hoạt: Giá H1 + Macro
 [2026-07-21 17:46:49] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-07-21 17:46:49] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-07-21 17:46:53] [Sync] ✅ Đồng bộ Github thành công (Giá H1 + Macro)!
+[2026-07-21 17:46:53] [INFO] ▶ Kích hoạt: Giá H4
+[2026-07-21 17:46:59] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-07-21 17:46:59] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
