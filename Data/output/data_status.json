@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 08:00:19",
-      "updated_at": "2026-07-21 08:00:19"
+      "detail": "Auto-fetch 09:00:26",
+      "updated_at": "2026-07-21 09:00:26"
     },
     "macro": {
       "status": "[OK]",
@@ -66,12 +66,17 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 08:00",
-    "updated_at": "2026-07-21 08:00:19"
+    "detail": "ZC+ZW updated at 09:00",
+    "updated_at": "2026-07-21 09:00:26"
   },
   "macro": {
     "status": "OK",
     "detail": "Brent=88.91, DXY=100.956",
     "updated_at": "2026-07-21 08:00:34"
+  },
+  "export_sales": {
+    "status": "OK",
+    "detail": "Kỳ: July 3-9, 2026 | ZW=235,100 MT, ZC=315,000 MT",
+    "updated_at": "2026-07-21 09:00:24"
   }
 }
