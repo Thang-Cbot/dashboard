@@ -295,14 +295,74 @@ with tab1:
                     </div>
                 </div>""", unsafe_allow_html=True)
 
+    # ── GIAO HÀNG XUẤT KHẩU (Export Inspections — Thứ 2) ────────────────────
+    if fund:
+        zc_insp = fund.get("ZC", {}).get("exports", {}).get("inspections", {})
+        week_end_insp = zc_insp.get("week_ending", "") or fund.get("ZC", {}).get("exports", {}).get("inspections_week_ending", "")
+        ts_insp_html = f"<span style='font-size:11px;color:#38bdf8;font-weight:400;font-style:italic;float:right;margin-top:4px;'>(Dữ liệu: Tuần kết thúc {week_end_insp or '—'})</span>"
+        st.markdown(f"""
+        <div style='background:linear-gradient(90deg,#1a2035,#1a2535);border:1px solid #1e4a7a;border-radius:10px;padding:10px 16px;margin:20px 0 12px 0;display:flex;align-items:center;justify-content:space-between;'>
+            <span style='font-size:15px;font-weight:800;color:#38bdf8;letter-spacing:0.5px;'>🚢 GIAO HÀNG Xuất Khẩu (Export Inspections) — <span style='font-size:12px;color:#7dd3fc;font-weight:500;'>Báo cáo Thứ 2 hàng tuần</span></span>
+            {ts_insp_html}
+        </div>""", unsafe_allow_html=True)
 
+        rows_html = ""
+        for code_i, name_i, emoji_i in [("ZC", "Ngô", "🌽"), ("ZW", "Lúa Mì", "🌾")]:
+            insp = fund.get(code_i, {}).get("exports", {}).get("inspections", {})
+            if not insp:
+                rows_html += (
+                    f"<tr><td style='font-weight:700;color:#94a3b8;padding:10px 12px;'>{emoji_i} {name_i}</td>"
+                    f"<td colspan='3' style='color:#64748b;font-style:italic;padding:10px 12px;'>Chưa có dữ liệu — nhấn “Cập nhật Báo cáo” để lấy.</td></tr>"
+                )
+                continue
 
+            actual   = insp.get("volume", 0)
+            week_ago = insp.get("week_ago", 0)
+            ytd_curr = insp.get("ytd_current", 0)
+            ytd_pct  = insp.get("ytd_yoy_pct", 0)
+
+            if week_ago > 0:
+                chg_pct = (actual - week_ago) / week_ago * 100
+                actual_color = "#22c55e" if chg_pct >= 0 else "#ef4444"
+            else:
+                actual_color = "#e2e8f0"
+
+            ytd_sign  = "+" if ytd_pct >= 0 else ""
+            ytd_color = "#22c55e" if ytd_pct >= 0 else "#ef4444"
+            ytd_str   = f"{ytd_curr/1000:,.1f}k tấn ({ytd_sign}{ytd_pct:.1f}% YoY)" if ytd_curr else "N/A"
+
+            rows_html += (
+                f"<tr>"
+                f"<td style='font-weight:700;color:#e2e8f0;padding:10px 12px;'>{emoji_i} {name_i}</td>"
+                f"<td style='padding:10px 12px;font-weight:800;font-size:15px;color:{actual_color};'>{actual/1000:,.1f}k tấn</td>"
+                f"<td style='padding:10px 12px;color:#94a3b8;'>{week_ago/1000:,.1f}k tấn</td>"
+                f"<td style='padding:10px 12px;font-weight:600;color:{ytd_color};'>{ytd_str}</td>"
+                f"</tr>"
+            )
+
+        st.markdown(f"""
+        <div style='background:#111827;border:1px solid #1e3a5f;border-radius:10px;overflow:hidden;margin-bottom:20px;'>
+          <table style='width:100%;border-collapse:collapse;font-size:13px;font-family:Inter,sans-serif;'>
+            <thead>
+              <tr style='background:#0f2040;'>
+                <th style='padding:10px 12px;text-align:left;color:#64748b;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;'>Hàng hóa</th>
+                <th style='padding:10px 12px;text-align:left;color:#38bdf8;font-weight:700;font-size:11px;text-transform:uppercase;'>Actual (Tuần này)</th>
+                <th style='padding:10px 12px;text-align:left;color:#64748b;font-weight:600;font-size:11px;text-transform:uppercase;'>Tuần trước</th>
+                <th style='padding:10px 12px;text-align:left;color:#64748b;font-weight:600;font-size:11px;text-transform:uppercase;'>YTD (% YoY)</th>
+              </tr>
+            </thead>
+            <tbody style='border-top:1px solid #1e3a5f;'>{rows_html}</tbody>
+          </table>
+          <div style='padding:6px 12px;font-size:10px;color:#475569;border-top:1px solid #1e2d45;'>
+            ⚠️ Đơn vị: nghìn tấn (k MT). Nguồn: USDA AMS. YTD tính từ đầu niên vụ (Wheat: 1/6; Corn: 1/9).
+          </div>
+        </div>""", unsafe_allow_html=True)
 
     # ── USDA Cung Cầu ──────────────────────────────────────────────────────────────
     zc_cp = fund.get("ZC", {}).get("harvest_progress", {}) if fund else {}
     cp_ts = zc_cp.get("latest_date", "—") if isinstance(zc_cp, dict) else "—"
     cp_html = f"<span style='font-size:11px; color:#94a3b8; font-weight:400; font-style:italic; float:right; margin-top:4px;'>(Dữ liệu: {cp_ts})</span>"
-    st.markdown(f"<div class='section-header'>📊 Cung Cầu Mùa Vụ (USDA Crop Progress) {cp_html}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='section-header'>📊 Tiến Độ Mùa Vụ (USDA Crop Progress) {cp_html}</div>", unsafe_allow_html=True)
 
     USDA_METRICS = [
         ("us_planting", "Tiến độ gieo trồng"),
