@@ -1017,6 +1017,22 @@ Chỉ báo đo lường biến động giá (Volatility). ATR càng cao nghĩa l
 </div>
 </div>
 
+<div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #6366f1;'>
+<div style='font-size:13px; font-weight:700; color:#818cf8; margin-bottom:4px;'>OB / -OB (Order Block)</div>
+<div style='font-size:12px; color:#94a3b8; line-height:1.5;'>
+<b>OB (Bullish Order Block):</b> Khối lệnh Mua của dòng tiền lớn (Smart Money). Thường là cây nến giảm cuối cùng trước một đợt tăng giá mạnh. Đóng vai trò là Hỗ trợ mạnh.<br/>
+<b>-OB (Bearish Order Block):</b> Khối lệnh Bán của Smart Money. Thường là cây nến tăng cuối cùng trước một đợt giảm giá mạnh. Đóng vai trò là Kháng cự mạnh.
+</div>
+</div>
+
+<div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #14b8a6;'>
+<div style='font-size:13px; font-weight:700; color:#5eead4; margin-bottom:4px;'>BB / -BB (Breaker Block)</div>
+<div style='font-size:12px; color:#94a3b8; line-height:1.5;'>
+<b>BB (Bullish Breaker Block):</b> Là một -OB bị giá phá vỡ đi lên một cách mạnh mẽ. Trạng thái cũ là Kháng cự nay chuyển đổi thành Hỗ trợ mạnh (Canh lệnh LONG).<br/>
+<b>-BB (Bearish Breaker Block):</b> Là một OB bị giá phá vỡ đi xuống một cách mạnh mẽ. Trạng thái cũ là Hỗ trợ nay chuyển đổi thành Kháng cự mạnh (Canh lệnh SHORT).
+</div>
+</div>
+
 </div>
 
 <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #38bdf8; grid-column: 1 / -1;'>
