@@ -324,8 +324,12 @@ with tab1:
             if week_ago > 0:
                 chg_pct = (actual - week_ago) / week_ago * 100
                 actual_color = "#22c55e" if chg_pct >= 0 else "#ef4444"
+                chg_sign = "+" if chg_pct >= 0 else ""
+                chg_arrow = "▲" if chg_pct >= 0 else "▼"
+                chg_html = f"<div style='font-size:11px;font-weight:600;color:{actual_color};margin-top:2px;'>{chg_arrow} {chg_sign}{chg_pct:.1f}% so tuần trước</div>"
             else:
                 actual_color = "#e2e8f0"
+                chg_html = ""
 
             ytd_sign  = "+" if ytd_pct >= 0 else ""
             ytd_color = "#22c55e" if ytd_pct >= 0 else "#ef4444"
@@ -334,7 +338,10 @@ with tab1:
             rows_html += (
                 f"<tr>"
                 f"<td style='font-weight:700;color:#e2e8f0;padding:10px 12px;'>{emoji_i} {name_i}</td>"
-                f"<td style='padding:10px 12px;font-weight:800;font-size:15px;color:{actual_color};'>{actual/1000:,.1f}k tấn</td>"
+                f"<td style='padding:10px 12px;'>"
+                f"  <div style='font-weight:800;font-size:15px;color:{actual_color};'>{actual/1000:,.1f}k tấn</div>"
+                f"  {chg_html}"
+                f"</td>"
                 f"<td style='padding:10px 12px;color:#94a3b8;'>{week_ago/1000:,.1f}k tấn</td>"
                 f"<td style='padding:10px 12px;font-weight:600;color:{ytd_color};'>{ytd_str}</td>"
                 f"</tr>"
