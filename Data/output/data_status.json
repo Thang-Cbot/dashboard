@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 11:00:47 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-07-21 11:00:47"
+      "detail": "Đẩy thành công lúc 11:01:00 (Nguồn: Cập nhật Phân tích & Giao diện)",
+      "updated_at": "2026-07-21 11:01:00"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -77,7 +77,7 @@
   "export_sales": {
     "status": "OK",
     "detail": "Kỳ: July 3-9, 2026 | ZW=235,100 MT, ZC=315,000 MT",
-    "updated_at": "2026-07-21 09:00:24"
+    "updated_at": "2026-07-21 11:09:29"
   },
   "acreage": {
     "status": "OK",
@@ -87,7 +87,7 @@
   "usda": {
     "status": "OK",
     "detail": "Updated: 2026-07-21 | WASDE: Jul",
-    "updated_at": "2026-07-21 09:00:42"
+    "updated_at": "2026-07-21 11:09:08"
   },
   "cot": {
     "status": "[OK] Success",

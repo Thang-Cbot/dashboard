@@ -506,6 +506,67 @@ def run_crawler_and_update():
         with open(filename, "w", encoding="utf-8") as f:
             json.dump(fund, f, ensure_ascii=False, indent=2)
         print("=== Successfully updated fundamental_data.json ===")
+
+        # ── EXCEL LOGGER ──────────────────────────────────────────────────────────
+        try:
+            import sys
+            import os
+            sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'Data'))
+            import historical_logger
+            
+            # 1. WASDE
+            if wasde_date:
+                zc_us = fund.get("ZC", {}).get("us_ending_stocks", {}).get("current", "")
+                zc_w  = fund.get("ZC", {}).get("global_ending_stocks", {}).get("current", "")
+                zw_us = fund.get("ZW", {}).get("us_ending_stocks", {}).get("current", "")
+                zw_w  = fund.get("ZW", {}).get("global_ending_stocks", {}).get("current", "")
+                
+                zc_us_val = float(zc_us.split()[0].replace(',', '')) if zc_us else ""
+                zc_w_val  = float(zc_w.split()[0].replace(',', '')) if zc_w else ""
+                zw_us_val = float(zw_us.split()[0].replace(',', '')) if zw_us else ""
+                zw_w_val  = float(zw_w.split()[0].replace(',', '')) if zw_w else ""
+                
+                historical_logger.log_wasde(wasde_date, zc_us_val, zc_w_val, zw_us_val, zw_w_val)
+                
+            # 2. Crop Progress
+            if prog_date:
+                zc_p = fund.get("ZC", {}).get("us_planting", {}).get("latest", "")
+                zc_h = fund.get("ZC", {}).get("harvest_progress", {}).get("latest", "")
+                zc_c = fund.get("ZC", {}).get("crop_condition", {}).get("latest", "")
+                
+                zw_p = fund.get("ZW", {}).get("us_planting", {}).get("latest", "")
+                zw_h = fund.get("ZW", {}).get("harvest_progress", {}).get("latest", "")
+                zw_c = fund.get("ZW", {}).get("crop_condition", {}).get("latest", "")
+                
+                # ZW splits into winter/spring
+                zw_w_h = zw_h.split(',')[0].replace('Đông ', '').strip() if ',' in zw_h else zw_h
+                zw_s_h = zw_h.split(',')[1].replace('Xuân ', '').strip() if ',' in zw_h else ""
+                zw_w_ge = zw_c.split(',')[0].replace('Đông ', '').strip() if ',' in zw_c else zw_c
+                zw_s_ge = zw_c.split(',')[1].replace('Xuân ', '').strip() if ',' in zw_c else ""
+                
+                historical_logger.log_crop_progress(prog_date, "", zw_w_h, zw_w_ge, "", zw_s_h, zw_s_ge, zc_p, zc_h, zc_c)
+
+            # 3. Export Inspections
+            zc_insp = fund.get("ZC", {}).get("exports", {}).get("inspections", {})
+            zw_insp = fund.get("ZW", {}).get("exports", {}).get("inspections", {})
+            
+            insp_date = zc_insp.get("week_ending", "")
+            if insp_date:
+                zc_vol = zc_insp.get("volume", 0) / 1000 if zc_insp.get("volume", 0) else 0
+                zw_vol = zw_insp.get("volume", 0) / 1000 if zw_insp.get("volume", 0) else 0
+                
+                zc_wago = zc_insp.get("week_ago", 0)
+                zc_pct = round((zc_insp.get("volume", 0) - zc_wago)/zc_wago*100, 1) if zc_wago > 0 else 0
+                
+                zw_wago = zw_insp.get("week_ago", 0)
+                zw_pct = round((zw_insp.get("volume", 0) - zw_wago)/zw_wago*100, 1) if zw_wago > 0 else 0
+                
+                historical_logger.log_export_inspections(insp_date, zc_vol, zc_pct, zw_vol, zw_pct)
+                
+        except Exception as e:
+            print(f"  [WARN] Lỗi khi ghi lịch sử Excel: {e}")
+        # ────────────────────────────────────────────────────────────────────────
+
         return True
     except Exception as e:
         print(f"Error updating fundamental_data.json: {e}")

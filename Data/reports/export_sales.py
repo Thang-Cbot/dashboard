@@ -239,7 +239,30 @@ def _update_fundamental_exports(parsed, period_str):
         with open(FUNDAMENTAL_DATA, "w", encoding="utf-8") as f:
             json.dump(fdata, f, ensure_ascii=False, indent=2)
         print(f"  💾 Đã cập nhật exports vào fundamental_data.json")
+
+        # ── EXCEL LOGGER ──────────────────────────────────────────────────────────
+        try:
+            import historical_logger
+            # Lấy số raw và chia 1000 để ghi ngàn tấn (kMT)
+            zc_net = fdata.get('ZC', {}).get('exports', {}).get('latest_raw', 0) / 1000
+            zw_net = fdata.get('ZW', {}).get('exports', {}).get('latest_raw', 0) / 1000
+            
+            zc_pct = fdata.get('ZC', {}).get('exports', {}).get('pct_change', 0)
+            zw_pct = fdata.get('ZW', {}).get('exports', {}).get('pct_change', 0)
+            
+            zc_ship = parsed.get('ZC', {}).get('shipments_mt', 0) / 1000 if 'ZC' in parsed else ""
+            zw_ship = parsed.get('ZW', {}).get('shipments_mt', 0) / 1000 if 'ZW' in parsed else ""
+            
+            historical_logger.log_export_sales(
+                date_str=period_str, 
+                zc_sales=zc_net, zc_pct=zc_pct, zc_ship=zc_ship, zc_out="", 
+                zw_sales=zw_net, zw_pct=zw_pct, zw_ship=zw_ship, zw_out=""
+            )
+        except Exception as e:
+            print(f"  [WARN] Lỗi khi ghi lịch sử Excel: {e}")
+        # ────────────────────────────────────────────────────────────────────────
     except Exception as e:
+
         print(f"  [WARN] Không thể cập nhật fundamental_data.json: {e}")
 
 if __name__ == "__main__":
