@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 08:00:54 (Nguồn: Cập nhật Phân tích & Giao diện)",
-      "updated_at": "2026-07-21 08:00:54"
+      "detail": "Đẩy thành công lúc 09:00:31 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-07-21 09:00:31"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 08:00:28",
-      "updated_at": "2026-07-21 08:00:28"
+      "detail": "Auto-fetch 09:00:40",
+      "updated_at": "2026-07-21 09:00:40"
     }
   },
   "all_ok": true,
@@ -78,5 +78,10 @@
     "status": "OK",
     "detail": "Kỳ: July 3-9, 2026 | ZW=235,100 MT, ZC=315,000 MT",
     "updated_at": "2026-07-21 09:00:24"
+  },
+  "acreage": {
+    "status": "OK",
+    "detail": "ZC=95.3M, ZW=46.0M acres",
+    "updated_at": "2026-07-21 09:00:30"
   }
 }
