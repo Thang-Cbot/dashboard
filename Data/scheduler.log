@@ -4502,3 +4502,7 @@ huyên Sâu
 [2026-07-22 20:03:30] [INFO] ▶ Kích hoạt: Giá H4
 [2026-07-22 20:03:37] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
 [2026-07-22 20:03:37] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
+[2026-07-22 20:03:40] [Sync] ✅ Đồng bộ Github thành công (Giá H4)!
+[2026-07-22 20:03:40] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-07-22 20:03:43] [INFO] ✅ Vĩ Mô (Macro) hoàn thành (attempt 1)
+[2026-07-22 20:03:43] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Vĩ Mô (Macro))...
