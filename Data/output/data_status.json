@@ -28,9 +28,9 @@
       "updated_at": "2026-07-22 06:30:46"
     },
     "weather_short": {
-      "status": "OK",
-      "detail": "Weather short-term updated",
-      "updated_at": "2026-07-22 06:31:14"
+      "status": "[OK]",
+      "detail": "Auto-fetch 17:58:41",
+      "updated_at": "2026-07-22 17:58:41"
     },
     "weather_long": {
       "status": "OK",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 17:02:29 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-07-22 17:02:29"
+      "detail": "Đẩy thành công lúc 17:28:22 (Nguồn: USDA Acreage)",
+      "updated_at": "2026-07-22 17:28:22"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -83,5 +83,10 @@
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
     "updated_at": "2026-07-22 17:28:19"
+  },
+  "weather_short": {
+    "status": "OK",
+    "detail": "24/24 fetched",
+    "updated_at": "2026-07-22 17:58:41"
   }
 }
