@@ -843,8 +843,23 @@ with col3:
     st.markdown("</div>", unsafe_allow_html=True)
 
 # ── Smart Money Matrix & Thanh Khoản ──
-updated_at_str = meta.get("updated_at", "")[:10]
-date_html = f"<div style='font-size:10px;color:#475569;font-weight:400;text-transform:none;letter-spacing:0;'>Dữ liệu: {updated_at_str}</div>" if updated_at_str else ""
+import datetime
+try:
+    _sig_time = os.path.getmtime(DATA_OUTPUT / "last_signals.json")
+    _sig_dt = datetime.datetime.fromtimestamp(_sig_time).strftime("%d/%m %H:%M")
+except:
+    _sig_dt = meta.get("updated_at", "")[:16]
+
+cot_updated = fund.get("last_updated_cot", "")
+if cot_updated:
+    try:
+        cot_dt = datetime.datetime.strptime(cot_updated, "%Y-%m-%d %H:%M:%S").strftime("%d/%m %H:%M")
+    except:
+        cot_dt = cot_updated[:16]
+else:
+    cot_dt = "N/A"
+
+date_html = f"<div style='font-size:11px;color:#64748b;font-weight:500;text-transform:none;letter-spacing:0;'><span style='color:#38bdf8'>🔄 Cập nhật COT: {cot_dt}</span> &nbsp;|&nbsp; <span style='color:#a78bfa'>🧠 AI Phân tích: {_sig_dt}</span></div>"
 st.markdown(f"<div class='card'><div style='display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;'><div style='font-size:14px;font-weight:700;color:#94a3b8;letter-spacing:1px;text-transform:uppercase;'>🧠 SMART MONEY MATRIX & DÒNG TIỀN</div>{date_html}</div>", unsafe_allow_html=True)
 
 c_cot, c_vol = st.columns([1.5, 1], gap="large")
