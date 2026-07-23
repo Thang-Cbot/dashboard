@@ -268,32 +268,31 @@ with tab1:
                 is_stale = (abs(pct) < 0.01) and prev_sales not in ("N/A", "—", "")
                 stale_badge = "<div style='margin-top:6px; margin-bottom:4px;'><span style='background:#78350f; color:#fbbf24; font-size:10px; font-weight:700; padding:2px 8px; border-radius:4px;'>\u23f3 CHƯA CẬP NHẬT — báo cáo chưa ra mới</span></div>" if is_stale else ""
                 
-                st.markdown(f"""
-                <div class='card' style='border-color:#2d5a27;'>
-                    <div style='font-size:14px; font-weight:700; color:#e2e8f0; margin-bottom:10px;'>{emoji} {name}</div>
-                    <div style='display:flex; justify-content:space-between; margin-bottom:6px;'>
-                        <span style='color:#94a3b8; font-size:12px;'>Kỳ trước: {prev_sales}</span>
-                        <span style='color:{"#64748b" if is_na else "#22c55e"}; font-weight:700; font-size:13px;'>{net_sales}</span>
-                    </div>
-                    {stale_badge}
-                    <div style='margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:8px;'>
-                        {badge} &nbsp; {f'<span style="color:#22c55e;">+{pct:.2f}%</span>' if pct > 0 else f'<span style="color:#ef4444;">{pct:.2f}%</span>' if pct < 0 else '<span style="color:#94a3b8;">0.0%</span>'}
-                    </div>
-                    <div style='display:flex; justify-content:space-between; margin-bottom:6px; padding-bottom:6px;'>
-                        <span style='color:#94a3b8; font-size:12px;'>🚢 Shipments (Giao trong tuần)</span>
-                        <span style='color:#cbd5e1; font-size:13px;'>{shipments}</span>
-                    </div>
-                    <div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
-                        <span style='color:#94a3b8; font-size:12px;'>📊 Outstanding (Tồn đơn)</span>
-                        <span style='color:#cbd5e1; font-size:13px;'>{outstanding}</span>
-                    </div>
-                    <div style='font-size:11px; color:#64748b; margin-top:8px; margin-bottom:8px;'>
-                        {logic[:150]}...
-                    </div>
-                    <div style='font-size:10px; color:#475569; border-top:1px solid #1e2d45; padding-top:6px;'>
-                        📅 Kỳ báo cáo: <b style='color:#64748b;'>{week_end}</b> &nbsp;|&nbsp; Kế tiếp: <b style='color:#f59e0b;'>{next_rpt}</b>
-                    </div>
-                </div>""", unsafe_allow_html=True)
+                st.markdown(f"""<div class='card' style='border-color:#2d5a27;'>
+<div style='font-size:14px; font-weight:700; color:#e2e8f0; margin-bottom:10px;'>{emoji} {name}</div>
+<div style='display:flex; justify-content:space-between; margin-bottom:6px;'>
+<span style='color:#94a3b8; font-size:12px;'>Kỳ trước: {prev_sales}</span>
+<span style='color:{"#64748b" if is_na else "#22c55e"}; font-weight:700; font-size:13px;'>{net_sales}</span>
+</div>
+{stale_badge}
+<div style='margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:8px;'>
+{badge} &nbsp; {f'<span style="color:#22c55e;">+{pct:.2f}%</span>' if pct > 0 else f'<span style="color:#ef4444;">{pct:.2f}%</span>' if pct < 0 else '<span style="color:#94a3b8;">0.0%</span>'}
+</div>
+<div style='display:flex; justify-content:space-between; margin-bottom:6px; padding-bottom:6px;'>
+<span style='color:#94a3b8; font-size:12px;'>🚢 Shipments (Giao trong tuần)</span>
+<span style='color:#cbd5e1; font-size:13px;'>{shipments}</span>
+</div>
+<div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
+<span style='color:#94a3b8; font-size:12px;'>📊 Outstanding (Tồn đơn)</span>
+<span style='color:#cbd5e1; font-size:13px;'>{outstanding}</span>
+</div>
+<div style='font-size:11px; color:#64748b; margin-top:8px; margin-bottom:8px;'>
+{logic[:150]}...
+</div>
+<div style='font-size:10px; color:#475569; border-top:1px solid #1e2d45; padding-top:6px;'>
+📅 Kỳ báo cáo: <b style='color:#64748b;'>{week_end}</b> &nbsp;|&nbsp; Kế tiếp: <b style='color:#f59e0b;'>{next_rpt}</b>
+</div>
+</div>""", unsafe_allow_html=True)
 
     # ── GIAO HÀNG XUẤT KHẩU (Export Inspections — Thứ 2) ────────────────────
     if fund:
