@@ -4744,3 +4744,8 @@ huyên Sâu
 [2026-07-23 19:15:50] [INFO] ▶ Kích hoạt: Thời Tiết Ngắn Hạn
 [2026-07-23 19:16:18] [INFO] ✅ Thời Tiết Ngắn Hạn hoàn thành (attempt 1)
 [2026-07-23 19:16:18] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Thời Tiết Ngắn Hạn)...
+[2026-07-23 19:16:23] [Sync] ✅ Đồng bộ Github thành công (Thời Tiết Ngắn Hạn)!
+[2026-07-23 19:16:23] [INFO] ⏰ Đợi Weather Short: còn 10.73h (24/07 06:00:02 VN)
+[2026-07-23 19:16:43] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-23 19:17:08] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-07-23 19:17:08] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
