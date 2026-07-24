@@ -4861,3 +4861,7 @@ huyên Sâu
 [2026-07-24 07:03:03] [INFO] ▶ Kích hoạt: Giá H1 + Macro
 [2026-07-24 07:03:13] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-07-24 07:03:13] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-07-24 07:03:17] [Sync] ✅ Đồng bộ Github thành công (Giá H1 + Macro)!
+[2026-07-24 07:03:17] [INFO] ▶ Kích hoạt: Giá H4
+[2026-07-24 07:03:24] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-07-24 07:03:24] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
