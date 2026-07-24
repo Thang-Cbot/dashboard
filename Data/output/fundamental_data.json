@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-07-22",
+  "last_updated_fundamentals": "2026-07-24",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -55,27 +55,27 @@
     },
     "export_sales_weekly": {
       "report_type": "BAN_HANG",
-      "latest_net_sales": "315.0 nghìn tấn",
+      "latest_net_sales": "332.7 nghìn tấn",
       "previous_net_sales": "315.0 nghìn tấn",
-      "pct_change": 0.0,
-      "latest_shipments": "1,588.3 nghìn tấn",
+      "pct_change": 5.62,
+      "latest_shipments": "1,786.4 nghìn tấn",
       "outstanding_sales": "N/A",
-      "week_ending": "July 3-9, 2026",
+      "week_ending": "July 10-16, 2026",
       "previous_week_ending": "July 3-9, 2026",
-      "latest_date": "July 3-9, 2026",
+      "latest_date": "July 10-16, 2026",
       "next_report": "Thứ 5 hàng tuần lúc 21:30 (VN)",
-      "action": "NEUTRAL",
-      "logic": "Doanh số ròng giảm 0.0% xuống còn 315.0k tấn. Trung lập.",
+      "action": "BULLISH",
+      "logic": "Doanh số ròng tăng 5.6% xuống còn 332.7k tấn. Lực cầu mạnh tạo đà tăng giá.",
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
-      "latest": "Net Sales (Bán hàng): 315,000 MT (Kỳ July 3-9, 2026)",
+      "latest": "Net Sales (Bán hàng): 332,700 MT (Kỳ July 10-16, 2026)",
       "previous": "Net Sales (Tuần trước): 315,000 MT (July 3-9, 2026)",
-      "latest_raw": 315000.0,
-      "latest_date": "July 3-9, 2026",
+      "latest_raw": 332700.0,
+      "latest_date": "July 10-16, 2026",
       "previous_date": "July 3-9, 2026",
-      "pct_change": 0.0,
-      "logic": "Giảm nhẹ 0.0% so tuần trước. Trung tính.",
+      "pct_change": 5.6,
+      "logic": "Tăng nhẹ 5.6% so tuần trước. Tín hiệu BULLISH — cầu xuất khẩu tăng.",
       "next_date": "27/07/2026 lúc 22:00 (VN)",
       "inspections": {
         "volume": 1549849,
@@ -227,27 +227,27 @@
     },
     "export_sales_weekly": {
       "report_type": "BAN_HANG",
-      "latest_net_sales": "235.1 nghìn tấn",
+      "latest_net_sales": "290.0 nghìn tấn",
       "previous_net_sales": "235.1 nghìn tấn",
-      "pct_change": 0.0,
-      "latest_shipments": "422.1 nghìn tấn",
+      "pct_change": 23.35,
+      "latest_shipments": "210.6 nghìn tấn",
       "outstanding_sales": "N/A",
-      "week_ending": "July 3-9, 2026",
+      "week_ending": "July 10-16, 2026",
       "previous_week_ending": "July 3-9, 2026",
-      "latest_date": "July 3-9, 2026",
+      "latest_date": "July 10-16, 2026",
       "next_report": "Thứ 5 hàng tuần lúc 21:30 (VN)",
-      "action": "NEUTRAL",
-      "logic": "Doanh số ròng giảm 0.0% xuống còn 235.1k tấn. Trung lập.",
+      "action": "BULLISH",
+      "logic": "Doanh số ròng tăng 23.4% xuống còn 290.0k tấn. Lực cầu mạnh tạo đà tăng giá.",
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
-      "latest": "Net Sales (Bán hàng): 235,100 MT (Kỳ July 3-9, 2026)",
+      "latest": "Net Sales (Bán hàng): 290,000 MT (Kỳ July 10-16, 2026)",
       "previous": "Net Sales (Tuần trước): 235,100 MT (July 3-9, 2026)",
-      "latest_raw": 235100.0,
-      "latest_date": "July 3-9, 2026",
+      "latest_raw": 290000.0,
+      "latest_date": "July 10-16, 2026",
       "previous_date": "July 3-9, 2026",
-      "pct_change": 0.0,
-      "logic": "Giảm nhẹ 0.0% so tuần trước. Trung tính.",
+      "pct_change": 23.4,
+      "logic": "Tăng mạnh 23.4% so tuần trước. Tín hiệu BULLISH — cầu xuất khẩu tăng.",
       "next_date": "27/07/2026 lúc 22:00 (VN)",
       "inspections": {
         "volume": 213993,
@@ -472,5 +472,5 @@
     "swing_short_tp": "1191.00 cents"
   },
   "wasde_report_month": "Jul",
-  "last_updated_cot": "2026-07-21 09:00:45"
+  "last_updated_cot": "2026-07-24 00:45:50"
 }
