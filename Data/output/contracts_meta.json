@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 212025.0,
-      "prev_volume": 162771.0,
-      "today_oi": 770557,
-      "prev_oi": 581828,
-      "today_close": 486.75,
-      "prev_close": 484.75,
-      "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
-      "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
+      "today_volume": 222470.0,
+      "prev_volume": 222470.0,
+      "today_oi": 780225,
+      "prev_oi": 581403,
+      "today_close": 487.5,
+      "prev_close": 487.5,
+      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
+      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
   "ZW": {
@@ -33,9 +33,9 @@
       "month": 9
     },
     "swing": {
-      "ticker": "ZWZ26.CBT",
+      "ticker": "ZWU26.CBT",
       "year": 2026,
-      "month": 12
+      "month": 9
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 73588.0,
-      "prev_volume": 61002.0,
-      "today_oi": 218201,
-      "prev_oi": 218406,
-      "today_close": 694.5,
-      "prev_close": 705.75,
-      "trend": "Giảm do phe Long tháo chạy (Long Liquidation)",
-      "logic": "Giá giảm đi kèm Volume tăng nhưng OI giảm. Phe Long đang chủ động đóng vị thế hàng loạt để cắt lỗ, lực bán tháo kỹ thuật mạnh."
+      "today_volume": 78187.0,
+      "prev_volume": 78187.0,
+      "today_oi": 218857,
+      "prev_oi": 218201,
+      "today_close": 678.0,
+      "prev_close": 696.25,
+      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
+      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
-  "updated_at": "2026-07-24 07:03:13"
+  "updated_at": "2026-07-25 20:00:20"
 }
