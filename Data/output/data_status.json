@@ -48,14 +48,14 @@
       "updated_at": "2026-07-25 19:42:56"
     },
     "ai_news": {
-      "status": "OK",
-      "detail": "Điểm tin AI thành công",
-      "updated_at": "2026-07-25 19:43:23"
+      "status": "[OK]",
+      "detail": "Auto-fetch 20:00:37",
+      "updated_at": "2026-07-25 20:00:37"
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 20:00:25 (Nguồn: Giá H1 + Macro)",
-      "updated_at": "2026-07-25 20:00:25"
+      "detail": "Đẩy thành công lúc 20:00:36 (Nguồn: Giá H4)",
+      "updated_at": "2026-07-25 20:00:36"
     },
     "prices_h4": {
       "status": "[OK]",

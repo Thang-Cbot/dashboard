@@ -1,32 +1,33 @@
 {
-  "timestamp": "2026-07-25 19:43:23",
+  "timestamp": "2026-07-25 20:00:37",
   "news": [
     {
-      "title": "Giá lúa mì phục hồi từ mức thấp nhưng vẫn chịu áp lực cuối tuần",
+      "title": "Lúa mì phục hồi nhẹ từ mức thấp đầu phiên nhưng vẫn chịu áp lực vào cuối tuần",
       "details": [
-        "Thị trường lúa mì chịu áp lực giảm trong phần lớn phiên giao dịch cuối tuần do hoạt động chốt lời.",
-        "Tuy nhiên, lực mua đã giúp giá phục hồi từ mức thấp nhất trong phiên.",
-        "Hợp đồng SRW Chicago giảm 12 đến 18 1/4 cent ở các tháng đầu, hợp đồng tháng 9 giảm 4 ¾ cent."
+        "Thị trường lúa mì chịu áp lực bán ra vào cuối tuần, nhưng lực mua đã giúp giá phục hồi từ mức thấp nhất trong phiên.",
+        "Hợp đồng lúa mì SRW Chicago giảm từ 12 đến 18 1/4 cent ở các tháng gần nhất khi đóng cửa.",
+        "Hợp đồng tháng 9 giảm 4 3/4 cent."
       ],
       "link": "https://www.barchart.com/story/news/3456178/wheat-pulls-off-early-friday-lows-still-see-pressure-to-close-the-week?.tsrc=rss",
       "source": "24 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "Ngô tìm thấy lực mua, kết thúc phiên thứ Sáu ổn định",
+      "title": "Ngô tìm thấy lực mua, đóng cửa phiên thứ Sáu ổn định",
       "details": [
-        "Giá ngô ban đầu yếu nhưng đã phục hồi hơn 8 cent từ mức thấp nhất trong phiên để kết thúc với biến động nhẹ.",
-        "Một số hợp đồng kỳ hạn xa hơn giảm tới 1 ¼ cent.",
-        "Hợp đồng tháng 9 vẫn tăng 19 ½ cent trong tuần, trong khi hợp đồng tháng 12 tăng 20 cent."
+        "Giá ngô kỳ hạn yếu vào đầu phiên nhưng đã phục hồi hơn 8 cent từ mức thấp nhất trong các tháng gần nhất.",
+        "Thị trường đóng cửa với biến động trái chiều nhẹ.",
+        "Hợp đồng tháng 9 vẫn tăng 19 1/2 cent trong tuần, và hợp đồng tháng 12 tăng 20 cent."
       ],
       "link": "https://www.barchart.com/story/news/3456158/corn-finds-buyers-to-close-friday-steady?.tsrc=rss",
       "source": "24 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "Lúa mì phục hồi từ mức thấp nhưng vẫn chịu áp lực vào thứ Sáu",
+      "title": "Lúa mì phục hồi từ mức thấp đầu phiên nhưng vẫn chịu áp lực vào thứ Sáu",
       "details": [
-        "Thị trường lúa mì đối mặt với áp lực giảm do hoạt động chốt lời trước cuối tuần và tin tức liên quan đến Biển Đen.",
-        "Hợp đồng SRW Chicago giảm 18 đến 20 cent vào giữa ngày.",
-        "Hợp đồng HRW Kansas City giảm 17 đến 18 cent, và lúa mì vụ xuân MPLS giảm 17 cent."
+        "Thị trường lúa mì đối mặt với áp lực bán ra vào cuối tuần, một phần do tin tức từ Biển Đen.",
+        "Hợp đồng lúa mì SRW Chicago giảm 18-20 cent vào giữa trưa.",
+        "Hợp đồng lúa mì HRW Kansas City giảm 17-18 cent trong ngày.",
+        "Lúa mì vụ xuân Minneapolis cũng giảm 17 cent."
       ],
       "link": "https://www.barchart.com/story/news/3452108/wheat-pulling-off-early-lows-but-still-under-pressure-on-friday?.tsrc=rss",
       "source": "24 Jul 2026 - Yahoo Finance"
@@ -35,20 +36,20 @@
       "title": "Lúa mì giảm mạnh vào đầu phiên giao dịch thứ Sáu",
       "details": [
         "Giá lúa mì giao dịch với mức giảm hai chữ số vào sáng thứ Sáu.",
-        "Sự giảm giá này diễn ra sau khi thị trường lúa mì tăng lên mức cao nhất trong nhiều năm vào đêm trước.",
-        "Hợp đồng SRW Chicago giảm 8 ½ đến 13 cent khi đóng cửa.",
-        "Lãi suất mở tăng 8.051 hợp đồng, cho thấy sự quan tâm của thị trường."
+        "Thị trường lúa mì đã chịu áp lực vào thứ Năm sau khi tăng lên mức cao nhất trong nhiều năm qua đêm.",
+        "Hợp đồng SRW Chicago giảm từ 8 1/2 đến 13 cent khi đóng cửa.",
+        "Lãi suất mở tăng 8.051 hợp đồng."
       ],
       "link": "https://www.barchart.com/story/news/3447046/wheat-falling-back-in-early-friday-trade?.tsrc=rss",
       "source": "24 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "Lúa mì biến động trái chiều vào giữa ngày, hợp đồng lúa mì đỏ cứng tăng giá",
+      "title": "Lúa mì biến động trái chiều vào giữa trưa, hợp đồng lúa mì đỏ cứng tăng giá",
       "details": [
-        "Thị trường lúa mì trở lại giao dịch biến động trái chiều vào giữa ngày.",
-        "Các hợp đồng lúa mì đỏ cứng (Hard Red) ghi nhận mức tăng giá.",
-        "Hợp đồng SRW Chicago giảm 2 đến 3 ¼ cent.",
-        "Trong khi đó, hợp đồng HRW Kansas City tăng 2 đến 3 cent, và lúa mì vụ xuân MPLS tăng nhẹ."
+        "Thị trường lúa mì trở lại giao dịch trái chiều, với các hợp đồng lúa mì đỏ cứng (hard red) tăng giá.",
+        "Hợp đồng SRW Chicago giảm từ 2 đến 3 1/4 cent.",
+        "Hợp đồng HRW Kansas City tăng từ 2 đến 3 cent trong ngày.",
+        "Lúa mì vụ xuân Minneapolis tăng nhẹ đến 1 cent vào giữa trưa."
       ],
       "link": "https://www.barchart.com/story/news/3432149/wheat-mixed-at-midday-with-hard-red-contracts-higher?.tsrc=rss",
       "source": "23 Jul 2026 - Yahoo Finance"
@@ -56,51 +57,61 @@
     {
       "title": "Watson đặt cược lớn vào thị trường ngô",
       "details": [
-        "Một tin tức vào chiều thứ Tư cho biết nhà đầu tư Watson không chỉ tăng vị thế mua ròng (net-long) trong hợp đồng tương lai.",
-        "Mà còn đặt cược lớn vào các quyền chọn mua (call options) trên thị trường ngô.",
-        "Điều này cho thấy kỳ vọng mạnh mẽ vào sự tăng giá của ngô."
+        "Một tin tức vào chiều thứ Tư cho biết Watson đang tăng vị thế mua ròng (net-long) trong hợp đồng tương lai ngô.",
+        "Watson cũng đang đặt cược lớn vào các quyền chọn mua (call options) ngô.",
+        "Điều này cho thấy niềm tin mạnh mẽ vào xu hướng tăng giá của ngô từ một nhà đầu tư lớn."
       ],
       "link": "https://www.barchart.com/story/news/3427975/watson-goes-big-in-the-corn-market?.tsrc=rss",
       "source": "23 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "Lúa mì tăng giá lên mức cao gần 3 năm do hạn chế xuất khẩu Biển Đen",
+      "title": "Lúa mì tăng vọt lên gần mức cao nhất 3 năm do hạn chế xuất khẩu Biển Đen",
       "details": [
-        "Thị trường lúa mì dẫn đầu đợt tăng giá ngũ cốc vào thứ Tư, với hợp đồng KC đạt mức cao mới.",
-        "Hợp đồng SRW Chicago đạt mức cao nhất kể từ năm 2024 trên biểu đồ liên tục tháng đầu, tăng 21 đến 27 ¾ cent.",
+        "Thị trường lúa mì dẫn đầu đợt tăng giá ngũ cốc vào thứ Tư.",
+        "Giá lúa mì SRW Chicago đạt mức cao nhất kể từ năm 2024 trên biểu đồ liên tục tháng đầu tiên, tăng từ 21 đến 27 3/4 cent.",
+        "Hợp đồng lúa mì HRW Kansas City dẫn đầu đợt tăng giá.",
         "Nguyên nhân chính là do những hạn chế xuất khẩu từ khu vực Biển Đen."
       ],
       "link": "https://www.barchart.com/story/news/3414566/wheat-rallies-to-near-3-year-highs-on-wednesday-on-black-sea-export-limitations?.tsrc=rss",
       "source": "22 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "CME Group sẽ ra mắt hợp đồng tương lai cơ sở lúa miến vào tháng 8/2026",
+      "title": "CME Group ra mắt hợp đồng tương lai Sorghum Basis vào tháng 8/2026",
       "details": [
-        "CME Group có kế hoạch ra mắt hợp đồng tương lai cơ sở lúa miến (Sorghum basis futures) vào tháng 8 năm 2026.",
-        "Hợp đồng mới này tập trung vào mối quan hệ giá giữa lúa miến và ngô.",
-        "Sản phẩm sử dụng cơ sở hạ tầng ngũ cốc hiện có ở Kansas để hỗ trợ giao dịch và giao hàng.",
-        "Mục tiêu là cung cấp thêm công cụ quản lý rủi ro cho nhà sản xuất và giao dịch nông sản."
+        "CME Group dự kiến ra mắt hợp đồng tương lai Sorghum basis vào tháng 8 năm 2026.",
+        "Hợp đồng mới này tập trung vào mối quan hệ giá giữa lúa miến (sorghum) và ngô.",
+        "Sản phẩm này nhằm cung cấp thêm công cụ quản lý rủi ro cho nhà sản xuất và giao dịch nông sản.",
+        "Việc ra mắt sử dụng cơ sở hạ tầng ngũ cốc hiện có ở Kansas để hỗ trợ giao dịch và giao hàng."
       ],
       "link": "https://finance.yahoo.com/markets/commodities/articles/cme-group-cme-launch-sorghum-181238075.html?.tsrc=rss",
       "source": "22 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "Nắng nóng gây lo ngại cho nông dân lúa mì khi giá cây trồng tăng vọt",
+      "title": "Lúa mì tạm dừng đà tăng giá",
       "details": [
-        "Nắng nóng gay gắt đang đe dọa năng suất lúa mì ở North Dakota.",
-        "Điều này diễn ra trong bối cảnh giá lúa mì đang tăng vọt lên mức cao nhất trong ba năm.",
-        "Thời tiết khắc nghiệt có thể ảnh hưởng tiêu cực đến nguồn cung và đẩy giá lên cao hơn."
+        "Thị trường lúa mì tạm thời chững lại sau giai đoạn tăng giá.",
+        "Giá đậu tương giữ vững, trong khi ngô có kết quả biến động trái chiều nhẹ.",
+        "Đây là một phần của bản tóm tắt thị trường buổi chiều."
+      ],
+      "link": "https://www.farmprogress.com/markets-and-quotes/afternoon-market-recap",
+      "source": "24 Jul 2026 - Farm Progress"
+    },
+    {
+      "title": "Nông dân lúa mì lo lắng về nắng nóng khi giá cây trồng tăng vọt",
+      "details": [
+        "Nắng nóng gay gắt đang đe dọa năng suất lúa mì ở Bắc Dakota.",
+        "Tình hình này diễn ra đúng vào thời điểm giá lúa mì tăng lên mức cao nhất trong ba năm.",
+        "Thời tiết khắc nghiệt có thể ảnh hưởng tiêu cực đến nguồn cung và hỗ trợ giá."
       ],
       "link": "https://www.farmprogress.com/wheat/heat-worries-wheat-farmers-as-crop-prices-surge",
       "source": "24 Jul 2026 - Farm Progress"
     },
     {
-      "title": "Phân tích thị trường ngũ cốc: Ngô và đậu tương giảm, thời tiết Trung Tây đáng lo ngại",
+      "title": "Thị trường ngũ cốc: Ngô giảm từ đỉnh 2 tháng, thời tiết khô nóng Trung Tây vẫn đáng lo ngại",
       "details": [
-        "Giá ngô tương lai đã giảm từ mức cao nhất trong hai tháng vào đêm trước.",
-        "Giá đậu tương cũng ghi nhận mức giảm.",
-        "Tuy nhiên, thời tiết nóng và khô ở vùng Trung Tây vẫn là một mối lo ngại lớn cho thị trường ngũ cốc.",
-        "Điều kiện thời tiết này có thể ảnh hưởng đến triển vọng mùa vụ sắp tới."
+        "Giá ngô kỳ hạn đã giảm từ mức cao nhất trong hai tháng qua đêm.",
+        "Giá đậu tương cũng giảm.",
+        "Thời tiết khô nóng ở vùng Trung Tây Hoa Kỳ vẫn là một yếu tố đáng lo ngại cho thị trường ngũ cốc."
       ],
       "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
       "source": "24 Jul 2026 - Farm Progress"
