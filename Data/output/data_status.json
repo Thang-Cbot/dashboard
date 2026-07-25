@@ -13,9 +13,9 @@
       "updated_at": "2026-07-25 20:00:20"
     },
     "macro": {
-      "status": "OK",
-      "detail": "Brent/DXY updated",
-      "updated_at": "2026-07-25 19:41:51"
+      "status": "[OK]",
+      "detail": "Auto-fetch 20:00:39",
+      "updated_at": "2026-07-25 20:00:39"
     },
     "cot": {
       "status": "PARTIAL",
@@ -68,5 +68,10 @@
     "status": "OK",
     "detail": "ZC+ZW updated at 20:00",
     "updated_at": "2026-07-25 20:00:20"
+  },
+  "macro": {
+    "status": "OK",
+    "detail": "Brent=96.78, DXY=101.47",
+    "updated_at": "2026-07-25 20:00:39"
   }
 }
