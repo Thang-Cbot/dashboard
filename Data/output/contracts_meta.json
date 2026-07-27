@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 28147.0,
+      "today_volume": 32727.0,
       "prev_volume": 8373.0,
       "today_oi": 780225,
       "prev_oi": 573222,
-      "today_close": 481.0,
+      "today_close": 479.5,
       "prev_close": 459.75,
       "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
       "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
@@ -43,7 +43,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 5453.0,
+      "today_volume": 7155.0,
       "prev_volume": 4090.0,
       "today_oi": 218857,
       "prev_oi": 218857,
@@ -53,5 +53,5 @@
       "logic": "Giá giảm đi kèm Volume tăng nhưng OI giảm. Phe Long đang chủ động đóng vị thế hàng loạt để cắt lỗ, lực bán tháo kỹ thuật mạnh."
     }
   },
-  "updated_at": "2026-07-27 13:00:18"
+  "updated_at": "2026-07-27 14:00:28"
 }
