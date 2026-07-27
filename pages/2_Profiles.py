@@ -460,11 +460,10 @@ with _tab_h4:
             _bos_bull = _dfh4[_dfh4['BOS_Bull']]
             if not _bos_bull.empty:
                 _fig_h4.add_trace(go.Scatter(
-                    x=_bos_bull["Label"], y=_bos_bull["Low"] - (_y_pad_marker * 0.25),
-                    mode="markers+text", name="Tiếp diễn Tăng",
-                    marker=dict(symbol="arrow-up", size=11, color="#60a5fa"),
-                    text="<b>⇑ BOS (TĂNG)</b>", textposition="bottom center",
-                    textfont=dict(color="#60a5fa", size=9),
+                    x=_bos_bull["Label"], y=_bos_bull["Low"] - (_y_pad_marker * 0.3),
+                    mode="text", name="BOS Tăng",
+                    text="⬆", textposition="middle center",
+                    textfont=dict(color="#60a5fa", size=20),
                     hoverinfo="skip"
                 ), row=1, col=1)
 
@@ -484,11 +483,10 @@ with _tab_h4:
             _bos_bear = _dfh4[_dfh4['BOS_Bear']]
             if not _bos_bear.empty:
                 _fig_h4.add_trace(go.Scatter(
-                    x=_bos_bear["Label"], y=_bos_bear["High"] + (_y_pad_marker * 0.25),
-                    mode="markers+text", name="Tiếp diễn Giảm",
-                    marker=dict(symbol="arrow-down", size=11, color="#f43f5e"),
-                    text="<b>⇓ BOS (GIẢM)</b>", textposition="top center",
-                    textfont=dict(color="#f43f5e", size=9),
+                    x=_bos_bear["Label"], y=_bos_bear["High"] + (_y_pad_marker * 0.3),
+                    mode="text", name="BOS Giảm",
+                    text="⬇", textposition="middle center",
+                    textfont=dict(color="#f43f5e", size=20),
                     hoverinfo="skip"
                 ), row=1, col=1)
 
@@ -751,11 +749,10 @@ with _tab_h1:
             _h1_bos_bull = _dfh1[_dfh1['BOS_Bull']]
             if not _h1_bos_bull.empty:
                 _fig_h1.add_trace(go.Scatter(
-                    x=_h1_bos_bull["Label"], y=_h1_bos_bull["Low"] - _h1_ypad * 0.25,
-                    mode="markers+text", name="Tiếp diễn Tăng",
-                    marker=dict(symbol="arrow-up", size=11, color="#60a5fa"),
-                    text="<b>⇑ BOS (TĂNG)</b>", textposition="bottom center",
-                    textfont=dict(color="#60a5fa", size=9), hoverinfo="skip",
+                    x=_h1_bos_bull["Label"], y=_h1_bos_bull["Low"] - _h1_ypad * 0.3,
+                    mode="text", name="BOS Tăng",
+                    text="⬆", textposition="middle center",
+                    textfont=dict(color="#60a5fa", size=20), hoverinfo="skip",
                 ), row=1, col=1)
 
             # ChoCh Bear
@@ -773,11 +770,10 @@ with _tab_h1:
             _h1_bos_bear = _dfh1[_dfh1['BOS_Bear']]
             if not _h1_bos_bear.empty:
                 _fig_h1.add_trace(go.Scatter(
-                    x=_h1_bos_bear["Label"], y=_h1_bos_bear["High"] + _h1_ypad * 0.25,
-                    mode="markers+text", name="Tiếp diễn Giảm",
-                    marker=dict(symbol="arrow-down", size=11, color="#f43f5e"),
-                    text="<b>⇓ BOS (GIẢM)</b>", textposition="top center",
-                    textfont=dict(color="#f43f5e", size=9), hoverinfo="skip",
+                    x=_h1_bos_bear["Label"], y=_h1_bos_bear["High"] + _h1_ypad * 0.3,
+                    mode="text", name="BOS Giảm",
+                    text="⬇", textposition="middle center",
+                    textfont=dict(color="#f43f5e", size=20), hoverinfo="skip",
                 ), row=1, col=1)
 
             # Volume bars
