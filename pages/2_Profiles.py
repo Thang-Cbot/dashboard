@@ -461,10 +461,11 @@ with _tab_h4:
             if not _bos_bull.empty:
                 _fig_h4.add_trace(go.Scatter(
                     x=_bos_bull["Label"], y=_bos_bull["Low"] - (_y_pad_marker * 0.3),
-                    mode="text", name="BOS Tăng",
-                    text="⬆", textposition="middle center",
-                    textfont=dict(color="#60a5fa", size=20),
-                    hoverinfo="skip"
+                    mode="text", name="BOS Tăng (Tiếp diễn)",
+                    text="⬆ BOS↑", textposition="middle center",
+                    textfont=dict(color="#fbbf24", size=14, family="Inter"),
+                    hovertext=[f"⬆ BOS Tiếp Diễn TĂNG<br>Close: {r['Close']:.2f}c<br>Low: {r['Low']:.2f}c" for _, r in _bos_bull.iterrows()],
+                    hoverinfo="text",
                 ), row=1, col=1)
 
             # --- Đánh dấu Đảo Cấu Trúc Giảm (ChoCh Bear) ---
@@ -484,10 +485,11 @@ with _tab_h4:
             if not _bos_bear.empty:
                 _fig_h4.add_trace(go.Scatter(
                     x=_bos_bear["Label"], y=_bos_bear["High"] + (_y_pad_marker * 0.3),
-                    mode="text", name="BOS Giảm",
-                    text="⬇", textposition="middle center",
-                    textfont=dict(color="#f43f5e", size=20),
-                    hoverinfo="skip"
+                    mode="text", name="BOS Giảm (Tiếp diễn)",
+                    text="⬇ BOS↓", textposition="middle center",
+                    textfont=dict(color="#c084fc", size=14, family="Inter"),
+                    hovertext=[f"⬇ BOS Tiếp Diễn GIẢM<br>Close: {r['Close']:.2f}c<br>High: {r['High']:.2f}c" for _, r in _bos_bear.iterrows()],
+                    hoverinfo="text",
                 ), row=1, col=1)
 
             # Volume bars
@@ -745,14 +747,16 @@ with _tab_h1:
                     textfont=dict(color="#38bdf8", size=10), hoverinfo="skip",
                 ), row=1, col=1)
 
-            # BOS Bull
+            # BOS Bull H1
             _h1_bos_bull = _dfh1[_dfh1['BOS_Bull']]
             if not _h1_bos_bull.empty:
                 _fig_h1.add_trace(go.Scatter(
                     x=_h1_bos_bull["Label"], y=_h1_bos_bull["Low"] - _h1_ypad * 0.3,
-                    mode="text", name="BOS Tăng",
-                    text="⬆", textposition="middle center",
-                    textfont=dict(color="#60a5fa", size=20), hoverinfo="skip",
+                    mode="text", name="BOS Tăng (Tiếp diễn)",
+                    text="⬆ BOS↑", textposition="middle center",
+                    textfont=dict(color="#fbbf24", size=14, family="Inter"),
+                    hovertext=[f"⬆ BOS Tiếp Diễn TĂNG<br>Close: {r['Close']:.2f}c<br>Low: {r['Low']:.2f}c" for _, r in _h1_bos_bull.iterrows()],
+                    hoverinfo="text",
                 ), row=1, col=1)
 
             # ChoCh Bear
@@ -766,14 +770,16 @@ with _tab_h1:
                     textfont=dict(color="#fb7185", size=10), hoverinfo="skip",
                 ), row=1, col=1)
 
-            # BOS Bear
+            # BOS Bear H1
             _h1_bos_bear = _dfh1[_dfh1['BOS_Bear']]
             if not _h1_bos_bear.empty:
                 _fig_h1.add_trace(go.Scatter(
                     x=_h1_bos_bear["Label"], y=_h1_bos_bear["High"] + _h1_ypad * 0.3,
-                    mode="text", name="BOS Giảm",
-                    text="⬇", textposition="middle center",
-                    textfont=dict(color="#f43f5e", size=20), hoverinfo="skip",
+                    mode="text", name="BOS Giảm (Tiếp diễn)",
+                    text="⬇ BOS↓", textposition="middle center",
+                    textfont=dict(color="#c084fc", size=14, family="Inter"),
+                    hovertext=[f"⬇ BOS Tiếp Diễn GIẢM<br>Close: {r['Close']:.2f}c<br>High: {r['High']:.2f}c" for _, r in _h1_bos_bear.iterrows()],
+                    hoverinfo="text",
                 ), row=1, col=1)
 
             # Volume bars
