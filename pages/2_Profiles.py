@@ -141,7 +141,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ── TAB: D1 và Giá H4 ────────────────────────────────────────
-_tab_d1, _tab_h4 = st.tabs(["📅 Tab D1", "📊 Giá H4"])
+_tab_d1, _tab_h4, _tab_h1 = st.tabs(["📅 Tab D1", "📊 Giá H4", "⏱️ Giá H1"])
 
 # ─── TAB D1: Giữ nguyên nội dung cũ ─────────────────────────
 with _tab_d1:
@@ -624,6 +624,290 @@ with _tab_h4:
             st.warning(f"Lỗi vẽ biểu đồ H4: {_he}")
     else:
         st.info("Chưa có file dữ liệu H4. Hãy chạy: python Data/fetch_prices_H4.py")
+
+# ─── TAB H1: Biểu đồ Nến H1 + EMA 21/50 + Cấu trúc ──────────────────────────
+with _tab_h1:
+    _csv_h1_path = DATA_OUTPUT / f"{code}_{suffix}_H1.csv"
+    if _csv_h1_path.exists():
+        try:
+            _dfh1 = pd.read_csv(_csv_h1_path)
+            _dfh1.columns = [c.strip() for c in _dfh1.columns]
+            _tcol1 = next((c for c in _dfh1.columns if c.lower() in ['time','datetime','date','timestamp']), None)
+            if _tcol1:
+                _dfh1[_tcol1] = pd.to_datetime(_dfh1[_tcol1], errors='coerce')
+                _dfh1 = _dfh1.dropna(subset=[_tcol1]).rename(columns={_tcol1: "Datetime"})
+            _dfh1 = _dfh1.sort_values("Datetime").tail(200).reset_index(drop=True)
+
+            # Tính EMA 21 và EMA 50
+            _dfh1["EMA21"] = _dfh1["Close"].ewm(span=21, adjust=False).mean()
+            _dfh1["EMA50"] = _dfh1["Close"].ewm(span=50, adjust=False).mean()
+
+            # Xác định Swing High / Swing Low (Fractal 5 nến)
+            _dfh1['Swing_High'] = False
+            _dfh1['Swing_Low']  = False
+            for i in range(2, len(_dfh1)-2):
+                if (_dfh1.loc[i,'High'] > _dfh1.loc[i-1,'High'] and _dfh1.loc[i,'High'] > _dfh1.loc[i-2,'High'] and
+                    _dfh1.loc[i,'High'] > _dfh1.loc[i+1,'High'] and _dfh1.loc[i,'High'] > _dfh1.loc[i+2,'High']):
+                    _dfh1.loc[i,'Swing_High'] = True
+                if (_dfh1.loc[i,'Low'] < _dfh1.loc[i-1,'Low'] and _dfh1.loc[i,'Low'] < _dfh1.loc[i-2,'Low'] and
+                    _dfh1.loc[i,'Low'] < _dfh1.loc[i+1,'Low'] and _dfh1.loc[i,'Low'] < _dfh1.loc[i+2,'Low']):
+                    _dfh1.loc[i,'Swing_Low'] = True
+
+            # Xác định ChoCh / BOS
+            _dfh1['ChoCh_Bull'] = False
+            _dfh1['BOS_Bull']   = False
+            _dfh1['ChoCh_Bear'] = False
+            _dfh1['BOS_Bear']   = False
+            _1_last_sh = None; _1_last_sl = None; _1_trend = None
+            for i in range(len(_dfh1)):
+                if _1_last_sh is not None and _dfh1.loc[i,'Close'] > _1_last_sh:
+                    if _1_trend == 'Bearish' or _1_trend is None:
+                        _dfh1.loc[i,'ChoCh_Bull'] = True
+                    else:
+                        _dfh1.loc[i,'BOS_Bull'] = True
+                    _1_trend = 'Bullish'; _1_last_sh = None
+                if _1_last_sl is not None and _dfh1.loc[i,'Close'] < _1_last_sl:
+                    if _1_trend == 'Bullish' or _1_trend is None:
+                        _dfh1.loc[i,'ChoCh_Bear'] = True
+                    else:
+                        _dfh1.loc[i,'BOS_Bear'] = True
+                    _1_trend = 'Bearish'; _1_last_sl = None
+                if i >= 2:
+                    if _dfh1.loc[i-2,'Swing_High']: _1_last_sh = _dfh1.loc[i-2,'High']
+                    if _dfh1.loc[i-2,'Swing_Low']:  _1_last_sl = _dfh1.loc[i-2,'Low']
+
+            _dfh1["Label"] = "[VN] " + _dfh1["Datetime"].dt.strftime("%d/%m %H:%M")
+
+            _h1_clr_up = "#22c55e"; _h1_clr_dn = "#ef4444"
+
+            _fig_h1 = make_subplots(
+                rows=2, cols=1,
+                shared_xaxes=True,
+                vertical_spacing=0.05,
+                row_heights=[0.80, 0.20],
+                subplot_titles=[f"Biểu đồ nến H1 — {selected_name} ({selected_contract})", "Volume"]
+            )
+
+            # Nến Candlestick H1
+            _fig_h1.add_trace(go.Candlestick(
+                x=_dfh1["Label"],
+                open=_dfh1["Open"], high=_dfh1["High"],
+                low=_dfh1["Low"],   close=_dfh1["Close"],
+                name="H1 Candle",
+                increasing=dict(line=dict(color=_h1_clr_up, width=1.2), fillcolor=_h1_clr_up),
+                decreasing=dict(line=dict(color=_h1_clr_dn, width=1.2), fillcolor=_h1_clr_dn),
+            ), row=1, col=1)
+
+            # EMA 21
+            _fig_h1.add_trace(go.Scatter(
+                x=_dfh1["Label"], y=_dfh1["EMA21"],
+                mode="lines", name="EMA 21",
+                line=dict(color="#f59e0b", width=1.5), opacity=0.9,
+            ), row=1, col=1)
+
+            # EMA 50
+            _fig_h1.add_trace(go.Scatter(
+                x=_dfh1["Label"], y=_dfh1["EMA50"],
+                mode="lines", name="EMA 50",
+                line=dict(color="#a78bfa", width=1.5), opacity=0.9,
+            ), row=1, col=1)
+
+            _h1_ypad = (_dfh1["High"].max() - _dfh1["Low"].min()) * 0.06
+
+            # Swing High markers
+            _h1_sh_df = _dfh1[_dfh1['Swing_High']]
+            if not _h1_sh_df.empty:
+                _fig_h1.add_trace(go.Scatter(
+                    x=_h1_sh_df["Label"], y=_h1_sh_df["High"] + _h1_ypad * 0.1,
+                    mode="markers+text", name="Đỉnh H1",
+                    marker=dict(symbol="triangle-down", size=6, color="#ef4444"),
+                    text="▼", textposition="top center", textfont=dict(color="#ef4444", size=9),
+                    hoverinfo="skip",
+                ), row=1, col=1)
+
+            # Swing Low markers
+            _h1_sl_df = _dfh1[_dfh1['Swing_Low']]
+            if not _h1_sl_df.empty:
+                _fig_h1.add_trace(go.Scatter(
+                    x=_h1_sl_df["Label"], y=_h1_sl_df["Low"] - _h1_ypad * 0.1,
+                    mode="markers+text", name="Đáy H1",
+                    marker=dict(symbol="triangle-up", size=6, color="#22c55e"),
+                    text="▲", textposition="bottom center", textfont=dict(color="#22c55e", size=9),
+                    hoverinfo="skip",
+                ), row=1, col=1)
+
+            # ChoCh Bull
+            _h1_choch_bull = _dfh1[_dfh1['ChoCh_Bull']]
+            if not _h1_choch_bull.empty:
+                _fig_h1.add_trace(go.Scatter(
+                    x=_h1_choch_bull["Label"], y=_h1_choch_bull["Low"] - _h1_ypad * 0.4,
+                    mode="markers+text", name="Đảo chiều Tăng",
+                    marker=dict(symbol="star", size=11, color="#38bdf8"),
+                    text="<b>🚀 Đảo Cấu Trúc (TĂNG)</b>", textposition="bottom center",
+                    textfont=dict(color="#38bdf8", size=10), hoverinfo="skip",
+                ), row=1, col=1)
+
+            # BOS Bull
+            _h1_bos_bull = _dfh1[_dfh1['BOS_Bull']]
+            if not _h1_bos_bull.empty:
+                _fig_h1.add_trace(go.Scatter(
+                    x=_h1_bos_bull["Label"], y=_h1_bos_bull["Low"] - _h1_ypad * 0.25,
+                    mode="markers+text", name="Tiếp diễn Tăng",
+                    marker=dict(symbol="star-triangle-up", size=9, color="#60a5fa"),
+                    text="<b>↑ Tiếp diễn (TĂNG)</b>", textposition="bottom center",
+                    textfont=dict(color="#60a5fa", size=9), hoverinfo="skip",
+                ), row=1, col=1)
+
+            # ChoCh Bear
+            _h1_choch_bear = _dfh1[_dfh1['ChoCh_Bear']]
+            if not _h1_choch_bear.empty:
+                _fig_h1.add_trace(go.Scatter(
+                    x=_h1_choch_bear["Label"], y=_h1_choch_bear["High"] + _h1_ypad * 0.4,
+                    mode="markers+text", name="Đảo chiều Giảm",
+                    marker=dict(symbol="star", size=11, color="#fb7185"),
+                    text="<b>🩸 Đảo Cấu Trúc (GIẢM)</b>", textposition="top center",
+                    textfont=dict(color="#fb7185", size=10), hoverinfo="skip",
+                ), row=1, col=1)
+
+            # BOS Bear
+            _h1_bos_bear = _dfh1[_dfh1['BOS_Bear']]
+            if not _h1_bos_bear.empty:
+                _fig_h1.add_trace(go.Scatter(
+                    x=_h1_bos_bear["Label"], y=_h1_bos_bear["High"] + _h1_ypad * 0.25,
+                    mode="markers+text", name="Tiếp diễn Giảm",
+                    marker=dict(symbol="star-triangle-down", size=9, color="#f43f5e"),
+                    text="<b>↓ Tiếp diễn (GIẢM)</b>", textposition="top center",
+                    textfont=dict(color="#f43f5e", size=9), hoverinfo="skip",
+                ), row=1, col=1)
+
+            # Volume bars
+            _h1_vol_colors = [_h1_clr_up if r["Close"] >= r["Open"] else _h1_clr_dn for _, r in _dfh1.iterrows()]
+            _fig_h1.add_trace(go.Bar(
+                x=_dfh1["Label"], y=_dfh1["Volume"],
+                name="Volume", marker_color=_h1_vol_colors, opacity=0.6,
+            ), row=2, col=1)
+
+            # Nhãn Close nến cuối
+            _h1_last_close = _dfh1["Close"].iloc[-1]
+            _h1_last_label = _dfh1["Label"].iloc[-1]
+            _h1_last_color = _h1_clr_up if _dfh1["Close"].iloc[-1] >= _dfh1["Open"].iloc[-1] else _h1_clr_dn
+            _fig_h1.add_annotation(
+                x=_h1_last_label, y=_h1_last_close,
+                text=f"  {_h1_last_close:.2f}",
+                showarrow=False, xanchor="left",
+                font=dict(color=_h1_last_color, size=12, family="Inter"),
+                row=1, col=1
+            )
+
+            # Layout — hiển thị mặc định 3 ngày (72 nến H1)
+            _h1_total = len(_dfh1)
+            _h1_default = 72
+            _h1_start_idx = max(0, _h1_total - _h1_default)
+            _h1_x_start = _dfh1["Label"].iloc[_h1_start_idx]
+            _h1_x_end   = _dfh1["Label"].iloc[-1]
+            _h1_vis = _dfh1.iloc[_h1_start_idx:]
+            _h1_ylo = _h1_vis["Low"].min()
+            _h1_yhi = _h1_vis["High"].max()
+            _h1_yp  = (_h1_yhi - _h1_ylo) * 0.08
+
+            _fig_h1.update_layout(
+                paper_bgcolor="#0f1629", plot_bgcolor="#0d1425",
+                font=dict(color="#e2e8f0", family="Inter"),
+                margin=dict(l=10, r=60, t=40, b=60),
+                xaxis=dict(
+                    gridcolor="#1e2d45", tickangle=-45, tickfont=dict(size=9),
+                    range=[_h1_x_start, _h1_x_end],
+                    rangeslider=dict(visible=False), type="category",
+                ),
+                yaxis=dict(
+                    gridcolor="#1e2d45", tickformat=".2f",
+                    range=[_h1_ylo - _h1_yp, _h1_yhi + _h1_yp],
+                    title="Giá (¢/bu)", title_font=dict(size=11),
+                ),
+                xaxis2=dict(
+                    gridcolor="#1e2d45", tickangle=-45, tickfont=dict(size=9),
+                    type="category",
+                    rangeslider=dict(
+                        visible=True, bgcolor="#0d1425",
+                        bordercolor="#334155", borderwidth=1, thickness=0.04,
+                    ),
+                ),
+                yaxis2=dict(gridcolor="#1e2d45", title="Volume", title_font=dict(size=10)),
+                showlegend=True,
+                legend=dict(
+                    x=0.01, y=0.99, bgcolor="rgba(15,22,41,0.5)",
+                    bordercolor="#334155", borderwidth=1,
+                    font=dict(size=9), itemwidth=30,
+                ),
+                height=640, hovermode="x unified",
+            )
+            _fig_h1.update_yaxes(showgrid=True, zeroline=False)
+
+            # Phân tách ngày bằng đường kẻ dọc
+            _h1_dates_seen = set()
+            for _lbl_j, _dt_j in zip(_dfh1["Label"], _dfh1["Datetime"]):
+                _dj = _dt_j.strftime("%d/%m")
+                if _dj not in _h1_dates_seen:
+                    _h1_dates_seen.add(_dj)
+                    _fig_h1.add_vline(
+                        x=_lbl_j, line_dash="dot",
+                        line_color="rgba(100,116,139,0.35)", line_width=1
+                    )
+
+            _h1_last_time = _dfh1["Datetime"].iloc[-1].strftime("%d/%m/%Y %H:%M")
+            st.markdown(
+                f"<div style='font-size:11px;color:#64748b;margin-bottom:8px;'>"
+                f"Nến H1 · 200 nến gần nhất · Hiển thị mặc định: 3 ngày (72 nến) · Cập nhật đến: "
+                f"<span style='color:#f59e0b;font-weight:700;'>{_h1_last_time} (VN)</span> · "
+                f"EMA <span style='color:#f59e0b;'>21 (vàng)</span> · "
+                f"EMA <span style='color:#a78bfa;'>50 (tím)</span> · "
+                f"<span style='color:#38bdf8;'>🚀 Đảo cấu trúc Tăng</span> · "
+                f"<span style='color:#fb7185;'>🩸 Đảo cấu trúc Giảm</span>"
+                f"</div>",
+                unsafe_allow_html=True
+            )
+            st.plotly_chart(_fig_h1, use_container_width=True)
+
+            # Bảng tóm tắt nến H1 cuối cùng
+            st.markdown("<div style='font-size:12px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;margin:8px 0 6px;'>📋 CÁC NẾN H1 GẦN NHẤT</div>", unsafe_allow_html=True)
+            _th1 = ("<table style='width:100%;border-collapse:collapse;font-size:12px;font-family:Inter,sans-serif;'>"
+                    "<thead><tr style='background:#1e293b;color:#94a3b8;'>"
+                    "<th style='padding:7px 10px;text-align:left;border-bottom:1px solid #334155;'>Thời gian (VN)</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Open</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>High</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Low</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Close</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>EMA21</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>EMA50</th>"
+                    "<th style='padding:7px 10px;text-align:center;border-bottom:1px solid #334155;'>Cấu trúc</th>"
+                    "</tr></thead><tbody>")
+            for _, _rh1 in _dfh1.tail(12).iloc[::-1].iterrows():
+                _bul1 = _rh1["Close"] >= _rh1["Open"]
+                _cc1  = "#22c55e" if _bul1 else "#ef4444"
+                _e21h1 = f"{_rh1['EMA21']:.2f}" if not pd.isna(_rh1.get("EMA21", float('nan'))) else "—"
+                _e50h1 = f"{_rh1['EMA50']:.2f}" if not pd.isna(_rh1.get("EMA50", float('nan'))) else "—"
+                _struct = ""
+                if _rh1['ChoCh_Bull']: _struct = "<span style='color:#38bdf8;font-weight:700;'>🚀 Đảo↑</span>"
+                elif _rh1['BOS_Bull']: _struct = "<span style='color:#60a5fa;'>↑ BOS</span>"
+                elif _rh1['ChoCh_Bear']: _struct = "<span style='color:#fb7185;font-weight:700;'>🩸 Đảo↓</span>"
+                elif _rh1['BOS_Bear']: _struct = "<span style='color:#f43f5e;'>↓ BOS</span>"
+                else: _struct = "<span style='color:#475569;'>—</span>"
+                _th1 += (f"<tr style='border-bottom:1px solid #1e2d45;'>"
+                         f"<td style='padding:6px 10px;color:#94a3b8;font-weight:600;'>{_rh1['Label']}</td>"
+                         f"<td style='padding:6px 10px;text-align:right;color:#cbd5e1;'>{_rh1['Open']:.2f}</td>"
+                         f"<td style='padding:6px 10px;text-align:right;color:#fb923c;'>{_rh1['High']:.2f}</td>"
+                         f"<td style='padding:6px 10px;text-align:right;color:#a78bfa;'>{_rh1['Low']:.2f}</td>"
+                         f"<td style='padding:6px 10px;text-align:right;color:{_cc1};font-weight:700;'>{_rh1['Close']:.2f}</td>"
+                         f"<td style='padding:6px 10px;text-align:right;color:#f59e0b;'>{_e21h1}</td>"
+                         f"<td style='padding:6px 10px;text-align:right;color:#a78bfa;'>{_e50h1}</td>"
+                         f"<td style='padding:6px 10px;text-align:center;'>{_struct}</td></tr>")
+            _th1 += "</tbody></table>"
+            st.markdown(_th1, unsafe_allow_html=True)
+
+        except Exception as _h1e:
+            st.warning(f"Lỗi vẽ biểu đồ H1: {_h1e}")
+    else:
+        st.info(f"Chưa có file dữ liệu H1 ({code}_{suffix}_H1.csv). Hãy chạy sync giá H1.")
 
 st.markdown("<hr style='border-color:#1e2d45;margin:18px 0;'>", unsafe_allow_html=True)
 
