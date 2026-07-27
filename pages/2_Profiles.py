@@ -801,9 +801,9 @@ with _tab_h1:
                 row=1, col=1
             )
 
-            # Layout — hiển thị mặc định 3 ngày (72 nến H1)
+            # Layout — hiển thị mặc định 1 ngày (24 nến H1), kéo thanh trượt để xem thêm
             _h1_total = len(_dfh1)
-            _h1_default = 72
+            _h1_default = 24
             _h1_start_idx = max(0, _h1_total - _h1_default)
             _h1_x_start = _dfh1["Label"].iloc[_h1_start_idx]
             _h1_x_end   = _dfh1["Label"].iloc[-1]
@@ -841,7 +841,7 @@ with _tab_h1:
                     bordercolor="#334155", borderwidth=1,
                     font=dict(size=9), itemwidth=30,
                 ),
-                height=640, hovermode="x unified",
+                height=700, hovermode="x unified",
             )
             _fig_h1.update_yaxes(showgrid=True, zeroline=False)
 
@@ -859,7 +859,7 @@ with _tab_h1:
             _h1_last_time = _dfh1["Datetime"].iloc[-1].strftime("%d/%m/%Y %H:%M")
             st.markdown(
                 f"<div style='font-size:11px;color:#64748b;margin-bottom:8px;'>"
-                f"Nến H1 · 200 nến gần nhất · Hiển thị mặc định: 3 ngày (72 nến) · Cập nhật đến: "
+                f"Nến H1 · 200 nến gần nhất · Hiển thị mặc định: 1 ngày (24 nến) — kéo thanh trượt bên dưới để xem thêm · Cập nhật đến: "
                 f"<span style='color:#f59e0b;font-weight:700;'>{_h1_last_time} (VN)</span> · "
                 f"EMA <span style='color:#f59e0b;'>21 (vàng)</span> · "
                 f"EMA <span style='color:#a78bfa;'>50 (tím)</span> · "
