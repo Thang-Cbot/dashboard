@@ -462,8 +462,8 @@ with _tab_h4:
                 _fig_h4.add_trace(go.Scatter(
                     x=_bos_bull["Label"], y=_bos_bull["Low"] - (_y_pad_marker * 0.25),
                     mode="markers+text", name="Tiếp diễn Tăng",
-                    marker=dict(symbol="star-triangle-up", size=9, color="#60a5fa"),
-                    text="<b>↑ Tiếp diễn (TĂNG)</b>", textposition="bottom center",
+                    marker=dict(symbol="arrow-up", size=11, color="#60a5fa"),
+                    text="<b>⇑ BOS (TĂNG)</b>", textposition="bottom center",
                     textfont=dict(color="#60a5fa", size=9),
                     hoverinfo="skip"
                 ), row=1, col=1)
@@ -486,8 +486,8 @@ with _tab_h4:
                 _fig_h4.add_trace(go.Scatter(
                     x=_bos_bear["Label"], y=_bos_bear["High"] + (_y_pad_marker * 0.25),
                     mode="markers+text", name="Tiếp diễn Giảm",
-                    marker=dict(symbol="star-triangle-down", size=9, color="#f43f5e"),
-                    text="<b>↓ Tiếp diễn (GIẢM)</b>", textposition="top center",
+                    marker=dict(symbol="arrow-down", size=11, color="#f43f5e"),
+                    text="<b>⇓ BOS (GIẢM)</b>", textposition="top center",
                     textfont=dict(color="#f43f5e", size=9),
                     hoverinfo="skip"
                 ), row=1, col=1)
@@ -753,8 +753,8 @@ with _tab_h1:
                 _fig_h1.add_trace(go.Scatter(
                     x=_h1_bos_bull["Label"], y=_h1_bos_bull["Low"] - _h1_ypad * 0.25,
                     mode="markers+text", name="Tiếp diễn Tăng",
-                    marker=dict(symbol="star-triangle-up", size=9, color="#60a5fa"),
-                    text="<b>↑ Tiếp diễn (TĂNG)</b>", textposition="bottom center",
+                    marker=dict(symbol="arrow-up", size=11, color="#60a5fa"),
+                    text="<b>⇑ BOS (TĂNG)</b>", textposition="bottom center",
                     textfont=dict(color="#60a5fa", size=9), hoverinfo="skip",
                 ), row=1, col=1)
 
@@ -775,8 +775,8 @@ with _tab_h1:
                 _fig_h1.add_trace(go.Scatter(
                     x=_h1_bos_bear["Label"], y=_h1_bos_bear["High"] + _h1_ypad * 0.25,
                     mode="markers+text", name="Tiếp diễn Giảm",
-                    marker=dict(symbol="star-triangle-down", size=9, color="#f43f5e"),
-                    text="<b>↓ Tiếp diễn (GIẢM)</b>", textposition="top center",
+                    marker=dict(symbol="arrow-down", size=11, color="#f43f5e"),
+                    text="<b>⇓ BOS (GIẢM)</b>", textposition="top center",
                     textfont=dict(color="#f43f5e", size=9), hoverinfo="skip",
                 ), row=1, col=1)
 
