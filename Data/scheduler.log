@@ -5668,3 +5668,8 @@ huyên Sâu
 [2026-07-28 15:04:39] [INFO] ▶ Kích hoạt: Thời Tiết Ngắn Hạn
 [2026-07-28 15:05:06] [INFO] ✅ Thời Tiết Ngắn Hạn hoàn thành (attempt 1)
 [2026-07-28 15:05:06] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Thời Tiết Ngắn Hạn)...
+[2026-07-28 15:05:10] [Sync] ✅ Đồng bộ Github thành công (Thời Tiết Ngắn Hạn)!
+[2026-07-28 15:05:10] [INFO] ⏰ Đợi Weather Short: còn 14.91h (29/07 06:00:02 VN)
+[2026-07-28 17:03:41] [INFO] ▶ Kích hoạt: ENSO / Weather Long
+[2026-07-28 17:03:47] [INFO] ✅ ENSO / Weather Long hoàn thành (attempt 1)
+[2026-07-28 17:03:47] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: ENSO / Weather Long)...
