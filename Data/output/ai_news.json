@@ -1,110 +1,101 @@
 {
-  "timestamp": "2026-07-27 21:43:54",
+  "timestamp": "2026-07-28 13:21:48",
   "news": [
     {
-      "title": "Lúa mì giảm giá vào cuối tuần dù hồi phục nhẹ từ mức thấp đầu phiên",
+      "title": "Lúa mì giảm giá mạnh vào thứ Hai",
       "details": [
-        "Thị trường lúa mì chịu áp lực bán ra trước cuối tuần.",
-        "Giá lúa mì Chicago SRW giảm 12 đến 18 1/4 cent trong các hợp đồng tháng đầu.",
-        "Hợp đồng tháng 9 giảm 4 3/4 cent.",
-        "Người mua đã giúp giá hồi phục từ mức thấp nhất trong phiên."
+        "Giá lúa mì giảm trên toàn bộ các hợp đồng vào thứ Hai.",
+        "Hợp đồng SRW Chicago giảm từ 11 đến 18 cent.",
+        "Hợp đồng HRW Kansas City giảm từ 10 đến 16.25 cent.",
+        "Lúa mì vụ xuân Minneapolis giảm từ 1.5 đến 9.25 cent."
+      ],
+      "link": "https://www.barchart.com/story/news/3488730/wheat-faces-monday-losses?.tsrc=rss",
+      "source": "27 Jul 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Nắng nóng nguy hiểm tại Trung Tây thúc đẩy giá Ngô",
+      "details": [
+        "Thời tiết nóng và khô hạn đang lan rộng khắp Trung Tây Hoa Kỳ.",
+        "Điều kiện thời tiết này đang đẩy giá ngô và đậu tương lên cao."
+      ],
+      "link": "https://www.barchart.com/story/news/3485204/hazardous-heat-in-the-midwest-is-stoking-corn-and-soybean-prices-what-to-watch-next?.tsrc=rss",
+      "source": "27 Jul 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Lúa mì phục hồi nhẹ cuối tuần nhưng vẫn chịu áp lực",
+      "details": [
+        "Giá lúa mì chịu áp lực lớn trong phần lớn phiên giao dịch thứ Sáu do nhà đầu tư chốt lời trước cuối tuần.",
+        "Tuy nhiên, lực mua đã giúp giá phục hồi từ mức thấp nhất trong phiên.",
+        "Hợp đồng SRW Chicago giảm từ 12 đến 18.25 cent khi đóng cửa.",
+        "Hợp đồng tháng 9 giảm 4.75 cent."
       ],
       "link": "https://www.barchart.com/story/news/3456178/wheat-pulls-off-early-friday-lows-still-see-pressure-to-close-the-week?.tsrc=rss",
       "source": "24 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "Ngô tìm thấy lực mua, đóng cửa phiên thứ Sáu ổn định",
+      "title": "Ngô tìm thấy lực mua, đóng cửa thứ Sáu ổn định",
       "details": [
-        "Giá ngô tương lai yếu vào đầu phiên nhưng đã hồi phục hơn 8 cent từ mức thấp nhất.",
-        "Các hợp đồng tháng đầu đóng cửa biến động nhẹ.",
-        "Hợp đồng tháng 9 tăng 19 1/2 cent trong tuần.",
-        "Hợp đồng tháng 12 tăng 20 cent trong tuần."
+        "Giá ngô ban đầu yếu nhưng đã phục hồi hơn 8 cent từ mức thấp nhất trong phiên.",
+        "Các hợp đồng tương lai đóng cửa biến động nhẹ.",
+        "Hợp đồng tháng 9 tăng 19.5 cent trong tuần, hợp đồng tháng 12 tăng 20 cent."
       ],
       "link": "https://www.barchart.com/story/news/3456158/corn-finds-buyers-to-close-friday-steady?.tsrc=rss",
       "source": "24 Jul 2026 - Yahoo Finance"
     },
     {
-      "title": "Lúa mì hồi phục từ mức thấp đầu phiên nhưng vẫn chịu áp lực vào thứ Sáu",
+      "title": "Nắng nóng làm suy giảm chất lượng cây ngô và đậu tương",
       "details": [
-        "Thị trường lúa mì đối mặt áp lực bán ra do tin tức Biển Đen trước cuối tuần.",
-        "Hợp đồng Chicago SRW giảm 18 đến 20 cent vào giữa trưa.",
-        "Hợp đồng KC HRW giảm 17 đến 18 cent trong ngày.",
-        "Lúa mì vụ xuân MPLS giảm khoảng 17 cent."
+        "Cả cây ngô và đậu tương đều chịu ảnh hưởng tiêu cực về chất lượng.",
+        "Tình trạng này diễn ra trong tuần kết thúc vào ngày 26 tháng 7.",
+        "Nguyên nhân chính là do nắng nóng."
       ],
-      "link": "https://www.barchart.com/story/news/3452108/wheat-pulling-off-early-lows-but-still-under-pressure-on-friday?.tsrc=rss",
-      "source": "24 Jul 2026 - Yahoo Finance"
+      "link": "https://www.farmprogress.com/marketing/crop-progress-heat-wilts-corn-soybean-condition",
+      "source": "27 Jul 2026 - Farm Progress"
     },
     {
-      "title": "Lúa mì giảm mạnh vào đầu phiên giao dịch thứ Sáu",
+      "title": "Thị trường bán tháo mạnh bất chấp nắng nóng",
       "details": [
-        "Giá lúa mì giao dịch với mức giảm hai chữ số vào sáng thứ Sáu.",
-        "Thị trường chịu áp lực sau khi tăng lên mức cao nhất trong nhiều năm vào đêm trước.",
-        "Hợp đồng Chicago SRW giảm 8 1/2 đến 13 cent khi đóng cửa phiên trước.",
-        "Lãi suất mở tăng 8.051 hợp đồng."
+        "Giá ngô, đậu tương và lúa mì vụ đông đều giảm hai chữ số vào thứ Hai.",
+        "Các nhà giao dịch dường như đã bỏ qua tác động của đợt nắng nóng."
       ],
-      "link": "https://www.barchart.com/story/news/3447046/wheat-falling-back-in-early-friday-trade?.tsrc=rss",
-      "source": "24 Jul 2026 - Yahoo Finance"
+      "link": "https://www.farmprogress.com/markets-and-quotes/afternoon-market-recap",
+      "source": "27 Jul 2026 - Farm Progress"
     },
     {
-      "title": "Lúa mì biến động trái chiều vào giữa trưa, hợp đồng lúa mì đỏ cứng tăng giá",
+      "title": "Giá ngũ cốc có thể đạt đỉnh năm 2026, khuyến nghị quyết định giao dịch",
       "details": [
-        "Thị trường lúa mì trở lại trạng thái biến động trái chiều.",
-        "Các hợp đồng lúa mì đỏ cứng (hard red) tăng giá.",
-        "Hợp đồng Chicago SRW giảm 2 đến 3 1/4 cent.",
-        "Hợp đồng KC HRW tăng 2 đến 3 cent trong ngày.",
-        "Lúa mì vụ xuân MPLS tăng nhẹ."
+        "Đợt tăng giá ngô và đậu tương trong tháng 7 có thể sẽ suy yếu trong tuần này.",
+        "Các mô hình kỹ thuật và dự báo năng suất cho thấy thị trường ngũ cốc đang đạt đỉnh.",
+        "Việc Cục Dự trữ Liên bang tăng lãi suất bổ sung thêm sự không chắc chắn cho thị trường."
       ],
-      "link": "https://www.barchart.com/story/news/3432149/wheat-mixed-at-midday-with-hard-red-contracts-higher?.tsrc=rss",
-      "source": "23 Jul 2026 - Yahoo Finance"
+      "link": "https://www.farmprogress.com/marketing/decide-now-grain-prices-approach-projected-2026-peaks",
+      "source": "27 Jul 2026 - Farm Progress"
     },
     {
-      "title": "Watson tăng cường đặt cược lớn vào thị trường ngô",
+      "title": "Giá ngô và đậu tương giảm mạnh do triển vọng thời tiết cải thiện",
       "details": [
-        "Một câu chuyện tin tức cho biết Watson không chỉ tăng vị thế mua ròng (net-long) hợp đồng tương lai.",
-        "Watson còn đặt cược lớn vào các quyền chọn mua (call options).",
-        "Điều này cho thấy kỳ vọng tăng giá đối với ngô."
-      ],
-      "link": "https://www.barchart.com/story/news/3427975/watson-goes-big-in-the-corn-market?.tsrc=rss",
-      "source": "23 Jul 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Lúa mì tăng vọt lên mức cao gần 3 năm do hạn chế xuất khẩu Biển Đen",
-      "details": [
-        "Thị trường lúa mì dẫn đầu đà tăng của ngũ cốc vào thứ Tư.",
-        "Hợp đồng KC HRW dẫn đầu đà tăng lên mức cao mới.",
-        "Hợp đồng Chicago SRW đạt mức cao nhất kể từ năm 2024, tăng 21 đến 27 3/4 cent.",
-        "Nguyên nhân chính là do những hạn chế xuất khẩu từ khu vực Biển Đen."
-      ],
-      "link": "https://www.barchart.com/story/news/3414566/wheat-rallies-to-near-3-year-highs-on-wednesday-on-black-sea-export-limitations?.tsrc=rss",
-      "source": "22 Jul 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Giá ngô giảm mạnh do giá dầu thô và triển vọng thời tiết Trung Tây",
-      "details": [
-        "Giá ngô và đậu tương tương lai giảm mạnh qua đêm.",
-        "Giá dầu thô giảm mạnh là một yếu tố gây áp lực.",
-        "Triển vọng thời tiết ở Trung Tây Hoa Kỳ ít đe dọa hơn, giảm lo ngại về nguồn cung."
+        "Giá hợp đồng tương lai ngô và đậu tương đã giảm mạnh qua đêm.",
+        "Giá dầu thô cũng giảm, ảnh hưởng đến tâm lý thị trường.",
+        "Dự báo thời tiết ở Trung Tây Hoa Kỳ trở nên ít đe dọa hơn, giảm lo ngại về nguồn cung."
       ],
       "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
       "source": "27 Jul 2026 - Farm Progress"
     },
     {
-      "title": "Dữ liệu kỷ lục về vụ ngô của USDA đối mặt với sự hoài nghi ngày càng tăng",
+      "title": "Nghi ngờ về số liệu kỷ lục vụ ngô của USDA",
       "details": [
-        "Các nhà phân tích đặt câu hỏi về tính chính xác của con số 17 tỷ giạ ngô từ vụ thu hoạch năm 2025.",
-        "Các báo cáo tồn kho hàng quý cho thấy khả năng con số này bị thổi phồng.",
-        "Điều này có thể ảnh hưởng đến đánh giá về nguồn cung ngô thực tế."
+        "Các nhà phân tích đang đặt câu hỏi về con số kỷ lục 17 tỷ giạ ngô vụ 2025 của USDA.",
+        "Báo cáo tồn kho hàng quý cho thấy số liệu có thể đã bị phóng đại."
       ],
       "link": "https://www.farmprogress.com/max-armstrong/usda-s-record-corn-crop-figures-face-growing-skepticism",
       "source": "27 Jul 2026 - Farm Progress"
     },
     {
-      "title": "Bệnh gỉ sắt phía Nam được xác nhận tại Iowa, đe dọa vụ ngô",
+      "title": "Bệnh gỉ sắt phía Nam được xác nhận tại Iowa, ảnh hưởng đến ngô",
       "details": [
-        "Bệnh gỉ sắt phía Nam (Southern rust) đã được tìm thấy ở các hạt Benton, Mahaska, Muscatine và Louisa của Iowa.",
-        "Mức độ lây nhiễm có thể không nghiêm trọng như năm 2025 do lá ngô không ẩm ướt lâu.",
-        "Tuy nhiên, tác động trong sáu tuần tới vẫn còn phải xem xét.",
-        "Đây là một yếu tố rủi ro tiềm ẩn đối với năng suất ngô."
+        "Bệnh gỉ sắt phía Nam đã được xác nhận tại các hạt Benton, Mahaska, Muscatine và Louisa của Iowa.",
+        "Mức độ lây nhiễm có thể không nghiêm trọng bằng năm 2025 do lá ngô không ẩm ướt lâu.",
+        "Mức độ ảnh hưởng trong sáu tuần tới vẫn còn phải theo dõi."
       ],
       "link": "https://www.farmprogress.com/crop-disease/southern-rust-confirmed-in-iowa",
       "source": "27 Jul 2026 - Farm Progress"
