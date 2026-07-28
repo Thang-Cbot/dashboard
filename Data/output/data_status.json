@@ -59,13 +59,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 21:01:10 (Nguồn: Cập nhật Phân tích & Giao diện)",
-      "updated_at": "2026-07-28 21:01:10"
+      "detail": "Đẩy thành công lúc 23:04:05 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-07-28 23:04:05"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 21:00:41",
-      "updated_at": "2026-07-28 21:00:41"
+      "detail": "Auto-fetch 23:04:12",
+      "updated_at": "2026-07-28 23:04:12"
     },
     "blacksea_news": {
       "status": "[OK]",
