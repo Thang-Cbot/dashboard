@@ -164,7 +164,8 @@ with _tab_d1:
             _daily["Date"] = pd.to_datetime(_daily["Date"])
             _daily = _daily[_daily["Date"].dt.weekday < 5].tail(15).reset_index(drop=True)
 
-            _daily["OC_Delta"]  = (_daily["Close"] - _daily["Open"]).round(2)
+            _daily["OC_Delta"]  = _daily["Close"].diff().round(2)  # CQG: Close hôm nay - Close hôm trước
+            _daily["OC_Delta"].iloc[0] = round(_daily["Close"].iloc[0] - _daily["Open"].iloc[0], 2)  # Ngày đầu tiên dùng Open-Close
             _daily["HL_Range"]  = (_daily["High"]  - _daily["Low"]).round(2)
             _daily["OC_Abs"]    = _daily["OC_Delta"].abs()
             _daily["Day_Label"] = _daily["Date"].dt.strftime("%a %d/%m")
@@ -199,7 +200,7 @@ with _tab_d1:
             _wkc = "#22c55e" if _woc >= 0 else "#ef4444"
             _vc1, _vc2, _vc3, _vc4, _vc5 = st.columns(5)
             for _col_w, _lbl, _val, _clr in [
-                (_vc1, "Tổng ΔOC Tuần",        f"{'+' if _woc>=0 else ''}{_woc}¢",   _wkc),
+                (_vc1, "Tổng ΔCC Tuần",        f"{'+' if _woc>=0 else ''}{_woc}¢",   _wkc),
                 (_vc2, "Tổng Biên Độ HL",       f"{_whl}¢",                            "#f59e0b"),
                 (_vc3, "Biên Độ TB/Ngày",       f"{_whlm}¢",                           "#94a3b8"),
                 (_vc4, "🔥 Ngày Biến Động Cao",  f"{_day_max} ({_range_max}¢)",        "#fb923c"),
@@ -229,7 +230,7 @@ with _tab_d1:
                              line_width=1.5, annotation_text=f"ATR TB: {_daily['ATR'].mean():.2f}¢",
                              annotation_font=dict(size=10, color="#f59e0b"))
             _fig_v.add_trace(go.Bar(
-                x=_daily["Day_Label"], y=_daily["OC_Delta"], name="Open→Close",
+                x=_daily["Day_Label"], y=_daily["OC_Delta"], name="Close→Close",
                 marker_color=_bar_oc,
                 text=[f"{'+' if v>=0 else ''}{v:.1f}¢" for v in _daily["OC_Delta"]],
                 textposition="outside", textfont=dict(size=10),
@@ -254,7 +255,7 @@ with _tab_d1:
                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>High</th>"
                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Low</th>"
                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Close</th>"
-                   "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>ΔOC</th>"
+                   "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>ΔCC</th>"
                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>HL Range</th>"
                    "<th style='padding:7px 10px;text-align:center;border-bottom:1px solid #334155;'>Nến</th>"
                    "</tr></thead><tbody>")
@@ -1311,9 +1312,9 @@ Chỉ báo đo lường biến động giá (Volatility). ATR càng cao nghĩa l
 </div>
 
 <div style='background:#1a2035; padding:12px; border-radius:8px; border-left:3px solid #22c55e;'>
-<div style='font-size:13px; font-weight:700; color:#86efac; margin-bottom:4px;'>ΔOC / HL Range</div>
+<div style='font-size:13px; font-weight:700; color:#86efac; margin-bottom:4px;'>ΔCC / HL Range</div>
 <div style='font-size:12px; color:#94a3b8; line-height:1.5;'>
-<b>ΔOC (Open-Close):</b> Chênh lệch giữa giá Mở cửa và Đóng cửa (chiều dài thân nến). Thể hiện hướng đi dứt khoát của ngày hôm đó.<br/>
+<b>ΔCC (Close-to-Close):</b> Chênh lệch giữa giá Đóng cửa hôm nay và giá Đóng cửa hôm trước (theo cách tính của CQG). Phản ánh chính xác độ tăng/giảm thực tế kể cả khi giá mở cửa bị Gap.<br/>
 <b>HL Range (High-Low):</b> Khoảng cách từ đỉnh cao nhất đến đáy thấp nhất. Thể hiện tổng biên độ quét (biến động) toàn ngày.
 </div>
 </div>
