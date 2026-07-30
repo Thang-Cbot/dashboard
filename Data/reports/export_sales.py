@@ -105,6 +105,76 @@ def _try_weekly_highlights_pdf():
         print(f"  [ERROR] Lỗi khi xử lý PDF: {e}")
         return None, None
 
+def _try_cwr_commodity_summary_pdf():
+    """
+    Tải và bóc tách dữ liệu từ CWRCommoditySummary.pdf để lấy đầy đủ cả
+    Net Sales, Shipments, Accumulated Exports và Prev Year Accumulated Exports.
+    """
+    url = "https://apps.fas.usda.gov/esrqs/StaticReports/CWRCommoditySummary.pdf"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+    }
+    
+    try:
+        resp = requests.get(url, headers=headers, verify=False, timeout=30)
+        if resp.status_code != 200:
+            print(f"  [ERROR] Không thể tải PDF CWRCommoditySummary. Status Code: {resp.status_code}")
+            return None, None
+            
+        f = io.BytesIO(resp.content)
+        reader = PyPDF2.PdfReader(f)
+        text = ''
+        for page in reader.pages:
+            text += page.extract_text() + '\n'
+            
+        lines = [line.strip() for line in text.split('\n') if line.strip()]
+        
+        results = {
+            'ZW': {'current_mt': 0, 'shipments_mt': 0, 'outstanding_mt': 0, 'accumulated_mt': 0, 'prev_accum_mt': 0},
+            'ZC': {'current_mt': 0, 'shipments_mt': 0, 'outstanding_mt': 0, 'accumulated_mt': 0, 'prev_accum_mt': 0}
+        }
+        
+        period_str = ""
+        
+        def parse_block(start_idx):
+            try:
+                dt = lines[start_idx+1]
+                # lines[start_idx+9] = Weekly Exports
+                # lines[start_idx+10] = Net Sales
+                # lines[start_idx+11] = Outstanding Sales
+                # lines[start_idx+12] = Accumulated Exports
+                # lines[start_idx+13] = Total Commitment
+                # lines[start_idx+14] = Prev Year Accumulated Exports
+                return {
+                    'shipments_mt': float(lines[start_idx+9].replace(',', '')) * 1000,
+                    'current_mt': float(lines[start_idx+10].replace(',', '')) * 1000,
+                    'outstanding_mt': float(lines[start_idx+11].replace(',', '')) * 1000,
+                    'accumulated_mt': float(lines[start_idx+12].replace(',', '')) * 1000,
+                    'prev_accum_mt': float(lines[start_idx+14].replace(',', '')) * 1000,
+                    'date': dt
+                }
+            except Exception as e:
+                print(f"  [WARN] Parse error at block starting line {start_idx}: {e}")
+                return None
+
+        for i, line in enumerate(lines):
+            if line.upper() == 'ALL WHEAT' and results['ZW']['current_mt'] == 0:
+                data = parse_block(i)
+                if data:
+                    results['ZW'] = data
+                    period_str = data['date']
+            elif line.upper() == 'CORN - UNMILLED' and results['ZC']['current_mt'] == 0:
+                data = parse_block(i)
+                if data:
+                    results['ZC'] = data
+                    if not period_str: period_str = data['date']
+                    
+        return results, period_str
+        
+    except Exception as e:
+        print(f"  [ERROR] Lỗi khi xử lý CWRCommoditySummary PDF: {e}")
+        return None, None
+
 def _format_mt(val):
     """Format metric ton thành chuỗi đẹp."""
     if val >= 1_000_000:
@@ -122,8 +192,8 @@ def fetch_export_sales():
     print("\n  -- USDA EXPORT SALES (Auto Parse PDF) ---")
     now = datetime.datetime.now()
 
-    print("  📡 Tải và phân tích báo cáo Weekly Highlights (PDF)...")
-    parsed, period_str = _try_weekly_highlights_pdf()
+    print("  📡 Tải và phân tích báo cáo CWRCommoditySummary (PDF)...")
+    parsed, period_str = _try_cwr_commodity_summary_pdf()
 
     results = {
         "fetched_at": now.strftime("%Y-%m-%d %H:%M:%S"),
@@ -204,6 +274,23 @@ def _update_fundamental_exports(parsed, period_str):
             
             pct_change = ((curr_mt - prev_mt) / prev_mt * 100) if prev_mt else 0
 
+            # Calculate YoY percentage
+            accum_mt = data.get("accumulated_mt", 0)
+            prev_accum_mt = data.get("prev_accum_mt", 0)
+            outstanding_mt = data.get("outstanding_mt", 0)
+            
+            yoy_pct = ((accum_mt - prev_accum_mt) / prev_accum_mt * 100) if prev_accum_mt else 0
+            
+            # Extract marketing year
+            my_year = ""
+            label = code
+            if code == "ZW":
+                my_year = "2026/27"
+                label = "Lúa Mì"
+            elif code == "ZC":
+                my_year = "2025/26"
+                label = "Ngô"
+
             fdata[code]["exports"] = {
                 "latest": f"Net Sales (Bán hàng): {_format_mt(curr_mt)} (Kỳ {period_str})",
                 "previous": f"Net Sales (Tuần trước): {_format_mt(prev_mt)} ({old_date})",
@@ -212,9 +299,9 @@ def _update_fundamental_exports(parsed, period_str):
                 "previous_date": old_date,
                 "pct_change": round(pct_change, 1),
                 "logic": (
-                    f"{'Tăng mạnh' if pct_change > 10 else 'Tăng nhẹ' if pct_change > 0 else 'Giảm nhẹ' if pct_change > -10 else 'Giảm mạnh'} "
-                    f"{abs(pct_change):.1f}% so tuần trước. "
-                    f"{'Tín hiệu BULLISH — cầu xuất khẩu tăng.' if pct_change > 5 else 'Tín hiệu BEARISH — cầu xuất khẩu yếu.' if pct_change < -5 else 'Trung tính.'}"
+                    f"{label} niên vụ {my_year} đạt {curr_mt/1000:,.1f} nghìn tấn, "
+                    f"đưa lũy kế lên {accum_mt/1_000_000:,.3f} triệu tấn, "
+                    f"{'cao hơn' if yoy_pct > 0 else 'thấp hơn'} {abs(yoy_pct):.1f}% so với cùng kỳ năm ngoái."
                 ),
                 "next_date": "Thứ 5 hàng tuần, 21:30 (VN)",
             }
@@ -226,14 +313,21 @@ def _update_fundamental_exports(parsed, period_str):
                 "previous_net_sales": f"{prev_mt/1000:,.1f} nghìn tấn" if prev_mt else "—",
                 "pct_change": round(pct_change, 2),
                 "latest_shipments": f"{ship_mt/1000:,.1f} nghìn tấn" if ship_mt else "N/A",
-                "outstanding_sales": "N/A",
+                "outstanding_sales": f"{outstanding_mt/1000:,.1f} nghìn tấn" if outstanding_mt else "N/A",
+                "accumulated_sales": f"{accum_mt/1_000_000:,.3f} triệu tấn" if accum_mt else "N/A",
+                "yoy_pct": round(yoy_pct, 1),
                 "week_ending": period_str,
                 "previous_week_ending": old_date,
                 "latest_date": period_str,
                 "next_report": "Thứ 5 hàng tuần lúc 21:30 (VN)",
                 "action": "BULLISH" if pct_change > 5 else "BEARISH" if pct_change < -5 else "NEUTRAL",
-                "logic": f"Doanh số ròng {'tăng' if pct_change > 0 else 'giảm'} {abs(pct_change):.1f}% xuống còn {curr_mt/1000:,.1f}k tấn. {'Lực cầu mạnh tạo đà tăng giá' if pct_change > 5 else 'Lực cầu yếu tạo áp lực giảm giá' if pct_change < -5 else 'Trung lập'}.",
-                "note": "Nguồn: WeeklyHighlightsReport.pdf"
+                "logic": (
+                    f"Doanh số ròng {'tăng' if pct_change > 0 else 'giảm'} {abs(pct_change):.1f}% xuống còn {curr_mt/1000:,.1f}k tấn. "
+                    f"{label} niên vụ {my_year} đạt {curr_mt/1000:,.1f} nghìn tấn, "
+                    f"đưa lũy kế lên {accum_mt/1_000_000:,.3f} triệu tấn, "
+                    f"{'cao hơn' if yoy_pct > 0 else 'thấp hơn'} {abs(yoy_pct):.1f}% so với cùng kỳ năm ngoái."
+                ),
+                "note": "Nguồn: CWRCommoditySummary.pdf"
             }
 
         with open(FUNDAMENTAL_DATA, "w", encoding="utf-8") as f:

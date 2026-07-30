@@ -252,7 +252,8 @@ with tab1:
                 net_sales = d.get("latest_net_sales", "N/A") if d else "N/A"
                 prev_sales = d.get("previous_net_sales", "N/A") if d else "N/A"
                 shipments = d.get("latest_shipments", "N/A") if d else "N/A"
-                outstanding = d.get("outstanding_sales", "N/A") if d else "N/A"
+                accumulated = d.get("accumulated_sales", "N/A") if d else "N/A"
+                yoy_pct = d.get("yoy_pct", 0) if d else 0
                 pct = d.get("pct_change", 0) if d else 0
                 logic = d.get("logic", "") if d else ""
                 week_end = d.get("week_ending", "—") if d else "—"
@@ -283,8 +284,8 @@ with tab1:
 <span style='color:#cbd5e1; font-size:13px;'>{shipments}</span>
 </div>
 <div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
-<span style='color:#94a3b8; font-size:12px;'>📊 Outstanding (Tồn đơn)</span>
-<span style='color:#cbd5e1; font-size:13px;'>{outstanding}</span>
+<span style='color:#94a3b8; font-size:12px;'>📦 Lũy kế (Accumulated)</span>
+<span style='color:#cbd5e1; font-size:13px;'>{accumulated} <span style='font-size:11px; color:{"#ef4444" if yoy_pct < 0 else "#22c55e"};'>({yoy_pct:+.1f}%)</span></span>
 </div>
 <div style='font-size:11px; color:#64748b; margin-top:8px; margin-bottom:8px;'>
 {logic}
