@@ -6347,3 +6347,8 @@ huyên Sâu
 [2026-07-30 23:40:02] [INFO] ▶ Kích hoạt: USDA Acreage
 [2026-07-30 23:40:16] [INFO] ✅ USDA Acreage hoàn thành (attempt 1)
 [2026-07-30 23:40:16] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: USDA Acreage)...
+[2026-07-30 23:40:20] [Sync] ✅ Đồng bộ Github thành công (USDA Acreage)!
+[2026-07-30 23:40:20] [INFO] ⏰ Đợi Acreage Reports: còn 5.83h (31/07 05:30:02 VN)
+[2026-07-30 23:49:23] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-07-30 23:49:49] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-07-30 23:49:49] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
