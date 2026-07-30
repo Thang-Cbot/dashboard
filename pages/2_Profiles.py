@@ -162,10 +162,11 @@ with _tab_d1:
                 Volume=("Volume", "sum"), ATR=("ATR", "mean"),
             ).reset_index()
             _daily["Date"] = pd.to_datetime(_daily["Date"])
+            _daily["OC_Delta"] = _daily["Close"].diff().round(2)
+            if not _daily.empty:
+                _daily.loc[0, "OC_Delta"] = round(_daily.loc[0, "Close"] - _daily.loc[0, "Open"], 2)
             _daily = _daily[_daily["Date"].dt.weekday < 5].tail(15).reset_index(drop=True)
 
-            _daily["OC_Delta"]  = _daily["Close"].diff().round(2)  # CQG: Close hôm nay - Close hôm trước
-            _daily["OC_Delta"].iloc[0] = round(_daily["Close"].iloc[0] - _daily["Open"].iloc[0], 2)  # Ngày đầu tiên dùng Open-Close
             _daily["HL_Range"]  = (_daily["High"]  - _daily["Low"]).round(2)
             _daily["OC_Abs"]    = _daily["OC_Delta"].abs()
             _daily["Day_Label"] = _daily["Date"].dt.strftime("%a %d/%m")
