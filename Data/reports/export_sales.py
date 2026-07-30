@@ -291,7 +291,10 @@ def _update_fundamental_exports(parsed, period_str):
                 my_year = "2025/26"
                 label = "Ngô"
 
+            existing_exports = fdata[code].get("exports", {})
+            
             fdata[code]["exports"] = {
+                **existing_exports,
                 "latest": f"Net Sales (Bán hàng): {_format_mt(curr_mt)} (Kỳ {period_str})",
                 "previous": f"Net Sales (Tuần trước): {_format_mt(prev_mt)} ({old_date})",
                 "latest_raw": curr_mt,
