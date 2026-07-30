@@ -145,8 +145,29 @@ _tab_d1, _tab_h4, _tab_h1 = st.tabs(["📅 Tab D1", "📊 Giá H4", "⏱️ Giá
 
 # ─── TAB D1: Giữ nguyên nội dung cũ ─────────────────────────
 with _tab_d1:
+    _csv_d1_path = DATA_OUTPUT / f"{code}_{suffix}_D1.csv"
     _csv_vol_path = DATA_OUTPUT / f"{code}_{suffix}_H1.csv"
-    if _csv_vol_path.exists():
+    
+    _daily = pd.DataFrame()
+    
+    if _csv_d1_path.exists():
+        try:
+            _daily = pd.read_csv(_csv_d1_path)
+            _daily.columns = [c.strip() for c in _daily.columns]
+            _dcol = next((c for c in _daily.columns if c.lower() in ['time','datetime','date','timestamp']), None)
+            if _dcol:
+                _daily[_dcol] = pd.to_datetime(_daily[_dcol], errors='coerce')
+                _daily = _daily.dropna(subset=[_dcol]).rename(columns={_dcol: "Date"})
+            _daily["Date"] = pd.to_datetime(_daily["Date"])
+            _daily["OC_Delta"] = _daily["Close"].diff().round(2)
+            if not _daily.empty:
+                _daily.loc[0, "OC_Delta"] = round(_daily.loc[0, "Close"] - _daily.loc[0, "Open"], 2)
+            _daily = _daily[_daily["Date"].dt.weekday < 5].tail(15).reset_index(drop=True)
+        except Exception as e:
+            st.error(f"Lỗi đọc file D1: {e}")
+            _daily = pd.DataFrame()
+            
+    if _daily.empty and _csv_vol_path.exists():
         try:
             _dfv = pd.read_csv(_csv_vol_path)
             _dfv.columns = [c.strip() for c in _dfv.columns]

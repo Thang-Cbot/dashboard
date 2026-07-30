@@ -27,6 +27,7 @@ from data_config import (
     COMMODITY_CODES, CONTRACT_MONTHS, DCA_CONTRACT,
     OUTPUT_DIR, DAILY_HISTORY,
     get_csv_path, get_csv_str,
+    get_d1_csv_str,
     ensure_output_dir, update_status, CBOT_ROOT
 )
 
@@ -174,6 +175,33 @@ def _fetch_from_tradingview(ticker_symbol: str) -> pd.DataFrame:
         
     return pd.DataFrame()
 
+def _fetch_D1_from_tradingview(ticker_symbol: str) -> pd.DataFrame:
+    """Fetch 100 nến D1 từ TradingView."""
+    try:
+        from tvDatafeed import TvDatafeed, Interval
+        tv = TvDatafeed()
+        base = ticker_symbol.split('.')[0]
+        sym = base[:-2]
+        yr = base[-2:]
+        tv_sym = f"{sym}20{yr}"
+        
+        import time
+        for attempt in range(3):
+            try:
+                df = tv.get_hist(symbol=tv_sym, exchange='CBOT', interval=Interval.in_daily, n_bars=100)
+                if df is not None and not df.empty:
+                    df = df.reset_index()
+                    df["Time"] = df["datetime"].dt.strftime("%Y-%m-%d %H:%M")
+                    df = df.rename(columns={"open": "Open", "high": "High", "low": "Low", "close": "Close", "volume": "Volume"})
+                    df["OpenInterest"] = 0
+                    return df[["Time", "Open", "High", "Low", "Close", "Volume", "OpenInterest"]]
+            except Exception as e:
+                pass
+            time.sleep(1)
+    except Exception:
+        pass
+    return pd.DataFrame()
+
 def download_and_analyze(commodity: str, ticker_symbol: str, suffix: str) -> bool:
     """Tải H1 data, lưu CSV vào Data/output/, chạy technical analysis."""
     csv_path = get_csv_str(commodity, suffix)
@@ -202,8 +230,38 @@ def download_and_analyze(commodity: str, ticker_symbol: str, suffix: str) -> boo
             df = df[["Time", "Open", "High", "Low", "Close", "Volume", "OpenInterest"]]
             
         df.to_csv(csv_path, index=False)
-        print(f"    ✅ Đã lưu {len(df)} nến → {csv_path}")
+        print(f"    ✅ Đã lưu {len(df)} nến H1 → {csv_path}")
         analyze_cbot_data(csv_path)
+        
+        # --- TẢI DỮ LIỆU D1 ---
+        csv_path_d1 = get_d1_csv_str(commodity, suffix)
+        print(f"    Tải D1: {ticker_symbol} ({suffix})...")
+        df_d1 = _fetch_D1_from_tradingview(ticker_symbol)
+        
+        if df_d1.empty:
+            print(f"    ⚠️  TradingView D1 thất bại, Fallback sang Yahoo Finance...")
+            ticker = yf.Ticker(ticker_symbol)
+            df_d1 = ticker.history(period="6mo", interval="1d")
+            if not df_d1.empty:
+                df_d1 = df_d1.reset_index()
+                if "Date" in df_d1.columns:
+                    df_d1["Time"] = df_d1["Date"].dt.strftime("%Y-%m-%d 00:00")
+                elif "Datetime" in df_d1.columns:
+                    df_d1["Time"] = df_d1["Datetime"].dt.strftime("%Y-%m-%d 00:00")
+                try:
+                    oi_val = ticker.info.get("openInterest", 0) or 0
+                except Exception:
+                    oi_val = 0
+                df_d1["OpenInterest"] = oi_val
+                df_d1 = df_d1[["Time", "Open", "High", "Low", "Close", "Volume", "OpenInterest"]]
+        
+        if not df_d1.empty:
+            df_d1.to_csv(csv_path_d1, index=False)
+            print(f"    ✅ Đã lưu {len(df_d1)} nến D1 → {csv_path_d1}")
+            analyze_cbot_data(csv_path_d1)
+        else:
+            print(f"    ⚠️  Không tải được dữ liệu D1.")
+            
         return True
     except Exception as e:
         print(f"    ❌ Lỗi {ticker_symbol}: {e}")
@@ -217,15 +275,18 @@ def setup_contracts(commodity: str, c1: tuple, c_swing: tuple, c_dca: tuple) -> 
     if c_swing[0] == c1[0]:
         print(f"    Swing = Active ({c1[0]}). Copy file...")
         shutil.copyfile(get_csv_str(commodity, "active"), get_csv_str(commodity, "swing"))
+        shutil.copyfile(get_d1_csv_str(commodity, "active"), get_d1_csv_str(commodity, "swing"))
     else:
         download_and_analyze(commodity, c_swing[0], "swing")
 
     if c_dca[0] == c1[0]:
         print(f"    DCA = Active ({c1[0]}). Copy file...")
         shutil.copyfile(get_csv_str(commodity, "active"), get_csv_str(commodity, "dca"))
+        shutil.copyfile(get_d1_csv_str(commodity, "active"), get_d1_csv_str(commodity, "dca"))
     elif c_dca[0] == c_swing[0]:
         print(f"    DCA = Swing ({c_swing[0]}). Copy file...")
         shutil.copyfile(get_csv_str(commodity, "swing"), get_csv_str(commodity, "dca"))
+        shutil.copyfile(get_d1_csv_str(commodity, "swing"), get_d1_csv_str(commodity, "dca"))
     else:
         download_and_analyze(commodity, c_dca[0], "dca")
 

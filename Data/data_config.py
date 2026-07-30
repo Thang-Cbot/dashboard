@@ -42,18 +42,18 @@ DATA_STATUS        = OUTPUT_DIR / "data_status.json"
 # ─────────────────────────────────────────────
 # Các suffix hợp lệ: "active", "swing", "dca"
 def get_csv_path(commodity_code: str, suffix: str) -> Path:
-    """
-    Trả về đường dẫn tuyệt đối đến file CSV H1 của hợp đồng.
-    
-    Ví dụ:
-        get_csv_path("ZC", "active")  →  .../Data/output/ZC_active_H1.csv
-        get_csv_path("ZW", "swing")   →  .../Data/output/ZW_swing_H1.csv
-    """
+    """Trả về đường dẫn tuyệt đối đến file CSV H1 của hợp đồng."""
     return OUTPUT_DIR / f"{commodity_code}_{suffix}_H1.csv"
 
 def get_csv_str(commodity_code: str, suffix: str) -> str:
-    """Trả về đường dẫn dạng string (tiện dùng với pandas, shutil, v.v.)"""
     return str(get_csv_path(commodity_code, suffix))
+
+def get_d1_csv_path(commodity_code: str, suffix: str) -> Path:
+    """Trả về đường dẫn tuyệt đối đến file CSV D1 của hợp đồng."""
+    return OUTPUT_DIR / f"{commodity_code}_{suffix}_D1.csv"
+
+def get_d1_csv_str(commodity_code: str, suffix: str) -> str:
+    return str(get_d1_csv_path(commodity_code, suffix))
 
 # ─────────────────────────────────────────────
 # USDA CRAWLER PATH
