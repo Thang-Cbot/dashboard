@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-07-28",
+  "last_updated_fundamentals": "2026-07-30",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -29,7 +29,7 @@
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
       "previous": "67% Good to Excellent",
-      "previous_date": "20/07/2026",
+      "previous_date": "27/07/2026",
       "latest_date": "27/07/2026"
     },
     "us_ending_stocks": {
@@ -55,27 +55,27 @@
     },
     "export_sales_weekly": {
       "report_type": "BAN_HANG",
-      "latest_net_sales": "332.7 nghìn tấn",
-      "previous_net_sales": "315.0 nghìn tấn",
-      "pct_change": 5.62,
-      "latest_shipments": "1,786.4 nghìn tấn",
+      "latest_net_sales": "362.9 nghìn tấn",
+      "previous_net_sales": "332.7 nghìn tấn",
+      "pct_change": 9.08,
+      "latest_shipments": "1,528.5 nghìn tấn",
       "outstanding_sales": "N/A",
-      "week_ending": "July 10-16, 2026",
-      "previous_week_ending": "July 3-9, 2026",
-      "latest_date": "July 10-16, 2026",
+      "week_ending": "July 17-23, 2026",
+      "previous_week_ending": "July 10-16, 2026",
+      "latest_date": "July 17-23, 2026",
       "next_report": "Thứ 5 hàng tuần lúc 21:30 (VN)",
       "action": "BULLISH",
-      "logic": "Doanh số ròng tăng 5.6% xuống còn 332.7k tấn. Lực cầu mạnh tạo đà tăng giá.",
+      "logic": "Doanh số ròng tăng 9.1% xuống còn 362.9k tấn. Lực cầu mạnh tạo đà tăng giá.",
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
-      "latest": "Net Sales (Bán hàng): 332,700 MT (Kỳ July 10-16, 2026)",
-      "previous": "Net Sales (Tuần trước): 315,000 MT (July 3-9, 2026)",
-      "latest_raw": 332700.0,
-      "latest_date": "July 10-16, 2026",
-      "previous_date": "July 3-9, 2026",
-      "pct_change": 5.6,
-      "logic": "Tăng nhẹ 5.6% so tuần trước. Tín hiệu BULLISH — cầu xuất khẩu tăng.",
+      "latest": "Net Sales (Bán hàng): 362,900 MT (Kỳ July 17-23, 2026)",
+      "previous": "Net Sales (Tuần trước): 332,700 MT (July 10-16, 2026)",
+      "latest_raw": 362900.0,
+      "latest_date": "July 17-23, 2026",
+      "previous_date": "July 10-16, 2026",
+      "pct_change": 9.1,
+      "logic": "Tăng nhẹ 9.1% so tuần trước. Tín hiệu BULLISH — cầu xuất khẩu tăng.",
       "next_date": "03/08/2026 lúc 22:00 (VN)",
       "inspections": {
         "volume": 1488028,
@@ -87,17 +87,7 @@
         "week_ending": "JUL 23, 2026",
         "week_ago_date": "07/16/2026"
       },
-      "inspections_week_ending": "JUL 23, 2026",
-      "inspections_previous": {
-        "volume": 1549849,
-        "week_ago": 1554620,
-        "year_ago": 984901,
-        "ytd_current": 73772659,
-        "ytd_previous": 58818344,
-        "ytd_yoy_pct": 25.4,
-        "week_ending": "JUL 16, 2026",
-        "week_ago_date": "07/09/2026"
-      }
+      "inspections_week_ending": "JUL 23, 2026"
     },
     "competitors": {
       "latest": "Brazil & Argentina",
@@ -201,7 +191,7 @@
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Đông 74% thu hoạch, Xuân 0% thu hoạch",
-      "previous_date": "20/07/2026",
+      "previous_date": "27/07/2026",
       "latest_date": "27/07/2026"
     },
     "crop_condition": {
@@ -211,7 +201,7 @@
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông N/A (Cuối vụ), Xuân 53% G/E",
-      "previous_date": "20/07/2026",
+      "previous_date": "27/07/2026",
       "latest_date": "27/07/2026"
     },
     "us_ending_stocks": {
@@ -237,27 +227,27 @@
     },
     "export_sales_weekly": {
       "report_type": "BAN_HANG",
-      "latest_net_sales": "290.0 nghìn tấn",
-      "previous_net_sales": "235.1 nghìn tấn",
-      "pct_change": 23.35,
-      "latest_shipments": "210.6 nghìn tấn",
+      "latest_net_sales": "285.2 nghìn tấn",
+      "previous_net_sales": "290.0 nghìn tấn",
+      "pct_change": -1.66,
+      "latest_shipments": "319.2 nghìn tấn",
       "outstanding_sales": "N/A",
-      "week_ending": "July 10-16, 2026",
-      "previous_week_ending": "July 3-9, 2026",
-      "latest_date": "July 10-16, 2026",
+      "week_ending": "July 17-23, 2026",
+      "previous_week_ending": "July 10-16, 2026",
+      "latest_date": "July 17-23, 2026",
       "next_report": "Thứ 5 hàng tuần lúc 21:30 (VN)",
-      "action": "BULLISH",
-      "logic": "Doanh số ròng tăng 23.4% xuống còn 290.0k tấn. Lực cầu mạnh tạo đà tăng giá.",
+      "action": "BEARISH",
+      "logic": "Doanh số ròng giảm 1.7% xuống còn 285.2k tấn. Lúa mì niên vụ 2026/27 đạt 285 nghìn tấn, đưa lũy kế lên 2.573 triệu tấn, nhưng vẫn thấp hơn 20% so với cùng kỳ năm ngoái, cho thấy nhu cầu xuất khẩu vẫn còn khá yếu.",
       "note": "Nguồn: WeeklyHighlightsReport.pdf"
     },
     "exports": {
-      "latest": "Net Sales (Bán hàng): 290,000 MT (Kỳ July 10-16, 2026)",
-      "previous": "Net Sales (Tuần trước): 235,100 MT (July 3-9, 2026)",
-      "latest_raw": 290000.0,
-      "latest_date": "July 10-16, 2026",
-      "previous_date": "July 3-9, 2026",
-      "pct_change": 23.4,
-      "logic": "Tăng mạnh 23.4% so tuần trước. Tín hiệu BULLISH — cầu xuất khẩu tăng.",
+      "latest": "Net Sales (Bán hàng): 285,200 MT (Kỳ July 17-23, 2026)",
+      "previous": "Net Sales (Tuần trước): 290,000 MT (July 10-16, 2026)",
+      "latest_raw": 285200.0,
+      "latest_date": "July 17-23, 2026",
+      "previous_date": "July 10-16, 2026",
+      "pct_change": -1.7,
+      "logic": "Giảm nhẹ 1.7% so tuần trước. Trung tính.",
       "next_date": "03/08/2026 lúc 22:00 (VN)",
       "inspections": {
         "volume": 394785,
@@ -269,17 +259,7 @@
         "week_ending": "JUL 23, 2026",
         "week_ago_date": "07/16/2026"
       },
-      "inspections_week_ending": "JUL 23, 2026",
-      "inspections_previous": {
-        "volume": 213993,
-        "week_ago": 396346,
-        "year_ago": 732290,
-        "ytd_current": 2131555,
-        "ytd_previous": 3021403,
-        "ytd_yoy_pct": -29.5,
-        "week_ending": "JUL 16, 2026",
-        "week_ago_date": "07/09/2026"
-      }
+      "inspections_week_ending": "JUL 23, 2026"
     },
     "competitors": {
       "latest": "Úc & Argentina",
@@ -398,7 +378,7 @@
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6.",
       "latest_date": "27/07/2026",
       "previous": "66% Good to Excellent",
-      "previous_date": "20/07/2026"
+      "previous_date": "27/07/2026"
     },
     "us_ending_stocks": {
       "next_date": "12/08/2026 lúc 23:00 (VN)",
@@ -492,5 +472,5 @@
     "swing_short_tp": "1191.00 cents"
   },
   "wasde_report_month": "Jul",
-  "last_updated_cot": "2026-07-28 09:31:07"
+  "last_updated_cot": "2026-07-30 21:43:58"
 }

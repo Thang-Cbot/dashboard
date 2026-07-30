@@ -287,7 +287,7 @@ with tab1:
 <span style='color:#cbd5e1; font-size:13px;'>{outstanding}</span>
 </div>
 <div style='font-size:11px; color:#64748b; margin-top:8px; margin-bottom:8px;'>
-{logic[:150]}...
+{logic}
 </div>
 <div style='font-size:10px; color:#475569; border-top:1px solid #1e2d45; padding-top:6px;'>
 📅 Kỳ báo cáo: <b style='color:#64748b;'>{week_end}</b> &nbsp;|&nbsp; Kế tiếp: <b style='color:#f59e0b;'>{next_rpt}</b>
