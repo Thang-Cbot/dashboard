@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 5966.0,
+      "today_volume": 7057.0,
       "prev_volume": 219619.0,
       "today_oi": 789670,
       "prev_oi": 533102,
-      "today_close": 468.0,
+      "today_close": 469.0,
       "prev_close": 471.75,
       "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
       "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
@@ -33,9 +33,9 @@
       "month": 9
     },
     "swing": {
-      "ticker": "ZWU26.CBT",
+      "ticker": "ZWZ26.CBT",
       "year": 2026,
-      "month": 9
+      "month": 12
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 1694.0,
+      "today_volume": 2931.0,
       "prev_volume": 57585.0,
       "today_oi": 196947,
       "prev_oi": 203523,
-      "today_close": 659.5,
+      "today_close": 657.75,
       "prev_close": 660.75,
       "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
       "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
     }
   },
-  "updated_at": "2026-07-31 09:00:24"
+  "updated_at": "2026-07-31 10:00:23"
 }
