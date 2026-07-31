@@ -163,6 +163,42 @@ with _tab_d1:
             if not _daily.empty:
                 _daily.loc[0, "OC_Delta"] = round(_daily.loc[0, "Close"] - _daily.loc[0, "Open"], 2)
             _daily = _daily[_daily["Date"].dt.weekday < 5].tail(15).reset_index(drop=True)
+
+            # Tính các cột bổ sung cần thiết cho Volatility Dashboard
+            if not _daily.empty:
+                _daily["HL_Range"]  = (_daily["High"] - _daily["Low"]).round(2)
+                _daily["OC_Abs"]    = _daily["OC_Delta"].abs()
+                _daily["Day_Label"] = _daily["Date"].dt.strftime("%a %d/%m")
+
+                _idx_max = _daily["HL_Range"].idxmax()
+                _idx_min = _daily["HL_Range"].idxmin()
+                _day_max = _daily.loc[_idx_max, "Day_Label"]; _range_max = _daily.loc[_idx_max, "HL_Range"]
+                _day_min = _daily.loc[_idx_min, "Day_Label"]; _range_min = _daily.loc[_idx_min, "HL_Range"]
+
+                _last_date  = _daily["Date"].max()
+                _week_start = _last_date - pd.Timedelta(days=_last_date.weekday())
+                _tw = _daily[_daily["Date"] >= _week_start]
+                _woc  = _tw["OC_Delta"].sum().round(2)
+                _whl  = _tw["HL_Range"].sum().round(2)
+                _whlm = _tw["HL_Range"].mean().round(2)
+                _wg   = (_tw["OC_Delta"] > 0).sum()
+                _wr   = (_tw["OC_Delta"] < 0).sum()
+
+                if "ATR" in _daily.columns:
+                    _ratr = _daily["ATR"].tail(5).mean()
+                    _patr = _daily["ATR"].head(5).mean()
+                else:
+                    _ratr = _daily["HL_Range"].tail(5).mean()
+                    _patr = _daily["HL_Range"].head(5).mean()
+                _atr_trend = "📈 Tăng" if _ratr > _patr * 1.05 else ("📉 Giảm" if _ratr < _patr * 0.95 else "➡️ Ổn định")
+                _l3   = _daily["OC_Delta"].tail(3).tolist()
+                _mscore = sum(1 if x > 0 else -1 for x in _l3)
+                _mstr = "🟢 Bullish (3 ngày đều tăng)" if _mscore == 3 else \
+                        "🟢 Bullish nhẹ" if _mscore > 0 else \
+                        "🔴 Bearish nhẹ" if _mscore < 0 else "⚪ Trung lập"
+                _close_now = _daily["Close"].iloc[-1]
+                _r1e = round(_close_now + _ratr, 2); _s1e = round(_close_now - _ratr, 2)
+                _exp = round(_ratr, 2)
         except Exception as e:
             st.error(f"Lỗi đọc file D1: {e}")
             _daily = pd.DataFrame()
@@ -188,36 +224,46 @@ with _tab_d1:
                 _daily.loc[0, "OC_Delta"] = round(_daily.loc[0, "Close"] - _daily.loc[0, "Open"], 2)
             _daily = _daily[_daily["Date"].dt.weekday < 5].tail(15).reset_index(drop=True)
 
-            _daily["HL_Range"]  = (_daily["High"]  - _daily["Low"]).round(2)
-            _daily["OC_Abs"]    = _daily["OC_Delta"].abs()
-            _daily["Day_Label"] = _daily["Date"].dt.strftime("%a %d/%m")
+            if not _daily.empty:
+                _daily["HL_Range"]  = (_daily["High"]  - _daily["Low"]).round(2)
+                _daily["OC_Abs"]    = _daily["OC_Delta"].abs()
+                _daily["Day_Label"] = _daily["Date"].dt.strftime("%a %d/%m")
 
-            _idx_max = _daily["HL_Range"].idxmax()
-            _idx_min = _daily["HL_Range"].idxmin()
-            _day_max = _daily.loc[_idx_max, "Day_Label"]; _range_max = _daily.loc[_idx_max, "HL_Range"]
-            _day_min = _daily.loc[_idx_min, "Day_Label"]; _range_min = _daily.loc[_idx_min, "HL_Range"]
+                _idx_max = _daily["HL_Range"].idxmax()
+                _idx_min = _daily["HL_Range"].idxmin()
+                _day_max = _daily.loc[_idx_max, "Day_Label"]; _range_max = _daily.loc[_idx_max, "HL_Range"]
+                _day_min = _daily.loc[_idx_min, "Day_Label"]; _range_min = _daily.loc[_idx_min, "HL_Range"]
 
-            _last_date  = _daily["Date"].max()
-            _week_start = _last_date - pd.Timedelta(days=_last_date.weekday())
-            _tw = _daily[_daily["Date"] >= _week_start]
-            _woc  = _tw["OC_Delta"].sum().round(2)
-            _whl  = _tw["HL_Range"].sum().round(2)
-            _whlm = _tw["HL_Range"].mean().round(2)
-            _wg   = (_tw["OC_Delta"] > 0).sum()
-            _wr   = (_tw["OC_Delta"] < 0).sum()
+                _last_date  = _daily["Date"].max()
+                _week_start = _last_date - pd.Timedelta(days=_last_date.weekday())
+                _tw = _daily[_daily["Date"] >= _week_start]
+                _woc  = _tw["OC_Delta"].sum().round(2)
+                _whl  = _tw["HL_Range"].sum().round(2)
+                _whlm = _tw["HL_Range"].mean().round(2)
+                _wg   = (_tw["OC_Delta"] > 0).sum()
+                _wr   = (_tw["OC_Delta"] < 0).sum()
 
-            _ratr = _daily["ATR"].tail(5).mean()
-            _patr = _daily["ATR"].head(5).mean()
-            _atr_trend = "📈 Tăng" if _ratr > _patr * 1.05 else ("📉 Giảm" if _ratr < _patr * 0.95 else "➡️ Ổn định")
-            _l3   = _daily["OC_Delta"].tail(3).tolist()
-            _mscore = sum(1 if x > 0 else -1 for x in _l3)
-            _mstr = "🟢 Bullish (3 ngày đều tăng)" if _mscore == 3 else \
-                    "🟢 Bullish nhẹ" if _mscore > 0 else \
-                    "🔴 Bearish nhẹ" if _mscore < 0 else "⚪ Trung lập"
-            _close_now = _daily["Close"].iloc[-1]
-            _r1e = round(_close_now + _ratr, 2); _s1e = round(_close_now - _ratr, 2)
-            _exp = round(_ratr, 2)
+                if "ATR" in _daily.columns:
+                    _ratr = _daily["ATR"].tail(5).mean()
+                    _patr = _daily["ATR"].head(5).mean()
+                else:
+                    _ratr = _daily["HL_Range"].tail(5).mean()
+                    _patr = _daily["HL_Range"].head(5).mean()
+                _atr_trend = "📈 Tăng" if _ratr > _patr * 1.05 else ("📉 Giảm" if _ratr < _patr * 0.95 else "➡️ Ổn định")
+                _l3   = _daily["OC_Delta"].tail(3).tolist()
+                _mscore = sum(1 if x > 0 else -1 for x in _l3)
+                _mstr = "🟢 Bullish (3 ngày đều tăng)" if _mscore == 3 else \
+                        "🟢 Bullish nhẹ" if _mscore > 0 else \
+                        "🔴 Bearish nhẹ" if _mscore < 0 else "⚪ Trung lập"
+                _close_now = _daily["Close"].iloc[-1]
+                _r1e = round(_close_now + _ratr, 2); _s1e = round(_close_now - _ratr, 2)
+                _exp = round(_ratr, 2)
+        except Exception as _ve:
+            st.warning(f"Lỗi đọc H1 fallback: {_ve}")
 
+    # ── RENDER CHUNG cho cả nguồn D1 lẫn H1 fallback ────────────────
+    if not _daily.empty and "HL_Range" in _daily.columns:
+        try:
             # Block 1 — 5 thẻ tóm tắt tuần
             _wkc = "#22c55e" if _woc >= 0 else "#ef4444"
             _vc1, _vc2, _vc3, _vc4, _vc5 = st.columns(5)
@@ -248,8 +294,9 @@ with _tab_d1:
                 text=[f"{v:.1f}¢" for v in _daily["HL_Range"]], textposition="outside",
                 textfont=dict(size=10, color="#94a3b8"),
             ), row=1, col=1)
-            _fig_v.add_hline(y=_daily["ATR"].mean(), row=1, col=1, line_dash="dash", line_color="#f59e0b",
-                             line_width=1.5, annotation_text=f"ATR TB: {_daily['ATR'].mean():.2f}¢",
+            _atr_mean = _daily["ATR"].mean() if "ATR" in _daily.columns else _ratr
+            _fig_v.add_hline(y=_atr_mean, row=1, col=1, line_dash="dash", line_color="#f59e0b",
+                             line_width=1.5, annotation_text=f"ATR TB: {_atr_mean:.2f}¢",
                              annotation_font=dict(size=10, color="#f59e0b"))
             _fig_v.add_trace(go.Bar(
                 x=_daily["Day_Label"], y=_daily["OC_Delta"], name="Close→Close",
@@ -332,7 +379,7 @@ with _tab_d1:
         except Exception as _ve:
             st.warning(f"Lỗi Volatility Dashboard: {_ve}")
     else:
-        st.info("Chưa có dữ liệu H1 để phân tích biên độ giá.")
+        st.info("Chưa có dữ liệu D1/H1 để phân tích biên độ giá.")
 
 # ─── TAB H4: Biểu đồ Nến H4 + EMA 21/50 ────────────────────
 with _tab_h4:
