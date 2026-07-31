@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 4388.0,
-      "prev_volume": 214852.0,
-      "today_oi": 782580,
+      "today_volume": 5966.0,
+      "prev_volume": 219619.0,
+      "today_oi": 789670,
       "prev_oi": 533102,
-      "today_close": 467.75,
+      "today_close": 468.0,
       "prev_close": 471.75,
       "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
       "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 898.0,
-      "prev_volume": 64179.0,
-      "today_oi": 203521,
+      "today_volume": 1694.0,
+      "prev_volume": 57585.0,
+      "today_oi": 196947,
       "prev_oi": 203523,
-      "today_close": 661.5,
+      "today_close": 659.5,
       "prev_close": 660.75,
-      "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
-      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
+      "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
+      "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
     }
   },
-  "updated_at": "2026-07-31 08:00:22"
+  "updated_at": "2026-07-31 09:00:24"
 }
