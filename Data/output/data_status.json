@@ -29,8 +29,8 @@
     },
     "weather_short": {
       "status": "[OK]",
-      "detail": "Auto-fetch 00:10:27",
-      "updated_at": "2026-07-31 00:10:27"
+      "detail": "Auto-fetch 14:57:31",
+      "updated_at": "2026-07-31 14:57:31"
     },
     "weather_long": {
       "status": "[OK]",
@@ -59,8 +59,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 13:18:34 (Nguồn: Cập nhật Phân tích & Giao diện)",
-      "updated_at": "2026-07-31 13:18:34"
+      "detail": "Đẩy thành công lúc 14:27:15 (Nguồn: USDA Acreage)",
+      "updated_at": "2026-07-31 14:27:15"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -92,7 +92,7 @@
   "weather_short": {
     "status": "OK",
     "detail": "24/24 fetched",
-    "updated_at": "2026-07-31 00:10:27"
+    "updated_at": "2026-07-31 14:57:31"
   },
   "export_sales": {
     "status": "OK",
