@@ -183,8 +183,41 @@ def parse_crop_progress(text):
                 res["ZW"]["harvested"] = parse_val(parts[5])
                 res["ZW"]["harvested_avg"] = parse_val(parts[6])
                 break
+
+    # Spring Wheat Harvested — dòng tổng hợp là "6 States"
+    pos = text.find("Spring Wheat Harvested - Selected States")
+    if pos != -1:
+        sub = text[pos:pos+3000]
+        for line in sub.split('\n'):
+            # Match "6 States .......: <prev_yr> <prev_wk> <current> <avg>"
+            if re.match(r'^\s*6\s+States\s+\.+:', line):
+                parts = line.replace('(NA)', '0').split()
+                # Column order: 6 States : prev_yr : prev_wk : current : avg
+                try:
+                    res["ZW"]["spring_harvested"] = parse_val(parts[5])   # current week
+                    res["ZW"]["spring_harvested_avg"] = parse_val(parts[6]) # 5yr avg
+                except IndexError:
+                    pass
+                break
+
+    # Spring Wheat Condition — dòng tổng hợp là "6 States"
+    pos = text.find("Spring Wheat Condition - Selected States")
+    if pos != -1:
+        sub = text[pos:pos+3000]
+        for line in sub.split('\n'):
+            if re.match(r'^\s*6\s+States\s+\.+:', line):
+                parts = line.split()
+                # Column order: 6 States : VP : P : F : G : E
+                try:
+                    g  = parse_val(parts[6])   # Good
+                    ex = parse_val(parts[7])   # Excellent
+                    res["ZW"]["spring_condition"] = g + ex
+                except IndexError:
+                    pass
+                break
                 
     return res
+
 
 def parse_inspections():
     url = "https://www.ams.usda.gov/mnreports/wa_gr101.txt"
@@ -340,11 +373,34 @@ def run_crawler_and_update():
                     fund[code]["us_planting"]["latest"] = f"{p_data['planted']}% đã gieo trồng"
                     fund[code]["us_planting"]["next_date"] = cp_next
                 if "condition" in p_data and p_data["condition"] > 0:
-                    fund[code]["crop_condition"]["latest"] = f"{p_data['condition']}% Good to Excellent"
+                    if code == "ZW":
+                        winter_cond = p_data.get("condition", "N/A")
+                        spring_cond = p_data.get("spring_condition", None)
+                        if spring_cond is not None:
+                            fund[code]["crop_condition"]["latest"] = f"Đông N/A (Cuối vụ), Xuân {spring_cond}% G/E"
+                        else:
+                            fund[code]["crop_condition"]["latest"] = f"{winter_cond}% Good to Excellent (Lúa Đông)"
+                    else:
+                        fund[code]["crop_condition"]["latest"] = f"{p_data['condition']}% Good to Excellent"
                     fund[code]["crop_condition"]["next_date"] = cp_next
-                if "harvested" in p_data and code == "ZW":
-                    fund[code]["harvest_progress"]["latest"] = f"Mỹ: {p_data['harvested']}% lúa đông đã thu hoạch"
-                    fund[code]["harvest_progress"]["next_date"] = cp_next
+                elif code == "ZW":
+                    # Cuối vụ lúa đông — chỉ có Spring Wheat condition
+                    spring_cond = p_data.get("spring_condition", None)
+                    if spring_cond is not None:
+                        fund[code]["crop_condition"]["latest"] = f"Đông N/A (Cuối vụ), Xuân {spring_cond}% G/E"
+                        fund[code]["crop_condition"]["next_date"] = cp_next
+
+                if code == "ZW":
+                    winter_h = p_data.get("harvested", None)
+                    spring_h = p_data.get("spring_harvested", None)
+                    parts_harvest = []
+                    if winter_h is not None:
+                        parts_harvest.append(f"Đông {winter_h}% thu hoạch")
+                    if spring_h is not None:
+                        parts_harvest.append(f"Xuân {spring_h}% thu hoạch")
+                    if parts_harvest:
+                        fund[code]["harvest_progress"]["latest"] = ", ".join(parts_harvest)
+                        fund[code]["harvest_progress"]["next_date"] = cp_next
                     
             # Export Inspections
             if code in inspections_data:

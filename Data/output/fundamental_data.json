@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-07-30",
+  "last_updated_fundamentals": "2026-08-02",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -29,7 +29,7 @@
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
       "previous": "67% Good to Excellent",
-      "previous_date": "27/07/2026",
+      "previous_date": "2026-07-27T12:00:00+0000",
       "latest_date": "2026-07-27T12:00:00+0000"
     },
     "us_ending_stocks": {
@@ -106,16 +106,16 @@
       "logic": "Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại đang xuất hiện vùng khô hạn cục bộ ở rìa phía Bắc (Minnesota, Northern Plains) đe dọa trực tiếp tỷ lệ nảy mầm của cây ngô non."
     },
     "cot_report": {
-      "latest": "[2026-07-21] Net Long 56,713 HD | Change: +45,352 HD",
-      "next_date": "24/07/2026 (Hang tuan, Thu Sau)",
+      "latest": "[2026-07-28] Net Long 126,776 HD | Change: +70,063 HD",
+      "next_date": "31/07/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q1 (XANH LA) - GOM LONG",
       "action": "Uu tien LONG. Xu huong tang ben vung.",
-      "logic": "[2026-07-21] Managed Money nam giu vi the rong Long 56,713 hop dong. Tuan nay tang them 45,352 HD. Xep hang Ma Tran: Q1 (XANH LA) - GOM LONG. Khuyen nghi: Uu tien LONG. Xu huong tang ben vung.",
+      "logic": "[2026-07-28] Managed Money nam giu vi the rong Long 126,776 hop dong. Tuan nay tang them 70,063 HD. Xep hang Ma Tran: Q1 (XANH LA) - GOM LONG. Khuyen nghi: Uu tien LONG. Xu huong tang ben vung.",
       "raw_data": {
-        "net_position": 56713.0,
-        "change": 45352.0,
-        "long": 305756.0,
-        "short": 249043.0
+        "net_position": 126776.0,
+        "change": 70063.0,
+        "long": 314454.0,
+        "short": 187678.0
       }
     },
     "import_demand": {
@@ -187,13 +187,13 @@
       "latest_date": "2026-07-27T12:00:00+0000"
     },
     "harvest_progress": {
-      "latest": "Mỹ: 81% lúa đông đã thu hoạch",
+      "latest": "Đông 81% thu hoạch, Xuân 2% thu hoạch",
       "next_date": "04/08/2026 lúc 03:00 (VN)",
       "forecast": "Mỹ: 12% lúa đông đã thu hoạch",
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Đông 74% thu hoạch, Xuân 0% thu hoạch",
-      "previous_date": "27/07/2026",
+      "previous_date": "2026-07-27T12:00:00+0000",
       "latest_date": "2026-07-27T12:00:00+0000"
     },
     "crop_condition": {
@@ -203,7 +203,7 @@
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông N/A (Cuối vụ), Xuân 53% G/E",
-      "previous_date": "27/07/2026",
+      "previous_date": "2026-07-27T12:00:00+0000",
       "latest_date": "2026-07-27T12:00:00+0000"
     },
     "us_ending_stocks": {
@@ -287,16 +287,16 @@
       "logic": "Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ) + Hạn hán mùa thu làm giảm 20% diện tích gieo trồng của Úc."
     },
     "cot_report": {
-      "latest": "[2026-07-21] Net Short 18,399 HD | Change: +16,488 HD",
-      "next_date": "24/07/2026 (Hang tuan, Thu Sau)",
+      "latest": "[2026-07-28] Net Short 8,163 HD | Change: +10,236 HD",
+      "next_date": "31/07/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q4 (CAM) - COVER SHORT",
       "action": "Cam Short duoi. Canh LONG bat hoi.",
-      "logic": "[2026-07-21] Managed Money nam giu vi the rong Short 18,399 hop dong. Tuan nay tang them 16,488 HD. Xep hang Ma Tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.",
+      "logic": "[2026-07-28] Managed Money nam giu vi the rong Short 8,163 hop dong. Tuan nay tang them 10,236 HD. Xep hang Ma Tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.",
       "raw_data": {
-        "net_position": -18399.0,
-        "change": 16488.0,
-        "long": 74206.0,
-        "short": 92605.0
+        "net_position": -8163.0,
+        "change": 10236.0,
+        "long": 85168.0,
+        "short": 93331.0
       }
     },
     "import_demand": {
@@ -476,5 +476,5 @@
     "swing_short_tp": "1191.00 cents"
   },
   "wasde_report_month": "Jul",
-  "last_updated_cot": "2026-07-30 22:27:41"
+  "last_updated_cot": "2026-08-02 09:51:10"
 }
