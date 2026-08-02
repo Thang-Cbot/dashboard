@@ -210,8 +210,31 @@ AI_NEWS_SCRIPT   = str(DATA_DIR / "fetch_news.py")
 BLACKSEA_SCRIPT  = str(DATA_DIR / "fetch_blacksea.py")
 RUSSIAN_METRICS_SCRIPT = str(DATA_DIR / "fetch_russian_metrics.py")
 
+def _execute_price_update():
+    success = run_script("Giá H1 + Macro", PRICE_SCRIPT, "prices")
+    run_script("Giá H4", PRICE_H4_SCRIPT, "prices_h4")
+    run_script("Vĩ Mô (Macro)",   MACRO_SCRIPT, "macro")
+    
+    # Ngay sau khi có giá mới, cập nhật Hồ sơ & Gửi cảnh báo
+    if success:
+        log("Đang quét tín hiệu Telegram Alarm (SMC)...")
+        subprocess.run([sys.executable, "-c", "import entry_alarm; entry_alarm.run_analysis()"], cwd=str(CBOT_ROOT))
+        
+        log("Đang phân tích AI tự động...")
+        subprocess.run([sys.executable, AI_ANALYZER_SCRIPT], cwd=str(CBOT_ROOT))
+
+        log("Đang chạy cập nhật Hồ sơ mã (run_pro_plus) và tạo Dashboard (gen_dashboard)...")
+        subprocess.run([sys.executable, "run_pro_plus.py"], cwd=str(CBOT_ROOT))
+        subprocess.run([sys.executable, "gen_dashboard.py"], cwd=str(CBOT_ROOT))
+        
+        # Đồng bộ các file phân tích (Pro V2) và HTML lên GitHub
+        sync_to_github("Cập nhật Phân tích & Giao diện (H1)")
+
 def job_prices():
     """Giá H1: chạy phút :00 mỗi giờ (giờ giao dịch CBOT 20:00 - 08:00 sáng hôm sau VN)."""
+    log("▶ Kích hoạt tức thì: Cập nhật Giá ngay khi vừa khởi động hệ thống...")
+    _execute_price_update()
+
     while True:
         now = datetime.datetime.now(VN_TZ)
         # Tính phút :00 của giờ hiện tại (+5 giây buffer cho nến đóng)
@@ -220,25 +243,7 @@ def job_prices():
         if now >= next_h:
             next_h += datetime.timedelta(hours=1)
         sleep_until(next_h, "Giá H1")
-        
-        success = run_script("Giá H1 + Macro", PRICE_SCRIPT, "prices")
-        run_script("Giá H4", PRICE_H4_SCRIPT, "prices_h4")
-        run_script("Vĩ Mô (Macro)",   MACRO_SCRIPT, "macro")
-        
-        # Ngay sau khi có giá mới, cập nhật Hồ sơ & Gửi cảnh báo
-        if success:
-            log("Đang quét tín hiệu Telegram Alarm (SMC)...")
-            subprocess.run([sys.executable, "-c", "import entry_alarm; entry_alarm.run_analysis()"], cwd=str(CBOT_ROOT))
-            
-            log("Đang phân tích AI tự động...")
-            subprocess.run([sys.executable, AI_ANALYZER_SCRIPT], cwd=str(CBOT_ROOT))
-
-            log("Đang chạy cập nhật Hồ sơ mã (run_pro_plus) và tạo Dashboard (gen_dashboard)...")
-            subprocess.run([sys.executable, "run_pro_plus.py"], cwd=str(CBOT_ROOT))
-            subprocess.run([sys.executable, "gen_dashboard.py"], cwd=str(CBOT_ROOT))
-            
-            # Đồng bộ các file phân tích (Pro V2) và HTML lên GitHub
-            sync_to_github("Cập nhật Phân tích & Giao diện (H1)")
+        _execute_price_update()
 
 
 def job_cot():
