@@ -195,25 +195,24 @@ DXY={macro.get('dxy',{}).get('price','N/A')} ({macro.get('dxy',{}).get('pct','N/
 ZW DCA: {zw_dca} | ZC DCA: {zc_dca}
 
 === YÊU CẦU PHÂN TÍCH ===
+Viết một báo cáo Đánh Giá Giao Dịch thực chiến sắc bén, văn phong chuyên nghiệp của một Senior Quant Trader. TRÁNH viết kiểu liệt kê máy móc "chung chung" vô hồn. Thay vào đó, hãy tổng hợp các số liệu trên để rút ra Insight (Sự thật ngầm hiểu) và Hành động thực tế.
 
-### 🌽 NGÔ (ZC) — Phân Tích Hiện Tại
-- **Xu Hướng Ngắn Hạn:** [Bullish/Bearish/Neutral + lý do 1 câu dựa trên giá, Volume, OI]
-- **Tín Hiệu SMC:** [Tín hiệu H1 hiện tại? Có Judas Swing/MSS/FVG không?]
-- **Vùng Hành Động:** [Entry/DCA ở đâu? LƯU Ý ĐẶC BIỆT: Phải ghi rõ giá DCA là của "Hợp đồng tháng 12", không phải tháng 9. S1/R1 quan trọng?]
-- **Rủi Ro:** [1 câu]
+### 🌽 NGÔ (ZC) — Chiến Lược Giao Dịch
+- **Insight & Động Lực Giá:** (Phân tích tổng hợp sự tương tác giữa Giá, Volume, OI, Thời tiết và COT. Dòng tiền lớn đang làm gì?)
+- **Hành Động & Vùng Giá:** (Dựa trên tín hiệu SMC H1 mới nhất, vùng DCA dài hạn cho Hợp đồng tháng 12, nên đánh thuận hay nghịch? Nếu lỡ tàu thì chờ ở đâu?)
+- **Cảnh Báo Rủi Ro:** (Điểm mù hoặc rủi ro vĩ mô cần phòng thủ lúc này là gì?)
 
-### 🌾 LÚA MÌ (ZW) — Phân Tích Hiện Tại
-- **Vị Trí Mùa Vụ:** [Đang ở giai đoạn nào U-Shape 2026? Đáy 1/Golden Zone/Điểm Uốn?]
-- **Xu Hướng Ngắn Hạn:** [Bullish/Bearish/Neutral + lý do dựa trên giá, tiến độ gặt, COT]
-- **Tín Hiệu SMC:** [Tín hiệu H1 hiện tại? Có Judas Swing/MSS/FVG không?]
-- **Yếu Tố Nga:** [Nga đang ở pha nào? Ảnh hưởng giá trần?]
-- **Vùng Hành Động:** [Entry/DCA? LƯU Ý ĐẶC BIỆT: Phải ghi rõ giá DCA là của "Hợp đồng tháng 12", không phải tháng 9. S1/R1 quan trọng?]
-- **Rủi Ro:** [1 câu]
+### 🌾 LÚA MÌ (ZW) — Chiến Lược Giao Dịch
+- **Insight & Động Lực Giá:** (Mảnh ghép giữa Mùa Vụ U-Shape, tin Nga, và lực mua/bán từ COT đang hội tụ ra sao? Có bẫy giá hay không?)
+- **Hành Động & Vùng Giá:** (Dựa trên tín hiệu SMC H1 mới nhất, vùng DCA dài hạn cho Hợp đồng tháng 12, vùng nào là "Đáy tuyệt đối" nên dồn hỏa lực?)
+- **Cảnh Báo Rủi Ro:** (Điểm mù hoặc rủi ro vĩ mô cần phòng thủ lúc này là gì?)
 
-### ⚡ NHẬN ĐỊNH TỔNG THỂ
-- [2-3 câu sắc bén: Nên làm gì với ZW và ZC trong 24-48h tới?]
+### ⚡ NHẬN ĐỊNH & KẾ HOẠCH HÀNH ĐỘNG TỔNG THỂ (24-48h tới)
+- (1-2 đoạn văn ngắn đúc kết toàn bộ bức tranh thị trường. Ai đang nắm quyền kiểm soát? Trader nên ưu tiên mã nào, vị thế nào trong 1-2 ngày tới?)
 
-KHÔNG giải thích lý thuyết. Chỉ kết luận dựa trên số liệu thực tế.
+LƯU Ý QUAN TRỌNG: 
+- Lấy chính xác giá, vùng entry, thời gian từ "DỮ LIỆU THỰC TẾ" bên trên.
+- KHÔNG giải thích lý thuyết SMC hay mùa vụ. Tập trung thẳng vào "Nó đang diễn ra như thế nào và Chúng ta cần làm gì?".
 """
 
     # Thử các model theo thứ tự ưu tiên (dùng đúng tên theo API)
