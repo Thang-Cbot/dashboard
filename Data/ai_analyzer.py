@@ -195,24 +195,35 @@ DXY={macro.get('dxy',{}).get('price','N/A')} ({macro.get('dxy',{}).get('pct','N/
 ZW DCA: {zw_dca} | ZC DCA: {zc_dca}
 
 === YÊU CẦU PHÂN TÍCH ===
-Viết một báo cáo Đánh Giá Giao Dịch thực chiến sắc bén, văn phong chuyên nghiệp của một Senior Quant Trader. TRÁNH viết kiểu liệt kê máy móc "chung chung" vô hồn. Thay vào đó, hãy tổng hợp các số liệu trên để rút ra Insight (Sự thật ngầm hiểu) và Hành động thực tế.
+Viết một báo cáo Đánh Giá Giao Dịch thực chiến sắc bén, văn phong chuyên nghiệp của một Senior Quant Trader. TRÁNH viết kiểu diễn giải dài dòng. 
 
-### 🌽 NGÔ (ZC) — Chiến Lược Giao Dịch
-- **Insight & Động Lực Giá:** (Phân tích tổng hợp sự tương tác giữa Giá, Volume, OI, Thời tiết và COT. Dòng tiền lớn đang làm gì?)
-- **Hành Động & Vùng Giá:** (Dựa trên tín hiệu SMC H1 mới nhất, vùng DCA dài hạn cho Hợp đồng tháng 12, nên đánh thuận hay nghịch? Nếu lỡ tàu thì chờ ở đâu?)
-- **Cảnh Báo Rủi Ro:** (Điểm mù hoặc rủi ro vĩ mô cần phòng thủ lúc này là gì?)
+Tuân thủ CHÍNH XÁC cấu trúc sau:
 
-### 🌾 LÚA MÌ (ZW) — Chiến Lược Giao Dịch
-- **Insight & Động Lực Giá:** (Mảnh ghép giữa Mùa Vụ U-Shape, tin Nga, và lực mua/bán từ COT đang hội tụ ra sao? Có bẫy giá hay không?)
-- **Hành Động & Vùng Giá:** (Dựa trên tín hiệu SMC H1 mới nhất, vùng DCA dài hạn cho Hợp đồng tháng 12, vùng nào là "Đáy tuyệt đối" nên dồn hỏa lực?)
-- **Cảnh Báo Rủi Ro:** (Điểm mù hoặc rủi ro vĩ mô cần phòng thủ lúc này là gì?)
+### 🌽 NGÔ (ZC)
+**1. PHÂN TÍCH**
++ [Ý 1: Xu hướng & Động lực giá hiện tại (Ngắn gọn, súc tích)]
++ [Ý 2: Tín hiệu SMC & Dòng tiền lớn (Ngắn gọn, súc tích)]
++ [Ý 3: Yếu tố Mùa vụ/Vĩ mô đáng chú ý (Nếu có)]
 
-### ⚡ NHẬN ĐỊNH & KẾ HOẠCH HÀNH ĐỘNG TỔNG THỂ (24-48h tới)
-- (1-2 đoạn văn ngắn đúc kết toàn bộ bức tranh thị trường. Ai đang nắm quyền kiểm soát? Trader nên ưu tiên mã nào, vị thế nào trong 1-2 ngày tới?)
+**2. HÀNH ĐỘNG HÔM NAY**
+- [Xu hướng ngắn hạn trong ngày và Khuyến nghị giao dịch (DCA ở đâu, thuận hay nghịch?)]
+
+### 🌾 LÚA MÌ (ZW)
+**1. PHÂN TÍCH**
++ [Ý 1: Xu hướng & Động lực giá hiện tại (Ngắn gọn, súc tích)]
++ [Ý 2: Tín hiệu SMC & Mô hình U-Shape Lúa Mì Nga (Ngắn gọn, súc tích)]
++ [Ý 3: Yếu tố Mùa vụ/Biển Đen đáng chú ý (Nếu có)]
+
+**2. HÀNH ĐỘNG HÔM NAY**
+- [Xu hướng ngắn hạn trong ngày và Khuyến nghị giao dịch (Vùng đáy tuyệt đối dồn hỏa lực?)]
+
+### ⚡ TỔNG THỂ
+- [1-2 câu đúc kết toàn bộ bức tranh thị trường. Hôm nay ưu tiên mã nào, vị thế nào?]
 
 LƯU Ý QUAN TRỌNG: 
 - Lấy chính xác giá, vùng entry, thời gian từ "DỮ LIỆU THỰC TẾ" bên trên.
-- KHÔNG giải thích lý thuyết SMC hay mùa vụ. Tập trung thẳng vào "Nó đang diễn ra như thế nào và Chúng ta cần làm gì?".
+- Trong vùng PHÂN TÍCH, BẮT BUỘC dùng dấu "+" đầu dòng và các ý phải CỰC KỲ NGẮN GỌN, XÚC TÍCH, ĐẦY Ý NGHĨA. KHÔNG diễn giải dài dòng.
+
 """
 
     # Thử các model theo thứ tự ưu tiên (dùng đúng tên theo API)

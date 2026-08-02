@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-08-02",
+  "last_updated_fundamentals": "2026-08-03",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -30,7 +30,7 @@
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
       "previous": "67% Good to Excellent",
       "previous_date": "2026-07-27T12:00:00+0000",
-      "latest_date": "2026-07-27T12:00:00+0000"
+      "latest_date": "27/07/2026"
     },
     "us_ending_stocks": {
       "next_date": "12/08/2026 lúc 23:00 (VN)",
@@ -194,7 +194,7 @@
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Đông 74% thu hoạch, Xuân 0% thu hoạch",
       "previous_date": "2026-07-27T12:00:00+0000",
-      "latest_date": "2026-07-27T12:00:00+0000"
+      "latest_date": "27/07/2026"
     },
     "crop_condition": {
       "latest": "Đông N/A (Cuối vụ), Xuân 53% G/E",
@@ -204,7 +204,7 @@
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông N/A (Cuối vụ), Xuân 53% G/E",
       "previous_date": "2026-07-27T12:00:00+0000",
-      "latest_date": "2026-07-27T12:00:00+0000"
+      "latest_date": "27/07/2026"
     },
     "us_ending_stocks": {
       "next_date": "12/08/2026 lúc 23:00 (VN)",

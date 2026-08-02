@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 23:00:19",
-      "updated_at": "2026-07-31 23:00:19"
+      "detail": "Auto-fetch 06:31:20",
+      "updated_at": "2026-08-03 06:31:20"
     },
     "macro": {
       "status": "[OK]",
@@ -76,13 +76,13 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 23:00",
-    "updated_at": "2026-07-31 23:00:19"
+    "detail": "ZC+ZW updated at 06:30",
+    "updated_at": "2026-08-03 06:31:19"
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=89.95, DXY=100.046",
-    "updated_at": "2026-07-31 23:00:36"
+    "detail": "Brent=90.12, DXY=99.731",
+    "updated_at": "2026-08-03 06:31:07"
   },
   "acreage": {
     "status": "OK",
@@ -97,12 +97,12 @@
   "export_sales": {
     "status": "OK",
     "detail": "Kỳ: 07/23/2026 | ZW=285,200 MT, ZC=362,900 MT",
-    "updated_at": "2026-08-02 09:50:47"
+    "updated_at": "2026-08-03 06:31:15"
   },
   "usda": {
     "status": "OK",
-    "detail": "Updated: 2026-08-02 | WASDE: Jul",
-    "updated_at": "2026-08-02 09:51:07"
+    "detail": "Updated: 2026-08-03 | WASDE: Jul",
+    "updated_at": "2026-08-03 06:30:43"
   },
   "cot": {
     "status": "[OK] Success",
