@@ -59,8 +59,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 06:31:37 (Nguồn: Giá H4)",
-      "updated_at": "2026-08-03 06:31:37"
+      "detail": "Đẩy thành công lúc 06:31:46 (Nguồn: Vĩ Mô (Macro))",
+      "updated_at": "2026-08-03 06:31:46"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -92,7 +92,7 @@
   "weather_short": {
     "status": "OK",
     "detail": "24/24 fetched",
-    "updated_at": "2026-07-31 14:57:31"
+    "updated_at": "2026-08-03 06:31:46"
   },
   "export_sales": {
     "status": "OK",
@@ -112,6 +112,6 @@
   "weather_long": {
     "status": "OK",
     "detail": "Status: El Niño Advisory",
-    "updated_at": "2026-07-28 17:03:47"
+    "updated_at": "2026-08-03 06:31:49"
   }
 }
