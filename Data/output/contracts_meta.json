@@ -16,26 +16,26 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 19478.0,
+      "today_volume": 20440.0,
       "prev_volume": 5208.0,
-      "today_oi": 789646,
+      "today_oi": 0,
       "prev_oi": 531259,
-      "today_close": 460.75,
+      "today_close": 461.5,
       "prev_close": 437.25,
-      "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
-      "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
+      "trend": "Tăng do phe Short chốt lời (Short Covering)",
+      "logic": "Giá tăng đi kèm Volume tăng nhưng OI giảm. Cho thấy phe Short đang ồ ạt cắt lỗ/chốt vị thế bán khống, giúp giá đẩy lên nhanh nhưng thiếu dòng tiền mới mua lên."
     }
   },
   "ZW": {
     "active": {
-      "ticker": "ZWU26.CBT",
-      "year": 2026,
-      "month": 9
+      "ticker": "ZWK27.CBT",
+      "year": 2027,
+      "month": 5
     },
     "swing": {
-      "ticker": "ZWU26.CBT",
-      "year": 2026,
-      "month": 9
+      "ticker": "ZWN27.CBT",
+      "year": 2027,
+      "month": 7
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 3819.0,
+      "today_volume": 238.0,
       "prev_volume": 3373.0,
-      "today_oi": 196941,
+      "today_oi": 14819,
       "prev_oi": 196941,
-      "today_close": 636.5,
+      "today_close": 679.0,
       "prev_close": 636.75,
-      "trend": "Giảm do phe Long tháo chạy (Long Liquidation)",
-      "logic": "Giá giảm đi kèm Volume tăng nhưng OI giảm. Phe Long đang chủ động đóng vị thế hàng loạt để cắt lỗ, lực bán tháo kỹ thuật mạnh."
+      "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
+      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
-  "updated_at": "2026-08-03 11:37:40"
+  "updated_at": "2026-08-03 13:30:56"
 }
