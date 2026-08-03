@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[ERROR]",
-      "detail": "Lỗi Push: b1c8e5578da234 but expected 223dd88686766e48d231f28ecb8965e6990775ea)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-08-03 22:00:39"
+      "detail": "Lỗi Push: fb694c5161827d but expected f9bdd64dc13a58bc70cbba1736b1c8e5578da234)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-03 22:00:46"
     },
     "prices_h4": {
       "status": "[OK]",
