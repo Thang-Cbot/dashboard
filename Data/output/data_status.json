@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 21:00:36",
-      "updated_at": "2026-08-03 21:00:36"
+      "detail": "Auto-fetch 22:00:25",
+      "updated_at": "2026-08-03 22:00:25"
     },
     "macro": {
       "status": "[OK]",
@@ -53,9 +53,9 @@
       "updated_at": "2026-08-03 06:33:38"
     },
     "github_sync": {
-      "status": "[ERROR]",
-      "detail": "Lỗi Push: b07806771d6ef9 but expected 3d1c26aa361560bf4ec328966bd6d5f7b2e2460e)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-08-03 21:01:16"
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 22:00:25 (Nguồn: USDA Crop Progress)",
+      "updated_at": "2026-08-03 22:00:25"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -71,8 +71,8 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 21:00",
-    "updated_at": "2026-08-03 21:00:35"
+    "detail": "ZC+ZW updated at 22:00",
+    "updated_at": "2026-08-03 22:00:25"
   },
   "macro": {
     "status": "OK",
