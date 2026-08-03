@@ -3,9 +3,9 @@
   "elapsed_seconds": 198.1,
   "modules": {
     "usda": {
-      "status": "OK",
-      "detail": "WASDE + Crop Progress updated",
-      "updated_at": "2026-08-03 06:30:43"
+      "status": "[OK]",
+      "detail": "Auto-fetch 22:00:20",
+      "updated_at": "2026-08-03 22:00:20"
     },
     "prices": {
       "status": "[OK]",
@@ -53,9 +53,9 @@
       "updated_at": "2026-08-03 06:33:38"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 21:00:59 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-08-03 21:00:59"
+      "status": "[ERROR]",
+      "detail": "Lỗi Push: b07806771d6ef9 but expected 3d1c26aa361560bf4ec328966bd6d5f7b2e2460e)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-03 21:01:16"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -78,5 +78,10 @@
     "status": "OK",
     "detail": "Brent=82.86, DXY=99.782",
     "updated_at": "2026-08-03 21:00:56"
+  },
+  "usda": {
+    "status": "OK",
+    "detail": "Updated: 2026-08-03 | WASDE: Jul",
+    "updated_at": "2026-08-03 22:00:19"
   }
 }

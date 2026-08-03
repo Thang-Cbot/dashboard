@@ -29,7 +29,7 @@
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
       "previous": "67% Good to Excellent",
-      "previous_date": "2026-07-27T12:00:00+0000",
+      "previous_date": "27/07/2026",
       "latest_date": "27/07/2026"
     },
     "us_ending_stocks": {
@@ -78,8 +78,19 @@
       "previous_date": "July 17-23, 2026",
       "pct_change": 9.0,
       "logic": "Ngô niên vụ 2025/26 đạt 362.9 nghìn tấn, đưa lũy kế lên 76.373 triệu tấn, cao hơn 23.9% so với cùng kỳ năm ngoái.",
-      "next_date": "03/08/2026 lúc 22:00 (VN)",
+      "next_date": "10/08/2026 lúc 22:00 (VN)",
       "inspections": {
+        "volume": 1884680,
+        "week_ago": 1533259,
+        "year_ago": 1295823,
+        "ytd_current": 77274104,
+        "ytd_previous": 61646320,
+        "ytd_yoy_pct": 25.4,
+        "week_ending": "JUL 30, 2026",
+        "week_ago_date": "07/23/2026"
+      },
+      "inspections_week_ending": "JUL 30, 2026",
+      "inspections_previous": {
         "volume": 1488028,
         "week_ago": 1612823,
         "year_ago": 1532153,
@@ -88,8 +99,7 @@
         "ytd_yoy_pct": 24.8,
         "week_ending": "JUL 23, 2026",
         "week_ago_date": "07/16/2026"
-      },
-      "inspections_week_ending": "JUL 23, 2026"
+      }
     },
     "competitors": {
       "latest": "Brazil & Argentina",
@@ -193,7 +203,7 @@
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Đông 74% thu hoạch, Xuân 0% thu hoạch",
-      "previous_date": "2026-07-27T12:00:00+0000",
+      "previous_date": "27/07/2026",
       "latest_date": "27/07/2026"
     },
     "crop_condition": {
@@ -203,7 +213,7 @@
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông N/A (Cuối vụ), Xuân 53% G/E",
-      "previous_date": "2026-07-27T12:00:00+0000",
+      "previous_date": "27/07/2026",
       "latest_date": "27/07/2026"
     },
     "us_ending_stocks": {
@@ -252,8 +262,19 @@
       "previous_date": "July 17-23, 2026",
       "pct_change": -1.7,
       "logic": "Lúa Mì niên vụ 2026/27 đạt 285.2 nghìn tấn, đưa lũy kế lên 2.573 triệu tấn, thấp hơn 20.3% so với cùng kỳ năm ngoái.",
-      "next_date": "03/08/2026 lúc 22:00 (VN)",
+      "next_date": "10/08/2026 lúc 22:00 (VN)",
       "inspections": {
+        "volume": 335313,
+        "week_ago": 417468,
+        "year_ago": 689730,
+        "ytd_current": 2906818,
+        "ytd_previous": 4001405,
+        "ytd_yoy_pct": -27.4,
+        "week_ending": "JUL 30, 2026",
+        "week_ago_date": "07/23/2026"
+      },
+      "inspections_week_ending": "JUL 30, 2026",
+      "inspections_previous": {
         "volume": 394785,
         "week_ago": 229761,
         "year_ago": 290272,
@@ -262,8 +283,7 @@
         "ytd_yoy_pct": -23.2,
         "week_ending": "JUL 23, 2026",
         "week_ago_date": "07/16/2026"
-      },
-      "inspections_week_ending": "JUL 23, 2026"
+      }
     },
     "competitors": {
       "latest": "Úc & Argentina",
