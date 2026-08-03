@@ -6,9 +6,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZCH27.CBT",
-      "year": 2027,
-      "month": 3
+      "ticker": "ZCZ26.CBT",
+      "year": 2026,
+      "month": 12
     },
     "dca": {
       "ticker": "ZCZ26.CBT",
@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 89155.0,
+      "today_volume": 186563.0,
       "prev_volume": 5208.0,
       "today_oi": 785150,
       "prev_oi": 531259,
-      "today_close": 465.5,
+      "today_close": 473.0,
       "prev_close": 437.25,
       "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
       "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 34241.0,
+      "today_volume": 64720.0,
       "prev_volume": 3373.0,
       "today_oi": 196594,
       "prev_oi": 196941,
-      "today_close": 641.5,
+      "today_close": 651.5,
       "prev_close": 636.75,
       "trend": "Tăng do phe Short chốt lời (Short Covering)",
       "logic": "Giá tăng đi kèm Volume tăng nhưng OI giảm. Cho thấy phe Short đang ồ ạt cắt lỗ/chốt vị thế bán khống, giúp giá đẩy lên nhanh nhưng thiếu dòng tiền mới mua lên."
     }
   },
-  "updated_at": "2026-08-03 22:00:25"
+  "updated_at": "2026-08-04 06:37:20"
 }
