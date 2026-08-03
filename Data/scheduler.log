@@ -6807,3 +6807,8 @@ huyên Sâu
 [2026-08-03 13:31:11] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
 [2026-08-03 13:31:15] [INFO] ✅ Vĩ Mô (Macro) hoàn thành (attempt 1)
 [2026-08-03 13:31:15] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Vĩ Mô (Macro))...
+[2026-08-03 13:31:19] [Sync] ✅ Đồng bộ Github thành công (Vĩ Mô (Macro))!
+[2026-08-03 13:31:19] [INFO] ⏰ Đợi Giá H1: còn 0.48h (03/08 14:00:05 VN)
+[2026-08-03 14:24:52] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-08-03 14:25:04] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-08-03 14:25:05] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
