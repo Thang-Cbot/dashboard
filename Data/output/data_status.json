@@ -43,9 +43,9 @@
       "updated_at": "2026-08-03 06:32:03"
     },
     "acreage": {
-      "status": "OK",
-      "detail": "Planted acreage ZC/ZW/ZS updated",
-      "updated_at": "2026-08-03 06:33:03"
+      "status": "[OK]",
+      "detail": "Auto-fetch 18:58:45",
+      "updated_at": "2026-08-04 18:58:45"
     },
     "ai_news": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[ERROR]",
-      "detail": "Lỗi Push: 177542e820e027 but expected 901ced5df60a8b441e6d01e60baa100bbeca98a8)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-08-04 18:00:45"
+      "detail": "Lỗi Push: a017336fbcd15c but expected 3ae8a84012d7e7d62d6742344c177542e820e027)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-04 18:01:13"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -92,7 +92,7 @@
   "acreage": {
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-08-04 07:08:01"
+    "updated_at": "2026-08-04 18:58:45"
   },
   "cot": {
     "status": "[OK] Success",
