@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[ERROR]",
-      "detail": "Lỗi Push: 2e107c76d99594 but expected 6d4062340202f9f98635392c0556abeb87be4012)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-08-04 16:47:37"
+      "detail": "Lỗi Push: 7998ed4ae26684 but expected a89d5dec96820b124a6af2d3632e107c76d99594)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-04 17:40:54"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 16:47:01",
-      "updated_at": "2026-08-04 16:47:01"
+      "detail": "Auto-fetch 17:40:56",
+      "updated_at": "2026-08-04 17:40:56"
     },
     "russian_metrics": {
       "status": "[OK]",
