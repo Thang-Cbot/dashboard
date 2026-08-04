@@ -96,8 +96,8 @@ with tab3:
         import pandas as pd
         def parse_news_date(item):
             s = item.get("source", "").split("-")[0].split("(")[0].strip()
-            try: return pd.to_datetime(s)
-            except: return pd.to_datetime('1970-01-01')
+            try: return pd.to_datetime(s, utc=True)
+            except: return pd.to_datetime('1970-01-01', utc=True)
         news_list = sorted(news_list, key=parse_news_date, reverse=True)
         
         if not news_list:
@@ -131,8 +131,8 @@ with tab2:
         import pandas as pd
         def parse_news_date_ai(item):
             s = item.get("source", "").split("-")[0].split("(")[0].strip()
-            try: return pd.to_datetime(s)
-            except: return pd.to_datetime('1970-01-01')
+            try: return pd.to_datetime(s, utc=True)
+            except: return pd.to_datetime('1970-01-01', utc=True)
         news_list = sorted(news_list, key=parse_news_date_ai, reverse=True)
         
         if not news_list:
