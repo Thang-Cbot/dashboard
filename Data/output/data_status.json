@@ -4,8 +4,8 @@
   "modules": {
     "usda": {
       "status": "[OK]",
-      "detail": "Auto-fetch 22:00:20",
-      "updated_at": "2026-08-03 22:00:20"
+      "detail": "Auto-fetch 15:45:59",
+      "updated_at": "2026-08-04 15:45:59"
     },
     "prices": {
       "status": "[OK]",
@@ -53,9 +53,9 @@
       "updated_at": "2026-08-04 11:44:02"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 15:07:41 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-08-04 15:07:41"
+      "status": "[ERROR]",
+      "detail": "Lỗi Push: ab4485f463e2d0 but expected 72c32c0c7a31fb9eaa76d3d418a4b191bbcab632)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-04 15:08:12"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -82,7 +82,7 @@
   "usda": {
     "status": "OK",
     "detail": "Updated: 2026-08-04 | WASDE: Jul",
-    "updated_at": "2026-08-04 07:08:14"
+    "updated_at": "2026-08-04 15:45:59"
   },
   "export_sales": {
     "status": "OK",
