@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 22:00:45",
-      "updated_at": "2026-08-04 22:00:45"
+      "detail": "Auto-fetch 06:38:13",
+      "updated_at": "2026-08-05 06:38:13"
     },
     "cot": {
       "status": "PARTIAL",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 06:38:02 (Nguồn: Giá H1 + Macro)",
-      "updated_at": "2026-08-05 06:38:02"
+      "detail": "Đẩy thành công lúc 06:38:10 (Nguồn: Giá H4)",
+      "updated_at": "2026-08-05 06:38:10"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -76,8 +76,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=80.5, DXY=99.921",
-    "updated_at": "2026-08-04 22:00:45"
+    "detail": "Brent=78.92, DXY=99.882",
+    "updated_at": "2026-08-05 06:38:13"
   },
   "usda": {
     "status": "OK",
