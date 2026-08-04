@@ -259,22 +259,22 @@
       "open": 452.0
     },
     "2026-07-29": {
-      "volume": 130719.0,
+      "volume": 219619.0,
       "open_interest": 533102,
-      "close": 449.0,
-      "open": 459.25
+      "close": 471.75,
+      "open": 481.5
     },
     "2026-07-30": {
-      "volume": 120116.0,
+      "volume": 192852.0,
       "open_interest": 531259,
-      "close": 445.75,
-      "open": 448.25
+      "close": 468.5,
+      "open": 471.0
     },
     "2026-07-31": {
-      "volume": 120116.0,
+      "volume": 192852.0,
       "open_interest": 531259,
-      "close": 440.75,
-      "open": 445.5
+      "close": 464.0,
+      "open": 468.5
     },
     "2026-08-02": {
       "volume": 5208.0,
@@ -283,10 +283,10 @@
       "open": 438.0
     },
     "2026-08-03": {
-      "volume": 6368.0,
-      "open_interest": 525954,
-      "close": 450.0,
-      "open": 450.5
+      "volume": 14264.0,
+      "open_interest": 783483,
+      "close": 474.0,
+      "open": 474.0
     }
   },
   "ZW": {
@@ -573,9 +573,9 @@
       "open": 635.0
     },
     "2026-08-03": {
-      "volume": 1000.0,
-      "open_interest": 196594,
-      "close": 649.0,
+      "volume": 1346.0,
+      "open_interest": 194847,
+      "close": 650.5,
       "open": 652.0
     }
   },
