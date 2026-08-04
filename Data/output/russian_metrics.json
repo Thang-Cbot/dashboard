@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-08-03 07:30:27",
+  "timestamp": "2026-08-04 21:48:41",
   "metrics": {
     "planted_area": "N/A",
-    "production_forecast": "Dự báo sản lượng lúa mì Nga thấp hơn mức trung bình hoặc kỳ vọng ban đầu, với các báo cáo cho thấy vụ mùa năm 2025 có thể dưới mức trung bình và cây trồng bị ảnh hưởng nặng nề.",
-    "harvest_progress": "Đã thu hoạch 28 triệu tấn lúa mì (tính đến 30/07/2025), năng suất giảm 4.5%.",
-    "fob_price": "Giá xuất khẩu lúa mì Nga tăng mạnh, đạt mức cao nhất kể từ tháng 8 (năm trước đó) và có xu hướng tiếp tục tăng do nguồn cung eo hẹp, căng thẳng Biển Đen và khó khăn vận chuyển. Giá kỳ hạn lúa mì toàn cầu cũng đạt mức cao nhất trong hai năm.",
-    "export_tax": "Chính phủ Nga đang tìm cách thúc đẩy xuất khẩu nông sản sau khi doanh số lúa mì giảm trong tháng 7 (2025), có thể dẫn đến điều chỉnh chính sách xuất khẩu. (Không có thông tin cụ thể về thuế xuất khẩu hiện tại).",
+    "production_forecast": "Dự báo sản lượng thấp hơn mức trung bình",
+    "harvest_progress": "Đã thu hoạch 28 triệu tấn, năng suất giảm 4.5% (tính đến tháng 7/2025)",
+    "fob_price": "Đang tăng mạnh, đạt mức cao nhất kể từ tháng 8 do nguồn cung Biển Đen thắt chặt và khó khăn vận chuyển",
+    "export_tax": "Chính phủ Nga đang thực hiện các biện pháp để thúc đẩy xuất khẩu nông sản",
     "export_capacity": "N/A",
-    "quality_notes": "Năng suất giảm 4.5% và các báo cáo về 'cây trồng bị ảnh hưởng nặng nề' cho thấy có thể có tác động tiêu cực đến chất lượng hoặc số lượng tổng thể của vụ mùa.",
-    "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Thu (Vụ Xuân).",
-    "ai_assessment": "Các báo cáo cho thấy sản lượng lúa mì Nga thấp hơn dự kiến, năng suất giảm, cùng với căng thẳng Biển Đen và khó khăn vận chuyển, đang tạo ra áp lực nguồn cung thắt chặt, đẩy giá lúa mì kỳ hạn lên cao. Điều này cho thấy áp lực xả hàng từ Nga lên giá CBOT hiện tại là thấp, thay vào đó là yếu tố hỗ trợ giá."
+    "quality_notes": "Năng suất giảm 4.5%, cây trồng bị ảnh hưởng nặng nề",
+    "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Tháng 9 (Vụ Xuân)",
+    "ai_assessment": "Tình hình sản lượng thấp hơn dự kiến, cùng với căng thẳng Biển Đen và khó khăn vận chuyển, đang làm giảm áp lực nguồn cung từ Nga và hỗ trợ giá lúa mì CBOT tăng."
   }
 }
