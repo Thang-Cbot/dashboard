@@ -48,14 +48,14 @@
       "updated_at": "2026-08-03 06:33:03"
     },
     "ai_news": {
-      "status": "OK",
-      "detail": "Điểm tin AI thành công",
-      "updated_at": "2026-08-03 06:33:38"
+      "status": "[OK]",
+      "detail": "Auto-fetch 11:44:02",
+      "updated_at": "2026-08-04 11:44:02"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 10:00:42 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-08-04 10:00:43"
+      "status": "[ERROR]",
+      "detail": "Lỗi Push: f9068afbca3236 but expected 7a5922928b2353a44556638a0114592178bdace0)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-04 10:01:09"
     },
     "prices_h4": {
       "status": "[OK]",
