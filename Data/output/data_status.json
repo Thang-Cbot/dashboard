@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 06:37:22",
-      "updated_at": "2026-08-04 06:37:23"
+      "detail": "Auto-fetch 07:00:19",
+      "updated_at": "2026-08-04 07:00:19"
     },
     "macro": {
       "status": "[OK]",
@@ -53,9 +53,9 @@
       "updated_at": "2026-08-03 06:33:38"
     },
     "github_sync": {
-      "status": "[ERROR]",
-      "detail": "Lỗi Push: 5021b0e3a46d20 but expected 097cff4380f80503a95c8f29eafa381c19e4ad45)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-08-04 06:37:44"
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 06:38:29 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-08-04 06:38:29"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -71,8 +71,8 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 06:37",
-    "updated_at": "2026-08-04 06:37:22"
+    "detail": "ZC+ZW updated at 07:00",
+    "updated_at": "2026-08-04 07:00:19"
   },
   "macro": {
     "status": "OK",
