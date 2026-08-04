@@ -53,14 +53,14 @@
       "updated_at": "2026-08-04 11:44:02"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 18:58:49 (Nguồn: USDA Acreage)",
-      "updated_at": "2026-08-04 18:58:49"
+      "status": "[ERROR]",
+      "detail": "Lỗi Push: 9f230bc2be802c but expected 55de56150f63f6a54c25b69cfc18bf4ba9fc2737)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-04 19:25:50"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 18:00:36",
-      "updated_at": "2026-08-04 18:00:36"
+      "detail": "Auto-fetch 19:25:55",
+      "updated_at": "2026-08-04 19:25:55"
     },
     "russian_metrics": {
       "status": "[OK]",
