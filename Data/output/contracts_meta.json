@@ -16,12 +16,12 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 14347.0,
-      "prev_volume": 5208.0,
+      "today_volume": 14780.0,
+      "prev_volume": 6761.0,
       "today_oi": 783483,
-      "prev_oi": 531259,
-      "today_close": 474.0,
-      "prev_close": 437.25,
+      "prev_oi": 512992,
+      "today_close": 473.75,
+      "prev_close": 450.5,
       "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
       "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
     }
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 1352.0,
-      "prev_volume": 3373.0,
+      "today_volume": 1813.0,
+      "prev_volume": 1352.0,
       "today_oi": 194847,
-      "prev_oi": 196941,
-      "today_close": 649.75,
-      "prev_close": 636.75,
-      "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
-      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
+      "prev_oi": 194847,
+      "today_close": 651.25,
+      "prev_close": 649.75,
+      "trend": "Tăng do phe Short chốt lời (Short Covering)",
+      "logic": "Giá tăng đi kèm Volume tăng nhưng OI giảm. Cho thấy phe Short đang ồ ạt cắt lỗ/chốt vị thế bán khống, giúp giá đẩy lên nhanh nhưng thiếu dòng tiền mới mua lên."
     }
   },
-  "updated_at": "2026-08-04 10:00:24"
+  "updated_at": "2026-08-04 13:02:51"
 }
