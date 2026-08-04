@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 07:00:20",
-      "updated_at": "2026-08-04 07:00:20"
+      "detail": "Auto-fetch 08:00:21",
+      "updated_at": "2026-08-04 08:00:21"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[ERROR]",
-      "detail": "Lỗi Push: 6f453c51999a39 but expected 5c0da4ea691d816c8ad395b9720f3a5d35afee51)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-08-04 07:00:41"
+      "detail": "Lỗi Push: f11a6243ea9617 but expected 0185971af7f4ab668ad0fe47206f453c51999a39)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-04 07:00:55"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -71,8 +71,8 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 07:00",
-    "updated_at": "2026-08-04 07:00:20"
+    "detail": "ZC+ZW updated at 08:00",
+    "updated_at": "2026-08-04 08:00:21"
   },
   "macro": {
     "status": "OK",
@@ -81,7 +81,22 @@
   },
   "usda": {
     "status": "OK",
-    "detail": "Updated: 2026-08-03 | WASDE: Jul",
-    "updated_at": "2026-08-03 22:00:19"
+    "detail": "Updated: 2026-08-04 | WASDE: Jul",
+    "updated_at": "2026-08-04 07:08:14"
+  },
+  "export_sales": {
+    "status": "OK",
+    "detail": "Kỳ: 07/23/2026 | ZW=285,200 MT, ZC=362,900 MT",
+    "updated_at": "2026-08-04 07:07:56"
+  },
+  "acreage": {
+    "status": "OK",
+    "detail": "ZC=95.3M, ZW=46.0M acres",
+    "updated_at": "2026-08-04 07:08:01"
+  },
+  "cot": {
+    "status": "[OK] Success",
+    "detail": "",
+    "updated_at": "2026-08-04 07:08:16"
   }
 }
