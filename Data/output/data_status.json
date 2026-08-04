@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 18:00:26",
-      "updated_at": "2026-08-04 18:00:26"
+      "detail": "Auto-fetch 19:25:44",
+      "updated_at": "2026-08-04 19:25:44"
     },
     "macro": {
       "status": "[OK]",
@@ -53,9 +53,9 @@
       "updated_at": "2026-08-04 11:44:02"
     },
     "github_sync": {
-      "status": "[ERROR]",
-      "detail": "Lỗi Push: a017336fbcd15c but expected 3ae8a84012d7e7d62d6742344c177542e820e027)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-08-04 18:01:13"
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 18:58:49 (Nguồn: USDA Acreage)",
+      "updated_at": "2026-08-04 18:58:49"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -71,8 +71,8 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 18:00",
-    "updated_at": "2026-08-04 18:00:26"
+    "detail": "ZC+ZW updated at 19:25",
+    "updated_at": "2026-08-04 19:25:44"
   },
   "macro": {
     "status": "OK",
