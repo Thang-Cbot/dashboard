@@ -53,9 +53,9 @@
       "updated_at": "2026-08-04 20:50:29"
     },
     "github_sync": {
-      "status": "[ERROR]",
-      "detail": "Lỗi Push: 2e779b0d15b066 but expected 5647a0261ed4e1cc87202deb7a623de24aedd1c7)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-08-04 20:50:24"
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 20:50:32 (Nguồn: AI Điểm Tin)",
+      "updated_at": "2026-08-04 20:50:32"
     },
     "prices_h4": {
       "status": "[OK]",
