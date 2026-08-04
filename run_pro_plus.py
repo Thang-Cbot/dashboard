@@ -1074,8 +1074,8 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 #### 3. Báo cáo Bán hàng & Giao hàng Xuất khẩu (USDA Weekly Export Sales & Inspections)
 | Mã nông sản | Báo cáo | Số liệu trước đó | Số liệu mới nhất | Dự báo kỳ tiếp theo | Lần cập nhật tới | Tác động biện chứng xuất khẩu |
 | :---: | :--- | :---: | :---: | :---: | :---: | :--- |
-| **ZC** | Bán hàng & Giao hàng | {fund['ZC']['exports'].get('previous', 'N/A').replace('|', '\\|')} | **{fund['ZC']['exports']['latest'].replace('|', '\\|')}** | {fund['ZC']['exports']['forecast']} | {fund['ZC']['exports']['next_date']} | {fund['ZC']['exports']['action']} - {fund['ZC']['exports']['logic']} |
-| **ZW** | Bán hàng & Giao hàng | {fund['ZW']['exports'].get('previous', 'N/A').replace('|', '\\|')} | **{fund['ZW']['exports']['latest'].replace('|', '\\|')}** | {fund['ZW']['exports']['forecast']} | {fund['ZW']['exports']['next_date']} | {fund['ZW']['exports']['action']} - {fund['ZW']['exports']['logic']} |
+| **ZC** | Bán hàng & Giao hàng | {fund['ZC']['exports'].get('previous', 'N/A').replace('|', '\\|')} | **{fund['ZC']['exports']['latest'].replace('|', '\\|')}** | {fund['ZC']['exports'].get('forecast', 'N/A')} | {fund['ZC']['exports']['next_date']} | {fund['ZC']['exports']['action']} - {fund['ZC']['exports']['logic']} |
+| **ZW** | Bán hàng & Giao hàng | {fund['ZW']['exports'].get('previous', 'N/A').replace('|', '\\|')} | **{fund['ZW']['exports']['latest'].replace('|', '\\|')}** | {fund['ZW']['exports'].get('forecast', 'N/A')} | {fund['ZW']['exports']['next_date']} | {fund['ZW']['exports']['action']} - {fund['ZW']['exports']['logic']} |
 
 #### 4. Báo cáo Sản lượng Cây trồng & Đối thủ Nam Mỹ (USDA Crop Production & Competitors)
 | Mã nông sản | Thu hoạch Mỹ / Vụ mùa | Sản lượng Đối thủ Nam Mỹ | Lần cập nhật tới | Tác động biện chứng cung cầu |
