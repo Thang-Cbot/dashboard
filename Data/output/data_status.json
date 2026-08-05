@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 07:04:53",
-      "updated_at": "2026-08-05 07:04:53"
+      "detail": "Auto-fetch 08:32:28",
+      "updated_at": "2026-08-05 08:32:28"
     },
     "cot": {
       "status": "PARTIAL",
@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 07:30:08 (Nguồn: Chỉ số Lúa Mì Nga)",
-      "updated_at": "2026-08-05 07:30:08"
+      "detail": "Đẩy thành công lúc 08:32:24 (Nguồn: Giá H4)",
+      "updated_at": "2026-08-05 08:32:24"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 07:04:45",
-      "updated_at": "2026-08-05 07:04:45"
+      "detail": "Auto-fetch 08:32:21",
+      "updated_at": "2026-08-05 08:32:21"
     },
     "russian_metrics": {
       "status": "[OK]",
@@ -81,8 +81,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=78.85, DXY=99.878",
-    "updated_at": "2026-08-05 07:04:52"
+    "detail": "Brent=79.78, DXY=99.871",
+    "updated_at": "2026-08-05 08:32:28"
   },
   "usda": {
     "status": "OK",

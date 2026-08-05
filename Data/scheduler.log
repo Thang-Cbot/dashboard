@@ -7829,3 +7829,14 @@ KeyError: 'EMA_21'
 [2026-08-05 08:32:16] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
 [2026-08-05 08:32:17] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-08-05 08:32:17] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-08-05 08:32:20] [Sync] ✅ Đồng bộ Github thành công (Giá H1 + Macro)!
+[2026-08-05 08:32:20] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-05 08:32:21] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-08-05 08:32:21] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
+[2026-08-05 08:32:21] [Sync] ⚠️ Lỗi Github Push: b0b3d21ff1548e but expected 82fc2d6960d84a2f9215cc10d118f91df6f60266)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-08-05 08:32:21] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-05 08:32:24] [Sync] ✅ Đồng bộ Github thành công (Giá H4)!
+[2026-08-05 08:32:24] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-08-05 08:32:28] [INFO] ✅ Vĩ Mô (Macro) hoàn thành (attempt 1)
+[2026-08-05 08:32:28] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Vĩ Mô (Macro))...
