@@ -1,112 +1,62 @@
 {
-  "last_full_update": "2026-08-03 06:33:38",
-  "elapsed_seconds": 198.1,
+  "last_full_update": "2026-08-06 06:32:25",
+  "elapsed_seconds": 142.6,
   "modules": {
     "usda": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 15:45:59",
-      "updated_at": "2026-08-04 15:45:59"
+      "status": "OK",
+      "detail": "WASDE + Crop Progress updated",
+      "updated_at": "2026-08-06 06:30:18"
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 22:00:23",
-      "updated_at": "2026-08-05 22:00:23"
+      "detail": "Auto-fetch 06:59:10",
+      "updated_at": "2026-08-06 06:59:10"
     },
     "macro": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 22:00:45",
-      "updated_at": "2026-08-05 22:00:45"
+      "status": "OK",
+      "detail": "Brent/DXY updated",
+      "updated_at": "2026-08-06 06:30:42"
     },
     "cot": {
       "status": "PARTIAL",
       "detail": "COT CFTC updated (fallback if 403)",
-      "updated_at": "2026-08-03 06:31:07"
+      "updated_at": "2026-08-06 06:30:42"
     },
     "export_sales": {
       "status": "OK",
       "detail": "Export Sales updated",
-      "updated_at": "2026-08-03 06:31:15"
+      "updated_at": "2026-08-06 06:30:48"
     },
     "weather_short": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 19:29:40",
-      "updated_at": "2026-08-04 19:29:40"
+      "status": "OK",
+      "detail": "Weather short-term updated",
+      "updated_at": "2026-08-06 06:31:13"
     },
     "weather_long": {
       "status": "OK",
       "detail": "ENSO/El Nino updated",
-      "updated_at": "2026-08-03 06:31:49"
+      "updated_at": "2026-08-06 06:31:16"
     },
     "ai": {
       "status": "OK",
       "detail": "Generated AI narrative",
-      "updated_at": "2026-08-03 06:32:03"
+      "updated_at": "2026-08-06 06:31:30"
     },
     "acreage": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 18:58:45",
-      "updated_at": "2026-08-04 18:58:45"
+      "status": "OK",
+      "detail": "Planted acreage ZC/ZW/ZS updated",
+      "updated_at": "2026-08-06 06:32:20"
     },
     "ai_news": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 20:50:29",
-      "updated_at": "2026-08-04 20:50:29"
-    },
-    "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 22:00:51 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-08-05 22:00:51"
-    },
-    "prices_h4": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 22:00:32",
-      "updated_at": "2026-08-05 22:00:33"
-    },
-    "russian_metrics": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 07:30:04",
-      "updated_at": "2026-08-05 07:30:04"
-    },
-    "blacksea_news": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 07:00:06",
-      "updated_at": "2026-08-05 07:00:06"
+      "status": "OK",
+      "detail": "Điểm tin AI thành công",
+      "updated_at": "2026-08-06 06:32:25"
     }
   },
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 22:00",
-    "updated_at": "2026-08-05 22:00:22"
-  },
-  "macro": {
-    "status": "OK",
-    "detail": "Brent=78.91, DXY=99.685",
-    "updated_at": "2026-08-05 22:00:45"
-  },
-  "usda": {
-    "status": "OK",
-    "detail": "Updated: 2026-08-04 | WASDE: Jul",
-    "updated_at": "2026-08-04 15:45:59"
-  },
-  "export_sales": {
-    "status": "OK",
-    "detail": "Kỳ: 07/23/2026 | ZW=285,200 MT, ZC=362,900 MT",
-    "updated_at": "2026-08-04 07:07:56"
-  },
-  "acreage": {
-    "status": "OK",
-    "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-08-04 18:58:45"
-  },
-  "cot": {
-    "status": "[OK] Success",
-    "detail": "",
-    "updated_at": "2026-08-04 07:08:16"
-  },
-  "weather_short": {
-    "status": "PARTIAL",
-    "detail": "23/24 fetched",
-    "updated_at": "2026-08-04 19:29:40"
+    "detail": "ZC+ZW updated at 06:58",
+    "updated_at": "2026-08-06 06:59:10"
   }
 }
