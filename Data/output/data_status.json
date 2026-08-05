@@ -53,14 +53,14 @@
       "updated_at": "2026-08-04 20:50:29"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 09:40:40 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-08-05 09:40:40"
+      "status": "[ERROR]",
+      "detail": "Lỗi Push: : Connection was reset\nsend-pack: unexpected disconnect while reading sideband packet\nfatal: the remote end hung up unexpectedly\nEverything up-to-date",
+      "updated_at": "2026-08-05 11:14:10"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 09:40:03",
-      "updated_at": "2026-08-05 09:40:03"
+      "detail": "Auto-fetch 11:14:29",
+      "updated_at": "2026-08-05 11:14:29"
     },
     "russian_metrics": {
       "status": "[OK]",
