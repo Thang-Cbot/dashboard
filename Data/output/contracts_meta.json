@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 13417.0,
-      "prev_volume": 186110.0,
+      "today_volume": 15371.0,
+      "prev_volume": 196853.0,
       "today_oi": 778602,
-      "prev_oi": 512992,
-      "today_close": 463.75,
-      "prev_close": 472.5,
-      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
-      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
+      "prev_oi": 778602,
+      "today_close": 463.0,
+      "prev_close": 465.5,
+      "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
+      "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
     }
   },
   "ZW": {
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 2144.0,
-      "prev_volume": 2144.0,
+      "today_volume": 2742.0,
+      "prev_volume": 70508.0,
       "today_oi": 191791,
       "prev_oi": 191791,
-      "today_close": 636.5,
-      "prev_close": NaN,
+      "today_close": 636.25,
+      "prev_close": 638.5,
       "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
       "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
     }
   },
-  "updated_at": "2026-08-05 10:11:37"
+  "updated_at": "2026-08-05 13:35:10"
 }
