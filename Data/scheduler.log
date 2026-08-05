@@ -7916,3 +7916,53 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-08-05 09:01:07] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Cập nhật Phân tích & Giao diện (H1))...
 [2026-08-05 09:01:07] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Cập nhật Phân tích & Giao diện (H1))...
 [2026-08-05 09:01:10] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Cập nhật Phân tích & Giao diện (H1))...
+[2026-08-05 09:01:11] [Sync] ✅ Đồng bộ Github thành công (Cập nhật Phân tích & Giao diện (H1))!
+[2026-08-05 09:01:11] [INFO] ⏰ Đợi Giá H1: còn 0.98h (05/08 10:00:05 VN)
+[2026-08-05 09:01:11] [Sync] ⚠️ Lỗi Github Push: 5c02512290adc1 but expected 1637d7034590709e659ce546bc92ddeab837f9c7)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-08-05 09:01:11] [INFO] ⏰ Đợi Giá H1: còn 0.98h (05/08 10:00:05 VN)
+[2026-08-05 09:01:13] [Sync] ✅ Đồng bộ Github thành công (Cập nhật Phân tích & Giao diện (H1))!
+[2026-08-05 09:01:13] [INFO] ⏰ Đợi Giá H1: còn 0.98h (05/08 10:00:05 VN)
+[2026-08-05 09:39:40] [INFO] ============================================================
+[2026-08-05 09:39:40] [INFO]   CBOT PRECISION SCHEDULER V2 — KHỞI ĐỘNG
+[2026-08-05 09:39:40] [INFO] ============================================================
+[2026-08-05 09:39:40] [INFO] Lịch trình đang chạy:
+[2026-08-05 09:39:40] [INFO]   [Giá H1 + Macro]    : Phút :15 mỗi giờ giao dịch
+[2026-08-05 09:39:40] [INFO]   [COT CFTC]          : Thứ Bảy 07:15 VN
+[2026-08-05 09:39:40] [INFO]   [USDA Crop Progress]: Thứ Hai 22:00 VN
+[2026-08-05 09:39:40] [INFO]   [Export Sales]      : Thứ Năm 21:32 VN
+[2026-08-05 09:39:40] [INFO]   [WASDE Monthly]     : Ngày 10 hàng tháng, 23:00 VN
+[2026-08-05 09:39:40] [INFO]   [Thời Tiết Ngắn]    : 06:00 hàng ngày
+[2026-08-05 09:39:40] [INFO]   [ENSO Long-Term]    : Thứ Hai 06:30 VN
+[2026-08-05 09:39:40] [INFO]   [USDA Acreage]      : 05:30 hàng ngày
+[2026-08-05 09:39:40] [INFO]   [AI Điểm Tin]       : 06:00 và 20:00 hàng ngày
+[2026-08-05 09:39:40] [INFO]   [AI Tin Biển Đen]   : Thứ Tư & Chủ Nhật 07:00 VN
+[2026-08-05 09:39:40] [INFO]   [Số Liệu Mùa Vụ Nga]: 07:30 hàng ngày
+[2026-08-05 09:39:40] [INFO] ------------------------------------------------------------
+[2026-08-05 09:39:40] [INFO]   ✅ Thread khởi động: job_prices
+ Giá ngay khi vừa khởi động hệ thống...
+[2026-08-05 09:39:40] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-08-05 09:39:40] [INFO]   ✅ Thread khởi động: job_cot
+8 07:15:02 VN)
+[2026-08-05 09:39:40] [INFO]   ✅ Thread khởi động: job_crop_progress
+:00:02 VN)
+[2026-08-05 09:39:40] [INFO]   ✅ Thread khởi động: job_export_sales
+32:02 VN)
+[2026-08-05 09:39:40] [INFO]   ✅ Thread khởi động: job_wasde
+10/08 23:00:02 VN)
+[2026-08-05 09:39:40] [INFO]   ✅ Thread khởi động: job_weather_short
+00:02 VN)
+[2026-08-05 09:39:40] [INFO]   ✅ Thread khởi động: job_weather_long
+06:30:02 VN)
+[2026-08-05 09:39:40] [INFO]   ✅ Thread khởi động: job_acreage
+6/08 05:30:02 VN)
+[2026-08-05 09:39:40] [INFO]   ✅ Thread khởi động: job_ai_news
+00:02 VN)
+[2026-08-05 09:39:40] [INFO]   ✅ Thread khởi động: job_blacksea_news
+:00:02 VN)
+[2026-08-05 09:39:40] [INFO]   ✅ Thread khởi động: job_russian_metrics
+30:02 VN)
+[2026-08-05 09:39:40] [INFO] ============================================================
+[2026-08-05 09:39:40] [INFO] Scheduler đang chạy ngầm. Nhấn Ctrl+C để dừng.
+[2026-08-05 09:39:53] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-08-05 09:39:53] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
