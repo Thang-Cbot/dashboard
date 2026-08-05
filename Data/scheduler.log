@@ -8198,3 +8198,14 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-08-05 14:52:26] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
 [2026-08-05 14:52:27] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-08-05 14:52:27] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-08-05 14:52:31] [Sync] ✅ Đồng bộ Github thành công (Giá H1 + Macro)!
+[2026-08-05 14:52:31] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-05 14:52:31] [Sync] ⚠️ Lỗi Github Push: 99019c04e3c3de but expected 0591df453be9afeb88fcb57573ab3a2c64fbf831)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-08-05 14:52:31] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-05 14:52:31] [Sync] ⚠️ Lỗi Github Push: 99019c04e3c3de but expected 0591df453be9afeb88fcb57573ab3a2c64fbf831)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-08-05 14:52:31] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-05 14:52:35] [WARN] ⚠ Thread job_prices đã chết! Đang khởi động lại...
+[2026-08-05 14:52:37] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-08-05 14:52:37] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
