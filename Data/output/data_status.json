@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 09:40:10",
-      "updated_at": "2026-08-05 09:40:10"
+      "detail": "Auto-fetch 11:14:37",
+      "updated_at": "2026-08-05 11:14:37"
     },
     "cot": {
       "status": "PARTIAL",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[ERROR]",
-      "detail": "Lỗi Push: : Connection was reset\nsend-pack: unexpected disconnect while reading sideband packet\nfatal: the remote end hung up unexpectedly\nEverything up-to-date",
-      "updated_at": "2026-08-05 11:14:10"
+      "detail": "Lỗi Push: e6dffa715c2f58 but expected 2999865d4c0e1da8dfa74a807a7c97987defa3bc)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-05 11:14:35"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -81,8 +81,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=78.7, DXY=99.842",
-    "updated_at": "2026-08-05 09:40:09"
+    "detail": "Brent=78.4, DXY=99.793",
+    "updated_at": "2026-08-05 11:14:37"
   },
   "usda": {
     "status": "OK",
