@@ -53,9 +53,9 @@
       "updated_at": "2026-08-04 20:50:29"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 13:35:52 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-08-05 13:35:52"
+      "status": "[ERROR]",
+      "detail": "Exception: [Errno 22] Invalid argument",
+      "updated_at": "2026-08-05 13:36:00"
     },
     "prices_h4": {
       "status": "[OK]",
