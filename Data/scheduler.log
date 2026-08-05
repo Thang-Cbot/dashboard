@@ -8473,3 +8473,13 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-08-05 19:00:23] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
 [2026-08-05 19:00:24] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-08-05 19:00:24] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-08-05 19:00:28] [Sync] ✅ Đồng bộ Github thành công (Giá H1 + Macro)!
+[2026-08-05 19:00:28] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-05 19:00:28] [Sync] ⚠️ Lỗi Github Push: 9cf82933190da7 but expected ce6aec00a924dfdfa9035998cf2f2db00c870efa)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-08-05 19:00:28] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-05 19:00:34] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-08-05 19:00:34] [ERROR] ❌ Giá H4 exception: [Errno 22] Invalid argument
+[2026-08-05 19:00:34] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-08-05 19:00:34] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-08-05 19:00:34] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
