@@ -81,8 +81,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=78.85, DXY=99.86",
-    "updated_at": "2026-08-05 13:35:26"
+    "detail": "Brent=78.85, DXY=99.861",
+    "updated_at": "2026-08-05 13:35:29"
   },
   "usda": {
     "status": "OK",
