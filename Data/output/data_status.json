@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[ERROR]",
-      "detail": "Lỗi Push: a95f6bf0dc5c2d but expected 82f1b0f92c726b6bca789d3bbf31e7719e717522)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-08-05 07:04:56"
+      "detail": "Lỗi Push: ab3b3d9e928900 but expected aea8775a90194ae2317a68f427a95f6bf0dc5c2d)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-05 07:05:12"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -64,8 +64,8 @@
     },
     "russian_metrics": {
       "status": "[OK]",
-      "detail": "Auto-fetch 21:48:41",
-      "updated_at": "2026-08-04 21:48:41"
+      "detail": "Auto-fetch 07:30:04",
+      "updated_at": "2026-08-05 07:30:04"
     },
     "blacksea_news": {
       "status": "[OK]",
