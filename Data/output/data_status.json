@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 21:00:38",
-      "updated_at": "2026-08-05 21:00:38"
+      "detail": "Auto-fetch 21:00:39",
+      "updated_at": "2026-08-05 21:00:39"
     },
     "cot": {
       "status": "PARTIAL",
@@ -82,7 +82,7 @@
   "macro": {
     "status": "OK",
     "detail": "Brent=79.55, DXY=99.761",
-    "updated_at": "2026-08-05 21:00:38"
+    "updated_at": "2026-08-05 21:00:39"
   },
   "usda": {
     "status": "OK",
