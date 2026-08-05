@@ -359,7 +359,7 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 | **Ngắn hạn** | 🐻 **Giảm (Bearish)** | EMA_21 H1 < EMA_50 H1 (Áp lực bán duy trì) | Canh vào lệnh ngắn hạn (Intraday) |
 
 *   **Giá Chốt Phiên (Close):** 645.50 cents | **Dự báo Chốt Phiên:** **`648.25 cents`** (+2.75).
-*   **Thanh khoản phiên chốt:** Volume: **`33,675`** (Chênh lệch: **`-36,833`**) | OI: **`191,819`** (Chênh lệch: **`+28`**)
+*   **Thanh khoản phiên chốt:** Volume: **`33,676`** (Chênh lệch: **`-36,832`**) | OI: **`191,819`** (Chênh lệch: **`+28`**)
 *   **Mô hình nến H1:** **`Không phát hiện mô hình nến đặc biệt`**
 *   **Dòng tiền (Volume + OI):** **`Tăng nhẹ tích lũy (Accumulation Rally)`**
 *   **Đánh giá xu hướng kết hợp:** 📈 **TÍCH LŨY TÍCH CỰC (Accumulation):** Nến đi ngang nhưng dòng tiền âm thầm gia tăng (OI tăng), báo hiệu chuẩn bị có nhịp bứt phá tăng.
