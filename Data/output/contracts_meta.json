@@ -16,7 +16,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 11971.0,
+      "today_volume": 11974.0,
       "prev_volume": 186110.0,
       "today_oi": 778602,
       "prev_oi": 512992,
@@ -53,5 +53,5 @@
       "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
     }
   },
-  "updated_at": "2026-08-05 09:00:29"
+  "updated_at": "2026-08-05 09:00:31"
 }
