@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 17:00:26",
-      "updated_at": "2026-08-06 17:00:26"
+      "detail": "Auto-fetch 20:28:37",
+      "updated_at": "2026-08-06 20:28:37"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 17:01:23 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-08-06 17:01:23"
+      "detail": "Đẩy thành công lúc 17:01:27 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-08-06 17:01:27"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -66,12 +66,32 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 17:00",
-    "updated_at": "2026-08-06 17:00:26"
+    "detail": "ZC+ZW updated at 20:28",
+    "updated_at": "2026-08-06 20:28:36"
   },
   "macro": {
     "status": "OK",
     "detail": "Brent=79.64, DXY=99.742",
     "updated_at": "2026-08-06 17:00:45"
+  },
+  "export_sales": {
+    "status": "NoData",
+    "detail": "Kỳ: None | NoData",
+    "updated_at": "2026-08-06 20:22:58"
+  },
+  "acreage": {
+    "status": "OK",
+    "detail": "ZC=95.3M, ZW=46.0M acres",
+    "updated_at": "2026-08-06 20:23:02"
+  },
+  "usda": {
+    "status": "OK",
+    "detail": "Updated: 2026-08-06 | WASDE: Jul",
+    "updated_at": "2026-08-06 20:23:13"
+  },
+  "cot": {
+    "status": "[OK] Success",
+    "detail": "",
+    "updated_at": "2026-08-06 20:23:15"
   }
 }
