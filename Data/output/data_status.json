@@ -51,6 +51,16 @@
       "status": "OK",
       "detail": "Điểm tin AI thành công",
       "updated_at": "2026-08-06 16:32:51"
+    },
+    "github_sync": {
+      "status": "[ERROR]",
+      "detail": "Lỗi Push: 2a8725a08722d3 but expected 954cb1b1ed3fc46e00ddd5f28782dcb1450924ca)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-06 17:00:31"
+    },
+    "prices_h4": {
+      "status": "[OK]",
+      "detail": "Auto-fetch 17:00:36",
+      "updated_at": "2026-08-06 17:00:36"
     }
   },
   "all_ok": true,
