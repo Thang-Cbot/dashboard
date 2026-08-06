@@ -8657,3 +8657,12 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-08-06 06:59:47] [Sync] ✅ Đồng bộ Github thành công (Cập nhật Phân tích & Giao diện (H1))!
 [2026-08-06 06:59:47] [INFO] ⏰ Đợi Giá H1: còn 0.00h (06/08 07:00:05 VN)
 [2026-08-06 06:59:48] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Cập nhật Phân tích & Giao diện (H1))...
+[2026-08-06 06:59:53] [Sync] ✅ Đồng bộ Github thành công (Cập nhật Phân tích & Giao diện (H1))!
+[2026-08-06 06:59:53] [INFO] ⏰ Đợi Giá H1: còn 0.00h (06/08 07:00:05 VN)
+[2026-08-06 07:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-08-06 07:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-08-06 07:00:21] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-08-06 07:00:21] [ERROR] ❌ Giá H1 + Macro exception: [Errno 22] Invalid argument
+[2026-08-06 07:00:21] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-06 07:00:22] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-08-06 07:00:22] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
