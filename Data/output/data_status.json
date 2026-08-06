@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 07:00:40",
-      "updated_at": "2026-08-06 07:00:40"
+      "detail": "Auto-fetch 08:00:39",
+      "updated_at": "2026-08-06 08:00:39"
     },
     "cot": {
       "status": "PARTIAL",
@@ -53,9 +53,9 @@
       "updated_at": "2026-08-06 06:32:25"
     },
     "github_sync": {
-      "status": "[ERROR]",
-      "detail": "Lỗi Push: 13f6e31e4a8c20 but expected 869960cc73cd940a38122f023a14888a1ab1aa6c)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-08-06 08:00:24"
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 08:00:36 (Nguồn: Giá H4)",
+      "updated_at": "2026-08-06 08:00:36"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -71,7 +71,7 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=79.36, DXY=99.645",
-    "updated_at": "2026-08-06 07:00:39"
+    "detail": "Brent=79.33, DXY=99.662",
+    "updated_at": "2026-08-06 08:00:39"
   }
 }
