@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 21:01:42 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-08-06 21:01:42"
+      "detail": "Đẩy thành công lúc 21:02:02 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-08-06 21:02:02"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -75,9 +75,9 @@
     "updated_at": "2026-08-06 21:01:17"
   },
   "export_sales": {
-    "status": "NoData",
-    "detail": "Kỳ: None | NoData",
-    "updated_at": "2026-08-06 20:22:58"
+    "status": "OK",
+    "detail": "Kỳ: 07/30/2026 | ZW=296,400 MT, ZC=116,700 MT",
+    "updated_at": "2026-08-06 21:58:31"
   },
   "acreage": {
     "status": "OK",
