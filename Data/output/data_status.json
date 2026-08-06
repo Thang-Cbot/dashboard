@@ -13,9 +13,9 @@
       "updated_at": "2026-08-06 17:00:26"
     },
     "macro": {
-      "status": "OK",
-      "detail": "Brent/DXY updated",
-      "updated_at": "2026-08-06 16:30:42"
+      "status": "[OK]",
+      "detail": "Auto-fetch 17:00:45",
+      "updated_at": "2026-08-06 17:00:46"
     },
     "cot": {
       "status": "PARTIAL",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[ERROR]",
-      "detail": "Lỗi Push: 2a8725a08722d3 but expected 954cb1b1ed3fc46e00ddd5f28782dcb1450924ca)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-08-06 17:00:31"
+      "detail": "Lỗi Push: 26bb6a9354aed7 but expected 4a362f29327ff9fbaa0e96be092a8725a08722d3)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-06 17:00:41"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -68,5 +68,10 @@
     "status": "OK",
     "detail": "ZC+ZW updated at 17:00",
     "updated_at": "2026-08-06 17:00:26"
+  },
+  "macro": {
+    "status": "OK",
+    "detail": "Brent=79.64, DXY=99.742",
+    "updated_at": "2026-08-06 17:00:45"
   }
 }
