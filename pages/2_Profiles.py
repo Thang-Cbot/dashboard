@@ -315,6 +315,152 @@ with _tab_d1:
             )
             st.plotly_chart(_fig_v, use_container_width=True)
 
+            # Block 3a — Bảng thống kê Tuần / Tháng / Quý
+            try:
+                # Tải D1 đầy đủ (không giới hạn 15 dòng) để tính tháng và quý
+                _d1_full = pd.read_csv(_csv_d1_path)
+                _d1_full.columns = [c.strip() for c in _d1_full.columns]
+                _dcol2 = next((c for c in _d1_full.columns if c.lower() in ['time','datetime','date','timestamp']), None)
+                if _dcol2:
+                    _d1_full[_dcol2] = pd.to_datetime(_d1_full[_dcol2], errors='coerce')
+                    _d1_full = _d1_full.dropna(subset=[_dcol2]).rename(columns={_dcol2: "Date"})
+                _d1_full["Date"] = pd.to_datetime(_d1_full["Date"])
+                _d1_full = _d1_full[_d1_full["Date"].dt.weekday < 5].sort_values("Date").reset_index(drop=True)
+                _d1_full["HL_Range"] = (_d1_full["High"] - _d1_full["Low"]).round(2)
+
+                # Tải H1 để lấy giá hiện tại realtime
+                _h1_path = DATA_OUTPUT / f"{code}_{suffix}_H1.csv"
+                _h1_last_close = None
+                _h1_last_time  = None
+                if _h1_path.exists():
+                    _dfh1_raw = pd.read_csv(_h1_path)
+                    _dfh1_raw.columns = [c.strip() for c in _dfh1_raw.columns]
+                    _tcol2 = next((c for c in _dfh1_raw.columns if c.lower() in ['time','datetime','date','timestamp']), None)
+                    if _tcol2 and "Close" in _dfh1_raw.columns:
+                        _dfh1_raw[_tcol2] = pd.to_datetime(_dfh1_raw[_tcol2], errors='coerce')
+                        _dfh1_raw = _dfh1_raw.dropna(subset=[_tcol2]).sort_values(_tcol2)
+                        _h1_last_close = float(_dfh1_raw["Close"].iloc[-1])
+                        _h1_last_time  = _dfh1_raw[_tcol2].iloc[-1].strftime("%d/%m %H:%M")
+
+                _ref = _h1_last_close if _h1_last_close else float(_d1_full["Close"].iloc[-1])
+                _ref_lbl = f"H1 ({_h1_last_time})" if _h1_last_time else "D1 Close"
+                _now_dt  = _d1_full["Date"].max()
+
+                def _period_stats(df_slice, label):
+                    if df_slice.empty:
+                        return label, "—", "—", "—", "—", "—", "—"
+                    p_open  = float(df_slice["Open"].iloc[0])
+                    p_high  = float(df_slice["High"].max())
+                    p_low   = float(df_slice["Low"].min())
+                    p_close = _ref if label == "TUẦN NÀY" else float(df_slice["Close"].iloc[-1])
+                    hl_rng  = round(p_high - p_low, 2)
+                    chg     = round(p_close - p_open, 2)
+                    chg_pct = round(chg / p_open * 100, 2) if p_open else 0
+                    avg_day_rng = round(df_slice["HL_Range"].mean(), 2) if "HL_Range" in df_slice.columns else 0
+                    return label, p_open, p_high, p_low, p_close, hl_rng, chg, chg_pct, avg_day_rng
+
+                # Tuần hiện tại (Mon→now)
+                _wk_start = _now_dt - pd.Timedelta(days=_now_dt.weekday())
+                _wk_df    = _d1_full[_d1_full["Date"] >= _wk_start]
+
+                # Tháng hiện tại
+                _mo_df = _d1_full[
+                    (_d1_full["Date"].dt.year == _now_dt.year) &
+                    (_d1_full["Date"].dt.month == _now_dt.month)
+                ]
+
+                # Tháng trước
+                _prev_mo = _now_dt.replace(day=1) - pd.Timedelta(days=1)
+                _prev_mo_df = _d1_full[
+                    (_d1_full["Date"].dt.year == _prev_mo.year) &
+                    (_d1_full["Date"].dt.month == _prev_mo.month)
+                ]
+
+                # Quý hiện tại
+                _q = (_now_dt.month - 1) // 3 + 1
+                _q_start_month = (_q - 1) * 3 + 1
+                _q_df = _d1_full[
+                    (_d1_full["Date"].dt.year == _now_dt.year) &
+                    (_d1_full["Date"].dt.month >= _q_start_month)
+                ]
+
+                # Quý trước
+                _prev_q = _q - 1
+                _prev_q_year = _now_dt.year
+                if _prev_q < 1:
+                    _prev_q = 4; _prev_q_year -= 1
+                _pq_start = (_prev_q - 1) * 3 + 1
+                _pq_end   = _prev_q * 3
+                _pq_df = _d1_full[
+                    (_d1_full["Date"].dt.year == _prev_q_year) &
+                    (_d1_full["Date"].dt.month >= _pq_start) &
+                    (_d1_full["Date"].dt.month <= _pq_end)
+                ]
+
+                periods = [
+                    _period_stats(_wk_df,   f"Tuần này (W{_now_dt.isocalendar()[1]})"),
+                    _period_stats(_mo_df,   f"Tháng {_now_dt.month}/{_now_dt.year}"),
+                    _period_stats(_prev_mo_df, f"Tháng trước ({_prev_mo.month}/{_prev_mo.year})"),
+                    _period_stats(_q_df,    f"Quý {_q}/{_now_dt.year}"),
+                    _period_stats(_pq_df,   f"Quý trước ({_prev_q}/{_prev_q_year})"),
+                ]
+
+                # Render bảng
+                st.markdown("<div style='font-size:12px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;margin-bottom:8px;margin-top:4px;'>📊 THỐNG KÊ BIÊN ĐỘ GIÁ THEO KỲ</div>", unsafe_allow_html=True)
+                _tbl = (
+                    "<table style='width:100%;border-collapse:collapse;font-size:12px;font-family:Inter,sans-serif;'>"
+                    "<thead><tr style='background:#1e293b;color:#94a3b8;'>"
+                    "<th style='padding:7px 10px;text-align:left;border-bottom:1px solid #334155;'>Kỳ</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Giá Mở</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Đỉnh (High)</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Đáy (Low)</th>"
+                    f"<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Giá Hiện Tại<br><span style='font-weight:400;font-size:10px;color:#f59e0b;'>({_ref_lbl})</span></th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Biên HL (¢)</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>ΔGiá (¢)</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>ΔGiá (%)</th>"
+                    "<th style='padding:7px 10px;text-align:right;border-bottom:1px solid #334155;'>Biên TB/ngày</th>"
+                    "</tr></thead><tbody>"
+                )
+                for r in periods:
+                    lbl, o, h, l, c, hl, chg, chg_pct, avg_rng = r
+                    if o == "—":
+                        _tbl += f"<tr style='border-bottom:1px solid #1e2d45;'><td style='padding:6px 10px;color:#64748b;' colspan='9'>{lbl} — Không có dữ liệu</td></tr>"
+                        continue
+                    _cc  = "#22c55e" if chg >= 0 else "#ef4444"
+                    _sgn = "+" if chg >= 0 else ""
+                    _is_cur = "Tuần này" in lbl or f"Tháng {_now_dt.month}" in lbl or f"Quý {_q}" in lbl
+                    _row_bg = "background:#0d1f2d;" if _is_cur else ""
+                    _fw = "font-weight:700;" if _is_cur else ""
+                    _tbl += (
+                        f"<tr style='border-bottom:1px solid #1e2d45;{_row_bg}'>"
+                        f"<td style='padding:6px 10px;color:#e2e8f0;{_fw}'>{lbl}</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:#94a3b8;'>{o:.2f}</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:#fb923c;{_fw}'>{h:.2f}</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:#a78bfa;{_fw}'>{l:.2f}</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:#e2e8f0;{_fw}'>{c:.2f}</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:#38bdf8;{_fw}'>{hl:.2f}¢</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:{_cc};{_fw}'>{_sgn}{chg:.2f}¢</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:{_cc};{_fw}'>{_sgn}{chg_pct:.2f}%</td>"
+                        f"<td style='padding:6px 10px;text-align:right;color:#64748b;'>{avg_rng:.2f}¢</td>"
+                        f"</tr>"
+                    )
+                _tbl += "</tbody></table>"
+                st.markdown(_tbl, unsafe_allow_html=True)
+                st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
+
+                # Dòng ghi chú giá H1 hiện tại
+                if _h1_last_close:
+                    _h1c = "#22c55e" if (_h1_last_close - float(_d1_full["Close"].iloc[-1])) >= 0 else "#ef4444"
+                    st.markdown(
+                        f"<div style='font-size:11px;color:#64748b;margin-bottom:10px;'>"
+                        f"📡 Giá H1 mới nhất: <b style='color:{_h1c}'>{_h1_last_close:.2f}¢</b>"
+                        f" &nbsp;(cập nhật lúc {_h1_last_time} VN) — Dùng làm giá hiện tại cho các kỳ đang chạy"
+                        f"</div>",
+                        unsafe_allow_html=True
+                    )
+            except Exception as _se:
+                st.warning(f"Lỗi bảng thống kê kỳ: {_se}")
+
             # Block 3 — Bảng chi tiết
             st.markdown("<div style='font-size:12px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;margin-bottom:8px;'>📋 BẢNG CHI TIẾT TỪNG NGÀY</div>", unsafe_allow_html=True)
             _th = ("<table style='width:100%;border-collapse:collapse;font-size:12px;font-family:Inter,sans-serif;'>"
