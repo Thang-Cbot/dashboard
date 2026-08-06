@@ -53,9 +53,9 @@
       "updated_at": "2026-08-06 06:32:25"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 08:00:36 (Nguồn: Giá H4)",
-      "updated_at": "2026-08-06 08:00:36"
+      "status": "[ERROR]",
+      "detail": "Lỗi Push: 432b3065f01d33 but expected f282f8cc395796233064eadea4807e2e6d81e484)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
+      "updated_at": "2026-08-06 08:00:43"
     },
     "prices_h4": {
       "status": "[OK]",
