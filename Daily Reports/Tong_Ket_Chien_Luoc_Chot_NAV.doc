@@ -51,6 +51,36 @@ p, li { font-size: 14pt; }
     <li><b>2025:</b> Nhịp nhúng thủng đáy giả (Judas Swing) vào giữa tuần cuối tháng để lấy thanh khoản trước khi kéo lên vào ngày chốt.</li>
 </ul>
 
+<h2>V. CHIẾN LƯỢC ROLLOVER KỲ HẠN (LỆNH: RUN ROLL)</h2>
+<p>Bên cạnh việc chốt NAV, những tháng đáo hạn (ví dụ Tháng 8 chuẩn bị Roll sang Tháng 12) chịu chi phối bởi việc các quỹ chuyển vị thế. Giao thức <b>RUN ROLL</b> tập trung bóc tách sự kiện này dựa trên Mô hình Định giá và Thanh khoản.</p>
+
+<h3>1. Mô Hình Định Giá "Phần Bù Rủi Ro" (Risk Premium Model)</h3>
+<ul>
+    <li><b>Công thức Quỹ thuật toán:</b> Giá Thực Tế = Giá Cơ Sở (Chi phí cận biên/Hỗ trợ vật lý) + War Premium + Weather Premium.</li>
+    <li><b>Ví dụ tháng 08/2026:</b> Giá Cơ Sở (Base Price) = 575. Premium rủi ro (Biển Đen + El Nino) tột đỉnh là 10% => Giá trị hợp lý tối đa = ~632 cents. Bất cứ mức giá nào bơm thổi trên 632 đều là "Bong bóng FOMO".</li>
+    <li><b>Chiết khấu Rủi ro (Discount):</b> Khi tình hình thực tế ổn định hơn, quỹ sẽ tự động cấn trừ Premium (ví dụ đưa Premium về 3%). Lúc này Đáy Golden Zone thực sự sẽ bị đẩy lùi về sát mức <b>592 cents</b> (575 + 3%).</li>
+</ul>
+
+<h3>2. Cơ Chế "Legging" Chủ Động Của Big Money</h3>
+<ul>
+    <li>Các quỹ lớn KHÔNG Bấm nút cuộn (Roll) 2 chiều cùng lúc. Họ quản trị rủi ro bằng cách đi từng chân lệnh (Legging).</li>
+    <li>Phe ôm Long (hoảng sợ vì đu đỉnh bong bóng) sẽ <b>Bán xả Hợp đồng hiện tại (Tháng 9) trước</b>, gây ra áp lực giảm giá tàn khốc ở nửa đầu tháng Roll.</li>
+    <li>Họ sẽ cầm tiền mặt đứng ngoài, kiên nhẫn chờ giá bị đè bẹp xuống vùng Base Price (cạn kiệt Premium). Tại điểm <b>Golden Zone</b> này, họ mới tung lệnh <b>Mua Hợp đồng kỳ hạn sau (Tháng 12)</b>.</li>
+</ul>
+
+<h3>3. Ứng Dụng Thực Chiến Kéo Kết Hợp Bảng Thống Kê Biên Độ (Streamlit)</h3>
+<ul>
+    <li><b>Nửa đầu tháng Roll:</b> Tuyệt đối Không bắt đáy. Canh các nhịp Pullback chạm vào FVG ở khung H1 để <b>Bán khống (Short)</b> theo đà tháo chạy của phe Long.</li>
+    <li><b>Nửa cuối tháng Roll (Bắt Đáy Golden Zone):</b>
+        <ol>
+            <li>Giá rớt vào vùng định giá (Base Price ~590-595).</li>
+            <li>Cột <i>Biên độ HL Tháng hiện tại</i> trên Streamlit chạm ngưỡng 85-90% so với trung bình, xác nhận phe Long đã hết hàng để xả.</li>
+            <li>Xuất hiện nhúng đáy <b>Judas Swing</b> tại H4/H1 dọn thanh khoản.</li>
+        </ol>
+        => Thỏa mãn 3 yếu tố: Kích hoạt lệnh <b>MUA GOM (Long) Hợp đồng kỳ hạn sau (Tháng 12)</b> ôm dài hạn.
+    </li>
+</ul>
+
 <hr>
 <p><i>Tài liệu này đóng vai trò như một giáo trình cơ sở. Nó sẽ tiếp tục được "nâng cấp" và tinh chỉnh sau mỗi kỳ chốt sổ thực tế của thị trường trong tương lai.</i></p>
 </body>
