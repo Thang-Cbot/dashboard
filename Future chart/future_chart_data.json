@@ -3,9 +3,9 @@
     "meta": {
       "symbol": "ZC",
       "contract": "ZCU26 (September 2026)",
-      "anchor_price": 436.25,
-      "generated_at": "2026-08-06 23:01:16",
-      "forecast_week": "August 03-07, 2026",
+      "anchor_price": 440.5,
+      "generated_at": "2026-08-07 07:33:31",
+      "forecast_week": "August 10-14, 2026",
       "composite_bias": 3.6,
       "detailed_scores": {
         "V3_Technical": 0.3,
@@ -36,463 +36,366 @@
       },
       "action_plan": "ZC BULLISH BIAS nhờ Pollination Risk Premium. Long tại S1 418.75 khi pullback. THEO DÕI: Weather model Midwest hàng ngày + G/E thứ 2 tới. Target: 430-435¢ nếu heat stress xác nhận. EIA Ethanol thứ 4 là phiên vol cao nhất."
     },
-    "actual_data": [
-      {
-        "label": "Mon 07-11",
-        "price": 437.25
-      },
-      {
-        "label": "Mon 11-15",
-        "price": 437.75
-      },
-      {
-        "label": "Mon 15-19",
-        "price": 438.25
-      },
-      {
-        "label": "Mon 19-21",
-        "price": 439.25
-      },
-      {
-        "label": "Mon 21-23",
-        "price": 445.5
-      },
-      {
-        "label": "Mon 23-01",
-        "price": 447.5
-      },
-      {
-        "label": "Tue 07-11",
-        "price": 450.75
-      },
-      {
-        "label": "Tue 11-15",
-        "price": 450.25
-      },
-      {
-        "label": "Tue 15-19",
-        "price": 449.0
-      },
-      {
-        "label": "Tue 19-21",
-        "price": 446.0
-      },
-      {
-        "label": "Tue 21-23",
-        "price": 442.5
-      },
-      {
-        "label": "Tue 23-01",
-        "price": 446.75
-      },
-      {
-        "label": "Wed 07-11",
-        "price": 440.0
-      },
-      {
-        "label": "Wed 11-15",
-        "price": 440.5
-      },
-      {
-        "label": "Wed 15-19",
-        "price": 437.5
-      },
-      {
-        "label": "Wed 19-21",
-        "price": 438.25
-      },
-      {
-        "label": "Wed 21-23",
-        "price": 436.75
-      },
-      {
-        "label": "Wed 23-01",
-        "price": 441.0
-      },
-      {
-        "label": "Thu 07-11",
-        "price": 438.0
-      },
-      {
-        "label": "Thu 11-15",
-        "price": 438.0
-      },
-      {
-        "label": "Thu 15-19",
-        "price": 437.25
-      },
-      {
-        "label": "Thu 19-21",
-        "price": 437.0
-      },
-      {
-        "label": "Thu 21-23",
-        "price": 436.5
-      },
-      {
-        "label": "Thu 23-01",
-        "price": 437.5
-      }
-    ],
+    "actual_data": [],
     "candles_4h": [
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "Asia 07-11",
-        "open": 436.25,
-        "high": 440.0,
-        "low": 433.0,
-        "close": 436.5,
+        "open": 440.5,
+        "high": 444.25,
+        "low": 437.25,
+        "close": 440.75,
         "net_change": 0.25,
         "bias": "🟢 BULL",
         "scenario": "USDA G/E 68% + Silking Window Bắt Đầu",
         "logic": "USDA Crop Progress: G/E Ngô 68% (ổn định). QUAN TRỌNG HƠN: Silking (thụ phấn) bắt đầu tại Iowa/Illinois — đây là giai đoạn NHẠY CẢM NHẤT với nhiệt độ. Mỗi ngày >35°C trong tuần này có thể phá hủy 2-5% năng suất. Pollination Risk Premium được xây dựng từ phiên NY."
       },
       {
-        "day": "Mon 03/08",
-        "session": "Asia 11-15",
-        "open": 436.5,
-        "high": 439.25,
-        "low": 432.75,
-        "close": 436.0,
-        "net_change": -0.5,
-        "bias": "🔴 BEAR"
-      },
-      {
-        "day": "Mon 03/08",
-        "session": "London 15-19",
-        "open": 436.0,
-        "high": 439.0,
-        "low": 432.0,
-        "close": 436.75,
-        "net_change": 0.75,
-        "bias": "🟢 BULL"
-      },
-      {
-        "day": "Mon 03/08",
-        "session": "Pre-NY 19-21",
-        "open": 436.75,
-        "high": 441.25,
-        "low": 431.75,
-        "close": 437.5,
-        "net_change": 0.75,
-        "bias": "🟢 BULL"
-      },
-      {
-        "day": "Mon 03/08",
-        "session": "NY Open 21-23",
-        "open": 437.5,
-        "high": 443.0,
-        "low": 431.25,
-        "close": 439.75,
-        "net_change": 2.25,
-        "bias": "🟢 BULL"
-      },
-      {
-        "day": "Mon 03/08",
-        "session": "NY Close 23-01",
-        "open": 439.75,
-        "high": 442.75,
-        "low": 435.5,
-        "close": 440.0,
-        "net_change": 0.25,
-        "bias": "🟢 BULL"
-      },
-      {
-        "day": "Tue 04/08",
-        "session": "Asia 07-11",
-        "open": 440.0,
-        "high": 443.25,
-        "low": 433.5,
-        "close": 440.75,
-        "net_change": 0.75,
-        "bias": "🟢 BULL",
-        "scenario": "Phản ứng USDA Ngô",
-        "logic": "Thị trường tiêu hóa USDA Crop Progress. Pollination Risk Premium duy trì lực mua. Giá kiểm tra vùng R1 422.00."
-      },
-      {
-        "day": "Tue 04/08",
+        "day": "Mon 10/08",
         "session": "Asia 11-15",
         "open": 440.75,
-        "high": 443.75,
-        "low": 436.25,
+        "high": 443.5,
+        "low": 437.0,
         "close": 440.25,
         "net_change": -0.5,
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Mon 10/08",
         "session": "London 15-19",
         "open": 440.25,
-        "high": 444.25,
-        "low": 434.5,
-        "close": 440.75,
-        "net_change": 0.5,
-        "bias": "🟢 BULL"
-      },
-      {
-        "day": "Tue 04/08",
-        "session": "Pre-NY 19-21",
-        "open": 440.75,
         "high": 443.25,
-        "low": 437.5,
-        "close": 441.25,
+        "low": 436.25,
+        "close": 441.0,
+        "net_change": 0.75,
+        "bias": "🟢 BULL"
+      },
+      {
+        "day": "Mon 10/08",
+        "session": "Pre-NY 19-21",
+        "open": 441.0,
+        "high": 445.5,
+        "low": 436.0,
+        "close": 441.75,
+        "net_change": 0.75,
+        "bias": "🟢 BULL"
+      },
+      {
+        "day": "Mon 10/08",
+        "session": "NY Open 21-23",
+        "open": 441.75,
+        "high": 447.25,
+        "low": 435.5,
+        "close": 444.0,
+        "net_change": 2.25,
+        "bias": "🟢 BULL"
+      },
+      {
+        "day": "Mon 10/08",
+        "session": "NY Close 23-01",
+        "open": 444.0,
+        "high": 447.0,
+        "low": 439.75,
+        "close": 444.25,
+        "net_change": 0.25,
+        "bias": "🟢 BULL"
+      },
+      {
+        "day": "Tue 11/08",
+        "session": "Asia 07-11",
+        "open": 444.25,
+        "high": 447.5,
+        "low": 437.75,
+        "close": 445.0,
+        "net_change": 0.75,
+        "bias": "🟢 BULL",
+        "scenario": "Phản ứng USDA Ngô",
+        "logic": "Thị trường tiêu hóa USDA Crop Progress. Pollination Risk Premium duy trì lực mua. Giá kiểm tra vùng R1 422.00."
+      },
+      {
+        "day": "Tue 11/08",
+        "session": "Asia 11-15",
+        "open": 445.0,
+        "high": 448.0,
+        "low": 440.5,
+        "close": 444.5,
+        "net_change": -0.5,
+        "bias": "🔴 BEAR"
+      },
+      {
+        "day": "Tue 11/08",
+        "session": "London 15-19",
+        "open": 444.5,
+        "high": 448.5,
+        "low": 438.75,
+        "close": 445.0,
         "net_change": 0.5,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
+        "session": "Pre-NY 19-21",
+        "open": 445.0,
+        "high": 447.5,
+        "low": 441.75,
+        "close": 445.5,
+        "net_change": 0.5,
+        "bias": "🟢 BULL"
+      },
+      {
+        "day": "Tue 11/08",
         "session": "NY Open 21-23",
-        "open": 441.25,
-        "high": 444.75,
-        "low": 435.25,
-        "close": 442.25,
+        "open": 445.5,
+        "high": 449.0,
+        "low": 439.5,
+        "close": 446.5,
         "net_change": 1.0,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "NY Close 23-01",
-        "open": 442.25,
-        "high": 445.0,
-        "low": 439.75,
-        "close": 442.25,
+        "open": 446.5,
+        "high": 449.25,
+        "low": 444.0,
+        "close": 446.5,
         "net_change": 0.0,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "Asia 07-11",
-        "open": 442.25,
-        "high": 445.0,
-        "low": 439.75,
-        "close": 441.75,
+        "open": 446.5,
+        "high": 449.25,
+        "low": 444.0,
+        "close": 446.0,
         "net_change": -0.5,
         "bias": "🔴 BEAR",
         "scenario": "EIA Ethanol + 7-Day Heat Forecast Update",
         "logic": "EIA Ethanol Production (thứ 4): Kỳ vọng ~1.05 triệu thùng/ngày (tốt hơn 1.04 tuần trước). QUAN TRỌNG HƠN: 7-Day weather model GFS/Euro cập nhật — nếu dự báo nhiệt độ >35°C tại Iowa trong 5-7 ngày tới trong giai đoạn Silking peak → Pollination Risk Premium tăng đột biến 5-10¢. Đây là phiên biến động nhất tuần cho ZC."
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "Asia 11-15",
-        "open": 441.75,
-        "high": 444.75,
-        "low": 438.5,
-        "close": 441.5,
+        "open": 446.0,
+        "high": 449.0,
+        "low": 442.75,
+        "close": 445.75,
         "net_change": -0.25,
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "London 15-19",
-        "open": 441.5,
-        "high": 445.5,
-        "low": 436.25,
-        "close": 442.0,
+        "open": 445.75,
+        "high": 449.75,
+        "low": 440.5,
+        "close": 446.25,
         "net_change": 0.5,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "Pre-NY 19-21",
-        "open": 442.0,
-        "high": 446.75,
-        "low": 435.0,
-        "close": 444.0,
+        "open": 446.25,
+        "high": 451.0,
+        "low": 439.25,
+        "close": 448.25,
         "net_change": 2.0,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "NY Open 21-23",
-        "open": 444.0,
-        "high": 452.0,
-        "low": 437.0,
-        "close": 445.5,
+        "open": 448.25,
+        "high": 456.25,
+        "low": 441.25,
+        "close": 449.75,
         "net_change": 1.5,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "NY Close 23-01",
-        "open": 445.5,
-        "high": 450.0,
-        "low": 441.25,
-        "close": 445.0,
+        "open": 449.75,
+        "high": 454.25,
+        "low": 445.5,
+        "close": 449.25,
         "net_change": -0.5,
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "Asia 07-11",
-        "open": 445.0,
-        "high": 447.25,
-        "low": 442.25,
-        "close": 444.75,
+        "open": 449.25,
+        "high": 451.5,
+        "low": 446.5,
+        "close": 449.0,
         "net_change": -0.25,
         "bias": "🔴 BEAR",
         "scenario": "Export Sales Weekly - Trung Bình",
         "logic": "Export Sales ngô tuần này ổn định. Brazil vẫn cạnh tranh nhưng Pollination Risk Premium hỗ trợ floor giá. Thị trường chờ xác nhận từ weather model."
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "Asia 11-15",
-        "open": 444.75,
-        "high": 446.75,
-        "low": 440.25,
-        "close": 445.0,
+        "open": 449.0,
+        "high": 451.0,
+        "low": 444.5,
+        "close": 449.25,
         "net_change": 0.25,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "London 15-19",
-        "open": 445.0,
-        "high": 448.75,
-        "low": 442.25,
-        "close": 445.5,
+        "open": 449.25,
+        "high": 453.0,
+        "low": 446.5,
+        "close": 449.75,
         "net_change": 0.5,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "Pre-NY 19-21",
-        "open": 445.5,
-        "high": 448.5,
-        "low": 441.0,
-        "close": 445.75,
+        "open": 449.75,
+        "high": 452.75,
+        "low": 445.25,
+        "close": 450.0,
         "net_change": 0.25,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "NY Open 21-23",
-        "open": 445.75,
-        "high": 450.0,
-        "low": 442.5,
-        "close": 446.5,
+        "open": 450.0,
+        "high": 454.25,
+        "low": 446.75,
+        "close": 450.75,
         "net_change": 0.75,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "NY Close 23-01",
-        "open": 446.5,
-        "high": 450.0,
-        "low": 444.25,
-        "close": 446.5,
+        "open": 450.75,
+        "high": 454.25,
+        "low": 448.5,
+        "close": 450.75,
         "net_change": 0.0,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "Asia 07-11",
-        "open": 446.5,
-        "high": 450.25,
-        "low": 443.0,
-        "close": 446.25,
+        "open": 450.75,
+        "high": 454.5,
+        "low": 447.25,
+        "close": 450.5,
         "net_change": -0.25,
         "bias": "🔴 BEAR",
         "scenario": "Đóng vị thế cuối tuần",
         "logic": "Ngô không có catalyst mới cuối tuần. Giá dao động hẹp. Weather outlook tuần tới sẽ quyết định hướng đi tiếp theo của Pollination Risk Premium."
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "Asia 11-15",
-        "open": 446.25,
-        "high": 449.75,
-        "low": 443.0,
-        "close": 446.0,
+        "open": 450.5,
+        "high": 454.0,
+        "low": 447.25,
+        "close": 450.25,
         "net_change": -0.25,
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "London 15-19",
-        "open": 446.0,
-        "high": 449.0,
-        "low": 443.25,
-        "close": 446.25,
+        "open": 450.25,
+        "high": 453.25,
+        "low": 447.5,
+        "close": 450.5,
         "net_change": 0.25,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "Pre-NY 19-21",
-        "open": 446.25,
-        "high": 449.25,
-        "low": 443.5,
-        "close": 446.25,
+        "open": 450.5,
+        "high": 453.5,
+        "low": 447.75,
+        "close": 450.5,
         "net_change": 0.0,
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "NY Open 21-23",
-        "open": 446.25,
-        "high": 450.25,
-        "low": 442.75,
-        "close": 446.75,
+        "open": 450.5,
+        "high": 454.5,
+        "low": 447.0,
+        "close": 451.0,
         "net_change": 0.5,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "NY Close 23-01",
-        "open": 446.75,
-        "high": 450.75,
-        "low": 445.0,
-        "close": 446.5,
+        "open": 451.0,
+        "high": 455.0,
+        "low": 449.25,
+        "close": 450.75,
         "net_change": -0.25,
         "bias": "🔴 BEAR"
       }
     ],
     "daily_summary": {
-      "Mon 03/08": {
-        "open": 436.25,
-        "high": 443.0,
-        "low": 431.25,
-        "close": 440.0,
+      "Mon 10/08": {
+        "open": 440.5,
+        "high": 447.25,
+        "low": 435.5,
+        "close": 444.25,
         "scenario": "USDA G/E 68% + Silking Window Bắt Đầu",
         "logic": "USDA Crop Progress: G/E Ngô 68% (ổn định). QUAN TRỌNG HƠN: Silking (thụ phấn) bắt đầu tại Iowa/Illinois — đây là giai đoạn NHẠY CẢM NHẤT với nhiệt độ. Mỗi ngày >35°C trong tuần này có thể phá hủy 2-5% năng suất. Pollination Risk Premium được xây dựng từ phiên NY."
       },
-      "Tue 04/08": {
-        "open": 440.0,
-        "high": 445.0,
-        "low": 433.5,
-        "close": 442.25,
+      "Tue 11/08": {
+        "open": 444.25,
+        "high": 449.25,
+        "low": 437.75,
+        "close": 446.5,
         "scenario": "Phản ứng USDA Ngô",
         "logic": "Thị trường tiêu hóa USDA Crop Progress. Pollination Risk Premium duy trì lực mua. Giá kiểm tra vùng R1 422.00."
       },
-      "Wed 05/08": {
-        "open": 442.25,
-        "high": 452.0,
-        "low": 435.0,
-        "close": 445.0,
+      "Wed 12/08": {
+        "open": 446.5,
+        "high": 456.25,
+        "low": 439.25,
+        "close": 449.25,
         "scenario": "EIA Ethanol + 7-Day Heat Forecast Update",
         "logic": "EIA Ethanol Production (thứ 4): Kỳ vọng ~1.05 triệu thùng/ngày (tốt hơn 1.04 tuần trước). QUAN TRỌNG HƠN: 7-Day weather model GFS/Euro cập nhật — nếu dự báo nhiệt độ >35°C tại Iowa trong 5-7 ngày tới trong giai đoạn Silking peak → Pollination Risk Premium tăng đột biến 5-10¢. Đây là phiên biến động nhất tuần cho ZC."
       },
-      "Thu 06/08": {
-        "open": 445.0,
-        "high": 450.0,
-        "low": 440.25,
-        "close": 446.5,
+      "Thu 13/08": {
+        "open": 449.25,
+        "high": 454.25,
+        "low": 444.5,
+        "close": 450.75,
         "scenario": "Export Sales Weekly - Trung Bình",
         "logic": "Export Sales ngô tuần này ổn định. Brazil vẫn cạnh tranh nhưng Pollination Risk Premium hỗ trợ floor giá. Thị trường chờ xác nhận từ weather model."
       },
-      "Fri 07/08": {
-        "open": 446.5,
-        "high": 450.75,
-        "low": 442.75,
-        "close": 446.5,
+      "Fri 14/08": {
+        "open": 450.75,
+        "high": 455.0,
+        "low": 447.0,
+        "close": 450.75,
         "scenario": "Đóng vị thế cuối tuần",
         "logic": "Ngô không có catalyst mới cuối tuần. Giá dao động hẹp. Weather outlook tuần tới sẽ quyết định hướng đi tiếp theo của Pollination Risk Premium."
       }
     },
     "week_forecast": {
-      "open": 436.25,
-      "close": 446.5,
-      "high": 452.0,
-      "low": 431.25,
+      "open": 440.5,
+      "close": 450.75,
+      "high": 456.25,
+      "low": 435.5,
       "net_change": 10.25,
       "direction": "BULLISH"
     },
@@ -502,9 +405,9 @@
     "meta": {
       "symbol": "ZW",
       "contract": "ZWU26 (September 2026)",
-      "anchor_price": 630.25,
-      "generated_at": "2026-08-06 23:01:16",
-      "forecast_week": "August 03-07, 2026",
+      "anchor_price": 629.0,
+      "generated_at": "2026-08-07 07:33:31",
+      "forecast_week": "August 10-14, 2026",
       "composite_bias": 5.9,
       "detailed_scores": {
         "V3_Technical": 0.8,
@@ -534,463 +437,366 @@
       },
       "action_plan": "ZW MIXED/BULLISH NHẸ tuần 22-26/06. Đã qua giai đoạn Short-Squeeze dễ nhất (tuần trước). Tuyệt đối không FOMO Long đuổi. Chờ giá Pullback rõ rệt về S1 (600-605¢) mới giải ngân. Đề phòng phe Short đã cắt lỗ xong và bắt đầu chốt lời Long ngắn hạn."
     },
-    "actual_data": [
-      {
-        "label": "Mon 07-11",
-        "price": 636.0
-      },
-      {
-        "label": "Mon 11-15",
-        "price": 636.25
-      },
-      {
-        "label": "Mon 15-19",
-        "price": 638.5
-      },
-      {
-        "label": "Mon 19-21",
-        "price": 639.0
-      },
-      {
-        "label": "Mon 21-23",
-        "price": 645.5
-      },
-      {
-        "label": "Mon 23-01",
-        "price": 650.5
-      },
-      {
-        "label": "Tue 07-11",
-        "price": 650.0
-      },
-      {
-        "label": "Tue 11-15",
-        "price": 651.5
-      },
-      {
-        "label": "Tue 15-19",
-        "price": 650.0
-      },
-      {
-        "label": "Tue 19-21",
-        "price": 641.5
-      },
-      {
-        "label": "Tue 21-23",
-        "price": 637.0
-      },
-      {
-        "label": "Tue 23-01",
-        "price": 647.5
-      },
-      {
-        "label": "Wed 07-11",
-        "price": 636.0
-      },
-      {
-        "label": "Wed 11-15",
-        "price": 637.75
-      },
-      {
-        "label": "Wed 15-19",
-        "price": 639.5
-      },
-      {
-        "label": "Wed 19-21",
-        "price": 646.5
-      },
-      {
-        "label": "Wed 21-23",
-        "price": 645.0
-      },
-      {
-        "label": "Wed 23-01",
-        "price": 641.0
-      },
-      {
-        "label": "Thu 07-11",
-        "price": 643.0
-      },
-      {
-        "label": "Thu 11-15",
-        "price": 642.0
-      },
-      {
-        "label": "Thu 15-19",
-        "price": 645.0
-      },
-      {
-        "label": "Thu 19-21",
-        "price": 642.5
-      },
-      {
-        "label": "Thu 21-23",
-        "price": 632.0
-      },
-      {
-        "label": "Thu 23-01",
-        "price": 644.5
-      }
-    ],
+    "actual_data": [],
     "candles_4h": [
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "Asia 07-11",
-        "open": 630.25,
-        "high": 641.5,
-        "low": 624.75,
-        "close": 629.5,
+        "open": 629.0,
+        "high": 640.25,
+        "low": 623.5,
+        "close": 628.25,
         "net_change": -0.75,
         "bias": "🔴 BEAR",
         "scenario": "USDA Crop Progress + Hấp Thụ Short-Covering",
         "logic": "USDA Crop Progress: G/E lúa mì duy trì 27%. LƯU Ý: Đà tăng tuần qua đã xả bớt phần lớn vị thế Short của Quỹ. Không nên kỳ vọng một cú Squeeze sốc mới, thị trường sẽ tăng chậm lại hoặc có nhịp Pullback chốt lời."
       },
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "Asia 11-15",
-        "open": 629.5,
-        "high": 637.0,
-        "low": 623.5,
-        "close": 629.0,
+        "open": 628.25,
+        "high": 635.75,
+        "low": 622.25,
+        "close": 627.75,
         "net_change": -0.5,
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "London 15-19",
-        "open": 629.0,
-        "high": 642.75,
-        "low": 614.25,
-        "close": 631.0,
+        "open": 627.75,
+        "high": 641.5,
+        "low": 613.0,
+        "close": 629.75,
         "net_change": 2.0,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "Pre-NY 19-21",
-        "open": 631.0,
-        "high": 644.25,
-        "low": 622.75,
-        "close": 632.25,
+        "open": 629.75,
+        "high": 643.0,
+        "low": 621.5,
+        "close": 631.0,
         "net_change": 1.25,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "NY Open 21-23",
-        "open": 632.25,
-        "high": 648.75,
-        "low": 621.75,
-        "close": 636.75,
+        "open": 631.0,
+        "high": 647.5,
+        "low": 620.5,
+        "close": 635.5,
         "net_change": 4.5,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "NY Close 23-01",
-        "open": 636.75,
-        "high": 644.5,
-        "low": 625.75,
-        "close": 638.0,
+        "open": 635.5,
+        "high": 643.25,
+        "low": 624.5,
+        "close": 636.75,
         "net_change": 1.25,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "Asia 07-11",
-        "open": 638.0,
-        "high": 646.25,
-        "low": 627.5,
-        "close": 639.75,
+        "open": 636.75,
+        "high": 645.0,
+        "low": 626.25,
+        "close": 638.5,
         "net_change": 1.75,
         "bias": "🟢 BULL",
         "scenario": "El Niño + Australia Planting Risk",
         "logic": "El Niño xác nhận tháng 6/2026 → dự báo hạn hán tại Australia mùa gieo hạt Jul-Sep. Lịch sử: El Niño + Australia hạn hán = giảm 15-20% sản lượng lúa mì Australia. Đây là yếu tố cung dài hạn cực kỳ bullish cho ZW Q4 2026."
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "Asia 11-15",
-        "open": 639.75,
-        "high": 652.0,
-        "low": 630.0,
-        "close": 638.75,
+        "open": 638.5,
+        "high": 650.75,
+        "low": 628.75,
+        "close": 637.5,
         "net_change": -1.0,
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "London 15-19",
-        "open": 638.75,
-        "high": 649.25,
-        "low": 624.0,
-        "close": 641.0,
+        "open": 637.5,
+        "high": 648.0,
+        "low": 622.75,
+        "close": 639.75,
         "net_change": 2.25,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "Pre-NY 19-21",
-        "open": 641.0,
-        "high": 651.5,
-        "low": 634.75,
-        "close": 641.75,
+        "open": 639.75,
+        "high": 650.25,
+        "low": 633.5,
+        "close": 640.5,
         "net_change": 0.75,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "NY Open 21-23",
-        "open": 641.75,
-        "high": 656.0,
-        "low": 627.0,
-        "close": 643.75,
+        "open": 640.5,
+        "high": 654.75,
+        "low": 625.75,
+        "close": 642.5,
         "net_change": 2.0,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "NY Close 23-01",
-        "open": 643.75,
-        "high": 650.25,
-        "low": 637.0,
-        "close": 644.0,
+        "open": 642.5,
+        "high": 649.0,
+        "low": 635.75,
+        "close": 642.75,
         "net_change": 0.25,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "Asia 07-11",
-        "open": 644.0,
-        "high": 654.25,
-        "low": 636.0,
-        "close": 644.5,
+        "open": 642.75,
+        "high": 653.0,
+        "low": 634.75,
+        "close": 643.25,
         "net_change": 0.5,
         "bias": "🟢 BULL",
         "scenario": "Nga Khô Hạn + Consolidation",
         "logic": "Báo cáo vệ tinh xác nhận hạn hán cục bộ tại Krasnodar/Rostov (Nga) — khu vực sản xuất lúa mì chất lượng cao. Nga vẫn là nguồn cung lớn nhất thế giới, bất kỳ giảm sản lượng nào cũng tác động mạnh đến giá. Thị trường consolidate chờ Export Sales thứ Năm."
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "Asia 11-15",
-        "open": 644.5,
-        "high": 651.5,
-        "low": 638.5,
-        "close": 643.75,
+        "open": 643.25,
+        "high": 650.25,
+        "low": 637.25,
+        "close": 642.5,
         "net_change": -0.75,
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "London 15-19",
-        "open": 643.75,
-        "high": 657.25,
-        "low": 630.75,
-        "close": 645.5,
+        "open": 642.5,
+        "high": 656.0,
+        "low": 629.5,
+        "close": 644.25,
         "net_change": 1.75,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "Pre-NY 19-21",
-        "open": 645.5,
-        "high": 654.75,
-        "low": 634.75,
-        "close": 646.0,
+        "open": 644.25,
+        "high": 653.5,
+        "low": 633.5,
+        "close": 644.75,
         "net_change": 0.5,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "NY Open 21-23",
-        "open": 646.0,
-        "high": 658.25,
-        "low": 631.75,
-        "close": 644.5,
+        "open": 644.75,
+        "high": 657.0,
+        "low": 630.5,
+        "close": 643.25,
         "net_change": -1.5,
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "NY Close 23-01",
-        "open": 644.5,
-        "high": 651.5,
-        "low": 635.0,
-        "close": 645.0,
+        "open": 643.25,
+        "high": 650.25,
+        "low": 633.75,
+        "close": 643.75,
         "net_change": 0.5,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "Asia 07-11",
-        "open": 645.0,
-        "high": 655.5,
-        "low": 637.75,
-        "close": 644.75,
+        "open": 643.75,
+        "high": 654.25,
+        "low": 636.5,
+        "close": 643.5,
         "net_change": -0.25,
         "bias": "🔴 BEAR",
         "scenario": "Export Sales + Egypt Tender - QUAN TRỌNG",
         "logic": "Export Sales lúa mì tuần 23-27/06: Kỳ vọng Egypt, Philippines và Bangladesh quay lại mua lúa mì Mỹ khi giá HRW cạnh tranh hơn so với Nga (Nga vừa tăng thuế xuất khẩu). Data ~20:30 ICT là catalyst lớn nhất tuần. G/E 27% đảm bảo supply tight dài hạn."
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "Asia 11-15",
+        "open": 643.5,
+        "high": 653.25,
+        "low": 633.75,
+        "close": 644.0,
+        "net_change": 0.5,
+        "bias": "🟢 BULL"
+      },
+      {
+        "day": "Thu 13/08",
+        "session": "London 15-19",
+        "open": 644.0,
+        "high": 654.75,
+        "low": 636.75,
+        "close": 644.75,
+        "net_change": 0.75,
+        "bias": "🟢 BULL"
+      },
+      {
+        "day": "Thu 13/08",
+        "session": "Pre-NY 19-21",
         "open": 644.75,
-        "high": 654.5,
-        "low": 635.0,
+        "high": 651.25,
+        "low": 636.25,
         "close": 645.25,
         "net_change": 0.5,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Thu 06/08",
-        "session": "London 15-19",
-        "open": 645.25,
-        "high": 656.0,
-        "low": 638.0,
-        "close": 646.0,
-        "net_change": 0.75,
-        "bias": "🟢 BULL"
-      },
-      {
-        "day": "Thu 06/08",
-        "session": "Pre-NY 19-21",
-        "open": 646.0,
-        "high": 652.5,
-        "low": 637.5,
-        "close": 646.5,
-        "net_change": 0.5,
-        "bias": "🟢 BULL"
-      },
-      {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "NY Open 21-23",
-        "open": 646.5,
-        "high": 657.5,
-        "low": 634.75,
-        "close": 650.0,
+        "open": 645.25,
+        "high": 656.25,
+        "low": 633.5,
+        "close": 648.75,
         "net_change": 3.5,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "NY Close 23-01",
-        "open": 650.0,
-        "high": 655.5,
-        "low": 642.25,
-        "close": 650.75,
+        "open": 648.75,
+        "high": 654.25,
+        "low": 641.0,
+        "close": 649.5,
         "net_change": 0.75,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "Asia 07-11",
-        "open": 650.75,
-        "high": 660.0,
-        "low": 644.25,
-        "close": 650.0,
+        "open": 649.5,
+        "high": 658.75,
+        "low": 643.0,
+        "close": 648.75,
         "net_change": -0.75,
         "bias": "🔴 BEAR",
         "scenario": "Quarterly Options Expiry — Chốt tuần",
         "logic": "Quarterly options expiry tạo biến động xung quanh các mức strike lớn (~610¢, ~620¢). Fund đóng một phần Long để book profit. Nhưng nền tảng cơ bản vẫn bullish: G/E 27%, El Niño Australia, Nga khô hạn — dự kiến tuần tiếp theo tiếp tục tăng."
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "Asia 11-15",
-        "open": 650.0,
-        "high": 657.5,
-        "low": 644.0,
-        "close": 649.0,
+        "open": 648.75,
+        "high": 656.25,
+        "low": 642.75,
+        "close": 647.75,
         "net_change": -1.0,
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "London 15-19",
-        "open": 649.0,
-        "high": 656.0,
-        "low": 635.5,
-        "close": 649.75,
+        "open": 647.75,
+        "high": 654.75,
+        "low": 634.25,
+        "close": 648.5,
         "net_change": 0.75,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "Pre-NY 19-21",
-        "open": 649.75,
-        "high": 659.0,
-        "low": 642.5,
-        "close": 649.5,
+        "open": 648.5,
+        "high": 657.75,
+        "low": 641.25,
+        "close": 648.25,
         "net_change": -0.25,
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "NY Open 21-23",
-        "open": 649.5,
-        "high": 658.0,
-        "low": 635.5,
-        "close": 651.25,
+        "open": 648.25,
+        "high": 656.75,
+        "low": 634.25,
+        "close": 650.0,
         "net_change": 1.75,
         "bias": "🟢 BULL"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "NY Close 23-01",
-        "open": 651.25,
-        "high": 657.5,
-        "low": 644.75,
-        "close": 650.5,
+        "open": 650.0,
+        "high": 656.25,
+        "low": 643.5,
+        "close": 649.25,
         "net_change": -0.75,
         "bias": "🔴 BEAR"
       }
     ],
     "daily_summary": {
-      "Mon 03/08": {
-        "open": 630.25,
-        "high": 648.75,
-        "low": 614.25,
-        "close": 638.0,
+      "Mon 10/08": {
+        "open": 629.0,
+        "high": 647.5,
+        "low": 613.0,
+        "close": 636.75,
         "scenario": "USDA Crop Progress + Hấp Thụ Short-Covering",
         "logic": "USDA Crop Progress: G/E lúa mì duy trì 27%. LƯU Ý: Đà tăng tuần qua đã xả bớt phần lớn vị thế Short của Quỹ. Không nên kỳ vọng một cú Squeeze sốc mới, thị trường sẽ tăng chậm lại hoặc có nhịp Pullback chốt lời."
       },
-      "Tue 04/08": {
-        "open": 638.0,
-        "high": 656.0,
-        "low": 624.0,
-        "close": 644.0,
+      "Tue 11/08": {
+        "open": 636.75,
+        "high": 654.75,
+        "low": 622.75,
+        "close": 642.75,
         "scenario": "El Niño + Australia Planting Risk",
         "logic": "El Niño xác nhận tháng 6/2026 → dự báo hạn hán tại Australia mùa gieo hạt Jul-Sep. Lịch sử: El Niño + Australia hạn hán = giảm 15-20% sản lượng lúa mì Australia. Đây là yếu tố cung dài hạn cực kỳ bullish cho ZW Q4 2026."
       },
-      "Wed 05/08": {
-        "open": 644.0,
-        "high": 658.25,
-        "low": 630.75,
-        "close": 645.0,
+      "Wed 12/08": {
+        "open": 642.75,
+        "high": 657.0,
+        "low": 629.5,
+        "close": 643.75,
         "scenario": "Nga Khô Hạn + Consolidation",
         "logic": "Báo cáo vệ tinh xác nhận hạn hán cục bộ tại Krasnodar/Rostov (Nga) — khu vực sản xuất lúa mì chất lượng cao. Nga vẫn là nguồn cung lớn nhất thế giới, bất kỳ giảm sản lượng nào cũng tác động mạnh đến giá. Thị trường consolidate chờ Export Sales thứ Năm."
       },
-      "Thu 06/08": {
-        "open": 645.0,
-        "high": 657.5,
-        "low": 634.75,
-        "close": 650.75,
+      "Thu 13/08": {
+        "open": 643.75,
+        "high": 656.25,
+        "low": 633.5,
+        "close": 649.5,
         "scenario": "Export Sales + Egypt Tender - QUAN TRỌNG",
         "logic": "Export Sales lúa mì tuần 23-27/06: Kỳ vọng Egypt, Philippines và Bangladesh quay lại mua lúa mì Mỹ khi giá HRW cạnh tranh hơn so với Nga (Nga vừa tăng thuế xuất khẩu). Data ~20:30 ICT là catalyst lớn nhất tuần. G/E 27% đảm bảo supply tight dài hạn."
       },
-      "Fri 07/08": {
-        "open": 650.75,
-        "high": 660.0,
-        "low": 635.5,
-        "close": 650.5,
+      "Fri 14/08": {
+        "open": 649.5,
+        "high": 658.75,
+        "low": 634.25,
+        "close": 649.25,
         "scenario": "Quarterly Options Expiry — Chốt tuần",
         "logic": "Quarterly options expiry tạo biến động xung quanh các mức strike lớn (~610¢, ~620¢). Fund đóng một phần Long để book profit. Nhưng nền tảng cơ bản vẫn bullish: G/E 27%, El Niño Australia, Nga khô hạn — dự kiến tuần tiếp theo tiếp tục tăng."
       }
     },
     "week_forecast": {
-      "open": 630.25,
-      "close": 650.5,
-      "high": 660.0,
-      "low": 614.25,
+      "open": 629.0,
+      "close": 649.25,
+      "high": 658.75,
+      "low": 613.0,
       "net_change": 20.25,
       "direction": "BULLISH"
     },
@@ -1001,8 +807,8 @@
       "symbol": "ZS",
       "contract": "ZSU26 (September 2026)",
       "anchor_price": 1186.75,
-      "generated_at": "2026-08-06 23:01:16",
-      "forecast_week": "August 03-07, 2026",
+      "generated_at": "2026-08-07 07:33:31",
+      "forecast_week": "August 10-14, 2026",
       "composite_bias": 0.6,
       "detailed_scores": {
         "V3_Technical": -0.3,
@@ -1035,7 +841,7 @@
     "actual_data": [],
     "candles_4h": [
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "Asia 07-11",
         "open": 1186.75,
         "high": 1193.25,
@@ -1047,7 +853,7 @@
         "logic": "Brazil xuất khẩu đậu tương tháng 6/2026 đạt kỷ lục mới (>10 triệu tấn/tháng) — áp lực bán lớn đầu tuần. Nhưng Trung Quốc vẫn duy trì mua đều để bổ sung tồn kho heo. USDA Crop Progress ZS G/E 66% ổn định + China order mới tạo rally phiên NY. Kết quả: tug-of-war không có người thắng rõ ràng."
       },
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "Asia 11-15",
         "open": 1184.75,
         "high": 1190.5,
@@ -1057,7 +863,7 @@
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "London 15-19",
         "open": 1184.0,
         "high": 1193.25,
@@ -1067,7 +873,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "Pre-NY 19-21",
         "open": 1184.75,
         "high": 1193.25,
@@ -1077,7 +883,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "NY Open 21-23",
         "open": 1186.75,
         "high": 1200.25,
@@ -1087,7 +893,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Mon 03/08",
+        "day": "Mon 10/08",
         "session": "NY Close 23-01",
         "open": 1189.75,
         "high": 1195.75,
@@ -1097,7 +903,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "Asia 07-11",
         "open": 1189.75,
         "high": 1197.0,
@@ -1109,7 +915,7 @@
         "logic": "Thị trường tiêu hóa tin China mua hàng. Sentiment tích cực duy trì. Brazil trader hedge bán tạo pullback nhỏ giữa phiên."
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "Asia 11-15",
         "open": 1190.25,
         "high": 1200.25,
@@ -1119,7 +925,7 @@
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "London 15-19",
         "open": 1189.5,
         "high": 1196.25,
@@ -1129,7 +935,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "Pre-NY 19-21",
         "open": 1190.0,
         "high": 1198.75,
@@ -1139,7 +945,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "NY Open 21-23",
         "open": 1190.75,
         "high": 1198.25,
@@ -1149,7 +955,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Tue 04/08",
+        "day": "Tue 11/08",
         "session": "NY Close 23-01",
         "open": 1192.0,
         "high": 1200.25,
@@ -1159,7 +965,7 @@
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "Asia 07-11",
         "open": 1191.75,
         "high": 1197.5,
@@ -1171,7 +977,7 @@
         "logic": "Brazil hedge selling tiếp tục đè nặng lên ZS. Nhà xuất khẩu Brazil bán aggressively vào mọi rally. China buyer hỗ trợ nhưng không đủ bù Brazil."
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "Asia 11-15",
         "open": 1190.5,
         "high": 1198.25,
@@ -1181,7 +987,7 @@
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "London 15-19",
         "open": 1189.75,
         "high": 1195.75,
@@ -1191,7 +997,7 @@
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "Pre-NY 19-21",
         "open": 1189.25,
         "high": 1196.0,
@@ -1201,7 +1007,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "NY Open 21-23",
         "open": 1189.75,
         "high": 1202.5,
@@ -1211,7 +1017,7 @@
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Wed 05/08",
+        "day": "Wed 12/08",
         "session": "NY Close 23-01",
         "open": 1188.75,
         "high": 1198.0,
@@ -1221,7 +1027,7 @@
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "Asia 07-11",
         "open": 1188.25,
         "high": 1194.5,
@@ -1233,7 +1039,7 @@
         "logic": "Export Sales Đậu tương tuần 23-27/06: Trung Quốc là người mua chính. Kỳ vọng >700k tấn sẽ là catalyst bullish mạnh. Data ~20:30 ICT."
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "Asia 11-15",
         "open": 1188.0,
         "high": 1194.25,
@@ -1243,7 +1049,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "London 15-19",
         "open": 1188.5,
         "high": 1194.5,
@@ -1253,7 +1059,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "Pre-NY 19-21",
         "open": 1189.25,
         "high": 1195.5,
@@ -1263,7 +1069,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "NY Open 21-23",
         "open": 1189.75,
         "high": 1197.25,
@@ -1273,7 +1079,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Thu 06/08",
+        "day": "Thu 13/08",
         "session": "NY Close 23-01",
         "open": 1191.75,
         "high": 1197.0,
@@ -1283,7 +1089,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "Asia 07-11",
         "open": 1192.0,
         "high": 1199.5,
@@ -1295,7 +1101,7 @@
         "logic": "ZS mixed bias: China demand bullish vs Brazil supply bearish. Trader rút Long trước cuối tuần. Giá dao động hẹp quanh EMA50."
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "Asia 11-15",
         "open": 1191.5,
         "high": 1199.25,
@@ -1305,7 +1111,7 @@
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "London 15-19",
         "open": 1191.0,
         "high": 1195.75,
@@ -1315,7 +1121,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "Pre-NY 19-21",
         "open": 1191.25,
         "high": 1198.5,
@@ -1325,7 +1131,7 @@
         "bias": "🔴 BEAR"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "NY Open 21-23",
         "open": 1191.0,
         "high": 1196.5,
@@ -1335,7 +1141,7 @@
         "bias": "🟢 BULL"
       },
       {
-        "day": "Fri 07/08",
+        "day": "Fri 14/08",
         "session": "NY Close 23-01",
         "open": 1191.5,
         "high": 1197.25,
@@ -1346,7 +1152,7 @@
       }
     ],
     "daily_summary": {
-      "Mon 03/08": {
+      "Mon 10/08": {
         "open": 1186.75,
         "high": 1200.25,
         "low": 1170.75,
@@ -1354,7 +1160,7 @@
         "scenario": "Brazil Xuất Khẩu Kỷ Lục vs China Buying",
         "logic": "Brazil xuất khẩu đậu tương tháng 6/2026 đạt kỷ lục mới (>10 triệu tấn/tháng) — áp lực bán lớn đầu tuần. Nhưng Trung Quốc vẫn duy trì mua đều để bổ sung tồn kho heo. USDA Crop Progress ZS G/E 66% ổn định + China order mới tạo rally phiên NY. Kết quả: tug-of-war không có người thắng rõ ràng."
       },
-      "Tue 04/08": {
+      "Tue 11/08": {
         "open": 1189.75,
         "high": 1200.25,
         "low": 1179.0,
@@ -1362,7 +1168,7 @@
         "scenario": "China Demand Sentiment",
         "logic": "Thị trường tiêu hóa tin China mua hàng. Sentiment tích cực duy trì. Brazil trader hedge bán tạo pullback nhỏ giữa phiên."
       },
-      "Wed 05/08": {
+      "Wed 12/08": {
         "open": 1191.75,
         "high": 1202.5,
         "low": 1182.0,
@@ -1370,7 +1176,7 @@
         "scenario": "Brazil Supply Pressure",
         "logic": "Brazil hedge selling tiếp tục đè nặng lên ZS. Nhà xuất khẩu Brazil bán aggressively vào mọi rally. China buyer hỗ trợ nhưng không đủ bù Brazil."
       },
-      "Thu 06/08": {
+      "Thu 13/08": {
         "open": 1188.25,
         "high": 1197.25,
         "low": 1178.0,
@@ -1378,7 +1184,7 @@
         "scenario": "Export Sales Soybeans - QUAN TRỌNG",
         "logic": "Export Sales Đậu tương tuần 23-27/06: Trung Quốc là người mua chính. Kỳ vọng >700k tấn sẽ là catalyst bullish mạnh. Data ~20:30 ICT."
       },
-      "Fri 07/08": {
+      "Fri 14/08": {
         "open": 1192.0,
         "high": 1199.5,
         "low": 1182.25,
