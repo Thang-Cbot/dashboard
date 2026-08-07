@@ -9247,3 +9247,10 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-08-07 08:00:25] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
 [2026-08-07 08:00:25] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-08-07 08:00:25] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-08-07 08:00:28] [Sync] ✅ Đồng bộ Github thành công (Giá H1 + Macro)!
+[2026-08-07 08:00:28] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-07 08:00:29] [Sync] ⚠️ Lỗi Github Push: 230b85513d0267 but expected 61cf9467c075c82fe93bf17a64b27269c4172ae0)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-08-07 08:00:29] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-07 08:00:39] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-08-07 08:00:39] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
