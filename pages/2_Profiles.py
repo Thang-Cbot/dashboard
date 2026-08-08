@@ -346,16 +346,25 @@ with _tab_d1:
                 _ref_lbl = f"H1 ({_h1_last_time})" if _h1_last_time else "D1 Close"
                 _now_dt  = _d1_full["Date"].max()
 
-                def _period_stats(df_slice, label):
+                def get_prev_close(slice_df):
+                    if slice_df.empty: return None
+                    d0 = slice_df["Date"].iloc[0]
+                    prev_rows = _d1_full[_d1_full["Date"] < d0]
+                    return float(prev_rows["Close"].iloc[-1]) if not prev_rows.empty else None
+
+                def _period_stats(df_slice, label, prev_close=None):
                     if df_slice.empty:
-                        return label, "—", "—", "—", "—", "—", "—"
+                        return label, "—", "—", "—", "—", "—", "—", "—", "—"
                     p_open  = float(df_slice["Open"].iloc[0])
                     p_high  = float(df_slice["High"].max())
                     p_low   = float(df_slice["Low"].min())
-                    p_close = _ref if label == "TUẦN NÀY" else float(df_slice["Close"].iloc[-1])
+                    p_close = _ref if "Tuần này" in label else float(df_slice["Close"].iloc[-1])
                     hl_rng  = round(p_high - p_low, 2)
-                    chg     = round(p_close - p_open, 2)
-                    chg_pct = round(chg / p_open * 100, 2) if p_open else 0
+                    
+                    base_price = prev_close if prev_close is not None else p_open
+                    chg     = round(p_close - base_price, 2)
+                    chg_pct = round(chg / base_price * 100, 2) if base_price else 0
+                    
                     avg_day_rng = round(df_slice["HL_Range"].mean(), 2) if "HL_Range" in df_slice.columns else 0
                     return label, p_open, p_high, p_low, p_close, hl_rng, chg, chg_pct, avg_day_rng
 
@@ -398,11 +407,11 @@ with _tab_d1:
                 ]
 
                 periods = [
-                    _period_stats(_wk_df,   f"Tuần này (W{_now_dt.isocalendar()[1]})"),
-                    _period_stats(_mo_df,   f"Tháng {_now_dt.month}/{_now_dt.year}"),
-                    _period_stats(_prev_mo_df, f"Tháng trước ({_prev_mo.month}/{_prev_mo.year})"),
-                    _period_stats(_q_df,    f"Quý {_q}/{_now_dt.year}"),
-                    _period_stats(_pq_df,   f"Quý trước ({_prev_q}/{_prev_q_year})"),
+                    _period_stats(_wk_df,   f"Tuần này (W{_now_dt.isocalendar()[1]})", get_prev_close(_wk_df)),
+                    _period_stats(_mo_df,   f"Tháng {_now_dt.month}/{_now_dt.year}", get_prev_close(_mo_df)),
+                    _period_stats(_prev_mo_df, f"Tháng trước ({_prev_mo.month}/{_prev_mo.year})", get_prev_close(_prev_mo_df)),
+                    _period_stats(_q_df,    f"Quý {_q}/{_now_dt.year}", get_prev_close(_q_df)),
+                    _period_stats(_pq_df,   f"Quý trước ({_prev_q}/{_prev_q_year})", get_prev_close(_pq_df)),
                 ]
 
                 # Render bảng
