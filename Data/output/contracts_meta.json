@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 171353.0,
+      "today_volume": 151426.0,
       "prev_volume": 151426.0,
       "today_oi": 785326,
       "prev_oi": 479387,
-      "today_close": 461.5,
+      "today_close": 462.0,
       "prev_close": 462.0,
-      "trend": "Giảm mạnh mẽ (Strong Bearish / Short Buildup)",
-      "logic": "Giá giảm đi kèm Volume tăng và OI tăng. Phe Bán khống mới đang ồ ạt gia nhập thị trường, củng cố xu hướng giảm tiếp diễn."
+      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
+      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
   "ZW": {
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 77012.0,
+      "today_volume": 81658.0,
       "prev_volume": 81658.0,
       "today_oi": 175454,
       "prev_oi": 175453,
-      "today_close": 638.25,
+      "today_close": 639.75,
       "prev_close": 631.25,
       "trend": "Tăng nhẹ tích lũy (Accumulation Rally)",
       "logic": "Giá tăng nhẹ với các chỉ số thanh khoản hỗn hợp, cho thấy thị trường đang tích lũy lực cầu hoặc đi ngang."
     }
   },
-  "updated_at": "2026-08-08 10:50:22"
+  "updated_at": "2026-08-08 11:00:42"
 }
