@@ -1,5 +1,5 @@
 {
-  "timestamp": "08/08/2026 11:01",
+  "timestamp": "08/08/2026 13:05",
   "macro": {
     "brent_price": 83.55,
     "brent_pct": 1.285,
@@ -79,7 +79,7 @@
         "volatility": 5.25,
         "signal": "Bearish",
         "rsi": 50.71379659604789,
-        "atr": 4.22452527808048,
+        "atr": 4.224525278078667,
         "s1": 635.5,
         "s2": 600.25,
         "r1": 641.25,
@@ -88,8 +88,8 @@
         "open_interest": 175454,
         "contract": "ZWU26",
         "weather": "Hạn hán vĩ mô",
-        "predicted_close": 640.6602207624833,
-        "predicted_change": 2.410220762483223
+        "predicted_close": 640.6602207624821,
+        "predicted_change": 2.4102207624821066
       },
       "swing": {
         "time": "2026-08-08 01:00",
@@ -99,7 +99,7 @@
         "volatility": 5.25,
         "signal": "Bearish",
         "rsi": 50.71379659604789,
-        "atr": 4.22452527808048,
+        "atr": 4.224525278078667,
         "s1": 635.5,
         "s2": 600.25,
         "r1": 641.25,
