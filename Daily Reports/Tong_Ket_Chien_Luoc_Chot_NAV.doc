@@ -81,6 +81,14 @@ p, li { font-size: 14pt; }
     </li>
 </ul>
 
+<h3>4. Chiến Thuật Lướt Sóng Rollover Phiên Mỹ (Hit & Run Intraday)</h3>
+<ul>
+    <li>Thuật toán gom/xả hàng của các Quỹ thường khởi động vào đầu <b>Phiên Mỹ</b> và kéo dài liên tục <b>2 đến 4 tiếng</b> (tạo ra chuỗi 4 cây nến H1 cùng màu).</li>
+    <li><b>Quy tắc 30 Phút:</b> Đứng ngoài 30 phút đầu phiên Mỹ để né râu nến ảo (Bẫy thanh khoản).</li>
+    <li><b>Hành động:</b> Sau 30 phút, nếu nến H1/M15 phá Đỉnh -> Phe Short đang Roll -> Đánh Long theo 2-4 tiếng. Nếu phá Đáy -> Phe Long đang Roll xả hàng -> Đánh Short theo 2-4 tiếng.</li>
+    <li><b>Kỷ luật:</b> Bắt buộc phải <b>thoát lệnh hoàn toàn</b> trước khi nửa phiên Mỹ kết thúc (khoảng 12h30 đêm), vì giá thường đảo chiều gắt sau khi Quỹ khớp xong Volume trong ngày. Không bao giờ giữ lệnh lướt sóng qua đêm.</li>
+</ul>
+
 <hr>
 <p><i>Tài liệu này đóng vai trò như một giáo trình cơ sở. Nó sẽ tiếp tục được "nâng cấp" và tinh chỉnh sau mỗi kỳ chốt sổ thực tế của thị trường trong tương lai.</i></p>
 </body>
