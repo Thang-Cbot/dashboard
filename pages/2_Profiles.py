@@ -159,6 +159,25 @@ with _tab_d1:
                 _daily[_dcol] = pd.to_datetime(_daily[_dcol], errors='coerce')
                 _daily = _daily.dropna(subset=[_dcol]).rename(columns={_dcol: "Date"})
             _daily["Date"] = pd.to_datetime(_daily["Date"])
+            
+            # --- OVERRIDE LATEST CLOSE WITH H1 DATA FOR CONSISTENCY ---
+            if _csv_vol_path.exists():
+                try:
+                    _dfh1_raw = pd.read_csv(_csv_vol_path)
+                    _tcol2 = next((c for c in _dfh1_raw.columns if c.lower() in ['time','datetime','date','timestamp']), None)
+                    if _tcol2 and "Close" in _dfh1_raw.columns:
+                        _dfh1_raw[_tcol2] = pd.to_datetime(_dfh1_raw[_tcol2], errors='coerce')
+                        _dfh1_raw = _dfh1_raw.dropna(subset=[_tcol2]).sort_values(_tcol2)
+                        _h1_last_close = float(_dfh1_raw["Close"].iloc[-1])
+                        _h1_last_date = _dfh1_raw[_tcol2].iloc[-1].date()
+                        _d1_last_date = _daily["Date"].iloc[-1].date()
+                        # Ghi đè giá Close cuối cùng của D1 bằng H1 nếu cùng phiên
+                        if _h1_last_date >= _d1_last_date:
+                            _daily.loc[_daily.index[-1], "Close"] = _h1_last_close
+                except Exception:
+                    pass
+            # --------------------------------------------------------
+            
             _daily["OC_Delta"] = _daily["Close"].diff().round(2)
             if not _daily.empty:
                 _daily.loc[0, "OC_Delta"] = round(_daily.loc[0, "Close"] - _daily.loc[0, "Open"], 2)
