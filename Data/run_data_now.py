@@ -52,6 +52,13 @@ def main():
     fetch_export_sales()
     # usda crawler duoc tich hop truc tiep neu can
     
+    print("\n[4] DATA MACRO MATRIX")
+    try:
+        from macro_engine import calculate_macro_score
+        calculate_macro_score()
+    except Exception as e:
+        print(f"[!] Lỗi khi chạy Macro Matrix Engine: {e}")
+    
     t1 = time.time()
     print("\n" + "="*60)
     print(f"  HOAN THANH TRONG: {int(t1-t0)} giay.")

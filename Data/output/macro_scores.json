@@ -1,0 +1,63 @@
+{
+    "timestamp": "2026-08-09 10:32:24",
+    "month": "8",
+    "total_score": 54.0,
+    "trend": "Sideways (Đi Ngang)",
+    "breakdown": {
+        "F1": {
+            "score_1_to_10": 5,
+            "weight_pct": 30,
+            "contribution": 1.5
+        },
+        "F2": {
+            "score_1_to_10": 5,
+            "weight_pct": 10,
+            "contribution": 0.5
+        },
+        "F3": {
+            "score_1_to_10": 5,
+            "weight_pct": 10,
+            "contribution": 0.5
+        },
+        "F4": {
+            "score_1_to_10": 5,
+            "weight_pct": 5,
+            "contribution": 0.25
+        },
+        "F5": {
+            "score_1_to_10": 5,
+            "weight_pct": 10,
+            "contribution": 0.5
+        },
+        "F6": {
+            "score_1_to_10": 9,
+            "weight_pct": 5,
+            "contribution": 0.45
+        },
+        "F7": {
+            "score_1_to_10": 9,
+            "weight_pct": 5,
+            "contribution": 0.45
+        },
+        "F8": {
+            "score_1_to_10": 5,
+            "weight_pct": 10,
+            "contribution": 0.5
+        },
+        "F9": {
+            "score_1_to_10": 6,
+            "weight_pct": 5,
+            "contribution": 0.3
+        },
+        "F10": {
+            "score_1_to_10": 5,
+            "weight_pct": 5,
+            "contribution": 0.25
+        },
+        "F11": {
+            "score_1_to_10": 4,
+            "weight_pct": 5,
+            "contribution": 0.2
+        }
+    }
+}
