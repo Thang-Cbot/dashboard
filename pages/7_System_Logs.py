@@ -26,6 +26,7 @@ def sidebar_nav():
     st.sidebar.page_link("pages/3_News.py",     label="📰 Báo Cáo USDA & Tin Tức")
     st.sidebar.page_link("pages/4_Weather.py",  label="🌤️ Thời Tiết")
     st.sidebar.page_link("pages/5_AgriMap.py",  label="🗺️ Bản Đồ Thời Tiết & ENSO")
+    st.sidebar.page_link("pages/5_Macro_Matrix.py", label="🧠 Ma Trận Vĩ Mô (Brain)")
     st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ 2026")
     st.sidebar.page_link("pages/7_System_Logs.py", label="⚙️ System Logs")
     st.sidebar.markdown("---")

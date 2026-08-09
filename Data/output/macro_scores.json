@@ -1,63 +1,107 @@
 {
-    "timestamp": "2026-08-09 10:32:24",
+    "timestamp": "2026-08-09 10:45:55",
     "month": "8",
-    "total_score": 54.0,
-    "trend": "Sideways (Đi Ngang)",
+    "total_score": 58.5,
+    "trend": "Slightly Bullish — Tăng Nhẹ",
     "breakdown": {
         "F1": {
             "score_1_to_10": 5,
             "weight_pct": 30,
-            "contribution": 1.5
+            "contribution": 1.5,
+            "raw_value": "Nhập thủ công",
+            "raw_detail": "Thuế xuất khẩu và Báo cáo SovEcon (Nhập thủ công 1-10. 1=Bearish, 10=Bullish)",
+            "last_updated": "2026-08-07 16:41",
+            "status": "manual"
         },
         "F2": {
-            "score_1_to_10": 5,
+            "score_1_to_10": 6,
             "weight_pct": 10,
-            "contribution": 0.5
+            "contribution": 0.6,
+            "raw_value": "55% G/E",
+            "raw_detail": "Đông N/A (Cuối vụ), Xuân 55% G/E",
+            "last_updated": "2026-08-09 10:32",
+            "status": "ok"
         },
         "F3": {
             "score_1_to_10": 5,
             "weight_pct": 10,
-            "contribution": 0.5
+            "contribution": 0.5,
+            "raw_value": "Điểm tự đánh giá: 5/10",
+            "raw_detail": "Tình hình mùa vụ Châu Âu / FranceAgriMer (Nhập thủ công 1-10)",
+            "last_updated": "Thủ công",
+            "status": "manual"
         },
         "F4": {
             "score_1_to_10": 5,
             "weight_pct": 5,
-            "contribution": 0.25
+            "contribution": 0.25,
+            "raw_value": "Điểm tự đánh giá: 5/10",
+            "raw_detail": "Thời tiết Úc / Argentina (Nhập thủ công 1-10)",
+            "last_updated": "Thủ công",
+            "status": "manual"
         },
         "F5": {
             "score_1_to_10": 5,
             "weight_pct": 10,
-            "contribution": 0.5
+            "contribution": 0.5,
+            "raw_value": "296k tấn/tuần",
+            "raw_detail": "Net Sales report USDA",
+            "last_updated": "2026-08-09 10:32",
+            "status": "ok"
         },
         "F6": {
             "score_1_to_10": 9,
             "weight_pct": 5,
-            "contribution": 0.45
+            "contribution": 0.45,
+            "raw_value": "722 Mbu (-64.9%)",
+            "raw_detail": "WASDE US Ending Stocks",
+            "last_updated": "2026-08-09 10:32",
+            "status": "ok"
         },
         "F7": {
             "score_1_to_10": 9,
             "weight_pct": 5,
-            "contribution": 0.45
+            "contribution": 0.45,
+            "raw_value": "272.84 Mmt (-11.8%)",
+            "raw_detail": "WASDE World Ending Stocks",
+            "last_updated": "2026-08-09 10:32",
+            "status": "ok"
         },
         "F8": {
             "score_1_to_10": 5,
             "weight_pct": 10,
-            "contribution": 0.5
+            "contribution": 0.5,
+            "raw_value": "Điểm tự đánh giá: 5/10",
+            "raw_detail": "Căng thẳng Biển Đen / Logistics (Nhập thủ công 1-10. 10=Chiến tranh leo thang)",
+            "last_updated": "Thủ công",
+            "status": "manual"
         },
         "F9": {
-            "score_1_to_10": 6,
+            "score_1_to_10": 8,
             "weight_pct": 5,
-            "contribution": 0.3
+            "contribution": 0.4,
+            "raw_value": "DXY 99.60 (-0.37%)",
+            "raw_detail": "USD Index — Sức mạnh đồng đô",
+            "last_updated": "2026-08-09 10:32",
+            "status": "ok"
         },
         "F10": {
-            "score_1_to_10": 5,
+            "score_1_to_10": 8,
             "weight_pct": 5,
-            "contribution": 0.25
+            "contribution": 0.4,
+            "raw_value": "Brent $83.55 (+1.28%)",
+            "raw_detail": "Crude Oil — Cước tàu & Phân bón",
+            "last_updated": "2026-08-09 10:32",
+            "status": "ok"
         },
         "F11": {
-            "score_1_to_10": 4,
+            "score_1_to_10": 6,
             "weight_pct": 5,
-            "contribution": 0.2
+            "contribution": 0.3,
+            "raw_value": "Net: -8,163 (+10,236)",
+            "raw_detail": "Q4 (CAM) - COVER SHORT",
+            "last_updated": "2026-08-06 20:23",
+            "status": "ok"
         }
     }
 }

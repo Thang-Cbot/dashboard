@@ -227,65 +227,105 @@ factor_dict = {
 with col2:
     st.markdown('<div class="section-title">BẢNG MA TRẬN 11 YẾU TỐ (FIXED FACTORS)</div>', unsafe_allow_html=True)
     
-    # Generate Table HTML
-    table_html = """<table class='matrix-table'>
-        <tr>
-            <th width='40%'>Yếu Tố Vĩ Mô</th>
-            <th width='15%' style='text-align:center;'>Điểm Gốc<br>(1-10)</th>
-            <th width='20%' style='text-align:center;'>Tỷ Trọng Tháng<br>(Weight %)</th>
-            <th width='15%' style='text-align:center;'>Điểm Góp<br>(Total)</th>
-            <th width='10%' style='text-align:center;'>Xu Hướng</th>
-        </tr>"""
-    
-    # Sort factors by contribution to show the biggest drivers first
+    # Sort factors by contribution descending
     sorted_factors = sorted(breakdown.items(), key=lambda x: x[1]['contribution'], reverse=True)
     
+    # Generate Table HTML
+    table_html = """<table class='matrix-table'>
+<tr>
+<th width='35%'>Yếu Tố Vĩ Mô / Giá Trị Thực</th>
+<th width='12%' style='text-align:center;'>Điểm Gốc<br>(1-10)</th>
+<th width='12%' style='text-align:center;'>Tỷ Trọng<br>(Weight%)</th>
+<th width='12%' style='text-align:center;'>Điểm Góp</th>
+<th width='18%' style='text-align:center;'>Xu Hướng</th>
+<th width='11%' style='text-align:center;'>Cập Nhật</th>
+</tr>"""
+    
     for f_key, f_data in sorted_factors:
-        meta = factor_dict.get(f_key, {"name": f_key, "desc": ""})
-        base = f_data.get('score_1_to_10', 5)
-        weight = f_data.get('weight_pct', 0)
-        contrib = f_data.get('contribution', 0)
-        
+        meta        = factor_dict.get(f_key, {"name": f_key, "desc": ""})
+        base        = f_data.get('score_1_to_10', 5)
+        weight      = f_data.get('weight_pct', 0)
+        contrib     = f_data.get('contribution', 0)
+        raw_value   = f_data.get('raw_value', 'N/A')
+        raw_detail  = f_data.get('raw_detail', '')
+        last_up     = f_data.get('last_updated', '—')
+        status      = f_data.get('status', 'error')
+
         # Color coding for base score (1-10)
-        if base <= 3: b_col = "#ef4444"
-        elif base <= 4: b_col = "#f87171"
-        elif base <= 6: b_col = "#94a3b8"
-        elif base <= 8: b_col = "#4ade80"
-        else: b_col = "#22c55e"
-        
-        # Trend Icon
-        icon = "🐻" if base < 5 else ("🐂" if base > 5 else "➖")
-        if weight == 0: icon = "⚪" # Disabled this month
-        
-        table_html += f"""
-        <tr class='matrix-row'>
-            <td class='matrix-cell'>
-                <div class='factor-name'>{meta['name']} <span style='font-size:10px; color:#475569;'>[{f_key}]</span></div>
-                <div class='factor-desc'>{meta['desc']}</div>
-            </td>
-            <td class='matrix-cell' style='text-align:center;'>
-                <span class='base-score' style='color:{b_col};'>{base}</span>
-            </td>
-            <td class='matrix-cell' style='text-align:center;'>
-                <span class='weight-badge'>{weight}%</span>
-            </td>
-            <td class='matrix-cell' style='text-align:center;'>
-                <span class='contrib-score' style='color:{b_col};'>{contrib}</span>
-            </td>
-            <td class='matrix-cell' style='text-align:center; font-size:18px;'>
-                {icon}
-            </td>
-        </tr>
-        """
+        if base <= 3:   b_col, b_bg = "#ef4444", "rgba(239,68,68,0.1)"
+        elif base <= 4: b_col, b_bg = "#f87171", "rgba(248,113,113,0.1)"
+        elif base <= 6: b_col, b_bg = "#94a3b8", "rgba(148,163,184,0.1)"
+        elif base <= 8: b_col, b_bg = "#4ade80", "rgba(74,222,128,0.1)"
+        else:           b_col, b_bg = "#22c55e", "rgba(34,197,94,0.1)"
+
+        # Status dot
+        if status == "ok":      dot = "🟢"; dot_tip = "Tự động cập nhật"
+        elif status == "manual": dot = "🟡"; dot_tip = "Nhập thủ công"
+        else:                   dot = "🔴"; dot_tip = "Lỗi / Không có dữ liệu"
+
+        # Trend text badge
+        if weight == 0:
+            trend_html = "<span style='color:#475569; font-size:11px;'>N/A tháng này</span>"
+        elif base <= 3:
+            trend_html = "<span style='background:#7f1d1d; color:#fca5a5; padding:3px 8px; border-radius:6px; font-size:11px; font-weight:700;'>▼ Giảm Mạnh</span>"
+        elif base <= 4:
+            trend_html = "<span style='background:#450a0a; color:#f87171; padding:3px 8px; border-radius:6px; font-size:11px; font-weight:700;'>▼ Giảm Nhẹ</span>"
+        elif base <= 6:
+            trend_html = "<span style='background:#1e293b; color:#94a3b8; padding:3px 8px; border-radius:6px; font-size:11px; font-weight:700;'>— Trung Lập</span>"
+        elif base <= 8:
+            trend_html = "<span style='background:#064e3b; color:#4ade80; padding:3px 8px; border-radius:6px; font-size:11px; font-weight:700;'>▲ Tăng Nhẹ</span>"
+        else:
+            trend_html = "<span style='background:#14532d; color:#22c55e; padding:3px 8px; border-radius:6px; font-size:11px; font-weight:700;'>▲ Tăng Mạnh</span>"
+
+        # Last updated - show just time part if today
+        try:
+            from datetime import date
+            if last_up not in ("Thủ công", "—") and len(last_up) > 10:
+                up_date = last_up[:10]
+                up_time_only = last_up[11:]
+                today_str = date.today().strftime("%Y-%m-%d")
+                if up_date == today_str:
+                    last_up_show = f"Hôm nay {up_time_only}"
+                else:
+                    last_up_show = last_up
+            else:
+                last_up_show = last_up
+        except:
+            last_up_show = last_up
+
+        table_html += f"""<tr class='matrix-row'>
+<td class='matrix-cell'>
+<div class='factor-name'>{dot} {meta['name']} <span style='font-size:10px; color:#475569;'>[{f_key}]</span></div>
+<div class='factor-desc' style='color:#94a3b8; margin-top:3px;'>{raw_value}</div>
+<div class='factor-desc'>{raw_detail}</div>
+</td>
+<td class='matrix-cell' style='text-align:center;'>
+<span class='base-score' style='color:{b_col};'>{base}</span>
+</td>
+<td class='matrix-cell' style='text-align:center;'>
+<span class='weight-badge'>{weight}%</span>
+</td>
+<td class='matrix-cell' style='text-align:center;'>
+<span class='contrib-score' style='color:{b_col};'>{contrib}</span>
+</td>
+<td class='matrix-cell' style='text-align:center;'>
+{trend_html}
+</td>
+<td class='matrix-cell' style='text-align:center; font-size:10px; color:#64748b;'>
+{last_up_show}
+</td>
+</tr>"""
         
     table_html += "</table>"
     st.markdown(table_html, unsafe_allow_html=True)
     
     st.markdown("""
-    <div style='font-size:11px; color:#64748b; margin-top:16px; padding:12px; background:#111827; border-radius:8px; border: 1px dashed #2a3a5c;'>
-        <b>💡 Cách đọc Ma trận:</b><br>
-        - <b>Điểm Gốc (1-10):</b> Đánh giá bản chất dữ liệu (1=Rất Xấu cho giá, 10=Rất Tốt cho giá).<br>
-        - <b>Tỷ Trọng (Weight %):</b> Mức độ quan trọng của yếu tố đó trong Tháng Hiện Tại. Yếu tố nào 0% nghĩa là tháng này không tác động đến giá.<br>
-        - <b>Điểm Góp:</b> Điểm Gốc nhân với Tỷ Trọng. Cộng dồn tất cả Điểm Góp sẽ ra Tổng Điểm Vĩ Mô (0-100) trên đồng hồ.
-    </div>
+<div style='font-size:11px; color:#64748b; margin-top:16px; padding:12px; background:#111827; border-radius:8px; border: 1px dashed #2a3a5c;'>
+<b>💡 Cách đọc Ma trận:</b><br>
+🟢 Tự động cập nhật từ API/Data &nbsp;|&nbsp; 🟡 Nhập thủ công (cần cập nhật định kỳ) &nbsp;|&nbsp; 🔴 Lỗi / Không có data<br>
+<b>Điểm Gốc (1-10):</b> 1=Cực Bearish cho giá ZW &nbsp; 5=Trung Lập &nbsp; 10=Cực Bullish.<br>
+<b>Tỷ Trọng:</b> % ảnh hưởng của yếu tố trong <b>tháng hiện tại</b>. Tháng khác nhau → Tỷ trọng khác nhau.<br>
+<b>Điểm Góp = Điểm Gốc × Tỷ Trọng.</b> Tổng tất cả Điểm Góp ×10 = Tổng Điểm Vĩ Mô (0-100).
+</div>
     """, unsafe_allow_html=True)
+
