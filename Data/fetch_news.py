@@ -63,6 +63,23 @@ def fetch_rss_news():
     except Exception as e:
         print(f"  [ERR] Lỗi khi tải Farm Progress RSS: {e}")
         
+    # 3. Google News RSS (Geopolitics, Russia/Ukraine Wheat)
+    print("  [+] Đang tải tin tức địa chính trị từ Google News RSS...")
+    gnews_url = "https://news.google.com/rss/search?q=Russia+Ukraine+wheat+OR+grain&hl=en-US&gl=US&ceid=US:en"
+    req_gnews = urllib.request.Request(gnews_url, headers={'User-Agent': 'Mozilla/5.0'})
+    try:
+        resp_gnews = urllib.request.urlopen(req_gnews, timeout=15)
+        tree_gnews = ET.parse(resp_gnews)
+        for item in tree_gnews.findall('.//item')[:10]: # Take top 10 articles
+            title = item.find('title').text if item.find('title') is not None else ""
+            desc = "" # Google news desc is mostly HTML links, we rely on title for Gemini
+            link = item.find('link').text if item.find('link') is not None else ""
+            pub_date = item.find('pubDate').text if item.find('pubDate') is not None else ""
+            if title:
+                news_items.append(f"Nguồn: Google News (Geopolitics)\nTiêu đề: {title}\nMô tả: {desc}\nLink: {link}\nThời gian: {pub_date}\n")
+    except Exception as e:
+        print(f"  [ERR] Lỗi khi tải Google News RSS: {e}")
+        
     return "\n".join(news_items)
 
 def summarize_news():
