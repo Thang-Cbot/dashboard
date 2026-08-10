@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-08-09 20:19:19",
+  "timestamp": "2026-08-10 20:25:10",
   "metrics": {
     "planted_area": "N/A",
-    "production_forecast": "Dự kiến dưới mức trung bình do các vấn đề về thời tiết và logistics",
-    "harvest_progress": "Đang diễn ra, đối mặt với các vấn đề về nhiên liệu và mưa",
-    "fob_price": "Đang ở mức thấp nhất trong 13 tháng và thấp nhất trên thị trường thế giới",
-    "export_tax": "Chính phủ đang tìm cách thúc đẩy xuất khẩu, có thể điều chỉnh thuế để hỗ trợ",
-    "export_capacity": "Bị đe dọa và gián đoạn nghiêm trọng do các cuộc tấn công ở Biển Đen và khó khăn vận chuyển",
-    "quality_notes": "Có thể bị ảnh hưởng do mưa và các yếu tố khác",
-    "harvest_time": "Tháng 6 - Tháng 7 (Lúa mì đông), Tháng 7 - Tháng 8 (Lúa mì xuân)",
-    "ai_assessment": "Mặc dù có rủi ro logistics, giá lúa mì Nga đang ở mức thấp nhất trên thị trường thế giới, tạo áp lực giảm giá đáng kể lên giá CBOT."
+    "production_forecast": "Dự kiến vụ mùa 2025 dưới mức trung bình; 28 triệu tấn đã thu hoạch tính đến 30/07/2025 với năng suất giảm 4.5%.",
+    "harvest_progress": "28 triệu tấn đã thu hoạch (tính đến 30/07/2025), năng suất giảm 4.5%. Vụ thu hoạch 2026 đối mặt với lo ngại về thiếu nhiên liệu và mưa.",
+    "fob_price": "Giá lúa mì Biển Đen giảm xuống mức thấp nhất trong 13 tháng và thấp nhất trên thị trường thế giới (tính đến T8/2026), mặc dù có các đợt tăng giá do khó khăn vận chuyển và nguồn cung thắt chặt.",
+    "export_tax": "Nga ra lệnh các biện pháp thúc đẩy xuất khẩu nông sản sau khi doanh số bán lúa mì giảm vào tháng 7 (2025), cho thấy khả năng điều chỉnh chính sách xuất khẩu để tăng cường bán hàng.",
+    "export_capacity": "N/A",
+    "quality_notes": "Năng suất giảm 4.5% (T7/2025). Lo ngại về mưa và thiếu nhiên liệu có thể ảnh hưởng đến chất lượng và tiến độ thu hoạch (T7/2026). Các vụ mùa ngũ cốc bị ảnh hưởng nặng nề đẩy giá lên cao (T5/2024).",
+    "harvest_time": "Tháng 7 - Tháng 8 (Vụ Đông), Tháng 8 - Tháng 9 (Vụ Xuân)",
+    "ai_assessment": "Mặc dù rủi ro địa chính trị và logistics ở Biển Đen tiếp tục hỗ trợ giá và gây ra các đợt tăng giá cục bộ, giá lúa mì Biển Đen hiện đang ở mức thấp nhất trên thị trường thế giới. Điều này cho thấy áp lực xả hàng từ Nga, do nguồn cung dồi dào hoặc chiến lược xuất khẩu mạnh mẽ, có khả năng tạo áp lực giảm giá lên CBOT, trừ khi các rủi ro vận chuyển leo thang đáng kể."
   }
 }
