@@ -1,36 +1,36 @@
 {
-  "fetched_at": "2026-08-06 20:23:14",
+  "fetched_at": "2026-08-11 06:17:26",
   "source": "CFTC ZIP (Disaggregated Futures Only)",
   "commodities": {
     "002602": {
       "commodity": "ZC",
       "cftc_code": "002602",
-      "report_date": "2026-07-28",
-      "long_curr": 314454.0,
-      "short_curr": 187678.0,
-      "net_position": 126776.0,
-      "long_prev": 305756.0,
-      "short_prev": 249043.0,
-      "net_prev": 56713.0,
-      "change": 70063.0,
+      "report_date": "2026-08-04",
+      "long_curr": 309717.0,
+      "short_curr": 164896.0,
+      "net_position": 144821.0,
+      "long_prev": 314454.0,
+      "short_prev": 187678.0,
+      "net_prev": 126776.0,
+      "change": 18045.0,
       "quadrant": "Q1 (XANH LA) - GOM LONG",
       "action": "Uu tien LONG. Xu huong tang ben vung.",
-      "fetched_at": "2026-08-06 20:23:15"
+      "fetched_at": "2026-08-11 06:17:28"
     },
     "001602": {
       "commodity": "ZW",
       "cftc_code": "001602",
-      "report_date": "2026-07-28",
-      "long_curr": 85168.0,
-      "short_curr": 93331.0,
-      "net_position": -8163.0,
-      "long_prev": 74206.0,
-      "short_prev": 92605.0,
-      "net_prev": -18399.0,
-      "change": 10236.0,
-      "quadrant": "Q4 (CAM) - COVER SHORT",
-      "action": "Cam Short duoi. Canh LONG bat hoi.",
-      "fetched_at": "2026-08-06 20:23:15"
+      "report_date": "2026-08-04",
+      "long_curr": 80037.0,
+      "short_curr": 104907.0,
+      "net_position": -24870.0,
+      "long_prev": 85168.0,
+      "short_prev": 93331.0,
+      "net_prev": -8163.0,
+      "change": -16707.0,
+      "quadrant": "Q3 (DO DAM) - NHOI SHORT",
+      "action": "Uu tien SHORT thuan xu huong.",
+      "fetched_at": "2026-08-11 06:17:28"
     }
   }
 }
