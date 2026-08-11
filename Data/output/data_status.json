@@ -43,9 +43,9 @@
       "updated_at": "2026-08-11 06:31:24"
     },
     "acreage": {
-      "status": "OK",
-      "detail": "Planted acreage ZC/ZW/ZS updated",
-      "updated_at": "2026-08-11 06:32:19"
+      "status": "[OK]",
+      "detail": "Auto-fetch 00:28:38",
+      "updated_at": "2026-08-12 00:28:38"
     },
     "ai_news": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 00:00:53 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-08-12 00:00:53"
+      "detail": "Đẩy thành công lúc 00:01:37 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-08-12 00:01:37"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -73,5 +73,10 @@
     "status": "OK",
     "detail": "Brent=88.73, DXY=99.816",
     "updated_at": "2026-08-12 00:00:50"
+  },
+  "acreage": {
+    "status": "OK",
+    "detail": "ZC=95.3M, ZW=46.0M acres",
+    "updated_at": "2026-08-12 00:28:38"
   }
 }
