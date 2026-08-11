@@ -1,268 +1,424 @@
 {
-  "fetched_at": "2026-08-11 06:30:41",
+  "fetched_at": "2026-08-12 00:58:34",
   "source": "Open-Meteo API",
   "regions": {
     "US_Wheat_Kansas": {
       "desc": "Lúa mì HRW",
       "forecast": [
         {
-          "date": "2026-08-10",
-          "max_temp_C": 39.2,
-          "precip_mm": 0.0
-        },
-        {
           "date": "2026-08-11",
-          "max_temp_C": 38.9,
+          "max_temp_C": 39.5,
           "precip_mm": 0.0
         },
         {
           "date": "2026-08-12",
-          "max_temp_C": 44.2,
+          "max_temp_C": 39.6,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 45.0,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 44.2,
+      "max_temp_C": 45.0,
       "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
     },
     "US_Wheat_Montana": {
       "desc": "Lúa mì HRS",
       "forecast": [
         {
-          "date": "2026-08-10",
-          "max_temp_C": 28.1,
-          "precip_mm": 0.0
-        },
-        {
           "date": "2026-08-11",
-          "max_temp_C": 26.1,
+          "max_temp_C": 25.9,
           "precip_mm": 0.0
         },
         {
           "date": "2026-08-12",
-          "max_temp_C": 24.9,
-          "precip_mm": 5.8
+          "max_temp_C": 20.1,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 19.6,
+          "precip_mm": 6.2
         }
       ],
-      "total_3d_rain_mm": 5.8,
-      "max_temp_C": 28.1,
+      "total_3d_rain_mm": 6.2,
+      "max_temp_C": 25.9,
       "risk_assessment": "Thuan loi (Favorable)"
     },
     "US_Wheat_Washington": {
       "desc": "Lúa mì SW",
       "forecast": [
         {
-          "date": "2026-08-10",
-          "max_temp_C": 26.6,
-          "precip_mm": 0.0
-        },
-        {
           "date": "2026-08-11",
-          "max_temp_C": 27.6,
+          "max_temp_C": 27.8,
           "precip_mm": 0.0
         },
         {
           "date": "2026-08-12",
-          "max_temp_C": 31.4,
-          "precip_mm": 1.0
+          "max_temp_C": 26.6,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 31.0,
+          "precip_mm": 0.0
         }
       ],
-      "total_3d_rain_mm": 1.0,
-      "max_temp_C": 31.4,
+      "total_3d_rain_mm": 0.0,
+      "max_temp_C": 31.0,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "US_Wheat_Oklahoma": {
       "desc": "Lúa mì HRW",
       "forecast": [
         {
-          "date": "2026-08-10",
+          "date": "2026-08-11",
           "max_temp_C": 38.5,
           "precip_mm": 0.0
         },
         {
-          "date": "2026-08-11",
-          "max_temp_C": 38.0,
+          "date": "2026-08-12",
+          "max_temp_C": 38.1,
           "precip_mm": 0.0
         },
         {
-          "date": "2026-08-12",
-          "max_temp_C": 42.4,
+          "date": "2026-08-13",
+          "max_temp_C": 42.0,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 42.4,
+      "max_temp_C": 42.0,
       "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
     },
     "US_Wheat_NorthDakota": {
       "desc": "Durum+Spring Wheat",
       "forecast": [
         {
-          "date": "2026-08-10",
-          "max_temp_C": 24.1,
-          "precip_mm": 0.0
-        },
-        {
           "date": "2026-08-11",
-          "max_temp_C": 29.6,
+          "max_temp_C": 27.7,
           "precip_mm": 0.0
         },
         {
           "date": "2026-08-12",
-          "max_temp_C": 30.5,
-          "precip_mm": 6.6
+          "max_temp_C": 23.9,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 22.4,
+          "precip_mm": 0.5
         }
       ],
-      "total_3d_rain_mm": 6.6,
-      "max_temp_C": 30.5,
-      "risk_assessment": "Thuan loi (Favorable)"
+      "total_3d_rain_mm": 0.5,
+      "max_temp_C": 27.7,
+      "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "US_Wheat_Texas": {
       "desc": "Lúa mì HRW South Plains",
       "forecast": [
         {
-          "date": "2026-08-10",
-          "max_temp_C": 36.2,
-          "precip_mm": 0.0
-        },
-        {
           "date": "2026-08-11",
-          "max_temp_C": 35.9,
+          "max_temp_C": 35.6,
           "precip_mm": 0.0
         },
         {
           "date": "2026-08-12",
-          "max_temp_C": 38.9,
+          "max_temp_C": 35.7,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 39.3,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 38.9,
+      "max_temp_C": 39.3,
       "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
     },
     "US_Wheat_SouthDakota": {
       "desc": "Spring Wheat + Durum",
       "forecast": [
         {
-          "date": "2026-08-10",
-          "max_temp_C": 29.2,
-          "precip_mm": 0.0
-        },
-        {
           "date": "2026-08-11",
-          "max_temp_C": 28.8,
-          "precip_mm": 0.0
+          "max_temp_C": 31.0,
+          "precip_mm": 4.3
         },
         {
           "date": "2026-08-12",
-          "max_temp_C": 32.6,
-          "precip_mm": 0.0
+          "max_temp_C": 29.4,
+          "precip_mm": 9.8
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 30.6,
+          "precip_mm": 0.1
         }
       ],
-      "total_3d_rain_mm": 0.0,
-      "max_temp_C": 32.6,
-      "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
+      "total_3d_rain_mm": 14.2,
+      "max_temp_C": 31.0,
+      "risk_assessment": "Thuan loi (Favorable)"
     },
     "US_Wheat_Colorado": {
       "desc": "Lúa mì HRW",
       "forecast": [
         {
-          "date": "2026-08-10",
-          "max_temp_C": 26.4,
-          "precip_mm": 6.5
-        },
-        {
           "date": "2026-08-11",
-          "max_temp_C": 22.8,
+          "max_temp_C": 24.4,
           "precip_mm": 0.0
         },
         {
           "date": "2026-08-12",
-          "max_temp_C": 23.0,
-          "precip_mm": 16.3
+          "max_temp_C": 22.5,
+          "precip_mm": 2.1
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 21.6,
+          "precip_mm": 7.8
         }
       ],
-      "total_3d_rain_mm": 22.8,
-      "max_temp_C": 26.4,
+      "total_3d_rain_mm": 9.9,
+      "max_temp_C": 24.4,
       "risk_assessment": "Thuan loi (Favorable)"
     },
     "US_Wheat_Idaho": {
       "desc": "Lúa mì SW + HRW",
       "forecast": [
         {
-          "date": "2026-08-10",
-          "max_temp_C": 24.3,
-          "precip_mm": 0.0
-        },
-        {
           "date": "2026-08-11",
-          "max_temp_C": 24.2,
+          "max_temp_C": 24.4,
           "precip_mm": 0.0
         },
         {
           "date": "2026-08-12",
-          "max_temp_C": 23.3,
+          "max_temp_C": 22.9,
           "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 17.3,
+          "precip_mm": 2.9
         }
       ],
-      "total_3d_rain_mm": 0.0,
-      "max_temp_C": 24.3,
-      "risk_assessment": "Binh thuong (Mild/Normal)"
+      "total_3d_rain_mm": 2.9,
+      "max_temp_C": 24.4,
+      "risk_assessment": "Thuan loi (Favorable)"
     },
     "US_Corn_Iowa": {
       "desc": "Ngô, Đậu tương",
       "forecast": [
         {
-          "date": "2026-08-10",
-          "max_temp_C": 30.7,
-          "precip_mm": 0.0
-        },
-        {
           "date": "2026-08-11",
-          "max_temp_C": 31.4,
+          "max_temp_C": 32.9,
           "precip_mm": 0.0
         },
         {
           "date": "2026-08-12",
-          "max_temp_C": 33.8,
+          "max_temp_C": 33.9,
           "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 27.1,
+          "precip_mm": 61.48
         }
       ],
-      "total_3d_rain_mm": 0.0,
-      "max_temp_C": 33.8,
-      "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
+      "total_3d_rain_mm": 61.5,
+      "max_temp_C": 33.9,
+      "risk_assessment": "Rui ro ngap ung (Heavy Rain)"
     },
     "US_Corn_Illinois": {
       "desc": "Ngô, Đậu tương",
       "forecast": [
         {
-          "date": "2026-08-10",
-          "max_temp_C": 31.5,
-          "precip_mm": 0.0
-        },
-        {
           "date": "2026-08-11",
-          "max_temp_C": 34.0,
+          "max_temp_C": 34.5,
           "precip_mm": 0.0
         },
         {
           "date": "2026-08-12",
-          "max_temp_C": 32.1,
-          "precip_mm": 2.32
+          "max_temp_C": 36.4,
+          "precip_mm": 67.4
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 29.6,
+          "precip_mm": 3.13
         }
       ],
-      "total_3d_rain_mm": 2.3,
-      "max_temp_C": 34.0,
-      "risk_assessment": "Binh thuong (Mild/Normal)"
+      "total_3d_rain_mm": 70.5,
+      "max_temp_C": 36.4,
+      "risk_assessment": "Rui ro ngap ung (Heavy Rain)"
     },
     "US_Corn_Nebraska": {
       "desc": "Ngô (Feedlot)",
       "forecast": [
         {
-          "date": "2026-08-10",
-          "max_temp_C": 30.7,
-          "precip_mm": 11.6
+          "date": "2026-08-11",
+          "max_temp_C": 33.4,
+          "precip_mm": 0.0
         },
+        {
+          "date": "2026-08-12",
+          "max_temp_C": 32.1,
+          "precip_mm": 1.4
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 32.9,
+          "precip_mm": 7.6
+        }
+      ],
+      "total_3d_rain_mm": 9.0,
+      "max_temp_C": 33.4,
+      "risk_assessment": "Binh thuong (Mild/Normal)"
+    },
+    "US_Corn_Minnesota": {
+      "desc": "Ngô, Đậu tương",
+      "forecast": [
+        {
+          "date": "2026-08-11",
+          "max_temp_C": 33.3,
+          "precip_mm": 0.4
+        },
+        {
+          "date": "2026-08-12",
+          "max_temp_C": 33.9,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 31.4,
+          "precip_mm": 0.0
+        }
+      ],
+      "total_3d_rain_mm": 0.4,
+      "max_temp_C": 33.9,
+      "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
+    },
+    "US_Corn_Indiana": {
+      "desc": "Ngô, Đậu tương",
+      "forecast": [
+        {
+          "date": "2026-08-11",
+          "max_temp_C": 27.0,
+          "precip_mm": 11.5
+        },
+        {
+          "date": "2026-08-12",
+          "max_temp_C": 24.2,
+          "precip_mm": 79.6
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 28.5,
+          "precip_mm": 6.2
+        }
+      ],
+      "total_3d_rain_mm": 97.3,
+      "max_temp_C": 28.5,
+      "risk_assessment": "Rui ro ngap ung (Heavy Rain)"
+    },
+    "US_Corn_Ohio": {
+      "desc": "Ngô, Đậu tương",
+      "forecast": [
+        {
+          "date": "2026-08-11",
+          "max_temp_C": 24.1,
+          "precip_mm": 75.6
+        },
+        {
+          "date": "2026-08-12",
+          "max_temp_C": 24.1,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 27.7,
+          "precip_mm": 0.0
+        }
+      ],
+      "total_3d_rain_mm": 75.6,
+      "max_temp_C": 27.7,
+      "risk_assessment": "Rui ro ngap ung (Heavy Rain)"
+    },
+    "US_Corn_Wisconsin": {
+      "desc": "Ngô, Sữa (Dairy Corn)",
+      "forecast": [
+        {
+          "date": "2026-08-11",
+          "max_temp_C": 30.5,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-12",
+          "max_temp_C": 31.9,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 29.6,
+          "precip_mm": 1.68
+        }
+      ],
+      "total_3d_rain_mm": 1.7,
+      "max_temp_C": 31.9,
+      "risk_assessment": "Binh thuong (Mild/Normal)"
+    },
+    "US_Corn_Missouri": {
+      "desc": "Ngô, Đậu tương",
+      "forecast": [
+        {
+          "date": "2026-08-11",
+          "max_temp_C": 37.3,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-12",
+          "max_temp_C": 38.6,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 41.2,
+          "precip_mm": 0.7
+        }
+      ],
+      "total_3d_rain_mm": 0.7,
+      "max_temp_C": 41.2,
+      "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
+    },
+    "US_Corn_Michigan": {
+      "desc": "Ngô, Đậu tương",
+      "forecast": [
+        {
+          "date": "2026-08-11",
+          "max_temp_C": 29.4,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-12",
+          "max_temp_C": 30.1,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 27.9,
+          "precip_mm": 0.0
+        }
+      ],
+      "total_3d_rain_mm": 0.0,
+      "max_temp_C": 30.1,
+      "risk_assessment": "Binh thuong (Mild/Normal)"
+    },
+    "Brazil_MatoGrosso": {
+      "desc": "Đậu tương, Ngô Safrinha",
+      "forecast": [
         {
           "date": "2026-08-11",
           "max_temp_C": 35.9,
@@ -272,244 +428,42 @@
           "date": "2026-08-12",
           "max_temp_C": 35.6,
           "precip_mm": 0.0
-        }
-      ],
-      "total_3d_rain_mm": 11.6,
-      "max_temp_C": 35.9,
-      "risk_assessment": "Binh thuong (Mild/Normal)"
-    },
-    "US_Corn_Minnesota": {
-      "desc": "Ngô, Đậu tương",
-      "forecast": [
-        {
-          "date": "2026-08-10",
-          "max_temp_C": 29.9,
-          "precip_mm": 0.0
         },
         {
-          "date": "2026-08-11",
-          "max_temp_C": 27.2,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-08-12",
-          "max_temp_C": 33.5,
+          "date": "2026-08-13",
+          "max_temp_C": 36.0,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 33.5,
-      "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
-    },
-    "US_Corn_Indiana": {
-      "desc": "Ngô, Đậu tương",
-      "forecast": [
-        {
-          "date": "2026-08-10",
-          "max_temp_C": 30.1,
-          "precip_mm": 0.4
-        },
-        {
-          "date": "2026-08-11",
-          "max_temp_C": 30.8,
-          "precip_mm": 70.1
-        },
-        {
-          "date": "2026-08-12",
-          "max_temp_C": 28.3,
-          "precip_mm": 14.9
-        }
-      ],
-      "total_3d_rain_mm": 85.4,
-      "max_temp_C": 30.8,
-      "risk_assessment": "Rui ro ngap ung (Heavy Rain)"
-    },
-    "US_Corn_Ohio": {
-      "desc": "Ngô, Đậu tương",
-      "forecast": [
-        {
-          "date": "2026-08-10",
-          "max_temp_C": 27.9,
-          "precip_mm": 8.0
-        },
-        {
-          "date": "2026-08-11",
-          "max_temp_C": 25.3,
-          "precip_mm": 9.8
-        },
-        {
-          "date": "2026-08-12",
-          "max_temp_C": 26.7,
-          "precip_mm": 9.7
-        }
-      ],
-      "total_3d_rain_mm": 27.5,
-      "max_temp_C": 27.9,
-      "risk_assessment": "Thuan loi (Favorable)"
-    },
-    "US_Corn_Wisconsin": {
-      "desc": "Ngô, Sữa (Dairy Corn)",
-      "forecast": [
-        {
-          "date": "2026-08-10",
-          "max_temp_C": 29.0,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-08-11",
-          "max_temp_C": 28.5,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-08-12",
-          "max_temp_C": 29.4,
-          "precip_mm": 2.98
-        }
-      ],
-      "total_3d_rain_mm": 3.0,
-      "max_temp_C": 29.4,
-      "risk_assessment": "Thuan loi (Favorable)"
-    },
-    "US_Corn_Missouri": {
-      "desc": "Ngô, Đậu tương",
-      "forecast": [
-        {
-          "date": "2026-08-10",
-          "max_temp_C": 36.0,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-08-11",
-          "max_temp_C": 37.7,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-08-12",
-          "max_temp_C": 34.0,
-          "precip_mm": 0.4
-        }
-      ],
-      "total_3d_rain_mm": 0.4,
-      "max_temp_C": 37.7,
-      "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
-    },
-    "US_Corn_Michigan": {
-      "desc": "Ngô, Đậu tương",
-      "forecast": [
-        {
-          "date": "2026-08-10",
-          "max_temp_C": 27.8,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-08-11",
-          "max_temp_C": 27.7,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-08-12",
-          "max_temp_C": 26.7,
-          "precip_mm": 1.3
-        }
-      ],
-      "total_3d_rain_mm": 1.3,
-      "max_temp_C": 27.8,
-      "risk_assessment": "Binh thuong (Mild/Normal)"
-    },
-    "Brazil_MatoGrosso": {
-      "desc": "Đậu tương, Ngô Safrinha",
-      "forecast": [
-        {
-          "date": "2026-08-10",
-          "max_temp_C": 37.8,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-08-11",
-          "max_temp_C": 36.7,
-          "precip_mm": 0.2
-        },
-        {
-          "date": "2026-08-12",
-          "max_temp_C": 35.9,
-          "precip_mm": 0.0
-        }
-      ],
-      "total_3d_rain_mm": 0.2,
-      "max_temp_C": 37.8,
+      "max_temp_C": 36.0,
       "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
     },
     "Argentina_Pampas": {
       "desc": "Lúa mì, Ngô, Đậu tương",
       "forecast": [
         {
-          "date": "2026-08-10",
+          "date": "2026-08-11",
           "max_temp_C": 11.4,
           "precip_mm": 0.0
         },
         {
-          "date": "2026-08-11",
-          "max_temp_C": 11.5,
+          "date": "2026-08-12",
+          "max_temp_C": 12.2,
           "precip_mm": 0.0
         },
         {
-          "date": "2026-08-12",
-          "max_temp_C": 12.1,
+          "date": "2026-08-13",
+          "max_temp_C": 9.0,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 12.1,
+      "max_temp_C": 12.2,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "Russia_Rostov": {
       "desc": "Lúa mì (XK số 1 TG)",
-      "forecast": [
-        {
-          "date": "2026-08-11",
-          "max_temp_C": 33.2,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-08-12",
-          "max_temp_C": 33.8,
-          "precip_mm": 0.3
-        },
-        {
-          "date": "2026-08-13",
-          "max_temp_C": 26.2,
-          "precip_mm": 0.0
-        }
-      ],
-      "total_3d_rain_mm": 0.3,
-      "max_temp_C": 33.8,
-      "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
-    },
-    "Ukraine_Poltava": {
-      "desc": "Ngô, Lúa mì",
-      "forecast": [
-        {
-          "date": "2026-08-11",
-          "max_temp_C": 30.0,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-08-12",
-          "max_temp_C": 24.8,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-08-13",
-          "max_temp_C": 22.4,
-          "precip_mm": 0.0
-        }
-      ],
-      "total_3d_rain_mm": 0.0,
-      "max_temp_C": 30.0,
-      "risk_assessment": "Binh thuong (Mild/Normal)"
-    },
-    "EU_France_Centre": {
-      "desc": "Lúa mì (EU XK số 2)",
       "forecast": [
         {
           "date": "2026-08-11",
@@ -518,40 +472,86 @@
         },
         {
           "date": "2026-08-12",
-          "max_temp_C": 36.2,
+          "max_temp_C": 33.6,
+          "precip_mm": 0.1
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 27.1,
+          "precip_mm": 0.0
+        }
+      ],
+      "total_3d_rain_mm": 0.1,
+      "max_temp_C": 33.6,
+      "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
+    },
+    "Ukraine_Poltava": {
+      "desc": "Ngô, Lúa mì",
+      "forecast": [
+        {
+          "date": "2026-08-11",
+          "max_temp_C": 30.1,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-12",
+          "max_temp_C": 25.0,
           "precip_mm": 0.0
         },
         {
           "date": "2026-08-13",
-          "max_temp_C": 38.4,
+          "max_temp_C": 22.7,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 38.4,
+      "max_temp_C": 30.1,
+      "risk_assessment": "Binh thuong (Mild/Normal)"
+    },
+    "EU_France_Centre": {
+      "desc": "Lúa mì (EU XK số 2)",
+      "forecast": [
+        {
+          "date": "2026-08-11",
+          "max_temp_C": 33.3,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-12",
+          "max_temp_C": 35.6,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-13",
+          "max_temp_C": 38.3,
+          "precip_mm": 0.0
+        }
+      ],
+      "total_3d_rain_mm": 0.0,
+      "max_temp_C": 38.3,
       "risk_assessment": "Rui ro kho han & nang nong (Dry & Hot)"
     },
     "Australia_NSW": {
       "desc": "Lúa mì",
       "forecast": [
         {
-          "date": "2026-08-11",
-          "max_temp_C": 16.7,
-          "precip_mm": 0.1
-        },
-        {
           "date": "2026-08-12",
-          "max_temp_C": 16.7,
-          "precip_mm": 1.3
+          "max_temp_C": 17.0,
+          "precip_mm": 0.5
         },
         {
           "date": "2026-08-13",
-          "max_temp_C": 16.0,
+          "max_temp_C": 15.2,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-08-14",
+          "max_temp_C": 16.6,
           "precip_mm": 0.0
         }
       ],
-      "total_3d_rain_mm": 1.4,
-      "max_temp_C": 16.7,
+      "total_3d_rain_mm": 0.5,
+      "max_temp_C": 17.0,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     }
   }
