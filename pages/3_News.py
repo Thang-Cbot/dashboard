@@ -462,40 +462,64 @@ with tab1:
             d = fund.get(code, {})
             with cols2[i]:
                 html_content = f"<div class='card'>\n<div style='font-weight:700; color:#e2e8f0; margin-bottom:12px; font-size:14px;'>{emoji} {name}</div>\n"
-                for metric_key, metric_label in [("us_ending_stocks", "Tồn Kho Mỹ"), ("global_ending_stocks", "Tồn Kho TG")]:
+
+                import re
+                def get_first_num(s):
+                    m = re.search(r'(\d{1,3}(?:,\d{3})*(?:\.\d+)?|\d+(?:\.\d+)?)', str(s))
+                    if m:
+                        try: return float(m.group(1).replace(',', ''))
+                        except: pass
+                    return None
+
+                def _wasde_row(metric_key, metric_label, icon=""):
                     meta = d.get(metric_key, {})
-                    if not meta: continue
-                    curr = str(meta.get("current", meta.get("latest", "—")))
-                    prev = str(meta.get("previous", "—"))
-                    
-                    import re
-                    def get_first_num(s):
-                        m = re.search(r'(\d{1,3}(?:,\d{3})*(?:\.\d+)?|\d+(?:\.\d+)?)', s)
-                        if m:
-                            try: return float(m.group(1).replace(',', ''))
-                            except: pass
-                        return None
-                    
+                    if not meta: return ""
+                    curr     = str(meta.get("current", meta.get("latest", "—")))
+                    prev     = str(meta.get("previous", "—"))
+                    curr_mo  = str(meta.get("current_month", ""))
+                    prev_mo  = str(meta.get("previous_month", ""))
+
+                    # Format: "717 triệu bushels (Tháng 06)" or keep existing "(2026/27)" in string
+                    def _tag_month(val_str, month_str):
+                        if not month_str or month_str == "None":
+                            return val_str
+                        # Remove existing month tag if already embedded (e.g. "(Tháng 06)")
+                        clean = re.sub(r'\s*\(Tháng\s+\d+\)', '', val_str).strip()
+                        return f"{clean} <span style='color:#64748b;font-size:10px;'>({month_str})</span>"
+
+                    curr_disp = _tag_month(curr, curr_mo)
+                    prev_disp = _tag_month(prev, prev_mo)
+
                     p_val = get_first_num(prev)
                     c_val = get_first_num(curr)
                     delta_html = ""
-                    if p_val is not None and c_val is not None and p_val != 0:
+                    if p_val and c_val and p_val != 0:
                         pct = (c_val - p_val) / p_val * 100
-                        if pct > 0:
-                            delta_html = f" <span style='color:#22c55e; font-size:11px; font-weight:700;'>(+{pct:.1f}%)</span>"
-                        elif pct < 0:
-                            delta_html = f" <span style='color:#ef4444; font-size:11px; font-weight:700;'>({pct:.1f}%)</span>"
-                        else:
-                            delta_html = f" <span style='color:#94a3b8; font-size:11px; font-weight:700;'>(0.0%)</span>"
-                            
-                    html_content += f"""<div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
-<span style='color:#cbd5e1; font-size:13px;'>{metric_label}</span>
+                        color = "#22c55e" if pct > 0 else "#ef4444" if pct < 0 else "#94a3b8"
+                        sign  = "+" if pct > 0 else ""
+                        delta_html = f" <span style='color:{color}; font-size:11px; font-weight:700;'>({sign}{pct:.1f}%)</span>"
+
+                    return f"""<div style='display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #1e2d45; padding-bottom:6px;'>
+<span style='color:#cbd5e1; font-size:13px;'>{icon} {metric_label}</span>
 <div style='text-align:right;'>
-<div style='font-size:13px;'><span class='prev'>{prev}</span> ➔ <span class='curr'>{curr}{delta_html}</span></div>
+<div style='font-size:12px; line-height:1.5;'><span class='prev'>{prev_disp}</span> ➔ <span class='curr'>{curr_disp}{delta_html}</span></div>
 </div>
 </div>"""
+
+                # ── Tồn Kho
+                html_content += "<div style='font-size:10px;font-weight:700;color:#64748b;letter-spacing:0.5px;margin-bottom:6px;text-transform:uppercase;'>📦 Tồn Kho Cuối Kỳ (Ending Stocks)</div>"
+                html_content += _wasde_row("us_ending_stocks",    "Tồn Kho Mỹ",  "🇺🇸")
+                html_content += _wasde_row("global_ending_stocks", "Tồn Kho TG",  "🌍")
+
+                # ── Sản Lượng
+                html_content += "<div style='font-size:10px;font-weight:700;color:#64748b;letter-spacing:0.5px;margin-top:8px;margin-bottom:6px;text-transform:uppercase;'>🌾 Sản Lượng (Production)</div>"
+                html_content += _wasde_row("us_production",     "Sản Lượng Mỹ", "🇺🇸")
+                html_content += _wasde_row("global_production",  "Sản Lượng TG", "🌍")
+
                 html_content += "</div>"
                 st.markdown(html_content, unsafe_allow_html=True)
+
+
 
     # ── Diện Tích Gieo Trồng (Acreage) ─────────────────────────────────────────────
     if acreage_data:

@@ -124,25 +124,35 @@ def parse_wasde(text):
                     if au_match: res[code]["australia_prod"] = parse_val(au_match.group(1))
                     if ru_match: res[code]["russia_prod"] = parse_val(ru_match.group(1))
                     
-    # 2. US Ending Stocks
+    # 2. US Ending Stocks + US Production + World Production
     zw_pos = text.find("U.S. Wheat Supply and Use")
     if zw_pos != -1:
         sub = text[zw_pos:zw_pos+3000]
+        for line in sub.split('\n'):
+            if "Production" in line and "ZW" not in res.get("ZW_prod_found", ""):
+                if "ZW" not in res: res["ZW"] = {}
+                res["ZW"]["us_prod"] = parse_val(line.split()[-1])
+                break
         for line in sub.split('\n'):
             if "Ending Stocks" in line:
                 if "ZW" not in res: res["ZW"] = {}
                 res["ZW"]["us"] = parse_val(line.split()[-1])
                 break
-                
+
     zs_pos = text.find("U.S. Soybeans and Products Supply and Use")
     if zs_pos != -1:
         sub = text[zs_pos:zs_pos+3000]
+        for line in sub.split('\n'):
+            if "Production" in line:
+                if "ZS" not in res: res["ZS"] = {}
+                res["ZS"]["us_prod"] = parse_val(line.split()[-1])
+                break
         for line in sub.split('\n'):
             if "Ending Stocks" in line:
                 if "ZS" not in res: res["ZS"] = {}
                 res["ZS"]["us"] = parse_val(line.split()[-1])
                 break
-                
+
     zc_table_pos = text.find("U.S. Feed Grain and Corn Supply and Use")
     if zc_table_pos != -1:
         sub_table = text[zc_table_pos:zc_table_pos+5000]
@@ -150,11 +160,41 @@ def parse_wasde(text):
         if corn_subhead_pos != -1:
             sub_corn = sub_table[corn_subhead_pos:corn_subhead_pos+2500]
             for line in sub_corn.split('\n'):
+                if "Production" in line:
+                    if "ZC" not in res: res["ZC"] = {}
+                    res["ZC"]["us_prod"] = parse_val(line.split()[-1])
+                    break
+            for line in sub_corn.split('\n'):
                 if "Ending Stocks" in line:
                     if "ZC" not in res: res["ZC"] = {}
                     res["ZC"]["us"] = parse_val(line.split()[-1])
                     break
-                    
+
+    # 3. World Production — extract from World Supply and Use tables already parsed above
+    world_tables = [
+        ("ZC", "World Corn Supply and Use"),
+        ("ZS", "World Soybean Supply and Use"),
+        ("ZW", "World Wheat Supply and Use")
+    ]
+    for code, heading in world_tables:
+        pos = text.find(heading)
+        if pos != -1:
+            sub = text[pos:pos+12000]
+            proj_pos = sub.find(proj_year)
+            if proj_pos != -1:
+                proj_sub = sub[proj_pos:proj_pos+1800]
+                # World Production — look for the "Production" line near the World total
+                for line in proj_sub.split('\n'):
+                    if "Production" in line and re.search(r'[\d,]{4,}', line):
+                        vals = re.findall(r'[\d,]+\.?\d*', line)
+                        if vals:
+                            try:
+                                if code not in res: res[code] = {}
+                                res[code]["world_prod"] = parse_val(vals[-1])
+                            except:
+                                pass
+                        break
+
     res["report_month"] = report_month
     return res
 
@@ -393,21 +433,53 @@ def run_crawler_and_update():
                 global_stocks = wasde_data[code].get("global", 0)
                 
                 if us_stocks > 0:
-                    formatted_us = f"{format_num(us_stocks)} triệu bushels (2026/27)"
+                    my_label = "2026/27" if code in ["ZC", "ZW", "ZS"] else "2026/27"
+                    formatted_us = f"{format_num(us_stocks)} triệu bushels ({my_label})"
                     if is_new_month:
                         fund[code]["us_ending_stocks"]["previous"] = fund[code]["us_ending_stocks"].get("current", "N/A")
+                        fund[code]["us_ending_stocks"]["previous_month"] = current_wasde_month
                         fund[code]["us_ending_stocks"]["forecast_next"] = "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"
                     fund[code]["us_ending_stocks"]["current"] = formatted_us
+                    fund[code]["us_ending_stocks"]["current_month"] = new_wasde_month
                     fund[code]["us_ending_stocks"]["next_date"] = wasde_next
-                    
+
                 if global_stocks > 0:
                     formatted_global = f"{global_stocks:.2f} triệu tấn (2026/27)"
                     if is_new_month:
                         fund[code]["global_ending_stocks"]["previous"] = fund[code]["global_ending_stocks"].get("current", "N/A")
+                        fund[code]["global_ending_stocks"]["previous_month"] = current_wasde_month
                         fund[code]["global_ending_stocks"]["forecast_next"] = "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)"
                     fund[code]["global_ending_stocks"]["current"] = formatted_global
+                    fund[code]["global_ending_stocks"]["current_month"] = new_wasde_month
                     fund[code]["global_ending_stocks"]["next_date"] = wasde_next
-                    
+
+                # === SẢN LƯỢNG (PRODUCTION) ===
+                us_prod = wasde_data[code].get("us_prod", 0)
+                world_prod = wasde_data[code].get("world_prod", 0)
+                my_label = "2026/27"
+
+                if us_prod > 0:
+                    formatted_us_prod = f"{format_num(us_prod)} triệu bushels ({my_label})"
+                    if "us_production" not in fund[code]:
+                        fund[code]["us_production"] = {}
+                    if is_new_month:
+                        fund[code]["us_production"]["previous"] = fund[code]["us_production"].get("current", "N/A")
+                        fund[code]["us_production"]["previous_month"] = current_wasde_month
+                    fund[code]["us_production"]["current"] = formatted_us_prod
+                    fund[code]["us_production"]["current_month"] = new_wasde_month
+                    fund[code]["us_production"]["next_date"] = wasde_next
+
+                if world_prod > 0:
+                    formatted_world_prod = f"{world_prod:.2f} triệu tấn ({my_label})"
+                    if "global_production" not in fund[code]:
+                        fund[code]["global_production"] = {}
+                    if is_new_month:
+                        fund[code]["global_production"]["previous"] = fund[code]["global_production"].get("current", "N/A")
+                        fund[code]["global_production"]["previous_month"] = current_wasde_month
+                    fund[code]["global_production"]["current"] = formatted_world_prod
+                    fund[code]["global_production"]["current_month"] = new_wasde_month
+                    fund[code]["global_production"]["next_date"] = wasde_next
+
                 if code == "ZC":
                     br = wasde_data[code].get("brazil_prod", 0)
                     ar = wasde_data[code].get("argentina_prod", 0)
