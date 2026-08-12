@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 5421.0,
+      "today_volume": 7319.0,
       "prev_volume": 196513.0,
       "today_oi": 827726,
-      "prev_oi": 438861,
-      "today_close": 461.5,
-      "prev_close": 461.75,
-      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
-      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
+      "prev_oi": 354650,
+      "today_close": 461.75,
+      "prev_close": 460.5,
+      "trend": "Tăng nhẹ tích lũy (Accumulation Rally)",
+      "logic": "Giá tăng nhẹ với các chỉ số thanh khoản hỗn hợp, cho thấy thị trường đang tích lũy lực cầu hoặc đi ngang."
     }
   },
   "ZW": {
@@ -33,9 +33,9 @@
       "month": 9
     },
     "swing": {
-      "ticker": "ZWU26.CBT",
+      "ticker": "ZWZ26.CBT",
       "year": 2026,
-      "month": 9
+      "month": 12
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 3703.0,
+      "today_volume": 4191.0,
       "prev_volume": 99419.0,
       "today_oi": 138216,
-      "prev_oi": 164690,
-      "today_close": 634.5,
-      "prev_close": 640.5,
-      "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
-      "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
+      "prev_oi": 138216,
+      "today_close": 635.25,
+      "prev_close": 630.25,
+      "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
+      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
-  "updated_at": "2026-08-12 10:00:20"
+  "updated_at": "2026-08-12 12:18:01"
 }
