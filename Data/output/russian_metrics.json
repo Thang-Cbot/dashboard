@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-08-10 20:28:29",
+  "timestamp": "2026-08-12 09:20:38",
   "metrics": {
     "planted_area": "N/A",
     "production_forecast": "N/A",
-    "harvest_progress": "Đã gặt 28 triệu tấn (tính đến 30/07/2025), năng suất giảm 4.5%",
-    "fob_price": "N/A (Giá lúa mì Biển Đen giảm xuống mức thấp nhất trong 13 tháng vào tháng 8/2026 và hiện đang thấp nhất trên thị trường thế giới)",
-    "export_tax": "N/A (Nga đang tìm cách thúc đẩy xuất khẩu nông sản)",
-    "export_capacity": "N/A (Năng lực xuất khẩu bị đe dọa bởi các cuộc tấn công và rủi ro logistics)",
-    "quality_notes": "Có lo ngại về chất lượng do mùa màng bị ảnh hưởng nặng nề, năng suất giảm và mưa (đặc biệt vào năm 2026)",
-    "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Tháng 9 (Vụ Xuân)",
-    "ai_assessment": "Mặc dù có những lo ngại về rủi ro logistics và an ninh ở Biển Đen, giá lúa mì Nga hiện đang ở mức thấp nhất trên thị trường thế giới, tạo áp lực cạnh tranh đáng kể lên giá CBOT."
+    "harvest_progress": "Đang diễn ra (dựa trên dữ liệu thu hoạch 28 triệu tấn vào tháng 7/2025 và thời điểm báo cáo mới nhất tháng 7-8/2026)",
+    "fob_price": "N/A",
+    "export_tax": "N/A",
+    "export_capacity": "N/A",
+    "quality_notes": "N/A",
+    "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Thu (Vụ Xuân)",
+    "ai_assessment": "Mặc dù rủi ro địa chính trị ở Biển Đen vẫn tiếp diễn, giá lúa mì Biển Đen của Nga đang ở mức thấp nhất trong 13 tháng và thấp nhất trên thị trường thế giới, cho thấy áp lực xuất khẩu mạnh mẽ có thể gây áp lực giảm giá lên CBOT."
   }
 }
