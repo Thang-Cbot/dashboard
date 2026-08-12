@@ -10411,3 +10411,8 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-08-12 09:20:25] [INFO] ▶ Kích hoạt: Chỉ số Lúa Mì Nga
 [2026-08-12 09:20:38] [INFO] ✅ Chỉ số Lúa Mì Nga hoàn thành (attempt 1)
 [2026-08-12 09:20:38] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Chỉ số Lúa Mì Nga)...
+[2026-08-12 09:21:00] [Sync] ⚠️ Lỗi Github Push: : unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Failed to connect to github.com port 443 after 21134 ms: Couldn't connect to server
+[2026-08-12 09:21:00] [INFO] ⏰ Đợi Russian Metrics: còn 22.15h (13/08 07:30:02 VN)
+[2026-08-12 10:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-08-12 10:00:20] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-08-12 10:00:20] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
