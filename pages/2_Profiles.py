@@ -698,7 +698,8 @@ with _tab_h4:
                     marker=dict(symbol="star", size=11, color="#38bdf8"),
                     text="<b>🚀 Đảo Cấu Trúc (TĂNG)</b>", textposition="bottom center",
                     textfont=dict(color="#38bdf8", size=11),
-                    hoverinfo="skip"
+                    hovertext=[f"🚀 <b>Đảo Cấu Trúc TĂNG</b><br>Giá phát hiện: <b>{r['Close']:.2f}¢</b><br>High: {r['High']:.2f}¢ | Low: {r['Low']:.2f}¢<br>{r['Label']}" for _, r in _choch_bull.iterrows()],
+                    hoverinfo="text",
                 ), row=1, col=1)
 
             # --- Đánh dấu Tiếp Diễn Tăng (BOS Bull) ---
@@ -722,7 +723,8 @@ with _tab_h4:
                     marker=dict(symbol="star", size=11, color="#fb7185"),
                     text="<b>🩸 Đảo Cấu Trúc (GIẢM)</b>", textposition="top center",
                     textfont=dict(color="#fb7185", size=11),
-                    hoverinfo="skip"
+                    hovertext=[f"🩸 <b>Đảo Cấu Trúc GIẢM</b><br>Giá phát hiện: <b>{r['Close']:.2f}¢</b><br>High: {r['High']:.2f}¢ | Low: {r['Low']:.2f}¢<br>{r['Label']}" for _, r in _choch_bear.iterrows()],
+                    hoverinfo="text",
                 ), row=1, col=1)
 
             # --- Đánh dấu Tiếp Diễn Giảm (BOS Bear) ---
@@ -989,7 +991,9 @@ with _tab_h1:
                     mode="markers+text", name="Đảo chiều Tăng",
                     marker=dict(symbol="star", size=11, color="#38bdf8"),
                     text="<b>🚀 Đảo Cấu Trúc (TĂNG)</b>", textposition="bottom center",
-                    textfont=dict(color="#38bdf8", size=10), hoverinfo="skip",
+                    textfont=dict(color="#38bdf8", size=10),
+                    hovertext=[f"🚀 <b>Đảo Cấu Trúc TĂNG</b><br>Giá phát hiện: <b>{r['Close']:.2f}¢</b><br>High: {r['High']:.2f}¢ | Low: {r['Low']:.2f}¢<br>{r['Label']}" for _, r in _h1_choch_bull.iterrows()],
+                    hoverinfo="text",
                 ), row=1, col=1)
 
             # BOS Bull H1
@@ -1012,7 +1016,9 @@ with _tab_h1:
                     mode="markers+text", name="Đảo chiều Giảm",
                     marker=dict(symbol="star", size=11, color="#fb7185"),
                     text="<b>🩸 Đảo Cấu Trúc (GIẢM)</b>", textposition="top center",
-                    textfont=dict(color="#fb7185", size=10), hoverinfo="skip",
+                    textfont=dict(color="#fb7185", size=10),
+                    hovertext=[f"🩸 <b>Đảo Cấu Trúc GIẢM</b><br>Giá phát hiện: <b>{r['Close']:.2f}¢</b><br>High: {r['High']:.2f}¢ | Low: {r['Low']:.2f}¢<br>{r['Label']}" for _, r in _h1_choch_bear.iterrows()],
+                    hoverinfo="text",
                 ), row=1, col=1)
 
             # BOS Bear H1
