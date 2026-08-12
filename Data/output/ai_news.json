@@ -1,162 +1,159 @@
 {
-  "timestamp": "2026-08-11 20:27:49",
+  "timestamp": "2026-08-12 20:01:00",
   "news": [
     {
-      "title": "Lúa mì phục hồi nhẹ vào đầu phiên thứ Sáu",
+      "title": "Giá Lúa Mì Giảm Mạnh vào Thứ Ba",
       "details": [
-        "Giá lúa mì tăng 4-7 cent vào đầu phiên giao dịch thứ Sáu.",
-        "Sự phục hồi này diễn ra sau khi giá lúa mì giảm trên cả ba thị trường vào thứ Năm.",
-        "Hợp đồng SRW Chicago giảm 1 1/2 đến 11 cent vào thứ Năm, dẫn đầu bởi các hợp đồng gần nhất."
+        "Giá lúa mì toàn cầu ghi nhận mức giảm đáng kể vào giữa ngày thứ Ba.",
+        "Hợp đồng lúa mì SRW Chicago giảm từ 9 đến 10 cent.",
+        "Hợp đồng lúa mì HRW Kansas City giảm từ 9 đến 10 cent đối với các tháng gần.",
+        "Lúa mì vụ xuân Minneapolis giảm từ 10 đến 11 cent."
       ],
-      "link": "https://www.barchart.com/story/news/3717446/wheat-bouncing-back-early-on-friday?.tsrc=rss",
-      "source": "07 Aug 2026 - Yahoo Finance"
+      "link": "https://www.barchart.com/story/news/3784427/wheat-falling-back-on-tuesday?.tsrc=rss",
+      "source": "11 Aug 2026 - Yahoo Finance"
     },
     {
-      "title": "Giá lúa mì tiếp tục giảm mạnh vào thứ Năm",
+      "title": "Lúa Mì Chịu Áp Lực Giảm Giá Lớn vào Thứ Ba Đầu Tháng",
       "details": [
-        "Giá lúa mì giảm trên cả ba thị trường vào thứ Năm.",
-        "Hợp đồng SRW Chicago giảm 13-14 cent trong các tháng đầu.",
-        "Hợp đồng HRW Kansas City dẫn đầu đà giảm, với mức giảm 17-18 cent.",
-        "Lúa mì vụ xuân Minneapolis giảm khoảng 15 cent."
-      ],
-      "link": "https://www.barchart.com/story/news/3698586/wheat-back-to-falling-lower-on-thursday?.tsrc=rss",
-      "source": "06 Aug 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Lúa mì giao dịch trái chiều vào đầu phiên thứ Năm",
-      "details": [
-        "Giá lúa mì vụ đông giảm nhẹ từ mức nhỏ đến 2 cent vào đầu phiên thứ Năm.",
-        "Lúa mì vụ xuân có dấu hiệu phục hồi.",
-        "Phiên giao dịch thứ Tư kết thúc với diễn biến trái chiều, với hợp đồng SRW Chicago tăng 3 3/4 đến 10 cent."
-      ],
-      "link": "https://www.barchart.com/story/news/3690997/wheat-starting-thursday-with-slightly-mixed-trade?.tsrc=rss",
-      "source": "06 Aug 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Lúa mì vụ đông giữ vững đà tăng, lúa mì vụ xuân giảm vào cuối phiên thứ Tư",
-      "details": [
-        "Thị trường lúa mì có diễn biến trái chiều vào cuối phiên giao dịch thứ Tư.",
-        "Hợp đồng SRW Chicago tăng từ 3 3/4 đến 10 cent.",
-        "Hợp đồng HRW Kansas City tăng từ 6 1/2 đến 14 cent.",
-        "Lúa mì vụ xuân Minneapolis biến động trái chiều, với các hợp đồng tháng đầu giảm."
-      ],
-      "link": "https://www.barchart.com/story/news/3677500/winter-wheat-holds-onto-gains-into-the-close-as-spring-wheat-slides?.tsrc=rss",
-      "source": "05 Aug 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Giá ngô tiếp tục giảm vào giữa phiên thứ Tư",
-      "details": [
-        "Hợp đồng ngô tiếp tục trượt giá, giảm 5-6 cent vào giữa phiên thứ Tư.",
-        "Giá ngô tiền mặt trung bình quốc gia CmdtyView giảm 5 cent, xuống còn 4.07 1/2 USD.",
-        "USDA báo cáo một giao dịch xuất khẩu tư nhân 120.000 tấn ngô sang Mexico."
-      ],
-      "link": "https://www.barchart.com/story/news/3669831/corn-losses-extend-to-wednesdays-midday?.tsrc=rss",
-      "source": "05 Aug 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Giá lúa mì duy trì đà tăng vào giữa phiên thứ Tư",
-      "details": [
-        "Thị trường lúa mì giao dịch với mức tăng trên hầu hết các hợp đồng vào thứ Tư.",
-        "Hợp đồng SRW Chicago tăng 8 cent vào giữa phiên.",
-        "Hợp đồng HRW Kansas City tăng 12 cent trong các tháng đầu.",
-        "Lúa mì vụ xuân Minneapolis tăng trở lại 4-5 cent."
-      ],
-      "link": "https://www.barchart.com/story/news/3669851/wheat-gains-holding-at-wednesdays-midday?.tsrc=rss",
-      "source": "05 Aug 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Áp lực giảm giá xuất hiện trên thị trường lúa mì vào thứ Ba",
-      "details": [
-        "Thị trường lúa mì giao dịch với các hợp đồng giảm giá vào giữa phiên thứ Ba.",
-        "Hợp đồng SRW Chicago giảm 12-14 cent.",
-        "Hợp đồng HRW Kansas City giảm 10-12 cent trong các tháng đầu.",
-        "Lúa mì vụ xuân Minneapolis giảm 9-10 cent trên hầu hết các hợp đồng."
+        "Thị trường lúa mì chứng kiến sự sụt giảm giá đáng kể vào giữa ngày.",
+        "Hợp đồng lúa mì SRW Chicago giảm từ 12 đến 14 cent.",
+        "Hợp đồng lúa mì HRW Kansas City giảm từ 10 đến 12 cent đối với các tháng gần.",
+        "Lúa mì vụ xuân Minneapolis giảm từ 9 đến 10 cent trên hầu hết các hợp đồng."
       ],
       "link": "https://www.barchart.com/story/news/3642346/wheat-bears-showing-up-on-tuesday?.tsrc=rss",
       "source": "04 Aug 2026 - Yahoo Finance"
     },
     {
-      "title": "Lúa mì mở đầu tháng Tám với mức giảm nhẹ",
+      "title": "Lúa Mì Phục Hồi Nhẹ vào Đầu Phiên Thứ Sáu",
       "details": [
-        "Giá lúa mì giảm 1-4 cent trong các tháng đầu vào đầu phiên thứ Hai.",
-        "Thị trường lúa mì đã giảm vào cuối tuần trước trên cả ba sàn giao dịch.",
-        "Hợp đồng SRW Chicago giảm 18 1/4 đến 24 1/4 cent khi đóng cửa.",
-        "Hợp đồng tháng Chín giảm 38 3/4 cent trong tuần."
+        "Giá lúa mì tăng từ 4 đến 7 cent vào đầu phiên giao dịch thứ Sáu.",
+        "Trước đó vào thứ Năm, thị trường lúa mì đã giảm giá trên cả ba sàn giao dịch.",
+        "Hợp đồng SRW Chicago giảm từ 1.5 đến 11 cent vào thứ Năm, dẫn đầu bởi các hợp đồng gần.",
+        "Hợp đồng HRW Kansas City cũng dẫn đầu xu hướng giảm giá cho lúa mì vụ đông vào thứ Năm."
       ],
-      "link": "https://www.barchart.com/story/news/3611711/wheat-starting-august-with-slight-losses?.tsrc=rss",
-      "source": "03 Aug 2026 - Yahoo Finance"
+      "link": "https://www.barchart.com/story/news/3717446/wheat-bouncing-back-early-on-friday?.tsrc=rss",
+      "source": "07 Aug 2026 - Yahoo Finance"
     },
     {
-      "title": "Ngô kết thúc tháng Bảy trong trạng thái yếu kém",
+      "title": "Giá Ngô Tiếp Đà Giảm vào Giữa Phiên Thứ Tư",
       "details": [
-        "Hợp đồng ngô giảm 1 1/2 đến 5 cent trong phiên giao dịch thứ Sáu.",
-        "Hợp đồng tháng Chín và tháng Mười Hai đều kết thúc tuần với mức giảm 23 1/2 cent.",
-        "Áp lực giảm giá đến từ sự yếu kém của lúa mì, mưa và áp lực cuối tháng.",
-        "Tuy nhiên, hợp đồng tháng Mười Hai vẫn tăng 28 cent trong tuần."
+        "Hợp đồng tương lai ngô tiếp tục giảm, với mức giảm từ 5 đến 6 cent vào giữa ngày thứ Tư.",
+        "Giá ngô giao ngay trung bình quốc gia của CmdtyView giảm 5 cent, xuống còn 4.07 1/2 USD.",
+        "USDA báo cáo một giao dịch xuất khẩu ngô tư nhân 120.000 tấn sang Mexico vào sáng cùng ngày."
       ],
-      "link": "https://www.barchart.com/story/news/3586520/corn-closes-july-with-weakness?.tsrc=rss",
-      "source": "31 Jul 2026 - Yahoo Finance"
+      "link": "https://www.barchart.com/story/news/3669831/corn-losses-extend-to-wednesdays-midday?.tsrc=rss",
+      "source": "05 Aug 2026 - Yahoo Finance"
     },
     {
-      "title": "Lúa mì sụt giảm mạnh vào cuối tháng Bảy",
+      "title": "Thị Trường Nông Sản Chờ Đợi Báo Cáo USDA Tháng Tám",
       "details": [
-        "Thị trường lúa mì giảm mạnh vào cuối tuần, với tổn thất trên cả ba sàn giao dịch.",
-        "Nguyên nhân là do dòng tiền rút ra vào cuối tháng.",
-        "Hợp đồng SRW Chicago giảm 18 1/4 đến 24 1/4 cent khi đóng cửa.",
-        "Hợp đồng tháng Chín giảm 38 3/4 cent trong tuần."
-      ],
-      "link": "https://www.barchart.com/story/news/3586540/wheat-collapses-to-close-out-july?.tsrc=rss",
-      "source": "31 Jul 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Dự báo giá tiền mặt của USDA cho thấy biên độ biến động lớn",
-      "details": [
-        "Hợp đồng ngô và đậu tương giảm nhẹ qua đêm.",
-        "Thời tiết ở vùng Trung Tây Hoa Kỳ gây áp lực lên giá.",
-        "Các nhà giao dịch đang chờ đợi báo cáo của USDA."
+        "Giá lúa mì tăng vọt qua đêm, kéo theo giá ngô và đậu tương tăng.",
+        "Thị trường đang trong trạng thái chờ đợi các báo cáo Sản lượng Cây trồng và WASDE của USDA.",
+        "Các báo cáo này có thể gây ra biến động lớn trên thị trường."
       ],
       "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
-      "source": "11 Aug 2026 - Farm Progress"
+      "source": "12 Aug 2026 - Farm Progress"
     },
     {
-      "title": "Lúa mì có thể tăng giá mạnh do sản lượng toàn cầu sụt giảm",
+      "title": "Michigan Tài Trợ 450.000 USD Xây Dựng Nhà Máy Ngô Mới",
       "details": [
-        "Hạn hán ở châu Âu đã cắt giảm sản lượng, gây ra đợt tăng giá 1.25 USD trong ba tuần.",
-        "Các mối đe dọa thời tiết ở Ấn Độ và Úc có thể đẩy giá lên cao hơn.",
-        "Xung đột ở Biển Đen cũng là một yếu tố có thể thúc đẩy giá lúa mì."
+        "Một khoản tài trợ 450.000 USD từ bang sẽ được dùng để xây dựng một nhà máy ngô mới tại Quincy, Michigan.",
+        "Dự án này là một phần của các sáng kiến phát triển nông nghiệp tại Michigan.",
+        "Việc xây dựng nhà máy mới có thể tăng cường nhu cầu và chế biến ngô tại địa phương."
       ],
-      "link": "https://www.farmprogress.com/marketing/watch-for-price-rally-in-wheat-as-global-production-drops",
-      "source": "11 Aug 2026 - Farm Progress"
+      "link": "https://www.farmprogress.com/corn/-450-000-state-grant-funds-new-corn-mill-in-quincy",
+      "source": "12 Aug 2026 - Farm Progress"
     },
     {
-      "title": "Xung đột Nga-Ukraine lại làm gián đoạn vận chuyển ngũ cốc Biển Đen",
+      "title": "Người Mua Brazil Quan Tâm Đến Lúa Mì Ohio",
       "details": [
-        "Chiến tranh Nga-Ukraine leo thang một lần nữa gây ra sự gián đoạn nghiêm trọng.",
-        "Vận chuyển ngũ cốc qua Biển Đen bị ảnh hưởng nặng nề.",
-        "Điều này có thể tác động tiêu cực đến nguồn cung ngũ cốc toàn cầu."
+        "Các nhà nhập khẩu từ Brazil đã đến Ohio để trực tiếp tìm hiểu về lúa mì của bang này.",
+        "Sự quan tâm từ Brazil cho thấy tiềm năng xuất khẩu lúa mì Ohio sang thị trường Nam Mỹ.",
+        "Điều này có thể thúc đẩy nhu cầu và giá lúa mì tại khu vực."
       ],
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPdXdVaDdLRW9Ba2NYYl90Zy1yeEpGM05SZWFSQ0xraFJvcjdKcFZyb3hLYlhDazJia2tmM21nS2hzWFFTYW1UNmFHZlVPR05YMUpkVTI4MThPZGF6ZElneEFVbW45QUxZZGRJMG84c3R6cWYwa0tfQXdUVkhIYkFNbGhMdmVNdExSS0pXNi05WlQ0WXJyUXFTSnM2R1psSGdPWnBhXw?oc=5",
-      "source": "11 Aug 2026 - Google News (Geopolitics)"
+      "link": "https://www.farmprogress.com/wheat/brazilian-buyers-get-up-close-look-at-ohio-wheat",
+      "source": "12 Aug 2026 - Farm Progress"
     },
     {
-      "title": "Ukraine và Moldova xem xét vận chuyển ngũ cốc bằng đường sắt qua Moldova",
+      "title": "Ukraine Cắt Giảm Dự Báo Xuất Khẩu Ngũ Cốc Do Tấn Công Cảng Biển",
       "details": [
-        "Ukraine và Moldova đang thảo luận về khả năng vận chuyển ngũ cốc bằng đường sắt.",
-        "Tuyến đường này sẽ đi qua Moldova để tránh các vấn đề ở Biển Đen.",
-        "Đây là một nỗ lực nhằm duy trì xuất khẩu ngũ cốc của Ukraine trong bối cảnh xung đột."
+        "Ukraine đã hạ dự báo xuất khẩu ngũ cốc của mình.",
+        "Nguyên nhân chính là do các cuộc tấn công của Nga vào các cảng biển của Ukraine.",
+        "Điều này gây ra lo ngại về nguồn cung ngũ cốc toàn cầu và có thể đẩy giá lên cao."
       ],
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQczZCdjhQdk9TTWZQblR0V0Bac2xTTWk3TWhRLUt2akZ4THduLVB3aUhzYlNtMGt2YkxhMDVfRlgxeDRELVptZmRweko5WWVDY2NoRFRzVTlHMWdSUXlhV1J5Ry1fRnVYUFJTVzNQUnBlOGNXcXRnRFIwa2ZKQjNkZjBIRTI2ZkZ1UkQ3YkRzNGZEY0Nxa3FIZGg0bnBPLWRtM0VTLVQ3TlhxeDMyakQxOXNJQ2lBd1FOUF9IRg?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNekxQUnMwU09VWk1GRXI5Y18xYkQ1MVV3THExMHlKU3JDaFVZVGFnX2xUV0tZbTY3RGNQamdCdkZHRndOV2p4OElDVkkxZW00M2tFWkZuN1dYaXVWZ0wydnZkTy1PeTVrLS1oU0M1X0Q4Tk1HZzVvemRuRzMtczdwWE10N1RQaUg4ZEpUM0lvMDc2RDIxTXZCSzFUUXJ2SGZKWmVhaDRR?oc=5",
       "source": "10 Aug 2026 - Google News (Geopolitics)"
     },
     {
-      "title": "Xuất khẩu ngũ cốc Ukraine dự kiến giảm mạnh sau các cuộc tấn công của Nga vào Odesa",
+      "title": "Ukraine Tấn Công Các Kho Ngũ Cốc tại Cảng Biển Đen Trọng Yếu của Nga",
       "details": [
-        "Xuất khẩu ngũ cốc của Ukraine dự kiến sẽ sụt giảm đáng kể.",
-        "Nguyên nhân là do các cuộc tấn công của Nga vào cảng Odesa.",
-        "Các cuộc tấn công này gây áp lực lớn lên khả năng vận chuyển ngũ cốc của Ukraine."
+        "Ukraine đã thực hiện các cuộc tấn công vào các kho chứa ngũ cốc tại một cảng Biển Đen quan trọng của Nga.",
+        "Hành động này làm gia tăng căng thẳng trong khu vực Biển Đen.",
+        "Các cuộc tấn công có thể ảnh hưởng đến khả năng xuất khẩu ngũ cốc của Nga."
       ],
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOTm1zX2RMQU9WaGNkNlhLbXcwemxQMHRHMnJrWHZVWXlXbFF3SXg2OHYybjZfZ3UzdVhpOTB2N0c2bXNPaG9Kb3BpWXJMYl9LakZ3bkRJUnBlQlFWdVdXR0p3NHpvTHV3U3ZWVnFFc18xdWs0MExvdEN1clE4WnV3VzNKdDNRTTJOYVFTRUpnM1hKbUEzOW5yZFFDMmFkOGtjeTktUWt1U0k0REpvdHhiS3c?oc=5",
-      "source": "07 Aug 2026 - Google News (Geopolitics)"
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQYXBEZ3BMM0pxbWdtcE1pYjhmUHl5c0hPaHVUejk2OFU5MWgtR0MycTc2TWdlbzlZQ1JNT3AxNmwxeDNrckEzSlNPWmx2a1NwbG5hU2drWUhiVFl3X2hfLUFtak9VUUdkbU9xNmpYQ0ItMVNfZDR0VGJwaEJHVmkwaWJFV09kMUhWREhuWmlaVm50LWloU01nNER1ZWZZQTAwUlVDQXJhZlBVY1hHcXNuRFRxbw?oc=5",
+      "source": "12 Aug 2026 - Google News (Geopolitics)"
+    },
+    {
+      "title": "Xung Đột Nga-Ukraine Tái Bùng Phát, Gây Gián Đoạn Xuất Khẩu Ngũ Cốc Biển Đen",
+      "details": [
+        "Cuộc chiến Nga-Ukraine leo thang trở lại, đặc biệt là ở khu vực Biển Đen.",
+        "Điều này gây ra sự gián đoạn nghiêm trọng đối với hoạt động vận chuyển ngũ cốc qua Biển Đen.",
+        "Sự gián đoạn này có thể ảnh hưởng đến nguồn cung và giá cả lúa mì và ngô toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPR09zYVAzaURSS2JOWG1KbFFDNE95bmZjdVFrcGhTWmxfeWdtSXBRVDBrMWtHOXU3NmxYdHoyOE1hczYzUHJrWWZRSFI3TU9tb0tkNmZjaVNNeWJTSUFjdFRTc2NlUkVkU3d6a1E2VVNHaU11bEJmOXM4cU8zVzV5cUMyTHhISmhQTDlnUHRGMUJXT1IzTUJsdHU5UmNOZGVHR3FoeEVB?oc=5",
+      "source": "11 Aug 2026 - Google News (Geopolitics)"
+    },
+    {
+      "title": "Xuất Khẩu Ngũ Cốc Ukraine Dự Kiến Giảm Sâu Sau Các Cuộc Tấn Công vào Odesa",
+      "details": [
+        "Xuất khẩu ngũ cốc của Ukraine được dự báo sẽ giảm mạnh.",
+        "Nguyên nhân là do các cuộc tấn công của Nga vào thành phố cảng Odesa.",
+        "Odesa là một cảng trọng yếu cho hoạt động xuất khẩu nông sản của Ukraine."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPSGVUUUlSbkd5MUVDSE0tbUo1d2FLU1JoZmgzbGtJd1RzU0x4RFFTbVhqTm1lQ2dBbnlqSjl4Uk1BZGd1Vmhfb1Q1X1RZMUwzS05DMXRZc3BNYW9OMzJTSWpBcmZ1Q2wxdU1oZzZxWnExVVZBZE00a3g0eTJzb3JtaHlSQlIyT01jZXBhdlV5eEl1c3NhSzlxR19LMmh3UHBtbnc?oc=5",
+      "source": "11 Aug 2026 - Google News (Geopolitics)"
+    },
+    {
+      "title": "Các Cuộc Tấn Công của Nga vào Odesa Cắt Giảm Một Nửa Dự Báo Xuất Khẩu Ngũ Cốc của Ukraine",
+      "details": [
+        "Các cuộc tấn công của Nga vào Odesa đã làm giảm một nửa dự báo xuất khẩu ngũ cốc của Ukraine.",
+        "Đây là một đòn giáng mạnh vào khả năng cung ứng nông sản của Ukraine ra thị trường thế giới.",
+        "Tình hình này có thể gây áp lực tăng giá lên thị trường ngũ cốc toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPa3NzeW5xdWhMV0dURTFSQnVXbkpfZC15ZkRxcmx2czJ2VVV5OWdGYnFmR2RiTlRNVV84cUluM3ZMUE9xSnctWDA2bXh5UjJLWXh1LWJseTlmMnlZaFNrd0FPX3lGTERldW1tYldNWmFvODdiUVVJNHVlM1h1MTFwRWQ1bDRvc0lSRnFyejAxbGdmZw?oc=5",
+      "source": "11 Aug 2026 - Google News (Geopolitics)"
+    },
+    {
+      "title": "Xuất Khẩu Lúa Mì Nga Dự Kiến Đạt Mức Thấp Nhất Thập Kỷ trong Tháng Tám",
+      "details": [
+        "Xuất khẩu lúa mì của Nga được dự báo sẽ giảm xuống mức thấp nhất trong một thập kỷ vào tháng Tám.",
+        "Nguyên nhân là do các cuộc tấn công liên tục ở Biển Đen.",
+        "Sự gián đoạn này từ một trong những nhà xuất khẩu lúa mì lớn nhất thế giới có thể ảnh hưởng đáng kể đến thị trường toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPNzNMdFZCNGxrUHQ1LS1Qdkk0ZXJHbW9SSlA4eWxPclNEN1Utc0pveHZuQk9nZzJuenhNMUNtYWxwS3lBZEV3WlQ0WXFpR01rRnp1XzF1Z0dMMzhxTFVXSEo4ck9yY0FCNlVyS3FzMGRoMjlqLU1iNjFvY1BjdFh3SkZabjV4dDFnRmk3aVp6SF8xZjRNOWVJZTRJbjJqamVBQ1NMMFZiOVdXVHBVamJvb2paTUhaYWdLcEhqazhxczJzQQ?oc=5",
+      "source": "11 Aug 2026 - Google News (Geopolitics)"
+    },
+    {
+      "title": "Giá Lúa Mì Duy Trì Đà Tăng vào Giữa Phiên Thứ Tư",
+      "details": [
+        "Thị trường lúa mì ghi nhận mức tăng trên hầu hết các hợp đồng vào giữa ngày thứ Tư.",
+        "Hợp đồng SRW Chicago tăng 8 cent.",
+        "Hợp đồng HRW Kansas City tăng 12 cent đối với các tháng gần.",
+        "Lúa mì vụ xuân Minneapolis tăng trở lại từ 4 đến 5 cent."
+      ],
+      "link": "https://www.barchart.com/story/news/3669851/wheat-gains-holding-at-wednesdays-midday?.tsrc=rss",
+      "source": "05 Aug 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Hai Kho Ngũ Cốc Lớn Nhất của Nga Ngừng Hoạt Động Sau Tấn Công của Ukraine",
+      "details": [
+        "Hai trong số các kho chứa ngũ cốc lớn nhất của Nga đã phải tạm ngừng hoạt động.",
+        "Việc ngừng hoạt động diễn ra sau các cuộc tấn công của Ukraine.",
+        "Sự kiện này làm gia tăng lo ngại về khả năng xuất khẩu ngũ cốc của Nga và nguồn cung toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQUE1MZVY4RWd4TjVTV1otb3o0LS1MV1N6WXRJWnpRRHdrN2hWYy1NcndKWjMwMFdnelhWNGU5VGpVN0I1cEUyamVtRG5SYjhnNS1JNWJUT0RfTXlYdTd1OVlWcXpNVWwzdGMxRHZyMWEzbVQ2VlBieTFYVE9LUUtFUk9XaEtkV3ZDSEd5WVFnUi1ScjM2SGt1N2R6ZHJPTkJkRkZkd053ektzV2RJbi1IWjBidF9rR0I2X3dCRGNTSXJQSW8?oc=5",
+      "source": "12 Aug 2026 - Google News (Geopolitics)"
     }
   ]
 }
