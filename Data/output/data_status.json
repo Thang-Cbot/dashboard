@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 13:25:08",
-      "updated_at": "2026-08-12 13:25:08"
+      "detail": "Auto-fetch 19:03:31",
+      "updated_at": "2026-08-12 19:03:31"
     },
     "macro": {
       "status": "[OK]",
@@ -53,9 +53,9 @@
       "updated_at": "2026-08-11 20:27:49"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 13:25:31 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-08-12 13:25:31"
+      "status": "[ERROR]",
+      "detail": "Lỗi Push: fatal: unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Recv failure: Connection was reset",
+      "updated_at": "2026-08-12 17:55:43"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -71,8 +71,8 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 13:24",
-    "updated_at": "2026-08-12 13:25:08"
+    "detail": "ZC+ZW updated at 19:03",
+    "updated_at": "2026-08-12 19:03:30"
   },
   "macro": {
     "status": "OK",
