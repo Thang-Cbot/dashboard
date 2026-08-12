@@ -37,23 +37,25 @@
       "forecast": "1,940 triệu bushels (Dự kiến giảm)",
       "action": "Tồn kho giảm -> Gom Long dài hạn (DCA)",
       "logic": "Giảm mạnh so với niên vụ trước (giảm ~8.6%) do diện tích gieo trồng giảm 6%.",
-      "previous": "1,790 triệu bushels (2026/27)",
+      "previous": "1,790 trieu bushels (2026/27)",
       "current": "1,653 triệu bushels (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -7.6,
       "pct_vs_prev_report": -8.6,
-      "current_month": "Aug"
+      "current_month": "Aug",
+      "previous_month": "Jul"
     },
     "global_ending_stocks": {
       "next_date": "11/09/2026 lúc 23:00 (VN)",
       "forecast": "276.8 triệu tấn (Tiếp tục giảm)",
       "action": "Tồn kho thấp nhất 12 năm -> Gom Long dài hạn (DCA)",
       "logic": "Tồn kho ngô toàn cầu chạm mức thấp nhất 12 năm qua (kể từ niên vụ 2013/14).",
-      "previous": "275.26 triệu tấn (2026/27)",
+      "previous": "275.26 trieu tan (2026/27)",
       "current": "274.66 triệu tấn (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -9.9,
-      "current_month": "Aug"
+      "current_month": "Aug",
+      "previous_month": "Jul"
     },
     "export_sales_weekly": {
       "report_type": "BAN_HANG",
@@ -189,7 +191,9 @@
     "us_production": {
       "current": "16,013 triệu bushels (2026/27)",
       "current_month": "Aug",
-      "next_date": "11/09/2026 lúc 23:00 (VN)"
+      "next_date": "11/09/2026 lúc 23:00 (VN)",
+      "previous": "16,000 trieu bushels (2026/27)",
+      "previous_month": "Jul"
     }
   },
   "ZW": {
@@ -228,23 +232,25 @@
       "forecast": "755 triệu bushels (Dự kiến giảm)",
       "action": "Tồn kho thắt chặt -> Gom Long dài hạn (DCA)",
       "logic": "Giảm sâu 18.5% so với niên vụ trước, phản ánh thiệt hại sản lượng lúa mì đông nặng nề.",
-      "previous": "722 triệu bushels (2026/27)",
+      "previous": "722 trieu bushels (2026/27)",
       "current": "717 triệu bushels (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -64.9,
       "pct_vs_prev_report": -1.6,
-      "current_month": "Aug"
+      "current_month": "Aug",
+      "previous_month": "Jul"
     },
     "global_ending_stocks": {
       "next_date": "11/09/2026 lúc 23:00 (VN)",
       "forecast": "274.2 triệu tấn (Tiếp tục giảm)",
       "action": "Cung toàn cầu giảm -> Gom Long dài hạn (DCA)",
       "logic": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
-      "previous": "272.84 triệu tấn (2026/27)",
+      "previous": "272.84 trieu tan (2026/27)",
       "current": "273.25 triệu tấn (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -11.8,
-      "current_month": "Aug"
+      "current_month": "Aug",
+      "previous_month": "Jul"
     },
     "export_sales_weekly": {
       "report_type": "BAN_HANG",
@@ -390,7 +396,9 @@
     "us_production": {
       "current": "1,531 triệu bushels (2026/27)",
       "current_month": "Aug",
-      "next_date": "11/09/2026 lúc 23:00 (VN)"
+      "next_date": "11/09/2026 lúc 23:00 (VN)",
+      "previous": "1,536 trieu bushels (2026/27)",
+      "previous_month": "Jul"
     }
   },
   "ZS": {
