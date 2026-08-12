@@ -452,9 +452,23 @@ with tab1:
 
 
     # ── WASDE Tồn Kho ──────────────────────────────────────────────────────────────
-    wasde_month = fund.get("ZC", {}).get("wasde", {}).get("month", "—") if fund else "—"
+    # Đọc kỳ báo cáo từ root (wasde_report_month) — cập nhật mỗi khi chạy USDA crawler
+    wasde_month_raw = (
+        fund.get("wasde_report_month", "")
+        or fund.get("ZC", {}).get("us_ending_stocks", {}).get("current_month", "")
+        or fund.get("ZC", {}).get("wasde", {}).get("month", "—")
+    ) if fund else "—"
+    # Map English month abbr → Vietnamese
+    _mo_map = {
+        "Jan": "Tháng 01", "Feb": "Tháng 02", "Mar": "Tháng 03",
+        "Apr": "Tháng 04", "May": "Tháng 05", "Jun": "Tháng 06",
+        "Jul": "Tháng 07", "Aug": "Tháng 08", "Sep": "Tháng 09",
+        "Oct": "Tháng 10", "Nov": "Tháng 11", "Dec": "Tháng 12",
+    }
+    wasde_month = _mo_map.get(wasde_month_raw, wasde_month_raw)
     wasde_html = f"<span style='font-size:11px; color:#94a3b8; font-weight:400; font-style:italic; float:right; margin-top:4px;'>(Kỳ báo cáo: {wasde_month} 2026)</span>"
     st.markdown(f"<div class='section-header'>🏛️ WASDE — Tồn Kho & Cân Đối Cung Cầu {wasde_html}</div>", unsafe_allow_html=True)
+
 
     if fund:
         cols2 = st.columns(2)
