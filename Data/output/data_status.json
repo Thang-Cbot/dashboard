@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 08:00:30",
-      "updated_at": "2026-08-12 08:00:30"
+      "detail": "Auto-fetch 09:00:18",
+      "updated_at": "2026-08-12 09:00:18"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 08:01:29 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-08-12 08:01:29"
+      "detail": "Đẩy thành công lúc 08:20:32 (Nguồn: ENSO / Weather Long)",
+      "updated_at": "2026-08-12 08:20:32"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -65,9 +65,9 @@
   },
   "all_ok": true,
   "prices": {
-    "status": "PARTIAL (1 errors)",
-    "detail": "ZW: [Errno 13] Permission denied: 'C:\\\\Users\\\\Admin\\\\OneDrive - w2kfp\\\\Thang_Docs\\\\Dau tu thu dong\\\\hang hoa tai sinh\\\\Antigravity\\\\Cbot\\\\Data\\\\output\\\\ZW_swing_H1.csv'",
-    "updated_at": "2026-08-12 08:00:30"
+    "status": "OK",
+    "detail": "ZC+ZW updated at 09:00",
+    "updated_at": "2026-08-12 09:00:18"
   },
   "macro": {
     "status": "OK",

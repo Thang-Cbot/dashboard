@@ -10388,3 +10388,8 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-08-12 08:20:25] [INFO] ▶ Kích hoạt: ENSO / Weather Long
 [2026-08-12 08:20:28] [INFO] ✅ ENSO / Weather Long hoàn thành (attempt 1)
 [2026-08-12 08:20:28] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: ENSO / Weather Long)...
+[2026-08-12 08:20:32] [Sync] ✅ Đồng bộ Github thành công (ENSO / Weather Long)!
+[2026-08-12 08:20:32] [INFO] ⏰ Đợi ENSO Long-Term: còn 118.16h (17/08 06:30:02 VN)
+[2026-08-12 09:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-08-12 09:00:18] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-08-12 09:00:18] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
