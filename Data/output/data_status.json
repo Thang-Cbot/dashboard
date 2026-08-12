@@ -33,9 +33,9 @@
       "updated_at": "2026-08-12 00:58:59"
     },
     "weather_long": {
-      "status": "OK",
-      "detail": "ENSO/El Nino updated",
-      "updated_at": "2026-08-11 06:31:11"
+      "status": "[OK]",
+      "detail": "Auto-fetch 08:20:28",
+      "updated_at": "2026-08-12 08:20:28"
     },
     "ai": {
       "status": "OK",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 08:00:51 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-08-12 08:00:51"
+      "detail": "Đẩy thành công lúc 08:01:29 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-08-12 08:01:29"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -83,5 +83,10 @@
     "status": "OK",
     "detail": "24/24 fetched",
     "updated_at": "2026-08-12 00:58:59"
+  },
+  "weather_long": {
+    "status": "OK",
+    "detail": "Status: El Niño Advisory",
+    "updated_at": "2026-08-12 08:20:28"
   }
 }
