@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 21:02:46 (Nguồn: AI Điểm Tin)",
-      "updated_at": "2026-08-13 21:02:46"
+      "detail": "Đẩy thành công lúc 22:00:24 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-08-13 22:00:24"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 21:00:51",
-      "updated_at": "2026-08-13 21:00:51"
+      "detail": "Auto-fetch 22:00:30",
+      "updated_at": "2026-08-13 22:00:30"
     },
     "russian_metrics": {
       "status": "[OK]",
