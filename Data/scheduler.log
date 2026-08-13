@@ -10806,3 +10806,8 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-08-13 20:31:37] [INFO] ▶ Kích hoạt: USDA Acreage
 [2026-08-13 20:31:42] [INFO] ✅ USDA Acreage hoàn thành (attempt 1)
 [2026-08-13 20:31:42] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: USDA Acreage)...
+[2026-08-13 20:31:45] [Sync] ✅ Đồng bộ Github thành công (USDA Acreage)!
+[2026-08-13 20:31:45] [INFO] ⏰ Đợi Acreage Reports: còn 8.97h (14/08 05:30:02 VN)
+[2026-08-13 21:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-08-13 21:00:40] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-08-13 21:00:40] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
