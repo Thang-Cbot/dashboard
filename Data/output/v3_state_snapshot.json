@@ -1,10 +1,10 @@
 {
-  "timestamp": "13/08/2026 17:58",
+  "timestamp": "13/08/2026 18:01",
   "macro": {
-    "brent_price": 87.26,
-    "brent_pct": -1.933,
-    "dxy_price": 99.897,
-    "dxy_pct": -0.113
+    "brent_price": 87.19,
+    "brent_pct": -2.012,
+    "dxy_price": 99.895,
+    "dxy_pct": -0.115
   },
   "commodities": {
     "ZC": {
@@ -21,12 +21,12 @@
         "s2": 426.75,
         "r1": 455.75,
         "r2": 468.0,
-        "volume": 450.0,
+        "volume": 462.0,
         "open_interest": 320226,
         "contract": "ZCU26",
         "weather": "Trời nóng tại Midwest, mưa rải rác",
-        "predicted_close": 455.6807969628975,
-        "predicted_change": 0.9307969628974802
+        "predicted_close": 455.6740662804765,
+        "predicted_change": 0.9240662804764896
       },
       "swing": {
         "time": "2026-08-13 17:00",
@@ -41,24 +41,24 @@
         "s2": 426.75,
         "r1": 455.75,
         "r2": 468.0,
-        "volume": 450.0,
+        "volume": 462.0,
         "open_interest": 320226,
         "contract": "ZCU26"
       },
       "dca": {
         "time": "2026-08-13 17:00",
-        "close": 478.5,
-        "ema_21": 474.5236953984826,
-        "ema_50": 469.722237458682,
+        "close": 478.25,
+        "ema_21": 474.5009681257554,
+        "ema_50": 469.7124335371134,
         "volatility": 1.25,
         "signal": "Bullish",
-        "rsi": 68.94481709635586,
+        "rsi": 67.83373261606829,
         "atr": 1.9492372312231232,
         "s1": 477.0,
         "s2": 447.5,
         "r1": 481.5,
         "r2": 492.0,
-        "volume": 1519.0,
+        "volume": 1525.0,
         "open_interest": 851554,
         "contract": "ZCZ26"
       },
@@ -84,12 +84,12 @@
         "s2": 614.0,
         "r1": 657.75,
         "r2": 711.25,
-        "volume": 1055.0,
+        "volume": 1083.0,
         "open_interest": 113806,
         "contract": "ZWU26",
         "weather": "Hạn hán vĩ mô",
-        "predicted_close": 657.7581679828934,
-        "predicted_change": 2.5081679828934287
+        "predicted_close": 657.7594261687195,
+        "predicted_change": 2.509426168719516
       },
       "swing": {
         "time": "2026-08-13 17:00",
@@ -104,24 +104,24 @@
         "s2": 614.0,
         "r1": 657.75,
         "r2": 711.25,
-        "volume": 1055.0,
+        "volume": 1083.0,
         "open_interest": 113806,
         "contract": "ZWU26"
       },
       "dca": {
         "time": "2026-08-13 17:00",
-        "close": 672.25,
-        "ema_21": 667.9261457018423,
-        "ema_50": 664.5234030897138,
+        "close": 672.0,
+        "ema_21": 667.903418429115,
+        "ema_50": 664.5135991681452,
         "volatility": 2.75,
         "signal": "Bullish",
-        "rsi": 61.72643365422024,
+        "rsi": 61.10281211149216,
         "atr": 4.120988116586672,
         "s1": 668.5,
         "s2": 628.5,
-        "r1": 674.5,
+        "r1": 674.25,
         "r2": 728.25,
-        "volume": 1025.0,
+        "volume": 1026.0,
         "open_interest": 204933,
         "contract": "ZWZ26"
       },
