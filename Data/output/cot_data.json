@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-11 06:17:26",
+  "fetched_at": "2026-08-12 23:16:45",
   "source": "CFTC ZIP (Disaggregated Futures Only)",
   "commodities": {
     "002602": {
@@ -15,7 +15,7 @@
       "change": 18045.0,
       "quadrant": "Q1 (XANH LA) - GOM LONG",
       "action": "Uu tien LONG. Xu huong tang ben vung.",
-      "fetched_at": "2026-08-11 06:17:28"
+      "fetched_at": "2026-08-12 23:16:46"
     },
     "001602": {
       "commodity": "ZW",
@@ -30,7 +30,7 @@
       "change": -16707.0,
       "quadrant": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "fetched_at": "2026-08-11 06:17:28"
+      "fetched_at": "2026-08-12 23:16:46"
     }
   }
 }
