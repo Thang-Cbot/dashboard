@@ -16,7 +16,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 28693.0,
+      "today_volume": 28699.0,
       "prev_volume": 262304.0,
       "today_oi": 851554,
       "prev_oi": 320226,
@@ -43,7 +43,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 10300.0,
+      "today_volume": 10324.0,
       "prev_volume": 124636.0,
       "today_oi": 113806,
       "prev_oi": 113806,
@@ -53,5 +53,5 @@
       "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
-  "updated_at": "2026-08-13 17:57:53"
+  "updated_at": "2026-08-13 18:00:42"
 }
