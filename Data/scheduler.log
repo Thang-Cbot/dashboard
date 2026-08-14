@@ -11119,3 +11119,12 @@ ModuleNotFoundError: No module named 'tvDatafeed'
 [2026-08-14 22:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
 [2026-08-14 22:00:31] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-08-14 22:00:31] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-08-14 22:00:35] [Sync] ✅ Đồng bộ Github thành công (Giá H1 + Macro)!
+[2026-08-14 22:00:35] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-14 22:00:36] [WARN] ⚠ Giá H4 lỗi attempt 1: ocs\Dau tu thu dong\hang hoa tai sinh\Antigravity\Cbot\Data\fetch_prices_H4.py", line 14, in <module>
+    from tvDatafeed import TvDatafeed, Interval
+ModuleNotFoundError: No module named 'tvDatafeed'
+
+[2026-08-14 22:00:36] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-08-14 22:00:40] [INFO] ✅ Vĩ Mô (Macro) hoàn thành (attempt 1)
+[2026-08-14 22:00:40] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Vĩ Mô (Macro))...
