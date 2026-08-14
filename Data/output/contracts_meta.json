@@ -6,9 +6,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZCZ26.CBT",
-      "year": 2026,
-      "month": 12
+      "ticker": "ZCH27.CBT",
+      "year": 2027,
+      "month": 3
     },
     "dca": {
       "ticker": "ZCZ26.CBT",
@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 11780.0,
+      "today_volume": 12803.0,
       "prev_volume": 262304.0,
       "today_oi": 851559,
       "prev_oi": 320226,
-      "today_close": 473.0,
+      "today_close": 472.75,
       "prev_close": 480.75,
       "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
       "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 570.0,
+      "today_volume": 942.0,
       "prev_volume": 124636.0,
       "today_oi": 114141,
       "prev_oi": 113806,
-      "today_close": 657.75,
+      "today_close": 656.5,
       "prev_close": 652.75,
       "trend": "Tăng nhẹ tích lũy (Accumulation Rally)",
       "logic": "Giá tăng nhẹ với các chỉ số thanh khoản hỗn hợp, cho thấy thị trường đang tích lũy lực cầu hoặc đi ngang."
     }
   },
-  "updated_at": "2026-08-14 07:25:29"
+  "updated_at": "2026-08-14 08:00:23"
 }
