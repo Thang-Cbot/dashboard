@@ -116,9 +116,19 @@ def _try_cwr_commodity_summary_pdf():
     }
     
     try:
-        resp = requests.get(url, headers=headers, verify=False, timeout=30)
-        if resp.status_code != 200:
-            print(f"  [ERROR] Không thể tải PDF CWRCommoditySummary. Status Code: {resp.status_code}")
+        resp = None
+        for attempt, timeout in enumerate([60, 90], 1):
+            try:
+                print(f"  [Attempt {attempt}] GET {url} (timeout={timeout}s)...")
+                resp = requests.get(url, headers=headers, verify=False, timeout=timeout)
+                if resp.status_code == 200:
+                    break
+                print(f"  [WARN] Attempt {attempt} returned status {resp.status_code}")
+            except Exception as e_inner:
+                print(f"  [WARN] Attempt {attempt} failed: {e_inner}")
+                resp = None
+        if resp is None or resp.status_code != 200:
+            print(f"  [ERROR] Không thể tải PDF CWRCommoditySummary sau {attempt} lần thử.")
             return None, None
             
         f = io.BytesIO(resp.content)
@@ -215,10 +225,10 @@ def fetch_export_sales():
                 "pct_change": 0,
             }
             print(f"  ✅ {code} ({label}): Bán hàng ròng={_format_mt(curr_mt)}")
-            
+
         _update_fundamental_exports(parsed, period_str)
     else:
-        print("  [WARN] Không parse được dữ liệu. Giữ nguyên dữ liệu cũ trong fundamental_data.json.")
+        print("  [ERROR] Không parse được dữ liệu. Giữ nguyên dữ liệu cũ trong fundamental_data.json.")
 
     # Lưu export_sales.json
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -233,6 +243,8 @@ def fetch_export_sales():
             if results.get("commodities") else "NoData"
         )
     )
+    if not parsed:
+        sys.exit(1)   # Báo lỗi cho UI biết thất bại
     return results["status"] == "OK"
 
 
