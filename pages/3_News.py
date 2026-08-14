@@ -181,7 +181,7 @@ with tab1:
                         env["PYTHONIOENCODING"] = "utf-8"
                         result = subprocess.run(
                             [sys.executable, script],
-                            capture_output=True, text=True, encoding="utf-8", env=env, timeout=120
+                            capture_output=True, text=True, encoding="utf-8", env=env, timeout=200
                         )
                         if result.returncode == 0:
                             msgs.append(("✅", name, "Thành công"))

@@ -117,19 +117,27 @@ def _try_cwr_commodity_summary_pdf():
     
     try:
         resp = None
-        for attempt, timeout in enumerate([60, 90], 1):
+        # Lưu ý: Kết nối từ VN đến apps.fas.usda.gov mất 60-90s để thiết lập (TCP handshake chậm).
+        # Dùng tuple timeout=(connect_timeout, read_timeout) để phân biệt hai giai đoạn.
+        retry_configs = [
+            (90, 60),   # Lần 1: 90s TCP connect + 60s đọc dữ liệu
+            (120, 60),  # Lần 2: 120s TCP connect (dự phòng nếu mạng chậm hơn bình thường)
+        ]
+        for attempt, (ct, rt) in enumerate(retry_configs, 1):
             try:
-                print(f"  [Attempt {attempt}] GET {url} (timeout={timeout}s)...")
-                resp = requests.get(url, headers=headers, verify=False, timeout=timeout)
+                print(f"  [Attempt {attempt}] GET PDF (connect={ct}s, read={rt}s)...")
+                resp = requests.get(url, headers=headers, verify=False, timeout=(ct, rt))
                 if resp.status_code == 200:
                     break
                 print(f"  [WARN] Attempt {attempt} returned status {resp.status_code}")
+                resp = None
             except Exception as e_inner:
                 print(f"  [WARN] Attempt {attempt} failed: {e_inner}")
                 resp = None
         if resp is None or resp.status_code != 200:
-            print(f"  [ERROR] Không thể tải PDF CWRCommoditySummary sau {attempt} lần thử.")
+            print(f"  [ERROR] Không thể tải PDF CWRCommoditySummary sau {len(retry_configs)} lần thử.")
             return None, None
+
             
         f = io.BytesIO(resp.content)
         reader = PyPDF2.PdfReader(f)
