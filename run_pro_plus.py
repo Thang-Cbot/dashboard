@@ -68,12 +68,7 @@ def get_active_contract(commodity_code, current_date):
     """
     candidates = get_candidate_tickers(commodity_code, current_date)
     
-    # --- USER OVERRIDE: Force September (U) contract for the current year ---
-    for cand in candidates:
-        if cand[1] == current_date.year and cand[2] == 9:
-            print(f" => [Override] Ưu tiên HĐ tháng 9 theo yêu cầu: {cand[0]}")
-            return cand
-    # ------------------------------------------------------------------------
+
             
     best_ticker = None
     max_volume = -1
