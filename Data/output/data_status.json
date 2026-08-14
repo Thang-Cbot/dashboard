@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 22:00:40",
-      "updated_at": "2026-08-14 22:00:40"
+      "detail": "Auto-fetch 23:18:12",
+      "updated_at": "2026-08-14 23:18:12"
     },
     "cot": {
       "status": "PARTIAL",
@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 22:01:41 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-08-14 22:01:41"
+      "detail": "Đẩy thành công lúc 23:18:09 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-08-14 23:18:09"
     },
     "prices_h4": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-08-14 22:00:36"
+      "updated_at": "2026-08-14 23:18:09"
     },
     "russian_metrics": {
       "status": "[OK]",
@@ -76,8 +76,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=87.8, DXY=99.538",
-    "updated_at": "2026-08-14 22:00:40"
+    "detail": "Brent=87.71, DXY=99.552",
+    "updated_at": "2026-08-14 23:18:12"
   },
   "acreage": {
     "status": "OK",
