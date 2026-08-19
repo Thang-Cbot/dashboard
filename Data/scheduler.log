@@ -11273,3 +11273,11 @@ ModuleNotFoundError: No module named 'tvDatafeed'
 [2026-08-19 20:01:08] [INFO] ✅ AI Điểm Tin hoàn thành (attempt 1)
 [2026-08-19 20:01:08] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: AI Điểm Tin)...
 [2026-08-19 20:01:09] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Cập nhật Phân tích & Giao diện (H1))...
+[2026-08-19 20:01:12] [Sync] ✅ Đồng bộ Github thành công (AI Điểm Tin)!
+[2026-08-19 20:01:12] [INFO] ⏰ Đợi AI News: còn 9.98h (20/08 06:00:02 VN)
+[2026-08-19 20:01:13] [Sync] ⚠️ Lỗi Github Push: 705e0d7ba2df57 but expected 98cf0485000a7bd7cb61bbd84b976f2f71178843)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-08-19 20:01:13] [INFO] ⏰ Đợi Giá H1: còn 0.98h (19/08 21:00:05 VN)
+[2026-08-19 21:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-08-19 21:00:26] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-08-19 21:00:26] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
