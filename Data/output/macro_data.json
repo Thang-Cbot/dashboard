@@ -1,21 +1,21 @@
 {
-  "timestamp": "2026-08-20 07:00:35",
+  "timestamp": "2026-08-20 08:59:59",
   "brent": {
-    "price": 91.57,
+    "price": 91.96,
     "prev": 91.02,
-    "pct": 0.604,
+    "pct": 1.033,
     "ticker": "BZ=F"
   },
   "dxy": {
-    "price": 98.833,
+    "price": 98.853,
     "prev": 99.65,
-    "pct": -0.82,
+    "pct": -0.8,
     "ticker": "DX-Y.NYB"
   },
   "zw_ref": {
-    "price": 696.5,
+    "price": 697.0,
     "prev": 664.5,
-    "pct": 4.816,
+    "pct": 4.891,
     "ticker": "ZW=F"
   }
 }
