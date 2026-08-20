@@ -11834,3 +11834,8 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-08-21 03:37:57] [INFO] ▶ Kích hoạt: Export Sales
 [2026-08-21 03:38:06] [INFO] ✅ Export Sales hoàn thành (attempt 1)
 [2026-08-21 03:38:06] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Export Sales)...
+[2026-08-21 03:38:09] [Sync] ✅ Đồng bộ Github thành công (Export Sales)!
+[2026-08-21 03:38:09] [INFO] ⏰ Đợi Export Sales: còn 161.90h (27/08 21:32:02 VN)
+[2026-08-21 04:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-08-21 04:00:18] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-08-21 04:00:18] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
