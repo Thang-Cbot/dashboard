@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-08-20",
+  "last_updated_fundamentals": "2026-08-21",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -29,7 +29,7 @@
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
       "previous": "61% Good to Excellent",
-      "previous_date": "10/08/2026",
+      "previous_date": "17/08/2026",
       "latest_date": "17/08/2026"
     },
     "us_ending_stocks": {
@@ -120,16 +120,16 @@
       "logic": "Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại đang xuất hiện vùng khô hạn cục bộ ở rìa phía Bắc (Minnesota, Northern Plains) đe dọa trực tiếp tỷ lệ nảy mầm của cây ngô non."
     },
     "cot_report": {
-      "latest": "[2026-08-04] Net Long 144,821 HD | Change: +18,045 HD",
-      "next_date": "07/08/2026 (Hang tuan, Thu Sau)",
-      "forecast": "Q1 (XANH LA) - GOM LONG",
-      "action": "Uu tien LONG. Xu huong tang ben vung.",
-      "logic": "[2026-08-04] Managed Money nam giu vi the rong Long 144,821 hop dong. Tuan nay tang them 18,045 HD. Xep hang Ma Tran: Q1 (XANH LA) - GOM LONG. Khuyen nghi: Uu tien LONG. Xu huong tang ben vung.",
+      "latest": "[2026-08-11] Net Long 125,875 HD | Change: -18,946 HD",
+      "next_date": "14/08/2026 (Hang tuan, Thu Sau)",
+      "forecast": "Q2 (DO NHAT) - XA LONG",
+      "action": "Cam bat day. Canh gia hoi de danh SHORT.",
+      "logic": "[2026-08-11] Managed Money nam giu vi the rong Long 125,875 hop dong. Tuan nay giam bot 18,946 HD. Xep hang Ma Tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.",
       "raw_data": {
-        "net_position": 144821.0,
-        "change": 18045.0,
-        "long": 309717.0,
-        "short": 164896.0
+        "net_position": 125875.0,
+        "change": -18946.0,
+        "long": 312829.0,
+        "short": 186954.0
       }
     },
     "import_demand": {
@@ -214,7 +214,7 @@
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Đông 91% thu hoạch, Xuân 24% thu hoạch",
-      "previous_date": "10/08/2026",
+      "previous_date": "17/08/2026",
       "latest_date": "17/08/2026"
     },
     "crop_condition": {
@@ -224,7 +224,7 @@
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông N/A (Cuối vụ), Xuân 51% G/E",
-      "previous_date": "10/08/2026",
+      "previous_date": "17/08/2026",
       "latest_date": "17/08/2026"
     },
     "us_ending_stocks": {
@@ -322,16 +322,16 @@
       "logic": "Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ) + Hạn hán mùa thu làm giảm 20% diện tích gieo trồng của Úc."
     },
     "cot_report": {
-      "latest": "[2026-08-04] Net Short 24,870 HD | Change: -16,707 HD",
-      "next_date": "07/08/2026 (Hang tuan, Thu Sau)",
+      "latest": "[2026-08-11] Net Short 33,400 HD | Change: -8,530 HD",
+      "next_date": "14/08/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "logic": "[2026-08-04] Managed Money nam giu vi the rong Short 24,870 hop dong. Tuan nay giam bot 16,707 HD. Xep hang Ma Tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.",
+      "logic": "[2026-08-11] Managed Money nam giu vi the rong Short 33,400 hop dong. Tuan nay giam bot 8,530 HD. Xep hang Ma Tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.",
       "raw_data": {
-        "net_position": -24870.0,
-        "change": -16707.0,
-        "long": 80037.0,
-        "short": 104907.0
+        "net_position": -33400.0,
+        "change": -8530.0,
+        "long": 78009.0,
+        "short": 111409.0
       }
     },
     "import_demand": {
@@ -424,7 +424,7 @@
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6.",
       "latest_date": "17/08/2026",
       "previous": "62% Good to Excellent",
-      "previous_date": "10/08/2026"
+      "previous_date": "17/08/2026"
     },
     "us_ending_stocks": {
       "next_date": "11/09/2026 lúc 23:00 (VN)",
@@ -525,5 +525,5 @@
     }
   },
   "wasde_report_month": "Aug",
-  "last_updated_cot": "2026-08-14 11:52:34"
+  "last_updated_cot": "2026-08-21 07:21:49"
 }
