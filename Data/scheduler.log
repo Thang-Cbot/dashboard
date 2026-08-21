@@ -12225,3 +12225,7 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-08-21 17:10:20] [INFO] Scheduler đang chạy ngầm. Nhấn Ctrl+C để dừng.
 [2026-08-21 17:10:39] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-08-21 17:10:40] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-08-21 17:10:44] [Sync] ✅ Đồng bộ Github thành công (Giá H1 + Macro)!
+[2026-08-21 17:10:44] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-21 17:10:49] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-08-21 17:10:49] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
