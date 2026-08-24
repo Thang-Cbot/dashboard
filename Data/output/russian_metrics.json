@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-08-20 07:30:25",
+  "timestamp": "2026-08-24 07:30:16",
   "metrics": {
     "planted_area": "N/A",
     "production_forecast": "N/A",
-    "harvest_progress": "Đang trong giai đoạn thu hoạch chính (dựa trên thời điểm tháng 8)",
-    "fob_price": "Thấp nhất thị trường thế giới (theo báo cáo tháng 7/2026)",
+    "harvest_progress": "N/A",
+    "fob_price": "N/A",
     "export_tax": "N/A",
     "export_capacity": "N/A",
     "quality_notes": "N/A",
-    "harvest_time": "Tháng 7 - Tháng 8 (Vụ Đông), Tháng 8 - Tháng 9 (Vụ Xuân)",
-    "ai_assessment": "Áp lực xả hàng của Nga lên giá CBOT hiện tại đang bị hạn chế do các rủi ro địa chính trị và vấn đề vận chuyển ở Biển Đen, mặc dù giá lúa mì Biển Đen vẫn ở mức cạnh tranh thấp nhất thị trường thế giới khi có thể xuất khẩu."
+    "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Thu (Vụ Xuân)",
+    "ai_assessment": "Áp lực xả hàng của Nga lên giá CBOT hiện tại bị giảm nhẹ do các rủi ro địa chính trị và khó khăn vận chuyển đang hạn chế nguồn cung từ Biển Đen, hỗ trợ giá lúa mì toàn cầu."
   }
 }
