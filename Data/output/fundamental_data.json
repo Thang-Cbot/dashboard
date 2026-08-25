@@ -29,7 +29,7 @@
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
       "previous": "60% Good to Excellent",
-      "previous_date": "17/08/2026",
+      "previous_date": "24/08/2026",
       "latest_date": "24/08/2026"
     },
     "us_ending_stocks": {
@@ -213,8 +213,8 @@
       "forecast": "Mỹ: 12% lúa đông đã thu hoạch",
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
-      "previous": "Đông 96% thu hoạch, Xuân 41% thu hoạch",
-      "previous_date": "17/08/2026",
+      "previous": "Đông N/A, Xuân 41% thu hoạch",
+      "previous_date": "24/08/2026",
       "latest_date": "24/08/2026"
     },
     "crop_condition": {
@@ -224,7 +224,7 @@
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông N/A (Cuối vụ), Xuân 52% G/E",
-      "previous_date": "17/08/2026",
+      "previous_date": "24/08/2026",
       "latest_date": "24/08/2026"
     },
     "us_ending_stocks": {
@@ -424,7 +424,7 @@
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6.",
       "latest_date": "24/08/2026",
       "previous": "61% Good to Excellent",
-      "previous_date": "17/08/2026"
+      "previous_date": "24/08/2026"
     },
     "us_ending_stocks": {
       "next_date": "11/09/2026 lúc 23:00 (VN)",
@@ -525,5 +525,5 @@
     }
   },
   "wasde_report_month": "Aug",
-  "last_updated_cot": "2026-08-24 22:24:00"
+  "last_updated_cot": "2026-08-25 09:17:43"
 }
