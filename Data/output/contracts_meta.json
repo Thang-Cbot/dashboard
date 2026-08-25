@@ -16,7 +16,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 360570.0,
+      "today_volume": 360573.0,
       "prev_volume": 287791.0,
       "today_oi": 947098,
       "prev_oi": 947155,
@@ -53,5 +53,5 @@
       "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
     }
   },
-  "updated_at": "2026-08-26 05:00:24"
+  "updated_at": "2026-08-26 06:00:19"
 }
