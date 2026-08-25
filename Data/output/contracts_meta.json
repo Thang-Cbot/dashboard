@@ -6,9 +6,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZCZ26.CBT",
-      "year": 2026,
-      "month": 12
+      "ticker": "ZCH27.CBT",
+      "year": 2027,
+      "month": 3
     },
     "dca": {
       "ticker": "ZCZ26.CBT",
@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 110081.0,
+      "today_volume": 171721.0,
       "prev_volume": 287791.0,
-      "today_oi": 947155,
+      "today_oi": 947098,
       "prev_oi": 947155,
-      "today_close": 515.25,
+      "today_close": 516.0,
       "prev_close": 515.5,
-      "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
-      "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
+      "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
+      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
   "ZW": {
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 34332.0,
+      "today_volume": 48546.0,
       "prev_volume": 66285.0,
-      "today_oi": 255781,
+      "today_oi": 255831,
       "prev_oi": 255781,
-      "today_close": 697.25,
+      "today_close": 697.0,
       "prev_close": 699.5,
-      "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
-      "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
+      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
+      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
-  "updated_at": "2026-08-25 21:00:24"
+  "updated_at": "2026-08-25 22:00:18"
 }
