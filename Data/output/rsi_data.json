@@ -202,7 +202,7 @@
       62.91,
       65.61,
       60.84,
-      60.84
+      65.68
     ],
     "patterns": [
       {
@@ -292,20 +292,9 @@
         "start_val": 47.77,
         "mid_val": 42.46,
         "end_val": 48.76
-      },
-      {
-        "type": "M",
-        "start_idx": 89,
-        "mid_idx": 94,
-        "end_idx": 97,
-        "start_time": "8:00",
-        "end_time": "16:00",
-        "start_val": 66.78,
-        "mid_val": 58.87,
-        "end_val": 65.61
       }
     ],
-    "is_forming": "M"
+    "is_forming": null
   },
   "zc": {
     "labels": [
@@ -510,7 +499,7 @@
       66.94,
       68.85,
       63.88,
-      64.97
+      66.96
     ],
     "patterns": [
       {
