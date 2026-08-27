@@ -499,7 +499,7 @@
       67.04,
       63.82,
       64.56,
-      63.86
+      63.18
     ],
     "patterns": [
       {
@@ -578,17 +578,6 @@
         "start_val": 65.09,
         "mid_val": 68.85,
         "end_val": 53.55
-      },
-      {
-        "type": "W",
-        "start_idx": 91,
-        "mid_idx": 94,
-        "end_idx": 97,
-        "start_time": "21:00",
-        "end_time": "8:00",
-        "start_val": 53.55,
-        "mid_val": 72.57,
-        "end_val": 63.82
       },
       {
         "type": "M",
