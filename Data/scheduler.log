@@ -13757,3 +13757,21 @@ ModuleNotFoundError: No module named 'tvDatafeed'
 [2026-08-28 20:00:15] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: AI Điểm Tin)...
 [2026-08-28 20:00:16] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-08-28 20:00:16] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-08-28 20:00:18] [Sync] ✅ Đồng bộ Github thành công (Giá H1 + Macro)!
+[2026-08-28 20:00:18] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-28 20:00:18] [Sync] ⚠️ Lỗi Github Push: c74aabfd4054a4 but expected d93e32e3dffbb9c4f7bc366ced49f01e2654093c)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-08-28 20:00:19] [INFO] ⏰ Đợi AI News: còn 10.00h (29/08 06:00:02 VN)
+[2026-08-28 20:00:19] [Sync] ⚠️ Lỗi Github Push: c74aabfd4054a4 but expected d93e32e3dffbb9c4f7bc366ced49f01e2654093c)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-08-28 20:00:19] [INFO] ⏰ Đợi AI News: còn 10.00h (29/08 06:00:02 VN)
+[2026-08-28 20:00:19] [WARN] ⚠ Giá H4 lỗi attempt 1: ocs\Dau tu thu dong\hang hoa tai sinh\Antigravity\Cbot\Data\fetch_prices_H4.py", line 14, in <module>
+    from tvDatafeed import TvDatafeed, Interval
+ModuleNotFoundError: No module named 'tvDatafeed'
+
+[2026-08-28 20:00:19] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-08-28 20:00:20] [Sync] ⚠️ Lỗi Github Push: c74aabfd4054a4 but expected d93e32e3dffbb9c4f7bc366ced49f01e2654093c)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-08-28 20:00:20] [INFO] ▶ Kích hoạt: Giá H4
+[2026-08-28 20:00:23] [INFO] ✅ Vĩ Mô (Macro) hoàn thành (attempt 1)
+[2026-08-28 20:00:23] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Vĩ Mô (Macro))...
