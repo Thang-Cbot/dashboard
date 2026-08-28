@@ -276,9 +276,10 @@ def run_analysis():
     # 2. Đọc DCA data và Active data từ v3_state_snapshot.json
     dca_data = {}
     active_data = {}
-    if os.path.exists('v3_state_snapshot.json'):
+    snapshot_path = os.path.join('Data', 'output', 'v3_state_snapshot.json')
+    if os.path.exists(snapshot_path):
         try:
-            with open('v3_state_snapshot.json', 'r', encoding='utf-8') as f:
+            with open(snapshot_path, 'r', encoding='utf-8') as f:
                 snapshot = json.load(f)
                 commodities = snapshot.get('commodities', {})
                 for code, data in commodities.items():
