@@ -175,9 +175,28 @@ def handle_telegram_update(update):
                 is_scanning = False
 
 def poll_telegram_updates():
-    offset = 0
     token = "8723627742:AAEpZFbfd8RSOGi9jxoh2tKQ8TdFViXivc0"
     print("Đang khởi chạy Polling Telegram nhận tương tác nút nhấn...")
+
+    # Bước 1: Lấy update_id mới nhất để BỎ QUA các updates cũ tích đọng
+    # Tránh tình trạng offset bị stuck sau khi restart nhiều lần
+    offset = -1
+    try:
+        url = f"https://api.telegram.org/bot{token}/getUpdates"
+        r = requests.get(url, params={"limit": 100, "timeout": 3}, timeout=8)
+        if r.status_code == 200 and r.json().get("ok"):
+            results = r.json().get("result", [])
+            if results:
+                offset = results[-1]["update_id"] + 1
+                print(f"[Polling] Bỏ qua {len(results)} updates cũ. Offset mới: {offset}")
+            else:
+                offset = 0
+                print("[Polling] Không có updates cũ. Bắt đầu từ offset=0")
+    except Exception as e:
+        offset = 0
+        print(f"[Polling] Lỗi lấy offset ban đầu: {e}. Dùng offset=0")
+
+    # Bước 2: Vòng lặp polling chính
     while True:
         try:
             url = f"https://api.telegram.org/bot{token}/getUpdates"
@@ -188,14 +207,17 @@ def poll_telegram_updates():
                 if data.get("ok"):
                     for update in data.get("result", []):
                         offset = update["update_id"] + 1
+                        print(f"[Polling] Nhận update_id={update['update_id']} | keys={list(update.keys())}")
                         # Xử lý update trong một thread riêng để không block việc polling
                         t = threading.Thread(target=handle_telegram_update, args=(update,))
                         t.start()
             else:
+                print(f"[Polling] HTTP {response.status_code}. Thử lại sau 5s...")
                 time.sleep(5)
         except Exception as e:
-            print(f"Lỗi polling Telegram: {e}")
+            print(f"[Polling] Lỗi kết nối: {e}. Thử lại sau 5s...")
             time.sleep(5)
+
 
 def is_cbot_open():
     """Sử dụng pandas_market_calendars (CMEGlobex_Grains) để tự động check ngày nghỉ lễ và giờ đóng/mở cửa"""
