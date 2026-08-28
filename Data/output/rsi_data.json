@@ -202,7 +202,7 @@
       61.61,
       60.58,
       63.44,
-      66.84
+      65.91
     ],
     "patterns": [
       {
@@ -554,7 +554,7 @@
       60.79,
       61.25,
       59.04,
-      61.99
+      60.57
     ],
     "patterns": [
       {
@@ -743,8 +743,19 @@
         "start_val": 58.84,
         "mid_val": 48.36,
         "end_val": 57.34
+      },
+      {
+        "type": "M",
+        "start_idx": 90,
+        "mid_idx": 95,
+        "end_idx": 97,
+        "start_time": "10:00",
+        "end_time": "17:00",
+        "start_val": 57.34,
+        "mid_val": 53.77,
+        "end_val": 61.25
       }
     ],
-    "is_forming": "W"
+    "is_forming": "M"
   }
 }
