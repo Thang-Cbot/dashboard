@@ -167,7 +167,7 @@ def handle_telegram_update(update):
                         combined += f"🕐 <i>Tín hiệu lúc: {ts}</i>\n{old_msg}\n{'─'*30}\n"
                     send_single_message(chat_id, combined)
                 else:
-                    send_single_message(chat_id, "📭 <b>Kết quả quét:</b> Hiện tại thị trường không phát hiện tín hiệu MSS hoặc Bắt đáy/đỉnh đạt chuẩn trên ZC, ZW, ZS. Chưa có tín hiệu nào được lưu trước đó.")
+                    send_single_message(chat_id, "📭 <b>Kết quả quét:</b> Hiện tại thị trường không phát hiện tín hiệu MSS hoặc Bắt đáy/đỉnh đạt chuẩn trên ZC, ZW. Chưa có tín hiệu nào được lưu trước đó.")
         except Exception as e:
             send_single_message(chat_id, f"❌ Có lỗi xảy ra khi quét: {e}")
         finally:
@@ -268,7 +268,7 @@ def run_analysis():
             print(f"Lỗi đọc DCA/Active data: {e}")
 
     # 3. Đọc file CSV và tìm kiếm MSS, Bắt đáy/đỉnh
-    codes = {"ZW": "Lúa Mì", "ZC": "Ngô", "ZS": "Đậu Tương"}
+    codes = {"ZW": "Lúa Mì", "ZC": "Ngô"}
     any_signal_sent = False
     
     for code, name in codes.items():
