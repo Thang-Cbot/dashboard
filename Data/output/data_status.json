@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 19:51:54",
-      "updated_at": "2026-08-28 19:51:54"
+      "detail": "Auto-fetch 19:53:12",
+      "updated_at": "2026-08-28 19:53:12"
     },
     "cot": {
       "status": "PARTIAL",
@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 19:52:39 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-08-28 19:52:39"
+      "detail": "Đẩy thành công lúc 19:53:08 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-08-28 19:53:08"
     },
     "prices_h4": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 19:51:47",
-      "updated_at": "2026-08-28 19:51:47"
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-08-28 19:53:09"
     },
     "blacksea_news": {
       "status": "[OK]",
@@ -81,8 +81,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=87.73, DXY=99.233",
-    "updated_at": "2026-08-28 19:51:54"
+    "detail": "Brent=87.77, DXY=99.235",
+    "updated_at": "2026-08-28 19:53:12"
   },
   "export_sales": {
     "status": "OK",
