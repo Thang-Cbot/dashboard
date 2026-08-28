@@ -58,9 +58,9 @@
       "updated_at": "2026-08-28 20:00:20"
     },
     "prices_h4": {
-      "status": "[ERROR]",
-      "detail": "Failed after 1 attempts",
-      "updated_at": "2026-08-28 20:00:19"
+      "status": "[OK]",
+      "detail": "Auto-fetch 20:00:26",
+      "updated_at": "2026-08-28 20:00:26"
     },
     "blacksea_news": {
       "status": "[OK]",
