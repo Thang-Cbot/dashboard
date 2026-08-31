@@ -14098,3 +14098,8 @@ ModuleNotFoundError: No module named 'tvDatafeed'
 [2026-08-31 21:41:45] [INFO] ▶ Kích hoạt: AI Điểm Tin
 [2026-08-31 21:42:39] [INFO] ✅ AI Điểm Tin hoàn thành (attempt 1)
 [2026-08-31 21:42:39] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: AI Điểm Tin)...
+[2026-08-31 21:42:43] [Sync] ✅ Đồng bộ Github thành công (AI Điểm Tin)!
+[2026-08-31 21:42:43] [INFO] ⏰ Đợi AI News: còn 8.29h (01/09 06:00:02 VN)
+[2026-08-31 23:09:10] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-08-31 23:09:22] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-08-31 23:09:22] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
