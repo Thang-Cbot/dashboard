@@ -1,14 +1,14 @@
 {
   "ZW": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWZ26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 779.75\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 70%)</b>\n🎯 Vùng Entry: <b>761.53 - 774.27</b>\n🛑 Stoploss: 752.47 | 💵 Take Profit: 792.40\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>613.89 - 645.25</b>\n",
-    "timestamp": "15:54 31/08/2026",
-    "setup_type": "LONG",
-    "setup_entry_range": "761.53 - 774.27"
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWZ26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 762.25\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 84%)</b>\n🎯 Vùng Entry: <b>762.86 - 772.98</b>\n🛑 Stoploss: 784.12 | 💵 Take Profit: 740.58\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>623.28 - 645.25</b>\n",
+    "timestamp": "20:08 31/08/2026",
+    "setup_type": "SHORT",
+    "setup_entry_range": "762.86 - 772.98"
   },
   "ZC": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCZ26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 539.25\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 70%)</b>\n🎯 Vùng Entry: <b>534.68 - 537.46</b>\n🛑 Stoploss: 530.39 | 💵 Take Profit: 546.04\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>442.35 - 457.25</b>\n",
-    "timestamp": "15:54 31/08/2026",
-    "setup_type": "LONG",
-    "setup_entry_range": "534.68 - 537.46"
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCZ26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 532.25\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 84%)</b>\n🎯 Vùng Entry: <b>534.78 - 536.75</b>\n🛑 Stoploss: 541.23 | 💵 Take Profit: 525.80\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>446.35 - 457.25</b>\n",
+    "timestamp": "20:08 31/08/2026",
+    "setup_type": "SHORT",
+    "setup_entry_range": "534.78 - 536.75"
   }
 }
