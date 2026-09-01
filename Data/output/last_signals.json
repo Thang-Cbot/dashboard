@@ -1,14 +1,14 @@
 {
   "ZW": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWZ26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 762.25\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 84%)</b>\n🎯 Vùng Entry: <b>762.86 - 772.98</b>\n🛑 Stoploss: 784.12 | 💵 Take Profit: 740.58\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>623.28 - 645.25</b>\n",
-    "timestamp": "20:08 31/08/2026",
-    "setup_type": "SHORT",
-    "setup_entry_range": "762.86 - 772.98"
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWZ26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 784.25\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 77%)</b>\n🎯 Vùng Entry: <b>768.86 - 776.16</b>\n🛑 Stoploss: 759.88 | 💵 Take Profit: 794.12\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>620.31 - 645.25</b>\n",
+    "timestamp": "17:27 01/09/2026",
+    "setup_type": "LONG",
+    "setup_entry_range": "768.86 - 776.16"
   },
   "ZC": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCZ26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 532.25\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 84%)</b>\n🎯 Vùng Entry: <b>534.78 - 536.75</b>\n🛑 Stoploss: 541.23 | 💵 Take Profit: 525.80\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>446.35 - 457.25</b>\n",
-    "timestamp": "20:08 31/08/2026",
-    "setup_type": "SHORT",
-    "setup_entry_range": "534.78 - 536.75"
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCZ26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 538.75\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 77%)</b>\n🎯 Vùng Entry: <b>536.30 - 537.89</b>\n🛑 Stoploss: 532.30 | 💵 Take Profit: 545.89\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>447.25 - 457.25</b>\n",
+    "timestamp": "17:27 01/09/2026",
+    "setup_type": "LONG",
+    "setup_entry_range": "536.30 - 537.89"
   }
 }
