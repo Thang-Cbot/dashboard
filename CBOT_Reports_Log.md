@@ -9,12 +9,12 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 # PHẦN I: THÔNG TIN TỔNG QUAN & VĨ MÔ
 
 ## 🌐 1. TỔNG QUAN VĨ MÔ TOÀN CẦU (MACRO INDICATORS OVERVIEW)
-*Cập nhật tự động qua `macro_tracker.py` vào lúc 01:00 ICT ngày 02/09/2026*
+*Cập nhật tự động qua `macro_tracker.py` vào lúc 02:01 ICT ngày 02/09/2026*
 
 | Chỉ số Vĩ mô | Mức giá hiện tại | Biến động 24h | Xu hướng & Đánh giá tác động đến Nông sản |
 | :--- | :---: | :---: | :--- |
-| **Dầu thô Brent (BZ=F)** | **$94.50 / thùng** | **+4.43%** | 📈 **Tích cực (Bullish):** Giá dầu duy trì ở mức cao hỗ trợ mạnh mẽ cho biofuels như Ethanol (ZC) và Biodiesel (ZS). Chi phí sản xuất neo cao tạo mức sàn hỗ trợ giá. |
-| **Chỉ số DXY (USD Index)** | **99.71** | **+0.28%** | 📉 **Trung lập - Tiêu cực (Sức ép xuất khẩu):** DXY neo cao khiến hàng Mỹ kém cạnh tranh hơn ở thị trường quốc tế, cản trở xuất khẩu ngắn hạn. |
+| **Dầu thô Brent (BZ=F)** | **$94.87 / thùng** | **+4.84%** | 📈 **Tích cực (Bullish):** Giá dầu duy trì ở mức cao hỗ trợ mạnh mẽ cho biofuels như Ethanol (ZC) và Biodiesel (ZS). Chi phí sản xuất neo cao tạo mức sàn hỗ trợ giá. |
+| **Chỉ số DXY (USD Index)** | **99.69** | **+0.27%** | 📉 **Trung lập - Tiêu cực (Sức ép xuất khẩu):** DXY neo cao khiến hàng Mỹ kém cạnh tranh hơn ở thị trường quốc tế, cản trở xuất khẩu ngắn hạn. |
 
 
 ## 💰 DÒNG TIỀN COT (SMART MONEY MATRIX)
@@ -31,7 +31,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 
 
 ### ✅ TƯƠNG QUAN VĨ MÔ ỔN ĐỊNH (NORMAL CORRELATION)
-*   **Giá trị biến động 24h:** Dầu Brent: **`$94.50` (+4.43%)** | DXY: **`99.71` (+0.28%)** | Lúa mì CBOT: **`783.75¢` (+3.57%)**.
+*   **Giá trị biến động 24h:** Dầu Brent: **`$94.87` (+4.84%)** | DXY: **`99.69` (+0.27%)** | Lúa mì CBOT: **`781.00¢` (+3.24%)**.
 *   **Biện chứng liên thị trường:** Liên thị trường giao dịch ổn định, giá lúa mì bám sát các chỉ tiêu cung cầu cơ bản và không có hiện tượng bán tháo chéo quá mức từ nhóm năng lượng.
 *   🚀 **Khuyến nghị chiến lược:** Tiếp tục duy trì kế hoạch giao dịch trong ngày (Intraday) và đánh biên (Swing) theo cản kỹ thuật đã hoạch định.
 
@@ -39,7 +39,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 ---
 
 ## 🌡️ 2. BẢN TIN THỜI TIẾT & MÙA VỤ TOÀN CẦU (WEATHER INTELLIGENCE REPORT)
-*Cập nhật tự động lúc 01:00 ICT ngày 02/09/2026 — Nguồn: NOAA, USDA, BOM Australia*
+*Cập nhật tự động lúc 02:01 ICT ngày 02/09/2026 — Nguồn: NOAA, USDA, BOM Australia*
 
 ### 🇺🇸 Thời tiết Nội địa Mỹ (US Domestic Weather)
 
@@ -75,8 +75,8 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 
 | Ngày Báo Cáo (ICT) | Mã | Giá Chốt (Close) | Dự báo Chốt Phiên | Tín Hiệu H1 (EMA 21/50) | Volatility | Intraday Bias | Xem Chi Tiết |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **02/09/2026** | **ZC** | **545.00 ¢** | **547.92 ¢ (+2.92)** | 🐂 Bullish (539.96 > 537.63) | 3.75 cents | Rình mua (Long on dip) | [Xem Ngô (ZC)](#2-báo-cáo-mã-zc-ngô---phiên-chốt-02092026) |
-| **02/09/2026** | **ZW** | **783.75 ¢** | **789.47 ¢ (+5.72)** | 🐂 Bullish (778.83 > 771.91) | 10.00 cents | Bán khống hồi (Short on rally) | [Xem Lúa mì (ZW)](#3-báo-cáo-mã-zw-lúa-mì---phiên-chốt-02092026) |
+| **02/09/2026** | **ZC** | **545.50 ¢** | **548.38 ¢ (+2.88)** | 🐂 Bullish (540.57 > 537.98) | 1.75 cents | Rình mua (Long on dip) | [Xem Ngô (ZC)](#2-báo-cáo-mã-zc-ngô---phiên-chốt-02092026) |
+| **02/09/2026** | **ZW** | **781.00 ¢** | **786.48 ¢ (+5.48)** | 🐂 Bullish (779.15 > 772.32) | 5.00 cents | Bán khống hồi (Short on rally) | [Xem Lúa mì (ZW)](#3-báo-cáo-mã-zw-lúa-mì---phiên-chốt-02092026) |
 | **02/09/2026** 
 ---
 
@@ -87,15 +87,15 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 
 | Mã | Loại chiến lược | Điểm vào lệnh (Entry Zone) | Cắt lỗ (Stop Loss - SL) | Chốt lời (Take Profit - TP) | Vị thế chủ đạo & Ghi chú thực chiến |
 | :---: | :---: | :---: | :---: | :---: | :--- |
-| **ZC** | **Long ngắn hạn (Intraday) (ZCZ26)** | **536.25 - 539.96 cents (Canh mua vùng hỗ trợ)** | **451.66 cents (Dưới cản S2 + 1.5x ATR)** | TP1: `546.14 cents` \| TP2: `548.00 cents` | CANH LONG ngắn hạn tại vùng hỗ trợ kỹ thuật H1 khi giá điều chỉnh sâu. |
-| **ZC** | **Long trung hạn (Swing) (ZCH27)** | **549.75 - 551.25 cents** | **469.44 cents (Chống quét SL tuyệt đối)** | **561.00 cents (Ăn trọn biên độ ngô ~10.5 giá)** | LỆNH LONG trung hạn ở hỗ trợ S2 Price Action cứng (biên dưới). |
-| **ZC** | **Short trung hạn (Swing) (ZCH27)** | **560.22 - 561.72 cents** | **563.78 cents** | **474.00 cents** | LỆNH SHORT trung hạn ở kháng cự R2 Price Action (biên trên). |
-| **ZC** | **Long dài hạn (DCA) (ZCZ26)** | **442.35 - 457.25 cents** | Không áp dụng | Mục tiêu dài hạn | Mua gom dài hạn phòng thủ La Niña và tồn kho thấp kỷ lục. |
+| **ZC** | **Long ngắn hạn (Intraday) (ZCZ26)** | **536.25 - 540.57 cents (Canh mua vùng hỗ trợ)** | **452.06 cents (Dưới cản S2 + 1.5x ATR)** | TP1: `546.27 cents` \| TP2: `548.00 cents` | CANH LONG ngắn hạn tại vùng hỗ trợ kỹ thuật H1 khi giá điều chỉnh sâu. |
+| **ZC** | **Long trung hạn (Swing) (ZCH27)** | **549.75 - 551.25 cents** | **469.72 cents (Chống quét SL tuyệt đối)** | **561.00 cents (Ăn trọn biên độ ngô ~10.5 giá)** | LỆNH LONG trung hạn ở hỗ trợ S2 Price Action cứng (biên dưới). |
+| **ZC** | **Short trung hạn (Swing) (ZCH27)** | **560.36 - 561.86 cents** | **563.64 cents** | **474.00 cents** | LỆNH SHORT trung hạn ở kháng cự R2 Price Action (biên trên). |
+| **ZC** | **Long dài hạn (DCA) (ZCZ26)** | **443.40 - 457.25 cents** | Không áp dụng | Mục tiêu dài hạn | Mua gom dài hạn phòng thủ La Niña và tồn kho thấp kỷ lục. |
 | :---: | :---: | :---: | :---: | :---: | :--- |
-| **ZW** | **Short ngắn hạn (Intraday) (ZWZ26)** | **778.83 - 771.91 cents (Canh bán hồi kỹ thuật H1)** | **804.80 cents (Trên kháng cự R2 + 1.5x ATR)** | TP1: `774.75 cents` \| TP2: `645.25 cents` | LỆNH SHORT ngắn hạn thuận xu hướng khi hồi kỹ thuật H1. |
-| **ZW** | **Long trung hạn (Swing) (ZWZ26)** | **772.75 - 774.75 cents** | **636.88 cents** | **790.25 cents (Đón sóng hồi trung hạn ~14.5 giá)** | LỆNH LONG trung hạn ở hỗ trợ S1/S2 đón sóng hồi trung hạn ~14.5 giá. |
-| **ZW** | **Short trung hạn (Swing) (ZWZ26)** | **790.25 - 792.25 cents** | **798.62 cents** | **645.25 cents (Thuận xu hướng giảm ngắn hạn)** | LỆNH SHORT trung hạn thuận xu hướng ngắn hạn khi chạm kháng cự R1/R2. |
-| **ZW** | **Long dài hạn (DCA) (ZWZ26)** | **611.78 - 645.25 cents** | Không áp dụng | Mục tiêu dài hạn | Canh mua DCA dài hạn quyết liệt (lệch pha cơ hội vĩ mô). |
+| **ZW** | **Short ngắn hạn (Intraday) (ZWZ26)** | **779.15 - 772.32 cents (Canh bán hồi kỹ thuật H1)** | **804.13 cents (Trên kháng cự R2 + 1.5x ATR)** | TP1: `774.75 cents` \| TP2: `645.25 cents` | LỆNH SHORT ngắn hạn thuận xu hướng khi hồi kỹ thuật H1. |
+| **ZW** | **Long trung hạn (Swing) (ZWZ26)** | **772.75 - 774.75 cents** | **637.33 cents** | **789.75 cents (Đón sóng hồi trung hạn ~14.5 giá)** | LỆNH LONG trung hạn ở hỗ trợ S1/S2 đón sóng hồi trung hạn ~14.5 giá. |
+| **ZW** | **Short trung hạn (Swing) (ZWZ26)** | **789.75 - 791.75 cents** | **797.67 cents** | **645.25 cents (Thuận xu hướng giảm ngắn hạn)** | LỆNH SHORT trung hạn thuận xu hướng ngắn hạn khi chạm kháng cự R1/R2. |
+| **ZW** | **Long dài hạn (DCA) (ZWZ26)** | **613.57 - 645.25 cents** | Không áp dụng | Mục tiêu dài hạn | Canh mua DCA dài hạn quyết liệt (lệch pha cơ hội vĩ mô). |
 | :---: | :---: | :---: | :---: | :---: | :--- |
 
 ---
@@ -230,8 +230,8 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 | **Trung hạn** | ↕️ **Đi ngang (Sideways)** | Đi ngang tích lũy (Sideways Accumulation) | Giao dịch Swing trading biên độ |
 | **Ngắn hạn** | 🐂 **Tăng (Bullish)** | EMA_21 H1 > EMA_50 H1 (Hội tụ động lượng tăng) | Canh vào lệnh ngắn hạn (Intraday) |
 
-*   **Giá Chốt Phiên (Close):** 545.00 cents | **Dự báo Chốt Phiên:** **`547.92 cents`** (+2.92).
-*   **Thanh khoản phiên chốt:** Volume: **`245,910`** (Chênh lệch: **`-190,566`**) | OI: **`996,266`** (Chênh lệch: **`-32`**)
+*   **Giá Chốt Phiên (Close):** 545.50 cents | **Dự báo Chốt Phiên:** **`548.38 cents`** (+2.88).
+*   **Thanh khoản phiên chốt:** Volume: **`286,190`** (Chênh lệch: **`-150,286`**) | OI: **`996,266`** (Chênh lệch: **`-32`**)
 *   **Mô hình nến H1:** **`Không phát hiện mô hình nến đặc biệt`**
 *   **Dòng tiền (Volume + OI):** **`Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)`**
 *   **Đánh giá xu hướng kết hợp:** 📈 **TÍCH LŨY TÍCH CỰC (Accumulation):** Nến đi ngang nhưng dòng tiền âm thầm gia tăng (OI tăng), báo hiệu chuẩn bị có nhịp bứt phá tăng.
@@ -244,8 +244,8 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Chỉ số | Giá trị Hiện tại | Biến động 24h | Tác động Biện chứng lên Ngô (ZC) |
 | :--- | :---: | :---: | :--- |
-| **Dầu Brent** | **$94.50** | **+4.43%** | Giá dầu Tăng hỗ trợ biên lợi nhuận pha chế Ethanol, kéo theo nhu cầu ngô tích cực. |
-| **USD Index** | **99.71** | **+0.28%** | DXY Tăng làm giảm sức cạnh tranh xuất khẩu của ngô Mỹ so với Brazil/Argentina. |
+| **Dầu Brent** | **$94.87** | **+4.84%** | Giá dầu Tăng hỗ trợ biên lợi nhuận pha chế Ethanol, kéo theo nhu cầu ngô tích cực. |
+| **USD Index** | **99.69** | **+0.27%** | DXY Tăng làm giảm sức cạnh tranh xuất khẩu của ngô Mỹ so với Brazil/Argentina. |
 
 
 
@@ -260,9 +260,9 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 ---
 
 ### C. Phân Tích Kỹ Thuật H1/M15 (HĐ ZCZ26)
-*   **Chỉ báo EMA H1:** `EMA_21` (539.96) > `EMA_50` (537.63).
-*   **Động lượng & Dao động:** RSI (14) = **`63.04`** | ATR (14) = **`3.73`** cents | Volatility = **`3.75 cents`**.
-*   **Vùng cản Pivot:** Hỗ trợ S1: **`536.25`** | S2: **`457.25`** || Kháng cự R1: **`546.14`** | R2: **`548.00`**
+*   **Chỉ báo EMA H1:** `EMA_21` (540.57) > `EMA_50` (537.98).
+*   **Động lượng & Dao động:** RSI (14) = **`63.39`** | ATR (14) = **`3.46`** cents | Volatility = **`1.75 cents`**.
+*   **Vùng cản Pivot:** Hỗ trợ S1: **`536.25`** | S2: **`457.25`** || Kháng cự R1: **`546.27`** | R2: **`548.00`**
 
 ---
 
@@ -291,13 +291,13 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 *   🚀 **Long ngắn hạn (Intraday) (Ngắn hạn - HĐ ZCZ26):**
     *   *Chiến lược:* Giao dịch chớp nhoáng theo biên độ H1.
-    *   *Thiết lập:* Entry: **`536.25 - 539.96 cents (Canh mua vùng hỗ trợ)`** | SL: **`451.66 cents (Dưới cản S2 + 1.5x ATR)`** | TP: `546.14 cents` / `548.00 cents`.
+    *   *Thiết lập:* Entry: **`536.25 - 540.57 cents (Canh mua vùng hỗ trợ)`** | SL: **`452.06 cents (Dưới cản S2 + 1.5x ATR)`** | TP: `546.27 cents` / `548.00 cents`.
 *   🚀 **Trung hạn (Swing Trades - HĐ ZCH27):**
-    *   *Long:* Entry: **`549.75 - 551.25 cents`** | SL: **`469.44 cents (Chống quét SL tuyệt đối)`** | TP: **`561.00 cents (Ăn trọn biên độ ngô ~10.5 giá)`**.
-    *   *Short:* Entry: **`560.22 - 561.72 cents`** | SL: **`563.78 cents`** | TP: **`474.00 cents`**.
+    *   *Long:* Entry: **`549.75 - 551.25 cents`** | SL: **`469.72 cents (Chống quét SL tuyệt đối)`** | TP: **`561.00 cents (Ăn trọn biên độ ngô ~10.5 giá)`**.
+    *   *Short:* Entry: **`560.36 - 561.86 cents`** | SL: **`563.64 cents`** | TP: **`474.00 cents`**.
 *   🚀 **Long dài hạn (DCA) (Dài hạn - HĐ ZCZ26):**
     *   *Chiến lược:* Mua tích lũy phòng thủ rủi ro địa chính trị và thời tiết vĩ mô.
-    *   *Thiết lập:* Entry gom: **`442.35 - 457.25 cents`**
+    *   *Thiết lập:* Entry gom: **`443.40 - 457.25 cents`**
 
 ---
 
@@ -306,36 +306,36 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Ngày Giao Dịch | Phiên (Session) | Mở (Open) | Cao (High) | Thấp (Low) | Đóng (Close) | Thay đổi | Bias |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Mon 31/08** | Asia 07-11 | 545.00 | 548.75 | 541.75 | **545.25** | **+0.25¢** 🟢 | 🟢 BULL |
-| **Mon 31/08** | Asia 11-15 | 545.25 | 548.00 | 541.50 | **544.75** | **-0.50¢** 🔴 | 🔴 BEAR |
-| **Mon 31/08** | London 15-19 | 544.75 | 547.75 | 540.75 | **545.50** | **+0.75¢** 🟢 | 🟢 BULL |
-| **Mon 31/08** | Pre-NY 19-21 | 545.50 | 550.00 | 540.50 | **546.25** | **+0.75¢** 🟢 | 🟢 BULL |
-| **Mon 31/08** | NY Open 21-23 | 546.25 | 551.75 | 540.00 | **548.50** | **+2.25¢** 🟢 | 🟢 BULL |
-| **Mon 31/08** | NY Close 23-01 | 548.50 | 551.50 | 544.25 | **548.75** | **+0.25¢** 🟢 | 🟢 BULL |
-| **Tue 01/09** | Asia 07-11 | 548.75 | 552.00 | 542.25 | **549.50** | **+0.75¢** 🟢 | 🟢 BULL |
-| **Tue 01/09** | Asia 11-15 | 549.50 | 552.50 | 545.00 | **549.00** | **-0.50¢** 🔴 | 🔴 BEAR |
-| **Tue 01/09** | London 15-19 | 549.00 | 553.00 | 543.25 | **549.50** | **+0.50¢** 🟢 | 🟢 BULL |
-| **Tue 01/09** | Pre-NY 19-21 | 549.50 | 552.00 | 546.25 | **550.00** | **+0.50¢** 🟢 | 🟢 BULL |
-| **Tue 01/09** | NY Open 21-23 | 550.00 | 553.50 | 544.00 | **551.00** | **+1.00¢** 🟢 | 🟢 BULL |
-| **Tue 01/09** | NY Close 23-01 | 551.00 | 553.75 | 548.50 | **551.00** | **+0.00¢** 🟢 | 🟢 BULL |
-| **Wed 02/09** | Asia 07-11 | 551.00 | 553.75 | 548.50 | **550.50** | **-0.50¢** 🔴 | 🔴 BEAR |
-| **Wed 02/09** | Asia 11-15 | 550.50 | 553.50 | 547.25 | **550.25** | **-0.25¢** 🔴 | 🔴 BEAR |
-| **Wed 02/09** | London 15-19 | 550.25 | 554.25 | 545.00 | **550.75** | **+0.50¢** 🟢 | 🟢 BULL |
-| **Wed 02/09** | Pre-NY 19-21 | 550.75 | 555.50 | 543.75 | **552.75** | **+2.00¢** 🟢 | 🟢 BULL |
-| **Wed 02/09** | NY Open 21-23 | 552.75 | 560.75 | 545.75 | **554.25** | **+1.50¢** 🟢 | 🟢 BULL |
-| **Wed 02/09** | NY Close 23-01 | 554.25 | 558.75 | 550.00 | **553.75** | **-0.50¢** 🔴 | 🔴 BEAR |
-| **Thu 03/09** | Asia 07-11 | 553.75 | 556.00 | 551.00 | **553.50** | **-0.25¢** 🔴 | 🔴 BEAR |
-| **Thu 03/09** | Asia 11-15 | 553.50 | 555.50 | 549.00 | **553.75** | **+0.25¢** 🟢 | 🟢 BULL |
-| **Thu 03/09** | London 15-19 | 553.75 | 557.50 | 551.00 | **554.25** | **+0.50¢** 🟢 | 🟢 BULL |
-| **Thu 03/09** | Pre-NY 19-21 | 554.25 | 557.25 | 549.75 | **554.50** | **+0.25¢** 🟢 | 🟢 BULL |
-| **Thu 03/09** | NY Open 21-23 | 554.50 | 558.75 | 551.25 | **555.25** | **+0.75¢** 🟢 | 🟢 BULL |
-| **Thu 03/09** | NY Close 23-01 | 555.25 | 558.75 | 553.00 | **555.25** | **+0.00¢** 🟢 | 🟢 BULL |
-| **Fri 04/09** | Asia 07-11 | 555.25 | 559.00 | 551.75 | **555.00** | **-0.25¢** 🔴 | 🔴 BEAR |
-| **Fri 04/09** | Asia 11-15 | 555.00 | 558.50 | 551.75 | **554.75** | **-0.25¢** 🔴 | 🔴 BEAR |
-| **Fri 04/09** | London 15-19 | 554.75 | 557.75 | 552.00 | **555.00** | **+0.25¢** 🟢 | 🟢 BULL |
-| **Fri 04/09** | Pre-NY 19-21 | 555.00 | 558.00 | 552.25 | **555.00** | **+0.00¢** 🟢 | 🔴 BEAR |
-| **Fri 04/09** | NY Open 21-23 | 555.00 | 559.00 | 551.50 | **555.50** | **+0.50¢** 🟢 | 🟢 BULL |
-| **Fri 04/09** | NY Close 23-01 | 555.50 | 559.50 | 553.75 | **555.25** | **-0.25¢** 🔴 | 🔴 BEAR |
+| **Mon 31/08** | Asia 07-11 | 545.50 | 549.25 | 542.25 | **545.75** | **+0.25¢** 🟢 | 🟢 BULL |
+| **Mon 31/08** | Asia 11-15 | 545.75 | 548.50 | 542.00 | **545.25** | **-0.50¢** 🔴 | 🔴 BEAR |
+| **Mon 31/08** | London 15-19 | 545.25 | 548.25 | 541.25 | **546.00** | **+0.75¢** 🟢 | 🟢 BULL |
+| **Mon 31/08** | Pre-NY 19-21 | 546.00 | 550.50 | 541.00 | **546.75** | **+0.75¢** 🟢 | 🟢 BULL |
+| **Mon 31/08** | NY Open 21-23 | 546.75 | 552.25 | 540.50 | **549.00** | **+2.25¢** 🟢 | 🟢 BULL |
+| **Mon 31/08** | NY Close 23-01 | 549.00 | 552.00 | 544.75 | **549.25** | **+0.25¢** 🟢 | 🟢 BULL |
+| **Tue 01/09** | Asia 07-11 | 549.25 | 552.50 | 542.75 | **550.00** | **+0.75¢** 🟢 | 🟢 BULL |
+| **Tue 01/09** | Asia 11-15 | 550.00 | 553.00 | 545.50 | **549.50** | **-0.50¢** 🔴 | 🔴 BEAR |
+| **Tue 01/09** | London 15-19 | 549.50 | 553.50 | 543.75 | **550.00** | **+0.50¢** 🟢 | 🟢 BULL |
+| **Tue 01/09** | Pre-NY 19-21 | 550.00 | 552.50 | 546.75 | **550.50** | **+0.50¢** 🟢 | 🟢 BULL |
+| **Tue 01/09** | NY Open 21-23 | 550.50 | 554.00 | 544.50 | **551.50** | **+1.00¢** 🟢 | 🟢 BULL |
+| **Tue 01/09** | NY Close 23-01 | 551.50 | 554.25 | 549.00 | **551.50** | **+0.00¢** 🟢 | 🟢 BULL |
+| **Wed 02/09** | Asia 07-11 | 551.50 | 554.25 | 549.00 | **551.00** | **-0.50¢** 🔴 | 🔴 BEAR |
+| **Wed 02/09** | Asia 11-15 | 551.00 | 554.00 | 547.75 | **550.75** | **-0.25¢** 🔴 | 🔴 BEAR |
+| **Wed 02/09** | London 15-19 | 550.75 | 554.75 | 545.50 | **551.25** | **+0.50¢** 🟢 | 🟢 BULL |
+| **Wed 02/09** | Pre-NY 19-21 | 551.25 | 556.00 | 544.25 | **553.25** | **+2.00¢** 🟢 | 🟢 BULL |
+| **Wed 02/09** | NY Open 21-23 | 553.25 | 561.25 | 546.25 | **554.75** | **+1.50¢** 🟢 | 🟢 BULL |
+| **Wed 02/09** | NY Close 23-01 | 554.75 | 559.25 | 550.50 | **554.25** | **-0.50¢** 🔴 | 🔴 BEAR |
+| **Thu 03/09** | Asia 07-11 | 554.25 | 556.50 | 551.50 | **554.00** | **-0.25¢** 🔴 | 🔴 BEAR |
+| **Thu 03/09** | Asia 11-15 | 554.00 | 556.00 | 549.50 | **554.25** | **+0.25¢** 🟢 | 🟢 BULL |
+| **Thu 03/09** | London 15-19 | 554.25 | 558.00 | 551.50 | **554.75** | **+0.50¢** 🟢 | 🟢 BULL |
+| **Thu 03/09** | Pre-NY 19-21 | 554.75 | 557.75 | 550.25 | **555.00** | **+0.25¢** 🟢 | 🟢 BULL |
+| **Thu 03/09** | NY Open 21-23 | 555.00 | 559.25 | 551.75 | **555.75** | **+0.75¢** 🟢 | 🟢 BULL |
+| **Thu 03/09** | NY Close 23-01 | 555.75 | 559.25 | 553.50 | **555.75** | **+0.00¢** 🟢 | 🟢 BULL |
+| **Fri 04/09** | Asia 07-11 | 555.75 | 559.50 | 552.25 | **555.50** | **-0.25¢** 🔴 | 🔴 BEAR |
+| **Fri 04/09** | Asia 11-15 | 555.50 | 559.00 | 552.25 | **555.25** | **-0.25¢** 🔴 | 🔴 BEAR |
+| **Fri 04/09** | London 15-19 | 555.25 | 558.25 | 552.50 | **555.50** | **+0.25¢** 🟢 | 🟢 BULL |
+| **Fri 04/09** | Pre-NY 19-21 | 555.50 | 558.50 | 552.75 | **555.50** | **+0.00¢** 🟢 | 🔴 BEAR |
+| **Fri 04/09** | NY Open 21-23 | 555.50 | 559.50 | 552.00 | **556.00** | **+0.50¢** 🟢 | 🟢 BULL |
+| **Fri 04/09** | NY Close 23-01 | 556.00 | 560.00 | 554.25 | **555.75** | **-0.25¢** 🔴 | 🔴 BEAR |
 
 **Kịch bản theo ngày:**
 - **Mon 31/08:** USDA G/E 68% + Silking Window Bắt Đầu — *USDA Crop Progress: G/E Ngô 68% (ổn định). QUAN TRỌNG HƠN: Silking (thụ phấn) bắt đầu tại Iowa/Illinois — đây là giai đoạn NHẠY CẢM NHẤT với nhiệt độ. Mỗi ngày >35°C trong tuần này có thể phá hủy 2-5% năng suất. Pollination Risk Premium được xây dựng từ phiên NY.*
@@ -358,11 +358,11 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 | **Trung hạn** | 🐻 **Giảm (Bearish)** | Giảm điều chỉnh tích lũy (Bearish Correction & Consolidation) | Giao dịch Swing trading biên độ |
 | **Ngắn hạn** | 🐂 **Tăng (Bullish)** | EMA_21 H1 > EMA_50 H1 (Hội tụ động lượng tăng) | Canh vào lệnh ngắn hạn (Intraday) |
 
-*   **Giá Chốt Phiên (Close):** 783.75 cents | **Dự báo Chốt Phiên:** **`789.47 cents`** (+5.72).
-*   **Thanh khoản phiên chốt:** Volume: **`86,651`** (Chênh lệch: **`-49,815`**) | OI: **`268,192`** (Chênh lệch: **`+17`**)
-*   **Mô hình nến H1:** **`Không phát hiện mô hình nến đặc biệt`**
+*   **Giá Chốt Phiên (Close):** 781.00 cents | **Dự báo Chốt Phiên:** **`786.48 cents`** (+5.48).
+*   **Thanh khoản phiên chốt:** Volume: **`95,862`** (Chênh lệch: **`-40,604`**) | OI: **`268,192`** (Chênh lệch: **`+17`**)
+*   **Mô hình nến H1:** **`Bearish Engulfing (Nhấn chìm giảm thiểu)`**
 *   **Dòng tiền (Volume + OI):** **`Tăng nhẹ tích lũy (Accumulation Rally)`**
-*   **Đánh giá xu hướng kết hợp:** 📈 **TÍCH LŨY TÍCH CỰC (Accumulation):** Nến đi ngang nhưng dòng tiền âm thầm gia tăng (OI tăng), báo hiệu chuẩn bị có nhịp bứt phá tăng.
+*   **Đánh giá xu hướng kết hợp:** 🔥 **TĂNG MẠNH MẼ (Strong Bullish Confirmation):** Mô hình nến tăng được củng cố bởi dòng tiền gia tăng tích cực, hỗ trợ lực mua lên bền vững.
 
 ---
 
@@ -372,8 +372,8 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Chỉ số | Giá trị Hiện tại | Biến động 24h | Tác động Biện chứng lên Lúa Mì (ZW) |
 | :--- | :---: | :---: | :--- |
-| **Dầu Brent** | **$94.50** | **+4.43%** | Giá dầu Tăng tăng premium rủi ro địa chính trị và logistics Biển Đen, hỗ trợ giá lúa mì. |
-| **USD Index** | **99.71** | **+0.28%** | DXY Tăng khiến lúa mì Mỹ đắt đỏ hơn đối với các khách hàng truyền thống như Ai Cập/Châu Á. |
+| **Dầu Brent** | **$94.87** | **+4.84%** | Giá dầu Tăng tăng premium rủi ro địa chính trị và logistics Biển Đen, hỗ trợ giá lúa mì. |
+| **USD Index** | **99.69** | **+0.27%** | DXY Tăng khiến lúa mì Mỹ đắt đỏ hơn đối với các khách hàng truyền thống như Ai Cập/Châu Á. |
 
 
 
@@ -388,9 +388,9 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 ---
 
 ### C. Phân Tích Kỹ Thuật H1/M15 (HĐ ZWZ26)
-*   **Chỉ báo EMA H1:** `EMA_21` (778.83) > `EMA_50` (771.91).
-*   **Động lượng & Dao động:** RSI (14) = **`56.43`** | ATR (14) = **`8.37`** cents | Volatility = **`10.00 cents`**.
-*   **Vùng cản Pivot:** Hỗ trợ S1: **`774.75`** | S2: **`645.25`** || Kháng cự R1: **`790.25`** | R2: **`792.25`**
+*   **Chỉ báo EMA H1:** `EMA_21` (779.15) > `EMA_50` (772.32).
+*   **Động lượng & Dao động:** RSI (14) = **`53.18`** | ATR (14) = **`7.92`** cents | Volatility = **`5.00 cents`**.
+*   **Vùng cản Pivot:** Hỗ trợ S1: **`774.75`** | S2: **`645.25`** || Kháng cự R1: **`789.75`** | R2: **`792.25`**
 
 ---
 
@@ -419,13 +419,13 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 *   🚀 **Short ngắn hạn (Intraday) (Ngắn hạn - HĐ ZWZ26):**
     *   *Chiến lược:* Giao dịch chớp nhoáng theo biên độ H1.
-    *   *Thiết lập:* Entry: **`778.83 - 771.91 cents (Canh bán hồi kỹ thuật H1)`** | SL: **`804.80 cents (Trên kháng cự R2 + 1.5x ATR)`** | TP: `774.75 cents` / `645.25 cents`.
+    *   *Thiết lập:* Entry: **`779.15 - 772.32 cents (Canh bán hồi kỹ thuật H1)`** | SL: **`804.13 cents (Trên kháng cự R2 + 1.5x ATR)`** | TP: `774.75 cents` / `645.25 cents`.
 *   🚀 **Trung hạn (Swing Trades - HĐ ZWZ26):**
-    *   *Long:* Entry: **`772.75 - 774.75 cents`** | SL: **`636.88 cents`** | TP: **`790.25 cents (Đón sóng hồi trung hạn ~14.5 giá)`**.
-    *   *Short:* Entry: **`790.25 - 792.25 cents`** | SL: **`798.62 cents`** | TP: **`645.25 cents (Thuận xu hướng giảm ngắn hạn)`**.
+    *   *Long:* Entry: **`772.75 - 774.75 cents`** | SL: **`637.33 cents`** | TP: **`789.75 cents (Đón sóng hồi trung hạn ~14.5 giá)`**.
+    *   *Short:* Entry: **`789.75 - 791.75 cents`** | SL: **`797.67 cents`** | TP: **`645.25 cents (Thuận xu hướng giảm ngắn hạn)`**.
 *   🚀 **Long dài hạn (DCA) (Dài hạn - HĐ ZWZ26):**
     *   *Chiến lược:* Mua tích lũy phòng thủ rủi ro địa chính trị và thời tiết vĩ mô.
-    *   *Thiết lập:* Entry gom: **`611.78 - 645.25 cents`**
+    *   *Thiết lập:* Entry gom: **`613.57 - 645.25 cents`**
 
 ---
 
@@ -434,36 +434,36 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Ngày Giao Dịch | Phiên (Session) | Mở (Open) | Cao (High) | Thấp (Low) | Đóng (Close) | Thay đổi | Bias |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Mon 31/08** | Asia 07-11 | 783.75 | 795.00 | 778.25 | **783.00** | **-0.75¢** 🔴 | 🔴 BEAR |
-| **Mon 31/08** | Asia 11-15 | 783.00 | 790.50 | 777.00 | **782.50** | **-0.50¢** 🔴 | 🔴 BEAR |
-| **Mon 31/08** | London 15-19 | 782.50 | 796.25 | 767.75 | **784.50** | **+2.00¢** 🟢 | 🟢 BULL |
-| **Mon 31/08** | Pre-NY 19-21 | 784.50 | 797.75 | 776.25 | **785.75** | **+1.25¢** 🟢 | 🟢 BULL |
-| **Mon 31/08** | NY Open 21-23 | 785.75 | 802.25 | 775.25 | **790.25** | **+4.50¢** 🟢 | 🟢 BULL |
-| **Mon 31/08** | NY Close 23-01 | 790.25 | 798.00 | 779.25 | **791.50** | **+1.25¢** 🟢 | 🟢 BULL |
-| **Tue 01/09** | Asia 07-11 | 791.50 | 799.75 | 781.00 | **793.25** | **+1.75¢** 🟢 | 🟢 BULL |
-| **Tue 01/09** | Asia 11-15 | 793.25 | 805.50 | 783.50 | **792.25** | **-1.00¢** 🔴 | 🔴 BEAR |
-| **Tue 01/09** | London 15-19 | 792.25 | 802.75 | 777.50 | **794.50** | **+2.25¢** 🟢 | 🟢 BULL |
-| **Tue 01/09** | Pre-NY 19-21 | 794.50 | 805.00 | 788.25 | **795.25** | **+0.75¢** 🟢 | 🟢 BULL |
-| **Tue 01/09** | NY Open 21-23 | 795.25 | 809.50 | 780.50 | **797.25** | **+2.00¢** 🟢 | 🟢 BULL |
-| **Tue 01/09** | NY Close 23-01 | 797.25 | 803.75 | 790.50 | **797.50** | **+0.25¢** 🟢 | 🟢 BULL |
-| **Wed 02/09** | Asia 07-11 | 797.50 | 807.75 | 789.50 | **798.00** | **+0.50¢** 🟢 | 🟢 BULL |
-| **Wed 02/09** | Asia 11-15 | 798.00 | 805.00 | 792.00 | **797.25** | **-0.75¢** 🔴 | 🔴 BEAR |
-| **Wed 02/09** | London 15-19 | 797.25 | 810.75 | 784.25 | **799.00** | **+1.75¢** 🟢 | 🟢 BULL |
-| **Wed 02/09** | Pre-NY 19-21 | 799.00 | 808.25 | 788.25 | **799.50** | **+0.50¢** 🟢 | 🟢 BULL |
-| **Wed 02/09** | NY Open 21-23 | 799.50 | 811.75 | 785.25 | **798.00** | **-1.50¢** 🔴 | 🔴 BEAR |
-| **Wed 02/09** | NY Close 23-01 | 798.00 | 805.00 | 788.50 | **798.50** | **+0.50¢** 🟢 | 🟢 BULL |
-| **Thu 03/09** | Asia 07-11 | 798.50 | 809.00 | 791.25 | **798.25** | **-0.25¢** 🔴 | 🔴 BEAR |
-| **Thu 03/09** | Asia 11-15 | 798.25 | 808.00 | 788.50 | **798.75** | **+0.50¢** 🟢 | 🟢 BULL |
-| **Thu 03/09** | London 15-19 | 798.75 | 809.50 | 791.50 | **799.50** | **+0.75¢** 🟢 | 🟢 BULL |
-| **Thu 03/09** | Pre-NY 19-21 | 799.50 | 806.00 | 791.00 | **800.00** | **+0.50¢** 🟢 | 🟢 BULL |
-| **Thu 03/09** | NY Open 21-23 | 800.00 | 811.00 | 788.25 | **803.50** | **+3.50¢** 🟢 | 🟢 BULL |
-| **Thu 03/09** | NY Close 23-01 | 803.50 | 809.00 | 795.75 | **804.25** | **+0.75¢** 🟢 | 🟢 BULL |
-| **Fri 04/09** | Asia 07-11 | 804.25 | 813.50 | 797.75 | **803.50** | **-0.75¢** 🔴 | 🔴 BEAR |
-| **Fri 04/09** | Asia 11-15 | 803.50 | 811.00 | 797.50 | **802.50** | **-1.00¢** 🔴 | 🔴 BEAR |
-| **Fri 04/09** | London 15-19 | 802.50 | 809.50 | 789.00 | **803.25** | **+0.75¢** 🟢 | 🟢 BULL |
-| **Fri 04/09** | Pre-NY 19-21 | 803.25 | 812.50 | 796.00 | **803.00** | **-0.25¢** 🔴 | 🔴 BEAR |
-| **Fri 04/09** | NY Open 21-23 | 803.00 | 811.50 | 789.00 | **804.75** | **+1.75¢** 🟢 | 🟢 BULL |
-| **Fri 04/09** | NY Close 23-01 | 804.75 | 811.00 | 798.25 | **804.00** | **-0.75¢** 🔴 | 🔴 BEAR |
+| **Mon 31/08** | Asia 07-11 | 781.00 | 792.25 | 775.50 | **780.25** | **-0.75¢** 🔴 | 🔴 BEAR |
+| **Mon 31/08** | Asia 11-15 | 780.25 | 787.75 | 774.25 | **779.75** | **-0.50¢** 🔴 | 🔴 BEAR |
+| **Mon 31/08** | London 15-19 | 779.75 | 793.50 | 765.00 | **781.75** | **+2.00¢** 🟢 | 🟢 BULL |
+| **Mon 31/08** | Pre-NY 19-21 | 781.75 | 795.00 | 773.50 | **783.00** | **+1.25¢** 🟢 | 🟢 BULL |
+| **Mon 31/08** | NY Open 21-23 | 783.00 | 799.50 | 772.50 | **787.50** | **+4.50¢** 🟢 | 🟢 BULL |
+| **Mon 31/08** | NY Close 23-01 | 787.50 | 795.25 | 776.50 | **788.75** | **+1.25¢** 🟢 | 🟢 BULL |
+| **Tue 01/09** | Asia 07-11 | 788.75 | 797.00 | 778.25 | **790.50** | **+1.75¢** 🟢 | 🟢 BULL |
+| **Tue 01/09** | Asia 11-15 | 790.50 | 802.75 | 780.75 | **789.50** | **-1.00¢** 🔴 | 🔴 BEAR |
+| **Tue 01/09** | London 15-19 | 789.50 | 800.00 | 774.75 | **791.75** | **+2.25¢** 🟢 | 🟢 BULL |
+| **Tue 01/09** | Pre-NY 19-21 | 791.75 | 802.25 | 785.50 | **792.50** | **+0.75¢** 🟢 | 🟢 BULL |
+| **Tue 01/09** | NY Open 21-23 | 792.50 | 806.75 | 777.75 | **794.50** | **+2.00¢** 🟢 | 🟢 BULL |
+| **Tue 01/09** | NY Close 23-01 | 794.50 | 801.00 | 787.75 | **794.75** | **+0.25¢** 🟢 | 🟢 BULL |
+| **Wed 02/09** | Asia 07-11 | 794.75 | 805.00 | 786.75 | **795.25** | **+0.50¢** 🟢 | 🟢 BULL |
+| **Wed 02/09** | Asia 11-15 | 795.25 | 802.25 | 789.25 | **794.50** | **-0.75¢** 🔴 | 🔴 BEAR |
+| **Wed 02/09** | London 15-19 | 794.50 | 808.00 | 781.50 | **796.25** | **+1.75¢** 🟢 | 🟢 BULL |
+| **Wed 02/09** | Pre-NY 19-21 | 796.25 | 805.50 | 785.50 | **796.75** | **+0.50¢** 🟢 | 🟢 BULL |
+| **Wed 02/09** | NY Open 21-23 | 796.75 | 809.00 | 782.50 | **795.25** | **-1.50¢** 🔴 | 🔴 BEAR |
+| **Wed 02/09** | NY Close 23-01 | 795.25 | 802.25 | 785.75 | **795.75** | **+0.50¢** 🟢 | 🟢 BULL |
+| **Thu 03/09** | Asia 07-11 | 795.75 | 806.25 | 788.50 | **795.50** | **-0.25¢** 🔴 | 🔴 BEAR |
+| **Thu 03/09** | Asia 11-15 | 795.50 | 805.25 | 785.75 | **796.00** | **+0.50¢** 🟢 | 🟢 BULL |
+| **Thu 03/09** | London 15-19 | 796.00 | 806.75 | 788.75 | **796.75** | **+0.75¢** 🟢 | 🟢 BULL |
+| **Thu 03/09** | Pre-NY 19-21 | 796.75 | 803.25 | 788.25 | **797.25** | **+0.50¢** 🟢 | 🟢 BULL |
+| **Thu 03/09** | NY Open 21-23 | 797.25 | 808.25 | 785.50 | **800.75** | **+3.50¢** 🟢 | 🟢 BULL |
+| **Thu 03/09** | NY Close 23-01 | 800.75 | 806.25 | 793.00 | **801.50** | **+0.75¢** 🟢 | 🟢 BULL |
+| **Fri 04/09** | Asia 07-11 | 801.50 | 810.75 | 795.00 | **800.75** | **-0.75¢** 🔴 | 🔴 BEAR |
+| **Fri 04/09** | Asia 11-15 | 800.75 | 808.25 | 794.75 | **799.75** | **-1.00¢** 🔴 | 🔴 BEAR |
+| **Fri 04/09** | London 15-19 | 799.75 | 806.75 | 786.25 | **800.50** | **+0.75¢** 🟢 | 🟢 BULL |
+| **Fri 04/09** | Pre-NY 19-21 | 800.50 | 809.75 | 793.25 | **800.25** | **-0.25¢** 🔴 | 🔴 BEAR |
+| **Fri 04/09** | NY Open 21-23 | 800.25 | 808.75 | 786.25 | **802.00** | **+1.75¢** 🟢 | 🟢 BULL |
+| **Fri 04/09** | NY Close 23-01 | 802.00 | 808.25 | 795.50 | **801.25** | **-0.75¢** 🔴 | 🔴 BEAR |
 
 **Kịch bản theo ngày:**
 - **Mon 31/08:** USDA Crop Progress + Hấp Thụ Short-Covering — *USDA Crop Progress: G/E lúa mì duy trì 27%. LƯU Ý: Đà tăng tuần qua đã xả bớt phần lớn vị thế Short của Quỹ. Không nên kỳ vọng một cú Squeeze sốc mới, thị trường sẽ tăng chậm lại hoặc có nhịp Pullback chốt lời.*
