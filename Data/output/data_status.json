@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 10:40:37",
-      "updated_at": "2026-09-01 10:40:37"
+      "detail": "Auto-fetch 12:19:15",
+      "updated_at": "2026-09-01 12:19:15"
     },
     "cot": {
       "status": "PARTIAL",
@@ -53,9 +53,9 @@
       "updated_at": "2026-08-31 21:42:39"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 11:00:29 (Nguồn: Giá H1 + Macro)",
-      "updated_at": "2026-09-01 11:00:29"
+      "status": "[ERROR]",
+      "detail": "Lỗi Push: fatal: unable to access 'https://github.com/Thang-Cbot/dashboard.git/': SSL connection timeout",
+      "updated_at": "2026-09-01 12:19:06"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -81,8 +81,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=88.86, DXY=99.495",
-    "updated_at": "2026-09-01 10:40:37"
+    "detail": "Brent=89.16, DXY=99.49",
+    "updated_at": "2026-09-01 12:19:15"
   },
   "export_sales": {
     "status": "OK",
