@@ -16,7 +16,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 19313.0,
+      "today_volume": 38906.0,
       "prev_volume": 436476.0,
       "today_oi": 996298,
       "prev_oi": 996298,
@@ -33,9 +33,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZWZ26.CBT",
-      "year": 2026,
-      "month": 12
+      "ticker": "ZWH27.CBT",
+      "year": 2027,
+      "month": 3
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 9199.0,
+      "today_volume": 21610.0,
       "prev_volume": 136466.0,
       "today_oi": 268175,
       "prev_oi": 268175,
-      "today_close": 779.5,
+      "today_close": 784.25,
       "prev_close": 774.0,
       "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
       "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
-  "updated_at": "2026-09-01 14:09:31"
+  "updated_at": "2026-09-01 17:27:15"
 }
