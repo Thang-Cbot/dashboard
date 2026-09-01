@@ -29,7 +29,7 @@
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
       "previous": "57% Good to Excellent",
-      "previous_date": "24/08/2026",
+      "previous_date": "31/08/2026",
       "latest_date": "31/08/2026"
     },
     "us_ending_stocks": {
@@ -120,16 +120,16 @@
       "logic": "Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại đang xuất hiện vùng khô hạn cục bộ ở rìa phía Bắc (Minnesota, Northern Plains) đe dọa trực tiếp tỷ lệ nảy mầm của cây ngô non."
     },
     "cot_report": {
-      "latest": "[2026-08-18] Net Long 181,692 HD | Change: +55,817 HD",
-      "next_date": "21/08/2026 (Hang tuan, Thu Sau)",
+      "latest": "[2026-08-25] Net Long 317,448 HD | Change: +135,756 HD",
+      "next_date": "28/08/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q1 (XANH LA) - GOM LONG",
       "action": "Uu tien LONG. Xu huong tang ben vung.",
-      "logic": "[2026-08-18] Managed Money nam giu vi the rong Long 181,692 hop dong. Tuan nay tang them 55,817 HD. Xep hang Ma Tran: Q1 (XANH LA) - GOM LONG. Khuyen nghi: Uu tien LONG. Xu huong tang ben vung.",
+      "logic": "[2026-08-25] Managed Money nam giu vi the rong Long 317,448 hop dong. Tuan nay tang them 135,756 HD. Xep hang Ma Tran: Q1 (XANH LA) - GOM LONG. Khuyen nghi: Uu tien LONG. Xu huong tang ben vung.",
       "raw_data": {
-        "net_position": 181692.0,
-        "change": 55817.0,
-        "long": 321475.0,
-        "short": 139783.0
+        "net_position": 317448.0,
+        "change": 135756.0,
+        "long": 411762.0,
+        "short": 94314.0
       }
     },
     "import_demand": {
@@ -214,7 +214,7 @@
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Đông N/A, Xuân 62% thu hoạch",
-      "previous_date": "24/08/2026",
+      "previous_date": "31/08/2026",
       "latest_date": "31/08/2026"
     },
     "crop_condition": {
@@ -224,7 +224,7 @@
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông N/A (Cuối vụ), Xuân N/A",
-      "previous_date": "24/08/2026",
+      "previous_date": "31/08/2026",
       "latest_date": "31/08/2026"
     },
     "us_ending_stocks": {
@@ -322,16 +322,16 @@
       "logic": "Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ) + Hạn hán mùa thu làm giảm 20% diện tích gieo trồng của Úc."
     },
     "cot_report": {
-      "latest": "[2026-08-18] Net Short 25,328 HD | Change: +8,072 HD",
-      "next_date": "21/08/2026 (Hang tuan, Thu Sau)",
+      "latest": "[2026-08-25] Net Short 13,597 HD | Change: +11,731 HD",
+      "next_date": "28/08/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q4 (CAM) - COVER SHORT",
       "action": "Cam Short duoi. Canh LONG bat hoi.",
-      "logic": "[2026-08-18] Managed Money nam giu vi the rong Short 25,328 hop dong. Tuan nay tang them 8,072 HD. Xep hang Ma Tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.",
+      "logic": "[2026-08-25] Managed Money nam giu vi the rong Short 13,597 hop dong. Tuan nay tang them 11,731 HD. Xep hang Ma Tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.",
       "raw_data": {
-        "net_position": -25328.0,
-        "change": 8072.0,
-        "long": 78911.0,
-        "short": 104239.0
+        "net_position": -13597.0,
+        "change": 11731.0,
+        "long": 87501.0,
+        "short": 101098.0
       }
     },
     "import_demand": {
@@ -424,7 +424,7 @@
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6.",
       "latest_date": "31/08/2026",
       "previous": "60% Good to Excellent",
-      "previous_date": "24/08/2026"
+      "previous_date": "31/08/2026"
     },
     "us_ending_stocks": {
       "next_date": "11/09/2026 lúc 23:00 (VN)",
@@ -525,5 +525,5 @@
     }
   },
   "wasde_report_month": "Aug",
-  "last_updated_cot": "2026-08-27 21:33:01"
+  "last_updated_cot": "2026-09-01 07:42:10"
 }
