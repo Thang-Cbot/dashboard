@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-08-27",
+  "last_updated_fundamentals": "2026-09-01",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -24,13 +24,13 @@
     },
     "crop_condition": {
       "latest": "57% Good to Excellent",
-      "next_date": "01/09/2026 lúc 03:00 (VN)",
+      "next_date": "08/09/2026 lúc 03:00 (VN)",
       "forecast": "70% G/E",
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
-      "previous": "60% Good to Excellent",
+      "previous": "57% Good to Excellent",
       "previous_date": "24/08/2026",
-      "latest_date": "24/08/2026"
+      "latest_date": "31/08/2026"
     },
     "us_ending_stocks": {
       "next_date": "11/09/2026 lúc 23:00 (VN)",
@@ -82,8 +82,19 @@
       "previous_date": "08/13/2026",
       "pct_change": -86.6,
       "logic": "Ngô niên vụ 2025/26 đạt 31.2 nghìn tấn, đưa lũy kế lên 83.490 triệu tấn, cao hơn 25.4% so với cùng kỳ năm ngoái.",
-      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)",
+      "next_date": "07/09/2026 lúc 22:00 (VN)",
       "inspections": {
+        "volume": 1496034,
+        "week_ago": 1322594,
+        "year_ago": 1409720,
+        "ytd_current": 83805596,
+        "ytd_previous": 66968828,
+        "ytd_yoy_pct": 25.1,
+        "week_ending": "AUG 27, 2026",
+        "week_ago_date": "08/20/2026"
+      },
+      "inspections_week_ending": "AUG 27, 2026",
+      "inspections_previous": {
         "volume": 1296271,
         "week_ago": 1944870,
         "year_ago": 1338532,
@@ -92,17 +103,6 @@
         "ytd_yoy_pct": 25.5,
         "week_ending": "AUG 20, 2026",
         "week_ago_date": "08/13/2026"
-      },
-      "inspections_week_ending": "AUG 20, 2026",
-      "inspections_previous": {
-        "volume": 1911000,
-        "week_ago": 1760404,
-        "year_ago": 1051695,
-        "ytd_current": 80950870,
-        "ytd_previous": 64220576,
-        "ytd_yoy_pct": 26.1,
-        "week_ending": "AUG 13, 2026",
-        "week_ago_date": "08/06/2026"
       }
     },
     "competitors": {
@@ -208,24 +208,24 @@
       "latest_date": "2026-07-27T12:00:00+0000"
     },
     "harvest_progress": {
-      "latest": "Đông N/A, Xuân 62% thu hoạch",
-      "next_date": "01/09/2026 lúc 03:00 (VN)",
+      "latest": "Đông N/A, Xuân 77% thu hoạch",
+      "next_date": "08/09/2026 lúc 03:00 (VN)",
       "forecast": "Mỹ: 12% lúa đông đã thu hoạch",
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
-      "previous": "Đông N/A, Xuân 41% thu hoạch",
+      "previous": "Đông N/A, Xuân 62% thu hoạch",
       "previous_date": "24/08/2026",
-      "latest_date": "24/08/2026"
+      "latest_date": "31/08/2026"
     },
     "crop_condition": {
-      "latest": "Đông N/A (Cuối vụ), Xuân 51% G/E",
-      "next_date": "01/09/2026 lúc 03:00 (VN)",
+      "latest": "Đông N/A (Cuối vụ), Xuân N/A",
+      "next_date": "08/09/2026 lúc 03:00 (VN)",
       "forecast": "Duy trì cực xấu 25-27% G/E",
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
-      "previous": "Đông N/A (Cuối vụ), Xuân 52% G/E",
+      "previous": "Đông N/A (Cuối vụ), Xuân N/A",
       "previous_date": "24/08/2026",
-      "latest_date": "24/08/2026"
+      "latest_date": "31/08/2026"
     },
     "us_ending_stocks": {
       "next_date": "11/09/2026 lúc 23:00 (VN)",
@@ -277,8 +277,19 @@
       "previous_date": "08/13/2026",
       "pct_change": 2.2,
       "logic": "Lúa Mì niên vụ 2026/27 đạt 402.5 nghìn tấn, đưa lũy kế lên 4.434 triệu tấn, thấp hơn 20.8% so với cùng kỳ năm ngoái.",
-      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)",
+      "next_date": "07/09/2026 lúc 22:00 (VN)",
       "inspections": {
+        "volume": 430925,
+        "week_ago": 432538,
+        "year_ago": 804913,
+        "ytd_current": 4776858,
+        "ytd_previous": 6671297,
+        "ytd_yoy_pct": -28.4,
+        "week_ending": "AUG 27, 2026",
+        "week_ago_date": "08/20/2026"
+      },
+      "inspections_week_ending": "AUG 27, 2026",
+      "inspections_previous": {
         "volume": 425668,
         "week_ago": 514363,
         "year_ago": 1047092,
@@ -287,17 +298,6 @@
         "ytd_yoy_pct": -26.1,
         "week_ending": "AUG 20, 2026",
         "week_ago_date": "08/13/2026"
-      },
-      "inspections_week_ending": "AUG 20, 2026",
-      "inspections_previous": {
-        "volume": 493401,
-        "week_ago": 485924,
-        "year_ago": 403022,
-        "ytd_current": 3889608,
-        "ytd_previous": 4819292,
-        "ytd_yoy_pct": -19.3,
-        "week_ending": "AUG 13, 2026",
-        "week_ago_date": "08/06/2026"
       }
     },
     "competitors": {
@@ -417,13 +417,13 @@
       "logic": "Mỹ bắt đầu thu hoạch vào tháng 9-11. Argentina đang thu hoạch đậu tương đạt 75% tiến độ. Việc Argentina sắp kết thúc thu hoạch rộ đồng nghĩa với việc áp lực bán tháo lớn nhất của Nam Mỹ đã phản ánh hoàn toàn vào giá (priced-in), tạo điều kiện cho giá đậu tương thiết lập đáy chu kỳ mùa vụ và bước vào pha tăng trưởng."
     },
     "crop_condition": {
-      "latest": "60% Good to Excellent",
-      "next_date": "01/09/2026 lúc 03:00 (VN)",
+      "latest": "58% Good to Excellent",
+      "next_date": "08/09/2026 lúc 03:00 (VN)",
       "forecast": "68% G/E",
       "action": "Chất lượng gieo trồng tốt -> Canh Short ngắn hạn / bảo thủ",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6.",
-      "latest_date": "24/08/2026",
-      "previous": "61% Good to Excellent",
+      "latest_date": "31/08/2026",
+      "previous": "60% Good to Excellent",
       "previous_date": "24/08/2026"
     },
     "us_ending_stocks": {
