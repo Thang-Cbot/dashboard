@@ -14381,3 +14381,8 @@ ModuleNotFoundError: No module named 'tvDatafeed'
 [2026-09-02 00:48:51] [INFO] ▶ Kích hoạt: Thời Tiết Ngắn Hạn
 [2026-09-02 00:49:21] [INFO] ✅ Thời Tiết Ngắn Hạn hoàn thành (attempt 1)
 [2026-09-02 00:49:22] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Thời Tiết Ngắn Hạn)...
+[2026-09-02 00:49:25] [Sync] ✅ Đồng bộ Github thành công (Thời Tiết Ngắn Hạn)!
+[2026-09-02 00:49:25] [INFO] ⏰ Đợi Weather Short: còn 5.18h (02/09 06:00:02 VN)
+[2026-09-02 01:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-09-02 01:00:17] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-09-02 01:00:17] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
