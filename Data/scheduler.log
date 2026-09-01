@@ -14358,3 +14358,8 @@ ModuleNotFoundError: No module named 'tvDatafeed'
 [2026-09-02 00:18:51] [INFO] ▶ Kích hoạt: USDA Acreage
 [2026-09-02 00:18:54] [INFO] ✅ USDA Acreage hoàn thành (attempt 1)
 [2026-09-02 00:18:54] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: USDA Acreage)...
+[2026-09-02 00:18:58] [Sync] ✅ Đồng bộ Github thành công (USDA Acreage)!
+[2026-09-02 00:18:58] [INFO] ⏰ Đợi Acreage Reports: còn 5.18h (02/09 05:30:02 VN)
+[2026-09-02 00:35:10] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-09-02 00:35:27] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-09-02 00:35:27] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
