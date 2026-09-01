@@ -8,9 +8,9 @@
       "updated_at": "2026-09-01 07:31:56"
     },
     "prices": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 08:24:02",
-      "updated_at": "2026-09-01 08:24:02"
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-09-01 10:40:24"
     },
     "macro": {
       "status": "[OK]",
@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 08:24:24 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-09-01 08:24:24"
+      "detail": "Đẩy thành công lúc 08:25:07 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-09-01 08:25:07"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 08:24:12",
-      "updated_at": "2026-09-01 08:24:12"
+      "detail": "Auto-fetch 10:40:30",
+      "updated_at": "2026-09-01 10:40:30"
     },
     "blacksea_news": {
       "status": "[OK]",
@@ -76,8 +76,8 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 08:23",
-    "updated_at": "2026-09-01 08:24:02"
+    "detail": "ZC+ZW updated at 09:47",
+    "updated_at": "2026-09-01 10:40:24"
   },
   "macro": {
     "status": "OK",
