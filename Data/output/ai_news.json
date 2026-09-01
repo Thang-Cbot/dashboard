@@ -1,170 +1,159 @@
 {
-  "timestamp": "2026-08-31 21:42:39",
+  "timestamp": "2026-09-01 22:11:59",
   "news": [
     {
-      "title": "Giá lúa mì kéo dài đà tăng, đạt mức cao nhất 3 năm vào cuối tuần",
+      "title": "Thị trường Ngô, Đậu tương và Lúa mì bùng nổ tăng giá",
       "details": [
-        "Giá lúa mì mùa đông đạt mức cao nhất trong 3 năm.",
-        "Hợp đồng lúa mì SRW Chicago tăng từ 10 ½ đến 24 ¼ cent vào thứ Sáu.",
-        "Hợp đồng tháng 9 tăng 85 ½ cent trong tuần.",
-        "Hợp đồng lúa mì HRW KC cũng ghi nhận mức tăng từ 10 đến 24 ¼ cent."
+        "Giá ngô, đậu tương và lúa mì đang trải qua đợt tăng mạnh trên thị trường.",
+        "Sự tăng giá này được thúc đẩy bởi sự hội tụ hiếm có của các yếu tố cơ bản và kỹ thuật tích cực.",
+        "Thị trường đang trong giai đoạn 'bull market' mạnh mẽ."
+      ],
+      "link": "https://www.barchart.com/story/news/4359929/rip-roaring-bull-markets-are-taking-corn-soybean-and-wheat-prices-higher?.tsrc=rss",
+      "source": "31 Aug 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Tổng kết tháng 8: Thời tiết, Địa chính trị và Chi phí nhiên liệu đẩy giá hàng hóa tăng cao",
+      "details": [
+        "Tháng 8 chứng kiến sự đảo chiều của thị trường hàng hóa, với ngũ cốc tăng mạnh vào mùa thu hoạch thay vì giảm.",
+        "Giá ngô đạt mức cao nhất trong nhiều năm, trong khi lúa mì chạm mức cao nhất 3 năm do hỗn loạn ở Biển Đen.",
+        "Giá dầu diesel tăng vọt lên 5.45–5.65 USD/gallon (tăng 1.70–1.90 USD so với cùng kỳ năm trước), với tồn kho ở mức thấp nhất trong nhiều thập kỷ.",
+        "Các yếu tố thời tiết, địa chính trị và chi phí nhiên liệu đang tạo ra lạm phát dai dẳng và tác động liên thông đến thị trường."
+      ],
+      "link": "https://www.barchart.com/story/news/4359024/august-wrap-up-weather-geopolitics-and-fuel-costs-keep-commodity-markets-busy?.tsrc=rss",
+      "source": "31 Aug 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giá lúa mì giảm nhẹ cuối tháng 8",
+      "details": [
+        "Thị trường lúa mì đang chịu áp lực giảm giá vào cuối tháng 8.",
+        "Hợp đồng lúa mì SRW Chicago giảm 25 đến 26 cent vào giữa ngày.",
+        "Chỉ có 9 lượt giao hàng vào ngày thông báo đầu tiên cho lúa mì CBT tháng 9.",
+        "Hợp đồng lúa mì HRW Kansas City cũng ghi nhận mức giảm 24 đến 25 cent."
+      ],
+      "link": "https://www.barchart.com/story/news/4358768/wheat-falling-back-to-close-out-the-month?.tsrc=rss",
+      "source": "31 Aug 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giá ngô tiếp tục tăng vào cuối tháng 8",
+      "details": [
+        "Hợp đồng tương lai ngô đang giao dịch với mức tăng từ nhỏ đến 2 cent trong ngày.",
+        "Có 90 lượt giao hàng được thực hiện đối với ngô tháng 9 vào Ngày Thông báo Đầu tiên.",
+        "Giá ngô giao ngay trung bình toàn quốc (CmdtyView) tăng 1.5 cent, đạt 4.925 USD.",
+        "Báo cáo Kiểm tra Xuất khẩu sáng thứ Hai cho thấy lượng ngô xuất khẩu ổn định."
+      ],
+      "link": "https://www.barchart.com/story/news/4358745/corn-bulls-extending-gains-into-the-end-of-august?.tsrc=rss",
+      "source": "31 Aug 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Các quỹ ETF nông nghiệp vượt trội S&P 500 nhờ giá ngô và lúa mì tăng",
+      "details": [
+        "Các quỹ ETF nông nghiệp đã vượt qua chỉ số S&P 500 trong hai tháng liên tiếp.",
+        "Nguyên nhân chính là rủi ro thời tiết, căng thẳng địa chính trị và nhu cầu toàn cầu mạnh mẽ.",
+        "Những yếu tố này đã đẩy giá ngô, lúa mì và đậu tương lên cao."
+      ],
+      "link": "https://finance.yahoo.com/markets/commodities/articles/agricultural-etfs-top-p-500-151000585.html?.tsrc=rss",
+      "source": "31 Aug 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Lúa mì giảm mạnh khi bắt đầu giao dịch cuối tháng",
+      "details": [
+        "Giá lúa mì bắt đầu tuần mới với mức giảm mạnh vào thứ Hai.",
+        "Trước đó, thị trường lúa mì đã kéo dài đà tăng lên mức cao nhất 3 năm đối với lúa mì vụ đông vào cuối tuần.",
+        "Hợp đồng SRW Chicago đã tăng từ 10.5 đến 24.25 cent vào thứ Sáu, với hợp đồng tháng 9 tăng 85.5 cent trong tuần."
+      ],
+      "link": "https://www.barchart.com/story/news/4353406/wheat-falling-back-to-start-month-end-trade?.tsrc=rss",
+      "source": "31 Aug 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Lúa mì tiếp tục đà tăng, đạt mức cao nhất 3 năm vào cuối tuần",
+      "details": [
+        "Thị trường lúa mì đã kéo dài đà tăng, đưa giá lúa mì vụ đông lên mức cao nhất trong 3 năm vào cuối tuần.",
+        "Hợp đồng SRW Chicago tăng từ 10.5 đến 24.25 cent trên diện rộng vào thứ Sáu.",
+        "Hợp đồng tháng 9 tăng 85.5 cent trong tuần.",
+        "Hợp đồng HRW Kansas City cũng ghi nhận mức tăng từ 10 đến 24.25 cent."
       ],
       "link": "https://www.barchart.com/story/news/4328921/wheat-extend-rally-to-3-year-highs-into-the-weekend?.tsrc=rss",
       "source": "28 Aug 2026 - Yahoo Finance"
     },
     {
-      "title": "Lúa mì tiếp tục tăng giá mạnh vào cuối tuần",
+      "title": "Giá lúa mì đạt đỉnh 3 năm: Chiến lược giao dịch lúa mì HRW",
       "details": [
-        "Giá lúa mì tăng trên cả ba sàn giao dịch vào thứ Sáu.",
-        "Hợp đồng SRW Chicago tăng từ 22 đến 23 cent.",
-        "Hợp đồng HRW KC tăng từ 25 đến 26 cent.",
-        "Lúa mì vụ xuân MPLS tăng 13 cent."
+        "Giá lúa mì vừa đạt mức cao nhất trong 3 năm.",
+        "Bài viết gợi ý xem xét mua quyền chọn bán (put option) đối với hợp đồng tương lai lúa mì cứng đỏ vụ đông (HRW) tháng 12."
       ],
-      "link": "https://www.barchart.com/story/news/4324775/wheat-rallying-into-the-weekend?.tsrc=rss",
+      "link": "https://www.barchart.com/story/news/4324099/wheat-prices-just-hit-a-3-year-high-how-to-trade-hrw-wheat-here?.tsrc=rss",
       "source": "28 Aug 2026 - Yahoo Finance"
     },
     {
-      "title": "Giá lúa mì tiếp tục tăng, đạt mức cao nhất 3 năm vào thứ Năm",
+      "title": "Giá ngô và lúa mì vụ đông kiểm tra mức tăng trước phiên giao dịch mới",
       "details": [
-        "Giá lúa mì tiếp tục đà tăng vào thứ Sáu, với các hợp đồng tăng từ 6 đến 11 cent.",
-        "Giá lúa mì mùa đông đạt mức cao nhất 3 năm vào thứ Năm.",
-        "Hợp đồng SRW Chicago kết thúc phiên với mức tăng từ 8 đến 12 ½ cent.",
-        "Lãi suất mở tăng 4.998 hợp đồng."
-      ],
-      "link": "https://www.barchart.com/story/news/4312671/wheat-extends-to-3-year-highs-on-thursday?.tsrc=rss",
-      "source": "28 Aug 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Điều gì đang thúc đẩy thị trường nông sản (ngô, lúa mì) tăng giá lên mức cao nhất nhiều năm?",
-      "details": [
-        "Thị trường nông sản tổng thể đang chứng kiến sự tăng giá mạnh.",
-        "Ngô và lúa mì đạt mức cao nhất trong nhiều năm.",
-        "Bài viết phân tích các yếu tố kỹ thuật gây biến động và sự thay đổi giá trái mùa.",
-        "Các yếu tố này ảnh hưởng đến các mặt hàng nông sản chủ chốt."
-      ],
-      "link": "https://www.barchart.com/story/news/4234040/ag-market-surge-what-s-driving-the-buying-in-corn-wheat-and-soybeans-to-multi-year-highs?.tsrc=rss",
-      "source": "27 Aug 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Lúa mì tiếp tục tăng giá vào thứ Năm sau đà tăng mạnh hôm thứ Tư",
-      "details": [
-        "Giá lúa mì tiếp tục tăng từ 4 đến 7 cent vào sáng thứ Năm.",
-        "Thị trường lúa mì tăng mạnh vào thứ Tư do căng thẳng leo thang ở Biển Đen.",
-        "Hợp đồng SRW Chicago tăng kịch trần 45 cent ở các tháng đầu.",
-        "Các hợp đồng khác tăng từ 26 cent trở lên."
-      ],
-      "link": "https://www.barchart.com/story/news/4204062/wheat-following-wednesday-gains-with-thursday-am-strength?.tsrc=rss",
-      "source": "27 Aug 2026 - Yahoo Finance"
-    },
-    {
-      "title": "ICM cung cấp công nghệ cho nhà máy ethanol ngô đầu tiên của Atvos tại Brazil",
-      "details": [
-        "ICM, Inc. ký thỏa thuận với Atvos để cung cấp công nghệ và dịch vụ kỹ thuật.",
-        "Dự án là nhà máy ethanol ngô đầu tiên của Atvos tại Brazil.",
-        "Nhà máy sẽ được tích hợp vào khu phức hợp công nghiệp Santa Luzia hiện có của Atvos.",
-        "Đây là bước quan trọng trong chiến lược đa dạng hóa nguyên liệu và mở rộng sản xuất nhiên liệu tái tạo của Atvos."
-      ],
-      "link": "https://finance.yahoo.com/energy/articles/icm-selected-supply-technology-atvos-110500365.html?.tsrc=rss",
-      "source": "27 Aug 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Giá lúa mì tăng lên mức cao mới do Nga có dấu hiệu leo thang căng thẳng",
-      "details": [
-        "Thị trường lúa mì tăng mạnh vào thứ Tư do căng thẳng leo thang ở Biển Đen.",
-        "Hợp đồng SRW Chicago tăng kịch trần 45 cent ở các tháng đầu.",
-        "Các hợp đồng khác tăng từ 26 đến 44 cent.",
-        "Hợp đồng HRW KC tăng từ 17 đến 38 cent."
-      ],
-      "link": "https://www.barchart.com/story/news/4145298/wheat-rallying-to-new-highs-as-russia-looks-to-escalation?.tsrc=rss",
-      "source": "26 Aug 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Thị trường ngũ cốc: Lúa mì hay Ngô (ethanol/whisky) sẽ là động lực chính?",
-      "details": [
-        "Dòng tiền từ các quỹ đang đổ vào lĩnh vực ngũ cốc.",
-        "Lúa mì và ngô là hai thị trường trọng tâm trong tuần giao dịch mới.",
-        "Ngô được liên kết với sản xuất ethanol và whisky.",
-        "Bài viết đặt câu hỏi về động lực chính của thị trường."
-      ],
-      "link": "https://www.barchart.com/story/news/4091871/will-this-watson-wednesday-be-driven-by-wheat-or-whisky?.tsrc=rss",
-      "source": "26 Aug 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Phân tích thị trường: Giá ngô có thể tự đẩy mình ra khỏi nhu cầu?",
-      "details": [
-        "Hợp đồng tương lai lúa mì dẫn đầu đà giảm của nhóm ngũ cốc qua đêm.",
-        "Ngô và đậu tương chứng kiến sự chốt lời sau khi đạt mức cao nhất 3 năm.",
-        "Bài viết đặt câu hỏi về điểm mà giá ngô có thể vượt quá khả năng hấp thụ của nhu cầu.",
-        "Đây là một phân tích thị trường buổi sáng."
+        "Giá đậu tương giảm chất lượng nhưng giá tăng.",
+        "Giá ngô và lúa mì vụ đông cũng đang kiểm tra các mức tăng trước phiên giao dịch thứ Ba."
       ],
       "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
-      "source": "31 Aug 2026 - Farm Progress"
+      "source": "01 Sep 2026 - Farm Progress"
     },
     {
-      "title": "Hội thảo trực tuyến về chiến lược quản lý chi phí phân bón cho vụ mùa 2027",
+      "title": "Lúa mì Chicago đạt đỉnh 3.5 năm do các cuộc tấn công của Nga ở Biển Đen",
       "details": [
-        "Hội thảo tập trung vào thách thức tài chính lớn nhất cho nông dân: quản lý chi phí phân bón.",
-        "Thị trường phân bón đang biến động lịch sử.",
-        "Ba nhà phân tích thị trường sẽ thảo luận về các mẹo chiến lược.",
-        "Thông tin hữu ích cho vụ mùa 2027."
+        "Giá lúa mì Chicago đã tăng lên mức cao nhất trong 3.5 năm.",
+        "Nguyên nhân chính là các cuộc tấn công của Nga vào khu vực Biển Đen.",
+        "Tình hình địa chính trị căng thẳng ở Biển Đen tiếp tục ảnh hưởng nghiêm trọng đến nguồn cung ngũ cốc toàn cầu."
       ],
-      "link": "https://www.farmprogress.com/farm-business/worried-about-fertilizer-prices-join-this-free-webinar-for-market-strategy-tips-",
-      "source": "26 Oct 2026 - Farm Progress"
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNU1FEcTRMUy1GRGtoUk0tSGJBVzgtNE9hWjdsTGQyRWF0dnJnQTVTTjF1TFB3UkFIMlBlazhvdlBQV2dvLWJTMkdCQU12TVc4WWZxbmkxeXo2UHRxNWhBNklCQ2F4cm5UN1l5X3hLTW5mNFZwcEFFdmZxWi1MLU90V0ZCaHZXcEYzSWE5X0hINVlsemdPMzZGN2xPUEhRU0RiNWROVmJraw?oc=5",
+      "source": "01 Sep 2026 - Google News (Geopolitics)"
     },
     {
-      "title": "Thổ Nhĩ Kỳ tuyên bố có kế hoạch ngũ cốc Biển Đen, liên hệ với Nga và Ukraine",
+      "title": "Tác động của các cuộc tấn công gia tăng ở Biển Đen đến giá lương thực toàn cầu",
       "details": [
-        "Thổ Nhĩ Kỳ đang nỗ lực đưa ra một kế hoạch cho việc vận chuyển ngũ cốc qua Biển Đen.",
-        "Thổ Nhĩ Kỳ đang liên lạc với cả Nga và Ukraine về vấn đề này.",
-        "Kế hoạch nhằm giải quyết sự gián đoạn xuất khẩu ngũ cốc.",
-        "Thông tin được Reuters đưa tin."
+        "Sự gia tăng các cuộc tấn công ở Biển Đen đang gây ra những lo ngại lớn về giá lương thực.",
+        "Khu vực Biển Đen là tuyến đường vận chuyển ngũ cốc quan trọng.",
+        "Bất ổn tại đây có thể đẩy giá các mặt hàng nông sản chủ chốt lên cao."
       ],
-      "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxORzNCeTl1Slh2LXg1ZW04UUFZS2xtdHE5ZjhXZ2FlVmZsTTRiN2dENVBjZFAyTWk3a0s1cDltV1dsSXFjWlNuTU5RaG9abDE2bVFGS3lNTC1NZWFsS2hUM3FpQUJQd2Y0dVdMWlhEUjdMb1B3blNPV0I4VDZwVkVleDNjRHlMNTY3aGFzRThESGhMejJFcENCR2hzZFpsVHRhMC1WSVV1SlZwVk1wV0xKTk5NMUZLbVI5VFNqRUprTU90UQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNQ1dodV9haG5CN2dkdl9rU0pieTRHdTlQNVVuSi00QVBTNnJpZUNyVXdDbkhuYzZDVm9KWWZyRlZqb3dZZEdBcHUzQW1sZlhIVzBLME5lalB1R09XTmFqMnlTVFp3c29XWHd5b09YX2dyR0Jqa3ljWTQwdnpUTG5zR3JmaldrSktfVVFtUFRPaVJPWS1sSGUtaG5DamhaN2w3TVhrZF9JcVluWk9WT3c?oc=5",
+      "source": "01 Sep 2026 - Google News (Geopolitics)"
+    },
+    {
+      "title": "Nga chuyển hướng xuất khẩu ngũ cốc sang Baltic, tạo rủi ro mới cho thị trường lúa mì toàn cầu",
+      "details": [
+        "Nga đang chuyển hướng xuất khẩu ngũ cốc từ Biển Đen sang Biển Baltic.",
+        "Sự thay đổi này nhằm tránh các gián đoạn do xung đột ở Biển Đen.",
+        "Tuy nhiên, việc chuyển hướng này tạo ra những rủi ro và thách thức mới cho thị trường lúa mì toàn cầu.",
+        "Nó có thể ảnh hưởng đến chuỗi cung ứng và giá cả."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNVzJPRE9SX3pGWDJYdkdYMmdsWHI0YW40bXdFZDFnNHlLSmZhTDJvbGNBNDlSRmlyV2FjR2hiYWtMM1pJeVREejRZTlV1NkFMaTlmdGF4OC1ZYzctT283dF9SeTUyNk1Ub0RhM2gwTkRMLXhPc1VCaXZfeDJqNDBMYllTZTQ1bHFkT0JQQl9PN3c?oc=5",
+      "source": "01 Sep 2026 - Google News (Geopolitics)"
+    },
+    {
+      "title": "Thổ Nhĩ Kỳ thúc đẩy thỏa thuận ngũ cốc Biển Đen mới giữa Nga và Ukraine",
+      "details": [
+        "Thổ Nhĩ Kỳ đang nỗ lực thúc đẩy một thỏa thuận ngũ cốc mới giữa Nga và Ukraine.",
+        "Mục tiêu là khôi phục hoạt động xuất khẩu ngũ cốc an toàn qua Biển Đen.",
+        "Thỏa thuận này rất quan trọng để ổn định nguồn cung lương thực toàn cầu và giảm căng thẳng thị trường."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOU1RudVlOdnhtcXFhSi1DZjEtRjVpdDc2WTZ4dWhEN21hWEptaHJHZWhHeDlkS2ZqSThiTUtqcFR1YXprZUV0QXF3bzBtVXliSjFKSE9DNDBXS1pQcXJyUGJaeG5sQVpGcmtlWFZXVC1iM3NoYlhUbWM3MmxmZjBIWVpUanA2aFpoSFVBV1JwN2dGdlNGUk53NEJwcWlneEI3dkE?oc=5",
       "source": "31 Aug 2026 - Google News (Geopolitics)"
     },
     {
-      "title": "Xuất khẩu ngũ cốc đình trệ khi Ukraine tăng cường tấn công Nga",
+      "title": "Chiến tranh và nắng nóng: Nguyên nhân giá lúa mì tăng vọt",
       "details": [
-        "Xuất khẩu ngũ cốc đang bị đình trệ.",
-        "Nguyên nhân là do Ukraine tăng cường các cuộc tấn công vào Nga.",
-        "Tình hình này ảnh hưởng đến chuỗi cung ứng ngũ cốc toàn cầu.",
-        "Thông tin được DW.com đưa tin."
+        "Giá lúa mì toàn cầu đang tăng vọt đáng kể.",
+        "Hai nguyên nhân chính được xác định là xung đột vũ trang (chiến tranh) và điều kiện thời tiết khắc nghiệt (nắng nóng).",
+        "Những yếu tố này gây ra gián đoạn nguồn cung và ảnh hưởng đến sản lượng."
       ],
-      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOSDdVeXR4OWZEZ0xVZGdGUzd1cXpwUnF6SWU1UnlyZzA0MmFsTm55ZXJqSUVYUjBWVklqcmhqVFZPTUJob2hUdVhYaDJSUFpzNmpIaU5rSzE1RlEzbUlKOWxwOThsVjBNd2JMSVM1NEZ0UXVHaW14dEU5ay1oWmtPZ2RQVE5Rb0VxeFBIYVFyRDdzdzZQZnN2dTBrTkpTS0Y3Q2VvMU5JTjhYSTTSAasBQVVfeXFMT0lXWWlJUmtrQ3M1dWpVczZPSFFSalJaMWpsX29WcC1sUTl5NlN1UUd3LUVKaWp2LTIxSGdWYl8tN2p1QzdOTS1yMFN3RVk4QWVpcWJEaEVvS21CbEtocjgtYUNPdjJhQ1k5UkNDajJ1cnlrYk9kQTVSR0NpdkJtM1o4ZXVaOEU3V0VRM2ZPcWxfVHYxWnlsWVFnbFVYTjhZUFBNNDR0Y1R4Vmcw?oc=5",
-      "source": "25 Aug 2026 - Google News (Geopolitics)"
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPYk9JdmhHNnRkMTcyTXR3Y1FoZlZEUXNVQzczdWhnVHN1UGNBQ3FYQlNoZHhTYTJYdlNpUDFmNG9GSVlhSXprMUVYdXdfbHhVNTM2QlZ3cFBsZHV4ZGYxQ0JTOFpHSGIxLTFHVEdQdHp2Tmx2YTF3cll3NEdmS0RVNVk0a1lRT1hFMFHSAY8BQVVfeXFMTVpGczJtUTNrcVhYdERfRHFnaFp0andFWGNUQjVlVTAwWHgzQW5DbjZpbC1odU9vYjVaMU5UVkxsd0hWMG1MSGlJLUYydmVYOEdGSm93SndhdDhmeEg5Z0V6dFVvRzFkdjdGNTBoVGQ2UGhSY0gzdUFhX3BwS3kyYjJzTmxVT015ZmU4Q1hGSVk?oc=5",
+      "source": "31 Aug 2026 - Google News (Geopolitics)"
     },
     {
-      "title": "Các cuộc tấn công của Nga vào phân phối ngũ cốc và thực phẩm Ukraine là mối đe dọa toàn cầu",
+      "title": "Nga chuyển hướng xuất khẩu ngũ cốc sang Baltic do Biển Đen bị gián đoạn",
       "details": [
-        "Nga đang tấn công vào các cơ sở phân phối ngũ cốc và thực phẩm của Ukraine.",
-        "Hành động này được coi là mối đe dọa đối với an ninh lương thực toàn cầu.",
-        "Tác động tiêu cực đến nguồn cung cấp lương thực.",
-        "Thông tin được AgWeb nhấn mạnh."
+        "Nga đang chuyển hướng xuất khẩu ngũ cốc của mình sang các cảng Baltic.",
+        "Động thái này diễn ra trong bối cảnh hoạt động thương mại qua Biển Đen bị gián đoạn nghiêm trọng.",
+        "Sự thay đổi tuyến đường xuất khẩu có thể ảnh hưởng đến chi phí vận chuyển và thời gian giao hàng.",
+        "Điều này cũng làm tăng thêm sự phức tạp và rủi ro cho thị trường ngũ cốc toàn cầu."
       ],
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNc0laZkxnOTE3bnZyRzRSR1hidndQNldaZGlxQ3o5UXlzRjNjUTNxWnFyZGlhbXpNT3lyR2kyOFI0WXB0UGh4R3dLMkU1clhEeWlfamhXbDlBUTJQRkN3Z2lXVDMxczJRS0ZadG5vMXlJTnJsODhnRkI0UDVtNmRUZHRTYWNNVHdkX1RjcGphRUdQa1NGUUV3b0prcw?oc=5",
-      "source": "30 Aug 2026 - Google News (Geopolitics)"
-    },
-    {
-      "title": "Nga lại cắt đứt xuất khẩu ngũ cốc của Ukraine, đe dọa vụ mùa và an ninh lương thực toàn cầu",
-      "details": [
-        "Nga tiếp tục cắt đứt các tuyến đường xuất khẩu ngũ cốc của Ukraine.",
-        "Hành động này đe dọa nghiêm trọng đến vụ mùa quan trọng của Ukraine.",
-        "Gây ra mối lo ngại lớn về an ninh lương thực toàn cầu.",
-        "Tình hình này có thể ảnh hưởng đến nguồn cung cấp lương thực thế giới."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOSEowc05FNVhjbzJKVDZsY2hjOHVSQTdIZnh5MFhkVDJKVkVkY2lhWUhjV2lhWUQtU2FhcFUyZ1hSU050SjA0MWtwUGZLaFhDZjFRckpqdFFoMmdISW9kSVJzc1pKRHVhcnJ1a1ZDUWZOZ05MbWtJNGl1Q1IxUkFCQ2NpVGVyd0lkNXo2RzJPZy11aVI3eVFHWUhjbWE0R2d6LWpWcjVlOTBKVDY2Y3A5ODRCa016NXFHUWZveElndXp1LXByQXFqWkZIYVdSbkFXdkVna2U5NDQ?oc=5",
-      "source": "13 Aug 2026 - Google News (Geopolitics)"
-    },
-    {
-      "title": "Giá lúa mì tăng vọt khi Ukraine và Nga giao tranh ở Biển Đen",
-      "details": [
-        "Giá lúa mì tăng mạnh.",
-        "Nguyên nhân là do các cuộc tấn công và phản công giữa Ukraine và Nga ở Biển Đen.",
-        "Xung đột làm gián đoạn các tuyến đường vận chuyển ngũ cốc quan trọng.",
-        "Tình hình địa chính trị ảnh hưởng trực tiếp đến thị trường lúa mì."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQN2psUEZ6UVFQbWdGWGRkZTJlb0hveThPSHQwc0dZOFY2RGVZYmJ1a09KMHJOOC11TmswaHgzMjNDWDBUMXJBUzN6bWRLS09XcEo4S1h2T3ZiNl93RzZVdWxFNzVtZnUwYVNXdTUwYWxhWXlfemZOSy1jWGJBZGdDMEsxU1VCZk9tQlJ6U212S3JNbGZYVjVhOUVzSXpvamFGZWM2c0tJeW4?oc=5",
-      "source": "24 Aug 2026 - Google News (Geopolitics)"
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPdE9oS2ItTTBjQnZJSzlDRGVVa3YtMmZUamptWi10NWZYWkowV3dZLUhLcVlFZlg0Z0w1eFVXOXVWbUJKMzh2OTB0eHJtZWlndjJhcXh1RzlTcWpKMTVrT2UzSlBZNk41ekRrOFczSU4zcVZ3UmJodG0xRmNkdUtQNG9aR3p4a3ZXNHE4OVNiY05ETjBxTzY4RXZONWRoSjhfWHZjN3hiVkw?oc=5",
+      "source": "31 Aug 2026 - Google News (Geopolitics)"
     }
   ]
 }
