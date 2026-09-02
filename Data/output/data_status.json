@@ -8,9 +8,9 @@
       "updated_at": "2026-09-02 06:30:17"
     },
     "prices": {
-      "status": "OK",
-      "detail": "ZC+ZW H1 updated",
-      "updated_at": "2026-09-02 06:30:31"
+      "status": "[OK]",
+      "detail": "Auto-fetch 07:00:18",
+      "updated_at": "2026-09-02 07:00:18"
     },
     "macro": {
       "status": "OK",
@@ -51,7 +51,17 @@
       "status": "[OK]",
       "detail": "Auto-fetch 06:56:12",
       "updated_at": "2026-09-02 06:56:12"
+    },
+    "github_sync": {
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 06:56:17 (Nguồn: AI Điểm Tin)",
+      "updated_at": "2026-09-02 06:56:17"
     }
   },
-  "all_ok": true
+  "all_ok": true,
+  "prices": {
+    "status": "OK",
+    "detail": "ZC+ZW updated at 07:00",
+    "updated_at": "2026-09-02 07:00:18"
+  }
 }
