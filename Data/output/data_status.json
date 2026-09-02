@@ -49,13 +49,13 @@
     },
     "ai_news": {
       "status": "[OK]",
-      "detail": "Auto-fetch 05:43:09",
-      "updated_at": "2026-09-03 05:43:09"
+      "detail": "Auto-fetch 06:00:55",
+      "updated_at": "2026-09-03 06:00:55"
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 06:00:32 (Nguồn: Giá H4)",
-      "updated_at": "2026-09-03 06:00:32"
+      "detail": "Đẩy thành công lúc 06:00:40 (Nguồn: Vĩ Mô (Macro))",
+      "updated_at": "2026-09-03 06:00:40"
     },
     "prices_h4": {
       "status": "[OK]",
