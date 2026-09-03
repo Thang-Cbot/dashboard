@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 19:02:40 (Nguồn: USDA Acreage)",
-      "updated_at": "2026-09-03 19:02:40"
+      "detail": "Đẩy thành công lúc 19:11:59 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-09-03 19:11:59"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 18:00:38",
-      "updated_at": "2026-09-03 18:00:38"
+      "detail": "Auto-fetch 19:12:06",
+      "updated_at": "2026-09-03 19:12:06"
     },
     "blacksea_news": {
       "status": "[OK]",
