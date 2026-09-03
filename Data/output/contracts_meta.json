@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 146551.0,
+      "today_volume": 251804.0,
       "prev_volume": 301520.0,
-      "today_oi": 1001249,
+      "today_oi": 1001146,
       "prev_oi": 1001249,
-      "today_close": 527.75,
+      "today_close": 535.0,
       "prev_close": 543.5,
       "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
       "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
@@ -33,9 +33,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZWH27.CBT",
-      "year": 2027,
-      "month": 3
+      "ticker": "ZWZ26.CBT",
+      "year": 2026,
+      "month": 12
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 71863.0,
+      "today_volume": 111280.0,
       "prev_volume": 101468.0,
-      "today_oi": 275530,
+      "today_oi": 275637,
       "prev_oi": 275530,
-      "today_close": 734.0,
+      "today_close": 745.25,
       "prev_close": 774.0,
-      "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
-      "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
+      "trend": "Giảm mạnh mẽ (Strong Bearish / Short Buildup)",
+      "logic": "Giá giảm đi kèm Volume tăng và OI tăng. Phe Bán khống mới đang ồ ạt gia nhập thị trường, củng cố xu hướng giảm tiếp diễn."
     }
   },
-  "updated_at": "2026-09-03 21:00:21"
+  "updated_at": "2026-09-03 22:39:02"
 }
