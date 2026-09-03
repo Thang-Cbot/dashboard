@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 21:13:54 (Nguồn: Chỉ số Lúa Mì Nga)",
-      "updated_at": "2026-09-03 21:13:54"
+      "detail": "Đẩy thành công lúc 22:39:08 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-09-03 22:39:08"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 21:00:35",
-      "updated_at": "2026-09-03 21:00:35"
+      "detail": "Auto-fetch 22:39:14",
+      "updated_at": "2026-09-03 22:39:14"
     },
     "blacksea_news": {
       "status": "[OK]",

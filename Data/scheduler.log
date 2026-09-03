@@ -15106,3 +15106,7 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-09-03 22:38:41] [INFO] ▶ Kích hoạt: Giá H1 + Macro
 [2026-09-03 22:39:03] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-09-03 22:39:03] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-09-03 22:39:08] [Sync] ✅ Đồng bộ Github thành công (Giá H1 + Macro)!
+[2026-09-03 22:39:08] [INFO] ▶ Kích hoạt: Giá H4
+[2026-09-03 22:39:14] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-09-03 22:39:14] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
