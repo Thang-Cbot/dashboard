@@ -8,9 +8,9 @@
       "updated_at": "2026-09-04 06:30:16"
     },
     "prices": {
-      "status": "OK",
-      "detail": "ZC+ZW H1 updated",
-      "updated_at": "2026-09-04 06:30:31"
+      "status": "[OK]",
+      "detail": "Auto-fetch 07:26:41",
+      "updated_at": "2026-09-04 07:26:41"
     },
     "macro": {
       "status": "OK",
@@ -51,6 +51,11 @@
       "status": "OK",
       "detail": "Điểm tin AI thành công",
       "updated_at": "2026-09-04 06:32:17"
+    },
+    "github_sync": {
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 06:48:39 (Nguồn: USDA Acreage)",
+      "updated_at": "2026-09-04 06:48:39"
     }
   },
   "all_ok": true,
@@ -58,5 +63,10 @@
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
     "updated_at": "2026-09-04 06:48:34"
+  },
+  "prices": {
+    "status": "OK",
+    "detail": "ZC+ZW updated at 07:26",
+    "updated_at": "2026-09-04 07:26:41"
   }
 }
