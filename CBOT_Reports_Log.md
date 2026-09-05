@@ -9,7 +9,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 # PHẦN I: THÔNG TIN TỔNG QUAN & VĨ MÔ
 
 ## 🌐 1. TỔNG QUAN VĨ MÔ TOÀN CẦU (MACRO INDICATORS OVERVIEW)
-*Cập nhật tự động qua `macro_tracker.py` vào lúc 08:00 ICT ngày 05/09/2026*
+*Cập nhật tự động qua `macro_tracker.py` vào lúc 10:19 ICT ngày 05/09/2026*
 
 | Chỉ số Vĩ mô | Mức giá hiện tại | Biến động 24h | Xu hướng & Đánh giá tác động đến Nông sản |
 | :--- | :---: | :---: | :--- |
@@ -39,7 +39,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 ---
 
 ## 🌡️ 2. BẢN TIN THỜI TIẾT & MÙA VỤ TOÀN CẦU (WEATHER INTELLIGENCE REPORT)
-*Cập nhật tự động lúc 08:00 ICT ngày 05/09/2026 — Nguồn: NOAA, USDA, BOM Australia*
+*Cập nhật tự động lúc 10:19 ICT ngày 05/09/2026 — Nguồn: NOAA, USDA, BOM Australia*
 
 ### 🇺🇸 Thời tiết Nội địa Mỹ (US Domestic Weather)
 
@@ -231,7 +231,7 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 | **Ngắn hạn** | 🐂 **Tăng (Bullish)** | EMA_21 H1 > EMA_50 H1 (Hội tụ động lượng tăng) | Canh vào lệnh ngắn hạn (Intraday) |
 
 *   **Giá Chốt Phiên (Close):** 536.75 cents | **Dự báo Chốt Phiên:** **`538.34 cents`** (+1.59).
-*   **Thanh khoản phiên chốt:** Volume: **`191,255`** (Chênh lệch: **`-137,173`**) | OI: **`992,940`** (Chênh lệch: **`-29`**)
+*   **Thanh khoản phiên chốt:** Volume: **`191,255`** (Chênh lệch: **`-198,093`**) | OI: **`992,940`** (Chênh lệch: **`-29`**)
 *   **Mô hình nến H1:** **`Không phát hiện mô hình nến đặc biệt`**
 *   **Dòng tiền (Volume + OI):** **`Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)`**
 *   **Đánh giá xu hướng kết hợp:** 📉 **TÍCH LŨY TIÊU CỰC (Distribution):** Nến đi ngang nhưng dòng tiền rút dần (OI giảm), cảnh báo rủi ro suy sụt sắp tới.
@@ -359,7 +359,7 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 | **Ngắn hạn** | 🐻 **Giảm (Bearish)** | EMA_21 H1 < EMA_50 H1 (Áp lực bán duy trì) | Canh vào lệnh ngắn hạn (Intraday) |
 
 *   **Giá Chốt Phiên (Close):** 732.75 cents | **Dự báo Chốt Phiên:** **`736.17 cents`** (+3.42).
-*   **Thanh khoản phiên chốt:** Volume: **`100,203`** (Chênh lệch: **`-496`**) | OI: **`268,273`** (Chênh lệch: **`-50`**)
+*   **Thanh khoản phiên chốt:** Volume: **`100,203`** (Chênh lệch: **`-60,355`**) | OI: **`268,273`** (Chênh lệch: **`-50`**)
 *   **Mô hình nến H1:** **`Bearish Marubozu (Lực bán áp đảo tuyệt đối)`**
 *   **Dòng tiền (Volume + OI):** **`Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)`**
 *   **Đánh giá xu hướng kết hợp:** 🚨 **GIẢM MẠNH MẼ (Strong Bearish Confirmation):** Mô hình nến giảm đi kèm dòng tiền rút ra/áp lực bán tháo lớn, rủi ro sụt giảm tiếp diễn cao.
