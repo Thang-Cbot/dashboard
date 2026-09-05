@@ -9,7 +9,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 # PHẦN I: THÔNG TIN TỔNG QUAN & VĨ MÔ
 
 ## 🌐 1. TỔNG QUAN VĨ MÔ TOÀN CẦU (MACRO INDICATORS OVERVIEW)
-*Cập nhật tự động qua `macro_tracker.py` vào lúc 11:03 ICT ngày 05/09/2026*
+*Cập nhật tự động qua `macro_tracker.py` vào lúc 13:34 ICT ngày 05/09/2026*
 
 | Chỉ số Vĩ mô | Mức giá hiện tại | Biến động 24h | Xu hướng & Đánh giá tác động đến Nông sản |
 | :--- | :---: | :---: | :--- |
@@ -18,14 +18,14 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 
 
 ## 💰 DÒNG TIỀN COT (SMART MONEY MATRIX)
-*Cập nhật từ nguồn CFTC Public API (Ngày báo cáo chốt sổ: **2026-08-25**)*
+*Cập nhật từ nguồn CFTC Public API (Ngày báo cáo chốt sổ: **2026-09-01**)*
 
 ### Bảng Dòng Tiền Managed Money
 
 | Mã | Commodity | Net Position | Tuần Qua | Trạng Thái Matrix | Điểm Bias |
 | :--- | :--- | :---: | :---: | :--- | :---: |
-| **002602** | ZC | **317,448** | **+135,756** | **Q1 (XANH LA) - GOM LONG**<br>*Uu tien LONG. Xu huong tang ben vung.* | 🟢 **+1.5** |
-| **001602** | ZW | **-13,597** | **+11,731** | **Q4 (CAM) - COVER SHORT**<br>*Cam Short duoi. Canh LONG bat hoi.* | 🟢 **+1.0** |
+| **002602** | ZC | **401,003** | **+83,555** | **Q1 (XANH LA) - GOM LONG**<br>*Uu tien LONG. Xu huong tang ben vung.* | 🟢 **+1.5** |
+| **001602** | ZW | **14,904** | **+28,501** | **Q1 (XANH LA) - GOM LONG**<br>*Uu tien LONG. Xu huong tang ben vung.* | 🟢 **+1.5** |
 
 
 
@@ -39,7 +39,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 ---
 
 ## 🌡️ 2. BẢN TIN THỜI TIẾT & MÙA VỤ TOÀN CẦU (WEATHER INTELLIGENCE REPORT)
-*Cập nhật tự động lúc 11:03 ICT ngày 05/09/2026 — Nguồn: NOAA, USDA, BOM Australia*
+*Cập nhật tự động lúc 13:34 ICT ngày 05/09/2026 — Nguồn: NOAA, USDA, BOM Australia*
 
 ### 🇺🇸 Thời tiết Nội địa Mỹ (US Domestic Weather)
 
@@ -251,10 +251,10 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Báo cáo COT Managed Money | Ngô (ZC) | Đánh giá & Hành động |
 | :--- | :---: | :--- |
-| **Ngày Báo Cáo** | **2026-08-25** | Cập nhật mới nhất từ CFTC |
+| **Ngày Báo Cáo** | **2026-09-01** | Cập nhật mới nhất từ CFTC |
 | **Trạng Thái Matrix** | **Q1 (XANH LA) - GOM LONG** | *Uu tien LONG. Xu huong tang ben vung.* |
-| **Net Position** | **317,448** | Hợp đồng (Long - Short) |
-| **Thay đổi Tuần qua** | **+135,756** | Hợp đồng thay đổi so với tuần trước |
+| **Net Position** | **401,003** | Hợp đồng (Long - Short) |
+| **Thay đổi Tuần qua** | **+83,555** | Hợp đồng thay đổi so với tuần trước |
 
 
 ---
@@ -379,10 +379,10 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Báo cáo COT Managed Money | Lúa Mì (ZW) | Đánh giá & Hành động |
 | :--- | :---: | :--- |
-| **Ngày Báo Cáo** | **2026-08-25** | Cập nhật mới nhất từ CFTC |
-| **Trạng Thái Matrix** | **Q4 (CAM) - COVER SHORT** | *Cam Short duoi. Canh LONG bat hoi.* |
-| **Net Position** | **-13,597** | Hợp đồng (Long - Short) |
-| **Thay đổi Tuần qua** | **+11,731** | Hợp đồng thay đổi so với tuần trước |
+| **Ngày Báo Cáo** | **2026-09-01** | Cập nhật mới nhất từ CFTC |
+| **Trạng Thái Matrix** | **Q1 (XANH LA) - GOM LONG** | *Uu tien LONG. Xu huong tang ben vung.* |
+| **Net Position** | **14,904** | Hợp đồng (Long - Short) |
+| **Thay đổi Tuần qua** | **+28,501** | Hợp đồng thay đổi so với tuần trước |
 
 
 ---
