@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-09-03 21:13:50",
+  "timestamp": "2026-09-06 10:54:04",
   "metrics": {
     "planted_area": "N/A",
     "production_forecast": "N/A",
-    "harvest_progress": "N/A",
-    "fob_price": "Đang tăng (do nguồn cung Biển Đen giảm)",
-    "export_tax": "N/A",
-    "export_capacity": "N/A",
+    "harvest_progress": "28 triệu tấn đã được thu hoạch (số liệu 2025), năng suất giảm 4.5%.",
+    "fob_price": "Đang tăng/tăng vọt do nguồn cung Biển Đen giảm và khó khăn vận chuyển.",
+    "export_tax": "Chính phủ Nga đang tìm cách thúc đẩy xuất khẩu, chưa có thông tin cụ thể về thuế.",
+    "export_capacity": "Bị đe dọa và đình trệ do xung đột ở Biển Đen và rủi ro logistics.",
     "quality_notes": "N/A",
-    "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Tháng 9 (Vụ Xuân)",
-    "ai_assessment": "Áp lực xả hàng của Nga lên giá CBOT hiện đang giảm do nguồn cung Biển Đen bị gián đoạn và rủi ro logistics leo thang, dẫn đến giá lúa mì Nga tăng."
+    "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Thu (Vụ Xuân)",
+    "ai_assessment": "Áp lực xả hàng của Nga lên giá CBOT hiện tại đang giảm do rủi ro địa chính trị và logistics ở Biển Đen làm hạn chế nguồn cung xuất khẩu, đẩy giá lúa mì tăng cao."
   }
 }
