@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 14:00:20",
-      "updated_at": "2026-09-06 14:00:20"
+      "detail": "Auto-fetch 20:05:46",
+      "updated_at": "2026-09-06 20:05:46"
     },
     "macro": {
       "status": "[OK]",
@@ -23,9 +23,9 @@
       "updated_at": "2026-09-04 06:30:32"
     },
     "export_sales": {
-      "status": "OK",
-      "detail": "Export Sales updated",
-      "updated_at": "2026-09-04 06:30:36"
+      "status": "[ERROR]",
+      "detail": "Failed after 10 attempts",
+      "updated_at": "2026-09-06 18:26:26"
     },
     "weather_short": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 14:00:45 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-09-06 14:00:45"
+      "detail": "Đẩy thành công lúc 14:01:21 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-09-06 14:01:21"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -76,8 +76,8 @@
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 14:00",
-    "updated_at": "2026-09-06 14:00:20"
+    "detail": "ZC+ZW updated at 20:05",
+    "updated_at": "2026-09-06 20:05:45"
   },
   "macro": {
     "status": "OK",
@@ -90,9 +90,9 @@
     "updated_at": "2026-09-06 11:10:19"
   },
   "export_sales": {
-    "status": "OK",
-    "detail": "Kỳ: 08/27/2026 | ZW=313,500 MT, ZC=-829600 MT",
-    "updated_at": "2026-09-05 13:17:52"
+    "status": "NoData",
+    "detail": "Kỳ: None | NoData",
+    "updated_at": "2026-09-06 18:26:26"
   },
   "usda": {
     "status": "OK",

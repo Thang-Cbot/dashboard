@@ -1,18 +1,7 @@
 {
-  "fetched_at": "2026-09-05 13:17:46",
-  "current_week_ending": "08/27/2026",
+  "fetched_at": "2026-09-06 18:25:41",
+  "current_week_ending": null,
   "previous_week_ending": "Tuần trước",
-  "status": "OK",
-  "commodities": {
-    "ZW": {
-      "current_mt": 313500.0,
-      "prev_mt": 0,
-      "pct_change": 0
-    },
-    "ZC": {
-      "current_mt": -829600.0,
-      "prev_mt": 0,
-      "pct_change": 0
-    }
-  }
+  "status": "NoData",
+  "commodities": {}
 }
