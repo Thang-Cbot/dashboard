@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-09-05",
+  "last_updated_fundamentals": "2026-09-08",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -24,7 +24,7 @@
     },
     "crop_condition": {
       "latest": "57% Good to Excellent",
-      "next_date": "08/09/2026 lúc 03:00 (VN)",
+      "next_date": "15/09/2026 lúc 03:00 (VN)",
       "forecast": "70% G/E",
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
@@ -209,7 +209,7 @@
     },
     "harvest_progress": {
       "latest": "Đông N/A, Xuân 77% thu hoạch",
-      "next_date": "08/09/2026 lúc 03:00 (VN)",
+      "next_date": "15/09/2026 lúc 03:00 (VN)",
       "forecast": "Mỹ: 12% lúa đông đã thu hoạch",
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
@@ -219,7 +219,7 @@
     },
     "crop_condition": {
       "latest": "Đông N/A (Cuối vụ), Xuân N/A",
-      "next_date": "08/09/2026 lúc 03:00 (VN)",
+      "next_date": "15/09/2026 lúc 03:00 (VN)",
       "forecast": "Duy trì cực xấu 25-27% G/E",
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
@@ -418,7 +418,7 @@
     },
     "crop_condition": {
       "latest": "58% Good to Excellent",
-      "next_date": "08/09/2026 lúc 03:00 (VN)",
+      "next_date": "15/09/2026 lúc 03:00 (VN)",
       "forecast": "68% G/E",
       "action": "Chất lượng gieo trồng tốt -> Canh Short ngắn hạn / bảo thủ",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6.",

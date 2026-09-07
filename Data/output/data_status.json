@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 06:00:19",
-      "updated_at": "2026-09-08 06:00:19"
+      "detail": "Auto-fetch 06:32:35",
+      "updated_at": "2026-09-08 06:32:35"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 06:02:29 (Nguồn: AI Điểm Tin)",
-      "updated_at": "2026-09-08 06:02:29"
+      "detail": "Đẩy thành công lúc 06:15:33 (Nguồn: Chỉ số Lúa Mì Nga)",
+      "updated_at": "2026-09-08 06:15:33"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -76,32 +76,37 @@
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 06:00",
-    "updated_at": "2026-09-08 06:00:19"
+    "detail": "ZC+ZW updated at 06:32",
+    "updated_at": "2026-09-08 06:32:35"
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=97.23, DXY=99.176",
-    "updated_at": "2026-09-08 06:00:35"
+    "detail": "Brent=97.22, DXY=99.176",
+    "updated_at": "2026-09-08 06:30:31"
   },
   "weather_short": {
-    "status": "PARTIAL",
-    "detail": "19/24 fetched",
-    "updated_at": "2026-09-08 06:00:40"
+    "status": "OK",
+    "detail": "24/24 fetched",
+    "updated_at": "2026-09-08 06:31:05"
   },
   "export_sales": {
-    "status": "NoData",
-    "detail": "Kỳ: None | NoData",
-    "updated_at": "2026-09-06 18:26:26"
+    "status": "OK",
+    "detail": "Kỳ: 08/27/2026 | ZW=313,500 MT, ZC=-829600 MT",
+    "updated_at": "2026-09-08 06:30:36"
   },
   "usda": {
     "status": "OK",
-    "detail": "Updated: 2026-09-05 | WASDE: Aug",
-    "updated_at": "2026-09-05 13:18:07"
+    "detail": "Updated: 2026-09-08 | WASDE: Aug",
+    "updated_at": "2026-09-08 06:30:16"
   },
   "cot": {
     "status": "[OK] Success",
     "detail": "",
     "updated_at": "2026-09-05 13:18:10"
+  },
+  "weather_long": {
+    "status": "OK",
+    "detail": "Status: El Niño Advisory",
+    "updated_at": "2026-09-08 06:31:07"
   }
 }
