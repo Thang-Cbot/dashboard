@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 11:00:29",
-      "updated_at": "2026-09-07 11:00:29"
+      "detail": "Auto-fetch 12:36:44",
+      "updated_at": "2026-09-07 12:36:44"
     },
     "macro": {
       "status": "[OK]",
@@ -53,9 +53,9 @@
       "updated_at": "2026-09-06 11:07:20"
     },
     "github_sync": {
-      "status": "[ERROR]",
-      "detail": "Lỗi Push: : unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Failed to connect to github.com port 443 after 21171 ms: Couldn't connect to server",
-      "updated_at": "2026-09-07 11:01:11"
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 11:01:36 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-09-07 11:01:36"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -76,8 +76,8 @@
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 11:00",
-    "updated_at": "2026-09-07 11:00:29"
+    "detail": "ZC+ZW updated at 12:36",
+    "updated_at": "2026-09-07 12:36:44"
   },
   "macro": {
     "status": "OK",
