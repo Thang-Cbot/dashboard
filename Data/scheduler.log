@@ -16149,3 +16149,7 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-09-07 18:00:40] [INFO] ▶ Kích hoạt: Giá H4
 [2026-09-07 18:00:44] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
 [2026-09-07 18:00:44] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
+[2026-09-07 18:01:06] [Sync] ⚠️ Lỗi Github Push: : unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Failed to connect to github.com port 443 after 21193 ms: Couldn't connect to server
+[2026-09-07 18:01:06] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-09-07 18:01:09] [INFO] ✅ Vĩ Mô (Macro) hoàn thành (attempt 1)
+[2026-09-07 18:01:09] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Vĩ Mô (Macro))...

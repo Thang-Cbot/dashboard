@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 17:37:36",
-      "updated_at": "2026-09-07 17:37:36"
+      "detail": "Auto-fetch 18:01:09",
+      "updated_at": "2026-09-07 18:01:09"
     },
     "cot": {
       "status": "PARTIAL",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[ERROR]",
-      "detail": "Lỗi Push: : unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Failed to connect to github.com port 443 after 21186 ms: Couldn't connect to server",
-      "updated_at": "2026-09-07 18:00:40"
+      "detail": "Lỗi Push: : unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Failed to connect to github.com port 443 after 21193 ms: Couldn't connect to server",
+      "updated_at": "2026-09-07 18:01:06"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -81,8 +81,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=96.28, DXY=98.951",
-    "updated_at": "2026-09-07 17:37:36"
+    "detail": "Brent=96.28, DXY=98.933",
+    "updated_at": "2026-09-07 18:01:09"
   },
   "weather_short": {
     "status": "OK",
