@@ -53,9 +53,9 @@
       "updated_at": "2026-09-06 11:07:20"
     },
     "github_sync": {
-      "status": "[ERROR]",
-      "detail": "Lỗi Push: : unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Failed to connect to github.com port 443 after 21164 ms: Couldn't connect to server",
-      "updated_at": "2026-09-07 15:00:49"
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 15:00:57 (Nguồn: Vĩ Mô (Macro))",
+      "updated_at": "2026-09-07 15:00:57"
     },
     "prices_h4": {
       "status": "[OK]",
