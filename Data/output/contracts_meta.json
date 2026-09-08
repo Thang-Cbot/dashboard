@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 42376.0,
+      "today_volume": 44962.0,
       "prev_volume": 15506.0,
       "today_oi": 992940,
       "prev_oi": 992940,
-      "today_close": 539.75,
+      "today_close": 538.25,
       "prev_close": 540.75,
       "trend": "Giảm do phe Long tháo chạy (Long Liquidation)",
       "logic": "Giá giảm đi kèm Volume tăng nhưng OI giảm. Phe Long đang chủ động đóng vị thế hàng loạt để cắt lỗ, lực bán tháo kỹ thuật mạnh."
@@ -33,9 +33,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZWZ26.CBT",
-      "year": 2026,
-      "month": 12
+      "ticker": "ZWH27.CBT",
+      "year": 2027,
+      "month": 3
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 30871.0,
+      "today_volume": 33100.0,
       "prev_volume": 8976.0,
       "today_oi": 268273,
       "prev_oi": 0,
-      "today_close": 753.25,
+      "today_close": 746.5,
       "prev_close": 757.0,
       "trend": "Giảm mạnh mẽ (Strong Bearish / Short Buildup)",
       "logic": "Giá giảm đi kèm Volume tăng và OI tăng. Phe Bán khống mới đang ồ ạt gia nhập thị trường, củng cố xu hướng giảm tiếp diễn."
     }
   },
-  "updated_at": "2026-09-08 17:25:12"
+  "updated_at": "2026-09-08 18:21:32"
 }
