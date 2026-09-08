@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 22:21:14",
-      "updated_at": "2026-09-08 22:21:14"
+      "detail": "Auto-fetch 23:00:18",
+      "updated_at": "2026-09-08 23:00:18"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 22:21:39 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-09-08 22:21:39"
+      "detail": "Đẩy thành công lúc 22:22:19 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-09-08 22:22:19"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -76,8 +76,8 @@
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 22:20",
-    "updated_at": "2026-09-08 22:21:14"
+    "detail": "ZC+ZW updated at 23:00",
+    "updated_at": "2026-09-08 23:00:18"
   },
   "macro": {
     "status": "OK",
