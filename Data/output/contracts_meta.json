@@ -1,14 +1,14 @@
 {
   "ZC": {
     "active": {
+      "ticker": "ZCU26.CBT",
+      "year": 2026,
+      "month": 9
+    },
+    "swing": {
       "ticker": "ZCZ26.CBT",
       "year": 2026,
       "month": 12
-    },
-    "swing": {
-      "ticker": "ZCH27.CBT",
-      "year": 2027,
-      "month": 3
     },
     "dca": {
       "ticker": "ZCZ26.CBT",
@@ -16,12 +16,12 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 60399.0,
-      "prev_volume": 212584.0,
-      "today_oi": 979573,
+      "today_volume": 133.0,
+      "prev_volume": 240.0,
+      "today_oi": 1086,
       "prev_oi": 979573,
-      "today_close": 529.75,
-      "prev_close": 533.5,
+      "today_close": 506.75,
+      "prev_close": 511.0,
       "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
       "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
     }
@@ -33,9 +33,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZWZ26.CBT",
-      "year": 2026,
-      "month": 12
+      "ticker": "ZWH27.CBT",
+      "year": 2027,
+      "month": 3
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 18211.0,
+      "today_volume": 30996.0,
       "prev_volume": 102466.0,
       "today_oi": 261905,
       "prev_oi": 261905,
-      "today_close": 746.5,
+      "today_close": 731.75,
       "prev_close": 747.0,
       "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
       "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
     }
   },
-  "updated_at": "2026-09-09 20:00:19"
+  "updated_at": "2026-09-09 21:01:18"
 }
