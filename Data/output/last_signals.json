@@ -6,9 +6,9 @@
     "setup_entry_range": "751.86 - 754.98"
   },
   "ZC": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCZ26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 535.25\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 69%)</b>\n🎯 Vùng Entry: <b>538.97 - 539.10</b>\n🛑 Stoploss: 543.62 | 💵 Take Profit: 529.92\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>444.89 - 457.25</b>\n",
-    "timestamp": "21:00 08/09/2026",
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCZ26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 528.00\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 68%)</b>\n🎯 Vùng Entry: <b>535.51 - 537.27</b>\n🛑 Stoploss: 541.45 | 💵 Take Profit: 527.15\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Order Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>446.14 - 457.25</b>\n",
+    "timestamp": "08:53 09/09/2026",
     "setup_type": "SHORT",
-    "setup_entry_range": "538.97 - 539.10"
+    "setup_entry_range": "535.51 - 537.27"
   }
 }
