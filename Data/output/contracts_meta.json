@@ -1,9 +1,9 @@
 {
   "ZC": {
     "active": {
-      "ticker": "ZCU26.CBT",
+      "ticker": "ZCZ26.CBT",
       "year": 2026,
-      "month": 9
+      "month": 12
     },
     "swing": {
       "ticker": "ZCZ26.CBT",
@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 133.0,
-      "prev_volume": 240.0,
-      "today_oi": 1086,
+      "today_volume": 125602.0,
+      "prev_volume": 212584.0,
+      "today_oi": 979576,
       "prev_oi": 979573,
-      "today_close": 506.75,
-      "prev_close": 511.0,
-      "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
-      "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
+      "today_close": 532.25,
+      "prev_close": 533.5,
+      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
+      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
   "ZW": {
@@ -33,9 +33,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZWH27.CBT",
-      "year": 2027,
-      "month": 3
+      "ticker": "ZWZ26.CBT",
+      "year": 2026,
+      "month": 12
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 30996.0,
+      "today_volume": 46798.0,
       "prev_volume": 102466.0,
-      "today_oi": 261905,
+      "today_oi": 261906,
       "prev_oi": 261905,
-      "today_close": 731.75,
+      "today_close": 741.25,
       "prev_close": 747.0,
-      "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
-      "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
+      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
+      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
-  "updated_at": "2026-09-09 21:01:18"
+  "updated_at": "2026-09-09 22:00:18"
 }
