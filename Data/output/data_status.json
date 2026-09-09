@@ -1,77 +1,62 @@
 {
-  "last_full_update": "2026-09-09 06:33:50",
-  "elapsed_seconds": 226.8,
+  "last_full_update": "2026-09-10 06:33:30",
+  "elapsed_seconds": 207.8,
   "modules": {
     "usda": {
       "status": "OK",
       "detail": "WASDE + Crop Progress updated",
-      "updated_at": "2026-09-09 06:30:19"
+      "updated_at": "2026-09-10 06:30:22"
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 23:00:16",
-      "updated_at": "2026-09-09 23:00:16"
+      "detail": "Auto-fetch 06:54:20",
+      "updated_at": "2026-09-10 06:54:20"
     },
     "macro": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 23:00:35",
-      "updated_at": "2026-09-09 23:00:35"
+      "status": "OK",
+      "detail": "Brent/DXY updated",
+      "updated_at": "2026-09-10 06:30:42"
     },
     "cot": {
       "status": "PARTIAL",
       "detail": "COT CFTC updated (fallback if 403)",
-      "updated_at": "2026-09-09 06:30:37"
+      "updated_at": "2026-09-10 06:30:42"
     },
     "export_sales": {
       "status": "OK",
       "detail": "Export Sales updated",
-      "updated_at": "2026-09-09 06:30:42"
+      "updated_at": "2026-09-10 06:30:51"
     },
     "weather_short": {
       "status": "OK",
       "detail": "Weather short-term updated",
-      "updated_at": "2026-09-09 06:31:15"
+      "updated_at": "2026-09-10 06:31:21"
     },
     "weather_long": {
       "status": "OK",
       "detail": "ENSO/El Nino updated",
-      "updated_at": "2026-09-09 06:31:18"
+      "updated_at": "2026-09-10 06:31:24"
     },
     "ai": {
       "status": "OK",
       "detail": "Generated AI narrative",
-      "updated_at": "2026-09-09 06:31:43"
+      "updated_at": "2026-09-10 06:31:52"
     },
     "acreage": {
       "status": "OK",
       "detail": "Planted acreage ZC/ZW/ZS updated",
-      "updated_at": "2026-09-09 06:32:45"
+      "updated_at": "2026-09-10 06:32:44"
     },
     "ai_news": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 21:11:08",
-      "updated_at": "2026-09-09 21:11:08"
-    },
-    "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 23:00:39 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-09-09 23:00:39"
-    },
-    "prices_h4": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 23:00:26",
-      "updated_at": "2026-09-09 23:00:26"
+      "status": "OK",
+      "detail": "Điểm tin AI thành công",
+      "updated_at": "2026-09-10 06:33:30"
     }
   },
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 23:00",
-    "updated_at": "2026-09-09 23:00:16"
-  },
-  "macro": {
-    "status": "OK",
-    "detail": "Brent=101.19, DXY=98.796",
-    "updated_at": "2026-09-09 23:00:34"
+    "detail": "ZC+ZW updated at 06:54",
+    "updated_at": "2026-09-10 06:54:20"
   }
 }
