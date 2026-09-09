@@ -913,6 +913,12 @@
       "open_interest": 261905,
       "close": 747.0,
       "open": 746.5
+    },
+    "2026-09-09": {
+      "volume": 3840.0,
+      "open_interest": 261905,
+      "close": 743.5,
+      "open": 747.75
     }
   },
   "ZS": {
