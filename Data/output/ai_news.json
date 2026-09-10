@@ -1,155 +1,155 @@
 {
-  "timestamp": "2026-09-10 06:33:30",
+  "timestamp": "2026-09-11 06:33:20",
   "news": [
     {
-      "title": "Lúa mì giảm giá khi tồn kho Canada tăng",
+      "title": "Ukraine Tấn Công Cảng Biển Đen Của Nga, Đe Dọa Xuất Khẩu Ngũ Cốc Toàn Cầu",
       "details": [
-        "Giá lúa mì giảm trên hầu hết các sàn giao dịch vào thứ Tư.",
-        "Hợp đồng lúa mì SRW Chicago giảm 14-17 cent, HRW Kansas City giảm 9-11 cent, lúa mì vụ xuân Minneapolis giảm 3-4 cent.",
-        "Nguyên nhân chính được cho là do tồn kho lúa mì của Canada đang tăng lên, gây áp lực lên giá."
+        "Ukraine đã tấn công một cảng quan trọng và căn cứ hải quân của Nga ở Biển Đen.",
+        "Vụ tấn công này đe dọa làm gián đoạn thêm hoạt động xuất khẩu ngũ cốc.",
+        "Sự gián đoạn có thể ảnh hưởng đến dòng chảy hàng hóa và thị trường toàn cầu."
+      ],
+      "link": "https://www.farmprogress.com/marketing/ukraine-attacks-key-russian-black-sea-port-naval-base",
+      "source": "10 Sep 2026 - Farm Progress"
+    },
+    {
+      "title": "Căng Thẳng Giữa Nhu Cầu Mạnh Mẽ và Áp Lực Thu Hoạch Trên Thị Trường Ngũ Cốc",
+      "details": [
+        "Thị trường ngũ cốc đang đối mặt với sự giằng co giữa nhu cầu mạnh mẽ và áp lực từ mùa thu hoạch.",
+        "Báo cáo WASDE sắp tới của USDA có thể tạo ra những biến động bất ngờ.",
+        "Các nhà đầu tư và nông dân cần theo dõi sát sao các yếu tố này để đưa ra quyết định."
+      ],
+      "link": "https://www.farmprogress.com/management/top-tips-the-battle-between-strong-demand-vs-harvest-pressure",
+      "source": "10 Sep 2026 - Farm Progress"
+    },
+    {
+      "title": "Giá Ngũ Cốc Tăng Mạnh Trước Báo Cáo WASDE Tháng 9",
+      "details": [
+        "Giá ngô, đậu tương và lúa mì vụ đông đều ghi nhận mức tăng đáng kể vào thứ Năm.",
+        "Sự tăng giá diễn ra trước thềm báo cáo Cung cầu Nông nghiệp Thế giới (WASDE) tháng 9.",
+        "Thị trường đang có xu hướng tích cực, chờ đợi thông tin mới từ USDA."
+      ],
+      "link": "https://www.farmprogress.com/markets-and-quotes/afternoon-market-recap",
+      "source": "10 Sep 2026 - Farm Progress"
+    },
+    {
+      "title": "Xung Đột Iran-Mỹ Đẩy Giá Dầu Lên Cao, Tăng Chi Phí Đầu Vào Nông Nghiệp",
+      "details": [
+        "Cuộc xung đột kéo dài giữa Mỹ và Iran đang đẩy giá dầu lên cao.",
+        "Điều này đe dọa làm tăng chi phí cho dầu diesel, phân bón và các yếu tố đầu vào thiết yếu khác cho nông nghiệp.",
+        "Chi phí sản xuất dự kiến sẽ tăng cao cho đến năm 2029, ảnh hưởng đến lợi nhuận của nông dân."
+      ],
+      "link": "https://www.farmprogress.com/farm-policy/iran-u-s-brace-for-long-war-with-neither-side-ceding-ground",
+      "source": "10 Sep 2026 - Farm Progress"
+    },
+    {
+      "title": "Dự Trữ Dầu Diesel Mỹ Giảm Kỷ Lục, Đe Dọa Chi Phí Thu Hoạch Nông Sản",
+      "details": [
+        "Dự trữ dầu diesel tại Mỹ đã giảm xuống mức thấp nhất trong 20 năm.",
+        "Giá dầu diesel đang tăng vọt, có thể đạt 6 USD/gallon.",
+        "Điều này đe dọa làm tăng chi phí cho nông dân trong mùa thu hoạch quan trọng."
+      ],
+      "link": "https://www.farmprogress.com/farm-policy/u-s-sees-diesel-stocks-falling-to-2003-low-ahead-of-peak-demand",
+      "source": "10 Sep 2026 - Farm Progress"
+    },
+    {
+      "title": "Thị Trường Ngũ Cốc Tăng Giá Nhờ Nhu Cầu Từ Trung Quốc và Chờ Đợi Báo Cáo USDA",
+      "details": [
+        "Hợp đồng tương lai đậu tương đã dẫn dắt toàn bộ nhóm ngũ cốc tăng giá qua đêm.",
+        "Nguyên nhân là do tin tức về việc Trung Quốc tăng cường mua hàng.",
+        "Các báo cáo quan trọng của USDA sẽ được công bố trong ngày tới, có thể ảnh hưởng đến xu hướng thị trường."
+      ],
+      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
+      "source": "10 Sep 2026 - Farm Progress"
+    },
+    {
+      "title": "Quyết Định Bán Ngô và Đậu Tương 2027: Cân Nhắc Lãi Suất, Chi Phí và El Niño",
+      "details": [
+        "Nông dân đang đứng trước quyết định nên chờ đợi hay bán ngay ngô và đậu tương vụ 2027.",
+        "Các quyết định tiếp thị phụ thuộc vào ba yếu tố chính: lãi suất, chi phí sản xuất và kỳ vọng về El Niño.",
+        "Việc đánh giá cẩn thận các yếu tố này là cần thiết để tối ưu hóa lợi nhuận."
+      ],
+      "link": "https://www.farmprogress.com/marketing/is-it-time-to-sell-2027-corn-and-soybeans-",
+      "source": "10 Sep 2026 - Farm Progress"
+    },
+    {
+      "title": "Giá Lúa Mì Giảm Do Tồn Kho Canada Tăng Lên",
+      "details": [
+        "Giá lúa mì đang trong xu hướng giảm vào thứ Tư trên hầu hết các sàn giao dịch.",
+        "Hợp đồng lúa mì SRW Chicago giảm 14-17 cent vào giữa ngày.",
+        "Nguyên nhân chính được cho là do tồn kho lúa mì của Canada đang tăng lên."
       ],
       "link": "https://www.barchart.com/story/news/4518783/wheat-fading-lower-as-canadian-stocks-build?.tsrc=rss",
       "source": "09 Sep 2026 - Yahoo Finance"
     },
     {
-      "title": "Lúa mì tăng giá mạnh vào thứ Ba nhờ đàm phán hòa bình",
+      "title": "Xu Hướng Tăng Giá Của Ngô CBOT Tiếp Diễn, Đạt Đỉnh Mới Năm 2026",
       "details": [
-        "Giá lúa mì tăng trên diện rộng sau kỳ nghỉ lễ dài.",
-        "Hợp đồng SRW Chicago tăng 6.25-14.25 cent, HRW Kansas City tăng 4-18 cent, lúa mì vụ xuân Minneapolis tăng 8.5-11 cent.",
-        "Thị trường phản ứng tích cực với các cuộc đàm phán hòa bình, giảm bớt lo ngại về rủi ro địa chính trị."
-      ],
-      "link": "https://www.barchart.com/story/news/4500335/wheat-post-tuesday-gains-following-peace-talks?.tsrc=rss",
-      "source": "08 Sep 2026 - Yahoo Finance"
-    },
-    {
-      "title": "Xu hướng tăng giá của Ngô liệu có tiếp diễn?",
-      "details": [
-        "Hợp đồng tương lai ngô CBOT đạt mức cao mới trong năm 2026 vào tháng 8, vượt mốc 5 USD/giạ.",
-        "Báo cáo WASDE tháng 8 của USDA được đánh giá là tích cực đối với ngô, thúc đẩy giá tăng.",
-        "Thị trường đang đặt câu hỏi về khả năng duy trì đà tăng giá này."
+        "Hợp đồng tương lai ngô CBOT đã đạt mức cao mới trong năm 2026 vào tháng 8.",
+        "Giá ngô đã vượt qua ngưỡng 5 USD mỗi bushel.",
+        "Báo cáo WASDE tháng 8 của USDA được đánh giá là tích cực cho ngô, góp phần đẩy giá tăng sau đó."
       ],
       "link": "https://www.barchart.com/story/news/4497000/will-corns-bullish-trend-continue?.tsrc=rss",
       "source": "08 Sep 2026 - Yahoo Finance"
     },
     {
-      "title": "Nhà đầu tư chốt lời lúa mì trước kỳ nghỉ lễ dài",
+      "title": "Giá Lúa Mì Tăng Mạnh Vào Thứ Ba Sau Kỳ Nghỉ Lễ",
       "details": [
-        "Giá lúa mì chịu áp lực giảm trước kỳ nghỉ lễ dài (Ngày Lao động).",
-        "Hợp đồng SRW Chicago giảm 15-17 cent, HRW Kansas City giảm 9-10.25 cent.",
-        "Nguyên nhân là do các nhà đầu tư chốt lời, rút vốn khỏi thị trường."
+        "Thị trường lúa mì đã ghi nhận mức tăng trên diện rộng vào thứ Ba, sau kỳ nghỉ lễ dài.",
+        "Hợp đồng SRW Chicago tăng từ 6,25 đến 14,25 cent khi đóng cửa.",
+        "Hợp đồng HRW Kansas City tăng từ 4 đến 18 cent, và lúa mì vụ xuân Minneapolis tăng từ 8,5 đến 11 cent."
+      ],
+      "link": "https://www.barchart.com/story/news/4500335/wheat-post-tuesday-gains-following-peace-talks?.tsrc=rss",
+      "source": "08 Sep 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Nhà Đầu Tư Lúa Mì Chốt Lời Trước Kỳ Nghỉ Lễ Dài",
+      "details": [
+        "Thị trường lúa mì chứng kiến dòng tiền rút ra trước kỳ nghỉ lễ dài.",
+        "Các sàn giao dịch chịu áp lực bán, với hợp đồng SRW Chicago giảm 15-17 cent.",
+        "Hợp đồng HRW Kansas City giảm 9-10,25 cent, cho thấy tâm lý thận trọng của nhà đầu tư."
       ],
       "link": "https://www.barchart.com/story/news/4450103/wheat-bulls-taking-money-off-the-table-ahead-of-the-long-weekend?.tsrc=rss",
       "source": "04 Sep 2026 - Yahoo Finance"
     },
     {
-      "title": "Giá ngô và đậu tương tăng vọt, cơ hội đầu tư mới",
+      "title": "Giá Ngô và Đậu Tương Tăng Mạnh, Mở Ra Cơ Hội Đầu Tư",
       "details": [
         "Giá ngô và đậu tương đang tăng mạnh trên thị trường.",
-        "Bài viết gợi ý các cách đầu tư vào hàng hóa nông sản, bao gồm quỹ ETF và cổ phiếu liên quan đến thực phẩm.",
-        "Điều này cho thấy một xu hướng tăng giá tích cực cho cả ngô và đậu tương."
+        "Các nhà đầu tư có thể tận dụng cơ hội này thông qua các quỹ ETF nông sản.",
+        "Ngoài ra, cổ phiếu các công ty liên quan đến thực phẩm cũng là một lựa chọn tiềm năng."
       ],
       "link": "https://finance.yahoo.com/m/ef188575-7fe3-3d61-aeb7-ec073f8e1fcc/corn-and-soybean-prices-are.html?.tsrc=rss",
       "source": "04 Sep 2026 - Yahoo Finance"
     },
     {
-      "title": "Giá ngô sụt giảm trong phiên giao dịch giữa tuần",
+      "title": "Giá Ngũ Cốc Toàn Cầu Tăng Vọt Do Chiến Tranh Nga-Ukraine Leo Thang Ở Biển Đen",
       "details": [
-        "Giá ngô giảm mạnh vào thứ Tư.",
-        "Đậu tương cũng giảm nhẹ.",
-        "Lúa mì vụ đông cũng chịu tổn thất khác nhau."
+        "Giá ngũ cốc toàn cầu đang có xu hướng tăng lên.",
+        "Nguyên nhân chính là do sự leo thang của cuộc chiến Nga-Ukraine tại khu vực Biển Đen.",
+        "Xung đột làm gián đoạn nguồn cung và tuyến đường vận chuyển, gây lo ngại về an ninh lương thực."
       ],
-      "link": "https://www.farmprogress.com/markets-and-quotes/afternoon-market-recap",
-      "source": "09 Sep 2026 - Farm Progress"
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPUU52WGF3TVRPWHNUeVRiam5CYU9KdFpHeWhHT3JvcVVSMFFtZVItZXZqeGhYZ2xVRDVNaHBXM0R5Y0xCQnhhcHJGdHdwSWtyVnVlRHltNWhrRzhHbWZFNm9ENEMxWDJGY19URzE1UGYwV0MzSHR2NnlHaFQ4SkpCSnpYbXhiUGR4ODBtRmZn?oc=5",
+      "source": "10 Sep 2026 - Google News (Geopolitics)"
     },
     {
-      "title": "USDA công bố thêm ba đợt bán hàng chớp nhoáng",
+      "title": "Giá Lúa Mì Khuyến Khích Trồng Trọt, Nhưng Chi Phí Đầu Vào Vẫn Là Ẩn Số",
       "details": [
-        "Bộ Nông nghiệp Hoa Kỳ (USDA) đã công bố ba đợt bán hàng chớp nhoáng mới.",
-        "Năm tiếp thị 2026-27 cho ngô và đậu tương bắt đầu từ ngày 1 tháng 9.",
-        "Thông tin này cho thấy nhu cầu xuất khẩu mạnh mẽ đối với ngô và đậu tương."
+        "Giá lúa mì hiện tại đang ở mức hấp dẫn, khuyến khích nông dân tăng diện tích trồng trọt.",
+        "Tuy nhiên, chi phí đầu vào như phân bón và nhiên liệu vẫn là một yếu tố không chắc chắn.",
+        "Sự biến động của chi phí đầu vào có thể ảnh hưởng đến lợi nhuận và quyết định sản xuất của nông dân."
       ],
-      "link": "https://www.farmprogress.com/marketing/flash-sales",
-      "source": "09 Sep 2026 - Farm Progress"
+      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNRFlkTWxvWFZuTEJHWWRRaFByUlFneE5EOFF5dnpLMGlFeVJEX2I4ZlBRSVZhQUJXUjFkYm11dzdtVDF1bGEzeEFtOUZiU1FQWFZPOUlHNmVQeU9xMGF2NHBUXy1mOGhDclYxNEo4WjdOQjduVGUyWUhnNm9WVTZqeXN0Z0V4bHREYjRhNnpTbjNsNzFhdVY1Y2ozTnFiLVRYeFh0SEtuRQ?oc=5",
+      "source": "10 Sep 2026 - Google News (Geopolitics)"
     },
     {
-      "title": "Thu hoạch ngô bắt đầu tại các bang miền Nam Hoa Kỳ",
+      "title": "Nga Tuyên Bố Sẽ Không Quay Lại Thỏa Thuận Ngũ Cốc Biển Đen",
       "details": [
-        "Vụ thu hoạch ngô đã khởi động tại các bang phía Nam của Hoa Kỳ.",
-        "Xếp hạng tình trạng cây trồng giảm một điểm trong tuần tính đến ngày 6 tháng 9.",
-        "Điều này cho thấy tiến độ thu hoạch nhưng cũng có sự suy giảm nhẹ về chất lượng cây trồng."
+        "Một quan chức Nga đã tuyên bố rằng Nga sẽ không quay trở lại thỏa thuận ngũ cốc Biển Đen.",
+        "Quyết định này có thể gây ra những tác động tiêu cực đáng kể đến nguồn cung ngũ cốc toàn cầu.",
+        "Thị trường ngũ cốc có thể tiếp tục đối mặt với sự bất ổn và giá cả tăng cao."
       ],
-      "link": "https://www.farmprogress.com/crops/crop-progress-corn-harvest-kicks-off-in-southern-states",
-      "source": "09 Sep 2026 - Farm Progress"
-    },
-    {
-      "title": "Thị trường ngô và đậu tương chờ đợi dữ liệu lớn từ USDA",
-      "details": [
-        "Hợp đồng tương lai ngô và đậu tương đã tăng nhẹ vào cuối phiên giao dịch đêm.",
-        "Thị trường đang chờ đợi các báo cáo quan trọng từ USDA vào thứ Sáu.",
-        "Giá dầu Brent vượt 100 USD lần đầu tiên kể từ tháng 5, cho thấy yếu tố vĩ mô có thể ảnh hưởng."
-      ],
-      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
-      "source": "09 Sep 2026 - Farm Progress"
-    },
-    {
-      "title": "Đà tăng giá ấn tượng của ngô có thể đưa giá lên 6 USD",
-      "details": [
-        "Thị trường ngô đã chứng kiến một đợt tăng giá mạnh vào cuối mùa hè.",
-        "Đà tăng này gợi nhớ đến giai đoạn 2021-23 khi giá ngô duy trì trên 6 USD.",
-        "Tuy nhiên, nông dân được cảnh báo về những rủi ro giảm giá tiềm ẩn."
-      ],
-      "link": "https://www.farmprogress.com/corn/corn-s-stunning-rally-might-make-6-a-reality",
-      "source": "09 Sep 2026 - Farm Progress"
-    },
-    {
-      "title": "Giá lúa mì tăng vọt khi Nga tập trung vào chiến sự Ukraine",
-      "details": [
-        "Giá lúa mì đã tăng mạnh.",
-        "Nguyên nhân là do Nga vẫn tập trung vào cuộc chiến ở Ukraine, bất chấp các cuộc đàm phán với Mỹ.",
-        "Điều này ngụ ý sự gián đoạn liên tục đối với xuất khẩu ngũ cốc từ Biển Đen."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOdUtMNzd3RHlCcjNsYld4X2ppbE9MZWI5eV9kTXhTNmZwN1JuUVRpUGNWQS1ZclAzYkd0cFFhT2hPSzB4SXN4UlhQTDVFZUpRVnJFNW53a01GZE9OYktPZE1QcW13T19Vc2UtRUk5TThwRnRhWldKV2dnemIteFAyU1owWVVxdjFieHEyejBtM0M2ZV9XUmxaaTAzQWdpUGtDdFhqR0x5RUJKaHBRZkN0V1lR?oc=5",
-      "source": "08 Sep 2026 - Google News (Geopolitics)"
-    },
-    {
-      "title": "Chiến tranh của Nga nhằm vào thương mại Ukraine là cuộc chiến chống lại an ninh lương thực toàn cầu",
-      "details": [
-        "Cuộc chiến của Nga chống lại thương mại Ukraine được coi là mối đe dọa đối với an ninh lương thực toàn cầu.",
-        "Bài viết nhấn mạnh tác động nghiêm trọng của xung đột đối với nguồn cung cấp lương thực quốc tế.",
-        "Điều này làm nổi bật những hệ lụy rộng lớn hơn của cuộc xung đột vượt ra ngoài chiến trường trực tiếp."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOVkxvR2VnM0d2dTlVOHVDRk92amhyOU9xWjYwYmxVRTBZQjQtSlpXaFpwcmZTYkZWdXFNd2RRcFZqcjZoNno2S25ldHJ1Y0VQSGp4RlFKXy1ZYk1fSng1WFh5YmgyX1JuTnFOcnZmYXB0cDQtN2dpMHBRcjllRE94QnFyY19RRTZWT1VUVmRCWERzX2tkaDE0X3ZuQVdfbTNobUp6VQ?oc=5",
-      "source": "08 Sep 2026 - Google News (Geopolitics)"
-    },
-    {
-      "title": "Leo thang tấn công Biển Đen làm dấy lên lo ngại giá lương thực tăng cao hơn",
-      "details": [
-        "Các cuộc tấn công ở khu vực Biển Đen đã leo thang nguy hiểm.",
-        "Sự leo thang này làm tăng lo ngại về việc giá lương thực toàn cầu sẽ còn tăng cao hơn nữa.",
-        "Điều này ảnh hưởng trực tiếp đến các tuyến đường xuất khẩu ngũ cốc và nguồn cung."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPeDlBclJ1R052OG8yZ1hiUTRKTEJuYmRlTDVDUFRUeElhcE9OaC10V3pyYUxQUnV2NzR4a2lZeG1ZRnVMc1dfOVpoaHF3c2d5c29TaC1xT2hWQi14VHhSdUVyRmRLczVZUnBPOXg1N1J5U3VlRUtoZTZnYTR3Mm5YdUcwXzlrclVsbjBCYWlZNm5QLUJiQ2JrcTdudHlIWGhNd2FoTU83bWNVVTZfbDBTWld0T3Bjdm9wRVJlSg?oc=5",
-      "source": "04 Sep 2026 - Google News (Geopolitics)"
-    },
-    {
-      "title": "Các cuộc tấn công ở Biển Đen đe dọa bóp nghẹt nguồn cung ngũ cốc toàn cầu",
-      "details": [
-        "Các cuộc tấn công ở khu vực Biển Đen đang đe dọa làm tắc nghẽn nguồn cung ngũ cốc toàn cầu.",
-        "Bài viết nhấn mạnh vai trò quan trọng của Biển Đen đối với xuất khẩu ngũ cốc.",
-        "Điều này cho thấy tiềm năng gián đoạn đáng kể đối với nguồn cung."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQOUdUNEZ1Tjk5M1hFZU1pOW9ZR1oyV2dXdEl4OU5TSnc4WWJnbllxU3lDaFdQbDdxT01ZMjhVSmRCQ01jX2RiOWFkdU9yczFheDVfUklQM0NNazNIcXVLQ0h4YnZoaG04QmtYWk8tQVFNaWN6S2FkcGJZc0pITjcxWTQ3NF9Ud2xaSGdWeWV6RFRQaW9KTEdueEFB?oc=5",
-      "source": "02 Sep 2026 - Google News (Geopolitics)"
-    },
-    {
-      "title": "Giá lương thực toàn cầu cao nhất kể từ năm 2022 do chiến tranh Nga-Ukraine làm gián đoạn xuất khẩu lúa mì",
-      "details": [
-        "Giá lương thực toàn cầu đã đạt mức cao nhất kể từ năm 2022.",
-        "Nguyên nhân chính được xác định là cuộc chiến Nga-Ukraine, làm gián đoạn xuất khẩu lúa mì.",
-        "Điều này nhấn mạnh tác động đáng kể và kéo dài của xung đột đối với thị trường lương thực."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQZVlnNzM4Q0xPQ3hOUlZXbXVkczJaX29VbVczZVM3N0xlOE9aeEcyUDE4QUNIYXJJVzRmUTJPdnFJRF9NMC13aWY4eTF4WkZ4Q3A0dHJhN2tZekZfamtraGpqSEdtb1FhUWRKZ1ZEMThVaHNlNDJLZ09hVklkMGl0SGgwLUJqYTdCcU9BMktYNlFCdG5XUHU3by1JOGJFbGpSck5NRXp0a2NldWY3V3JUbi1ES0tKc245MzdtT2llR0FVR1B6OEdxUmREaUJFZVpDM0FFUExn?oc=5",
-      "source": "05 Sep 2026 - Google News (Geopolitics)"
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOZkdBYjNMYk5nTjlwU0tLSkhMMnlKNkNKMnhnakMxTnFVc1FCaU1NM24tWWo4ZnRzV0FQaW9iZFh1YzN4RWZWZnMxWUJOQm5ObXljb1dTNDFMQlMyckl6T1pIVDlUOGplZDQtYnRDeFZhN2lnRUNZbUlFT0l6clI5WHNDdXhNRnJlQnRxV2VtNFhrSms?oc=5",
+      "source": "10 Sep 2026 - Google News (Geopolitics)"
     }
   ]
 }
