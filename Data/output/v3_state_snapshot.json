@@ -1,8 +1,8 @@
 {
-  "timestamp": "11/09/2026 06:33",
+  "timestamp": "11/09/2026 06:53",
   "macro": {
-    "brent_price": 108.73,
-    "brent_pct": 7.43,
+    "brent_price": 109.31,
+    "brent_pct": 8.003,
     "dxy_price": 99.09,
     "dxy_pct": 0.324
   },
@@ -25,8 +25,8 @@
         "open_interest": 965356,
         "contract": "ZCZ26",
         "weather": "Trời nóng tại Midwest, mưa rải rác",
-        "predicted_close": 535.6113075149294,
-        "predicted_change": 2.1113075149293734
+        "predicted_close": 535.6946289950012,
+        "predicted_change": 2.194628995001208
       },
       "swing": {
         "time": "2026-09-11 01:00",
