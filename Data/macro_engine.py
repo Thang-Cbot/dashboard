@@ -156,79 +156,103 @@ def score_f5_export_sales(sales_data):
         return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:80], "last_updated": last_up, "status": "error"}
 
 def score_f6_us_stocks(fund_data):
-    """F6: US Ending Stocks — số lượng chính xác + so sánh kỳ báo cáo trước (pct_vs_prev_report) + YoY."""
+    """F6: US Ending Stocks — tự tính MoM từ current/previous + dùng pct_vs_prev_report để chấm điểm."""
     filepath = OUTPUT_DIR / "fundamental_data.json"
     last_up  = get_file_mtime(filepath)
     if not fund_data:
         return {"score": 5, "raw_value": "N/A", "raw_detail": "Không có dữ liệu", "last_updated": last_up, "status": "error"}
     try:
+        import re as _re
         zw      = fund_data.get("ZW", fund_data)
         us_stk  = zw.get("us_ending_stocks", {})
-        current = us_stk.get("current", us_stk.get("value", None))   # "717 triệu bushels (2026/27)"
-        prev    = us_stk.get("previous", None)                        # "722 triệu bushels (2026/27)"
-        pct_yoy = float(us_stk.get("pct_change", 0) or 0)            # YoY% (vs niên vụ trước)
-        pct_mom = float(us_stk.get("pct_vs_prev_report", 0) or 0)    # MoM% (so kỳ báo cáo trước)
+        current = us_stk.get("current", None)          # "717 triệu bushels (2026/27)"
+        prev    = us_stk.get("previous", None)         # "722 triệu bushels (2026/27)"
+        # pct_vs_prev_report = so sánh Aug vs Jul WASDE (đáng tin cậy)
+        pct_mom = float(us_stk.get("pct_vs_prev_report", 0) or 0)
         cur_mon = us_stk.get("current_month", "")
         pre_mon = us_stk.get("previous_month", "")
+        logic   = us_stk.get("logic", "")
 
         if current is None:
             return {"score": 5, "raw_value": "N/A", "raw_detail": "Thiếu trường us_ending_stocks.current", "last_updated": last_up, "status": "error"}
 
-        # Chấm điểm theo 2 chiều: YoY (50%) + MoM vs prev report (50%)
-        # Nhớ: pct âm = tồn kho giảm → Bullish ZW
-        score_yoy = 2 if pct_yoy > 10 else (4 if pct_yoy > 0 else (7 if pct_yoy > -15 else 9))
-        score_mom = 2 if pct_mom > 3  else (4 if pct_mom > 0 else (7 if pct_mom > -3  else 9))
-        score = round(score_yoy * 0.5 + score_mom * 0.5)
-        score = max(1, min(10, score))
-
-        import re as _re
+        # Tự tính MoM thực từ số liệu (để tránh phụ thuộc vào pct_change có thể sai)
         nums_cur = _re.findall(r"[\d\.,]+", str(current))
-        cur_str  = nums_cur[0] if nums_cur else str(current)
         nums_pre = _re.findall(r"[\d\.,]+", str(prev)) if prev else []
+        cur_num  = float(str(nums_cur[0]).replace(",", "")) if nums_cur else None
+        pre_num  = float(str(nums_pre[0]).replace(",", "")) if nums_pre else None
+        cur_str  = nums_cur[0] if nums_cur else "?"
         pre_str  = nums_pre[0] if nums_pre else "?"
 
-        raw_val    = f"{cur_str} Mbu | MoM:{pct_mom:+.1f}% | YoY:{pct_yoy:+.1f}%"
-        raw_detail = f"WASDE {cur_mon} vs {pre_mon}: {cur_str} ← {pre_str} Mbu"
+        # Tính lại MoM thực nếu có đủ dữ liệu số
+        if cur_num and pre_num and pre_num > 0:
+            pct_mom_calc = round((cur_num - pre_num) / pre_num * 100, 1)
+            # Nếu pct_vs_prev_report = 0 hoặc không hợp lý, dùng tính toán thực
+            if pct_mom == 0:
+                pct_mom = pct_mom_calc
+
+        # Chấm điểm dựa trên MoM WASDE (tồn kho giảm = Bullish cho ZW)
+        # pct_mom âm → tồn kho giảm → Bullish → điểm cao
+        if   pct_mom >  5: score = 2   # Tồn kho tăng mạnh → Bearish
+        elif pct_mom >  0: score = 4   # Tồn kho tăng nhẹ → hơi Bearish
+        elif pct_mom > -3: score = 6   # Giảm nhẹ → trung lập
+        elif pct_mom > -8: score = 8   # Giảm vừa → Bullish
+        else:              score = 10  # Giảm mạnh → rất Bullish
+        score = max(1, min(10, score))
+
+        raw_val    = f"{cur_str} Mbu | WASDE {cur_mon}: {pct_mom:+.1f}% ({cur_str} ← {pre_str} Mbu)"
+        raw_detail = logic[:80] if logic else f"WASDE {cur_mon} vs {pre_mon}"
         return {"score": score, "raw_value": raw_val, "raw_detail": raw_detail, "last_updated": last_up, "status": "ok"}
     except Exception as e:
         return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:80], "last_updated": last_up, "status": "error"}
 
 def score_f7_global_stocks(fund_data):
-    """F7: Global Ending Stocks — số lượng chính xác + so sánh kỳ trước + YoY."""
+    """F7: Global Ending Stocks — tự tính MoM từ current/previous + logic text."""
     filepath = OUTPUT_DIR / "fundamental_data.json"
     last_up  = get_file_mtime(filepath)
     if not fund_data:
         return {"score": 5, "raw_value": "N/A", "raw_detail": "Không có dữ liệu", "last_updated": last_up, "status": "error"}
     try:
+        import re as _re
         zw      = fund_data.get("ZW", fund_data)
         gl_stk  = zw.get("global_ending_stocks", zw.get("world_ending_stocks", {}))
         current = gl_stk.get("current", gl_stk.get("value", None))
         prev    = gl_stk.get("previous", None)
-        pct_yoy = float(gl_stk.get("pct_change", 0) or 0)
         pct_mom = float(gl_stk.get("pct_vs_prev_report", 0) or 0)
         cur_mon = gl_stk.get("current_month", "")
         pre_mon = gl_stk.get("previous_month", "")
+        logic   = gl_stk.get("logic", "")
 
         if current is None:
             return {"score": 5, "raw_value": "N/A", "raw_detail": "Thiếu trường global_ending_stocks.current", "last_updated": last_up, "status": "error"}
 
-        # Tồn kho toàn cầu: pct âm → Bullish
-        score_yoy = 2 if pct_yoy > 5 else (4 if pct_yoy > 0 else (7 if pct_yoy > -5 else 9))
-        score_mom = 2 if pct_mom > 2 else (4 if pct_mom > 0 else (7 if pct_mom > -2 else 9))
-        score = round(score_yoy * 0.5 + score_mom * 0.5)
-        score = max(1, min(10, score))
-
-        import re as _re
         nums_cur = _re.findall(r"[\d\.,]+", str(current))
-        cur_str  = nums_cur[0] if nums_cur else str(current)
         nums_pre = _re.findall(r"[\d\.,]+", str(prev)) if prev else []
+        cur_num  = float(str(nums_cur[0]).replace(",", "")) if nums_cur else None
+        pre_num  = float(str(nums_pre[0]).replace(",", "")) if nums_pre else None
+        cur_str  = nums_cur[0] if nums_cur else "?"
         pre_str  = nums_pre[0] if nums_pre else "?"
 
-        raw_val    = f"{cur_str} Mmt | MoM:{pct_mom:+.1f}% | YoY:{pct_yoy:+.1f}%"
-        raw_detail = f"WASDE {cur_mon} vs {pre_mon}: {cur_str} ← {pre_str} Mmt"
+        # Tự tính MoM nếu pct_vs_prev_report = 0
+        if cur_num and pre_num and pre_num > 0:
+            pct_mom_calc = round((cur_num - pre_num) / pre_num * 100, 2)
+            if pct_mom == 0:
+                pct_mom = pct_mom_calc
+
+        # Tồn kho toàn cầu: giảm = Bullish ZW
+        if   pct_mom >  3: score = 2
+        elif pct_mom >  0: score = 4
+        elif pct_mom > -2: score = 6
+        elif pct_mom > -5: score = 8
+        else:              score = 10
+        score = max(1, min(10, score))
+
+        raw_val    = f"{cur_str} Mmt | WASDE {cur_mon}: {pct_mom:+.2f}% ({cur_str} ← {pre_str} Mmt)"
+        raw_detail = logic[:80] if logic else f"WASDE {cur_mon} vs {pre_mon}"
         return {"score": score, "raw_value": raw_val, "raw_detail": raw_detail, "last_updated": last_up, "status": "ok"}
     except Exception as e:
         return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:80], "last_updated": last_up, "status": "error"}
+
 
 def score_f8_geopolitics(manual_overrides):
     """F8: Geopolitics & Logistics - manual."""

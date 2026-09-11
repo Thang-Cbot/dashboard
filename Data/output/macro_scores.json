@@ -1,7 +1,7 @@
 {
-    "timestamp": "2026-09-11 09:33:13",
+    "timestamp": "2026-09-11 09:37:44",
     "month": "9",
-    "total_score": 41.6,
+    "total_score": 38.6,
     "trend": "Slightly Bearish — Giảm Nhẹ",
     "breakdown": {
         "F1": {
@@ -59,20 +59,20 @@
             "status": "ok"
         },
         "F6": {
-            "score_1_to_10": 8,
+            "score_1_to_10": 6,
             "weight_pct": 5,
-            "contribution": 0.4,
-            "raw_value": "717 Mbu | MoM:-1.6% | YoY:-64.9%",
-            "raw_detail": "WASDE Aug vs Jul: 717 ← 722 Mbu",
+            "contribution": 0.3,
+            "raw_value": "717 Mbu | WASDE Aug: -1.6% (717 ← 722 Mbu)",
+            "raw_detail": "Giảm sâu 18.5% so với niên vụ trước, phản ánh thiệt hại sản lượng lúa mì đông nặ",
             "last_updated": "2026-09-11 06:30",
             "status": "ok"
         },
         "F7": {
-            "score_1_to_10": 8,
+            "score_1_to_10": 4,
             "weight_pct": 5,
-            "contribution": 0.4,
-            "raw_value": "273.25 Mmt | MoM:+0.0% | YoY:-11.8%",
-            "raw_detail": "WASDE Aug vs Jul: 273.25 ← 272.84 Mmt",
+            "contribution": 0.2,
+            "raw_value": "273.25 Mmt | WASDE Aug: +0.15% (273.25 ← 272.84 Mmt)",
+            "raw_detail": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
             "last_updated": "2026-09-11 06:30",
             "status": "ok"
         },
