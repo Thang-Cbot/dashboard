@@ -1,13 +1,13 @@
 {
-    "timestamp": "2026-09-11 09:54:59",
+    "timestamp": "2026-09-11 10:01:52",
     "month": "9",
-    "total_score": 40.6,
+    "total_score": 40.2,
     "trend": "Slightly Bearish — Giảm Nhẹ",
     "breakdown": {
         "F1": {
             "score_1_to_10": 2,
-            "weight_pct": 15,
-            "contribution": 0.3,
+            "weight_pct": 14,
+            "contribution": 0.28,
             "raw_value": "Nhập thủ công",
             "raw_detail": "Nga + Ukraine boi thu nhung tac nghen xuat khau. Score 2 = Bearish",
             "last_updated": "2026-08-27 08:00",
@@ -21,6 +21,15 @@
             "raw_detail": "WASDE Aug: 1,531 ← 1,536 Mbu. Diện tích: 42.7 M ac",
             "last_updated": "2026-09-11 06:30",
             "status": "ok"
+        },
+        "F2W": {
+            "score_1_to_10": 5,
+            "weight_pct": 0,
+            "contribution": 0.0,
+            "raw_value": "Điểm tự đánh giá: 5/10",
+            "raw_detail": "Mưa lớn bất ngờ xuất hiện tại vùng Southern Plains (Kansas, Oklahoma, Texas). | Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ",
+            "last_updated": "2026-09-11 06:30",
+            "status": "manual"
         },
         "F3": {
             "score_1_to_10": 2,
@@ -42,8 +51,8 @@
         },
         "F4S": {
             "score_1_to_10": 2,
-            "weight_pct": 12,
-            "contribution": 0.24,
+            "weight_pct": 11,
+            "contribution": 0.22,
             "raw_value": "Điểm tự đánh giá: 2/10",
             "raw_detail": "Uc du bao san luong tang them 3M tan so voi du bao thang 6. Argentina tang du bao san luong thu hoach thang 11. Score 2 = Bearish manh",
             "last_updated": "Thủ công",
@@ -89,18 +98,18 @@
             "score_1_to_10": 8,
             "weight_pct": 5,
             "contribution": 0.4,
-            "raw_value": "DXY 99.07 (+0.30%)",
+            "raw_value": "DXY 99.11 (+0.34%)",
             "raw_detail": "USD Index — Sức mạnh đồng đô",
-            "last_updated": "2026-09-11 09:00",
+            "last_updated": "2026-09-11 10:00",
             "status": "ok"
         },
         "F10": {
             "score_1_to_10": 10,
             "weight_pct": 5,
             "contribution": 0.5,
-            "raw_value": "Brent $107.87 (+6.58%)",
+            "raw_value": "Brent $107.79 (+6.50%)",
             "raw_detail": "Crude Oil — Cước tàu & Phân bón",
-            "last_updated": "2026-09-11 09:00",
+            "last_updated": "2026-09-11 10:00",
             "status": "ok"
         },
         "F11": {
