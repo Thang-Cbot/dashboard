@@ -395,10 +395,11 @@ def calculate_macro_score():
     current_month = str(datetime.now().month)
     weights = monthly_weights.get(current_month, {f"F{i}": round(100/11, 1) for i in range(1, 12)})
 
-    # Calculate per-factor    # Tính 13 yếu tố
+    # Calculate per-factor rich data
     factor_results = {
         "F1":  score_f1_blacksea(manual_overrides, bs_data),
         "F2":  score_f2_us_production(fund_data),
+        "F2W": score_f2w_us_weather(manual_overrides, fund_data),
         "F3":  score_f3_other_supply(manual_overrides),
         "F4":  score_f4_weather_sh(manual_overrides),
         "F4S": score_f4s_supply_sh(manual_overrides),
