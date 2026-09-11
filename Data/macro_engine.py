@@ -64,6 +64,8 @@ def score_f2_us_crop(fund_data):
         # Extract number from "Đông N/A (Cuối vụ), Xuân 55% G/E" or "50%"
         nums = re.findall(r'(\d+)', str(latest_str))
         if not nums:
+            if "N/A" in str(latest_str).upper() or "CUỐI" in str(latest_str).upper():
+                return {"score": 5, "raw_value": "Cuối vụ/Đã thu hoạch", "raw_detail": str(latest_str)[:40], "last_updated": last_up, "status": "ok"}
             return {"score": 5, "raw_value": "N/A", "raw_detail": "Không tìm thấy %", "last_updated": last_up, "status": "error"}
         
         val = int(nums[-1]) # take the last number assuming it's the spring wheat % if winter is N/A
