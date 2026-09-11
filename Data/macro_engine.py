@@ -77,17 +77,34 @@ def score_f2_us_crop(fund_data):
     except Exception as e:
         return {"score": 5, "raw_value": "Parse Error", "raw_detail": str(e)[:50], "last_updated": last_up, "status": "error"}
 
-def score_f3_eu_supply(manual_overrides):
-    """F3: EU/France supply - manual."""
-    score = manual_overrides.get("F3_EU_Supply", {}).get("score", 5)
-    note  = manual_overrides.get("F3_EU_Supply", {}).get("note", "")
+def score_f3_other_supply(manual_overrides):
+    """F3: Nguồn Cung Khác (EU, Canada, Ấn Độ...) - manual."""
+    ov = manual_overrides.get("F3_Other_Supply", manual_overrides.get("F3_EU_Supply", {}))
+    score = ov.get("score", 5)
+    note  = ov.get("note", "")
     return {"score": score, "raw_value": f"Điểm tự đánh giá: {score}/10", "raw_detail": note, "last_updated": "Thủ công", "status": "manual"}
 
-def score_f4_south_hemisphere(manual_overrides):
-    """F4: Southern Hemisphere - manual."""
-    score = manual_overrides.get("F4_Southern_Hemisphere", {}).get("score", 5)
-    note  = manual_overrides.get("F4_Southern_Hemisphere", {}).get("note", "")
+def score_f4_weather_sh(manual_overrides):
+    """F4: Thời Tiết Nam Bán Cầu (Úc / Argentina) - manual."""
+    ov = manual_overrides.get("F4_Weather_SH", manual_overrides.get("F4_Southern_Hemisphere", {}))
+    score = ov.get("score", 5)
+    note  = ov.get("note", "")
     return {"score": score, "raw_value": f"Điểm tự đánh giá: {score}/10", "raw_detail": note, "last_updated": "Thủ công", "status": "manual"}
+
+def score_f4s_supply_sh(manual_overrides):
+    """F4S: Nguồn Cung Nam Bán Cầu (Úc, Argentina) - sản lượng dự báo."""
+    ov    = manual_overrides.get("F4S_Supply_SH", {})
+    score = ov.get("score", 5)
+    note  = ov.get("note", "")
+    return {"score": score, "raw_value": f"Điểm tự đánh giá: {score}/10", "raw_detail": note, "last_updated": "Thủ công", "status": "manual"}
+
+def score_f12_global_demand(manual_overrides):
+    """F12: Nhu Cầu Toàn Cầu (Global Demand) - Ai Cập, Ả Rập, Trung Quốc..."""
+    ov    = manual_overrides.get("F12_Global_Demand", {})
+    score = ov.get("score", 5)
+    note  = ov.get("note", "")
+    return {"score": score, "raw_value": f"Điểm tự đánh giá: {score}/10", "raw_detail": note, "last_updated": "Thủ công", "status": "manual"}
+
 
 def score_f5_export_sales(sales_data):
     """F5: US Weekly Export Sales."""
@@ -269,8 +286,9 @@ def calculate_macro_score():
     factor_results = {
         "F1":  score_f1_blacksea(manual_overrides, bs_data),
         "F2":  score_f2_us_crop(fund_data),
-        "F3":  score_f3_eu_supply(manual_overrides),
-        "F4":  score_f4_south_hemisphere(manual_overrides),
+        "F3":  score_f3_other_supply(manual_overrides),
+        "F4":  score_f4_weather_sh(manual_overrides),
+        "F4S": score_f4s_supply_sh(manual_overrides),
         "F5":  score_f5_export_sales(sales_data),
         "F6":  score_f6_us_stocks(fund_data),
         "F7":  score_f7_global_stocks(fund_data),
@@ -278,6 +296,7 @@ def calculate_macro_score():
         "F9":  score_f9_dxy(macro_data),
         "F10": score_f10_oil(macro_data),
         "F11": score_f11_cot(cot_data),
+        "F12": score_f12_global_demand(manual_overrides),
     }
 
     total_score_10 = 0

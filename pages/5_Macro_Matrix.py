@@ -110,8 +110,55 @@ st.sidebar.page_link("pages/5_AgriMap.py",  label="🗺️ Bản Đồ Thời Ti
 st.sidebar.page_link("pages/5_Macro_Matrix.py", label="🧠 Ma Trận Vĩ Mô (Brain)")
 st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ 2026")
 
-if st.sidebar.button("🧹 LÀM MỚI DỮ LIỆU", use_container_width=True):
-    # Try running macro engine directly
+st.sidebar.markdown("---")
+
+if st.sidebar.button("🌍 CẬP NHẬT VĨ MÔ", use_container_width=True, type="primary"):
+    import subprocess, os as _os
+    env = _os.environ.copy()
+    env["PYTHONIOENCODING"] = "utf-8"
+    root = str(BASE_DIR)
+    with st.sidebar.status("⏳ Đang cập nhật...", expanded=True) as _status:
+        # Step 1: Fetch macro data (DXY, Brent from Yahoo Finance)
+        st.write("📡 Kéo dữ liệu vĩ mô (DXY, Dầu)...")
+        r1 = subprocess.run(
+            [sys.executable, str(BASE_DIR / "Data" / "fetch_macro.py")],
+            capture_output=True, text=True, encoding="utf-8", env=env, timeout=60
+        )
+        st.write("✅ Macro fetched" if r1.returncode == 0 else f"⚠️ Macro: {r1.stderr[-200:]}")
+
+        # Step 2: Fetch export sales (USDA)
+        st.write("📊 Kéo Export Sales (USDA)...")
+        r2 = subprocess.run(
+            [sys.executable, str(BASE_DIR / "Data" / "reports" / "export_sales.py")],
+            capture_output=True, text=True, encoding="utf-8", env=env, timeout=200
+        )
+        st.write("✅ Export Sales fetched" if r2.returncode == 0 else f"⚠️ Export Sales: {r2.stderr[-200:]}")
+
+        # Step 3: Fetch COT
+        st.write("📈 Kéo COT (CFTC)...")
+        r3 = subprocess.run(
+            [sys.executable, str(BASE_DIR / "Data" / "fetch_cot.py")],
+            capture_output=True, text=True, encoding="utf-8", env=env, timeout=60
+        )
+        st.write("✅ COT fetched" if r3.returncode == 0 else f"⚠️ COT: {r3.stderr[-200:]}")
+
+        # Step 4: Re-run macro engine to recalculate all scores
+        st.write("🧠 Tính điểm Ma Trận Vĩ Mô...")
+        try:
+            sys.path.insert(0, str(BASE_DIR / "Data"))
+            import importlib
+            import macro_engine as _me
+            importlib.reload(_me)
+            _me.calculate_macro_score()
+            st.write("✅ Tính điểm xong!")
+        except Exception as _e:
+            st.write(f"⚠️ Engine lỗi: {_e}")
+
+        _status.update(label="✅ Cập nhật Vĩ Mô hoàn tất!", state="complete", expanded=False)
+    st.cache_data.clear()
+    st.rerun()
+
+if st.sidebar.button("🧹 Làm Mới Cache", use_container_width=True):
     try:
         sys.path.insert(0, str(BASE_DIR / "Data"))
         from macro_engine import calculate_macro_score
@@ -144,7 +191,7 @@ st.markdown("""
 <div style='padding: 20px 0 10px;'>
   <div style='font-size:32px; font-weight:900; color:#f8fafc; letter-spacing:-1px;'>🧠 THE MACRO MATRIX BRAIN</div>
   <div style='font-size:14px; color:#64748b; margin-top:6px;'>
-    Hệ thống phân tích Định lượng Vĩ mô (Quantitative Macro Engine) | Tự động chấm điểm 11 yếu tố cốt lõi CBOT.
+    Hệ thống phân tích Định lượng Vĩ mô (Quantitative Macro Engine) | Tự động chấm điểm <b style='color:#f59e0b;'>13 yếu tố cốt lõi CBOT</b>.
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -211,21 +258,24 @@ with col1:
 
 # Define factor names and descriptions
 factor_dict = {
-    "F1": {"name": "Nguồn Cung Biển Đen", "desc": "Nga & Ukraine: Tốc độ xuất khẩu, giá FOB, Thuế"},
-    "F2": {"name": "Nguồn Cung Mỹ (Crop Progress)", "desc": "Tiến độ gieo gặt, Chất lượng G/E, Năng suất"},
-    "F3": {"name": "Nguồn Cung EU & Canada", "desc": "Thời tiết Châu Âu, Pháp (FranceAgriMer)"},
-    "F4": {"name": "Thời Tiết Nam Bán Cầu", "desc": "Úc / Argentina (Rủi ro El Nino/La Nina)"},
-    "F5": {"name": "Báo Cáo Xuất Khẩu Mỹ", "desc": "Weekly Export Sales (Nhu cầu thực tế)"},
-    "F6": {"name": "Tồn Kho Mỹ (US Stocks)", "desc": "Ending Stocks % Change (WASDE)"},
-    "F7": {"name": "Tồn Kho Toàn Cầu (Global Stocks)", "desc": "World Ending Stocks % Change (WASDE)"},
-    "F8": {"name": "Địa Chính Trị & Logistics", "desc": "Rủi ro chiến tranh Biển Đen, Tắc nghẽn vận tải"},
-    "F9": {"name": "Sức Mạnh USD (DXY)", "desc": "Năng lực cạnh tranh xuất khẩu của Mỹ"},
-    "F10": {"name": "Giá Dầu Thô (WTI)", "desc": "Chi phí cước tàu & Phân bón"},
-    "F11": {"name": "Vị Thế Các Quỹ (COT)", "desc": "Dòng tiền Smart Money (Rủi ro Short Squeeze)"},
+    "F1":  {"name": "Nguồn Cung Biển Đen",             "desc": "Nga & Ukraine: Tốc độ XK, giá FOB, Thuế"},
+    "F2":  {"name": "Nguồn Cung Mỹ (Crop Progress)",   "desc": "Tiến độ gieo gặt, Chất lượng G/E, Năng suất"},
+    "F3":  {"name": "Nguồn Cung Khác (EU, Canada, Ấn Độ)", "desc": "Tình hình mùa vụ Châu Âu, Canada, Ấn Độ xả hàng"},
+    "F4":  {"name": "Thời Tiết Nam Bán Cầu",            "desc": "Rủi ro thời tiết: Úc / Argentina (El Niño/La Niña)"},
+    "F4S": {"name": "Nguồn Cung Nam Bán Cầu (Úc, Argentina)", "desc": "Sản lượng thu hoạch dự báo Úc & Argentina"},
+    "F5":  {"name": "Báo Cáo Xuất Khẩu Mỹ",            "desc": "Weekly Export Sales (Nhu cầu thực tế từ Mỹ)"},
+    "F6":  {"name": "Tồn Kho Mỹ (US Stocks)",           "desc": "Ending Stocks % Change (WASDE)"},
+    "F7":  {"name": "Tồn Kho Toàn Cầu (Global Stocks)", "desc": "World Ending Stocks % Change (WASDE)"},
+    "F8":  {"name": "Địa Chính Trị & Logistics",        "desc": "Rủi ro chiến tranh Biển Đen, Tắc nghẽn vận tải"},
+    "F9":  {"name": "Sức Mạnh USD (DXY)",               "desc": "Năng lực cạnh tranh xuất khẩu của Mỹ"},
+    "F10": {"name": "Giá Dầu Thô (WTI/Brent)",          "desc": "Chi phí cước tàu & Phân bón"},
+    "F11": {"name": "Vị Thế Các Quỹ (COT)",             "desc": "Dòng tiền Smart Money (Rủi ro Short Squeeze)"},
+    "F12": {"name": "Nhu Cầu Toàn Cầu (Global Demand)", "desc": "Ai Cập, Ả Rập, Trung Quốc... đang mua hay hủy đơn?"},
 }
 
 with col2:
-    st.markdown('<div class="section-title">BẢNG MA TRẬN 11 YẾU TỐ (FIXED FACTORS)</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">BẢNG MA TRẬN 13 YẾU TỐ (FIXED FACTORS)</div>', unsafe_allow_html=True)
+
     
     # Sort factors by contribution descending
     sorted_factors = sorted(breakdown.items(), key=lambda x: x[1]['contribution'], reverse=True)
