@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 16:00:18",
-      "updated_at": "2026-09-11 16:00:18"
+      "detail": "Auto-fetch 17:00:29",
+      "updated_at": "2026-09-11 17:00:29"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 16:01:09 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-09-11 16:01:09"
+      "detail": "Đẩy thành công lúc 16:25:34 (Nguồn: WASDE Report)",
+      "updated_at": "2026-09-11 16:25:34"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -66,8 +66,8 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 16:00",
-    "updated_at": "2026-09-11 16:00:17"
+    "detail": "ZC+ZW updated at 17:00",
+    "updated_at": "2026-09-11 17:00:29"
   },
   "macro": {
     "status": "OK",
