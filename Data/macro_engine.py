@@ -49,35 +49,59 @@ def score_f1_blacksea(manual_overrides, bs_data):
     status = "manual"  # Always manual
     return {"score": score, "raw_value": raw_val, "raw_detail": raw_detail or note, "last_updated": last_up, "status": status}
 
-def score_f2_us_crop(fund_data):
-    """F2: US Crop G/E Progress."""
+def score_f2_us_production(fund_data):
+    """F2: US Production & Acreage (Macro Structural Supply)."""
     filepath = OUTPUT_DIR / "fundamental_data.json"
     last_up  = get_file_mtime(filepath)
     if not fund_data:
         return {"score": 5, "raw_value": "N/A", "raw_detail": "Không có dữ liệu", "last_updated": last_up, "status": "error"}
     try:
-        import re
+        import re as _re
         zw = fund_data.get("ZW", fund_data)
-        cc = zw.get("crop_condition", {})
-        latest_str = cc.get("latest", cc.get("good_excellent", "50"))
         
-        # Extract number from "Đông N/A (Cuối vụ), Xuân 55% G/E" or "50%"
-        nums = re.findall(r'(\d+)', str(latest_str))
-        if not nums:
-            if "N/A" in str(latest_str).upper() or "CUỐI" in str(latest_str).upper():
-                return {"score": 5, "raw_value": "Cuối vụ/Đã thu hoạch", "raw_detail": str(latest_str)[:40], "last_updated": last_up, "status": "ok"}
-            return {"score": 5, "raw_value": "N/A", "raw_detail": "Không tìm thấy %", "last_updated": last_up, "status": "error"}
+        # 1. Lấy dữ liệu Sản Lượng (Production)
+        prod = zw.get("us_production", {})
+        prod_cur = prod.get("current", None)
+        prod_pre = prod.get("previous", None)
+        cur_mon  = prod.get("current_month", "")
         
-        val = int(nums[-1]) # take the last number assuming it's the spring wheat % if winter is N/A
+        # 2. Lấy dữ liệu Diện Tích (Acreage)
+        acre = zw.get("acreage", {})
+        acre_pct = float(acre.get("pct_change", 0) or 0)
+        acre_cur = acre.get("current", "").split(" ")[0] if acre.get("current") else ""
+
+        if not prod_cur:
+            return {"score": 5, "raw_value": "N/A", "raw_detail": "Chưa có dữ liệu Sản lượng", "last_updated": last_up, "status": "error"}
+
+        nums_cur = _re.findall(r"[\d\.,]+", str(prod_cur))
+        nums_pre = _re.findall(r"[\d\.,]+", str(prod_pre)) if prod_pre else []
+        cur_num  = float(str(nums_cur[0]).replace(",", "")) if nums_cur else None
+        pre_num  = float(str(nums_pre[0]).replace(",", "")) if nums_pre else None
+        cur_str  = nums_cur[0] if nums_cur else "?"
+        pre_str  = nums_pre[0] if nums_pre else "?"
+
+        pct_mom = 0.0
+        if cur_num and pre_num and pre_num > 0:
+            pct_mom = round((cur_num - pre_num) / pre_num * 100, 2)
+
+        # Chấm điểm dựa trên MoM Sản Lượng (Sản lượng giảm = Bullish ZW = Điểm cao)
+        if   pct_mom >  2: score = 2
+        elif pct_mom >  0: score = 4
+        elif pct_mom > -1: score = 6
+        elif pct_mom > -3: score = 8
+        else:              score = 10
         
-        if val > 65: score = 2
-        elif val > 55: score = 4
-        elif val > 45: score = 6
-        elif val > 35: score = 8
-        else: score = 10
-        return {"score": score, "raw_value": f"{val}% G/E", "raw_detail": str(latest_str)[:40], "last_updated": last_up, "status": "ok"}
+        # Cộng thêm điểm Bullish nếu diện tích giảm mạnh (Acreage YoY < -3%)
+        if acre_pct <= -3:
+            score = min(10, score + 1)
+        elif acre_pct >= 3:
+            score = max(1, score - 1)
+
+        raw_val = f"{cur_str} Mbu | MoM: {pct_mom:+.2f}% | Acreage: {acre_pct:+.1f}%"
+        raw_detail = f"WASDE {cur_mon}: {cur_str} ← {pre_str} Mbu. Diện tích: {acre_cur} M ac"
+        return {"score": score, "raw_value": raw_val, "raw_detail": raw_detail, "last_updated": last_up, "status": "ok"}
     except Exception as e:
-        return {"score": 5, "raw_value": "Parse Error", "raw_detail": str(e)[:50], "last_updated": last_up, "status": "error"}
+        return {"score": 5, "raw_value": "Lỗi xử lý Data", "raw_detail": str(e)[:50], "last_updated": last_up, "status": "error"}
 
 def score_f3_other_supply(manual_overrides):
     """F3: Nguồn Cung Khác (EU, Canada, Ấn Độ...) - manual."""
@@ -350,10 +374,10 @@ def calculate_macro_score():
     current_month = str(datetime.now().month)
     weights = monthly_weights.get(current_month, {f"F{i}": round(100/11, 1) for i in range(1, 12)})
 
-    # Calculate per-factor rich data
+    # Calculate per-factor    # Tính 13 yếu tố
     factor_results = {
         "F1":  score_f1_blacksea(manual_overrides, bs_data),
-        "F2":  score_f2_us_crop(fund_data),
+        "F2":  score_f2_us_production(fund_data),
         "F3":  score_f3_other_supply(manual_overrides),
         "F4":  score_f4_weather_sh(manual_overrides),
         "F4S": score_f4s_supply_sh(manual_overrides),
