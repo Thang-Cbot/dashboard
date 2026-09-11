@@ -260,6 +260,7 @@ with col1:
 factor_dict = {
     "F1":  {"name": "Nguồn Cung Biển Đen",             "desc": "Nga & Ukraine: Tốc độ XK, giá FOB, Thuế"},
     "F2":  {"name": "Sản Lượng & Diện Tích Mỹ",   "desc": "Tiến độ gieo gặt, Chất lượng G/E, Năng suất"},
+    "F2W": {"name": "Thời Tiết Mỹ (US Weather)",       "desc": "Hạn hán, mưa bão tại các vành đai lúa mì Mỹ"},
     "F3":  {"name": "Nguồn Cung Khác (EU, Canada, Ấn Độ)", "desc": "Tình hình mùa vụ Châu Âu, Canada, Ấn Độ xả hàng"},
     "F4":  {"name": "Thời Tiết Nam Bán Cầu",            "desc": "Rủi ro thời tiết: Úc / Argentina (El Niño/La Niña)"},
     "F4S": {"name": "Nguồn Cung Nam Bán Cầu (Úc, Argentina)", "desc": "Sản lượng thu hoạch dự báo Úc & Argentina"},
