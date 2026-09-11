@@ -107,86 +107,128 @@ def score_f12_global_demand(manual_overrides):
 
 
 def score_f5_export_sales(sales_data):
-    """F5: US Weekly Export Sales."""
-    filepath = OUTPUT_DIR / "export_sales.json"
-    last_up  = get_file_mtime(filepath)
-    if not sales_data:
-        return {"score": 5, "raw_value": "N/A", "raw_detail": "Chưa có dữ liệu Export Sales", "last_updated": last_up, "status": "error"}
+    """F5: US Weekly Export Sales — dùng dữ liệu chi tiết từ fundamental_data.json (ZW.export_sales_weekly)."""
+    filepath_fund = OUTPUT_DIR / "fundamental_data.json"
+    filepath_sale = OUTPUT_DIR / "export_sales.json"
+    last_up = get_file_mtime(filepath_fund) if filepath_fund.exists() else get_file_mtime(filepath_sale)
+
+    # Ưu tiên lấy từ fundamental_data.json (đủ hơn: WoW%, YoY%, lũy kế)
+    fund_data_local = load_json(filepath_fund)
     try:
-        zw = sales_data.get("commodities", {}).get("ZW", {})
-        net = zw.get("current_mt", 0)
-        net_k = float(net) / 1000
-        if net_k > 500: score = 9
-        elif net_k > 300: score = 7
-        elif net_k > 100: score = 5
-        elif net_k > 0:   score = 4
-        else:             score = 3
-        return {"score": score, "raw_value": f"{net_k:,.0f}k tấn/tuần", "raw_detail": "Net Sales report USDA", "last_updated": last_up, "status": "ok"}
+        if fund_data_local:
+            zw_f = fund_data_local.get("ZW", {})
+            es   = zw_f.get("export_sales_weekly", {})
+            if es:
+                latest_str  = es.get("latest_net_sales", "")   # "313.5 nghìn tấn"
+                prev_str    = es.get("previous_net_sales", "")  # "402.5 nghìn tấn"
+                wow_pct     = float(es.get("pct_change", 0))    # -22.11
+                yoy_pct     = float(es.get("yoy_pct", 0))       # -24.4
+                accum       = es.get("accumulated_sales", "")   # "4.909 triệu tấn"
+                action      = es.get("action", "")              # "BEARISH"
+                week_end    = es.get("week_ending", "")
+
+                # Tách số từ chuỗi như "313.5 nghìn tấn"
+                import re as _re
+                nums = _re.findall(r"[-\d\.,]+", latest_str.replace(",", "."))
+                net_k = float(nums[0]) if nums else 0.0
+
+                # Chấm điểm dựa trên cả 3 chiều: WoW, YoY, và khối lượng tuyệt đối
+                #  Tốt (Bullish > ZW): net_k cao, WoW tăng, YoY tăng → điểm cao
+                score_vol = 9 if net_k > 500 else (7 if net_k > 300 else (5 if net_k > 100 else (4 if net_k > 0 else 2)))
+                score_wow = 8 if wow_pct > 20 else (6 if wow_pct > 0 else (4 if wow_pct > -20 else 2))
+                score_yoy = 9 if yoy_pct > 10 else (6 if yoy_pct > 0 else (4 if yoy_pct > -15 else 2))
+                score = round((score_vol * 0.4 + score_wow * 0.3 + score_yoy * 0.3))
+                score = max(1, min(10, score))
+
+                raw_val    = f"{net_k:+.1f}k MT | WoW:{wow_pct:+.1f}% | YoY:{yoy_pct:+.1f}%"
+                raw_detail = f"Tuần {week_end} | Lũy kế: {accum} | Prev: {prev_str}"
+                return {"score": score, "raw_value": raw_val, "raw_detail": raw_detail, "last_updated": last_up, "status": "ok"}
+
+        # Fallback về export_sales.json
+        if not sales_data:
+            return {"score": 5, "raw_value": "N/A", "raw_detail": "Chưa có dữ liệu Export Sales", "last_updated": last_up, "status": "error"}
+        zw  = sales_data.get("commodities", {}).get("ZW", {})
+        net = float(zw.get("current_mt", 0)) / 1000
+        pct = float(zw.get("pct_change", 0))
+        score = 9 if net > 500 else (7 if net > 300 else (5 if net > 100 else (4 if net > 0 else 3)))
+        return {"score": score, "raw_value": f"{net:+.0f}k MT | WoW:{pct:+.1f}%", "raw_detail": "Net Sales USDA (export_sales.json)", "last_updated": last_up, "status": "ok"}
     except Exception as e:
-        return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:50], "last_updated": last_up, "status": "error"}
+        return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:80], "last_updated": last_up, "status": "error"}
 
 def score_f6_us_stocks(fund_data):
-    """F6: US Ending Stocks % change."""
+    """F6: US Ending Stocks — số lượng chính xác + so sánh kỳ báo cáo trước (pct_vs_prev_report) + YoY."""
     filepath = OUTPUT_DIR / "fundamental_data.json"
     last_up  = get_file_mtime(filepath)
     if not fund_data:
         return {"score": 5, "raw_value": "N/A", "raw_detail": "Không có dữ liệu", "last_updated": last_up, "status": "error"}
     try:
-        import re
-        zw = fund_data.get("ZW", fund_data)
-        us_stk = zw.get("us_ending_stocks", {})
-        val    = us_stk.get("value", us_stk.get("current", None))
-        pct    = us_stk.get("pct_change", us_stk.get("change_pct", None))
-        if val is None and pct is None:
-            return {"score": 5, "raw_value": "N/A", "raw_detail": "Thiếu trường us_ending_stocks", "last_updated": last_up, "status": "error"}
-        pct = pct or 0
-        if pct > 10: score = 2
-        elif pct > 0: score = 4
-        elif pct > -10: score = 7
-        else: score = 9
-        
-        # val could be a string like "722 triệu bushels (2026/27)"
-        if val:
-            nums = re.findall(r"([\d\.,]+)", str(val))
-            val_str = nums[0] if nums else str(val)
-            raw_val = f"{val_str} Mbu ({pct:+.1f}%)"
-        else:
-            raw_val = f"{pct:+.1f}%"
-            
-        return {"score": score, "raw_value": raw_val, "raw_detail": "WASDE US Ending Stocks", "last_updated": last_up, "status": "ok"}
+        zw      = fund_data.get("ZW", fund_data)
+        us_stk  = zw.get("us_ending_stocks", {})
+        current = us_stk.get("current", us_stk.get("value", None))   # "717 triệu bushels (2026/27)"
+        prev    = us_stk.get("previous", None)                        # "722 triệu bushels (2026/27)"
+        pct_yoy = float(us_stk.get("pct_change", 0) or 0)            # YoY% (vs niên vụ trước)
+        pct_mom = float(us_stk.get("pct_vs_prev_report", 0) or 0)    # MoM% (so kỳ báo cáo trước)
+        cur_mon = us_stk.get("current_month", "")
+        pre_mon = us_stk.get("previous_month", "")
+
+        if current is None:
+            return {"score": 5, "raw_value": "N/A", "raw_detail": "Thiếu trường us_ending_stocks.current", "last_updated": last_up, "status": "error"}
+
+        # Chấm điểm theo 2 chiều: YoY (50%) + MoM vs prev report (50%)
+        # Nhớ: pct âm = tồn kho giảm → Bullish ZW
+        score_yoy = 2 if pct_yoy > 10 else (4 if pct_yoy > 0 else (7 if pct_yoy > -15 else 9))
+        score_mom = 2 if pct_mom > 3  else (4 if pct_mom > 0 else (7 if pct_mom > -3  else 9))
+        score = round(score_yoy * 0.5 + score_mom * 0.5)
+        score = max(1, min(10, score))
+
+        import re as _re
+        nums_cur = _re.findall(r"[\d\.,]+", str(current))
+        cur_str  = nums_cur[0] if nums_cur else str(current)
+        nums_pre = _re.findall(r"[\d\.,]+", str(prev)) if prev else []
+        pre_str  = nums_pre[0] if nums_pre else "?"
+
+        raw_val    = f"{cur_str} Mbu | MoM:{pct_mom:+.1f}% | YoY:{pct_yoy:+.1f}%"
+        raw_detail = f"WASDE {cur_mon} vs {pre_mon}: {cur_str} ← {pre_str} Mbu"
+        return {"score": score, "raw_value": raw_val, "raw_detail": raw_detail, "last_updated": last_up, "status": "ok"}
     except Exception as e:
-        return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:50], "last_updated": last_up, "status": "error"}
+        return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:80], "last_updated": last_up, "status": "error"}
 
 def score_f7_global_stocks(fund_data):
-    """F7: Global Ending Stocks % change."""
+    """F7: Global Ending Stocks — số lượng chính xác + so sánh kỳ trước + YoY."""
     filepath = OUTPUT_DIR / "fundamental_data.json"
     last_up  = get_file_mtime(filepath)
     if not fund_data:
         return {"score": 5, "raw_value": "N/A", "raw_detail": "Không có dữ liệu", "last_updated": last_up, "status": "error"}
     try:
-        import re
-        zw = fund_data.get("ZW", fund_data)
-        gl_stk = zw.get("global_ending_stocks", zw.get("world_ending_stocks", {}))
-        val    = gl_stk.get("value", gl_stk.get("current", None))
-        pct    = gl_stk.get("pct_change", gl_stk.get("change_pct", None))
-        if val is None and pct is None:
-            return {"score": 5, "raw_value": "N/A", "raw_detail": "Thiếu trường global_ending_stocks", "last_updated": last_up, "status": "error"}
-        pct = pct or 0
-        if pct > 5: score = 2
-        elif pct > 0: score = 4
-        elif pct > -5: score = 7
-        else: score = 9
-        
-        if val:
-            nums = re.findall(r"([\d\.,]+)", str(val))
-            val_str = nums[0] if nums else str(val)
-            raw_val = f"{val_str} Mmt ({pct:+.1f}%)"
-        else:
-            raw_val = f"{pct:+.1f}%"
-            
-        return {"score": score, "raw_value": raw_val, "raw_detail": "WASDE World Ending Stocks", "last_updated": last_up, "status": "ok"}
+        zw      = fund_data.get("ZW", fund_data)
+        gl_stk  = zw.get("global_ending_stocks", zw.get("world_ending_stocks", {}))
+        current = gl_stk.get("current", gl_stk.get("value", None))
+        prev    = gl_stk.get("previous", None)
+        pct_yoy = float(gl_stk.get("pct_change", 0) or 0)
+        pct_mom = float(gl_stk.get("pct_vs_prev_report", 0) or 0)
+        cur_mon = gl_stk.get("current_month", "")
+        pre_mon = gl_stk.get("previous_month", "")
+
+        if current is None:
+            return {"score": 5, "raw_value": "N/A", "raw_detail": "Thiếu trường global_ending_stocks.current", "last_updated": last_up, "status": "error"}
+
+        # Tồn kho toàn cầu: pct âm → Bullish
+        score_yoy = 2 if pct_yoy > 5 else (4 if pct_yoy > 0 else (7 if pct_yoy > -5 else 9))
+        score_mom = 2 if pct_mom > 2 else (4 if pct_mom > 0 else (7 if pct_mom > -2 else 9))
+        score = round(score_yoy * 0.5 + score_mom * 0.5)
+        score = max(1, min(10, score))
+
+        import re as _re
+        nums_cur = _re.findall(r"[\d\.,]+", str(current))
+        cur_str  = nums_cur[0] if nums_cur else str(current)
+        nums_pre = _re.findall(r"[\d\.,]+", str(prev)) if prev else []
+        pre_str  = nums_pre[0] if nums_pre else "?"
+
+        raw_val    = f"{cur_str} Mmt | MoM:{pct_mom:+.1f}% | YoY:{pct_yoy:+.1f}%"
+        raw_detail = f"WASDE {cur_mon} vs {pre_mon}: {cur_str} ← {pre_str} Mmt"
+        return {"score": score, "raw_value": raw_val, "raw_detail": raw_detail, "last_updated": last_up, "status": "ok"}
     except Exception as e:
-        return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:50], "last_updated": last_up, "status": "error"}
+        return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:80], "last_updated": last_up, "status": "error"}
 
 def score_f8_geopolitics(manual_overrides):
     """F8: Geopolitics & Logistics - manual."""
