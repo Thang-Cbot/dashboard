@@ -3,9 +3,9 @@
   "elapsed_seconds": 197.7,
   "modules": {
     "usda": {
-      "status": "OK",
-      "detail": "WASDE + Crop Progress updated",
-      "updated_at": "2026-09-11 06:30:17"
+      "status": "[OK]",
+      "detail": "Auto-fetch 16:25:30",
+      "updated_at": "2026-09-11 16:25:30"
     },
     "prices": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 16:00:39 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-09-11 16:00:39"
+      "detail": "Đẩy thành công lúc 16:01:09 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-09-11 16:01:09"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -78,5 +78,10 @@
     "status": "OK",
     "detail": "Kỳ: 08/27/2026 | ZW=313,500 MT, ZC=-829600 MT",
     "updated_at": "2026-09-11 14:57:23"
+  },
+  "usda": {
+    "status": "OK",
+    "detail": "Updated: 2026-09-11 | WASDE: Aug",
+    "updated_at": "2026-09-11 16:25:30"
   }
 }
