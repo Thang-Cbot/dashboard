@@ -378,9 +378,53 @@ with col1:
 </div>""", unsafe_allow_html=True)
 
         st.markdown(f"""
-<div style='font-size:9px;color:#475569;padding:4px 2px;'>
+<div style='font-size:9px;color:#475569;padding:4px 2px;margin-bottom:10px;'>
   📌 Khung giá được dự báo trực tiếp bởi AI (hoặc nhập thủ công) dựa trên phân tích Vĩ mô chuyên sâu.
 </div>""", unsafe_allow_html=True)
+
+        # ── Form nhập liệu thủ công (Interactive) ──
+        with st.expander("📝 Tự cập nhật Khung Giá Dự Báo", expanded=False):
+            with st.form("forecast_form"):
+                st.markdown("<div style='font-size:12px; color:#cbd5e1; margin-bottom:10px;'>Nhập biên độ giá và nhận định cho các kỳ HĐ tới:</div>", unsafe_allow_html=True)
+                
+                new_cfg = {}
+                for i, (fy, fm) in enumerate(contract_periods):
+                    key = f"{fm}_{fy}"
+                    lbl = f"HĐ {MONTH_MAP.get(fm,'?')}/{fy}"
+                    cfg = forecast_cfg.get(key, {})
+                    
+                    st.markdown(f"**{lbl}**")
+                    c1, c2 = st.columns(2)
+                    with c1:
+                        def_lo = float(cfg.get("low", 0.0))
+                        inp_lo = st.number_input(f"Đáy (Low) {lbl}", value=def_lo if def_lo else None, step=10.0, key=f"lo_{key}")
+                    with c2:
+                        def_hi = float(cfg.get("high", 0.0))
+                        inp_hi = st.number_input(f"Đỉnh (High) {lbl}", value=def_hi if def_hi else None, step=10.0, key=f"hi_{key}")
+                    
+                    def_note = cfg.get("note", "")
+                    inp_note = st.text_input(f"Ghi chú / Nhận định ({lbl})", value=def_note, key=f"note_{key}")
+                    
+                    if inp_lo and inp_hi:
+                        new_cfg[key] = {"low": inp_lo, "high": inp_hi, "note": inp_note}
+                    st.markdown("<hr style='margin:10px 0; border-color:#1e293b;'/>", unsafe_allow_html=True)
+                
+                submit_btn = st.form_submit_button("💾 Lưu Dự Báo", use_container_width=True)
+                if submit_btn:
+                    # Ghi đè vào macro_weights.json
+                    w_path = BASE_DIR / "Data" / "macro_weights.json"
+                    if w_path.exists():
+                        try:
+                            with open(w_path, 'r', encoding='utf-8') as f:
+                                all_w = json.load(f)
+                            all_w["price_forecast"] = new_cfg
+                            with open(w_path, 'w', encoding='utf-8') as f:
+                                json.dump(all_w, f, ensure_ascii=False, indent=2)
+                            
+                            st.cache_data.clear()
+                            st.rerun()
+                        except Exception as ex:
+                            st.error(f"Lỗi khi lưu: {ex}")
 
     except Exception as e:
         st.markdown(f"""
