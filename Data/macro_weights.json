@@ -1,226 +1,243 @@
 {
-    "manual_overrides": {
-        "F1_Russia_Policy": {
-            "score": 2,
-            "note": "Nga + Ukraine boi thu nhung tac nghen xuat khau. Score 2 = Bearish"
-        },
-        "F3_Other_Supply": {
-            "score": 2,
-            "note": "An Do boi thu 120M tan xa toi da 6M. EU va Canada kha quan. Score 2 = Bearish"
-        },
-        "F4_Weather_SH": {
-            "score": 3,
-            "note": "Thoi tiet Nam Ban Cau: Uc co mua thuan loi, Argentina dieu kien tot. Score 3 = Bearish nhe"
-        },
-        "F4S_Supply_SH": {
-            "score": 2,
-            "note": "Uc du bao san luong tang them 3M tan so voi du bao thang 6. Argentina tang du bao san luong thu hoach thang 11. Score 2 = Bearish manh"
-        },
-        "F8_Geopolitics": {
-            "score": 5,
-            "note": "Cang thang Bien Den / Logistics van co nhung bu lai nguon cung Uc/Argen/An Do. Score 5 = Trung lap"
-        },
-        "F12_Global_Demand": {
-            "score": 2,
-            "note": "Ai Cap tam ngung nhap khau do boi thu noi dia. Arab Saudi ky don 570k tan (thap). Mot so nuoc chuyen sang Uc/Argen thay Nga. Score 2 = Bearish"
-        },
-        "F2W_US_Weather": {
-            "score": 5,
-            "note": "Đã cập nhật tự động từ AI"
-        }
+  "manual_overrides": {
+    "F1_Russia_Policy": {
+      "score": 2,
+      "note": "Nga + Ukraine boi thu nhung tac nghen xuat khau. Score 2 = Bearish"
     },
-    "monthly_weights": {
-        "1": {
-            "F1": 19,
-            "F2": 11,
-            "F3": 5,
-            "F4": 3,
-            "F4S": 3,
-            "F5": 8,
-            "F6": 10,
-            "F7": 10,
-            "F8": 5,
-            "F9": 5,
-            "F10": 5,
-            "F11": 7,
-            "F12": 7,
-            "F2W_US_Weather": 2
-        },
-        "2": {
-            "F1": 19,
-            "F2": 11,
-            "F3": 5,
-            "F4": 3,
-            "F4S": 3,
-            "F5": 8,
-            "F6": 10,
-            "F7": 10,
-            "F8": 5,
-            "F9": 5,
-            "F10": 5,
-            "F11": 7,
-            "F12": 7,
-            "F2W_US_Weather": 2
-        },
-        "3": {
-            "F1": 11,
-            "F2": 19,
-            "F3": 5,
-            "F4": 3,
-            "F4S": 3,
-            "F5": 8,
-            "F6": 10,
-            "F7": 10,
-            "F8": 5,
-            "F9": 5,
-            "F10": 5,
-            "F11": 7,
-            "F12": 7,
-            "F2W_US_Weather": 2
-        },
-        "4": {
-            "F1": 8,
-            "F2": 21,
-            "F3": 8,
-            "F4": 3,
-            "F4S": 3,
-            "F5": 8,
-            "F6": 10,
-            "F7": 10,
-            "F8": 5,
-            "F9": 5,
-            "F10": 5,
-            "F11": 5,
-            "F12": 8,
-            "F2W_US_Weather": 1
-        },
-        "5": {
-            "F1": 11,
-            "F2": 19,
-            "F3": 8,
-            "F4": 3,
-            "F4S": 3,
-            "F5": 8,
-            "F6": 8,
-            "F7": 8,
-            "F8": 8,
-            "F9": 5,
-            "F10": 5,
-            "F11": 5,
-            "F12": 7,
-            "F2W_US_Weather": 2
-        },
-        "6": {
-            "F1": 8,
-            "F2": 24,
-            "F3": 8,
-            "F4": 3,
-            "F4S": 3,
-            "F5": 8,
-            "F6": 10,
-            "F7": 8,
-            "F8": 5,
-            "F9": 5,
-            "F10": 4,
-            "F11": 5,
-            "F12": 8,
-            "F2W_US_Weather": 1
-        },
-        "7": {
-            "F1": 19,
-            "F2": 16,
-            "F3": 8,
-            "F4": 3,
-            "F4S": 3,
-            "F5": 8,
-            "F6": 5,
-            "F7": 5,
-            "F8": 5,
-            "F9": 5,
-            "F10": 5,
-            "F11": 6,
-            "F12": 10,
-            "F2W_US_Weather": 2
-        },
-        "8": {
-            "F1": 21,
-            "F2": 8,
-            "F3": 8,
-            "F4": 3,
-            "F4S": 5,
-            "F5": 8,
-            "F6": 5,
-            "F7": 5,
-            "F8": 8,
-            "F9": 5,
-            "F10": 4,
-            "F11": 5,
-            "F12": 13,
-            "F2W_US_Weather": 2
-        },
-        "9": {
-            "F1": 14,
-            "F2": 10,
-            "F3": 5,
-            "F4": 8,
-            "F4S": 11,
-            "F5": 7,
-            "F6": 5,
-            "F7": 5,
-            "F8": 8,
-            "F9": 5,
-            "F10": 5,
-            "F11": 5,
-            "F12": 10,
-            "F2W_US_Weather": 2
-        },
-        "10": {
-            "F1": 10,
-            "F2": 10,
-            "F3": 5,
-            "F4": 10,
-            "F4S": 17,
-            "F5": 5,
-            "F6": 5,
-            "F7": 5,
-            "F8": 5,
-            "F9": 5,
-            "F10": 5,
-            "F11": 5,
-            "F12": 11,
-            "F2W_US_Weather": 2
-        },
-        "11": {
-            "F1": 8,
-            "F2": 10,
-            "F3": 5,
-            "F4": 8,
-            "F4S": 21,
-            "F5": 5,
-            "F6": 5,
-            "F7": 5,
-            "F8": 5,
-            "F9": 5,
-            "F10": 5,
-            "F11": 5,
-            "F12": 11,
-            "F2W_US_Weather": 2
-        },
-        "12": {
-            "F1": 8,
-            "F2": 10,
-            "F3": 5,
-            "F4": 8,
-            "F4S": 21,
-            "F5": 5,
-            "F6": 5,
-            "F7": 5,
-            "F8": 5,
-            "F9": 5,
-            "F10": 5,
-            "F11": 5,
-            "F12": 11,
-            "F2W_US_Weather": 2
-        }
+    "F3_Other_Supply": {
+      "score": 2,
+      "note": "An Do boi thu 120M tan xa toi da 6M. EU va Canada kha quan. Score 2 = Bearish"
+    },
+    "F4_Weather_SH": {
+      "score": 3,
+      "note": "Thoi tiet Nam Ban Cau: Uc co mua thuan loi, Argentina dieu kien tot. Score 3 = Bearish nhe"
+    },
+    "F4S_Supply_SH": {
+      "score": 2,
+      "note": "Uc du bao san luong tang them 3M tan so voi du bao thang 6. Argentina tang du bao san luong thu hoach thang 11. Score 2 = Bearish manh"
+    },
+    "F8_Geopolitics": {
+      "score": 5,
+      "note": "Cang thang Bien Den / Logistics van co nhung bu lai nguon cung Uc/Argen/An Do. Score 5 = Trung lap"
+    },
+    "F12_Global_Demand": {
+      "score": 2,
+      "note": "Ai Cap tam ngung nhap khau do boi thu noi dia. Arab Saudi ky don 570k tan (thap). Mot so nuoc chuyen sang Uc/Argen thay Nga. Score 2 = Bearish"
+    },
+    "F2W_US_Weather": {
+      "score": 5,
+      "note": "Đã cập nhật tự động từ AI"
     }
+  },
+  "monthly_weights": {
+    "1": {
+      "F1": 19,
+      "F2": 11,
+      "F3": 5,
+      "F4": 3,
+      "F4S": 3,
+      "F5": 8,
+      "F6": 10,
+      "F7": 10,
+      "F8": 5,
+      "F9": 5,
+      "F10": 5,
+      "F11": 7,
+      "F12": 7,
+      "F2W_US_Weather": 2
+    },
+    "2": {
+      "F1": 19,
+      "F2": 11,
+      "F3": 5,
+      "F4": 3,
+      "F4S": 3,
+      "F5": 8,
+      "F6": 10,
+      "F7": 10,
+      "F8": 5,
+      "F9": 5,
+      "F10": 5,
+      "F11": 7,
+      "F12": 7,
+      "F2W_US_Weather": 2
+    },
+    "3": {
+      "F1": 11,
+      "F2": 19,
+      "F3": 5,
+      "F4": 3,
+      "F4S": 3,
+      "F5": 8,
+      "F6": 10,
+      "F7": 10,
+      "F8": 5,
+      "F9": 5,
+      "F10": 5,
+      "F11": 7,
+      "F12": 7,
+      "F2W_US_Weather": 2
+    },
+    "4": {
+      "F1": 8,
+      "F2": 21,
+      "F3": 8,
+      "F4": 3,
+      "F4S": 3,
+      "F5": 8,
+      "F6": 10,
+      "F7": 10,
+      "F8": 5,
+      "F9": 5,
+      "F10": 5,
+      "F11": 5,
+      "F12": 8,
+      "F2W_US_Weather": 1
+    },
+    "5": {
+      "F1": 11,
+      "F2": 19,
+      "F3": 8,
+      "F4": 3,
+      "F4S": 3,
+      "F5": 8,
+      "F6": 8,
+      "F7": 8,
+      "F8": 8,
+      "F9": 5,
+      "F10": 5,
+      "F11": 5,
+      "F12": 7,
+      "F2W_US_Weather": 2
+    },
+    "6": {
+      "F1": 8,
+      "F2": 24,
+      "F3": 8,
+      "F4": 3,
+      "F4S": 3,
+      "F5": 8,
+      "F6": 10,
+      "F7": 8,
+      "F8": 5,
+      "F9": 5,
+      "F10": 4,
+      "F11": 5,
+      "F12": 8,
+      "F2W_US_Weather": 1
+    },
+    "7": {
+      "F1": 19,
+      "F2": 16,
+      "F3": 8,
+      "F4": 3,
+      "F4S": 3,
+      "F5": 8,
+      "F6": 5,
+      "F7": 5,
+      "F8": 5,
+      "F9": 5,
+      "F10": 5,
+      "F11": 6,
+      "F12": 10,
+      "F2W_US_Weather": 2
+    },
+    "8": {
+      "F1": 21,
+      "F2": 8,
+      "F3": 8,
+      "F4": 3,
+      "F4S": 5,
+      "F5": 8,
+      "F6": 5,
+      "F7": 5,
+      "F8": 8,
+      "F9": 5,
+      "F10": 4,
+      "F11": 5,
+      "F12": 13,
+      "F2W_US_Weather": 2
+    },
+    "9": {
+      "F1": 14,
+      "F2": 10,
+      "F3": 5,
+      "F4": 8,
+      "F4S": 11,
+      "F5": 7,
+      "F6": 5,
+      "F7": 5,
+      "F8": 8,
+      "F9": 5,
+      "F10": 5,
+      "F11": 5,
+      "F12": 10,
+      "F2W_US_Weather": 2
+    },
+    "10": {
+      "F1": 10,
+      "F2": 10,
+      "F3": 5,
+      "F4": 10,
+      "F4S": 17,
+      "F5": 5,
+      "F6": 5,
+      "F7": 5,
+      "F8": 5,
+      "F9": 5,
+      "F10": 5,
+      "F11": 5,
+      "F12": 11,
+      "F2W_US_Weather": 2
+    },
+    "11": {
+      "F1": 8,
+      "F2": 10,
+      "F3": 5,
+      "F4": 8,
+      "F4S": 21,
+      "F5": 5,
+      "F6": 5,
+      "F7": 5,
+      "F8": 5,
+      "F9": 5,
+      "F10": 5,
+      "F11": 5,
+      "F12": 11,
+      "F2W_US_Weather": 2
+    },
+    "12": {
+      "F1": 8,
+      "F2": 10,
+      "F3": 5,
+      "F4": 8,
+      "F4S": 21,
+      "F5": 5,
+      "F6": 5,
+      "F7": 5,
+      "F8": 5,
+      "F9": 5,
+      "F10": 5,
+      "F11": 5,
+      "F12": 11,
+      "F2W_US_Weather": 2
+    }
+  },
+  "price_forecast": {
+    "12_2026": {
+      "high": 760.0,
+      "low": 700.0,
+      "note": "Tháng 12 dự kiến dao động hẹp tạo đáy."
+    },
+    "3_2027": {
+      "high": 780.0,
+      "low": 710.0,
+      "note": "Tháng 3 phục hồi nhẹ theo chu kỳ mùa vụ."
+    },
+    "5_2027": {
+      "high": 800.0,
+      "low": 720.0,
+      "note": "Rủi ro thời tiết có thể đẩy biên độ tăng cao."
+    }
+  }
 }

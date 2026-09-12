@@ -304,29 +304,31 @@ with col1:
         ATR_PER_MONTH = 2.0
 
         forecast_rows = []
+        forecast_cfg = weights_cfg.get("price_forecast", {})
+        
         for i, (fy, fm) in enumerate(contract_periods):
             lbl = f"HĐ {MONTH_MAP.get(fm,'?')}/{fy}"
+            key = f"{fm}_{fy}"
+            
+            # Read from config if available
+            cfg_data = forecast_cfg.get(key, {})
+            hi_cfg = cfg_data.get("high")
+            lo_cfg = cfg_data.get("low")
+            note_cfg = cfg_data.get("note", "AI/Thủ công chưa phân tích")
+            
             if i == 0:
-                # Tháng active: lấy High/Low thực tế từ D1 (30 cây nến gần nhất — từ sau rollover)
+                # Tháng active: Ưu tiên lấy High/Low thực tế từ D1, trừ khi config ép
                 actual_bars = df_price.tail(30)
-                hi_f = round(float(actual_bars["High"].max()), 1)
-                lo_f = round(float(actual_bars["Low"].min()), 1)
-                kind = f"Thực tế ({active_ticker.split('.')[0]})"
+                hi_f = hi_cfg if hi_cfg else round(float(actual_bars["High"].max()), 1)
+                lo_f = lo_cfg if lo_cfg else round(float(actual_bars["Low"].min()), 1)
+                kind = f"Thực tế ({active_ticker.split('.')[0]})" if not hi_cfg else "AI/Thủ công"
             else:
-                # Tháng dự báo: mở rộng từ giá hiện tại theo bias + ATR × tháng
-                months_ahead = i
-                rng = atr_avg * months_ahead * ATR_PER_MONTH
-                # Center bị đẩy theo bias (bearish → kéo xuống)
-                ctr  = cur_close + bias * rng * 0.4
-                hi_f = round(ctr + rng * 0.55, 1)
-                lo_f = round(ctr - rng * 0.55, 1)
-                # Đảm bảo chiều rộng tối thiểu 1 ATR
-                if hi_f - lo_f < atr_avg:
-                    hi_f = round(ctr + atr_avg * 0.5, 1)
-                    lo_f = round(ctr - atr_avg * 0.5, 1)
-                kind = "Dự báo Vĩ Mô"
+                # Tháng dự báo: Bắt buộc lấy từ config, nếu không có thì để rỗng
+                hi_f = hi_cfg if hi_cfg else cur_close + 50.0
+                lo_f = lo_cfg if lo_cfg else cur_close - 50.0
+                kind = "AI Phân Tích" if hi_cfg else "Chưa có dữ liệu"
 
-            forecast_rows.append((lbl, lo_f, hi_f, kind))
+            forecast_rows.append((lbl, lo_f, hi_f, kind, note_cfg))
 
         # ── Header ──
         if bias < -0.15:
@@ -338,7 +340,7 @@ with col1:
 
         st.markdown(f"""
 <div class='macro-card' style='padding:14px;'>
-<div style='font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;letter-spacing:1px;'>DỰ BÁO KHUNG GIÁ ZW</div>
+<div style='font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;letter-spacing:1px;'>DỰ BÁO KHUNG GIÁ ZW (AI / THỦ CÔNG)</div>
 <div style='display:flex;justify-content:space-between;font-size:10px;margin-bottom:10px;'>
   <span style='color:#94a3b8;'>HĐ Active: <b style='color:#e2e8f0;'>{active_ticker.split(".")[0]}</b> | Giá: <b style='color:#e2e8f0;'>{cur_close:.1f}</b></span>
   <span style='font-weight:700;color:{bias_color};'>{bias_txt}</span>
@@ -346,12 +348,11 @@ with col1:
 </div>""", unsafe_allow_html=True)
 
         # ── Mỗi hàng render riêng ──
-        # Tính thang để vẽ bar: dùng toàn bộ range của 3 hàng
         all_lo = min(r[1] for r in forecast_rows)
         all_hi = max(r[2] for r in forecast_rows)
         bar_span = max(all_hi - all_lo, atr_avg * 2)
 
-        for (lbl, lo, hi, kind) in forecast_rows:
+        for (lbl, lo, hi, kind, note) in forecast_rows:
             kind_color = "#94a3b8" if "Thực tế" in kind else "#f59e0b"
             bar_lo_pct = int(max(0.0, min(1.0, (lo - all_lo) / bar_span)) * 100)
             bar_wi_pct = int(max(0.05, min(1.0, (hi - lo) / bar_span)) * 100)
@@ -361,21 +362,24 @@ with col1:
 <div style='background:#161e2e;border:1px solid #2a3a5c;border-radius:10px;padding:10px 14px;margin-bottom:8px;'>
   <div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;'>
     <span style='font-size:10px;font-weight:700;color:#cbd5e1;'>{lbl}</span>
-    <span style='font-size:9px;color:{kind_color};'>{kind}</span>
+    <span style='font-size:9px;color:{kind_color};font-weight:600;'>{kind}</span>
   </div>
-  <div style='display:flex;justify-content:space-between;font-size:13px;font-weight:800;margin-bottom:5px;'>
+  <div style='display:flex;justify-content:space-between;font-size:13px;font-weight:800;margin-bottom:6px;'>
     <span style='color:#f87171;'>⬇ {lo:.1f}</span>
     <span style='font-size:9px;color:#475569;'>cents/bu</span>
     <span style='color:#4ade80;'>⬆ {hi:.1f}</span>
   </div>
-  <div style='background:#0f172a;border-radius:4px;height:5px;position:relative;overflow:hidden;'>
+  <div style='background:#0f172a;border-radius:4px;height:5px;position:relative;overflow:hidden;margin-bottom:8px;'>
     <div style='position:absolute;left:{bar_lo_pct}%;width:{bar_wi_pct}%;height:100%;background:{bar_clr};opacity:0.75;border-radius:4px;'></div>
+  </div>
+  <div style='font-size:10px;color:#94a3b8;font-style:italic;line-height:1.4;'>
+    💬 {note}
   </div>
 </div>""", unsafe_allow_html=True)
 
         st.markdown(f"""
 <div style='font-size:9px;color:#475569;padding:4px 2px;'>
-  📌 Thực tế = High/Low 30 cây D1 gần nhất | Dự báo = ATR×{ATR_PER_MONTH:.0f} × Vĩ Mô ({tot_score}/100)
+  📌 Khung giá được dự báo trực tiếp bởi AI (hoặc nhập thủ công) dựa trên phân tích Vĩ mô chuyên sâu.
 </div>""", unsafe_allow_html=True)
 
     except Exception as e:
