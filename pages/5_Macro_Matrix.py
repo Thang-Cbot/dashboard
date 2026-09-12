@@ -268,7 +268,9 @@ with col1:
         df_price = df_price.sort_values("Time")
 
         # Load contract meta for current contract month label
-        meta_zw = load_json("contracts_meta.json").get("ZW", {})
+        _meta_path = DATA_OUTPUT / "contracts_meta.json"
+        meta_all = json.loads(_meta_path.read_text(encoding="utf-8")) if _meta_path.exists() else {}
+        meta_zw = meta_all.get("ZW", {})
         active_month = meta_zw.get("active", {}).get("month", "?")
         active_year  = meta_zw.get("active", {}).get("year", datetime.now().year)
 
