@@ -263,94 +263,99 @@ with col1:
 
         df_price = pd.read_csv(DATA_OUTPUT / "ZW_active_D1.csv")
         df_price["Time"] = pd.to_datetime(df_price["Time"])
-        df_price = df_price.sort_values("Time")
+        df_price = df_price.sort_values("Time").reset_index(drop=True)
 
+        # ── Đọc active contract từ contracts_meta.json ──
         _meta_path = DATA_OUTPUT / "contracts_meta.json"
         meta_all = json.loads(_meta_path.read_text(encoding="utf-8")) if _meta_path.exists() else {}
-        meta_zw  = meta_all.get("ZW", {})
-        active_month = meta_zw.get("active", {}).get("month", 12)
-        active_year  = meta_zw.get("active", {}).get("year", datetime.now().year)
+        meta_zw      = meta_all.get("ZW", {})
+        active_month = int(meta_zw.get("active", {}).get("month", 12))
+        active_year  = int(meta_zw.get("active", {}).get("year", datetime.now().year))
+        active_ticker = meta_zw.get("active", {}).get("ticker", "ZWZ26.CBT")
 
-        MONTH_MAP      = {1:"T1",2:"T2",3:"T3",4:"T4",5:"T5",6:"T6",
-                          7:"T7",8:"T8",9:"T9",10:"T10",11:"T11",12:"T12"}
+        MONTH_MAP       = {1:"T1",2:"T2",3:"T3",4:"T4",5:"T5",6:"T6",
+                           7:"T7",8:"T8",9:"T9",10:"T10",11:"T11",12:"T12"}
         CONTRACT_MONTHS = [3, 5, 7, 9, 12]
 
-        def _next_contracts(n=3):
-            now_m, now_y = datetime.now().month, datetime.now().year
-            res = []; y, m = now_y, now_m
+        def _next_from_active(act_y, act_m, n=3):
+            """Trả về n kỳ HĐ tiếp theo bắt đầu từ kỳ active hiện tại."""
+            res = []
+            y, m = act_y, act_m
             while len(res) < n:
                 hits = [(y, cm) for cm in CONTRACT_MONTHS if cm >= m]
-                if not hits: y += 1; m = 1; continue
+                if not hits:
+                    y += 1; m = 1; continue
                 for item in hits:
-                    if len(res) < n: res.append(item)
-                m = 13
+                    if len(res) < n:
+                        res.append(item)
+                m = 13  # qua hết năm này
             return res
 
-        contract_periods = _next_contracts()
-        recent   = df_price.tail(20)
-        atr_avg  = float(recent["ATR"].mean()) if "ATR" in recent.columns else 30.0
+        contract_periods = _next_from_active(active_year, active_month)
+
+        # ── Tính ATR và giá hiện tại từ D1 ──
+        recent    = df_price.tail(20)
+        atr_avg   = float(recent["ATR"].mean()) if "ATR" in recent.columns else 30.0
         cur_close = float(df_price.iloc[-1]["Close"])
 
-        # bias: -1 bearish … +1 bullish based on macro score
-        bias = (tot_score - 50) / 50.0
-        EXP  = 1.3
+        # ── Bias: dựa vào macro score ──
+        bias = (tot_score - 50) / 50.0   # -1.0 bearish … +1.0 bullish
+        # Mỗi tháng xa ra thêm ~2x ATR biên độ (thực tế ZW giao động ~50-80 cents/month)
+        ATR_PER_MONTH = 2.0
 
         forecast_rows = []
         for i, (fy, fm) in enumerate(contract_periods):
-            lbl  = f"HĐ {MONTH_MAP.get(fm,'?')}/{fy}"
-            span = i + 1
-            exp  = atr_avg * span * EXP
-            ctr  = cur_close + bias * exp * 0.5
-            hi_f = round(ctr + exp * (0.5 - bias * 0.2), 1)
-            lo_f = round(ctr - exp * (0.5 + bias * 0.2), 1)
-
+            lbl = f"HĐ {MONTH_MAP.get(fm,'?')}/{fy}"
             if i == 0:
-                now = datetime.now()
-                md  = df_price[(df_price["Time"].dt.year == now.year) &
-                               (df_price["Time"].dt.month == now.month)]
-                if len(md) > 0:
-                    hi_f = round(float(md["High"].max()), 1)
-                    lo_f = round(float(md["Low"].min()), 1)
-                    kind = "Thực tế"
-                else:
-                    kind = "Dự báo"
+                # Tháng active: lấy High/Low thực tế từ D1 (30 cây nến gần nhất — từ sau rollover)
+                actual_bars = df_price.tail(30)
+                hi_f = round(float(actual_bars["High"].max()), 1)
+                lo_f = round(float(actual_bars["Low"].min()), 1)
+                kind = f"Thực tế ({active_ticker.split('.')[0]})"
             else:
-                kind = "Dự báo"
+                # Tháng dự báo: mở rộng từ giá hiện tại theo bias + ATR × tháng
+                months_ahead = i
+                rng = atr_avg * months_ahead * ATR_PER_MONTH
+                # Center bị đẩy theo bias (bearish → kéo xuống)
+                ctr  = cur_close + bias * rng * 0.4
+                hi_f = round(ctr + rng * 0.55, 1)
+                lo_f = round(ctr - rng * 0.55, 1)
+                # Đảm bảo chiều rộng tối thiểu 1 ATR
+                if hi_f - lo_f < atr_avg:
+                    hi_f = round(ctr + atr_avg * 0.5, 1)
+                    lo_f = round(ctr - atr_avg * 0.5, 1)
+                kind = "Dự báo Vĩ Mô"
 
             forecast_rows.append((lbl, lo_f, hi_f, kind))
 
-        # Header card
+        # ── Header ──
         if bias < -0.15:
-            bias_txt   = "⬇ Thiên Giảm"
-            bias_color = "#f87171"
+            bias_txt, bias_color = "⬇ Thiên Giảm", "#f87171"
         elif bias > 0.15:
-            bias_txt   = "⬆ Thiên Tăng"
-            bias_color = "#4ade80"
+            bias_txt, bias_color = "⬆ Thiên Tăng", "#4ade80"
         else:
-            bias_txt   = "↔ Trung Lập"
-            bias_color = "#94a3b8"
+            bias_txt, bias_color = "↔ Trung Lập", "#94a3b8"
 
         st.markdown(f"""
 <div class='macro-card' style='padding:14px;'>
 <div style='font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;letter-spacing:1px;'>DỰ BÁO KHUNG GIÁ ZW</div>
 <div style='display:flex;justify-content:space-between;font-size:10px;margin-bottom:10px;'>
-  <span style='color:#94a3b8;'>Giá hiện tại: <b style='color:#e2e8f0;'>{cur_close:.1f}</b></span>
+  <span style='color:#94a3b8;'>HĐ Active: <b style='color:#e2e8f0;'>{active_ticker.split(".")[0]}</b> | Giá: <b style='color:#e2e8f0;'>{cur_close:.1f}</b></span>
   <span style='font-weight:700;color:{bias_color};'>{bias_txt}</span>
 </div>
 </div>""", unsafe_allow_html=True)
 
-        # Each row rendered separately — tránh nhúng rows_html vào f-string
-        price_floor = cur_close - atr_avg * 3
-        price_range = atr_avg * 6
+        # ── Mỗi hàng render riêng ──
+        # Tính thang để vẽ bar: dùng toàn bộ range của 3 hàng
+        all_lo = min(r[1] for r in forecast_rows)
+        all_hi = max(r[2] for r in forecast_rows)
+        bar_span = max(all_hi - all_lo, atr_avg * 2)
 
         for (lbl, lo, hi, kind) in forecast_rows:
-            kind_color = "#94a3b8" if kind == "Thực tế" else "#f59e0b"
-            bar_lo = max(0.0, min(1.0, (lo - price_floor) / max(price_range, 1)))
-            bar_hi = max(0.0, min(1.0, (hi - price_floor) / max(price_range, 1)))
-            bar_w  = max(0.05, bar_hi - bar_lo)
-            bar_clr = "#f87171" if bias < -0.1 else ("#4ade80" if bias > 0.1 else "#94a3b8")
-            bar_left_pct  = int(bar_lo  * 100)
-            bar_width_pct = int(bar_w   * 100)
+            kind_color = "#94a3b8" if "Thực tế" in kind else "#f59e0b"
+            bar_lo_pct = int(max(0.0, min(1.0, (lo - all_lo) / bar_span)) * 100)
+            bar_wi_pct = int(max(0.05, min(1.0, (hi - lo) / bar_span)) * 100)
+            bar_clr    = "#f87171" if bias < -0.1 else ("#4ade80" if bias > 0.1 else "#94a3b8")
 
             st.markdown(f"""
 <div style='background:#161e2e;border:1px solid #2a3a5c;border-radius:10px;padding:10px 14px;margin-bottom:8px;'>
@@ -364,13 +369,13 @@ with col1:
     <span style='color:#4ade80;'>⬆ {hi:.1f}</span>
   </div>
   <div style='background:#0f172a;border-radius:4px;height:5px;position:relative;overflow:hidden;'>
-    <div style='position:absolute;left:{bar_left_pct}%;width:{bar_width_pct}%;height:100%;background:{bar_clr};opacity:0.75;border-radius:4px;'></div>
+    <div style='position:absolute;left:{bar_lo_pct}%;width:{bar_wi_pct}%;height:100%;background:{bar_clr};opacity:0.75;border-radius:4px;'></div>
   </div>
 </div>""", unsafe_allow_html=True)
 
         st.markdown(f"""
 <div style='font-size:9px;color:#475569;padding:4px 2px;'>
-  📌 Dự báo dựa trên ATR × Vĩ Mô ({tot_score}/100). Không phải khuyến nghị đầu tư.
+  📌 Thực tế = High/Low 30 cây D1 gần nhất | Dự báo = ATR×{ATR_PER_MONTH:.0f} × Vĩ Mô ({tot_score}/100)
 </div>""", unsafe_allow_html=True)
 
     except Exception as e:
