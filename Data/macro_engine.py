@@ -231,12 +231,10 @@ def score_f6_us_stocks(fund_data):
         cur_str  = nums_cur[0] if nums_cur else "?"
         pre_str  = nums_pre[0] if nums_pre else "?"
 
-        # Tính lại MoM thực nếu có đủ dữ liệu số
-        if cur_num and pre_num and pre_num > 0:
+        # Tính lại MoM thực nếu có đủ dữ liệu số và LUÔN LUÔN tin tưởng kết quả tính toán này
+        if cur_num is not None and pre_num is not None and pre_num > 0:
             pct_mom_calc = round((cur_num - pre_num) / pre_num * 100, 1)
-            # Nếu pct_vs_prev_report = 0 hoặc không hợp lý, dùng tính toán thực
-            if pct_mom == 0:
-                pct_mom = pct_mom_calc
+            pct_mom = pct_mom_calc
 
         # Chấm điểm dựa trên MoM WASDE (tồn kho giảm = Bullish cho ZW)
         # pct_mom âm → tồn kho giảm → Bullish → điểm cao
@@ -280,11 +278,10 @@ def score_f7_global_stocks(fund_data):
         cur_str  = nums_cur[0] if nums_cur else "?"
         pre_str  = nums_pre[0] if nums_pre else "?"
 
-        # Tự tính MoM nếu pct_vs_prev_report = 0
-        if cur_num and pre_num and pre_num > 0:
+        # Tự tính MoM thực và LUÔN LUÔN tin tưởng kết quả tính toán này
+        if cur_num is not None and pre_num is not None and pre_num > 0:
             pct_mom_calc = round((cur_num - pre_num) / pre_num * 100, 2)
-            if pct_mom == 0:
-                pct_mom = pct_mom_calc
+            pct_mom = pct_mom_calc
 
         # Tồn kho toàn cầu: giảm = Bullish ZW
         if   pct_mom >  3: score = 2
