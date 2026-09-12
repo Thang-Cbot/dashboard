@@ -225,18 +225,18 @@
   },
   "price_forecast": {
     "12_2026": {
-      "high": 760.0,
       "low": 700.0,
-      "note": "Tháng 12 dự kiến dao động hẹp tạo đáy."
+      "high": 740.0,
+      "note": "Kỳ 12 dự kiến dao động hẹp tạo đáy vào giữa  tháng 10 và 11"
     },
     "3_2027": {
-      "high": 780.0,
       "low": 710.0,
+      "high": 780.0,
       "note": "Tháng 3 phục hồi nhẹ theo chu kỳ mùa vụ."
     },
     "5_2027": {
-      "high": 800.0,
       "low": 720.0,
+      "high": 800.0,
       "note": "Rủi ro thời tiết có thể đẩy biên độ tăng cao."
     }
   }
