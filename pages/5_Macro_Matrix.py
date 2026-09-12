@@ -256,6 +256,146 @@ with col1:
     </div>
     """, unsafe_allow_html=True)
 
+    # ── Price Forecast 3 Months ───────────────────────────────────────────────
+    try:
+        import pandas as pd
+        from datetime import datetime, date
+        import calendar
+
+        # Load D1 price data
+        df_price = pd.read_csv(DATA_OUTPUT / "ZW_active_D1.csv")
+        df_price["Time"] = pd.to_datetime(df_price["Time"])
+        df_price = df_price.sort_values("Time")
+
+        # Load contract meta for current contract month label
+        meta_zw = load_json("contracts_meta.json").get("ZW", {})
+        active_month = meta_zw.get("active", {}).get("month", "?")
+        active_year  = meta_zw.get("active", {}).get("year", datetime.now().year)
+
+        MONTH_MAP = {1:"T1",2:"T2",3:"T3",4:"T4",5:"T5",6:"T6",
+                     7:"T7",8:"T8",9:"T9",10:"T10",11:"T11",12:"T12"}
+        CONTRACT_MONTHS = [3, 5, 7, 9, 12]
+
+        def next_contract_months(year, month, n=3):
+            """Return next n contract months as list of (year, month) starting from current calendar month."""
+            now_m = datetime.now().month
+            now_y = datetime.now().year
+            results = []
+            y, m = now_y, now_m
+            while len(results) < n:
+                future = [(y, cm) for cm in CONTRACT_MONTHS if cm >= m]
+                if not future:
+                    y += 1
+                    m = 1
+                    continue
+                for fy, fm in [(y, cm) for cm in CONTRACT_MONTHS if cm >= m]:
+                    if len(results) < n:
+                        results.append((fy, fm))
+                m = 13  # exhaust this year
+            return results
+
+        contract_periods = next_contract_months(active_year, active_month)
+
+        # Calculate ATR from last 20 days for volatility reference
+        recent = df_price.tail(20)
+        atr_avg = recent["ATR"].mean() if "ATR" in recent.columns else recent["High"].mean() - recent["Low"].mean()
+
+        # Current price reference
+        current_close = df_price.iloc[-1]["Close"]
+        current_high  = df_price.iloc[-1]["R1"] if "R1" in df_price.columns else current_close + atr_avg
+        current_low   = df_price.iloc[-1]["S1"] if "S1" in df_price.columns else current_close - atr_avg
+
+        # Macro bias multiplier: score < 45 = bearish bias, > 55 = bullish bias
+        bias = (tot_score - 50) / 50  # -1.0 to +1.0
+        # For ZW: score low = bearish = price down
+        # Range expansion factor based on ATR x months forward
+        EXPANSION_PER_MONTH = 1.3  # each month out expands range ~30%
+
+        forecast_rows = []
+        for i, (fy, fm) in enumerate(contract_periods):
+            label = f"HĐ {MONTH_MAP.get(fm,'?')}/{fy} {'(Active)' if i==0 else f'(+{i}T)'}"
+            span = i + 1
+            expansion = atr_avg * span * EXPANSION_PER_MONTH
+            center = current_close + (bias * expansion * 0.5)
+            high_f = round(center + expansion * (0.5 - bias * 0.2), 2)
+            low_f  = round(center - expansion * (0.5 + bias * 0.2), 2)
+            high_f = max(high_f, current_close - atr_avg * 0.5)
+            low_f  = min(low_f, current_close + atr_avg * 0.5)
+
+            if i == 0:
+                # For current month: use actual D1 high/low of this month
+                now = datetime.now()
+                month_data = df_price[
+                    (df_price["Time"].dt.year == now.year) &
+                    (df_price["Time"].dt.month == now.month)
+                ]
+                if len(month_data) > 0:
+                    actual_high = round(month_data["High"].max(), 2)
+                    actual_low  = round(month_data["Low"].min(), 2)
+                    forecast_rows.append((label, actual_low, actual_high, "Thực tế", i))
+                else:
+                    forecast_rows.append((label, low_f, high_f, "Dự báo", i))
+            else:
+                forecast_rows.append((label, low_f, high_f, "Dự báo", i))
+
+        # Bias label
+        if bias < -0.15:
+            bias_label = "⬇ Thiên Giảm"
+            bias_color = "#f87171"
+        elif bias > 0.15:
+            bias_label = "⬆ Thiên Tăng"
+            bias_color = "#4ade80"
+        else:
+            bias_label = "↔ Trung Lập"
+            bias_color = "#94a3b8"
+
+        rows_html = ""
+        for (label, lo, hi, kind, idx) in forecast_rows:
+            kind_color = "#94a3b8" if kind == "Thực tế" else "#f59e0b"
+            kind_badge = f"<span style='font-size:9px;color:{kind_color};'>{kind}</span>"
+            bar_pct_lo = max(0, min(100, int((lo - (current_close - atr_avg*3)) / (atr_avg*6) * 100)))
+            bar_pct_hi = max(0, min(100, int((hi - (current_close - atr_avg*3)) / (atr_avg*6) * 100)))
+            bar_width  = max(5, bar_pct_hi - bar_pct_lo)
+            bar_color  = "#f87171" if bias < -0.1 else ("#4ade80" if bias > 0.1 else "#94a3b8")
+            rows_html += f"""
+            <div style='margin-bottom:10px;'>
+              <div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;'>
+                <span style='font-size:10px;font-weight:700;color:#cbd5e1;'>{label}</span>
+                {kind_badge}
+              </div>
+              <div style='display:flex;justify-content:space-between;font-size:12px;font-weight:800;margin-bottom:4px;'>
+                <span style='color:#f87171;'>⬇ {lo:.1f}</span>
+                <span style='font-size:9px;color:#64748b;'>cents/bu</span>
+                <span style='color:#4ade80;'>⬆ {hi:.1f}</span>
+              </div>
+              <div style='background:#1e293b;border-radius:4px;height:6px;position:relative;overflow:hidden;'>
+                <div style='position:absolute;left:{bar_pct_lo}%;width:{bar_width}%;height:100%;background:{bar_color};opacity:0.7;border-radius:4px;'></div>
+              </div>
+            </div>"""
+
+        st.markdown(f"""
+        <div class='macro-card' style='padding:16px;'>
+          <div style='font-size:11px;font-weight:700;color:#64748b;margin-bottom:4px;'>DỰ BÁO KHUNG GIÁ ZW</div>
+          <div style='display:flex;justify-content:space-between;font-size:10px;margin-bottom:12px;'>
+            <span style='color:#94a3b8;'>Giá hiện tại: <b style='color:#e2e8f0;'>{current_close:.1f}</b></span>
+            <span style='font-weight:700;color:{bias_color};'>{bias_label}</span>
+          </div>
+          {rows_html}
+          <div style='font-size:9px;color:#475569;margin-top:8px;border-top:1px solid #1e293b;padding-top:8px;'>
+            📌 Dự báo dựa trên ATR x Vĩ Mô ({tot_score}/100). Không phải khuyến nghị đầu tư.
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    except Exception as e:
+        st.markdown(f"""
+        <div class='macro-card' style='padding:16px;'>
+          <div style='color:#64748b;font-size:11px;'>DỰ BÁO KHUNG GIÁ — Chưa có dữ liệu ({str(e)[:60]})</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+
+
 # Define factor names and descriptions
 factor_dict = {
     "F1":  {"name": "Nguồn Cung Biển Đen",             "desc": "Nga & Ukraine: Tốc độ XK, giá FOB, Thuế"},
