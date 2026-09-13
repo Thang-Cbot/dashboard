@@ -1,7 +1,7 @@
 {
-    "timestamp": "2026-09-11 10:01:52",
+    "timestamp": "2026-09-12 07:18:36",
     "month": "9",
-    "total_score": 40.2,
+    "total_score": 39.5,
     "trend": "Slightly Bearish — Giảm Nhẹ",
     "breakdown": {
         "F1": {
@@ -17,9 +17,9 @@
             "score_1_to_10": 7,
             "weight_pct": 10,
             "contribution": 0.7,
-            "raw_value": "1,531 Mbu | MoM: -0.33% | Acreage: -5.9%",
-            "raw_detail": "WASDE Aug: 1,531 ← 1,536 Mbu. Diện tích: 42.7 M ac",
-            "last_updated": "2026-09-11 06:30",
+            "raw_value": "1,531 Mbu | MoM: +0.00% | Acreage: -5.9%",
+            "raw_detail": "WASDE Sep: 1,531 ← 1,531 Mbu. Diện tích: 42.7 M ac",
+            "last_updated": "2026-09-12 07:14",
             "status": "ok"
         },
         "F2W": {
@@ -28,7 +28,7 @@
             "contribution": 0.0,
             "raw_value": "Điểm tự đánh giá: 5/10",
             "raw_detail": "Mưa lớn bất ngờ xuất hiện tại vùng Southern Plains (Kansas, Oklahoma, Texas). | Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ",
-            "last_updated": "2026-09-11 06:30",
+            "last_updated": "2026-09-12 07:14",
             "status": "manual"
         },
         "F3": {
@@ -59,30 +59,30 @@
             "status": "manual"
         },
         "F5": {
-            "score_1_to_10": 4,
+            "score_1_to_10": 3,
             "weight_pct": 7,
-            "contribution": 0.28,
-            "raw_value": "+313.5k MT | WoW:-22.1% | YoY:-24.4%",
-            "raw_detail": "Tuần 08/27/2026 | Lũy kế: 4.909 triệu tấn | Prev: 402.5 nghìn tấn",
-            "last_updated": "2026-09-11 06:30",
+            "contribution": 0.21,
+            "raw_value": "+194.2k MT | WoW:-38.0% | YoY:-21.1%",
+            "raw_detail": "Tuần 09/03/2026 | Lũy kế: 5.401 triệu tấn | Prev: 313.5 nghìn tấn",
+            "last_updated": "2026-09-12 07:14",
             "status": "ok"
         },
         "F6": {
             "score_1_to_10": 6,
             "weight_pct": 5,
             "contribution": 0.3,
-            "raw_value": "717 Mbu | WASDE Aug: -1.6% (717 ← 722 Mbu)",
+            "raw_value": "717 Mbu | WASDE Sep: +0.0% (717 ← 717 Mbu)",
             "raw_detail": "Giảm sâu 18.5% so với niên vụ trước, phản ánh thiệt hại sản lượng lúa mì đông nặ",
-            "last_updated": "2026-09-11 06:30",
+            "last_updated": "2026-09-12 07:14",
             "status": "ok"
         },
         "F7": {
             "score_1_to_10": 4,
             "weight_pct": 5,
             "contribution": 0.2,
-            "raw_value": "273.25 Mmt | WASDE Aug: +0.15% (273.25 ← 272.84 Mmt)",
+            "raw_value": "276.29 Mmt | WASDE Sep: +1.11% (276.29 ← 273.25 Mmt)",
             "raw_detail": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
-            "last_updated": "2026-09-11 06:30",
+            "last_updated": "2026-09-12 07:14",
             "status": "ok"
         },
         "F8": {
@@ -98,27 +98,27 @@
             "score_1_to_10": 8,
             "weight_pct": 5,
             "contribution": 0.4,
-            "raw_value": "DXY 99.11 (+0.34%)",
+            "raw_value": "DXY 99.09 (+0.01%)",
             "raw_detail": "USD Index — Sức mạnh đồng đô",
-            "last_updated": "2026-09-11 10:00",
+            "last_updated": "2026-09-12 07:14",
             "status": "ok"
         },
         "F10": {
             "score_1_to_10": 10,
             "weight_pct": 5,
             "contribution": 0.5,
-            "raw_value": "Brent $107.79 (+6.50%)",
+            "raw_value": "Brent $104.42 (-2.98%)",
             "raw_detail": "Crude Oil — Cước tàu & Phân bón",
-            "last_updated": "2026-09-11 10:00",
+            "last_updated": "2026-09-12 07:14",
             "status": "ok"
         },
         "F11": {
             "score_1_to_10": 4,
             "weight_pct": 5,
             "contribution": 0.2,
-            "raw_value": "Net: +14,904 (+28,501)",
-            "raw_detail": "Q1 (XANH LA) - GOM LONG",
-            "last_updated": "2026-09-10 19:32",
+            "raw_value": "Net: +4,873 (-10,031)",
+            "raw_detail": "Q2 (DO NHAT) - XA LONG",
+            "last_updated": "2026-09-12 07:06",
             "status": "ok"
         },
         "F12": {

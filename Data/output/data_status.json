@@ -9,13 +9,13 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 22:00:21",
-      "updated_at": "2026-09-11 22:00:21"
+      "detail": "Auto-fetch 06:30:49",
+      "updated_at": "2026-09-14 06:30:49"
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 22:00:43",
-      "updated_at": "2026-09-11 22:00:43"
+      "detail": "Auto-fetch 23:30:39",
+      "updated_at": "2026-09-11 23:30:39"
     },
     "cot": {
       "status": "PARTIAL",
@@ -54,44 +54,44 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 22:00:47 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-09-11 22:00:47"
+      "detail": "Đẩy thành công lúc 23:31:27 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-09-11 23:31:27"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 22:00:35",
-      "updated_at": "2026-09-11 22:00:35"
+      "detail": "Auto-fetch 23:30:32",
+      "updated_at": "2026-09-11 23:30:32"
     }
   },
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 22:00",
-    "updated_at": "2026-09-11 22:00:21"
+    "detail": "ZC+ZW updated at 06:30",
+    "updated_at": "2026-09-14 06:30:49"
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=104.53, DXY=99.029",
-    "updated_at": "2026-09-11 22:00:42"
+    "detail": "Brent=104.42, DXY=99.095",
+    "updated_at": "2026-09-12 07:14:11"
   },
   "export_sales": {
     "status": "OK",
     "detail": "Kỳ: 09/03/2026 | ZW=194,200 MT, ZC=953,600 MT",
-    "updated_at": "2026-09-11 19:38:38"
+    "updated_at": "2026-09-12 07:14:15"
   },
   "usda": {
     "status": "OK",
-    "detail": "Updated: 2026-09-11 | WASDE: Aug",
-    "updated_at": "2026-09-11 19:38:54"
+    "detail": "Updated: 2026-09-12 | WASDE: Sep",
+    "updated_at": "2026-09-12 07:06:43"
   },
   "acreage": {
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-09-11 19:38:42"
+    "updated_at": "2026-09-12 07:06:31"
   },
   "cot": {
     "status": "[OK] Success",
     "detail": "",
-    "updated_at": "2026-09-11 19:38:56"
+    "updated_at": "2026-09-12 07:06:47"
   }
 }
