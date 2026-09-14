@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 387147.0,
+      "today_volume": 10461.0,
       "prev_volume": 241954.0,
       "today_oi": 960508,
-      "prev_oi": 960507,
-      "today_close": 532.0,
-      "prev_close": 533.75,
-      "trend": "Giảm mạnh mẽ (Strong Bearish / Short Buildup)",
-      "logic": "Giá giảm đi kèm Volume tăng và OI tăng. Phe Bán khống mới đang ồ ạt gia nhập thị trường, củng cố xu hướng giảm tiếp diễn."
+      "prev_oi": 960508,
+      "today_close": 531.5,
+      "prev_close": 530.25,
+      "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
+      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
   "ZW": {
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 88251.0,
+      "today_volume": 2467.0,
       "prev_volume": 66014.0,
       "today_oi": 259888,
-      "prev_oi": 259897,
-      "today_close": 726.25,
-      "prev_close": 741.25,
-      "trend": "Giảm do phe Long tháo chạy (Long Liquidation)",
-      "logic": "Giá giảm đi kèm Volume tăng nhưng OI giảm. Phe Long đang chủ động đóng vị thế hàng loạt để cắt lỗ, lực bán tháo kỹ thuật mạnh."
+      "prev_oi": 259888,
+      "today_close": 727.25,
+      "prev_close": 725.25,
+      "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
+      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
-  "updated_at": "2026-09-14 06:30:49"
+  "updated_at": "2026-09-14 08:47:18"
 }
