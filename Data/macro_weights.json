@@ -231,13 +231,13 @@
     },
     "11_2026": {
       "low": 705.0,
-      "high": 750.0,
-      "note": "Tháng 11 bắt đầu có Weather Premium vụ Đông Mỹ, kỳ vọng phục hồi nhẹ."
+      "high": 730.0,
+      "note": "Tháng 11 Đỉnh thu hoạch Nam bán cầu"
     },
     "12_2026": {
-      "low": 710.0,
-      "high": 760.0,
-      "note": "Tháng 12 kỳ HĐ Active, tích lũy vùng đáy trước chu kỳ tăng 2027."
+      "low": 680.0,
+      "high": 750.0,
+      "note": "Chạm đáy do lúa mì nam bán cầu thu hoạch xong, weather  premium xuất hiện ở Mỹ"
     }
   }
 }

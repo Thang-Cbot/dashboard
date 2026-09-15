@@ -6,9 +6,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZCH27.CBT",
-      "year": 2027,
-      "month": 3
+      "ticker": "ZCZ26.CBT",
+      "year": 2026,
+      "month": 12
     },
     "dca": {
       "ticker": "ZCZ26.CBT",
@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 17165.0,
-      "prev_volume": 13251.0,
+      "today_volume": 17963.0,
+      "prev_volume": 407011.0,
       "today_oi": 956520,
-      "prev_oi": 960508,
-      "today_close": 531.5,
-      "prev_close": 529.0,
-      "trend": "Tăng do phe Short chốt lời (Short Covering)",
-      "logic": "Giá tăng đi kèm Volume tăng nhưng OI giảm. Cho thấy phe Short đang ồ ạt cắt lỗ/chốt vị thế bán khống, giúp giá đẩy lên nhanh nhưng thiếu dòng tiền mới mua lên."
+      "prev_oi": 956520,
+      "today_close": 533.0,
+      "prev_close": 533.25,
+      "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
+      "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
     }
   },
   "ZW": {
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 4176.0,
-      "prev_volume": 3324.0,
+      "today_volume": 4590.0,
+      "prev_volume": 94374.0,
       "today_oi": 260252,
-      "prev_oi": 259888,
-      "today_close": 718.25,
-      "prev_close": 724.0,
-      "trend": "Giảm mạnh mẽ (Strong Bearish / Short Buildup)",
-      "logic": "Giá giảm đi kèm Volume tăng và OI tăng. Phe Bán khống mới đang ồ ạt gia nhập thị trường, củng cố xu hướng giảm tiếp diễn."
+      "prev_oi": 260252,
+      "today_close": 721.75,
+      "prev_close": 722.0,
+      "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
+      "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
     }
   },
-  "updated_at": "2026-09-15 10:36:29"
+  "updated_at": "2026-09-15 12:43:05"
 }
