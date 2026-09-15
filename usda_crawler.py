@@ -284,6 +284,11 @@ def parse_crop_progress(text):
         res["ZW"]["sw_harvested"] = sw_h
         if sw_h_prev is not None: res["ZW"]["sw_harvested_prev"] = sw_h_prev
         
+    ww_p, ww_p_prev = parse_progress_section("Winter Wheat Planted", 18)
+    if ww_p is not None:
+        res["ZW"]["ww_planted"] = ww_p
+        if ww_p_prev is not None: res["ZW"]["ww_planted_prev"] = ww_p_prev
+        
     return res
 
 def parse_inspections():
@@ -536,16 +541,17 @@ def run_crawler_and_update():
                     _upd_cp("us_planting", f"{p_data['planted']}% đã gieo trồng", f"{p_data.get('planted_prev', '')}% đã gieo trồng" if 'planted_prev' in p_data else None)
                 
                 if code == "ZW":
+                    # --- Điều kiện ---
                     ww_c = f"Đông {p_data['ww_condition']}% G/E" if "ww_condition" in p_data else "Đông N/A (Cuối vụ)"
                     sw_c = f"Xuân {p_data['sw_condition']}% G/E" if "sw_condition" in p_data else "Xuân N/A"
                     
-                    # For ZW previous condition, we need to extract from old JSON if it's missing from report
                     old_latest_cond = fund[code]["crop_condition"].get("latest", "")
                     ww_c_prev = f"Đông {p_data['ww_condition_prev']}% G/E" if "ww_condition_prev" in p_data else (old_latest_cond.split(',')[0].strip() if old_latest_cond else "Đông N/A")
                     sw_c_prev = f"Xuân {p_data['sw_condition_prev']}% G/E" if "sw_condition_prev" in p_data else "Xuân N/A"
                     
                     _upd_cp("crop_condition", f"{ww_c}, {sw_c}", f"{ww_c_prev}, {sw_c_prev}")
                     
+                    # --- Thu hoạch ---
                     ww_h = f"Đông {p_data['ww_harvested']}% thu hoạch" if "ww_harvested" in p_data else "Đông N/A"
                     sw_h = f"Xuân {p_data['sw_harvested']}% thu hoạch" if "sw_harvested" in p_data else "Xuân N/A"
                     
@@ -554,6 +560,17 @@ def run_crawler_and_update():
                     sw_h_prev = f"Xuân {p_data['sw_harvested_prev']}% thu hoạch" if "sw_harvested_prev" in p_data else "Xuân N/A"
                     
                     _upd_cp("harvest_progress", f"{ww_h}, {sw_h}", f"{ww_h_prev}, {sw_h_prev}")
+
+                    # --- Gieo trồng ---
+                    ww_p = f"Đông {p_data['ww_planted']}% gieo" if "ww_planted" in p_data else "Đông N/A"
+                    sw_p = f"Xuân {p_data['sw_planted']}% gieo" if "sw_planted" in p_data else "Xuân N/A"
+                    
+                    old_latest_plant = fund[code]["us_planting"].get("latest", "")
+                    ww_p_prev = f"Đông {p_data['ww_planted_prev']}% gieo" if "ww_planted_prev" in p_data else (old_latest_plant.split(',')[0].strip() if old_latest_plant else "Đông N/A")
+                    sw_p_prev = f"Xuân {p_data['sw_planted_prev']}% gieo" if "sw_planted_prev" in p_data else "Xuân N/A"
+
+                    _upd_cp("us_planting", f"{ww_p}, {sw_p}", f"{ww_p_prev}, {sw_p_prev}")
+
                 else:
                     if "condition" in p_data and p_data["condition"] > 0:
                         _upd_cp("crop_condition", f"{p_data['condition']}% Good to Excellent", f"{p_data.get('condition_prev', '')}% Good to Excellent" if 'condition_prev' in p_data else None)
