@@ -18114,3 +18114,7 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-09-16 00:38:43] [INFO] ▶ Kích hoạt: Giá H1 + Macro
 [2026-09-16 00:38:57] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-09-16 00:38:57] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-09-16 01:29:31] [Sync] ⚠️ Lỗi Github Push: fatal: unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Recv failure: Connection was reset
+[2026-09-16 01:29:31] [INFO] ▶ Kích hoạt: Giá H4
+[2026-09-16 01:29:46] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-09-16 01:29:46] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
