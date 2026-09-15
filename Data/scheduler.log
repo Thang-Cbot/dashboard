@@ -18024,3 +18024,7 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-09-15 15:19:04] [INFO] ▶ Kích hoạt: Giá H1 + Macro
 [2026-09-15 15:19:22] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-09-15 15:19:22] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-09-15 16:14:37] [Sync] ⚠️ Lỗi Github Push: fatal: unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Could not resolve host: github.com
+[2026-09-15 16:14:37] [INFO] ▶ Kích hoạt: Giá H4
+[2026-09-15 16:14:44] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-09-15 16:14:44] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
