@@ -273,25 +273,24 @@ with col1:
         active_year  = int(meta_zw.get("active", {}).get("year", datetime.now().year))
         active_ticker = meta_zw.get("active", {}).get("ticker", "ZWZ26.CBT")
 
-        MONTH_MAP       = {1:"T1",2:"T2",3:"T3",4:"T4",5:"T5",6:"T6",
-                           7:"T7",8:"T8",9:"T9",10:"T10",11:"T11",12:"T12"}
-        CONTRACT_MONTHS = [3, 5, 7, 9, 12]
+        MONTH_MAP = {1:"T1",2:"T2",3:"T3",4:"T4",5:"T5",6:"T6",
+                     7:"T7",8:"T8",9:"T9",10:"T10",11:"T11",12:"T12"}
 
-        def _next_from_active(act_y, act_m, n=3):
-            """Trả về n kỳ HĐ tiếp theo bắt đầu từ kỳ active hiện tại."""
+        def _next_3_calendar_months(n=3):
+            """Trả về n tháng lịch tiếp theo (không phải kỳ HĐ) bắt đầu từ tháng sau hiện tại."""
+            now = datetime.now()
             res = []
-            y, m = act_y, act_m
+            y, m = now.year, now.month + 1
+            if m > 12:
+                m = 1; y += 1
             while len(res) < n:
-                hits = [(y, cm) for cm in CONTRACT_MONTHS if cm >= m]
-                if not hits:
-                    y += 1; m = 1; continue
-                for item in hits:
-                    if len(res) < n:
-                        res.append(item)
-                m = 13  # qua hết năm này
+                res.append((y, m))
+                m += 1
+                if m > 12:
+                    m = 1; y += 1
             return res
 
-        contract_periods = _next_from_active(active_year, active_month)
+        contract_periods = _next_3_calendar_months()
 
         # ── Tính ATR và giá hiện tại từ D1 ──
         recent    = df_price.tail(20)
@@ -307,28 +306,23 @@ with col1:
         forecast_cfg = weights_cfg.get("price_forecast", {})
         
         for i, (fy, fm) in enumerate(contract_periods):
-            lbl = f"HĐ {MONTH_MAP.get(fm,'?')}/{fy}"
+            lbl = f"Tháng {fm}/{fy}"   # VD: Tháng 10/2026
             key = f"{fm}_{fy}"
             
-            # Read from config if available
+            # Đọc từ config (nhập thủ công / AI)
             cfg_data = forecast_cfg.get(key, {})
             hi_cfg = cfg_data.get("high")
             lo_cfg = cfg_data.get("low")
-            note_cfg = cfg_data.get("note", "AI/Thủ công chưa phân tích")
+            note_cfg = cfg_data.get("note", "Chưa có nhận định — hãy nhập vào form bên dưới")
             
-            if i == 0:
-                # Tháng active: Ưu tiên lấy High/Low thực tế từ D1, trừ khi config ép
-                actual_bars = df_price.tail(30)
-                hi_f = hi_cfg if hi_cfg else round(float(actual_bars["High"].max()), 1)
-                lo_f = lo_cfg if lo_cfg else round(float(actual_bars["Low"].min()), 1)
-                kind = f"Thực tế ({active_ticker.split('.')[0]})" if not hi_cfg else "AI/Thủ công"
-            else:
-                # Tháng dự báo: Bắt buộc lấy từ config, nếu không có thì để rỗng
-                hi_f = hi_cfg if hi_cfg else cur_close + 50.0
-                lo_f = lo_cfg if lo_cfg else cur_close - 50.0
-                kind = "AI Phân Tích" if hi_cfg else "Chưa có dữ liệu"
+            # Tất cả 3 tháng đều là dự báo tương lai (không lấy giá thực tế)
+            hi_f = hi_cfg if hi_cfg else cur_close + 30.0 * (i + 1)
+            lo_f = lo_cfg if lo_cfg else cur_close - 30.0 * (i + 1)
+            kind = "Nhập thủ công" if hi_cfg else "⚠ Chưa nhập liệu"
+            kind_color_flag = "manual" if hi_cfg else "empty"
 
-            forecast_rows.append((lbl, lo_f, hi_f, kind, note_cfg))
+            forecast_rows.append((lbl, lo_f, hi_f, kind, note_cfg, kind_color_flag))
+
 
         # ── Header ──
         if bias < -0.15:
@@ -352,14 +346,15 @@ with col1:
         all_hi = max(r[2] for r in forecast_rows)
         bar_span = max(all_hi - all_lo, atr_avg * 2)
 
-        for (lbl, lo, hi, kind, note) in forecast_rows:
-            kind_color = "#94a3b8" if "Thực tế" in kind else "#f59e0b"
+        for (lbl, lo, hi, kind, note, kind_flag) in forecast_rows:
+            kind_color = "#f59e0b" if kind_flag == "manual" else "#475569"
             bar_lo_pct = int(max(0.0, min(1.0, (lo - all_lo) / bar_span)) * 100)
             bar_wi_pct = int(max(0.05, min(1.0, (hi - lo) / bar_span)) * 100)
             bar_clr    = "#f87171" if bias < -0.1 else ("#4ade80" if bias > 0.1 else "#94a3b8")
+            border_clr = "#2a3a5c" if kind_flag == "manual" else "#1e2d45"
 
             st.markdown(f"""
-<div style='background:#161e2e;border:1px solid #2a3a5c;border-radius:10px;padding:10px 14px;margin-bottom:8px;'>
+<div style='background:#161e2e;border:1px solid {border_clr};border-radius:10px;padding:10px 14px;margin-bottom:8px;'>
   <div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;'>
     <span style='font-size:10px;font-weight:700;color:#cbd5e1;'>{lbl}</span>
     <span style='font-size:9px;color:{kind_color};font-weight:600;'>{kind}</span>
@@ -385,29 +380,30 @@ with col1:
         # ── Form nhập liệu thủ công (Interactive) ──
         with st.expander("📝 Tự cập nhật Khung Giá Dự Báo", expanded=False):
             with st.form("forecast_form"):
-                st.markdown("<div style='font-size:12px; color:#cbd5e1; margin-bottom:10px;'>Nhập biên độ giá và nhận định cho các kỳ HĐ tới:</div>", unsafe_allow_html=True)
+                st.markdown("<div style='font-size:12px; color:#cbd5e1; margin-bottom:10px;'>Nhập biên độ giá và nhận định cho 3 tháng tới:</div>", unsafe_allow_html=True)
                 
                 new_cfg = {}
                 for i, (fy, fm) in enumerate(contract_periods):
                     key = f"{fm}_{fy}"
-                    lbl = f"HĐ {MONTH_MAP.get(fm,'?')}/{fy}"
+                    lbl_form = f"Tháng {fm}/{fy}"
                     cfg = forecast_cfg.get(key, {})
                     
-                    st.markdown(f"**{lbl}**")
+                    st.markdown(f"**{lbl_form}**")
                     c1, c2 = st.columns(2)
                     with c1:
                         def_lo = float(cfg.get("low", 0.0))
-                        inp_lo = st.number_input(f"Đáy (Low) {lbl}", value=def_lo if def_lo else None, step=10.0, key=f"lo_{key}")
+                        inp_lo = st.number_input(f"Đáy (Low) {lbl_form}", value=def_lo if def_lo else None, step=10.0, key=f"lo_{key}")
                     with c2:
                         def_hi = float(cfg.get("high", 0.0))
-                        inp_hi = st.number_input(f"Đỉnh (High) {lbl}", value=def_hi if def_hi else None, step=10.0, key=f"hi_{key}")
+                        inp_hi = st.number_input(f"Đỉnh (High) {lbl_form}", value=def_hi if def_hi else None, step=10.0, key=f"hi_{key}")
                     
                     def_note = cfg.get("note", "")
-                    inp_note = st.text_input(f"Ghi chú / Nhận định ({lbl})", value=def_note, key=f"note_{key}")
+                    inp_note = st.text_input(f"Nhận định {lbl_form}", value=def_note, key=f"note_{key}")
                     
                     if inp_lo and inp_hi:
                         new_cfg[key] = {"low": inp_lo, "high": inp_hi, "note": inp_note}
                     st.markdown("<hr style='margin:10px 0; border-color:#1e293b;'/>", unsafe_allow_html=True)
+
                 
                 submit_btn = st.form_submit_button("💾 Lưu Dự Báo", use_container_width=True)
                 if submit_btn:

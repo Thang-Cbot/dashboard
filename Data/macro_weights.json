@@ -224,20 +224,20 @@
     }
   },
   "price_forecast": {
-    "12_2026": {
+    "10_2026": {
       "low": 700.0,
       "high": 740.0,
-      "note": "Kỳ 12 dự kiến dao động hẹp tạo đáy vào giữa  tháng 10 và 11"
+      "note": "Tháng 10 áp lực từ thu hoạch Nam Bán Cầu, giá sideway tích lũy vùng 700-740."
     },
-    "3_2027": {
+    "11_2026": {
+      "low": 705.0,
+      "high": 750.0,
+      "note": "Tháng 11 bắt đầu có Weather Premium vụ Đông Mỹ, kỳ vọng phục hồi nhẹ."
+    },
+    "12_2026": {
       "low": 710.0,
-      "high": 780.0,
-      "note": "Tháng 3 phục hồi nhẹ theo chu kỳ mùa vụ."
-    },
-    "5_2027": {
-      "low": 720.0,
-      "high": 800.0,
-      "note": "Rủi ro thời tiết có thể đẩy biên độ tăng cao."
+      "high": 760.0,
+      "note": "Tháng 12 kỳ HĐ Active, tích lũy vùng đáy trước chu kỳ tăng 2027."
     }
   }
 }
