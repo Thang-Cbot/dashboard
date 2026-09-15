@@ -9,11 +9,11 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 # PHẦN I: THÔNG TIN TỔNG QUAN & VĨ MÔ
 
 ## 🌐 1. TỔNG QUAN VĨ MÔ TOÀN CẦU (MACRO INDICATORS OVERVIEW)
-*Cập nhật tự động qua `macro_tracker.py` vào lúc 12:43 ICT ngày 15/09/2026*
+*Cập nhật tự động qua `macro_tracker.py` vào lúc 13:26 ICT ngày 15/09/2026*
 
 | Chỉ số Vĩ mô | Mức giá hiện tại | Biến động 24h | Xu hướng & Đánh giá tác động đến Nông sản |
 | :--- | :---: | :---: | :--- |
-| **Dầu thô Brent (BZ=F)** | **$107.57 / thùng** | **+1.79%** | 📈 **Tích cực (Bullish):** Giá dầu duy trì ở mức cao hỗ trợ mạnh mẽ cho biofuels như Ethanol (ZC) và Biodiesel (ZS). Chi phí sản xuất neo cao tạo mức sàn hỗ trợ giá. |
+| **Dầu thô Brent (BZ=F)** | **$107.43 / thùng** | **+1.66%** | 📈 **Tích cực (Bullish):** Giá dầu duy trì ở mức cao hỗ trợ mạnh mẽ cho biofuels như Ethanol (ZC) và Biodiesel (ZS). Chi phí sản xuất neo cao tạo mức sàn hỗ trợ giá. |
 | **Chỉ số DXY (USD Index)** | **99.63** | **+0.17%** | 📉 **Trung lập - Tiêu cực (Sức ép xuất khẩu):** DXY neo cao khiến hàng Mỹ kém cạnh tranh hơn ở thị trường quốc tế, cản trở xuất khẩu ngắn hạn. |
 
 
@@ -31,7 +31,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 
 
 ### ✅ TƯƠNG QUAN VĨ MÔ ỔN ĐỊNH (NORMAL CORRELATION)
-*   **Giá trị biến động 24h:** Dầu Brent: **`$107.57` (+1.79%)** | DXY: **`99.63` (+0.17%)** | Lúa mì CBOT: **`721.00¢` (+1.98%)**.
+*   **Giá trị biến động 24h:** Dầu Brent: **`$107.43` (+1.66%)** | DXY: **`99.63` (+0.17%)** | Lúa mì CBOT: **`721.00¢` (+2.02%)**.
 *   **Biện chứng liên thị trường:** Liên thị trường giao dịch ổn định, giá lúa mì bám sát các chỉ tiêu cung cầu cơ bản và không có hiện tượng bán tháo chéo quá mức từ nhóm năng lượng.
 *   🚀 **Khuyến nghị chiến lược:** Tiếp tục duy trì kế hoạch giao dịch trong ngày (Intraday) và đánh biên (Swing) theo cản kỹ thuật đã hoạch định.
 
@@ -39,7 +39,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 ---
 
 ## 🌡️ 2. BẢN TIN THỜI TIẾT & MÙA VỤ TOÀN CẦU (WEATHER INTELLIGENCE REPORT)
-*Cập nhật tự động lúc 12:43 ICT ngày 15/09/2026 — Nguồn: NOAA, USDA, BOM Australia*
+*Cập nhật tự động lúc 13:26 ICT ngày 15/09/2026 — Nguồn: NOAA, USDA, BOM Australia*
 
 ### 🇺🇸 Thời tiết Nội địa Mỹ (US Domestic Weather)
 
@@ -75,8 +75,8 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 
 | Ngày Báo Cáo (ICT) | Mã | Giá Chốt (Close) | Dự báo Chốt Phiên | Tín Hiệu H1 (EMA 21/50) | Volatility | Intraday Bias | Xem Chi Tiết |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **15/09/2026** | **ZC** | **532.50 ¢** | **533.89 ¢ (+1.39)** | 🐂 Bullish (531.17 > 530.74) | 1.00 cents | Rình mua (Long on dip) | [Xem Ngô (ZC)](#2-báo-cáo-mã-zc-ngô---phiên-chốt-15092026) |
-| **15/09/2026** | **ZW** | **721.00 ¢** | **721.95 ¢ (+0.95)** | 🐻 Bearish (723.24 < 727.67) | 3.00 cents | Bán khống hồi (Short on rally) | [Xem Lúa mì (ZW)](#3-báo-cáo-mã-zw-lúa-mì---phiên-chốt-15092026) |
+| **15/09/2026** | **ZC** | **532.50 ¢** | **533.79 ¢ (+1.29)** | 🐂 Bullish (531.27 > 530.80) | 0.75 cents | Rình mua (Long on dip) | [Xem Ngô (ZC)](#2-báo-cáo-mã-zc-ngô---phiên-chốt-15092026) |
+| **15/09/2026** | **ZW** | **721.00 ¢** | **721.79 ¢ (+0.79)** | 🐻 Bearish (722.97 < 727.38) | 1.75 cents | Bán khống hồi (Short on rally) | [Xem Lúa mì (ZW)](#3-báo-cáo-mã-zw-lúa-mì---phiên-chốt-15092026) |
 | **15/09/2026** 
 ---
 
@@ -87,15 +87,15 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 
 | Mã | Loại chiến lược | Điểm vào lệnh (Entry Zone) | Cắt lỗ (Stop Loss - SL) | Chốt lời (Take Profit - TP) | Vị thế chủ đạo & Ghi chú thực chiến |
 | :---: | :---: | :---: | :---: | :---: | :--- |
-| **ZC** | **Long ngắn hạn (Intraday) (ZCZ26)** | **530.75 - 531.17 cents (Canh mua vùng hỗ trợ)** | **453.91 cents (Dưới cản S2 + 1.5x ATR)** | TP1: `534.50 cents` \| TP2: `549.75 cents` | CANH LONG ngắn hạn tại vùng hỗ trợ kỹ thuật H1 khi giá điều chỉnh sâu. |
-| **ZC** | **Long trung hạn (Swing) (ZCZ26)** | **529.25 - 530.75 cents** | **455.11 cents (Chống quét SL tuyệt đối)** | **548.75 cents (Ăn trọn biên độ ngô ~10.5 giá)** | LỆNH LONG trung hạn ở hỗ trợ S2 Price Action cứng (biên dưới). |
-| **ZC** | **Short trung hạn (Swing) (ZCZ26)** | **534.50 - 536.00 cents** | **536.89 cents** | **458.50 cents** | LỆNH SHORT trung hạn ở kháng cự R2 Price Action (biên trên). |
-| **ZC** | **Long dài hạn (DCA) (ZCZ26)** | **447.93 - 457.50 cents** | Không áp dụng | Mục tiêu dài hạn | Mua gom dài hạn phòng thủ La Niña và tồn kho thấp kỷ lục. |
+| **ZC** | **Long ngắn hạn (Intraday) (ZCZ26)** | **530.75 - 531.27 cents (Canh mua vùng hỗ trợ)** | **454.15 cents (Dưới cản S2 + 1.5x ATR)** | TP1: `534.50 cents` \| TP2: `549.75 cents` | CANH LONG ngắn hạn tại vùng hỗ trợ kỹ thuật H1 khi giá điều chỉnh sâu. |
+| **ZC** | **Long trung hạn (Swing) (ZCZ26)** | **529.25 - 530.75 cents** | **455.27 cents (Chống quét SL tuyệt đối)** | **548.75 cents (Ăn trọn biên độ ngô ~10.5 giá)** | LỆNH LONG trung hạn ở hỗ trợ S2 Price Action cứng (biên dưới). |
+| **ZC** | **Short trung hạn (Swing) (ZCZ26)** | **534.50 - 536.00 cents** | **536.73 cents** | **458.50 cents** | LỆNH SHORT trung hạn ở kháng cự R2 Price Action (biên trên). |
+| **ZC** | **Long dài hạn (DCA) (ZCZ26)** | **448.58 - 457.50 cents** | Không áp dụng | Mục tiêu dài hạn | Mua gom dài hạn phòng thủ La Niña và tồn kho thấp kỷ lục. |
 | :---: | :---: | :---: | :---: | :---: | :--- |
-| **ZW** | **Short ngắn hạn (Intraday) (ZWZ26)** | **723.24 - 727.67 cents (Canh bán hồi kỹ thuật H1)** | **802.35 cents (Trên kháng cự R2 + 1.5x ATR)** | TP1: `716.25 cents` \| TP2: `645.25 cents` | LỆNH SHORT ngắn hạn thuận xu hướng khi hồi kỹ thuật H1. |
-| **ZW** | **Long trung hạn (Swing) (ZWH27)** | **733.75 - 735.75 cents** | **658.08 cents** | **749.00 cents (Đón sóng hồi trung hạn ~14.5 giá)** | LỆNH LONG trung hạn ở hỗ trợ S1/S2 đón sóng hồi trung hạn ~14.5 giá. |
-| **ZW** | **Short trung hạn (Swing) (ZWH27)** | **749.00 - 751.00 cents** | **753.67 cents** | **662.75 cents (Thuận xu hướng giảm ngắn hạn)** | LỆNH SHORT trung hạn thuận xu hướng ngắn hạn khi chạm kháng cự R1/R2. |
-| **ZW** | **Long dài hạn (DCA) (ZWZ26)** | **625.66 - 645.25 cents** | Không áp dụng | Mục tiêu dài hạn | Canh mua DCA dài hạn quyết liệt (lệch pha cơ hội vĩ mô). |
+| **ZW** | **Short ngắn hạn (Intraday) (ZWZ26)** | **722.97 - 727.38 cents (Canh bán hồi kỹ thuật H1)** | **801.72 cents (Trên kháng cự R2 + 1.5x ATR)** | TP1: `716.25 cents` \| TP2: `645.25 cents` | LỆNH SHORT ngắn hạn thuận xu hướng khi hồi kỹ thuật H1. |
+| **ZW** | **Long trung hạn (Swing) (ZWH27)** | **730.75 - 732.75 cents** | **658.43 cents** | **749.00 cents (Đón sóng hồi trung hạn ~14.5 giá)** | LỆNH LONG trung hạn ở hỗ trợ S1/S2 đón sóng hồi trung hạn ~14.5 giá. |
+| **ZW** | **Short trung hạn (Swing) (ZWH27)** | **749.00 - 751.00 cents** | **753.32 cents** | **662.75 cents (Thuận xu hướng giảm ngắn hạn)** | LỆNH SHORT trung hạn thuận xu hướng ngắn hạn khi chạm kháng cự R1/R2. |
+| **ZW** | **Long dài hạn (DCA) (ZWZ26)** | **627.34 - 645.25 cents** | Không áp dụng | Mục tiêu dài hạn | Canh mua DCA dài hạn quyết liệt (lệch pha cơ hội vĩ mô). |
 | :---: | :---: | :---: | :---: | :---: | :--- |
 
 ---
@@ -230,9 +230,9 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 | **Trung hạn** | ↕️ **Đi ngang (Sideways)** | Đi ngang tích lũy (Sideways Accumulation) | Giao dịch Swing trading biên độ |
 | **Ngắn hạn** | 🐂 **Tăng (Bullish)** | EMA_21 H1 > EMA_50 H1 (Hội tụ động lượng tăng) | Canh vào lệnh ngắn hạn (Intraday) |
 
-*   **Giá Chốt Phiên (Close):** 532.50 cents | **Dự báo Chốt Phiên:** **`533.89 cents`** (+1.39).
-*   **Thanh khoản phiên chốt:** Volume: **`17,981`** (Chênh lệch: **`-389,030`**) | OI: **`956,520`** (Chênh lệch: **`+0`**)
-*   **Mô hình nến H1:** **`Doji (Nến lưỡng lự thế trận)`**
+*   **Giá Chốt Phiên (Close):** 532.50 cents | **Dự báo Chốt Phiên:** **`533.79 cents`** (+1.29).
+*   **Thanh khoản phiên chốt:** Volume: **`18,310`** (Chênh lệch: **`-388,701`**) | OI: **`956,520`** (Chênh lệch: **`+0`**)
+*   **Mô hình nến H1:** **`Không phát hiện mô hình nến đặc biệt`**
 *   **Dòng tiền (Volume + OI):** **`Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)`**
 *   **Đánh giá xu hướng kết hợp:** 📉 **TÍCH LŨY TIÊU CỰC (Distribution):** Nến đi ngang nhưng dòng tiền rút dần (OI giảm), cảnh báo rủi ro suy sụt sắp tới.
 
@@ -244,7 +244,7 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Chỉ số | Giá trị Hiện tại | Biến động 24h | Tác động Biện chứng lên Ngô (ZC) |
 | :--- | :---: | :---: | :--- |
-| **Dầu Brent** | **$107.57** | **+1.79%** | Giá dầu Tăng hỗ trợ biên lợi nhuận pha chế Ethanol, kéo theo nhu cầu ngô tích cực. |
+| **Dầu Brent** | **$107.43** | **+1.66%** | Giá dầu Tăng hỗ trợ biên lợi nhuận pha chế Ethanol, kéo theo nhu cầu ngô tích cực. |
 | **USD Index** | **99.63** | **+0.17%** | DXY Tăng làm giảm sức cạnh tranh xuất khẩu của ngô Mỹ so với Brazil/Argentina. |
 
 
@@ -260,8 +260,8 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 ---
 
 ### C. Phân Tích Kỹ Thuật H1/M15 (HĐ ZCZ26)
-*   **Chỉ báo EMA H1:** `EMA_21` (531.17) > `EMA_50` (530.74).
-*   **Động lượng & Dao động:** RSI (14) = **`54.83`** | ATR (14) = **`2.39`** cents | Volatility = **`1.00 cents`**.
+*   **Chỉ báo EMA H1:** `EMA_21` (531.27) > `EMA_50` (530.80).
+*   **Động lượng & Dao động:** RSI (14) = **`54.74`** | ATR (14) = **`2.23`** cents | Volatility = **`0.75 cents`**.
 *   **Vùng cản Pivot:** Hỗ trợ S1: **`530.75`** | S2: **`457.50`** || Kháng cự R1: **`534.50`** | R2: **`549.75`**
 
 ---
@@ -291,13 +291,13 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 *   🚀 **Long ngắn hạn (Intraday) (Ngắn hạn - HĐ ZCZ26):**
     *   *Chiến lược:* Giao dịch chớp nhoáng theo biên độ H1.
-    *   *Thiết lập:* Entry: **`530.75 - 531.17 cents (Canh mua vùng hỗ trợ)`** | SL: **`453.91 cents (Dưới cản S2 + 1.5x ATR)`** | TP: `534.50 cents` / `549.75 cents`.
+    *   *Thiết lập:* Entry: **`530.75 - 531.27 cents (Canh mua vùng hỗ trợ)`** | SL: **`454.15 cents (Dưới cản S2 + 1.5x ATR)`** | TP: `534.50 cents` / `549.75 cents`.
 *   🚀 **Trung hạn (Swing Trades - HĐ ZCZ26):**
-    *   *Long:* Entry: **`529.25 - 530.75 cents`** | SL: **`455.11 cents (Chống quét SL tuyệt đối)`** | TP: **`548.75 cents (Ăn trọn biên độ ngô ~10.5 giá)`**.
-    *   *Short:* Entry: **`534.50 - 536.00 cents`** | SL: **`536.89 cents`** | TP: **`458.50 cents`**.
+    *   *Long:* Entry: **`529.25 - 530.75 cents`** | SL: **`455.27 cents (Chống quét SL tuyệt đối)`** | TP: **`548.75 cents (Ăn trọn biên độ ngô ~10.5 giá)`**.
+    *   *Short:* Entry: **`534.50 - 536.00 cents`** | SL: **`536.73 cents`** | TP: **`458.50 cents`**.
 *   🚀 **Long dài hạn (DCA) (Dài hạn - HĐ ZCZ26):**
     *   *Chiến lược:* Mua tích lũy phòng thủ rủi ro địa chính trị và thời tiết vĩ mô.
-    *   *Thiết lập:* Entry gom: **`447.93 - 457.50 cents`**
+    *   *Thiết lập:* Entry gom: **`448.58 - 457.50 cents`**
 
 ---
 
@@ -358,8 +358,8 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 | **Trung hạn** | 🐻 **Giảm (Bearish)** | Giảm điều chỉnh tích lũy (Bearish Correction & Consolidation) | Giao dịch Swing trading biên độ |
 | **Ngắn hạn** | 🐻 **Giảm (Bearish)** | EMA_21 H1 < EMA_50 H1 (Áp lực bán duy trì) | Canh vào lệnh ngắn hạn (Intraday) |
 
-*   **Giá Chốt Phiên (Close):** 721.00 cents | **Dự báo Chốt Phiên:** **`721.95 cents`** (+0.95).
-*   **Thanh khoản phiên chốt:** Volume: **`4,596`** (Chênh lệch: **`-89,778`**) | OI: **`260,252`** (Chênh lệch: **`+0`**)
+*   **Giá Chốt Phiên (Close):** 721.00 cents | **Dự báo Chốt Phiên:** **`721.79 cents`** (+0.79).
+*   **Thanh khoản phiên chốt:** Volume: **`5,031`** (Chênh lệch: **`-89,343`**) | OI: **`260,252`** (Chênh lệch: **`+0`**)
 *   **Mô hình nến H1:** **`Không phát hiện mô hình nến đặc biệt`**
 *   **Dòng tiền (Volume + OI):** **`Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)`**
 *   **Đánh giá xu hướng kết hợp:** 📉 **TÍCH LŨY TIÊU CỰC (Distribution):** Nến đi ngang nhưng dòng tiền rút dần (OI giảm), cảnh báo rủi ro suy sụt sắp tới.
@@ -372,7 +372,7 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Chỉ số | Giá trị Hiện tại | Biến động 24h | Tác động Biện chứng lên Lúa Mì (ZW) |
 | :--- | :---: | :---: | :--- |
-| **Dầu Brent** | **$107.57** | **+1.79%** | Giá dầu Tăng tăng premium rủi ro địa chính trị và logistics Biển Đen, hỗ trợ giá lúa mì. |
+| **Dầu Brent** | **$107.43** | **+1.66%** | Giá dầu Tăng tăng premium rủi ro địa chính trị và logistics Biển Đen, hỗ trợ giá lúa mì. |
 | **USD Index** | **99.63** | **+0.17%** | DXY Tăng khiến lúa mì Mỹ đắt đỏ hơn đối với các khách hàng truyền thống như Ai Cập/Châu Á. |
 
 
@@ -388,8 +388,8 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 ---
 
 ### C. Phân Tích Kỹ Thuật H1/M15 (HĐ ZWZ26)
-*   **Chỉ báo EMA H1:** `EMA_21` (723.24) < `EMA_50` (727.67).
-*   **Động lượng & Dao động:** RSI (14) = **`44.72`** | ATR (14) = **`4.90`** cents | Volatility = **`3.00 cents`**.
+*   **Chỉ báo EMA H1:** `EMA_21` (722.97) < `EMA_50` (727.38).
+*   **Động lượng & Dao động:** RSI (14) = **`44.82`** | ATR (14) = **`4.48`** cents | Volatility = **`1.75 cents`**.
 *   **Vùng cản Pivot:** Hỗ trợ S1: **`716.25`** | S2: **`645.25`** || Kháng cự R1: **`733.00`** | R2: **`795.00`**
 
 ---
@@ -419,13 +419,13 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 *   🚀 **Short ngắn hạn (Intraday) (Ngắn hạn - HĐ ZWZ26):**
     *   *Chiến lược:* Giao dịch chớp nhoáng theo biên độ H1.
-    *   *Thiết lập:* Entry: **`723.24 - 727.67 cents (Canh bán hồi kỹ thuật H1)`** | SL: **`802.35 cents (Trên kháng cự R2 + 1.5x ATR)`** | TP: `716.25 cents` / `645.25 cents`.
+    *   *Thiết lập:* Entry: **`722.97 - 727.38 cents (Canh bán hồi kỹ thuật H1)`** | SL: **`801.72 cents (Trên kháng cự R2 + 1.5x ATR)`** | TP: `716.25 cents` / `645.25 cents`.
 *   🚀 **Trung hạn (Swing Trades - HĐ ZWH27):**
-    *   *Long:* Entry: **`733.75 - 735.75 cents`** | SL: **`658.08 cents`** | TP: **`749.00 cents (Đón sóng hồi trung hạn ~14.5 giá)`**.
-    *   *Short:* Entry: **`749.00 - 751.00 cents`** | SL: **`753.67 cents`** | TP: **`662.75 cents (Thuận xu hướng giảm ngắn hạn)`**.
+    *   *Long:* Entry: **`730.75 - 732.75 cents`** | SL: **`658.43 cents`** | TP: **`749.00 cents (Đón sóng hồi trung hạn ~14.5 giá)`**.
+    *   *Short:* Entry: **`749.00 - 751.00 cents`** | SL: **`753.32 cents`** | TP: **`662.75 cents (Thuận xu hướng giảm ngắn hạn)`**.
 *   🚀 **Long dài hạn (DCA) (Dài hạn - HĐ ZWZ26):**
     *   *Chiến lược:* Mua tích lũy phòng thủ rủi ro địa chính trị và thời tiết vĩ mô.
-    *   *Thiết lập:* Entry gom: **`625.66 - 645.25 cents`**
+    *   *Thiết lập:* Entry gom: **`627.34 - 645.25 cents`**
 
 ---
 
