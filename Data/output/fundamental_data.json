@@ -19,7 +19,7 @@
       "action": "Argentina thu hoạch rộ -> Canh Short ngắn hạn / Gom Long dài hạn (DCA)",
       "logic": "Argentina đang thu hoạch rộ đạt 66%. Việc giá ngô giữ vững trên 445-450 cents bất bất chấp áp lực thu hoạch cho thấy ngô đã xác lập vùng đáy chu kỳ mùa vụ thành công.",
       "previous": "Mỹ: 5% thu hoạch",
-      "previous_date": "2026-07-27T12:00:00+0000",
+      "previous_date": "14/09/2026",
       "latest_date": "14/09/2026"
     },
     "crop_condition": {
@@ -198,14 +198,14 @@
   },
   "ZW": {
     "us_planting": {
-      "latest": "Đông 100% gieo, Xuân 95% gieo",
-      "next_date": "08/06/2026 (Hàng tuần)",
+      "latest": "Đông 8% gieo, Xuân N/A",
+      "next_date": "22/09/2026 lúc 03:00 (VN)",
       "forecast": "Lúa xuân: 98%",
       "action": "Tiến độ ổn định -> Canh Short ngắn hạn",
       "logic": "Lúa mì xuân gieo trồng phát triển thuận lợi. Lúa mì đông đã trổ bông vượt trung bình.",
-      "previous": "Đông 100% gieo, Xuân 93% gieo",
-      "previous_date": "Tuần trước (16/06)",
-      "latest_date": "2026-07-27T12:00:00+0000"
+      "previous": "Đông 2% gieo, Xuân N/A",
+      "previous_date": "2026-07-27T12:00:00+0000",
+      "latest_date": "14/09/2026"
     },
     "harvest_progress": {
       "latest": "Đông N/A, Xuân 93% thu hoạch",
@@ -416,7 +416,8 @@
       "action": "Hết áp lực bán tháo -> Gom Long dài hạn (DCA)",
       "logic": "Mỹ bắt đầu thu hoạch vào tháng 9-11. Argentina đang thu hoạch đậu tương đạt 75% tiến độ. Việc Argentina sắp kết thúc thu hoạch rộ đồng nghĩa với việc áp lực bán tháo lớn nhất của Nam Mỹ đã phản ánh hoàn toàn vào giá (priced-in), tạo điều kiện cho giá đậu tương thiết lập đáy chu kỳ mùa vụ và bước vào pha tăng trưởng.",
       "previous": "Mỹ: 0% thu hoạch",
-      "latest_date": "14/09/2026"
+      "latest_date": "14/09/2026",
+      "previous_date": "14/09/2026"
     },
     "crop_condition": {
       "latest": "58% Good to Excellent",
