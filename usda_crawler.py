@@ -241,6 +241,11 @@ def parse_crop_progress(text):
         res["ZC"]["condition"] = cc
         if cc_prev is not None: res["ZC"]["condition_prev"] = cc_prev
         
+    ch, ch_prev = parse_progress_section("Corn Harvested", 18)
+    if ch is not None:
+        res["ZC"]["harvested"] = ch
+        if ch_prev is not None: res["ZC"]["harvested_prev"] = ch_prev
+        
     sp, sp_prev = parse_progress_section("Soybeans Planted", 18)
     if sp is None: sp, sp_prev = parse_progress_section("Soybean Planted", 18)
     if sp is not None:
@@ -252,6 +257,12 @@ def parse_crop_progress(text):
     if sc is not None:
         res["ZS"]["condition"] = sc
         if sc_prev is not None: res["ZS"]["condition_prev"] = sc_prev
+
+    sh, sh_prev = parse_progress_section("Soybeans Harvested", 18)
+    if sh is None: sh, sh_prev = parse_progress_section("Soybean Harvested", 18)
+    if sh is not None:
+        res["ZS"]["harvested"] = sh
+        if sh_prev is not None: res["ZS"]["harvested_prev"] = sh_prev
         
     ww_c, ww_c_prev = parse_condition_section("Winter Wheat Condition", 18)
     if ww_c is not None:
@@ -546,6 +557,8 @@ def run_crawler_and_update():
                 else:
                     if "condition" in p_data and p_data["condition"] > 0:
                         _upd_cp("crop_condition", f"{p_data['condition']}% Good to Excellent", f"{p_data.get('condition_prev', '')}% Good to Excellent" if 'condition_prev' in p_data else None)
+                    if "harvested" in p_data:
+                        _upd_cp("harvest_progress", f"Mỹ: {p_data['harvested']}% thu hoạch", f"Mỹ: {p_data.get('harvested_prev', '')}% thu hoạch" if 'harvested_prev' in p_data else None)
             # Export Inspections — có chống duplicate theo ngày tuần kết thúc
             if code in inspections_data:
                 insp = inspections_data[code]
