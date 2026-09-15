@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-09-15",
+  "last_updated_fundamentals": "2026-09-16",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -204,7 +204,7 @@
       "action": "Tiến độ ổn định -> Canh Short ngắn hạn",
       "logic": "Lúa mì xuân gieo trồng phát triển thuận lợi. Lúa mì đông đã trổ bông vượt trung bình.",
       "previous": "Đông 2% gieo, Xuân N/A",
-      "previous_date": "2026-07-27T12:00:00+0000",
+      "previous_date": "14/09/2026",
       "latest_date": "14/09/2026"
     },
     "harvest_progress": {
