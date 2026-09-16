@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 07:00:12 (Nguồn: AI Điểm Tin Biển Đen)",
-      "updated_at": "2026-09-16 07:00:12"
+      "detail": "Đẩy thành công lúc 07:00:24 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-09-16 07:00:24"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 06:49:22",
-      "updated_at": "2026-09-16 06:49:22"
+      "detail": "Auto-fetch 07:00:30",
+      "updated_at": "2026-09-16 07:00:30"
     },
     "russian_metrics": {
       "status": "[OK]",
