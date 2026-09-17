@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 05:00:37",
-      "updated_at": "2026-09-18 05:00:37"
+      "detail": "Auto-fetch 06:00:34",
+      "updated_at": "2026-09-18 06:00:34"
     },
     "cot": {
       "status": "PARTIAL",
@@ -76,8 +76,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=104.09, DXY=100.22",
-    "updated_at": "2026-09-18 05:00:37"
+    "detail": "Brent=104.09, DXY=100.236",
+    "updated_at": "2026-09-18 06:00:34"
   },
   "export_sales": {
     "status": "OK",
