@@ -51,6 +51,16 @@
       "status": "OK",
       "detail": "Điểm tin AI thành công",
       "updated_at": "2026-09-17 06:33:28"
+    },
+    "github_sync": {
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 07:00:21 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-09-17 07:00:21"
+    },
+    "prices_h4": {
+      "status": "[OK]",
+      "detail": "Auto-fetch 07:00:27",
+      "updated_at": "2026-09-17 07:00:27"
     }
   },
   "all_ok": true,
