@@ -493,16 +493,16 @@
       "open": 533.25
     },
     "2026-09-16": {
-      "volume": 202308.0,
+      "volume": 201117.0,
       "open_interest": 949969,
       "close": 534.25,
       "open": 535.75
     },
     "2026-09-17": {
-      "volume": 201884.0,
-      "open_interest": 949969,
+      "volume": 7662.0,
+      "open_interest": 940753,
       "close": 531.0,
-      "open": 533.75
+      "open": 530.5
     }
   },
   "ZW": {
@@ -999,16 +999,16 @@
       "open": 722.0
     },
     "2026-09-16": {
-      "volume": 70809.0,
+      "volume": 57852.0,
       "open_interest": 259397,
       "close": 730.75,
       "open": 728.25
     },
     "2026-09-17": {
-      "volume": 47572.0,
-      "open_interest": 259398,
-      "close": 725.75,
-      "open": 730.75
+      "volume": 1175.0,
+      "open_interest": 257744,
+      "close": 725.0,
+      "open": 725.0
     }
   },
   "ZS": {

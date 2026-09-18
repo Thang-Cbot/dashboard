@@ -18808,3 +18808,10 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-09-18 09:45:08] [INFO] ▶ Kích hoạt: Chỉ số Lúa Mì Nga
 [2026-09-18 09:45:12] [INFO] ✅ Chỉ số Lúa Mì Nga hoàn thành (attempt 1)
 [2026-09-18 09:45:12] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Chỉ số Lúa Mì Nga)...
+[2026-09-18 09:45:16] [Sync] ✅ Đồng bộ Github thành công (Chỉ số Lúa Mì Nga)!
+[2026-09-18 09:45:16] [INFO] ⏰ Đợi Russian Metrics: còn 21.75h (19/09 07:30:02 VN)
+[2026-09-18 09:45:40] [WARN] ⏳ AI Điểm Tin timeout
+[2026-09-18 09:45:40] [INFO] ⏰ Đợi AI News: còn 10.24h (18/09 20:00:02 VN)
+[2026-09-18 10:15:10] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-09-18 10:15:26] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-09-18 10:15:26] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...

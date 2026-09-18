@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 07:00:19",
-      "updated_at": "2026-09-18 07:00:19"
+      "detail": "Auto-fetch 10:15:26",
+      "updated_at": "2026-09-18 10:15:26"
     },
     "macro": {
       "status": "[OK]",
@@ -48,14 +48,14 @@
       "updated_at": "2026-09-18 06:32:07"
     },
     "ai_news": {
-      "status": "OK",
-      "detail": "Điểm tin AI thành công",
-      "updated_at": "2026-09-18 06:32:11"
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-09-18 09:45:40"
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 07:01:05 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-09-18 07:01:05"
+      "detail": "Đẩy thành công lúc 09:45:16 (Nguồn: Chỉ số Lúa Mì Nga)",
+      "updated_at": "2026-09-18 09:45:16"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -71,8 +71,8 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 07:00",
-    "updated_at": "2026-09-18 07:00:19"
+    "detail": "ZC+ZW updated at 10:15",
+    "updated_at": "2026-09-18 10:15:25"
   },
   "macro": {
     "status": "OK",
