@@ -1347,6 +1347,23 @@ with col3:
         action = cot_data.get("action", "")
         nc   = "#22c55e" if chg > 0 else "#ef4444"
         arrow = "▲" if chg > 0 else "▼"
+        
+        # Real-time estimate
+        net_est = cot_data.get("net_estimated")
+        quad_est = cot_data.get("quadrant_estimated")
+        est_date = cot_data.get("latest_price_date")
+        
+        est_html = ""
+        if net_est is not None and est_date:
+            est_nc = "#22c55e" if net_est > 0 else "#ef4444"
+            est_html = f"""
+            <div style='margin-top:10px; padding-top:10px; border-top:1px dashed #1e293b;'>
+                <div style='font-size:12px; font-weight:600; color:#cbd5e1;'>Ước tính đến {est_date}</div>
+                <div style='font-size:16px; font-weight:700; color:{est_nc}; margin:2px 0;'>{net_est:+,} HD</div>
+                <div style='font-size:12px; color:#94a3b8; font-weight:600;'>{quad_est}</div>
+            </div>
+            """
+
         st.markdown(f"""
         <div style='background:#0f1629; border-radius:6px; padding:10px; margin-bottom:8px;'>
             <div style='font-size:13px; font-weight:600; color:#94a3b8;'>COT Managed Money <span style='float:right; font-size:11px; color:#475569;'>{cot_data.get("report_date", "—")}</span></div>
@@ -1354,6 +1371,7 @@ with col3:
             <div style='font-size:13px; color:{nc};'>{arrow} {abs(chg):,} HD tuần này</div>
             <div style='font-size:13px; color:#94a3b8; font-weight:600; margin-top:4px;'>{quad}</div>
             <div style='font-size:13px; color:#64748b; margin-top:2px;'>{action[:60] if action else ""}</div>
+            {est_html}
         </div>""", unsafe_allow_html=True)
     else:
         st.markdown("<div style='font-size:12px;color:#64748b;padding:8px;'>Chưa có dữ liệu COT.</div>", unsafe_allow_html=True)
@@ -1412,7 +1430,7 @@ with c_cot:
         quad_color = "#ef4444" if "Q4" in quadrant or "Q3" in quadrant or "SHORT" in quadrant else "#22c55e"
         chg_str = f"+{chg:,}" if chg > 0 else f"{chg:,}"
         
-        st.markdown(f'''
+        table_html = f'''
         <style>
         .cot-table {{ width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 0; }}
         .cot-table th {{ background: #1e293b; color: #cbd5e1; padding: 10px; text-align: left; border: 1px solid #334155; }}
@@ -1445,8 +1463,25 @@ with c_cot:
                 <td><b>{chg_str}</b></td>
                 <td style="color:#94a3b8;">Hợp đồng thay đổi so với tuần trước</td>
             </tr>
-        </table>
-        ''', unsafe_allow_html=True)
+        '''
+        
+        # Thêm dòng Realtime Estimate
+        net_est = cot_data.get("net_estimated")
+        est_date = cot_data.get("latest_price_date")
+        quad_est = cot_data.get("quadrant_estimated")
+        
+        if net_est is not None and est_date:
+            est_color = "#ef4444" if "Q4" in quad_est or "Q3" in quad_est or "SHORT" in quad_est else "#22c55e"
+            table_html += f"""
+            <tr style="background:#1e293b; border-top: 2px solid #3b82f6;">
+                <td><b style="color:#38bdf8;">Ước tính ({est_date})</b></td>
+                <td><b style="color:{est_color};">{net_est:+,.0f}</b></td>
+                <td style="color:{est_color}; font-weight:600;">{quad_est}</td>
+            </tr>
+            """
+            
+        table_html += "</table>"
+        st.markdown(table_html, unsafe_allow_html=True)
     else:
         st.info("Chưa có dữ liệu COT cho mã này.")
 
