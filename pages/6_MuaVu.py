@@ -381,14 +381,9 @@ with tab_zw:
         """, unsafe_allow_html=True)
 
         # Phân tích chu kỳ 10 năm
-        st.markdown('<div class="section-title">📊 Dự Báo Khung Giá 3 Tháng (Từ Ma Trận Vĩ Mô)</div>
-
+        st.markdown(f"""
+        <div class="section-title">📊 Dự Báo Khung Giá 3 Tháng (Từ Ma Trận Vĩ Mô)</div>
         {render_forecast_3m()}
-
-          <div style='font-size:12px; color:#94a3b8; background:#0f1629; padding:10px; border-radius:8px;'>
-            📌 <b>Năm 2026 tương tự 2020:</b> Đáy tháng 4 → Đáy mùa vụ 1 (22/06) → Đáy mùa vụ 2 (T8) → Sau đó tăng dần
-          </div>
-        </div>
         """, unsafe_allow_html=True)
 
     # ── Cột phải: Chiến lược thực chiến ──────────────────────────────────────
@@ -630,33 +625,9 @@ with tab_zc:
 
 
         # Nhận định thị trường
-        st.markdown('<div class="section-title">📊 Phân Tích Mùa Vụ Ngô 2026</div>', unsafe_allow_html=True)
         st.markdown(f"""
-        <div class='card'>
-          <div class='scenario-box' style='background:#0f2a1a; border-color:#22c55e; margin-bottom:10px;'>
-            <div style='font-size:12px; font-weight:700; color:#86efac;'>✅ Điểm Mạnh: Chất Lượng Vụ Mỹ Tốt</div>
-            <div style='font-size:12px; color:#d1fae5; margin-top:6px; line-height:1.7;'>
-              • Chất lượng G/E đạt {cc_val} — cao hơn trung bình 5 năm<br>
-              • 97% đã nảy mầm — tiến độ nhanh hơn trung bình<br>
-              • Argentina đang thu hoạch mạnh 66% (2/3 tiến độ) → áp lực cung tạm thời
-            </div>
-          </div>
-          <div class='scenario-box' style='background:#2d1800; border-color:#f59e0b; margin-bottom:10px;'>
-            <div style='font-size:12px; font-weight:700; color:#fcd34d;'>⚠️ Rủi ro: Tháng 7 — Giai Đoạn Pollination</div>
-            <div style='font-size:12px; color:#fde68a; margin-top:6px; line-height:1.7;'>
-              • Diện tích giảm 3% nhưng Tồn kho nội địa tăng mạnh 14% (WASDE 30/06).<br>
-              • El Niño mang nắng nóng đe dọa trực tiếp Midwest (Thụ phấn).<br>
-              • Mưa ngập lụt đầu vụ + nắng nóng giữa vụ đè nặng năng suất thực tế.
-            </div>
-          </div>
-          <div class='scenario-box' style='background:#0f1a2d; border-color:#60a5fa;'>
-            <div style='font-size:12px; font-weight:700; color:#93c5fd;'>📉 Chu Kỳ Mùa Vụ: Áp Lực Giảm Tháng 8-9</div>
-            <div style='font-size:12px; color:#bfdbfe; margin-top:6px; line-height:1.7;'>
-              • Ngô Mỹ thường tạo đáy sớm đầu tháng 9 (khi tiến độ gặt ~5-10%)<br>
-              • Giá đang giữ vững vùng 440-450 cents bất chấp áp lực → Xác nhận đáy chu kỳ mùa vụ
-            </div>
-          </div>
-        </div>
+        <div class="section-title">📊 Dự Báo Khung Giá 3 Tháng (Từ Ma Trận Vĩ Mô)</div>
+        {render_forecast_3m()}
         """, unsafe_allow_html=True)
 
     with col2:
