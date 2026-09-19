@@ -1353,26 +1353,23 @@ with col3:
         quad_est = cot_data.get("quadrant_estimated")
         est_date = cot_data.get("latest_price_date")
         
-        est_html = ""
+        # In block 1 (Chính thức)
+        st.markdown(f"""<div style='background:#0f1629; border-radius:6px; padding:10px; margin-bottom:8px;'>
+<div style='font-size:13px; font-weight:600; color:#94a3b8;'>COT Managed Money <span style='float:right; font-size:11px; color:#475569;'>{cot_data.get("report_date", "—")}</span></div>
+<div style='font-size:20px; font-weight:700; color:{nc}; margin:4px 0;'>{net:+,} HD</div>
+<div style='font-size:13px; color:{nc};'>{arrow} {abs(chg):,} HD tuần này</div>
+<div style='font-size:13px; color:#94a3b8; font-weight:600; margin-top:4px;'>{quad}</div>
+<div style='font-size:13px; color:#64748b; margin-top:2px;'>{action[:60] if action else ""}</div>
+</div>""", unsafe_allow_html=True)
+
+        # Khung 2 (Ước tính)
         if net_est is not None and est_date:
             est_nc = "#22c55e" if net_est > 0 else "#ef4444"
-            est_html = f"""
-            <div style='margin-top:10px; padding-top:10px; border-top:1px dashed #1e293b;'>
-                <div style='font-size:12px; font-weight:600; color:#cbd5e1;'>Ước tính đến {est_date}</div>
-                <div style='font-size:16px; font-weight:700; color:{est_nc}; margin:2px 0;'>{net_est:+,} HD</div>
-                <div style='font-size:12px; color:#94a3b8; font-weight:600;'>{quad_est}</div>
-            </div>
-            """
-
-        st.markdown(f"""
-        <div style='background:#0f1629; border-radius:6px; padding:10px; margin-bottom:8px;'>
-            <div style='font-size:13px; font-weight:600; color:#94a3b8;'>COT Managed Money <span style='float:right; font-size:11px; color:#475569;'>{cot_data.get("report_date", "—")}</span></div>
-            <div style='font-size:20px; font-weight:700; color:{nc}; margin:4px 0;'>{net:+,} HD</div>
-            <div style='font-size:13px; color:{nc};'>{arrow} {abs(chg):,} HD tuần này</div>
-            <div style='font-size:13px; color:#94a3b8; font-weight:600; margin-top:4px;'>{quad}</div>
-            <div style='font-size:13px; color:#64748b; margin-top:2px;'>{action[:60] if action else ""}</div>
-            {est_html}
-        </div>""", unsafe_allow_html=True)
+            st.markdown(f"""<div style='background:#1e293b; border-left:3px solid #38bdf8; border-radius:6px; padding:10px; margin-bottom:8px;'>
+<div style='font-size:12px; font-weight:600; color:#cbd5e1;'>Ước tính Realtime <span style='float:right; font-size:11px; color:#94a3b8;'>{est_date}</span></div>
+<div style='font-size:18px; font-weight:700; color:{est_nc}; margin:2px 0;'>{net_est:+,.0f} HD</div>
+<div style='font-size:12px; color:#94a3b8; font-weight:600;'>{quad_est}</div>
+</div>""", unsafe_allow_html=True)
     else:
         st.markdown("<div style='font-size:12px;color:#64748b;padding:8px;'>Chưa có dữ liệu COT.</div>", unsafe_allow_html=True)
 
