@@ -518,7 +518,7 @@ with tab2:
 
     # Bảng tác động ENSO chi tiết
     st.markdown("<div class='map-card'>", unsafe_allow_html=True)
-    st.markdown("<div class='map-title'>📋 Phân Tích Tác Động ENSO Chi Tiết</div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='map-title'>📋 Phân Tích Tác Động ENSO Chi Tiết <span style='font-size:11px; font-weight:400; color:#64748b; margin-left:10px;'>Cập nhật: {fetched_long}</span></div>", unsafe_allow_html=True)
     if impacts:
         html3 = """<table style='width:100%;border-collapse:collapse;font-size:12px;'>
 <tr style='color:#64748b;border-bottom:1px solid #334155;'>

@@ -61,6 +61,7 @@ def fetch_weather_long():
         url = "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml"
         headers = {"User-Agent": "Mozilla/5.0"}
         resp = requests.get(url, headers=headers, timeout=15)
+        resp.encoding = resp.apparent_encoding # Fix charset decoding issues
         resp.raise_for_status()
         
         status_match = re.search(r'ENSO Alert System Status:\s*(?:<[^>]+>\s*)*(.*?)\s*<', resp.text, re.IGNORECASE)
