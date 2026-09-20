@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 01:00:20",
-      "updated_at": "2026-09-19 01:00:20"
+      "detail": "Auto-fetch 06:19:25",
+      "updated_at": "2026-09-21 06:19:25"
     },
     "macro": {
       "status": "[OK]",
@@ -71,18 +71,18 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 06:30",
-    "updated_at": "2026-09-19 06:30:40"
+    "detail": "ZC+ZW updated at 06:19",
+    "updated_at": "2026-09-21 06:19:25"
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=98.77, DXY=100.215",
-    "updated_at": "2026-09-19 06:30:41"
+    "detail": "Brent=103.87, DXY=100.22",
+    "updated_at": "2026-09-19 14:03:55"
   },
   "export_sales": {
     "status": "OK",
     "detail": "Kỳ: 09/10/2026 | ZW=325,900 MT, ZC=1.03M MT",
-    "updated_at": "2026-09-19 06:30:48"
+    "updated_at": "2026-09-19 14:04:00"
   },
   "acreage": {
     "status": "OK",
@@ -107,6 +107,6 @@
   "weather_long": {
     "status": "OK",
     "detail": "Status: El Niño Advisory",
-    "updated_at": "2026-09-19 06:31:20"
+    "updated_at": "2026-09-19 20:45:00"
   }
 }
