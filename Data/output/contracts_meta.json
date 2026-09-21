@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 72456.0,
+      "today_volume": 112830.0,
       "prev_volume": 25280.0,
-      "today_oi": 942310,
+      "today_oi": 945382,
       "prev_oi": 942310,
-      "today_close": 537.25,
+      "today_close": 540.75,
       "prev_close": 533.5,
-      "trend": "Tăng do phe Short chốt lời (Short Covering)",
-      "logic": "Giá tăng đi kèm Volume tăng nhưng OI giảm. Cho thấy phe Short đang ồ ạt cắt lỗ/chốt vị thế bán khống, giúp giá đẩy lên nhanh nhưng thiếu dòng tiền mới mua lên."
+      "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
+      "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
     }
   },
   "ZW": {
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 27356.0,
+      "today_volume": 38289.0,
       "prev_volume": 6169.0,
-      "today_oi": 257967,
+      "today_oi": 258725,
       "prev_oi": 257967,
-      "today_close": 724.75,
+      "today_close": 726.25,
       "prev_close": 726.25,
-      "trend": "Giảm do phe Long tháo chạy (Long Liquidation)",
-      "logic": "Giá giảm đi kèm Volume tăng nhưng OI giảm. Phe Long đang chủ động đóng vị thế hàng loạt để cắt lỗ, lực bán tháo kỹ thuật mạnh."
+      "trend": "Giảm mạnh mẽ (Strong Bearish / Short Buildup)",
+      "logic": "Giá giảm đi kèm Volume tăng và OI tăng. Phe Bán khống mới đang ồ ạt gia nhập thị trường, củng cố xu hướng giảm tiếp diễn."
     }
   },
-  "updated_at": "2026-09-21 21:00:23"
+  "updated_at": "2026-09-21 22:00:33"
 }
