@@ -1469,13 +1469,11 @@ with c_cot:
         
         if net_est is not None and est_date:
             est_color = "#ef4444" if "Q4" in quad_est or "Q3" in quad_est or "SHORT" in quad_est else "#22c55e"
-            table_html += f"""
-            <tr style="background:#1e293b; border-top: 2px solid #3b82f6;">
-                <td><b style="color:#38bdf8;">Ước tính ({est_date})</b></td>
-                <td><b style="color:{est_color};">{net_est:+,.0f}</b></td>
-                <td style="color:{est_color}; font-weight:600;">{quad_est}</td>
-            </tr>
-            """
+            table_html += f"""<tr style="background:#1e293b; border-top: 2px solid #3b82f6;">
+<td><b style="color:#38bdf8;">Ước tính ({est_date})</b></td>
+<td><b style="color:{est_color};">{net_est:+,.0f}</b></td>
+<td style="color:{est_color}; font-weight:600;">{quad_est}</td>
+</tr>"""
             
         table_html += "</table>"
         st.markdown(table_html, unsafe_allow_html=True)
