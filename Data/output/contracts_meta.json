@@ -16,7 +16,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 31853.0,
+      "today_volume": 31956.0,
       "prev_volume": 25280.0,
       "today_oi": 942310,
       "prev_oi": 942310,
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 9997.0,
+      "today_volume": 10362.0,
       "prev_volume": 6169.0,
       "today_oi": 257967,
       "prev_oi": 257967,
-      "today_close": 721.25,
+      "today_close": 722.25,
       "prev_close": 726.25,
       "trend": "Giảm do phe Long tháo chạy (Long Liquidation)",
       "logic": "Giá giảm đi kèm Volume tăng nhưng OI giảm. Phe Long đang chủ động đóng vị thế hàng loạt để cắt lỗ, lực bán tháo kỹ thuật mạnh."
     }
   },
-  "updated_at": "2026-09-21 15:56:21"
+  "updated_at": "2026-09-21 16:00:17"
 }
