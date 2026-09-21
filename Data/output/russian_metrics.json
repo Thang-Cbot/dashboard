@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-09-18 02:32:15",
+  "timestamp": "2026-09-21 07:30:19",
   "metrics": {
     "planted_area": "N/A",
-    "production_forecast": "N/A",
-    "harvest_progress": "N/A",
-    "fob_price": "N/A",
-    "export_tax": "N/A",
-    "export_capacity": "N/A",
+    "production_forecast": "N/A (dự báo vụ mùa 2025 dưới mức trung bình, chưa có số liệu 2026)",
+    "harvest_progress": "Đang diễn ra (tháng 7-8)",
+    "fob_price": "N/A (giá xuất khẩu đang tăng cao do gián đoạn)",
+    "export_tax": "N/A (Nga đã ra lệnh các biện pháp thúc đẩy xuất khẩu vào tháng 7/2025)",
+    "export_capacity": "N/A (bị ảnh hưởng nghiêm trọng bởi xung đột và gián đoạn vận chuyển Biển Đen)",
     "quality_notes": "N/A",
     "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Thu (Vụ Xuân)",
-    "ai_assessment": "Tình hình căng thẳng ở Biển Đen và rủi ro xuất khẩu của Nga đang làm giảm áp lực cạnh tranh từ nguồn cung Nga, qua đó hỗ trợ giá lúa mì CBOT thay vì tạo ra áp lực xả hàng."
+    "ai_assessment": "Áp lực xả hàng của Nga lên giá CBOT hiện tại đang giảm do các gián đoạn xuất khẩu ở Biển Đen và các cuộc tấn công vào cơ sở hạ tầng, dẫn đến giá lúa mì toàn cầu tăng và người mua chuyển hướng sang các nguồn cung khác."
   }
 }
