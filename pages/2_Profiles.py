@@ -1476,6 +1476,7 @@ with c_cot:
 </tr>"""
             
         table_html += "</table>"
+        table_html = '\n'.join([line.strip() for line in table_html.split('\n')])
         st.markdown(table_html, unsafe_allow_html=True)
     else:
         st.info("Chưa có dữ liệu COT cho mã này.")
