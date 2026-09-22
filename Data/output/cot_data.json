@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-19 07:08:23",
+  "fetched_at": "2026-09-22 06:23:11",
   "source": "CFTC ZIP (Disaggregated Futures Only) + Rolling Beta 13W",
   "commodities": {
     "002602": {
@@ -15,13 +15,13 @@
       "action": "Uu tien LONG. Xu huong tang ben vung.",
       "rolling_beta_13w": 1884.58,
       "cutoff_price_tue": 535.75,
-      "latest_price": 527.5,
-      "latest_price_date": "2026-09-18",
-      "price_lag_change": -8.25,
-      "estimated_extra_contracts": -15548.0,
-      "net_estimated": 398912.0,
-      "quadrant_estimated": "Q2 (DO NHAT) - XA LONG",
-      "action_estimated": "Cam bat day. Canh gia hoi de danh SHORT.",
+      "latest_price": 543.0,
+      "latest_price_date": "2026-09-21",
+      "price_lag_change": 7.25,
+      "estimated_extra_contracts": 13663.0,
+      "net_estimated": 428123.0,
+      "quadrant_estimated": "Q1 (XANH LA) - GOM LONG",
+      "action_estimated": "Uu tien LONG. Xu huong tang ben vung.",
       "history": [
         {
           "report_date": "2026-06-23",
@@ -128,7 +128,7 @@
           "price_date": "2026-09-15"
         }
       ],
-      "fetched_at": "2026-09-19 07:08:25"
+      "fetched_at": "2026-09-22 06:23:14"
     },
     "001602": {
       "commodity": "ZW",
@@ -143,11 +143,11 @@
       "action": "Uu tien SHORT thuan xu huong.",
       "rolling_beta_13w": 399.83,
       "cutoff_price_tue": 728.5,
-      "latest_price": 714.25,
-      "latest_price_date": "2026-09-18",
-      "price_lag_change": -14.25,
-      "estimated_extra_contracts": -5698.0,
-      "net_estimated": -9372.0,
+      "latest_price": 726.75,
+      "latest_price_date": "2026-09-21",
+      "price_lag_change": -1.75,
+      "estimated_extra_contracts": -700.0,
+      "net_estimated": -4374.0,
       "quadrant_estimated": "Q3 (DO DAM) - NHOI SHORT",
       "action_estimated": "Uu tien SHORT thuan xu huong.",
       "history": [
@@ -256,7 +256,7 @@
           "price_date": "2026-09-15"
         }
       ],
-      "fetched_at": "2026-09-19 07:08:25"
+      "fetched_at": "2026-09-22 06:23:14"
     }
   }
 }
