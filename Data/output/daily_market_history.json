@@ -517,10 +517,10 @@
       "open": 527.5
     },
     "2026-09-21": {
-      "volume": 229020.0,
-      "open_interest": 945382,
-      "close": 543.0,
-      "open": 527.5
+      "volume": 7997.0,
+      "open_interest": 941835,
+      "close": 542.5,
+      "open": 543.0
     }
   },
   "ZW": {
@@ -1041,10 +1041,10 @@
       "open": 716.0
     },
     "2026-09-21": {
-      "volume": 58017.0,
-      "open_interest": 258725,
-      "close": 726.0,
-      "open": 716.0
+      "volume": 1658.0,
+      "open_interest": 256242,
+      "close": 723.0,
+      "open": 727.25
     }
   },
   "ZS": {
