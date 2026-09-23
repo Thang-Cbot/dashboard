@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 14:34:49 (Nguồn: Chỉ số Lúa Mì Nga)",
-      "updated_at": "2026-09-23 14:34:49"
+      "detail": "Đẩy thành công lúc 15:00:26 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-09-23 15:00:26"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 14:00:40",
-      "updated_at": "2026-09-23 14:00:40"
+      "detail": "Auto-fetch 15:00:33",
+      "updated_at": "2026-09-23 15:00:33"
     },
     "russian_metrics": {
       "status": "[OK]",
