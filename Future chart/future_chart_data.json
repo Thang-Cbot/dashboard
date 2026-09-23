@@ -4,7 +4,7 @@
       "symbol": "ZC",
       "contract": "ZCU26 (September 2026)",
       "anchor_price": 532.5,
-      "generated_at": "2026-09-23 10:01:58",
+      "generated_at": "2026-09-23 11:01:16",
       "forecast_week": "September 21-25, 2026",
       "composite_bias": 3.6,
       "detailed_scores": {
@@ -66,32 +66,12 @@
         "price": 543.25
       },
       {
-        "label": "Tue 11-15",
-        "price": 543.0
-      },
-      {
-        "label": "Tue 15-19",
-        "price": 538.5
-      },
-      {
-        "label": "Tue 19-21",
-        "price": 539.0
-      },
-      {
-        "label": "Tue 21-23",
-        "price": 540.5
-      },
-      {
         "label": "Tue 23-01",
-        "price": 541.5
+        "price": 542.5
       },
       {
         "label": "Wed 07-11",
-        "price": 533.25
-      },
-      {
-        "label": "Wed 23-01",
-        "price": 536.75
+        "price": 532.5
       }
     ],
     "candles_4h": [
@@ -462,8 +442,8 @@
     "meta": {
       "symbol": "ZW",
       "contract": "ZWU26 (September 2026)",
-      "anchor_price": 708.75,
-      "generated_at": "2026-09-23 10:01:58",
+      "anchor_price": 708.5,
+      "generated_at": "2026-09-23 11:01:16",
       "forecast_week": "September 21-25, 2026",
       "composite_bias": 5.9,
       "detailed_scores": {
@@ -524,42 +504,22 @@
         "price": 725.5
       },
       {
-        "label": "Tue 11-15",
-        "price": 725.0
-      },
-      {
-        "label": "Tue 15-19",
-        "price": 717.75
-      },
-      {
-        "label": "Tue 19-21",
-        "price": 720.5
-      },
-      {
-        "label": "Tue 21-23",
-        "price": 720.5
-      },
-      {
         "label": "Tue 23-01",
-        "price": 724.5
+        "price": 726.25
       },
       {
         "label": "Wed 07-11",
-        "price": 710.25
-      },
-      {
-        "label": "Wed 23-01",
-        "price": 717.5
+        "price": 708.5
       }
     ],
     "candles_4h": [
       {
         "day": "Mon 21/09",
         "session": "Asia 07-11",
-        "open": 708.75,
-        "high": 720.0,
-        "low": 703.25,
-        "close": 708.0,
+        "open": 708.5,
+        "high": 719.75,
+        "low": 703.0,
+        "close": 707.75,
         "net_change": -0.75,
         "bias": "🔴 BEAR",
         "scenario": "USDA Crop Progress + Hấp Thụ Short-Covering",
@@ -568,60 +528,60 @@
       {
         "day": "Mon 21/09",
         "session": "Asia 11-15",
-        "open": 708.0,
-        "high": 715.5,
-        "low": 702.0,
-        "close": 707.5,
+        "open": 707.75,
+        "high": 715.25,
+        "low": 701.75,
+        "close": 707.25,
         "net_change": -0.5,
         "bias": "🔴 BEAR"
       },
       {
         "day": "Mon 21/09",
         "session": "London 15-19",
-        "open": 707.5,
-        "high": 721.25,
-        "low": 692.75,
-        "close": 709.5,
+        "open": 707.25,
+        "high": 721.0,
+        "low": 692.5,
+        "close": 709.25,
         "net_change": 2.0,
         "bias": "🟢 BULL"
       },
       {
         "day": "Mon 21/09",
         "session": "Pre-NY 19-21",
-        "open": 709.5,
-        "high": 722.75,
-        "low": 701.25,
-        "close": 710.75,
+        "open": 709.25,
+        "high": 722.5,
+        "low": 701.0,
+        "close": 710.5,
         "net_change": 1.25,
         "bias": "🟢 BULL"
       },
       {
         "day": "Mon 21/09",
         "session": "NY Open 21-23",
-        "open": 710.75,
-        "high": 727.25,
-        "low": 700.25,
-        "close": 715.25,
+        "open": 710.5,
+        "high": 727.0,
+        "low": 700.0,
+        "close": 715.0,
         "net_change": 4.5,
         "bias": "🟢 BULL"
       },
       {
         "day": "Mon 21/09",
         "session": "NY Close 23-01",
-        "open": 715.25,
-        "high": 723.0,
-        "low": 704.25,
-        "close": 716.5,
+        "open": 715.0,
+        "high": 722.75,
+        "low": 704.0,
+        "close": 716.25,
         "net_change": 1.25,
         "bias": "🟢 BULL"
       },
       {
         "day": "Tue 22/09",
         "session": "Asia 07-11",
-        "open": 716.5,
-        "high": 724.75,
-        "low": 706.0,
-        "close": 718.25,
+        "open": 716.25,
+        "high": 724.5,
+        "low": 705.75,
+        "close": 718.0,
         "net_change": 1.75,
         "bias": "🟢 BULL",
         "scenario": "El Niño + Australia Planting Risk",
@@ -630,60 +590,60 @@
       {
         "day": "Tue 22/09",
         "session": "Asia 11-15",
-        "open": 718.25,
-        "high": 730.5,
-        "low": 708.5,
-        "close": 717.25,
+        "open": 718.0,
+        "high": 730.25,
+        "low": 708.25,
+        "close": 717.0,
         "net_change": -1.0,
         "bias": "🔴 BEAR"
       },
       {
         "day": "Tue 22/09",
         "session": "London 15-19",
-        "open": 717.25,
-        "high": 727.75,
-        "low": 702.5,
-        "close": 719.5,
+        "open": 717.0,
+        "high": 727.5,
+        "low": 702.25,
+        "close": 719.25,
         "net_change": 2.25,
         "bias": "🟢 BULL"
       },
       {
         "day": "Tue 22/09",
         "session": "Pre-NY 19-21",
-        "open": 719.5,
-        "high": 730.0,
-        "low": 713.25,
-        "close": 720.25,
+        "open": 719.25,
+        "high": 729.75,
+        "low": 713.0,
+        "close": 720.0,
         "net_change": 0.75,
         "bias": "🟢 BULL"
       },
       {
         "day": "Tue 22/09",
         "session": "NY Open 21-23",
-        "open": 720.25,
-        "high": 734.5,
-        "low": 705.5,
-        "close": 722.25,
+        "open": 720.0,
+        "high": 734.25,
+        "low": 705.25,
+        "close": 722.0,
         "net_change": 2.0,
         "bias": "🟢 BULL"
       },
       {
         "day": "Tue 22/09",
         "session": "NY Close 23-01",
-        "open": 722.25,
-        "high": 728.75,
-        "low": 715.5,
-        "close": 722.5,
+        "open": 722.0,
+        "high": 728.5,
+        "low": 715.25,
+        "close": 722.25,
         "net_change": 0.25,
         "bias": "🟢 BULL"
       },
       {
         "day": "Wed 23/09",
         "session": "Asia 07-11",
-        "open": 722.5,
-        "high": 732.75,
-        "low": 714.5,
-        "close": 723.0,
+        "open": 722.25,
+        "high": 732.5,
+        "low": 714.25,
+        "close": 722.75,
         "net_change": 0.5,
         "bias": "🟢 BULL",
         "scenario": "Nga Khô Hạn + Consolidation",
@@ -692,60 +652,60 @@
       {
         "day": "Wed 23/09",
         "session": "Asia 11-15",
-        "open": 723.0,
-        "high": 730.0,
-        "low": 717.0,
-        "close": 722.25,
+        "open": 722.75,
+        "high": 729.75,
+        "low": 716.75,
+        "close": 722.0,
         "net_change": -0.75,
         "bias": "🔴 BEAR"
       },
       {
         "day": "Wed 23/09",
         "session": "London 15-19",
-        "open": 722.25,
-        "high": 735.75,
-        "low": 709.25,
-        "close": 724.0,
+        "open": 722.0,
+        "high": 735.5,
+        "low": 709.0,
+        "close": 723.75,
         "net_change": 1.75,
         "bias": "🟢 BULL"
       },
       {
         "day": "Wed 23/09",
         "session": "Pre-NY 19-21",
-        "open": 724.0,
-        "high": 733.25,
-        "low": 713.25,
-        "close": 724.5,
+        "open": 723.75,
+        "high": 733.0,
+        "low": 713.0,
+        "close": 724.25,
         "net_change": 0.5,
         "bias": "🟢 BULL"
       },
       {
         "day": "Wed 23/09",
         "session": "NY Open 21-23",
-        "open": 724.5,
-        "high": 736.75,
-        "low": 710.25,
-        "close": 723.0,
+        "open": 724.25,
+        "high": 736.5,
+        "low": 710.0,
+        "close": 722.75,
         "net_change": -1.5,
         "bias": "🔴 BEAR"
       },
       {
         "day": "Wed 23/09",
         "session": "NY Close 23-01",
-        "open": 723.0,
-        "high": 730.0,
-        "low": 713.5,
-        "close": 723.5,
+        "open": 722.75,
+        "high": 729.75,
+        "low": 713.25,
+        "close": 723.25,
         "net_change": 0.5,
         "bias": "🟢 BULL"
       },
       {
         "day": "Thu 24/09",
         "session": "Asia 07-11",
-        "open": 723.5,
-        "high": 734.0,
-        "low": 716.25,
-        "close": 723.25,
+        "open": 723.25,
+        "high": 733.75,
+        "low": 716.0,
+        "close": 723.0,
         "net_change": -0.25,
         "bias": "🔴 BEAR",
         "scenario": "Export Sales + Egypt Tender - QUAN TRỌNG",
@@ -754,60 +714,60 @@
       {
         "day": "Thu 24/09",
         "session": "Asia 11-15",
-        "open": 723.25,
-        "high": 733.0,
-        "low": 713.5,
-        "close": 723.75,
+        "open": 723.0,
+        "high": 732.75,
+        "low": 713.25,
+        "close": 723.5,
         "net_change": 0.5,
         "bias": "🟢 BULL"
       },
       {
         "day": "Thu 24/09",
         "session": "London 15-19",
-        "open": 723.75,
-        "high": 734.5,
-        "low": 716.5,
-        "close": 724.5,
+        "open": 723.5,
+        "high": 734.25,
+        "low": 716.25,
+        "close": 724.25,
         "net_change": 0.75,
         "bias": "🟢 BULL"
       },
       {
         "day": "Thu 24/09",
         "session": "Pre-NY 19-21",
-        "open": 724.5,
-        "high": 731.0,
-        "low": 716.0,
-        "close": 725.0,
+        "open": 724.25,
+        "high": 730.75,
+        "low": 715.75,
+        "close": 724.75,
         "net_change": 0.5,
         "bias": "🟢 BULL"
       },
       {
         "day": "Thu 24/09",
         "session": "NY Open 21-23",
-        "open": 725.0,
-        "high": 736.0,
-        "low": 713.25,
-        "close": 728.5,
+        "open": 724.75,
+        "high": 735.75,
+        "low": 713.0,
+        "close": 728.25,
         "net_change": 3.5,
         "bias": "🟢 BULL"
       },
       {
         "day": "Thu 24/09",
         "session": "NY Close 23-01",
-        "open": 728.5,
-        "high": 734.0,
-        "low": 720.75,
-        "close": 729.25,
+        "open": 728.25,
+        "high": 733.75,
+        "low": 720.5,
+        "close": 729.0,
         "net_change": 0.75,
         "bias": "🟢 BULL"
       },
       {
         "day": "Fri 25/09",
         "session": "Asia 07-11",
-        "open": 729.25,
-        "high": 738.5,
-        "low": 722.75,
-        "close": 728.5,
+        "open": 729.0,
+        "high": 738.25,
+        "low": 722.5,
+        "close": 728.25,
         "net_change": -0.75,
         "bias": "🔴 BEAR",
         "scenario": "Quarterly Options Expiry — Chốt tuần",
@@ -816,101 +776,101 @@
       {
         "day": "Fri 25/09",
         "session": "Asia 11-15",
-        "open": 728.5,
-        "high": 736.0,
-        "low": 722.5,
-        "close": 727.5,
+        "open": 728.25,
+        "high": 735.75,
+        "low": 722.25,
+        "close": 727.25,
         "net_change": -1.0,
         "bias": "🔴 BEAR"
       },
       {
         "day": "Fri 25/09",
         "session": "London 15-19",
-        "open": 727.5,
-        "high": 734.5,
-        "low": 714.0,
-        "close": 728.25,
+        "open": 727.25,
+        "high": 734.25,
+        "low": 713.75,
+        "close": 728.0,
         "net_change": 0.75,
         "bias": "🟢 BULL"
       },
       {
         "day": "Fri 25/09",
         "session": "Pre-NY 19-21",
-        "open": 728.25,
-        "high": 737.5,
-        "low": 721.0,
-        "close": 728.0,
+        "open": 728.0,
+        "high": 737.25,
+        "low": 720.75,
+        "close": 727.75,
         "net_change": -0.25,
         "bias": "🔴 BEAR"
       },
       {
         "day": "Fri 25/09",
         "session": "NY Open 21-23",
-        "open": 728.0,
-        "high": 736.5,
-        "low": 714.0,
-        "close": 729.75,
+        "open": 727.75,
+        "high": 736.25,
+        "low": 713.75,
+        "close": 729.5,
         "net_change": 1.75,
         "bias": "🟢 BULL"
       },
       {
         "day": "Fri 25/09",
         "session": "NY Close 23-01",
-        "open": 729.75,
-        "high": 736.0,
-        "low": 723.25,
-        "close": 729.0,
+        "open": 729.5,
+        "high": 735.75,
+        "low": 723.0,
+        "close": 728.75,
         "net_change": -0.75,
         "bias": "🔴 BEAR"
       }
     ],
     "daily_summary": {
       "Mon 21/09": {
-        "open": 708.75,
-        "high": 727.25,
-        "low": 692.75,
-        "close": 716.5,
+        "open": 708.5,
+        "high": 727.0,
+        "low": 692.5,
+        "close": 716.25,
         "scenario": "USDA Crop Progress + Hấp Thụ Short-Covering",
         "logic": "USDA Crop Progress: G/E lúa mì duy trì 27%. LƯU Ý: Đà tăng tuần qua đã xả bớt phần lớn vị thế Short của Quỹ. Không nên kỳ vọng một cú Squeeze sốc mới, thị trường sẽ tăng chậm lại hoặc có nhịp Pullback chốt lời."
       },
       "Tue 22/09": {
-        "open": 716.5,
-        "high": 734.5,
-        "low": 702.5,
-        "close": 722.5,
+        "open": 716.25,
+        "high": 734.25,
+        "low": 702.25,
+        "close": 722.25,
         "scenario": "El Niño + Australia Planting Risk",
         "logic": "El Niño xác nhận tháng 6/2026 → dự báo hạn hán tại Australia mùa gieo hạt Jul-Sep. Lịch sử: El Niño + Australia hạn hán = giảm 15-20% sản lượng lúa mì Australia. Đây là yếu tố cung dài hạn cực kỳ bullish cho ZW Q4 2026."
       },
       "Wed 23/09": {
-        "open": 722.5,
-        "high": 736.75,
-        "low": 709.25,
-        "close": 723.5,
+        "open": 722.25,
+        "high": 736.5,
+        "low": 709.0,
+        "close": 723.25,
         "scenario": "Nga Khô Hạn + Consolidation",
         "logic": "Báo cáo vệ tinh xác nhận hạn hán cục bộ tại Krasnodar/Rostov (Nga) — khu vực sản xuất lúa mì chất lượng cao. Nga vẫn là nguồn cung lớn nhất thế giới, bất kỳ giảm sản lượng nào cũng tác động mạnh đến giá. Thị trường consolidate chờ Export Sales thứ Năm."
       },
       "Thu 24/09": {
-        "open": 723.5,
-        "high": 736.0,
-        "low": 713.25,
-        "close": 729.25,
+        "open": 723.25,
+        "high": 735.75,
+        "low": 713.0,
+        "close": 729.0,
         "scenario": "Export Sales + Egypt Tender - QUAN TRỌNG",
         "logic": "Export Sales lúa mì tuần 23-27/06: Kỳ vọng Egypt, Philippines và Bangladesh quay lại mua lúa mì Mỹ khi giá HRW cạnh tranh hơn so với Nga (Nga vừa tăng thuế xuất khẩu). Data ~20:30 ICT là catalyst lớn nhất tuần. G/E 27% đảm bảo supply tight dài hạn."
       },
       "Fri 25/09": {
-        "open": 729.25,
-        "high": 738.5,
-        "low": 714.0,
-        "close": 729.0,
+        "open": 729.0,
+        "high": 738.25,
+        "low": 713.75,
+        "close": 728.75,
         "scenario": "Quarterly Options Expiry — Chốt tuần",
         "logic": "Quarterly options expiry tạo biến động xung quanh các mức strike lớn (~610¢, ~620¢). Fund đóng một phần Long để book profit. Nhưng nền tảng cơ bản vẫn bullish: G/E 27%, El Niño Australia, Nga khô hạn — dự kiến tuần tiếp theo tiếp tục tăng."
       }
     },
     "week_forecast": {
-      "open": 708.75,
-      "close": 729.0,
-      "high": 738.5,
-      "low": 692.75,
+      "open": 708.5,
+      "close": 728.75,
+      "high": 738.25,
+      "low": 692.5,
       "net_change": 20.25,
       "direction": "BULLISH"
     },
@@ -921,7 +881,7 @@
       "symbol": "ZS",
       "contract": "ZSU26 (September 2026)",
       "anchor_price": 1190.0,
-      "generated_at": "2026-09-23 10:01:59",
+      "generated_at": "2026-09-23 11:01:16",
       "forecast_week": "September 21-25, 2026",
       "composite_bias": 0.6,
       "detailed_scores": {
