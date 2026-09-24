@@ -1,0 +1,62 @@
+{
+  "ZW": [
+    {
+      "quarter": "Q4 2025",
+      "report_date": "30/09/2025",
+      "stocks": "1,780 triệu bushels",
+      "yoy_change": "+2.5%",
+      "status": "Lịch sử"
+    },
+    {
+      "quarter": "Q1 2026",
+      "report_date": "12/01/2026",
+      "stocks": "1,410 triệu bushels",
+      "yoy_change": "+5.0%",
+      "status": "Lịch sử"
+    },
+    {
+      "quarter": "Q2 2026",
+      "report_date": "31/03/2026",
+      "stocks": "1,087 triệu bushels",
+      "yoy_change": "+16.0%",
+      "status": "Lịch sử"
+    },
+    {
+      "quarter": "Q3 2026",
+      "report_date": "30/06/2026",
+      "stocks": "920 triệu bushels",
+      "yoy_change": "+8.0%",
+      "status": "Mới nhất"
+    }
+  ],
+  "ZC": [
+    {
+      "quarter": "Q4 2025",
+      "report_date": "30/09/2025",
+      "stocks": "1,360 triệu bushels",
+      "yoy_change": "-1.0%",
+      "status": "Lịch sử"
+    },
+    {
+      "quarter": "Q1 2026",
+      "report_date": "12/01/2026",
+      "stocks": "12,169 triệu bushels",
+      "yoy_change": "+12.5%",
+      "status": "Lịch sử"
+    },
+    {
+      "quarter": "Q2 2026",
+      "report_date": "31/03/2026",
+      "stocks": "8,347 triệu bushels",
+      "yoy_change": "+13.0%",
+      "status": "Lịch sử"
+    },
+    {
+      "quarter": "Q3 2026",
+      "report_date": "30/06/2026",
+      "stocks": "5.29 tỷ bushels",
+      "yoy_change": "+14.0%",
+      "status": "Mới nhất"
+    }
+  ]
+}
