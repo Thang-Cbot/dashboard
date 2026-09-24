@@ -19934,3 +19934,10 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-09-24 21:32:02] [INFO] ▶ Kích hoạt: Export Sales
 [2026-09-24 21:32:49] [INFO] ✅ Export Sales hoàn thành (attempt 1)
 [2026-09-24 21:32:49] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Export Sales)...
+[2026-09-24 21:32:56] [Sync] ⚠️ Lỗi Github Push: board.git
+ ! [remote rejected]   main -> main (Internal Server Error)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-09-24 21:32:56] [INFO] ⏰ Đợi Export Sales: còn 167.98h (01/10 21:32:02 VN)
+[2026-09-24 22:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-09-24 22:00:59] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-09-24 22:00:59] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
