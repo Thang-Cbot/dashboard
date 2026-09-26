@@ -120,7 +120,7 @@ def score_f2w_us_weather(manual_overrides, fund_data):
         if short_weather and isinstance(short_weather, str):
             detail = f"{short_weather} | {detail}"
             
-        return {"score": score, "raw_value": f"Điểm tự đánh giá: {score}/10", "raw_detail": detail[:120], "last_updated": last_up, "status": "manual"}
+        return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": detail[:120], "last_updated": last_up, "status": "manual"}
     except Exception as e:
         return {"score": score, "raw_value": f"Điểm: {score}/10", "raw_detail": note, "last_updated": last_up, "status": "manual"}
 
@@ -129,28 +129,28 @@ def score_f3_other_supply(manual_overrides):
     ov = manual_overrides.get("F3_Other_Supply", manual_overrides.get("F3_EU_Supply", {}))
     score = ov.get("score", 5)
     note = ov.get("note", "")
-    return {"score": score, "raw_value": f"Điểm tự đánh giá: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
+    return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
 def score_f4_weather_sh(manual_overrides):
     """F4: Thời Tiết Nam Bán Cầu (Úc / Argentina) - manual."""
     ov = manual_overrides.get("F4_Weather_SH", manual_overrides.get("F4_Southern_Hemisphere", {}))
     score = ov.get("score", 5)
     note  = ov.get("note", "")
-    return {"score": score, "raw_value": f"Điểm tự đánh giá: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
+    return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
 def score_f4s_supply_sh(manual_overrides):
     """F4S: Nguồn Cung Nam Bán Cầu (Úc, Argentina) - sản lượng dự báo."""
     ov    = manual_overrides.get("F4S_Supply_SH", {})
     score = ov.get("score", 5)
     note  = ov.get("note", "")
-    return {"score": score, "raw_value": f"Điểm tự đánh giá: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
+    return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
 def score_f12_global_demand(manual_overrides):
     """F12: Nhu Cầu Toàn Cầu (Global Demand) - Ai Cập, Ả Rập, Trung Quốc..."""
     ov    = manual_overrides.get("F12_Global_Demand", {})
     score = ov.get("score", 5)
     note  = ov.get("note", "")
-    return {"score": score, "raw_value": f"Điểm tự đánh giá: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
+    return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
 
 def score_f5_export_sales(sales_data):
@@ -303,7 +303,7 @@ def score_f8_geopolitics(manual_overrides):
     ov = manual_overrides.get("F8_Geopolitics", {})
     score = ov.get("score", 5)
     note = ov.get("note", "")
-    return {"score": score, "raw_value": f"Điểm tự đánh giá: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
+    return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
 def score_f9_dxy(macro_data):
     """F9: DXY Index."""
