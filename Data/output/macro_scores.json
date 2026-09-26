@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-09-26 21:43:09",
+    "timestamp": "2026-09-26 21:59:23",
     "month": "9",
     "total_score": 51.0,
     "trend": "Sideways — Đi Ngang",
@@ -10,7 +10,7 @@
             "contribution": 1.12,
             "raw_value": "Nhập thủ công",
             "raw_detail": "Ukraine tập kích chưa từng có vào Moskva. Đàm phán đình chiến không thành, đe dọa đứt gãy cung ứng Biển Đen. Score 8 = Bullish mạnh",
-            "last_updated": "2026-08-27 08:00",
+            "last_updated": "2026-09-26 21:46",
             "status": "manual"
         },
         "F2": {
@@ -37,7 +37,7 @@
             "contribution": 0.1,
             "raw_value": "Điểm tự đánh giá: 2/10",
             "raw_detail": "An Do boi thu 120M tan xa toi da 6M. EU va Canada kha quan. Score 2 = Bearish",
-            "last_updated": "Thủ công",
+            "last_updated": "2026-08-27 08:00",
             "status": "manual"
         },
         "F4": {
@@ -46,7 +46,7 @@
             "contribution": 0.24,
             "raw_value": "Điểm tự đánh giá: 3/10",
             "raw_detail": "Thoi tiet Nam Ban Cau: Uc co mua thuan loi, Argentina dieu kien tot. Score 3 = Bearish nhe",
-            "last_updated": "Thủ công",
+            "last_updated": "2026-08-27 08:00",
             "status": "manual"
         },
         "F4S": {
@@ -55,7 +55,7 @@
             "contribution": 0.22,
             "raw_value": "Điểm tự đánh giá: 2/10",
             "raw_detail": "Uc du bao san luong tang them 3M tan so voi du bao thang 6. Argentina tang du bao san luong thu hoach thang 11. Score 2 = Bearish manh",
-            "last_updated": "Thủ công",
+            "last_updated": "2026-08-27 08:00",
             "status": "manual"
         },
         "F5": {
@@ -91,7 +91,7 @@
             "contribution": 0.64,
             "raw_value": "Điểm tự đánh giá: 8/10",
             "raw_detail": "Chiến sự Nga-Ukraine leo thang. Chờ đón tin tốt về thương mại Mỹ - Trung. Score 8 = Bullish mạnh",
-            "last_updated": "Thủ công",
+            "last_updated": "2026-09-26 21:46",
             "status": "manual"
         },
         "F9": {
@@ -127,7 +127,7 @@
             "contribution": 0.2,
             "raw_value": "Điểm tự đánh giá: 2/10",
             "raw_detail": "Ai Cap tam ngung nhap khau do boi thu noi dia. Arab Saudi ky don 570k tan (thap). Mot so nuoc chuyen sang Uc/Argen thay Nga. Score 2 = Bearish",
-            "last_updated": "Thủ công",
+            "last_updated": "2026-08-27 08:00",
             "status": "manual"
         }
     }
