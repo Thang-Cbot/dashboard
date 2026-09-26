@@ -1,8 +1,8 @@
 {
   "manual_overrides": {
     "F1_Russia_Policy": {
-      "score": 2,
-      "note": "Nga + Ukraine boi thu nhung tac nghen xuat khau. Score 2 = Bearish"
+      "score": 8,
+      "note": "Ukraine tập kích chưa từng có vào Moskva. Đàm phán đình chiến không thành, đe dọa đứt gãy cung ứng Biển Đen. Score 8 = Bullish mạnh"
     },
     "F3_Other_Supply": {
       "score": 2,
@@ -17,8 +17,8 @@
       "note": "Uc du bao san luong tang them 3M tan so voi du bao thang 6. Argentina tang du bao san luong thu hoach thang 11. Score 2 = Bearish manh"
     },
     "F8_Geopolitics": {
-      "score": 5,
-      "note": "Cang thang Bien Den / Logistics van co nhung bu lai nguon cung Uc/Argen/An Do. Score 5 = Trung lap"
+      "score": 8,
+      "note": "Chiến sự Nga-Ukraine leo thang. Chờ đón tin tốt về thương mại Mỹ - Trung. Score 8 = Bullish mạnh"
     },
     "F12_Global_Demand": {
       "score": 2,
@@ -27,6 +27,10 @@
     "F2W_US_Weather": {
       "score": 5,
       "note": "Đã cập nhật tự động từ AI"
+    },
+    "F5_Export_Sales": {
+      "score": 2,
+      "note": "Báo cáo Export Sales thấp hơn tuần trước khá nhiều, lực cầu yếu. Score 2 = Bearish"
     }
   },
   "monthly_weights": {
