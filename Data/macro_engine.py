@@ -30,7 +30,7 @@ def score_f1_blacksea(manual_overrides, bs_data):
     last_up  = get_file_mtime(OUTPUT_DIR / "blacksea_wheat.json")
 
     # Try to get raw value from blacksea file
-    raw_val = "Nhập thủ công"
+    raw_val = "Dữ liệu Chuyên gia"
     raw_detail = ""
     if bs_data:
         try:

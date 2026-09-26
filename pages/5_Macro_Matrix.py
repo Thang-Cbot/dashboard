@@ -169,14 +169,12 @@ if st.sidebar.button("🧹 Làm Mới Cache", use_container_width=True):
     st.rerun()
 
 # ── Load data ─────────────────────────────────────────────────────────────────
-@st.cache_data(ttl=60)
 def load_scores():
     p = DATA_OUTPUT / "macro_scores.json"
     if not p.exists(): return None
     try: return json.loads(p.read_text(encoding="utf-8"))
     except: return None
 
-@st.cache_data(ttl=60)
 def load_weights_config():
     p = BASE_DIR / "Data" / "macro_weights.json"
     if not p.exists(): return {}
