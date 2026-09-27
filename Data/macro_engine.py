@@ -317,11 +317,12 @@ def score_f9_dxy(macro_data):
         pct   = dxy_d.get("pct", 0)
         if dxy is None:
             return {"score": 5, "raw_value": "N/A", "raw_detail": "Thiếu giá DXY", "last_updated": last_up, "status": "error"}
-        if dxy > 105: score = 2
-        elif dxy > 103: score = 4
-        elif dxy > 100: score = 6
-        elif dxy > 98: score = 8
-        else: score = 10
+        if dxy >= 104: score = 2
+        elif dxy >= 102: score = 3
+        elif dxy >= 100.5: score = 4
+        elif dxy >= 99: score = 5
+        elif dxy >= 97: score = 7
+        else: score = 9
         return {"score": score, "raw_value": f"DXY {dxy:.2f} ({pct:+.2f}%)", "raw_detail": "USD Index — Sức mạnh đồng đô", "last_updated": last_up, "status": "ok"}
     except Exception as e:
         return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:50], "last_updated": last_up, "status": "error"}

@@ -1,28 +1,34 @@
 {
   "manual_overrides": {
     "F1_Russia_Policy": {
-      "score": 8,
-      "note": "Ukraine tập kích chưa từng có vào Moskva. Đàm phán đình chiến không thành, đe dọa đứt gãy cung ứng Biển Đen. Score 8 = Bullish mạnh"
+      "score": 2,
+      "note": "Nga bỏ thuế xuất khẩu lúa mì (Zero export duty) đến hết tháng 12/2026 để xả hàng, gây áp lực giảm giá mạnh.",
+      "updated_at": "2026-09-27 21:51"
     },
     "F3_Other_Supply": {
-      "score": 2,
-      "note": "An Do boi thu 120M tan xa toi da 6M. EU va Canada kha quan. Score 2 = Bearish"
+      "score": 8,
+      "note": "Sản lượng EU giảm mạnh xuống 137.5 triệu tấn do nắng nóng khắc nghiệt ở Pháp và Đức. Nguồn cung thắt chặt.",
+      "updated_at": "2026-09-27 21:51"
     },
     "F4_Weather_SH": {
       "score": 3,
-      "note": "Thoi tiet Nam Ban Cau: Uc co mua thuan loi, Argentina dieu kien tot. Score 3 = Bearish nhe"
+      "note": "Thời tiết Nam Bán Cầu: Dù Argentina thiếu mưa và lạnh, nhưng Úc lại nhận lượng mưa mùa đông cực tốt, đẩy kỳ vọng sản lượng lên cao.",
+      "updated_at": "2026-09-27 21:56"
     },
     "F4S_Supply_SH": {
-      "score": 2,
-      "note": "Uc du bao san luong tang them 3M tan so voi du bao thang 6. Argentina tang du bao san luong thu hoach thang 11. Score 2 = Bearish manh"
+      "score": 4,
+      "note": "Sản lượng Úc đạt 29.9 triệu tấn (vượt TBC 10 năm). Argentina 23.4 triệu tấn. Tổng cung Nam Bán Cầu dồi dào, gây áp lực giảm giá (Bearish).",
+      "updated_at": "2026-09-27 21:56"
     },
     "F8_Geopolitics": {
-      "score": 8,
-      "note": "Chiến sự Nga-Ukraine leo thang. Chờ đón tin tốt về thương mại Mỹ - Trung. Score 8 = Bullish mạnh"
+      "score": 7,
+      "note": "Xung đột Biển Đen leo thang với các cuộc tấn công vào cảng biển, làm gián đoạn logistics dù nguồn cung Nga vẫn đang ồ ạt.",
+      "updated_at": "2026-09-27 21:51"
     },
     "F12_Global_Demand": {
-      "score": 2,
-      "note": "Ai Cap tam ngung nhap khau do boi thu noi dia. Arab Saudi ky don 570k tan (thap). Mot so nuoc chuyen sang Uc/Argen thay Nga. Score 2 = Bearish"
+      "score": 4,
+      "note": "Ả Rập Xê Út hủy thầu mua 535k tấn do giá cao. Tuy nhiên Ai Cập (Mostaqbal Misr) vẫn giữ mục tiêu mua 2.5 triệu tấn.",
+      "updated_at": "2026-09-27 21:51"
     },
     "F2W_US_Weather": {
       "score": 5,
