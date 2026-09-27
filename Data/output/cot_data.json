@@ -1,36 +1,28 @@
 {
-  "fetched_at": "2026-09-22 06:23:11",
+  "fetched_at": "2026-09-27 21:52:18",
   "source": "CFTC ZIP (Disaggregated Futures Only) + Rolling Beta 13W",
   "commodities": {
     "002602": {
       "commodity": "ZC",
       "cftc_code": "002602",
-      "report_date": "2026-09-15",
-      "long_curr": 483738.0,
-      "short_curr": 69278.0,
-      "net_position": 414460.0,
-      "net_prev": 414459.0,
-      "change": 1.0,
-      "quadrant": "Q1 (XANH LA) - GOM LONG",
-      "action": "Uu tien LONG. Xu huong tang ben vung.",
-      "rolling_beta_13w": 1884.58,
-      "cutoff_price_tue": 535.75,
-      "latest_price": 543.0,
-      "latest_price_date": "2026-09-21",
-      "price_lag_change": 7.25,
-      "estimated_extra_contracts": 13663.0,
-      "net_estimated": 428123.0,
-      "quadrant_estimated": "Q1 (XANH LA) - GOM LONG",
-      "action_estimated": "Uu tien LONG. Xu huong tang ben vung.",
+      "report_date": "2026-09-22",
+      "long_curr": 471466.0,
+      "short_curr": 67369.0,
+      "net_position": 404097.0,
+      "net_prev": 414460.0,
+      "change": -10363.0,
+      "quadrant": "Q2 (DO NHAT) - XA LONG",
+      "action": "Cam bat day. Canh gia hoi de danh SHORT.",
+      "rolling_beta_13w": 174.75,
+      "cutoff_price_tue": 536.75,
+      "latest_price": 526.5,
+      "latest_price_date": "2026-09-24",
+      "price_lag_change": -10.25,
+      "estimated_extra_contracts": -1791.0,
+      "net_estimated": 402306.0,
+      "quadrant_estimated": "Q2 (DO NHAT) - XA LONG",
+      "action_estimated": "Cam bat day. Canh gia hoi de danh SHORT.",
       "history": [
-        {
-          "report_date": "2026-06-23",
-          "net_position": -74819.0,
-          "long": 308728.0,
-          "short": 383547.0,
-          "price_close_tue": 437.25,
-          "price_date": "2026-06-23"
-        },
         {
           "report_date": "2026-06-30",
           "net_position": -66996.0,
@@ -126,39 +118,39 @@
           "short": 69278.0,
           "price_close_tue": 535.75,
           "price_date": "2026-09-15"
+        },
+        {
+          "report_date": "2026-09-22",
+          "net_position": 404097.0,
+          "long": 471466.0,
+          "short": 67369.0,
+          "price_close_tue": 536.75,
+          "price_date": "2026-09-22"
         }
       ],
-      "fetched_at": "2026-09-22 06:23:14"
+      "fetched_at": "2026-09-27 21:52:20"
     },
     "001602": {
       "commodity": "ZW",
       "cftc_code": "001602",
-      "report_date": "2026-09-15",
-      "long_curr": 95798.0,
-      "short_curr": 99472.0,
-      "net_position": -3674.0,
-      "net_prev": 4873.0,
-      "change": -8547.0,
+      "report_date": "2026-09-22",
+      "long_curr": 88801.0,
+      "short_curr": 100817.0,
+      "net_position": -12016.0,
+      "net_prev": -3674.0,
+      "change": -8342.0,
       "quadrant": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "rolling_beta_13w": 399.83,
-      "cutoff_price_tue": 728.5,
-      "latest_price": 726.75,
-      "latest_price_date": "2026-09-21",
-      "price_lag_change": -1.75,
-      "estimated_extra_contracts": -700.0,
-      "net_estimated": -4374.0,
+      "rolling_beta_13w": 456.35,
+      "cutoff_price_tue": 717.25,
+      "latest_price": 704.0,
+      "latest_price_date": "2026-09-24",
+      "price_lag_change": -13.25,
+      "estimated_extra_contracts": -6047.0,
+      "net_estimated": -18063.0,
       "quadrant_estimated": "Q3 (DO DAM) - NHOI SHORT",
       "action_estimated": "Uu tien SHORT thuan xu huong.",
       "history": [
-        {
-          "report_date": "2026-06-23",
-          "net_position": -70433.0,
-          "long": 68457.0,
-          "short": 138890.0,
-          "price_close_tue": 613.75,
-          "price_date": "2026-06-23"
-        },
         {
           "report_date": "2026-06-30",
           "net_position": -67561.0,
@@ -254,9 +246,17 @@
           "short": 99472.0,
           "price_close_tue": 728.5,
           "price_date": "2026-09-15"
+        },
+        {
+          "report_date": "2026-09-22",
+          "net_position": -12016.0,
+          "long": 88801.0,
+          "short": 100817.0,
+          "price_close_tue": 717.25,
+          "price_date": "2026-09-22"
         }
       ],
-      "fetched_at": "2026-09-22 06:23:14"
+      "fetched_at": "2026-09-27 21:52:20"
     }
   }
 }

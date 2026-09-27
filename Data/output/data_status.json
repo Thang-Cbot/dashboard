@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 00:00:21",
-      "updated_at": "2026-09-25 00:00:21"
+      "detail": "Auto-fetch 06:31:02",
+      "updated_at": "2026-09-28 06:31:02"
     },
     "macro": {
       "status": "[OK]",
@@ -71,13 +71,13 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 00:00",
-    "updated_at": "2026-09-25 00:00:21"
+    "detail": "ZC+ZW updated at 06:30",
+    "updated_at": "2026-09-28 06:31:02"
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=105.02, DXY=101.204",
-    "updated_at": "2026-09-25 00:00:46"
+    "detail": "Brent=97.44, DXY=100.97",
+    "updated_at": "2026-09-27 21:50:54"
   },
   "acreage": {
     "status": "OK",
@@ -92,6 +92,11 @@
   "export_sales": {
     "status": "OK",
     "detail": "Kỳ: 09/17/2026 | ZW=267,600 MT, ZC=838,300 MT",
-    "updated_at": "2026-09-24 21:32:49"
+    "updated_at": "2026-09-27 21:51:31"
+  },
+  "cot": {
+    "status": "[OK] Success",
+    "detail": "",
+    "updated_at": "2026-09-27 21:52:20"
   }
 }
