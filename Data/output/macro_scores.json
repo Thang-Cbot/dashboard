@@ -1,7 +1,7 @@
 {
-    "timestamp": "2026-09-27 21:58:28",
+    "timestamp": "2026-09-27 22:08:32",
     "month": "9",
-    "total_score": 48.0,
+    "total_score": 46.9,
     "trend": "Sideways — Đi Ngang",
     "breakdown": {
         "F1": {
@@ -45,17 +45,17 @@
             "weight_pct": 8,
             "contribution": 0.24,
             "raw_value": "Phân tích Chuyên gia: 3/10",
-            "raw_detail": "Thời tiết Nam Bán Cầu: Dù Argentina thiếu mưa và lạnh, nhưng Úc lại nhận lượng mưa mùa đông cực tốt, đẩy kỳ vọng sản lượng lên cao.",
-            "last_updated": "2026-09-27 21:56",
+            "raw_detail": "Thời tiết tháng 9 cải thiện rõ rệt (mưa tốt tại Nam Úc/Victoria và Argentina) giúp xoa dịu lo ngại hạn hán trước đó, gây áp lực giảm giá (Bearish).",
+            "last_updated": "2026-09-27 22:08",
             "status": "manual"
         },
         "F4S": {
-            "score_1_to_10": 4,
+            "score_1_to_10": 3,
             "weight_pct": 11,
-            "contribution": 0.44,
-            "raw_value": "Phân tích Chuyên gia: 4/10",
-            "raw_detail": "Sản lượng Úc đạt 29.9 triệu tấn (vượt TBC 10 năm). Argentina 23.4 triệu tấn. Tổng cung Nam Bán Cầu dồi dào, gây áp lực giảm giá (Bearish).",
-            "last_updated": "2026-09-27 21:56",
+            "contribution": 0.33,
+            "raw_value": "Phân tích Chuyên gia: 3/10",
+            "raw_detail": "ABARES (Úc) và BCR (Argentina) vừa ĐIỀU CHỈNH TĂNG dự báo sản lượng so với tháng trước do thời tiết thuận lợi. Nguồn cung tốt hơn mức kỳ vọng (đã priced-in) tạo sức ép Bearish.",
+            "last_updated": "2026-09-27 22:08",
             "status": "manual"
         },
         "F5": {
