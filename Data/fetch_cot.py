@@ -20,8 +20,8 @@ if hasattr(sys.stdout, 'reconfigure'):
 def run_fetch_cot() -> bool:
     """Wrapper gọi run_fetch_cot() từ Data/price/cot.py"""
     try:
-        from price.cot import run_fetch_cot as _run
-        return _run()
+        from price.cot import run_cot as _run
+        _run(); return True
     except Exception as e:
         print(f"  [ERROR] fetch_cot wrapper: {e}")
         return False
