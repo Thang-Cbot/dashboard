@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-09-23",
+  "last_updated_fundamentals": "2026-09-29",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -82,8 +82,19 @@
       "previous_date": "09/10/2026",
       "pct_change": -18.4,
       "logic": "Ngô niên vụ 2025/26 đạt 838.3 nghìn tấn, đưa lũy kế lên 4.359 triệu tấn, cao hơn 22.5% so với cùng kỳ năm ngoái.",
-      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)",
+      "next_date": "05/10/2026 lúc 22:00 (VN)",
       "inspections": {
+        "volume": 1565924,
+        "week_ago": 1960147,
+        "year_ago": 1539257,
+        "ytd_current": 5726150,
+        "ytd_previous": 5108803,
+        "ytd_yoy_pct": 12.1,
+        "week_ending": "SEP 24, 2026",
+        "week_ago_date": "09/17/2026"
+      },
+      "inspections_week_ending": "SEP 24, 2026",
+      "inspections_previous": {
         "volume": 1938523,
         "week_ago": 1552010,
         "year_ago": 1385966,
@@ -92,17 +103,6 @@
         "ytd_yoy_pct": 15.9,
         "week_ending": "SEP 17, 2026",
         "week_ago_date": "09/10/2026"
-      },
-      "inspections_week_ending": "SEP 17, 2026",
-      "inspections_previous": {
-        "volume": 1525481,
-        "week_ago": 1674776,
-        "year_ago": 1533810,
-        "ytd_current": 2173550,
-        "ytd_previous": 2183580,
-        "ytd_yoy_pct": -0.5,
-        "week_ending": "SEP 10, 2026",
-        "week_ago_date": "09/03/2026"
       }
     },
     "competitors": {
@@ -280,8 +280,19 @@
       "previous_date": "09/10/2026",
       "pct_change": -17.9,
       "logic": "Lúa Mì niên vụ 2026/27 đạt 267.6 nghìn tấn, đưa lũy kế lên 6.288 triệu tấn, thấp hơn 26.2% so với cùng kỳ năm ngoái.",
-      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)",
+      "next_date": "05/10/2026 lúc 22:00 (VN)",
       "inspections": {
+        "volume": 310635,
+        "week_ago": 339955,
+        "year_ago": 873578,
+        "ytd_current": 6342896,
+        "ytd_previous": 9672185,
+        "ytd_yoy_pct": -34.4,
+        "week_ending": "SEP 24, 2026",
+        "week_ago_date": "09/17/2026"
+      },
+      "inspections_week_ending": "SEP 24, 2026",
+      "inspections_previous": {
         "volume": 335253,
         "week_ago": 472980,
         "year_ago": 939803,
@@ -290,17 +301,6 @@
         "ytd_yoy_pct": -31.5,
         "week_ending": "SEP 17, 2026",
         "week_ago_date": "09/10/2026"
-      },
-      "inspections_week_ending": "SEP 17, 2026",
-      "inspections_previous": {
-        "volume": 456720,
-        "week_ago": 431280,
-        "year_ago": 758391,
-        "ytd_current": 5675557,
-        "ytd_previous": 7858804,
-        "ytd_yoy_pct": -27.8,
-        "week_ending": "SEP 10, 2026",
-        "week_ago_date": "09/03/2026"
       }
     },
     "competitors": {
