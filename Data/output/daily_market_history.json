@@ -557,6 +557,12 @@
       "open_interest": 926746,
       "close": 523.0,
       "open": 528.75
+    },
+    "2026-09-29": {
+      "volume": 11532.0,
+      "open_interest": 926746,
+      "close": 523.75,
+      "open": 522.0
     }
   },
   "ZW": {
@@ -1117,6 +1123,12 @@
       "open_interest": 253338,
       "close": 688.75,
       "open": 703.0
+    },
+    "2026-09-29": {
+      "volume": 3304.0,
+      "open_interest": 253338,
+      "close": 686.75,
+      "open": 689.5
     }
   },
   "ZS": {
