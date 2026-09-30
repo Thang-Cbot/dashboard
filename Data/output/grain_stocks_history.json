@@ -26,7 +26,14 @@
       "report_date": "30/06/2026",
       "stocks": "920 triệu bushels",
       "yoy_change": "+8.0%",
-      "status": "Mới nhất"
+      "status": "Lich su"
+    },
+    {
+      "quarter": "Q4 2026",
+      "report_date": "30/09/2026",
+      "stocks": "1,850 trieu bushels",
+      "yoy_change": "-14.0%",
+      "status": "Moi nhat"
     }
   ],
   "ZC": [
@@ -56,7 +63,14 @@
       "report_date": "30/06/2026",
       "stocks": "5.29 tỷ bushels",
       "yoy_change": "+14.0%",
-      "status": "Mới nhất"
+      "status": "Lich su"
+    },
+    {
+      "quarter": "Q4 2026",
+      "report_date": "30/09/2026",
+      "stocks": "2,100 ty bushels",
+      "yoy_change": "+35.0%",
+      "status": "Moi nhat"
     }
   ]
 }

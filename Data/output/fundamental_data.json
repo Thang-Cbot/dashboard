@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-09-29",
+  "last_updated_fundamentals": "2026-10-01",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -19,7 +19,7 @@
       "action": "Argentina thu hoạch rộ -> Canh Short ngắn hạn / Gom Long dài hạn (DCA)",
       "logic": "Argentina đang thu hoạch rộ đạt 66%. Việc giá ngô giữ vững trên 445-450 cents bất bất chấp áp lực thu hoạch cho thấy ngô đã xác lập vùng đáy chu kỳ mùa vụ thành công.",
       "previous": "Mỹ: 13% thu hoạch",
-      "previous_date": "21/09/2026",
+      "previous_date": "28/09/2026",
       "latest_date": "28/09/2026"
     },
     "crop_condition": {
@@ -29,7 +29,7 @@
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
       "previous": "57% Good to Excellent",
-      "previous_date": "21/09/2026",
+      "previous_date": "28/09/2026",
       "latest_date": "28/09/2026"
     },
     "us_ending_stocks": {
@@ -124,13 +124,13 @@
       "next_date": "25/09/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q2 (DO NHAT) - XA LONG",
       "action": "Cam bat day. Canh gia hoi de danh SHORT.",
-      "logic": "[2026-09-22] MM nam Long rong 404,097 HD. Tuan nay giam bot 10,363 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-09-29): +401,301 HD (Q2 (DO NHAT) - XA LONG) [Lag=-16.00c, Beta=174.8]",
+      "logic": "[2026-09-22] MM nam Long rong 404,097 HD. Tuan nay giam bot 10,363 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-09-30): +397,893 HD (Q2 (DO NHAT) - XA LONG) [Lag=-35.50c, Beta=174.8]",
       "raw_data": {
         "net_position": 404097.0,
         "change": -10363.0,
         "long": 471466.0,
         "short": 67369.0,
-        "net_estimated": 401301.0,
+        "net_estimated": 397893.0,
         "quadrant_est": "Q2 (DO NHAT) - XA LONG",
         "beta_13w": 174.75
       }
@@ -207,7 +207,7 @@
       "action": "Tiến độ ổn định -> Canh Short ngắn hạn",
       "logic": "Lúa mì xuân gieo trồng phát triển thuận lợi. Lúa mì đông đã trổ bông vượt trung bình.",
       "previous": "Đông 17% gieo, Xuân N/A",
-      "previous_date": "21/09/2026",
+      "previous_date": "28/09/2026",
       "latest_date": "28/09/2026"
     },
     "harvest_progress": {
@@ -217,7 +217,7 @@
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Đông N/A, Xuân N/A",
-      "previous_date": "21/09/2026",
+      "previous_date": "28/09/2026",
       "latest_date": "28/09/2026"
     },
     "crop_condition": {
@@ -227,7 +227,7 @@
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông N/A (Cuối vụ), Xuân N/A",
-      "previous_date": "21/09/2026",
+      "previous_date": "28/09/2026",
       "latest_date": "28/09/2026"
     },
     "us_ending_stocks": {
@@ -329,13 +329,13 @@
       "next_date": "25/09/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "logic": "[2026-09-22] MM nam Short rong 12,016 HD. Tuan nay giam bot 8,342 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-09-29): -26,049 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-30.75c, Beta=456.4]",
+      "logic": "[2026-09-22] MM nam Short rong 12,016 HD. Tuan nay giam bot 8,342 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-09-30): -31,183 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-42.00c, Beta=456.4]",
       "raw_data": {
         "net_position": -12016.0,
         "change": -8342.0,
         "long": 88801.0,
         "short": 100817.0,
-        "net_estimated": -26049.0,
+        "net_estimated": -31183.0,
         "quadrant_est": "Q3 (DO DAM) - NHOI SHORT",
         "beta_13w": 456.35
       }
@@ -423,7 +423,7 @@
       "logic": "Mỹ bắt đầu thu hoạch vào tháng 9-11. Argentina đang thu hoạch đậu tương đạt 75% tiến độ. Việc Argentina sắp kết thúc thu hoạch rộ đồng nghĩa với việc áp lực bán tháo lớn nhất của Nam Mỹ đã phản ánh hoàn toàn vào giá (priced-in), tạo điều kiện cho giá đậu tương thiết lập đáy chu kỳ mùa vụ và bước vào pha tăng trưởng.",
       "previous": "Mỹ: 12% thu hoạch",
       "latest_date": "28/09/2026",
-      "previous_date": "21/09/2026"
+      "previous_date": "28/09/2026"
     },
     "crop_condition": {
       "latest": "58% Good to Excellent",
@@ -433,7 +433,7 @@
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6.",
       "latest_date": "28/09/2026",
       "previous": "58% Good to Excellent",
-      "previous_date": "21/09/2026"
+      "previous_date": "28/09/2026"
     },
     "us_ending_stocks": {
       "next_date": "09/10/2026 lúc 23:00 (VN)",
@@ -538,5 +538,5 @@
     }
   },
   "wasde_report_month": "Sep",
-  "last_updated_cot": "2026-09-29 07:34:51"
+  "last_updated_cot": "2026-10-01 06:31:39"
 }

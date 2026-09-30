@@ -594,52 +594,186 @@ with tab1:
             )
             st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
 
-                # 3. Lịch sử Báo Cáo & Sắp Tới (Grain Stocks)
-        st.markdown("<div style='font-size:15px; font-weight:800; color:#38bdf8; margin-top:20px; margin-bottom:10px;'>📊 Chuỗi Dữ Liệu Tồn Kho Ngũ Cốc (Grain Stocks 4 Kỳ Gần Nhất)</div>", unsafe_allow_html=True)
-        
+        # 3. Grain Stocks Q4 2026 + Small Grains Summary
+        st.markdown("""<div style='font-size:15px; font-weight:800; color:#38bdf8;
+            margin-top:20px; margin-bottom:10px;'>
+            📊 Tồn Kho Ngũ Cốc (Grain Stocks) & Báo Cáo Small Grains – USDA NASS
+            <span style='font-size:11px; color:#22c55e; font-weight:600;'>
+            ✅ Cập nhật: 30/09/2026</span></div>""", unsafe_allow_html=True)
+
         # Load grain stocks history
         try:
-            import json
-            from pathlib import Path
-            gs_path = Path(__file__).parent.parent / "Data" / "output" / "grain_stocks_history.json"
+            import json as _json
+            from pathlib import Path as _Path
+            gs_path = _Path(__file__).parent.parent / "Data" / "output" / "grain_stocks_history.json"
             with open(gs_path, 'r', encoding='utf-8') as f:
-                gs_hist = json.load(f)
-        except Exception as e:
+                gs_hist = _json.load(f)
+        except:
             gs_hist = {"ZW": [], "ZC": []}
 
-        next_rep = acreage_data.get("next_report")
-        
-        gs_tabs = st.tabs(["🌾 Lúa Mì (ZW)", "🌽 Ngô (ZC)"])
-        
-        for i, (tab, ticker) in enumerate(zip(gs_tabs, ["ZW", "ZC"])):
-            with tab:
-                data_list = gs_hist.get(ticker, [])
-                if data_list:
-                    # Bố cục 4 cột (thể hiện 4 quý)
-                    cols = st.columns(4)
-                    for col_idx, item in enumerate(data_list):
-                        with cols[col_idx]:
-                            bg_color = "#1e293b"
-                            border_color = "#334155"
-                            if item.get('status') == "Mới nhất":
-                                bg_color = "rgba(34,197,94,0.1)"
-                                border_color = "#22c55e"
-                            
-                            html_str = f"""<div style="background:{bg_color}; border:1px solid {border_color}; border-radius:8px; padding:12px; height:100%;">
-<div style="font-size:12px; color:#94a3b8; font-weight:600;">{item.get('quarter')}</div>
-<div style="font-size:11px; color:#cbd5e1; margin-bottom:8px;">Ngày BC: {item.get('report_date')}</div>
-<div style="font-size:14px; font-weight:700; color:#e2e8f0;">{item.get('stocks')}</div>
-<div style="font-size:12px; font-weight:600; color: #34d399;">YoY: {item.get('yoy_change')}</div>
-<div style="font-size:10px; color:#fbbf24; margin-top:6px; font-style:italic;">Trạng thái: {item.get('status')}</div>
-</div>"""
-                            st.markdown(html_str, unsafe_allow_html=True)
-                
-                # Hiển thị báo cáo sắp tới ở dưới
-                if next_rep:
-                    html_str2 = f"""<div class="card" style="background:rgba(59,130,246,0.1); border-color:#3b82f6; margin-top:16px;">
-<div style="font-size:13px; color:#93c5fd; font-weight:700;">📅 ĐANG CHỜ BÁO CÁO MỚI: {next_rep.get('name')}</div>
-<div style="font-size:15px; color:#e2e8f0; font-weight:700; margin:4px 0;">Thời gian công bố: {next_rep.get('publish_vn')}</div>
-<div style="font-size:13px; color:#cbd5e1;">{next_rep.get('description')}</div>
-<div style="font-size:13px; color:#f87171; font-weight:600; margin-top:4px;">⚠️ {next_rep.get('impact')}</div>
-</div>"""
-                    st.markdown(html_str2, unsafe_allow_html=True)
+        # Load small grains
+        try:
+            sg_path = _Path(__file__).parent.parent / "Data" / "output" / "small_grains_2026.json"
+            with open(sg_path, 'r', encoding='utf-8') as f:
+                sg = _json.load(f)
+        except:
+            sg = {}
+
+        gs_tabs = st.tabs(["🌾 Lúa Mì – Grain Stocks (ZW)", "🌽 Ngô – Grain Stocks (ZC)", "📋 Small Grains Summary 2026"])
+
+        # ── ZW Grain Stocks ──
+        with gs_tabs[0]:
+            data_list = gs_hist.get("ZW", [])
+            if data_list:
+                # Show max last 5 quarters in columns
+                show_items = data_list[-5:] if len(data_list) > 5 else data_list
+                cols = st.columns(len(show_items))
+                for col_idx, item in enumerate(show_items):
+                    with cols[col_idx]:
+                        is_latest = item.get("status") in ("Moi nhat", "Mới nhất")
+                        is_old = item.get("status") in ("Lich su", "Lịch sử")
+                        bg = "rgba(34,197,94,0.12)" if is_latest else "#1a2035"
+                        border = "#22c55e" if is_latest else "#2a3a5c"
+                        yoy = item.get("yoy_change", "")
+                        yoy_col = "#34d399" if "+" in str(yoy) else "#f87171"
+                        latest_badge = "<div style='font-size:9px; color:#22c55e; font-weight:700; margin-top:4px;'>🆕 MỚI NHẤT</div>" if is_latest else ""
+                        st.markdown(f"""
+                        <div style="background:{bg}; border:1px solid {border}; border-radius:10px;
+                             padding:14px 12px; text-align:center;">
+                          <div style="font-size:11px; color:#94a3b8; font-weight:700;">{item.get('quarter')}</div>
+                          <div style="font-size:10px; color:#64748b;">BC: {item.get('report_date')}</div>
+                          <div style="font-size:17px; font-weight:800; color:#e2e8f0; margin:8px 0;">
+                            {item.get('stocks')}</div>
+                          <div style="font-size:13px; font-weight:700; color:{yoy_col};">YoY: {yoy}</div>
+                          {latest_badge}
+                        </div>""", unsafe_allow_html=True)
+
+            # Market impact note for ZW
+            st.markdown("""
+            <div style='background:#111827; border:1px solid #ef4444; border-radius:8px;
+                 padding:12px 16px; margin-top:12px;'>
+              <div style='font-size:11px; font-weight:700; color:#ef4444; margin-bottom:4px;'>
+                📌 NHẬN ĐỊNH THỊ TRƯỜNG (Q4/2026)</div>
+              <div style='font-size:12px; color:#cbd5e1; line-height:1.8;'>
+                Tồn kho lúa mì <b>1,850 triệu bushels</b> – giảm <b style='color:#ef4444;'>14%</b>
+                so với Q4/2025 (2,150 triệu bushels). Tồn kho thắt chặt hơn năm ngoái do
+                diện tích thu hoạch giảm 15%, cung cấp nền tảng hỗ trợ giá dài hạn.
+                Tuy nhiên áp lực xả hàng từ Nga và Nam Bán Cầu (T11–T12) vẫn đang lấn át
+                trong ngắn hạn.
+              </div>
+            </div>""", unsafe_allow_html=True)
+
+        # ── ZC Grain Stocks ──
+        with gs_tabs[1]:
+            data_list = gs_hist.get("ZC", [])
+            if data_list:
+                show_items = data_list[-5:] if len(data_list) > 5 else data_list
+                cols = st.columns(len(show_items))
+                for col_idx, item in enumerate(show_items):
+                    with cols[col_idx]:
+                        is_latest = item.get("status") in ("Moi nhat", "Mới nhất")
+                        bg = "rgba(34,197,94,0.12)" if is_latest else "#1a2035"
+                        border = "#22c55e" if is_latest else "#2a3a5c"
+                        yoy = item.get("yoy_change", "")
+                        yoy_col = "#34d399" if "+" in str(yoy) else "#f87171"
+                        latest_badge = "<div style='font-size:9px; color:#22c55e; font-weight:700; margin-top:4px;'>🆕 MỚI NHẤT</div>" if is_latest else ""
+                        st.markdown(f"""
+                        <div style="background:{bg}; border:1px solid {border}; border-radius:10px;
+                             padding:14px 12px; text-align:center;">
+                          <div style="font-size:11px; color:#94a3b8; font-weight:700;">{item.get('quarter')}</div>
+                          <div style="font-size:10px; color:#64748b;">BC: {item.get('report_date')}</div>
+                          <div style="font-size:17px; font-weight:800; color:#e2e8f0; margin:8px 0;">
+                            {item.get('stocks')}</div>
+                          <div style="font-size:13px; font-weight:700; color:{yoy_col};">YoY: {yoy}</div>
+                          {latest_badge}
+                        </div>""", unsafe_allow_html=True)
+
+            st.markdown("""
+            <div style='background:#111827; border:1px solid #22c55e; border-radius:8px;
+                 padding:12px 16px; margin-top:12px;'>
+              <div style='font-size:11px; font-weight:700; color:#22c55e; margin-bottom:4px;'>
+                📌 NHẬN ĐỊNH THỊ TRƯỜNG (Q4/2026)</div>
+              <div style='font-size:12px; color:#cbd5e1; line-height:1.8;'>
+                Tồn kho ngô <b>2,100 tỷ bushels</b> – tăng <b style='color:#34d399;'>+35%</b>
+                so với Q4/2025. Con số này <b>vượt kỳ vọng thị trường</b> (dự báo 1,920 tỷ).
+                Báo cáo được đánh giá là <b style='color:#f87171;'>Bearish</b> đối với ngô,
+                nguồn cung dư thừa lớn hơn dự báo bước vào niên vụ mới.
+              </div>
+            </div>""", unsafe_allow_html=True)
+
+        # ── Small Grains Summary ──
+        with gs_tabs[2]:
+            if sg:
+                # Header
+                st.markdown(f"""
+                <div style='background:#1a2035; border:1px solid #3b82f6; border-radius:12px;
+                     padding:16px 20px; margin-bottom:14px;'>
+                  <div style='font-size:11px; color:#64748b; text-transform:uppercase; letter-spacing:1px;'>
+                    USDA NASS — Small Grains 2026 Summary — Công bố {sg.get('report_date','')}
+                  </div>
+                  <div style='display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-top:12px;'>
+                    <div style='text-align:center; padding:10px; background:#111827; border-radius:8px;'>
+                      <div style='font-size:10px; color:#64748b;'>SẢN LƯỢNG TỔNG</div>
+                      <div style='font-size:20px; font-weight:800; color:#f59e0b;'>1,530 M Bu</div>
+                      <div style='font-size:11px; color:#f87171;'>▼ {sg.get('production_change_pct',0):.0f}% vs 2025</div>
+                    </div>
+                    <div style='text-align:center; padding:10px; background:#111827; border-radius:8px;'>
+                      <div style='font-size:10px; color:#64748b;'>DIỆN TÍCH THU HOẠCH</div>
+                      <div style='font-size:20px; font-weight:800; color:#60a5fa;'>{sg.get('total_area_harvested_mac',0)} M Ac</div>
+                      <div style='font-size:11px; color:#f87171;'>▼ {abs(sg.get('area_change_pct',0)):.0f}% vs 2025</div>
+                    </div>
+                    <div style='text-align:center; padding:10px; background:#111827; border-radius:8px;'>
+                      <div style='font-size:10px; color:#64748b;'>NĂNG SUẤT BQ</div>
+                      <div style='font-size:20px; font-weight:800; color:#a78bfa;'>{sg.get('yield_bu_per_acre',0)} Bu/Ac</div>
+                      <div style='font-size:11px; color:#f87171;'>▼ {abs(sg.get('yield_change_bu',0)):.1f} Bu vs 2025</div>
+                    </div>
+                    <div style='text-align:center; padding:10px; background:#111827; border-radius:8px;'>
+                      <div style='font-size:10px; color:#64748b;'>ĐÁNH GIÁ</div>
+                      <div style='font-size:16px; font-weight:800; color:#ef4444;'>BEARISH</div>
+                      <div style='font-size:10px; color:#94a3b8;'>Giảm lịch sử 23%</div>
+                    </div>
+                  </div>
+                </div>""", unsafe_allow_html=True)
+
+                # Production by class table
+                st.markdown("<div style='font-size:12px; font-weight:700; color:#94a3b8; margin-bottom:8px;'>SẢN LƯỢNG THEO CHỦNG LOẠI LÚA MÌ</div>", unsafe_allow_html=True)
+                rows_html = ""
+                total_prod = sg.get("total_production_mbu", 1530)
+                for cls in sg.get("by_class", []):
+                    pct = cls["production_mbu"] / total_prod * 100
+                    bar_w = int(pct * 2)
+                    rows_html += f"""
+                    <tr>
+                      <td style='padding:8px 12px; font-size:12px; color:#e2e8f0; font-weight:600; width:28%;'>
+                        <span style='color:{cls["color"]}; margin-right:6px;'>■</span>{cls["class"]}</td>
+                      <td style='padding:8px 12px; font-size:13px; font-weight:800; color:{cls["color"]}; width:16%;'>
+                        {cls["production_mbu"]:,} M Bu</td>
+                      <td style='padding:8px 12px; width:12%; font-size:11px; color:#94a3b8;'>{pct:.1f}%</td>
+                      <td style='padding:8px 12px; width:44%;'>
+                        <div style='background:#1e293b; border-radius:4px; height:14px; overflow:hidden;'>
+                          <div style='background:{cls["color"]}; width:{bar_w}%; height:100%; border-radius:4px;'></div>
+                        </div>
+                      </td>
+                    </tr>"""
+
+                st.markdown(f"""
+                <table style='width:100%; border-collapse:collapse; background:#111827; border-radius:10px; overflow:hidden;'>
+                  <thead><tr style='border-bottom:1px solid #2a3a5c;'>
+                    <th style='padding:8px 12px; font-size:10px; color:#64748b; text-align:left;'>Chủng loại</th>
+                    <th style='padding:8px 12px; font-size:10px; color:#64748b; text-align:left;'>Sản lượng</th>
+                    <th style='padding:8px 12px; font-size:10px; color:#64748b; text-align:left;'>Tỷ lệ</th>
+                    <th style='padding:8px 12px; font-size:10px; color:#64748b; text-align:left;'>Biểu đồ</th>
+                  </tr></thead>
+                  <tbody>{rows_html}</tbody>
+                </table>""", unsafe_allow_html=True)
+
+                # Notes
+                st.markdown(f"""
+                <div style='background:#111827; border-left:3px solid #f59e0b; padding:10px 14px;
+                     border-radius:4px; margin-top:12px; font-size:12px; color:#94a3b8; line-height:1.8;'>
+                  📌 <b style='color:#fde68a;'>Nhận xét:</b> {sg.get('note','')}
+                </div>""", unsafe_allow_html=True)
+
+            else:
+                st.warning("Chưa có dữ liệu Small Grains Summary 2026. File: Data/output/small_grains_2026.json")
+
