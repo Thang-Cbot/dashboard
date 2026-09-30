@@ -1,715 +1,151 @@
 """
-pages/6_MuaVu.py — Phân tích Mùa Vụ 2026 (ZW & ZC)
-====================================================
-Tổng hợp chiến lược mùa vụ từ Ma Trận Mùa Vụ 2026 và Dự Phóng Lúa Mì 2026.
+pages/6_MuaVu.py - Phân tích Mùa Vụ 2026 (ZW & ZC)
 """
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 import json
 import streamlit as st
+import subprocess
 from pathlib import Path
 
-st.set_page_config(page_title="Mùa Vụ 2026 — CBOT", page_icon="favicon.png", layout="wide")
+st.set_page_config(page_title="Mùa Vụ 2026 - CBOT", page_icon="🌾", layout="wide")
 
-DATA_OUTPUT = Path(__file__).parent.parent / "Data" / "output"
+BASE_DIR = Path(__file__).parent.parent
+DATA_OUTPUT = BASE_DIR / "Data" / "output"
 
-# ── CSS ────────────────────────────────────────────────────────────────────────
+# --- CSS ---
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
-.stApp { background-color: #0f1629; }
-[data-testid="stSidebar"] { background: #0d1424 !important; border-right: 1px solid #1e2d45; min-width: 260px !important; max-width: 260px !important; width: 260px !important; }
-[data-testid="stSidebarNav"] { display: none !important; }
+.metric-box { border: 1px solid #1e2d45; border-radius: 8px; padding: 12px; margin-bottom: 8px; background: #0b1120; }
+.auto-dot { color: #22c55e; font-weight: bold; }
+.manual-dot { color: #eab308; font-weight: bold; }
+.err-dot { color: #ef4444; font-weight: bold; }
+</style>
+""", unsafe_allow_html=True)
 
-.card {
-    background: #1a2035;
-    border: 1px solid #2a3a5c;
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 14px;
-}
-.section-title {
-    font-size: 13px; font-weight: 700; color: #94a3b8;
-    letter-spacing: 1px; text-transform: uppercase;
-    border-bottom: 1px solid #2a3a5c;
-    padding-bottom: 8px; margin-bottom: 12px;
-}
-.metric-box {
-    background: #0f1629;
-    border-radius: 8px;
-    padding: 10px 14px;
-    margin-bottom: 8px;
-    border-left: 3px solid;
-}
-.scenario-box {
-    border-radius: 10px;
-    padding: 14px 18px;
-    margin-bottom: 10px;
-    border: 1px solid;
-}
-.timeline-item {
-    display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start;
-}
-.timeline-dot {
-    width: 10px; height: 10px; border-radius: 50%;
-    margin-top: 4px; flex-shrink: 0;
-}
-.badge {
-    display: inline-block;
-    font-size: 11px; font-weight: 700;
-    padding: 3px 10px; border-radius: 20px;
-    margin-bottom: 6px;
-}
-</style>""", unsafe_allow_html=True)
-
-# ── Sidebar nav ────────────────────────────────────────────────────────────────
-st.sidebar.page_link("app.py",              label="🏠 Trang Chủ")
-st.sidebar.page_link("pages/1_Overview.py", label="📊 Tổng Quan")
-st.sidebar.page_link("pages/2_Profiles.py", label="📈 Hồ Sơ Từng Mã")
-st.sidebar.page_link("pages/3_News.py",     label="📰 Báo Cáo USDA & Tin Tức")
-st.sidebar.page_link("pages/4_Weather.py",  label="🌤️ Thời Tiết")
-st.sidebar.page_link("pages/5_AgriMap.py",  label="🗺️ Bản Đồ Thời Tiết & ENSO")
-st.sidebar.page_link("pages/5_Macro_Matrix.py", label="🧠 Ma Trận Vĩ Mô (Brain)")
-st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ 2026")
-
-if st.sidebar.button("🧹 LÀM MỚI TRẠNG THÁI", use_container_width=True):
-    st.cache_data.clear()
-    st.rerun()
-
-# ── Load data ─────────────────────────────────────────────────────────────────
+# --- LOAD DATA ---
 @st.cache_data(ttl=60)
-def load_fund():
-    p = DATA_OUTPUT / "fundamental_data.json"
-    if not p.exists(): return {}
-    try:
-        return json.loads(p.read_text(encoding="utf-8"))
-    except: return {}
-@st.cache_data(ttl=60)
-def load_contracts():
-    p = DATA_OUTPUT / "contracts_meta.json"
-    if not p.exists(): return {}
-    try: return json.loads(p.read_text(encoding="utf-8"))
-    except: return {}
+def load_json(filename):
+    p = DATA_OUTPUT / filename
+    if p.exists():
+        try: return json.loads(p.read_text(encoding="utf-8"))
+        except: return {}
+    return {}
 
-@st.cache_data(ttl=60)
-def load_status():
-    p = DATA_OUTPUT / "data_status.json"
-    if not p.exists(): return {}
-    try: return json.loads(p.read_text(encoding="utf-8"))
-    except: return {}
+macro = load_json("macro_scores.json")
+macro_w = load_json("macro_weights.json")
+fund = load_json("fundamental_data.json")
+cot = load_json("cot_data.json")
+ai_analysis = load_json("ai_muavu_analysis.json")
+export_sales = load_json("export_sales.json")
 
-@st.cache_data(ttl=60)
-def load_blacksea():
-    p = DATA_OUTPUT / "blacksea_wheat.json"
-    if not p.exists(): return {}
-    try: return json.loads(p.read_text(encoding="utf-8"))
-    except: return {}
+breakdown = macro.get("breakdown", {})
+dxy_score = breakdown.get("F9", {})
+cot_zw = cot.get("commodities", {}).get("001602", {})
 
-fund = load_fund()
-meta = load_contracts()
-status = load_status()
-bs_data = load_blacksea()
+# --- SIDEBAR BUTTON ---
+if st.sidebar.button("🔄 Cập Nhật Mùa Vụ (AI)", type="primary", use_container_width=True):
+    with st.spinner("Đang tổng hợp dữ liệu và gọi Gemini AI phân tích..."):
+        env = os.environ.copy()
+        env["PYTHONIOENCODING"] = "utf-8"
+        script_path = str(BASE_DIR / "Data" / "analyze_muavu_ai.py")
+        res = subprocess.run([sys.executable, script_path], capture_output=True, text=True, env=env)
+        if res.returncode == 0:
+            st.sidebar.success("✅ Cập nhật AI thành công!")
+        else:
+            st.sidebar.error(f"❌ Lỗi: {res.stderr}")
+        st.cache_data.clear()
+        st.rerun()
 
-usda_up = status.get("modules", {}).get("usda", {}).get("updated_at", "—")
-price_up = status.get("modules", {}).get("prices", {}).get("updated_at", "—")
-acreage_up = status.get("acreage", {}).get("updated_at", "—")
-bs_up = bs_data.get("timestamp", "—")
+st.title("🌾 TỔNG HỢP MÙA VỤ & VĨ MÔ 2026")
+st.markdown("Quy tắc: <span class='auto-dot'>🟢 Auto Data (Có sẵn)</span> | <span class='manual-dot'>🟡 Manual/AI (Định giá kỳ vọng)</span> | <span class='err-dot'>🔴 No Data</span>", unsafe_allow_html=True)
+
+# --- PART 1: GLOBAL MACRO ---
+st.subheader("🌍 PHẦN 1: GLOBAL MACRO (Vĩ Mô Toàn Cầu)")
+col1, col2, col3, col4 = st.columns(4)
+
+def dot(val): return "🟢" if val else "🔴"
+
+with col1:
+    st.markdown("<div class='metric-box'>", unsafe_allow_html=True)
+    st.markdown(f"**Sức mạnh USD (DXY)**")
+    dxy_val = dxy_score.get('raw_value', 'N/A')
+    st.markdown(f"<span class='auto-dot'>🟢</span> {dxy_val}", unsafe_allow_html=True)
+    st.markdown(f"Điểm số: {dxy_score.get('score_1_to_10', 'N/A')}/10")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col2:
+    oil_score = breakdown.get("F10", {})
+    st.markdown("<div class='metric-box'>", unsafe_allow_html=True)
+    st.markdown(f"**Giá Dầu (Crude Oil)**")
+    st.markdown(f"<span class='auto-dot'>🟢</span> {oil_score.get('raw_value', 'N/A')}", unsafe_allow_html=True)
+    st.markdown(f"Điểm số: {oil_score.get('score_1_to_10', 'N/A')}/10")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col3:
+    st.markdown("<div class='metric-box'>", unsafe_allow_html=True)
+    st.markdown(f"**Dòng tiền COT (ZW)**")
+    if cot_zw:
+        st.markdown(f"<span class='auto-dot'>🟢</span> Realtime: {cot_zw.get('net_estimated', 'N/A')} HĐ", unsafe_allow_html=True)
+        st.markdown(f"Trạng thái: {cot_zw.get('quadrant_estimated', 'N/A')}")
+    else:
+        st.markdown("<span class='err-dot'>🔴</span> Không có dữ liệu", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col4:
+    f12 = breakdown.get("F12", {})
+    st.markdown("<div class='metric-box'>", unsafe_allow_html=True)
+    st.markdown(f"**Nhu cầu Thế giới**")
+    st.markdown(f"<span class='manual-dot'>🟡</span> Điểm: {f12.get('score_1_to_10', 'N/A')}/10", unsafe_allow_html=True)
+    st.markdown(f"<div style='font-size:12px; color:#94a3b8;'>{f12.get('raw_detail', '')}</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 
-@st.cache_data(ttl=60)
-def load_macro_scores():
-    p = DATA_OUTPUT / "macro_scores.json"
-    if not p.exists(): return {}
-    try: return json.loads(p.read_text(encoding="utf-8"))
-    except: return {}
+# --- PART 2: REGIONAL SEASONALITY ---
+st.subheader("🗺️ PHẦN 2: ĐỊA CHÍNH TRỊ & MÙA VỤ 4 KHU VỰC")
+tb1, tb2, tb3, tb4 = st.tabs(["🇺🇸 Bắc Bán Cầu (Mỹ)", "🇪🇺 Châu Âu (EU)", "🇷🇺 Biển Đen (Nga/UA)", "🇦🇺 Nam Bán Cầu (Úc/Argen)"])
 
-@st.cache_data(ttl=60)
-def load_macro_weights():
-    p = DATA_OUTPUT / "macro_weights.json"
-    if not p.exists(): return {}
-    try: return json.loads(p.read_text(encoding="utf-8"))
-    except: return {}
-
-macro_scores = load_macro_scores()
-macro_weights = load_macro_weights()
-breakdown = macro_scores.get("breakdown", {})
-forecast_3m = macro_weights.get("price_forecast", {})
-
-f2w = breakdown.get("F2W", {})
-weather_detail = f2w.get("raw_detail", "Không có cảnh báo thời tiết đặc biệt.")
-
-def render_top_badges():
-    top_factors = sorted(
-        [k for k in breakdown.keys() if k not in ["F2W"]],
-        key=lambda k: breakdown[k].get("weight_pct", 0),
-        reverse=True
-    )[:4]
+with tb1:
+    st.markdown("### 🇺🇸 Yếu tố mùa vụ Mỹ")
+    f7 = breakdown.get("F7", {})
+    us_weather = breakdown.get("F2W", {})
+    exp_zw = export_sales.get("ZW", {})
     
-    html = "<div style='display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;'>"
-    for k in top_factors:
-        f_data = breakdown.get(k, {})
-        weight = f_data.get("weight_pct", 0)
-        score = f_data.get("score_1_to_10", 5)
-        label_map = {"F1": "Biển Đen", "F2": "WASDE", "F3": "S.Lượng Các Nước", "F4": "T.Tiết Nam Bán Cầu", 
-                     "F4S": "S.Lượng Nam Bán Cầu", "F5": "Xuất Khẩu", "F6": "Tồn Kho Mỹ", "F7": "Tồn Kho T.Giới",
-                     "F8": "Địa Chính Trị", "F9": "DXY", "F10": "Dầu Thô", "F11": "COT", "F12": "Tin Tức"}
-        label = label_map.get(k, k)
-        bg = "#7f1d1d" if score <= 3 else "#1c3d5a" if score <= 7 else "#1e3a1e"
-        col = "#fca5a5" if score <= 3 else "#93c5fd" if score <= 7 else "#86efac"
-        icon = "🔴" if score <= 3 else "⚖️" if score <= 7 else "🟢"
-        html += f"<span class='badge' style='background:{bg}; color:{col};'>{icon} {label} ({score}/10)</span>"
-    html += "</div>"
-    return html
+    st.markdown(f"- <span class='auto-dot'>🟢</span> **Tồn kho Mỹ:** Dữ liệu tự động kéo từ WASDE/Grain Stocks.", unsafe_allow_html=True)
+    st.markdown(f"- <span class='auto-dot'>🟢</span> **Tiến độ Mùa vụ (Crop Progress):** Điểm {f7.get('score_1_to_10', 'N/A')}/10 - {f7.get('raw_detail', '')}", unsafe_allow_html=True)
+    st.markdown(f"- <span class='auto-dot'>🟢</span> **Export Sales:** {exp_zw.get('net_sales', 'N/A')} MT (Tuần: {exp_zw.get('date', 'N/A')})", unsafe_allow_html=True)
+    st.markdown(f"- <span class='manual-dot'>🟡</span> **Thời tiết Mỹ:** Điểm {us_weather.get('score_1_to_10', 'N/A')}/10 - {us_weather.get('raw_detail', '')}", unsafe_allow_html=True)
 
-def render_forecast_3m():
-    html = "<div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:15px;'>"
-    for month_key, f_data in forecast_3m.items():
-        html += f'''
-        <div class="metric-box" style="border-color:#3b82f6;">
-            <div style="font-size:12px; font-weight:700; color:#93c5fd; margin-bottom:4px;">Tháng {month_key.replace("_", "/")}</div>
-            <div style="font-size:14px; font-weight:800; color:#e2e8f0;">{f_data.get("low")} - {f_data.get("high")}</div>
-            <div style="font-size:11px; color:#cbd5e1; margin-top:6px; line-height:1.4;">{f_data.get("note", "")}</div>
-        </div>
-        '''
-    html += "</div>"
-    return html
+with tb2:
+    st.markdown("### 🇪🇺 Yếu tố mùa vụ Châu Âu")
+    f3 = breakdown.get("F3", {})
+    st.markdown("- **Thời điểm thu hoạch:** Tháng 7 - Tháng 8 (Áp lực nguồn cung).")
+    st.markdown(f"- <span class='manual-dot'>🟡</span> **Nguồn cung EU (Định giá kỳ vọng):** Điểm {f3.get('score_1_to_10', 'N/A')}/10", unsafe_allow_html=True)
+    st.markdown(f"  *Chi tiết:* {f3.get('raw_detail', '')}")
 
+with tb3:
+    st.markdown("### 🇷🇺 Yếu tố mùa vụ Biển Đen (Nga & Ukraine)")
+    f1 = breakdown.get("F1", {})
+    f8 = breakdown.get("F8", {})
+    st.markdown("- **Thời điểm thu hoạch & Xả hàng:** Tháng 8 - Tháng 10 (Đỉnh điểm áp lực giá rẻ).")
+    st.markdown(f"- <span class='manual-dot'>🟡</span> **Chính sách Nga (Export Duty):** Điểm {f1.get('score_1_to_10', 'N/A')}/10 - {f1.get('raw_detail', '')}", unsafe_allow_html=True)
+    st.markdown(f"- <span class='manual-dot'>🟡</span> **Logistics / Địa chính trị:** Điểm {f8.get('score_1_to_10', 'N/A')}/10 - {f8.get('raw_detail', '')}", unsafe_allow_html=True)
 
-# ── Header ─────────────────────────────────────────────────────────────────────
-st.markdown("""
-<div style='padding: 16px 0 8px;'>
-  <div style='font-size:28px; font-weight:800; color:#e2e8f0;'>🌾 Mùa Vụ 2026 — Chiến Lược Dài Hạn</div>
-  <div style='font-size:13px; color:#64748b; margin-top:4px;'>
-    Tổng hợp từ Ma Trận Mùa Vụ 2026 · Dự Phóng Lúa Mì · Kịch bản El Niño
-  </div>
-</div>
-<hr style='border-color:#2a3a5c; margin-bottom:20px;'>
-""", unsafe_allow_html=True)
-
-# ── Weather Alert Banner (Synced with Macro F2W) ─────────────────────────────
-st.markdown(f"""
-<div style='background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-            border: 1px solid #3b82f6; border-radius: 12px;
-            padding: 14px 20px; margin-bottom: 20px;
-            display:flex; align-items:center; gap:14px;'>
-  <div style='font-size:32px;'>🌤️</div>
-  <div>
-    <div style='font-size:14px; font-weight:800; color:#93c5fd;'>TÌNH HÌNH THỜI TIẾT & ENSO (Cập nhật từ Ma Trận Vĩ Mô)</div>
-    <div style='font-size:12px; color:#bfdbfe; margin-top:3px;'>
-      {weather_detail}
-    </div>
-  </div>
-</div>
-""", unsafe_allow_html=True)
-
-# ── Main Tabs ──────────────────────────────────────────────────────────────────
-tab_zw, tab_zc = st.tabs(["🌾 Lúa Mì (ZW)", "🌽 Ngô (ZC)"])
+with tb4:
+    st.markdown("### 🇦🇺 Yếu tố mùa vụ Nam Bán Cầu (Úc & Argentina)")
+    f4 = breakdown.get("F4", {})
+    f4s = breakdown.get("F4S", {})
+    st.markdown("- **Thời điểm thu hoạch:** Tháng 11 - Tháng 12.")
+    st.markdown(f"- <span class='manual-dot'>🟡</span> **Thời tiết Nam Bán cầu:** Điểm {f4.get('score_1_to_10', 'N/A')}/10 - {f4.get('raw_detail', '')}", unsafe_allow_html=True)
+    st.markdown(f"- <span class='manual-dot'>🟡</span> **Sản lượng Nam Bán cầu (ABARES/BCR):** Điểm {f4s.get('score_1_to_10', 'N/A')}/10 - {f4s.get('raw_detail', '')}", unsafe_allow_html=True)
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# TAB LÚA MÌ (ZW)
-# ═══════════════════════════════════════════════════════════════════════════════
-with tab_zw:
-    zw = fund.get("ZW", {})
-    zw_meta = meta.get("ZW", {})
-    zw_swing_ticker = zw_meta.get("swing", {}).get("ticker", "ZWU26.CBT").replace(".CBT", "")
-    zw_dca_ticker   = zw_meta.get("dca", {}).get("ticker", "ZWZ26.CBT").replace(".CBT", "")
-    zw_close        = meta.get("ZW", {}).get("liquidity", {}).get("today_close", 601.0)
+# --- PART 3: AI CONCLUSION ---
+st.subheader("🤖 PHẦN 3: KẾT LUẬN & KẾ HOẠCH DCA (AI ANALYSIS)")
+if ai_analysis and "analysis" in ai_analysis:
+    st.info(f"Lần cập nhật AI cuối: {ai_analysis.get('last_updated', '')}")
+    st.markdown(ai_analysis["analysis"])
+else:
+    st.warning("Chưa có bản phân tích AI. Vui lòng ấn nút 'Cập Nhật Mùa Vụ (AI)' ở thanh bên trái để hệ thống Gemini phân tích dữ liệu hiện tại.")
 
-    col1, col2 = st.columns([1.2, 1], gap="large")
-
-    # ── Cột trái: Thực trạng mùa vụ ──────────────────────────────────────────
-    with col1:
-        # Block: Trạng thái mùa vụ hiện tại
-        st.markdown('<div class="section-title">📋 Trạng Thái Mùa Vụ Hiện Tại (ZW)</div>', unsafe_allow_html=True)
-
-        # Crop quality
-        zw_cc   = zw.get("crop_condition", {})
-        cc_val  = zw_cc.get("latest", "—") if isinstance(zw_cc, dict) else str(zw_cc)
-        # Harvest
-        zw_hp   = zw.get("harvest_progress", {})
-        hp_val  = zw_hp.get("latest", "—") if isinstance(zw_hp, dict) else str(zw_hp)
-        # Planting
-        zw_plant = zw.get("us_planting", {})
-        plant_val = zw_plant.get("latest", "—") if isinstance(zw_plant, dict) else str(zw_plant)
-
-        # Extract all needed data
-        zw_us_stocks  = zw.get("us_ending_stocks", {})
-        zw_gl_stocks  = zw.get("global_ending_stocks", {})
-        zw_acreage    = zw.get("acreage", {})
-        zw_grain_stk  = zw.get("grain_stocks", {})
-
-        def pct_badge(pct):
-            """Render badge % change with color."""
-            if pct is None: return ""
-            clr = "#ef4444" if pct < 0 else "#22c55e"
-            arrow = "▼" if pct < 0 else "▲"
-            return f"<span style='color:{clr}; font-size:11px; font-weight:700;'>{arrow} {abs(pct):.1f}%</span>"
-
-        zw_us_pct  = zw_us_stocks.get("pct_change", None)
-        zw_gl_pct  = zw_gl_stocks.get("pct_change", None)
-        zw_ac_pct  = zw_acreage.get("pct_change", None)
-        zw_gs_pct  = zw_grain_stk.get("pct_change", None)
-
-        st.markdown(f"""
-        <div class='card'>
-          <!-- DYNAMIC BADGES -->
-
-          {render_top_badges()}
-
-          <!-- BLOCK I: MUA VU -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>I. Tình Trạng Mùa Vụ <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {usda_up})</span></div>
-          <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
-            <div class='metric-box' style='border-color:#ef4444;'>
-              <div style='font-size:10px; color:#64748b;'>Chất Lượng (G/E)</div>
-              <div style='font-size:14px; font-weight:700; color:#fca5a5;'>{cc_val}</div>
-              <div style='font-size:10px; color:#64748b; margin-top:3px;'>Trước: {zw_cc.get('previous','—') if isinstance(zw_cc,dict) else '—'}</div>
-            </div>
-            <div class='metric-box' style='border-color:#f59e0b;'>
-              <div style='font-size:10px; color:#64748b;'>Tiến Độ Thu Hoạch</div>
-              <div style='font-size:14px; font-weight:700; color:#fde68a;'>{hp_val}</div>
-              <div style='font-size:10px; color:#64748b; margin-top:3px;'>Trước: {zw_hp.get('previous','—') if isinstance(zw_hp,dict) else '—'}</div>
-            </div>
-            <div class='metric-box' style='border-color:#60a5fa;'>
-              <div style='font-size:10px; color:#64748b;'>Tiến Độ Gieo Trồng</div>
-              <div style='font-size:14px; font-weight:700; color:#93c5fd;'>{plant_val}</div>
-              <div style='font-size:10px; color:#64748b; margin-top:3px;'>Trước: {zw_plant.get('previous','—') if isinstance(zw_plant,dict) else '—'}</div>
-            </div>
-          </div>
-
-          <!-- BLOCK II: DIEN TICH GIEO TRONG (USDA Acreage 30/06) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>II. Diện Tích Gieo Trồng 📊<span style='font-size:9px; color:#f59e0b; font-weight:400; margin-left:6px; text-transform:none;'>BC: {zw_acreage.get('report_date','—')}</span> <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {acreage_up})</span></div>
-          <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
-            <div class='metric-box' style='border-color:#60a5fa;'>
-              <div style='font-size:10px; color:#64748b;'>Hiện Tại (BC mới nhất)</div>
-              <div style='font-size:14px; font-weight:700; color:#93c5fd;'>{zw_acreage.get('current','—')}</div>
-              <div style='margin-top:4px;'>{pct_badge(zw_ac_pct)} <span style='font-size:10px; color:#64748b;'>vs 2025</span></div>
-            </div>
-            <div class='metric-box' style='border-color:#475569;'>
-              <div style='font-size:10px; color:#64748b;'>Năm Trước (2025)</div>
-              <div style='font-size:14px; font-weight:700; color:#94a3b8;'>{zw_acreage.get('previous','—')}</div>
-              <div style='font-size:10px; color:#64748b; margin-top:4px;'>{zw_acreage.get('vs_march_est','')}</div>
-            </div>
-            <div class='metric-box' style='border-color:#f59e0b; background:#1c1800;'>
-              <div style='font-size:10px; color:#64748b;'>Chi Tiết</div>
-              <div style='font-size:11px; color:#fde68a; line-height:1.6; margin-top:2px;'>
-                🔵 Đông: {zw_acreage.get('winter_wheat','—')}<br>
-                🟢 Xuân: {zw_acreage.get('spring_wheat','—')}<br>
-                🟫 Durum: {zw_acreage.get('durum_wheat','—')}
-              </div>
-            </div>
-          </div>
-
-          <!-- BLOCK III: TON KHO CUOI VU (Ending Stocks WASDE) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>III. Tồn Kho Cuối Vụ WASDE <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {usda_up})</span></div>
-
-          <div style='font-size:11px; color:#34d399; font-weight:600; margin-bottom:5px;'>🇺🇸 Tồn Kho Mỹ (US Ending Stocks)</div>
-          <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:10px;'>
-            <div class='metric-box' style='border-color:#10b981;'>
-              <div style='font-size:10px; color:#64748b;'>Hiện Tại (WASDE)</div>
-              <div style='font-size:14px; font-weight:700; color:#34d399;'>{zw_us_stocks.get('current','—')}</div>
-              <div style='margin-top:4px;'>{pct_badge(zw_us_pct)} <span style='font-size:10px; color:#64748b;'>vs niên vụ trước</span></div>
-            </div>
-            <div class='metric-box' style='border-color:#0d9488;'>
-              <div style='font-size:10px; color:#64748b;'>Dự Báo BC Tiếp</div>
-              <div style='font-size:14px; font-weight:700; color:#5eead4;'>{zw_us_stocks.get('forecast_next', zw_us_stocks.get('forecast','—'))}</div>
-            </div>
-            <div class='metric-box' style='border-color:#475569;'>
-              <div style='font-size:10px; color:#64748b;'>Niên Vụ Trước</div>
-              <div style='font-size:14px; font-weight:700; color:#94a3b8;'>{zw_us_stocks.get('previous','—')}</div>
-            </div>
-          </div>
-
-          <div style='font-size:11px; color:#34d399; font-weight:600; margin-bottom:5px;'>🌎 Tồn Kho Thế Giới (Global Stocks)</div>
-          <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
-            <div class='metric-box' style='border-color:#10b981;'>
-              <div style='font-size:10px; color:#64748b;'>Hiện Tại</div>
-              <div style='font-size:14px; font-weight:700; color:#34d399;'>{zw_gl_stocks.get('current','—')}</div>
-              <div style='margin-top:4px;'>{pct_badge(zw_gl_pct)} <span style='font-size:10px; color:#64748b;'>vs niên vụ trước</span></div>
-            </div>
-            <div class='metric-box' style='border-color:#0d9488;'>
-              <div style='font-size:10px; color:#64748b;'>Dự Báo Tiếp</div>
-              <div style='font-size:14px; font-weight:700; color:#5eead4;'>{zw_gl_stocks.get('forecast_next', zw_gl_stocks.get('forecast','—'))}</div>
-            </div>
-            <div class='metric-box' style='border-color:#475569;'>
-              <div style='font-size:10px; color:#64748b;'>Niên Vụ Trước</div>
-              <div style='font-size:14px; font-weight:700; color:#94a3b8;'>{zw_gl_stocks.get('previous','—')}</div>
-            </div>
-          </div>
-
-          <!-- BLOCK IV: GRAIN STOCKS (vat ly) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>IV. Tồn Kho Vật Lý (Grain Stocks 01/06) 📊<span style='font-size:9px; color:#f59e0b; font-weight:400; margin-left:6px; text-transform:none;'>BC: {zw_grain_stk.get('report_date','—')}</span> <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {acreage_up})</span></div>
-          <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
-            <div class='metric-box' style='border-color:#10b981;'>
-              <div style='font-size:10px; color:#64748b;'>Hiện Tại</div>
-              <div style='font-size:14px; font-weight:700; color:#34d399;'>{zw_grain_stk.get('current','—')}</div>
-              <div style='margin-top:4px;'>{pct_badge(zw_gs_pct)} <span style='font-size:10px; color:#64748b;'>vs cùng kỳ 2025</span></div>
-            </div>
-            <div class='metric-box' style='border-color:#475569;'>
-              <div style='font-size:10px; color:#64748b;'>Cùng Kỳ Năm Trước</div>
-              <div style='font-size:14px; font-weight:700; color:#94a3b8;'>{zw_grain_stk.get('previous','—')}</div>
-            </div>
-            <div class='metric-box' style='border-color:#f59e0b; background:#1c1800;'>
-              <div style='font-size:10px; color:#64748b;'>Nhận Định</div>
-              <div style='font-size:11px; color:#fde68a; line-height:1.6; margin-top:2px;'>{zw_grain_stk.get('note','—')}</div>
-            </div>
-          </div>
-
-          <!-- BLOCK V: GIA + LICH BC -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>V. Giá & Lịch Báo Cáo <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {price_up})</span></div>
-          <div style='display:grid; grid-template-columns:1fr 1fr; gap:8px;'>
-            <div class='metric-box' style='border-color:#60a5fa;'>
-              <div style='font-size:10px; color:#64748b;'>Giá Tham Chiếu ({zw_swing_ticker})</div>
-              <div style='font-size:14px; font-weight:700; color:#93c5fd;'>{zw_close:.2f} cents</div>
-            </div>
-            <div class='metric-box' style='border-color:#6366f1;'>
-              <div style='font-size:10px; color:#64748b;'>Báo Cáo Tiếp Theo (WASDE)</div>
-              <div style='font-size:13px; font-weight:700; color:#a5b4fc;'>{zw_us_stocks.get('next_date','—')}</div>
-            </div>
-          </div>
-          
-          <!-- BLOCK RUSSIAN WHEAT -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; margin-top:14px;'>VI. Yếu Tố Biển Đen & Địa Chính Trị (Nga/Ukraine) 🇷🇺 🇺🇦</div>
-          <div class='card' style='border-color:#3b0764; background:#1e1b4b; padding:12px; margin-bottom:14px;'>
-            <div style='font-size:12px; color:#c4b5fd; line-height:1.6;'>
-              📌 <b>Cập nhật từ Macro F1:</b> {breakdown.get("F1", {}).get("raw_detail", "")}
-            </div>
-          </div>
-        </div></div>
-        """, unsafe_allow_html=True)
-
-        # Phân tích chu kỳ 10 năm
-        st.markdown(f"""
-        <div class="section-title">📊 Dự Báo Khung Giá 3 Tháng (Từ Ma Trận Vĩ Mô)</div>
-        {render_forecast_3m()}
-        """, unsafe_allow_html=True)
-
-    # ── Cột phải: Chiến lược thực chiến ──────────────────────────────────────
-    with col2:
-        st.markdown('<div class="section-title">🎯 Lịch Trình Chiến Lược (Timeline)</div>', unsafe_allow_html=True)
-        st.markdown(f"""
-        <div class='card'>
-          <!-- T7 -->
-          <div class='timeline-item'>
-            <div class='timeline-dot' style='background:#f59e0b;'></div>
-            <div>
-              <div style='font-size:12px; font-weight:700; color:#fde68a;'>📅 Đầu đến Giữa Tháng 7 — Rủi Ro Bull Trap</div>
-              <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                <b>Đầu T7:</b> Mỹ gặt lúa đông kết hợp với Nga mới chớm đưa hàng ra Biển Đen.<br>
-                <b>Tâm lý:</b> Trader lao vào mua do hạn hán của Mỹ sẽ dính bẫy (Bull Trap) vì giá CBOT bị Nga đè bẹp.<br>
-                ❌ Nghiêm cấm All-in. Vùng 570-585 là rẻ nhưng chỉ giải ngân 20-30% để dò đường.
-              </div>
-            </div>
-          </div>
-          <!-- T8 -->
-          <div class='timeline-item'>
-            <div class='timeline-dot' style='background:#ef4444;'></div>
-            <div>
-              <div style='font-size:12px; font-weight:700; color:#fca5a5;'>📅 Cuối T7 & Đầu T8 — Điểm Mua Vàng (Golden Zone)</div>
-              <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                Hội tụ 3 dòng thác nguồn cung: Mỹ dọn xong kho lúa đông + Nga xả lũ mạnh nhất + lúa xuân Mỹ chớm gặt.<br>
-                <b style='color:#ef4444;'>Áp lực cực đại = ĐÁY TUYỆT ĐỐI CỦA MÙA VỤ</b><br>
-                ✅ Tín hiệu MSS trên H4/D1 vùng 570-585. <b>DỒN HỎA LỰC MUA MẠNH.</b>
-              </div>
-            </div>
-          </div>
-          <!-- Q4 -->
-          <div class='timeline-item'>
-            <div class='timeline-dot' style='background:#22c55e;'></div>
-            <div>
-              <div style='font-size:12px; font-weight:700; color:#86efac;'>📅 Q4 (Tháng 10→12) — Siêu Sóng Tăng</div>
-              <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                El Niño tàn phá Úc & Argentina → Siêu bão thiếu hụt.<br>
-                Mưa mùa thu Mỹ (T9-T11) làm nắp đập (Cap) ngăn ngáo giá.<br>
-                🎯 Target: Bùng nổ vùng <b style='color:#22c55e;'>680–760 cents</b>
-              </div>
-            </div>
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        # Vùng giá chiến lược
-        st.markdown('<div class="section-title">💎 Vùng Giá Chiến Lược (DCA Dài Hạn)</div>', unsafe_allow_html=True)
-        st.markdown(f"""
-        <div class='card' style='border-color:#22c55e;'>
-          <div style='text-align:center; margin-bottom:12px;'>
-            <div style='font-size:11px; color:#64748b;'>MÃ HỢP ĐỒNG ÁP DỤNG</div>
-            <div style='font-size:22px; font-weight:800; color:#86efac;'>{zw_dca_ticker}</div>
-            <div style='font-size:11px; color:#64748b;'>(Hợp đồng Tháng 12 — Tránh phí đáo hạn)</div>
-          </div>
-          <div class='metric-box' style='border-color:#22c55e; text-align:center;'>
-            <div style='font-size:11px; color:#64748b;'>🎯 VÙNG GOM GOLDEN ZONE</div>
-            <div style='font-size:24px; font-weight:800; color:#22c55e;'>{zw.get('dca_brackets', '570 – 585 cents')}</div>
-            <div style='font-size:11px; color:#86efac;'>Tương đương 555–565 cents {zw_swing_ticker} + Contango 15-25c</div>
-          </div>
-          <div style='font-size:11px; color:#94a3b8; line-height:1.7; margin-top:10px;'>
-            📌 <b>Lý do:</b> Spread Contango giữa ZWZ26 và ZWU26 thường 15–25 cents.<br>
-            Gom trên ZWZ26 bảo vệ tránh phí lưu kho (roll cost) và giữ vị thế thoải mái đến Q4.
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        # Cấu trúc đáy W
-        st.markdown('<div class="section-title">📐 Cấu Trúc Đáy Chữ W (Double Bottom)</div>', unsafe_allow_html=True)
-        st.markdown(f"""
-        <div class='card'>
-          <div style='font-size:11px; color:#94a3b8; line-height:1.8;'>
-            <b style='color:#60a5fa;'>Đáy 1 (Hiện tại, Cuối T6):</b> Lúa đông gặt 40% → Risk Premium vẫn còn. Giá neo ~{zw_close:.0f} cents<br>
-            <b style='color:#f59e0b;'>Pullback T7:</b> Bull Trap Weather Rally → 620–640 cents<br>
-            <b style='color:#ef4444;'>Đáy 2 (Cuối T7 - Đầu T8):</b> Điểm hội tụ nguồn cung (Mỹ lúa đông + Nga xả + lúa xuân) → <b>555–585 cents (Bottom Tuyệt Đối)</b><br>
-            <b style='color:#22c55e;'>Bùng nổ Q4:</b> El Niño Nam Bán Cầu → Thiếu cung → 650–700 cents+
-          </div>
-          <div style='text-align:center; margin-top:12px; font-size:28px; letter-spacing:4px;'>
-            📉&nbsp;&nbsp;<span style='color:#f59e0b;'>↗</span>&nbsp;&nbsp;<span style='color:#ef4444;'>↘↘</span>&nbsp;&nbsp;<span style='color:#22c55e;'>↗↗↗</span>
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# TAB NGÔ (ZC)
-# ═══════════════════════════════════════════════════════════════════════════════
-with tab_zc:
-    zc = fund.get("ZC", {})
-    zc_meta = meta.get("ZC", {})
-    zc_swing_ticker = zc_meta.get("swing", {}).get("ticker", "ZCU26.CBT").replace(".CBT", "")
-    zc_dca_ticker   = zc_meta.get("dca", {}).get("ticker", "ZCZ26.CBT").replace(".CBT", "")
-    zc_close        = meta.get("ZC", {}).get("liquidity", {}).get("today_close", 423.75)
-
-    col1, col2 = st.columns([1.2, 1], gap="large")
-
-    with col1:
-        st.markdown('<div class="section-title">📋 Trạng Thái Mùa Vụ Hiện Tại (ZC)</div>', unsafe_allow_html=True)
-
-        zc_cc   = zc.get("crop_condition", {})
-        cc_val  = zc_cc.get("latest", "—") if isinstance(zc_cc, dict) else str(zc_cc)
-        zc_hp   = zc.get("harvest_progress", {})
-        hp_val  = zc_hp.get("latest", "—") if isinstance(zc_hp, dict) else str(zc_hp)
-        hp_logic = zc_hp.get("logic", "—") if isinstance(zc_hp, dict) else ""
-        zc_plant = zc.get("us_planting", {})
-        plant_val = zc_plant.get("latest", "—") if isinstance(zc_plant, dict) else str(zc_plant)
-
-        # Extract all needed data
-        zc_us_stocks  = zc.get("us_ending_stocks", {})
-        zc_gl_stocks  = zc.get("global_ending_stocks", {})
-        zc_acreage    = zc.get("acreage", {})
-        zc_grain_stk  = zc.get("grain_stocks", {})
-
-        def pct_badge_zc(pct):
-            if pct is None: return ""
-            clr = "#ef4444" if pct < 0 else "#22c55e"
-            arrow = "▼" if pct < 0 else "▲"
-            return f"<span style='color:{clr}; font-size:11px; font-weight:700;'>{arrow} {abs(pct):.1f}%</span>"
-
-        zc_us_pct = zc_us_stocks.get("pct_change", None)
-        zc_gl_pct = zc_gl_stocks.get("pct_change", None)
-        zc_ac_pct = zc_acreage.get("pct_change", None)
-        zc_gs_pct = zc_grain_stk.get("pct_change", None)
-
-        st.markdown(f"""
-        <div class='card'>
-          <!-- DYNAMIC BADGES -->
-
-          {render_top_badges()}
-
-          <!-- BLOCK 1: MUA VU (3 cols) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>I. Tình Trạng Mùa Vụ <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {usda_up})</span></div>
-          <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
-            <div class='metric-box' style='border-color:#22c55e;'>
-              <div style='font-size:10px; color:#64748b;'>Chất Lượng (G/E)</div>
-              <div style='font-size:14px; font-weight:700; color:#86efac;'>{cc_val}</div>
-              <div style='font-size:10px; color:#64748b; margin-top:3px;'>Trước: {zc_cc.get('previous','—') if isinstance(zc_cc,dict) else '—'}</div>
-            </div>
-            <div class='metric-box' style='border-color:#f59e0b;'>
-              <div style='font-size:10px; color:#64748b;'>Tiến Độ Thu Hoạch</div>
-              <div style='font-size:14px; font-weight:700; color:#fde68a;'>{hp_val}</div>
-              <div style='font-size:10px; color:#64748b; margin-top:3px;'>Trước: {zc_hp.get('previous','—') if isinstance(zc_hp,dict) else '—'}</div>
-            </div>
-            <div class='metric-box' style='border-color:#60a5fa;'>
-              <div style='font-size:10px; color:#64748b;'>Tiến Độ Gieo Trồng Mỹ</div>
-              <div style='font-size:14px; font-weight:700; color:#93c5fd;'>{plant_val}</div>
-              <div style='font-size:10px; color:#64748b; margin-top:3px;'>Trước: {zc_plant.get('previous','—') if isinstance(zc_plant,dict) else '—'}</div>
-            </div>
-          </div>
-
-          <!-- BLOCK II: DIEN TICH GIEO TRONG (USDA Acreage 30/06) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>II. Diện Tích Gieo Trồng 📊<span style='font-size:9px; color:#f59e0b; font-weight:400; margin-left:6px; text-transform:none;'>BC: {zc_acreage.get('report_date','—')}</span> <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {acreage_up})</span></div>
-          <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
-            <div class='metric-box' style='border-color:#f59e0b;'>
-              <div style='font-size:10px; color:#64748b;'>Hiện Tại (BC mới nhất)</div>
-              <div style='font-size:14px; font-weight:700; color:#fde68a;'>{zc_acreage.get('current','—')}</div>
-              <div style='margin-top:4px;'>{pct_badge_zc(zc_ac_pct)} <span style='font-size:10px; color:#64748b;'>vs 2025</span></div>
-            </div>
-            <div class='metric-box' style='border-color:#475569;'>
-              <div style='font-size:10px; color:#64748b;'>Năm Trước (2025)</div>
-              <div style='font-size:14px; font-weight:700; color:#94a3b8;'>{zc_acreage.get('previous','—')}</div>
-              <div style='font-size:10px; color:#64748b; margin-top:4px;'>{zc_acreage.get('vs_march_est','')}</div>
-            </div>
-            <div class='metric-box' style='border-color:#22c55e; background:#0f1e0f;'>
-              <div style='font-size:10px; color:#64748b;'>Nhận Định</div>
-              <div style='font-size:11px; color:#86efac; line-height:1.6; margin-top:2px;'>{zc_acreage.get('note','—')}</div>
-            </div>
-          </div>
-
-          <!-- BLOCK III: TON KHO CUOI VU (Ending Stocks WASDE) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>III. Tồn Kho Cuối Vụ WASDE <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {usda_up})</span></div>
-
-          <div style='font-size:11px; color:#34d399; font-weight:600; margin-bottom:5px;'>🇺🇸 Tồn Kho Mỹ</div>
-          <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:10px;'>
-            <div class='metric-box' style='border-color:#10b981;'>
-              <div style='font-size:10px; color:#64748b;'>Hiện Tại (WASDE)</div>
-              <div style='font-size:14px; font-weight:700; color:#34d399;'>{zc_us_stocks.get('current','—')}</div>
-              <div style='margin-top:4px;'>{pct_badge_zc(zc_us_pct)} <span style='font-size:10px; color:#64748b;'>vs niên vụ trước</span></div>
-            </div>
-            <div class='metric-box' style='border-color:#0d9488;'>
-              <div style='font-size:10px; color:#64748b;'>Dự Báo BC Tiếp</div>
-              <div style='font-size:14px; font-weight:700; color:#5eead4;'>{zc_us_stocks.get('forecast_next', zc_us_stocks.get('forecast','—'))}</div>
-            </div>
-            <div class='metric-box' style='border-color:#475569;'>
-              <div style='font-size:10px; color:#64748b;'>Niên Vụ Trước</div>
-              <div style='font-size:14px; font-weight:700; color:#94a3b8;'>{zc_us_stocks.get('previous','—')}</div>
-            </div>
-          </div>
-
-          <div style='font-size:11px; color:#34d399; font-weight:600; margin-bottom:5px;'>🌎 Tồn Kho Thế Giới</div>
-          <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
-            <div class='metric-box' style='border-color:#10b981;'>
-              <div style='font-size:10px; color:#64748b;'>Hiện Tại</div>
-              <div style='font-size:14px; font-weight:700; color:#34d399;'>{zc_gl_stocks.get('current','—')}</div>
-              <div style='margin-top:4px;'>{pct_badge_zc(zc_gl_pct)} <span style='font-size:10px; color:#64748b;'>vs niên vụ trước</span></div>
-            </div>
-            <div class='metric-box' style='border-color:#0d9488;'>
-              <div style='font-size:10px; color:#64748b;'>Dự Báo Tiếp</div>
-              <div style='font-size:14px; font-weight:700; color:#5eead4;'>{zc_gl_stocks.get('forecast_next', zc_gl_stocks.get('forecast','—'))}</div>
-            </div>
-            <div class='metric-box' style='border-color:#475569;'>
-              <div style='font-size:10px; color:#64748b;'>Niên Vụ Trước</div>
-              <div style='font-size:14px; font-weight:700; color:#94a3b8;'>{zc_gl_stocks.get('previous','—')}</div>
-            </div>
-          </div>
-
-          <!-- BLOCK IV: GRAIN STOCKS (vat ly) -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>IV. Tồn Kho Vật Lý (Grain Stocks 01/06) 📊<span style='font-size:9px; color:#f59e0b; font-weight:400; margin-left:6px; text-transform:none;'>BC: {zc_grain_stk.get('report_date','—')}</span> <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {acreage_up})</span></div>
-          <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px;'>
-            <div class='metric-box' style='border-color:#10b981;'>
-              <div style='font-size:10px; color:#64748b;'>Hiện Tại</div>
-              <div style='font-size:14px; font-weight:700; color:#34d399;'>{zc_grain_stk.get('current','—')}</div>
-              <div style='margin-top:4px;'>{pct_badge_zc(zc_gs_pct)} <span style='font-size:10px; color:#64748b;'>vs cùng kỳ 2025</span></div>
-            </div>
-            <div class='metric-box' style='border-color:#475569;'>
-              <div style='font-size:10px; color:#64748b;'>Cùng Kỳ Năm Trước</div>
-              <div style='font-size:14px; font-weight:700; color:#94a3b8;'>{zc_grain_stk.get('previous','—')}</div>
-            </div>
-            <div class='metric-box' style='border-color:#22c55e; background:#0f1e0f;'>
-              <div style='font-size:10px; color:#64748b;'>Nhận Định</div>
-              <div style='font-size:11px; color:#86efac; line-height:1.6; margin-top:2px;'>{zc_grain_stk.get('note','—')}</div>
-            </div>
-          </div>
-
-          <!-- BLOCK V: GIA + LICH BC -->
-          <div style='font-size:10px; font-weight:700; color:#64748b; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;'>V. Giá & Lịch Báo Cáo <span style='font-size:9px; color:#94a3b8; font-weight:400; margin-left:6px; font-style:italic; text-transform:none;'>(Cập nhật: {price_up})</span></div>
-          <div style='display:grid; grid-template-columns:1fr 1fr; gap:8px;'>
-            <div class='metric-box' style='border-color:#f59e0b;'>
-              <div style='font-size:10px; color:#64748b;'>Giá Tham Chiếu ({zc_swing_ticker})</div>
-              <div style='font-size:14px; font-weight:700; color:#fde68a;'>{zc_close:.2f} cents</div>
-            </div>
-            <div class='metric-box' style='border-color:#6366f1;'>
-              <div style='font-size:10px; color:#64748b;'>Báo Cáo Tiếp Theo (WASDE)</div>
-              <div style='font-size:13px; font-weight:700; color:#a5b4fc;'>{zc_us_stocks.get('next_date','—')}</div>
-            </div>
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-
-        # Nhận định thị trường
-        st.markdown(f"""
-        <div class="section-title">📊 Dự Báo Khung Giá 3 Tháng (Từ Ma Trận Vĩ Mô)</div>
-        {render_forecast_3m()}
-        """, unsafe_allow_html=True)
-
-    with col2:
-        # Timeline
-        st.markdown('<div class="section-title">🎯 Lịch Trình Chiến Lược (ZC)</div>', unsafe_allow_html=True)
-        st.markdown(f"""
-        <div class='card'>
-          <div class='timeline-item'>
-            <div class='timeline-dot' style='background:#ef4444;'></div>
-            <div>
-              <div style='font-size:12px; font-weight:700; color:#fca5a5;'>📅 Tháng 7 — Nguy Hiểm (Pollination)</div>
-              <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                Theo dõi nhiệt độ từng ngày vùng Iowa, Illinois.<br>
-                Nếu Heatwave → Giá bật tăng mạnh (Weather Rally thật, không phải Trap).
-              </div>
-            </div>
-          </div>
-          <div class='timeline-item'>
-            <div class='timeline-dot' style='background:#f59e0b;'></div>
-            <div>
-              <div style='font-size:12px; font-weight:700; color:#fde68a;'>📅 Tháng 8-9 — Áp Lực Thu Hoạch</div>
-              <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                Argentina + Mỹ thu hoạch đồng loạt → Đáy mùa vụ.<br>
-                Đây là cơ hội gom DCA tốt nhất nếu không có Heatwave T7.
-              </div>
-            </div>
-          </div>
-          <div class='timeline-item'>
-            <div class='timeline-dot' style='background:#22c55e;'></div>
-            <div>
-              <div style='font-size:12px; font-weight:700; color:#86efac;'>📅 Q4 — Sideways Up (Tăng Dần)</div>
-              <div style='font-size:11px; color:#94a3b8; line-height:1.6;'>
-                Tồn kho toàn cầu ở mức thấp nhất 12 năm.<br>
-                Nhu cầu Trung Quốc & Ethanol duy trì nền tảng giá tốt.
-              </div>
-            </div>
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        # Vùng giá DCA
-        st.markdown('<div class="section-title">💎 Vùng Giá Chiến Lược (DCA Dài Hạn)</div>', unsafe_allow_html=True)
-        st.markdown(f"""
-        <div class='card' style='border-color:#f59e0b;'>
-          <div style='text-align:center; margin-bottom:12px;'>
-            <div style='font-size:11px; color:#64748b;'>MÃ HỢP ĐỒNG ÁP DỤNG</div>
-            <div style='font-size:22px; font-weight:800; color:#fde68a;'>{zc_dca_ticker}</div>
-            <div style='font-size:11px; color:#64748b;'>(Hợp đồng Tháng 12 — Niên vụ 2026/27)</div>
-          </div>
-          <div class='metric-box' style='border-color:#f59e0b; text-align:center;'>
-            <div style='font-size:11px; color:#64748b;'>🎯 VÙNG GOM DCA TỐI ƯU</div>
-            <div style='font-size:24px; font-weight:800; color:#f59e0b;'>{zc.get('dca_brackets', '436 – 445 cents')}</div>
-            <div style='font-size:11px; color:#fde68a;'>Đáy thu hoạch kỳ vọng, Tháng 8 – đầu T9</div>
-          </div>
-          <div class='metric-box' style='border-color:#22c55e; text-align:center;'>
-            <div style='font-size:11px; color:#64748b;'>📈 XU HƯỚNG CUỐI NĂM</div>
-            <div style='font-size:18px; font-weight:700; color:#86efac;'>Sideways Up (Tăng Dần)</div>
-            <div style='font-size:11px; color:#86efac;'>Tồn kho thấp 12 năm là nền tảng bền vững</div>
-          </div>
-          <div style='font-size:11px; color:#94a3b8; line-height:1.7; margin-top:10px;'>
-            📌 <b>Điều kiện Entry:</b> Đợi pullback về vùng 436–445 cents + Xác nhận cấu trúc H1 (MSS hoặc FVG) trên khung M15.
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        # Rủi ro chính
-        st.markdown('<div class="section-title">⚠️ Rủi Ro Chính Cần Theo Dõi</div>', unsafe_allow_html=True)
-        st.markdown("""
-        <div class='card'>
-          <div style='font-size:12px; color:#e2e8f0; line-height:2;'>
-            🌡️ <b>Nhiệt độ Tháng 7</b> — Pollination Window Iowa/Illinois<br>
-            🚢 <b>Xuất Khẩu Tuần</b> — Cạnh tranh từ Brazil/Argentina<br>
-            📋 <b>WASDE (10/07)</b> — Tồn kho, diện tích điều chỉnh<br>
-            💧 <b>ENSO/La Niña</b> — Tác động mùa vụ Nam Mỹ (Brazil)
-          </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-# ── Footer ─────────────────────────────────────────────────────────────────────
-st.markdown("""
-<div style='text-align:center; padding:20px; color:#374151; font-size:11px; margin-top:20px;'>
-  📌 Dữ liệu tổng hợp từ Ma Trận Mùa Vụ 2026 · Dự Phóng Chu Kỳ Lúa Mì · fundamental_data.json<br>
-  Cập nhật tự động theo dữ liệu thực tế từ USDA và Crop Progress hàng tuần.
-</div>
-""", unsafe_allow_html=True)
