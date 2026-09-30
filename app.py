@@ -82,7 +82,7 @@ def sidebar_status():
     st.sidebar.page_link("pages/4_Weather.py",  label="🌤️ Thời Tiết")
     st.sidebar.page_link("pages/5_AgriMap.py",  label="🗺️ Bản Đồ Thời Tiết & ENSO")
     st.sidebar.page_link("pages/5_Macro_Matrix.py", label="🧠 Ma Trận Vĩ Mô (Brain)")
-    st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ 2026")
+    st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ")
     st.sidebar.page_link("pages/7_System_Logs.py", label="⚙️ System Logs")
     
     st.sidebar.markdown("---")
@@ -201,7 +201,7 @@ for col, icon, title, desc, page in [
     (col3, "📰", "Tin Tức",         "Xuất khẩu, USDA, WASDE",       "pages/3_News.py"),
     (col4, "🌤️","Thời Tiết",      "ENSO & dự báo ngắn hạn",       "pages/4_Weather.py"),
     (col5, "🗺️","Bản Đồ Nông Sản","Mỹ + Thế Giới, cập nhật thời tiết", "pages/5_AgriMap.py"),
-    (col6, "🌾","Mùa Vụ 2026",   "Chiến lược mùa vụ, DCA dài hạn", "pages/6_MuaVu.py"),
+    (col6, "🌾","Mùa Vụ",   "Chiến lược mùa vụ, DCA dài hạn", "pages/6_MuaVu.py"),
     (col7, "⚙️","System Logs",   "Sức khỏe hệ thống, Đồng bộ", "pages/7_System_Logs.py"),
 ]:
     with col:

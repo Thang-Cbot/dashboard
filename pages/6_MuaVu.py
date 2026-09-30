@@ -1,5 +1,5 @@
 """
-pages/6_MuaVu.py - Phân tích Mùa Vụ 2026 (ZW & ZC)
+pages/6_MuaVu.py - Phân tích Mùa Vụ (ZW & ZC)
 """
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
@@ -9,7 +9,7 @@ import streamlit as st
 import subprocess
 from pathlib import Path
 
-st.set_page_config(page_title="Mùa Vụ 2026 - CBOT", page_icon="🌾", layout="wide")
+st.set_page_config(page_title="Mùa Vụ - CBOT", page_icon="🌾", layout="wide")
 
 BASE_DIR = Path(__file__).parent.parent
 DATA_OUTPUT = BASE_DIR / "Data" / "output"
@@ -124,7 +124,7 @@ st.sidebar.page_link("pages/3_News.py",           label="📰 Báo Cáo USDA & T
 st.sidebar.page_link("pages/4_Weather.py",        label="🌤️ Thời Tiết")
 st.sidebar.page_link("pages/5_AgriMap.py",        label="🗺️ Bản Đồ Thời Tiết")
 st.sidebar.page_link("pages/5_Macro_Matrix.py",   label="🧠 Ma Trận Vĩ Mô (Brain)")
-st.sidebar.page_link("pages/6_MuaVu.py",          label="🌾 Mùa Vụ 2026")
+st.sidebar.page_link("pages/6_MuaVu.py",          label="🌾 Mùa Vụ")
 st.sidebar.markdown("---")
 
 if st.sidebar.button("🔄 Cập Nhật Mùa Vụ (AI)", type="primary", use_container_width=True):
@@ -200,7 +200,7 @@ with col2:
     pct2 = f"{oil_pct:+.2f}%" if isinstance(oil_pct,(int,float)) else ""
     st.markdown(f"""<div class='mv-card'>
         <div class='mv-card-title'>🟢 Giá Dầu Brent</div>
-        <div class='mv-card-value'>\${oil_live}</div>
+        <div class='mv-card-value'>{oil_live} USD/thùng</div>
         <div class='mv-card-sub'>Điểm: {score_badge(oil_pt)} &nbsp;<span style='color:{pc2};'>{pct2}</span></div>
         <div class='mv-card-sub'>Dầu ảnh hưởng cước tàu & phân bón</div>
         <div class='mv-card-updated'>⏱ {mac_ts}</div>
@@ -264,9 +264,11 @@ f4_s  = breakdown.get("F4", {})
 f4s_s = breakdown.get("F4S", {})
 f7_s  = breakdown.get("F7", {})
 
-exp_zw   = export_s.get("ZW", {})
-net_sales = exp_zw.get("net_sales", exp_zw.get("Net Sales ZW", "N/A"))
-exp_date  = exp_zw.get("date", exp_zw.get("period", "N/A"))
+exp_zw   = export_s.get("commodities", {}).get("ZW", {})
+net_sales_raw = exp_zw.get("current_mt", "N/A")
+net_sales = f"{net_sales_raw:,.0f}" if isinstance(net_sales_raw, (int,float)) else net_sales_raw
+exp_date  = export_s.get("current_week_ending", export_s.get("fetched_at", "N/A"))
+exp_updated = export_s.get("fetched_at", "—")[:16]
 
 # El Nino impacts per region
 def enso_impact(region_key):
@@ -279,11 +281,11 @@ def enso_impact(region_key):
 table_html = f"""
 <table class='reg-table'>
 <thead><tr>
-  <th>Khu Vực</th>
-  <th>Lịch Mùa Vụ</th>
-  <th>Sản Lượng / Tồn Kho</th>
-  <th>Thời Tiết & El Niño</th>
-  <th>Chính Sách / Xuất Khẩu</th>
+  <th style='width:13%'>Khu Vực</th>
+  <th style='width:14%'>Lịch Mùa Vụ</th>
+  <th style='width:26%'>Sản Lượng / Tồn Kho</th>
+  <th style='width:26%'>Thời Tiết & El Niño</th>
+  <th style='width:21%'>Chính Sách / Xuất Khẩu</th>
 </tr></thead>
 <tbody>
 

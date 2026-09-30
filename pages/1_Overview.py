@@ -79,7 +79,7 @@ def render_overview():
     st.sidebar.page_link("pages/4_Weather.py",  label="🌤️ Thời Tiết")
     st.sidebar.page_link("pages/5_AgriMap.py",  label="🗺️ Bản Đồ Thời Tiết & ENSO")
     st.sidebar.page_link("pages/5_Macro_Matrix.py", label="🧠 Ma Trận Vĩ Mô (Brain)")
-    st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ 2026")
+    st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ")
 
     st.sidebar.markdown("---")
     if st.sidebar.button("🧠 AI Phân Tích", use_container_width=True):
