@@ -16,7 +16,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 5741.0,
+      "today_volume": 5749.0,
       "prev_volume": 245775.0,
       "today_oi": 913756,
       "prev_oi": 913756,
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 4569.0,
+      "today_volume": 4684.0,
       "prev_volume": 63820.0,
       "today_oi": 252789,
       "prev_oi": 252789,
-      "today_close": 696.75,
+      "today_close": 696.25,
       "prev_close": 692.75,
       "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
       "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
-  "updated_at": "2026-09-30 12:45:49"
+  "updated_at": "2026-09-30 13:00:18"
 }
