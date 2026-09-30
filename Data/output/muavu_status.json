@@ -1,0 +1,155 @@
+{
+  "checked_at": "2026-09-30 10:59:27",
+  "summary": {
+    "total": 16,
+    "ok": 16,
+    "warning": 0,
+    "error": 0
+  },
+  "items": [
+    {
+      "group": "Phần 1: Global Macro",
+      "item": "Sức mạnh USD (DXY)",
+      "type": "🟢 Auto",
+      "value": "101.321 (+0.12%)",
+      "status": "✅ Có data",
+      "updated": "vừa cập nhật",
+      "note": ""
+    },
+    {
+      "group": "Phần 1: Global Macro",
+      "item": "Giá Dầu Brent",
+      "type": "🟢 Auto",
+      "value": "96.32 USD/thùng",
+      "status": "✅ Có data",
+      "updated": "vừa cập nhật",
+      "note": ""
+    },
+    {
+      "group": "Phần 1: Global Macro",
+      "item": "Dòng tiền COT – ZW",
+      "type": "🟢 Auto",
+      "value": "-26,049 HĐ | Q3 (DO DAM) - NHOI SHORT",
+      "status": "✅ Có data",
+      "updated": "1 ngày trước",
+      "note": ""
+    },
+    {
+      "group": "Phần 1: Global Macro",
+      "item": "Nhu Cầu Thế Giới (F12)",
+      "type": "🟡 Thủ công",
+      "value": "Điểm 4/10",
+      "status": "✅ Có data",
+      "updated": "2026-09-27 21:51",
+      "note": "Ả Rập Xê Út hủy thầu mua 535k tấn do giá cao. Tuy nhiên Ai C"
+    },
+    {
+      "group": "Phần 1: Global Macro",
+      "item": "Địa Chính Trị / Logistics (F8)",
+      "type": "🟡 Thủ công",
+      "value": "Điểm 7/10",
+      "status": "✅ Có data",
+      "updated": "2026-09-27 21:51",
+      "note": "Xung đột Biển Đen leo thang với các cuộc tấn công vào cảng b"
+    },
+    {
+      "group": "Phần 1: Global Macro",
+      "item": "El Niño / La Niña (ENSO)",
+      "type": "🟢 Auto",
+      "value": "El Niño Advisory",
+      "status": "✅ Có data",
+      "updated": "7 ngày trước",
+      "note": "El Niño is strengthening, with a greater than 90% chance of "
+    },
+    {
+      "group": "Phần 2: Bắc Bán Cầu (Mỹ)",
+      "item": "Tồn kho WASDE (F2)",
+      "type": "🟢 Auto",
+      "value": "Điểm 7/10",
+      "status": "✅ Có data",
+      "updated": "2026-09-27 21:52",
+      "note": "WASDE Sep: 1,531 ← 1,531 Mbu. Diện tích: 42.7 M ac"
+    },
+    {
+      "group": "Phần 2: Bắc Bán Cầu (Mỹ)",
+      "item": "Export Sales ZW",
+      "type": "🟢 Auto",
+      "value": "267,600 MT (Tuần 09/17/2026)",
+      "status": "✅ Có data",
+      "updated": "1 ngày trước",
+      "note": ""
+    },
+    {
+      "group": "Phần 2: Bắc Bán Cầu (Mỹ)",
+      "item": "Tiến độ mùa vụ (F7)",
+      "type": "🟢 Auto",
+      "value": "Điểm 4/10",
+      "status": "✅ Có data",
+      "updated": "2026-09-27 21:52",
+      "note": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt "
+    },
+    {
+      "group": "Phần 2: Bắc Bán Cầu (Mỹ)",
+      "item": "Thời tiết Mỹ / HRW (F2W)",
+      "type": "🟡 Thủ công",
+      "value": "Điểm 5/10",
+      "status": "✅ Có data",
+      "updated": "2026-09-27 21:52",
+      "note": "Mưa lớn bất ngờ xuất hiện tại vùng Southern Plains (Kansas, "
+    },
+    {
+      "group": "Phần 2: Châu Âu (EU)",
+      "item": "Nguồn cung EU (F3)",
+      "type": "🟡 Thủ công",
+      "value": "Điểm 8/10",
+      "status": "✅ Có data",
+      "updated": "2026-09-27 21:51",
+      "note": "Sản lượng EU giảm mạnh xuống 137.5 triệu tấn do nắng nóng kh"
+    },
+    {
+      "group": "Phần 2: Biển Đen (Nga & Ukraine)",
+      "item": "Chính sách XK Nga (F1)",
+      "type": "🟡 Thủ công",
+      "value": "Điểm 2/10",
+      "status": "✅ Có data",
+      "updated": "2026-09-27 21:51",
+      "note": "Nga bỏ thuế xuất khẩu lúa mì (Zero export duty) đến hết thán"
+    },
+    {
+      "group": "Phần 2: Nam Bán Cầu (Úc & Argentina)",
+      "item": "Thời tiết Nam BC (F4)",
+      "type": "🟡 Thủ công",
+      "value": "Điểm 3/10",
+      "status": "✅ Có data",
+      "updated": "2026-09-27 22:08",
+      "note": "Thời tiết tháng 9 cải thiện rõ rệt (mưa tốt tại Nam Úc/Victo"
+    },
+    {
+      "group": "Phần 2: Nam Bán Cầu (Úc & Argentina)",
+      "item": "Sản lượng Nam BC (F4S)",
+      "type": "🟡 Thủ công",
+      "value": "Điểm 3/10",
+      "status": "✅ Có data",
+      "updated": "2026-09-27 22:08",
+      "note": "ABARES (Úc) và BCR (Argentina) vừa ĐIỀU CHỈNH TĂNG dự báo sả"
+    },
+    {
+      "group": "Phần 3: AI Analysis & DCA",
+      "item": "Phân tích AI (Gemini)",
+      "type": "🤖 AI",
+      "value": "3097 ký tự",
+      "status": "✅ Đã phân tích",
+      "updated": "2026-09-30 09:29:28",
+      "note": ""
+    },
+    {
+      "group": "Phần 3: AI Analysis & DCA",
+      "item": "Giá ZW (D1 chart)",
+      "type": "🟢 Auto",
+      "value": "694.00 cents",
+      "status": "✅ Có data",
+      "updated": "2026-09-30",
+      "note": "RSI 41.7 | ATR 16.8"
+    }
+  ]
+}

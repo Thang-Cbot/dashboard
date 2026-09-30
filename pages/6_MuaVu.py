@@ -128,14 +128,31 @@ st.sidebar.page_link("pages/6_MuaVu.py",          label="🌾 Mùa Vụ")
 st.sidebar.markdown("---")
 
 if st.sidebar.button("🔄 Cập Nhật Mùa Vụ (AI)", type="primary", use_container_width=True):
-    with st.sidebar.status("⏳ Đang phân tích...", expanded=True) as _s:
+    with st.sidebar.status("⏳ Đang cập nhật dữ liệu...", expanded=True) as _s:
         env = os.environ.copy(); env["PYTHONIOENCODING"] = "utf-8"
-        script_path = str(BASE_DIR / "Data" / "analyze_muavu_ai.py")
-        res = subprocess.run([sys.executable, script_path], capture_output=True, text=True, env=env)
-        if res.returncode == 0:
-            _s.update(label="✅ Cập nhật AI thành công!", state="complete", expanded=False)
+
+        # Step 1: Fetch macro data
+        st.write("📡 Bước 1/3: Tải dữ liệu macro (DXY, Dầu)...")
+        r1 = subprocess.run([sys.executable, str(BASE_DIR/"Data"/"fetch_macro.py")],
+                            capture_output=True, text=True, env=env)
+        st.write("✅ Macro OK" if r1.returncode==0 else f"❌ Macro: {r1.stderr[-100:]}")
+
+        # Step 2: Run AI analysis
+        st.write("🤖 Bước 2/3: Phân tích AI (Gemini)...")
+        r2 = subprocess.run([sys.executable, str(BASE_DIR/"Data"/"analyze_muavu_ai.py")],
+                            capture_output=True, text=True, env=env)
+        st.write("✅ AI OK" if r2.returncode==0 else f"❌ AI: {r2.stderr[-100:]}")
+
+        # Step 3: Check status of all items
+        st.write("🔍 Bước 3/3: Kiểm tra trạng thái toàn bộ dữ liệu...")
+        r3 = subprocess.run([sys.executable, str(BASE_DIR/"Data"/"check_muavu_status.py")],
+                            capture_output=True, text=True, env=env)
+        st.write("✅ Kiểm tra xong" if r3.returncode==0 else f"❌ Check: {r3.stderr[-100:]}")
+
+        if r2.returncode==0 and r3.returncode==0:
+            _s.update(label="✅ Cập nhật hoàn tất!", state="complete", expanded=False)
         else:
-            _s.update(label="❌ Lỗi khi gọi AI", state="error")
+            _s.update(label="⚠️ Hoàn tất với một số lỗi", state="error")
         st.cache_data.clear()
         st.rerun()
 
@@ -147,6 +164,55 @@ st.markdown(
     "<span class='dot-red'>🔴 Lỗi / Không có data</span>",
     unsafe_allow_html=True
 )
+
+# ─── STATUS REPORT (Hiện sau khi bấm Cập Nhật) ───────────────────────────────
+muavu_status = load_json("muavu_status.json")
+if muavu_status:
+    summary = muavu_status.get("summary", {})
+    ok_cnt  = summary.get("ok", 0)
+    warn_cnt= summary.get("warning", 0)
+    err_cnt = summary.get("error", 0)
+    total   = summary.get("total", 0)
+    checked = muavu_status.get("checked_at", "—")
+
+    # Summary bar
+    bar_color = "#22c55e" if err_cnt==0 else ("#eab308" if warn_cnt>0 else "#ef4444")
+    with st.expander(f"📋 Báo cáo trạng thái dữ liệu — ✅ {ok_cnt}/{total} OK  ⚠️ {warn_cnt}  ❌ {err_cnt}  |  Kiểm tra lúc: {checked}", expanded=(err_cnt>0 or warn_cnt>0)):
+        items = muavu_status.get("items", [])
+        # Group by group
+        groups = {}
+        for it in items:
+            g = it["group"]
+            groups.setdefault(g, []).append(it)
+
+        for grp_name, grp_items in groups.items():
+            st.markdown(f"**{grp_name}**")
+            rows_html = ""
+            for it in grp_items:
+                st_icon = it["status"][:2]  # emoji icon
+                val_color = "#22c55e" if "✅" in it["status"] else ("#eab308" if "⚠️" in it["status"] else "#ef4444")
+                note_txt = f"<br><small style='color:#64748b;'>{it['note']}</small>" if it.get("note") else ""
+                rows_html += f"""
+                <tr>
+                  <td style='padding:6px 10px; color:#94a3b8; font-size:11px; width:28%;'>{it['item']}</td>
+                  <td style='padding:6px 10px; font-size:10px; width:10%;'>{it['type']}</td>
+                  <td style='padding:6px 10px; color:{val_color}; font-weight:600; font-size:12px; width:28%;'>{it['value']}{note_txt}</td>
+                  <td style='padding:6px 10px; font-size:11px; width:20%;'>{it['status']}</td>
+                  <td style='padding:6px 10px; color:#475569; font-size:10px; width:14%;'>⏱ {it['updated']}</td>
+                </tr>"""
+
+            st.markdown(f"""
+            <table style='width:100%; border-collapse:collapse; margin-bottom:12px;'>
+              <thead><tr style='border-bottom:1px solid #1e2d45;'>
+                <th style='padding:4px 10px; font-size:10px; color:#64748b; text-align:left;'>Mục dữ liệu</th>
+                <th style='padding:4px 10px; font-size:10px; color:#64748b; text-align:left;'>Loại</th>
+                <th style='padding:4px 10px; font-size:10px; color:#64748b; text-align:left;'>Giá trị</th>
+                <th style='padding:4px 10px; font-size:10px; color:#64748b; text-align:left;'>Trạng thái</th>
+                <th style='padding:4px 10px; font-size:10px; color:#64748b; text-align:left;'>Cập nhật</th>
+              </tr></thead>
+              <tbody>{rows_html}</tbody>
+            </table>""", unsafe_allow_html=True)
+
 
 # ─── PART 1: GLOBAL MACRO ────────────────────────────────────────────────────
 st.subheader("🌍 PHẦN 1: GLOBAL MACRO (Vĩ Mô Toàn Cầu)")
