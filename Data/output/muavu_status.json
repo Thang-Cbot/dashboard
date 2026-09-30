@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-30 10:59:27",
+  "checked_at": "2026-09-30 23:41:25",
   "summary": {
     "total": 16,
     "ok": 16,
@@ -11,7 +11,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Sức mạnh USD (DXY)",
       "type": "🟢 Auto",
-      "value": "101.321 (+0.12%)",
+      "value": "101.414 (+0.04%)",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -20,7 +20,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Giá Dầu Brent",
       "type": "🟢 Auto",
-      "value": "96.32 USD/thùng",
+      "value": "99.01 USD/thùng",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -137,19 +137,19 @@
       "group": "Phần 3: AI Analysis & DCA",
       "item": "Phân tích AI (Gemini)",
       "type": "🤖 AI",
-      "value": "3097 ký tự",
+      "value": "2788 ký tự",
       "status": "✅ Đã phân tích",
-      "updated": "2026-09-30 09:29:28",
+      "updated": "2026-09-30 23:41:25",
       "note": ""
     },
     {
       "group": "Phần 3: AI Analysis & DCA",
       "item": "Giá ZW (D1 chart)",
       "type": "🟢 Auto",
-      "value": "694.00 cents",
+      "value": "690.50 cents",
       "status": "✅ Có data",
       "updated": "2026-09-30",
-      "note": "RSI 41.7 | ATR 16.8"
+      "note": "RSI 40.4 | ATR 18.0"
     }
   ]
 }
