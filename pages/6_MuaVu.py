@@ -293,11 +293,13 @@ table_html = f"""
   <td><div class='region-flag'>🇺🇸</div><div class='region-header'>Bắc Bán Cầu<br>(Mỹ)</div></td>
   <td><span class='harvest-badge'>THU HOẠCH T6–T7</span><br>Gieo Đông: T9–T10<br>Mùa Xuân: T4–T5</td>
   <td>
-    <span class='dot-green'>🟢</span> Tồn kho WASDE: {score_badge(pts(f2_s))}<br>
-    <small>{note(f2_s)}</small>{upd(f2_s)}<br>
-    <span class='dot-green'>🟢</span> Export Sales ({exp_date}): <b>{net_sales} MT</b>{upd(exp_zw)}<br>
-    <span class='dot-green'>🟢</span> Crop Progress: {score_badge(pts(f7_s))}<br>
-    <small>{note(f7_s)}</small>{upd(f7_s)}
+    <span class='dot-green'>🟢</span> <b>Tồn kho WASDE:</b> {score_badge(pts(f2_s))}<br>
+    <small style='color:#94a3b8;'>{note(f2_s, 70)}</small>{upd(f2_s)}
+    <span class='dot-green'>🟢</span> <b>Export Sales (tuần {exp_date}):</b><br>
+    <b style='color:#34d399; font-size:15px;'>{net_sales} MT</b>
+    <div style='font-size:9px;color:#475569;'>⏱ {exp_updated}</div>
+    <span class='dot-green'>🟢</span> <b>Crop Progress:</b> {score_badge(pts(f7_s))}<br>
+    <small style='color:#94a3b8;'>{note(f7_s, 70)}</small>{upd(f7_s)}
   </td>
   <td>
     <span class='dot-yellow'>🟡</span> Thời tiết (HRW): {score_badge(pts(f2w_s))}<br>
