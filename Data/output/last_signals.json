@@ -1,9 +1,9 @@
 {
   "ZW": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWZ26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 684.00\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 68%)</b>\n🎯 Vùng Entry: <b>689.97 - 694.61</b>\n🛑 Stoploss: 699.14 | 💵 Take Profit: 680.90\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Order Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>672.53 - 683.00</b>\n",
-    "timestamp": "15:00 29/09/2026",
-    "setup_type": "SHORT",
-    "setup_entry_range": "689.97 - 694.61"
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWZ26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 692.50\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 75%)</b>\n🎯 Vùng Entry: <b>689.99 - 692.50</b>\n🛑 Stoploss: 684.71 | 💵 Take Profit: 703.06\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + Order Block + FVG ho tro + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>665.46 - 681.50</b>\n",
+    "timestamp": "08:33 30/09/2026",
+    "setup_type": "LONG",
+    "setup_entry_range": "689.99 - 692.50"
   },
   "ZC": {
     "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCZ26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 522.25\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 65%)</b>\n🎯 Vùng Entry: <b>523.32 - 523.84</b>\n🛑 Stoploss: 527.84 | 💵 Take Profit: 515.32\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>503.74 - 512.50</b>\n",
