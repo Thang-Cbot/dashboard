@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 15:48:17 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-09-30 15:48:17"
+      "detail": "Đẩy thành công lúc 16:54:23 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-09-30 16:54:23"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 15:47:17",
-      "updated_at": "2026-09-30 15:47:17"
+      "detail": "Auto-fetch 16:54:29",
+      "updated_at": "2026-09-30 16:54:29"
     },
     "russian_metrics": {
       "status": "[OK]",
