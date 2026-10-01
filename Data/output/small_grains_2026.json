@@ -1,50 +1,53 @@
 {
   "report_date": "30/09/2026",
-  "source": "USDA NASS Small Grains 2026 Summary",
-  "fetched_at": "2026-10-01 06:33:00",
-  "total_production_mbu": 1530,
-  "total_area_harvested_mac": 31.9,
-  "area_change_pct": -15.0,
-  "yield_bu_per_acre": 48.1,
-  "yield_change_bu": -5.2,
-  "production_change_pct": -23.0,
-  "note": "Giảm 23% so với niên vụ 2025. Hạn hán và lợi nhuận thấp đã khiến diện tích giảm mạnh, đặc biệt là lúa mì vụ Đông (HRW).",
+  "source": "USDA NASS Small Grains 2026 Summary + WASDE-675 Sep 2026",
+  "fetched_at": "2026-10-01 06:55:00",
+  "marketing_year": "2026/27",
+  "note_source": "Nguồn: Small Grains Summary (30/09/2026) + WASDE-675 (Sep 2026). Số liệu tiêu thụ lấy từ bảng Supply & Use WASDE.",
+
+  "supply": {
+    "production_mbu": 1531,
+    "beginning_stocks_mbu": 700,
+    "imports_mbu": 140,
+    "total_supply_mbu": 2591,
+    "note": "Sản lượng 1,531 triệu Bu – giảm 23% so với niên vụ 2025. Tổng nguồn cung 2,591 triệu Bu."
+  },
+
+  "use": {
+    "food_mbu": 960,
+    "feed_residual_mbu": 90,
+    "total_domestic_mbu": 1050,
+    "exports_mbu": 825,
+    "total_use_mbu": 1875,
+    "note": "Tiêu dùng nội địa 1,050 triệu Bu (Food 960 + Feed/Residual 90). Xuất khẩu 825 triệu Bu."
+  },
+
+  "ending_stocks": {
+    "stocks_mbu": 717,
+    "stocks_to_use_ratio_pct": 38.2,
+    "yoy_change_pct": -18.5,
+    "note": "Tồn kho cuối kỳ 717 triệu Bu – giảm 18.5% so với niên vụ trước. Tỷ lệ tồn kho/tiêu thụ 38.2% – dấu hiệu thắt chặt."
+  },
+
+  "price": {
+    "safp_usd_per_bu": 6.40,
+    "yoy_change_usd": 0.20,
+    "note": "Giá bình quân nông trại (SAFP) tăng 0.20 USD/Bu lên mức 6.40 USD/Bu"
+  },
+
+  "production_detail": {
+    "area_harvested_mac": 31.9,
+    "area_change_pct": -15.0,
+    "yield_bu_per_acre": 48.1,
+    "yield_change_bu": -5.2,
+    "production_change_pct": -23.0
+  },
+
   "by_class": [
-    {
-      "class": "Winter Wheat (Tổng)",
-      "abbr": "WINTER",
-      "production_mbu": 1019,
-      "color": "#f59e0b"
-    },
-    {
-      "class": "Hard Red Winter (HRW)",
-      "abbr": "HRW",
-      "production_mbu": 466,
-      "color": "#ef4444"
-    },
-    {
-      "class": "Soft Red Winter (SRW)",
-      "abbr": "SRW",
-      "production_mbu": 294,
-      "color": "#f97316"
-    },
-    {
-      "class": "White Wheat",
-      "abbr": "WHITE",
-      "production_mbu": 259,
-      "color": "#fbbf24"
-    },
-    {
-      "class": "Other Spring Wheat",
-      "abbr": "SPRING",
-      "production_mbu": 450,
-      "color": "#22c55e"
-    },
-    {
-      "class": "Durum Wheat",
-      "abbr": "DURUM",
-      "production_mbu": 65,
-      "color": "#60a5fa"
-    }
+    { "class": "Hard Red Winter (HRW)", "production_mbu": 466, "color": "#ef4444" },
+    { "class": "Soft Red Winter (SRW)", "production_mbu": 294, "color": "#f97316" },
+    { "class": "White Wheat",           "production_mbu": 259, "color": "#fbbf24" },
+    { "class": "Other Spring Wheat",    "production_mbu": 450, "color": "#22c55e" },
+    { "class": "Durum Wheat",           "production_mbu": 65,  "color": "#60a5fa" }
   ]
 }

@@ -704,76 +704,134 @@ with tab1:
         # ── Small Grains Summary ──
         with gs_tabs[2]:
             if sg:
-                # Header
+                sup  = sg.get("supply", {})
+                use  = sg.get("use", {})
+                es   = sg.get("ending_stocks", {})
+                pdet = sg.get("production_detail", {})
+                prc  = sg.get("price", {})
+
+                prod_mbu  = sup.get("production_mbu", 1531)
+                total_use = use.get("total_use_mbu", 1875)
+                surplus   = prod_mbu - total_use
+                surplus_col = "#22c55e" if surplus >= 0 else "#ef4444"
+                surplus_label = "Thặng Dư" if surplus >= 0 else "Thâm Hụt"
+
+                # ── Header Source ──
                 st.markdown(f"""
-                <div style='background:#1a2035; border:1px solid #3b82f6; border-radius:12px;
-                     padding:16px 20px; margin-bottom:14px;'>
-                  <div style='font-size:11px; color:#64748b; text-transform:uppercase; letter-spacing:1px;'>
-                    USDA NASS — Small Grains 2026 Summary — Công bố {sg.get('report_date','')}
-                  </div>
-                  <div style='display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-top:12px;'>
-                    <div style='text-align:center; padding:10px; background:#111827; border-radius:8px;'>
-                      <div style='font-size:10px; color:#64748b;'>SẢN LƯỢNG TỔNG</div>
-                      <div style='font-size:20px; font-weight:800; color:#f59e0b;'>1,530 M Bu</div>
-                      <div style='font-size:11px; color:#f87171;'>▼ {sg.get('production_change_pct',0):.0f}% vs 2025</div>
-                    </div>
-                    <div style='text-align:center; padding:10px; background:#111827; border-radius:8px;'>
-                      <div style='font-size:10px; color:#64748b;'>DIỆN TÍCH THU HOẠCH</div>
-                      <div style='font-size:20px; font-weight:800; color:#60a5fa;'>{sg.get('total_area_harvested_mac',0)} M Ac</div>
-                      <div style='font-size:11px; color:#f87171;'>▼ {abs(sg.get('area_change_pct',0)):.0f}% vs 2025</div>
-                    </div>
-                    <div style='text-align:center; padding:10px; background:#111827; border-radius:8px;'>
-                      <div style='font-size:10px; color:#64748b;'>NĂNG SUẤT BQ</div>
-                      <div style='font-size:20px; font-weight:800; color:#a78bfa;'>{sg.get('yield_bu_per_acre',0)} Bu/Ac</div>
-                      <div style='font-size:11px; color:#f87171;'>▼ {abs(sg.get('yield_change_bu',0)):.1f} Bu vs 2025</div>
-                    </div>
-                    <div style='text-align:center; padding:10px; background:#111827; border-radius:8px;'>
-                      <div style='font-size:10px; color:#64748b;'>ĐÁNH GIÁ</div>
-                      <div style='font-size:16px; font-weight:800; color:#ef4444;'>BEARISH</div>
-                      <div style='font-size:10px; color:#94a3b8;'>Giảm lịch sử 23%</div>
-                    </div>
-                  </div>
+                <div style='font-size:10px; color:#64748b; margin-bottom:10px;'>
+                  📄 Nguồn: {sg.get('source','')} &nbsp;|&nbsp; Công bố: {sg.get('report_date','')}
                 </div>""", unsafe_allow_html=True)
 
-                # Production by class table
-                st.markdown("<div style='font-size:12px; font-weight:700; color:#94a3b8; margin-bottom:8px;'>SẢN LƯỢNG THEO CHỦNG LOẠI LÚA MÌ</div>", unsafe_allow_html=True)
-                rows_html = ""
-                total_prod = sg.get("total_production_mbu", 1530)
-                for cls in sg.get("by_class", []):
-                    pct = cls["production_mbu"] / total_prod * 100
-                    bar_w = int(pct * 2)
-                    rows_html += f"""
-                    <tr>
-                      <td style='padding:8px 12px; font-size:12px; color:#e2e8f0; font-weight:600; width:28%;'>
-                        <span style='color:{cls["color"]}; margin-right:6px;'>■</span>{cls["class"]}</td>
-                      <td style='padding:8px 12px; font-size:13px; font-weight:800; color:{cls["color"]}; width:16%;'>
-                        {cls["production_mbu"]:,} M Bu</td>
-                      <td style='padding:8px 12px; width:12%; font-size:11px; color:#94a3b8;'>{pct:.1f}%</td>
-                      <td style='padding:8px 12px; width:44%;'>
-                        <div style='background:#1e293b; border-radius:4px; height:14px; overflow:hidden;'>
-                          <div style='background:{cls["color"]}; width:{bar_w}%; height:100%; border-radius:4px;'></div>
+                # ── Row 1: 3 core metrics ──
+                st.markdown(f"""
+                <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:14px;'>
+
+                  <div style='background:#111827; border:2px solid #f59e0b; border-radius:12px; padding:16px; text-align:center;'>
+                    <div style='font-size:10px; color:#64748b; text-transform:uppercase; letter-spacing:1px;'>
+                      🌾 TỔNG SẢN LƯỢNG SX</div>
+                    <div style='font-size:28px; font-weight:900; color:#f59e0b; margin:8px 0;'>
+                      {prod_mbu:,} M Bu</div>
+                    <div style='font-size:11px; color:#f87171;'>
+                      ▼ {abs(pdet.get("production_change_pct",0)):.0f}% so với NV 2025</div>
+                    <div style='font-size:10px; color:#94a3b8; margin-top:4px;'>
+                      Diện tích: {pdet.get("area_harvested_mac",0)} M Ac |
+                      NS: {pdet.get("yield_bu_per_acre",0)} Bu/Ac</div>
+                  </div>
+
+                  <div style='background:#111827; border:2px solid #60a5fa; border-radius:12px; padding:16px; text-align:center;'>
+                    <div style='font-size:10px; color:#64748b; text-transform:uppercase; letter-spacing:1px;'>
+                      🍞 TỔNG TIÊU THỤ (Nội địa + XK)</div>
+                    <div style='font-size:28px; font-weight:900; color:#60a5fa; margin:8px 0;'>
+                      {total_use:,} M Bu</div>
+                    <div style='font-size:11px; color:#94a3b8;'>
+                      Nội địa: {use.get("total_domestic_mbu",0):,} M Bu &nbsp;|&nbsp;
+                      XK: {use.get("exports_mbu",0):,} M Bu</div>
+                    <div style='font-size:10px; color:#94a3b8; margin-top:4px;'>
+                      Food: {use.get("food_mbu",0):,} | Feed+R: {use.get("feed_residual_mbu",0):,}</div>
+                  </div>
+
+                  <div style='background:#111827; border:2px solid {surplus_col}; border-radius:12px; padding:16px; text-align:center;'>
+                    <div style='font-size:10px; color:#64748b; text-transform:uppercase; letter-spacing:1px;'>
+                      ⚖️ SX vs TIÊU THỤ</div>
+                    <div style='font-size:28px; font-weight:900; color:{surplus_col}; margin:8px 0;'>
+                      {surplus:+,} M Bu</div>
+                    <div style='font-size:11px; color:{surplus_col}; font-weight:700;'>{surplus_label}</div>
+                    <div style='font-size:10px; color:#94a3b8; margin-top:4px;'>
+                      Tồn kho cuối kỳ: {es.get("stocks_mbu",0):,} M Bu
+                      ({es.get("stocks_to_use_ratio_pct",0):.1f}% S/U)</div>
+                  </div>
+
+                </div>""", unsafe_allow_html=True)
+
+                # ── Supply / Use Balance Table ──
+                st.markdown("<div style='font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;'>BẢNG CÂN ĐỐI CUNG – CẦU NIÊN VỤ 2026/27 (M Bu)</div>", unsafe_allow_html=True)
+
+                def bal_row(label, val, total_s, color="#e2e8f0", indent=False):
+                    pct = val / total_s * 100 if total_s else 0
+                    bar_w = min(int(pct * 1.5), 100)
+                    pad = "padding-left:22px;" if indent else ""
+                    return f"""<tr>
+                      <td style='padding:7px 12px; font-size:12px; color:{color}; {pad}'>{label}</td>
+                      <td style='padding:7px 12px; font-size:13px; font-weight:700; color:{color}; text-align:right;'>{val:,}</td>
+                      <td style='padding:7px 12px; font-size:11px; color:#64748b; text-align:right;'>{pct:.1f}%</td>
+                      <td style='padding:7px 12px; width:35%;'>
+                        <div style='background:#1e293b; border-radius:3px; height:10px;'>
+                          <div style='background:{color}; opacity:0.7; width:{bar_w}%; height:100%; border-radius:3px;'></div>
                         </div>
                       </td>
                     </tr>"""
 
+                ts = sup.get("total_supply_mbu", 2591)
+                rows = (
+                    bal_row("📦 NGUỒN CUNG (Total Supply)", ts, ts, "#94a3b8") +
+                    bal_row("• Sản xuất trong nước", prod_mbu, ts, "#f59e0b", True) +
+                    bal_row("• Tồn đầu kỳ", sup.get("beginning_stocks_mbu", 700), ts, "#94a3b8", True) +
+                    bal_row("• Nhập khẩu", sup.get("imports_mbu", 140), ts, "#94a3b8", True) +
+                    f"<tr><td colspan='4' style='height:6px;'></td></tr>" +
+                    bal_row("🍞 TIÊU THỤ NỘI ĐỊA (Domestic Use)", use.get("total_domestic_mbu",1050), ts, "#60a5fa") +
+                    bal_row("• Thực phẩm (Food Use)", use.get("food_mbu",960), ts, "#60a5fa", True) +
+                    bal_row("• Chăn nuôi + Hao hụt", use.get("feed_residual_mbu",90), ts, "#64748b", True) +
+                    bal_row("🚢 Xuất Khẩu (Exports)", use.get("exports_mbu",825), ts, "#a78bfa") +
+                    f"<tr><td colspan='4' style='height:6px; border-top:1px solid #2a3a5c;'></td></tr>" +
+                    bal_row("📊 TỒN KHO CUỐI KỲ (Ending Stocks)", es.get("stocks_mbu",717), ts, "#22c55e" if es.get("yoy_change_pct",0)>0 else "#f87171")
+                )
+
                 st.markdown(f"""
-                <table style='width:100%; border-collapse:collapse; background:#111827; border-radius:10px; overflow:hidden;'>
-                  <thead><tr style='border-bottom:1px solid #2a3a5c;'>
-                    <th style='padding:8px 12px; font-size:10px; color:#64748b; text-align:left;'>Chủng loại</th>
-                    <th style='padding:8px 12px; font-size:10px; color:#64748b; text-align:left;'>Sản lượng</th>
-                    <th style='padding:8px 12px; font-size:10px; color:#64748b; text-align:left;'>Tỷ lệ</th>
-                    <th style='padding:8px 12px; font-size:10px; color:#64748b; text-align:left;'>Biểu đồ</th>
+                <table style='width:100%; border-collapse:collapse; background:#0f1629; border-radius:10px; overflow:hidden;'>
+                  <thead><tr style='border-bottom:2px solid #2a3a5c; background:#111827;'>
+                    <th style='padding:8px 12px; font-size:10px; color:#64748b; text-align:left; width:40%;'>Hạng mục</th>
+                    <th style='padding:8px 12px; font-size:10px; color:#64748b; text-align:right; width:14%;'>Triệu Bu</th>
+                    <th style='padding:8px 12px; font-size:10px; color:#64748b; text-align:right; width:11%;'>% Nguồn cung</th>
+                    <th style='padding:8px 12px; font-size:10px; color:#64748b; text-align:left; width:35%;'>Tỷ trọng</th>
                   </tr></thead>
-                  <tbody>{rows_html}</tbody>
+                  <tbody>{rows}</tbody>
                 </table>""", unsafe_allow_html=True)
 
-                # Notes
+                # ── Market Assessment ──
                 st.markdown(f"""
-                <div style='background:#111827; border-left:3px solid #f59e0b; padding:10px 14px;
-                     border-radius:4px; margin-top:12px; font-size:12px; color:#94a3b8; line-height:1.8;'>
-                  📌 <b style='color:#fde68a;'>Nhận xét:</b> {sg.get('note','')}
+                <div style='display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px;'>
+                  <div style='background:#111827; border-left:3px solid #ef4444; padding:10px 14px; border-radius:4px;'>
+                    <div style='font-size:10px; font-weight:700; color:#ef4444; margin-bottom:4px;'>
+                      ĐÁNH GIÁ HÀNH VI GIÁ</div>
+                    <div style='font-size:12px; color:#cbd5e1; line-height:1.7;'>
+                      Sản xuất <b>thấp hơn</b> tổng tiêu thụ <b>{abs(surplus):,} M Bu</b>.
+                      Tồn kho cuối kỳ chỉ bằng <b style='color:#f59e0b;'>{es.get("stocks_to_use_ratio_pct",0):.1f}% S/U</b> —
+                      mức thắt chặt hơn so với niên vụ trước.
+                      Đây là nền tảng hỗ trợ giá <b style='color:#22c55e;'>Bullish dài hạn</b>.
+                    </div>
+                  </div>
+                  <div style='background:#111827; border-left:3px solid #f59e0b; padding:10px 14px; border-radius:4px;'>
+                    <div style='font-size:10px; font-weight:700; color:#f59e0b; margin-bottom:4px;'>
+                      GIÁ BQ NÔNG TRẠI (SAFP)</div>
+                    <div style='font-size:20px; font-weight:800; color:#fde68a;'>
+                      {prc.get("safp_usd_per_bu",0):.2f} USD/Bu</div>
+                    <div style='font-size:11px; color:#94a3b8;'>
+                      Tăng {prc.get("yoy_change_usd",0):+.2f} USD/Bu so với dự báo trước
+                      (WASDE Sep 2026)</div>
+                  </div>
                 </div>""", unsafe_allow_html=True)
 
             else:
-                st.warning("Chưa có dữ liệu Small Grains Summary 2026. File: Data/output/small_grains_2026.json")
+                st.warning("Chưa có dữ liệu Small Grains Summary 2026.")
+
 
