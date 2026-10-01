@@ -1,8 +1,7 @@
 {
   "zw": {
     "labels": [
-      "24-14:00",
-      "15:00",
+      "24-15:00",
       "16:00",
       "17:00",
       "18:00",
@@ -100,10 +99,10 @@
       "15:00",
       "16:00",
       "17:00",
-      "18:00"
+      "18:00",
+      "19:00"
     ],
     "data": [
-      46.09,
       50.81,
       53.02,
       47.29,
@@ -202,14 +201,15 @@
       45.89,
       45.89,
       44.04,
-      44.99
+      44.52,
+      46.51
     ],
     "patterns": [
       {
         "type": "W",
-        "start_idx": 6,
-        "mid_idx": 7,
-        "end_idx": 9,
+        "start_idx": 5,
+        "mid_idx": 6,
+        "end_idx": 8,
         "start_time": "20:00",
         "end_time": "23:00",
         "start_val": 34.97,
@@ -218,9 +218,9 @@
       },
       {
         "type": "W",
-        "start_idx": 16,
-        "mid_idx": 20,
-        "end_idx": 25,
+        "start_idx": 15,
+        "mid_idx": 19,
+        "end_idx": 24,
         "start_time": "11:00",
         "end_time": "20:00",
         "start_val": 27.96,
@@ -229,9 +229,9 @@
       },
       {
         "type": "W",
-        "start_idx": 45,
-        "mid_idx": 47,
-        "end_idx": 50,
+        "start_idx": 44,
+        "mid_idx": 46,
+        "end_idx": 49,
         "start_time": "21:00",
         "end_time": "7:00",
         "start_val": 31.0,
@@ -240,9 +240,9 @@
       },
       {
         "type": "W",
-        "start_idx": 50,
-        "mid_idx": 52,
-        "end_idx": 57,
+        "start_idx": 49,
+        "mid_idx": 51,
+        "end_idx": 56,
         "start_time": "7:00",
         "end_time": "14:00",
         "start_val": 37.25,
@@ -251,20 +251,9 @@
       },
       {
         "type": "M",
-        "start_idx": 2,
-        "mid_idx": 6,
-        "end_idx": 7,
-        "start_time": "16:00",
-        "end_time": "21:00",
-        "start_val": 53.02,
-        "mid_val": 34.97,
-        "end_val": 45.01
-      },
-      {
-        "type": "M",
-        "start_idx": 29,
-        "mid_idx": 38,
-        "end_idx": 40,
+        "start_idx": 28,
+        "mid_idx": 37,
+        "end_idx": 39,
         "start_time": "26-0:00",
         "end_time": "16:00",
         "start_val": 61.57,
@@ -273,9 +262,9 @@
       },
       {
         "type": "M",
-        "start_idx": 52,
-        "mid_idx": 57,
-        "end_idx": 63,
+        "start_idx": 51,
+        "mid_idx": 56,
+        "end_idx": 62,
         "start_time": "9:00",
         "end_time": "20:00",
         "start_val": 42.15,
@@ -284,9 +273,9 @@
       },
       {
         "type": "M",
-        "start_idx": 68,
-        "mid_idx": 77,
-        "end_idx": 79,
+        "start_idx": 67,
+        "mid_idx": 76,
+        "end_idx": 78,
         "start_time": "1:00",
         "end_time": "17:00",
         "start_val": 58.07,
@@ -298,8 +287,7 @@
   },
   "zc": {
     "labels": [
-      "24-14:00",
-      "15:00",
+      "24-15:00",
       "16:00",
       "17:00",
       "18:00",
@@ -397,10 +385,10 @@
       "15:00",
       "16:00",
       "17:00",
-      "18:00"
+      "18:00",
+      "19:00"
     ],
     "data": [
-      43.76,
       43.76,
       45.46,
       40.23,
@@ -499,14 +487,15 @@
       32.89,
       32.89,
       33.72,
-      33.72
+      32.43,
+      32.43
     ],
     "patterns": [
       {
         "type": "W",
-        "start_idx": 6,
-        "mid_idx": 7,
-        "end_idx": 13,
+        "start_idx": 5,
+        "mid_idx": 6,
+        "end_idx": 12,
         "start_time": "20:00",
         "end_time": "8:00",
         "start_val": 28.62,
@@ -515,9 +504,9 @@
       },
       {
         "type": "W",
-        "start_idx": 13,
-        "mid_idx": 14,
-        "end_idx": 24,
+        "start_idx": 12,
+        "mid_idx": 13,
+        "end_idx": 23,
         "start_time": "8:00",
         "end_time": "19:00",
         "start_val": 22.52,
@@ -526,9 +515,9 @@
       },
       {
         "type": "W",
-        "start_idx": 38,
-        "mid_idx": 43,
-        "end_idx": 44,
+        "start_idx": 37,
+        "mid_idx": 42,
+        "end_idx": 43,
         "start_time": "14:00",
         "end_time": "20:00",
         "start_val": 45.88,
@@ -537,9 +526,9 @@
       },
       {
         "type": "W",
-        "start_idx": 44,
-        "mid_idx": 48,
-        "end_idx": 50,
+        "start_idx": 43,
+        "mid_idx": 47,
+        "end_idx": 49,
         "start_time": "20:00",
         "end_time": "7:00",
         "start_val": 37.69,
@@ -548,9 +537,9 @@
       },
       {
         "type": "W",
-        "start_idx": 50,
-        "mid_idx": 52,
-        "end_idx": 57,
+        "start_idx": 49,
+        "mid_idx": 51,
+        "end_idx": 56,
         "start_time": "7:00",
         "end_time": "14:00",
         "start_val": 46.72,
@@ -559,9 +548,9 @@
       },
       {
         "type": "W",
-        "start_idx": 57,
-        "mid_idx": 62,
-        "end_idx": 65,
+        "start_idx": 56,
+        "mid_idx": 61,
+        "end_idx": 64,
         "start_time": "14:00",
         "end_time": "22:00",
         "start_val": 45.28,
@@ -570,9 +559,9 @@
       },
       {
         "type": "W",
-        "start_idx": 75,
-        "mid_idx": 79,
-        "end_idx": 80,
+        "start_idx": 74,
+        "mid_idx": 78,
+        "end_idx": 79,
         "start_time": "13:00",
         "end_time": "18:00",
         "start_val": 49.14,
@@ -581,20 +570,9 @@
       },
       {
         "type": "M",
-        "start_idx": 2,
-        "mid_idx": 6,
-        "end_idx": 7,
-        "start_time": "16:00",
-        "end_time": "21:00",
-        "start_val": 45.46,
-        "mid_val": 28.62,
-        "end_val": 48.46
-      },
-      {
-        "type": "M",
-        "start_idx": 43,
-        "mid_idx": 44,
-        "end_idx": 48,
+        "start_idx": 42,
+        "mid_idx": 43,
+        "end_idx": 47,
         "start_time": "19:00",
         "end_time": "29-0:00",
         "start_val": 52.38,
@@ -603,9 +581,9 @@
       },
       {
         "type": "M",
-        "start_idx": 48,
-        "mid_idx": 50,
-        "end_idx": 52,
+        "start_idx": 47,
+        "mid_idx": 49,
+        "end_idx": 51,
         "start_time": "29-0:00",
         "end_time": "9:00",
         "start_val": 50.41,
@@ -614,9 +592,9 @@
       },
       {
         "type": "M",
-        "start_idx": 52,
-        "mid_idx": 57,
-        "end_idx": 62,
+        "start_idx": 51,
+        "mid_idx": 56,
+        "end_idx": 61,
         "start_time": "9:00",
         "end_time": "19:00",
         "start_val": 54.97,
@@ -625,9 +603,9 @@
       },
       {
         "type": "M",
-        "start_idx": 62,
-        "mid_idx": 65,
-        "end_idx": 66,
+        "start_idx": 61,
+        "mid_idx": 64,
+        "end_idx": 65,
         "start_time": "19:00",
         "end_time": "23:00",
         "start_val": 58.1,
@@ -636,16 +614,27 @@
       },
       {
         "type": "M",
-        "start_idx": 79,
-        "mid_idx": 80,
-        "end_idx": 82,
+        "start_idx": 78,
+        "mid_idx": 79,
+        "end_idx": 81,
         "start_time": "17:00",
         "end_time": "20:00",
         "start_val": 60.62,
         "mid_val": 53.59,
         "end_val": 59.84
+      },
+      {
+        "type": "M",
+        "start_idx": 87,
+        "mid_idx": 90,
+        "end_idx": 97,
+        "start_time": "7:00",
+        "end_time": "17:00",
+        "start_val": 21.73,
+        "mid_val": 19.13,
+        "end_val": 33.72
       }
     ],
-    "is_forming": null
+    "is_forming": "M"
   }
 }
