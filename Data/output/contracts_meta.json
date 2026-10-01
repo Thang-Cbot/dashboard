@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 33394.0,
+      "today_volume": 33533.0,
       "prev_volume": 193043.0,
       "today_oi": 919540,
       "prev_oi": 919540,
-      "today_close": 502.25,
+      "today_close": 502.5,
       "prev_close": 500.75,
       "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
       "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 20286.0,
+      "today_volume": 20470.0,
       "prev_volume": 61970.0,
       "today_oi": 258584,
       "prev_oi": 258584,
-      "today_close": 679.5,
+      "today_close": 680.25,
       "prev_close": 675.75,
       "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
       "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
-  "updated_at": "2026-10-01 16:51:51"
+  "updated_at": "2026-10-01 17:00:22"
 }
