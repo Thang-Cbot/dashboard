@@ -24,8 +24,8 @@
     },
     "export_sales": {
       "status": "[OK]",
-      "detail": "Auto-fetch 21:32:49",
-      "updated_at": "2026-09-24 21:32:49"
+      "detail": "Auto-fetch 18:58:37",
+      "updated_at": "2026-10-02 18:58:37"
     },
     "weather_short": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 18:00:56 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-10-02 18:00:56"
+      "detail": "Đẩy thành công lúc 18:01:20 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-10-02 18:01:20"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -92,7 +92,7 @@
   "export_sales": {
     "status": "OK",
     "detail": "Kỳ: 09/24/2026 | ZW=289,300 MT, ZC=536,000 MT",
-    "updated_at": "2026-10-01 20:20:10"
+    "updated_at": "2026-10-02 18:58:36"
   },
   "cot": {
     "status": "[OK] Success",
