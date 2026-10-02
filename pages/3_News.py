@@ -54,103 +54,117 @@ st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ")
 
 st.markdown("## 📰 Báo Cáo USDA & Tin Tức")
 
-tab1, tab2, tab3 = st.tabs(["📊 Số liệu & Báo cáo (USDA)", "⚡ Điểm Tin Nóng (AI)", "🇷🇺 Tình Hình Biển Đen (Nga/EU)"])
-
-with tab3:
-    st.markdown("<div class='section-header'>🇷🇺 Chiến Lược & Thông Số Mùa Vụ Nga (Golden Zone)</div>", unsafe_allow_html=True)
-    
-    st.info("""
-    **Điểm hội tụ nguồn cung (Cuối Tháng 7 đến Giữa Tháng 8): Khoảnh khắc 3 dòng thác va chạm:**
-    + Mỹ dọn xong kho lúa đông.
-    + Nga xả lũ mạnh nhất ra Biển Đen.
-    + Lúa xuân Mỹ chớm gặt.
-    + **TIN NÓNG:** Nga chính thức hạ thuế xuất khẩu lúa mì về 0% từ ngày 15/07.
-    
-    👉 **KẾT LUẬN:** Sức ép khổng lồ này sẽ ép giá xuống MỨC ĐÁY TUYỆT ĐỐI. Đây chính là "Vùng Vàng" để dồn toàn bộ hỏa lực MUA MẠNH (DCA) khi xuất hiện tín hiệu SMC.
-    """)
-    
-    import pandas as pd
-    manual_data = load_json("manual_russian_metrics.json")
-    if manual_data and "metrics" in manual_data:
-        st.markdown(f"<div style='font-size:12px; color:#64748b; margin-bottom:10px;'>Bảng Thông Số Tĩnh (Cập nhật thủ công): {manual_data.get('updated_at', 'Gần nhất')}</div>", unsafe_allow_html=True)
-        df = pd.DataFrame(manual_data["metrics"])
-        st.table(df)
-        
-    st.markdown("<hr style='border-color:#1e2d45; margin:20px 0;'>", unsafe_allow_html=True)
-    
-    st.markdown("<div class='section-header'>🗞️ AI Quét Tin Tức Tự Động (Biển Đen)</div>", unsafe_allow_html=True)
-    if st.button("🔄 CẬP NHẬT TIN BIỂN ĐEN MỚI NHẤT", use_container_width=True, key="update_blacksea"):
-        import subprocess
-        import os
-        env = os.environ.copy()
-        env["PYTHONIOENCODING"] = "utf-8"
-        with st.spinner("AI đang quét và tóm tắt tin tức Biển Đen... (Vui lòng đợi 10-15s)"): 
-            subprocess.run([sys.executable, str(Path(__file__).parent.parent / "Data" / "fetch_blacksea.py")], env=env)
-            st.cache_data.clear()
-            st.rerun()
-
-    blacksea_news = load_json("blacksea_wheat.json")
-    if blacksea_news:
-        st.markdown(f"<div style='font-size:12px; color:#64748b; margin-bottom:10px;'>Cập nhật lần cuối: {blacksea_news.get('timestamp', '—')}</div>", unsafe_allow_html=True)
-        news_list = blacksea_news.get("news", [])
-        
-        import pandas as pd
-        def parse_news_date(item):
-            s = item.get("source", "").split("-")[0].split("(")[0].strip()
-            try: return pd.to_datetime(s, utc=True)
-            except: return pd.to_datetime('1970-01-01', utc=True)
-        news_list = sorted(news_list, key=parse_news_date, reverse=True)
-        
-        if not news_list:
-            st.info("Không có tin tức nào về Biển Đen được tìm thấy.")
-        else:
-            for item in news_list:
-                with st.expander(f"🇷🇺 {item.get('title', 'Tin tức lúa mì Nga mới')}"):
-                    for detail in item.get('details', []):
-                        st.markdown(f"<div style='font-size:14px; color:#cbd5e1; margin-bottom:6px; line-height:1.6;'>• {detail}</div>", unsafe_allow_html=True)
-                    st.markdown(f"<div style='margin-top:10px; font-size:12px; color:#94a3b8; font-style:italic;'>(Nguồn: {item.get('source', '')}) - <a href='{item.get('link', '#')}' target='_blank' style='color:#38bdf8;'>Đọc chi tiết</a></div>", unsafe_allow_html=True)
-    else:
-        st.info("Chưa có tin tức lúa mì Biển Đen nào được tóm tắt. Vui lòng nhấn nút Cập nhật phía trên.")
+tab1, tab2 = st.tabs(["📊 Số liệu & Báo cáo (USDA)", "⚡ Điểm Tin Nóng (AI)"])
 
 with tab2:
-    st.markdown("<div class='section-header'>⚡ AI Tóm Tắt Tin Tức Thị Trường (Yahoo RSS)</div>", unsafe_allow_html=True)
-    if st.button("🔄 CẬP NHẬT TIN TỨC MỚI NHẤT (AI)", use_container_width=True):
-        import subprocess
-        import os
-        env = os.environ.copy()
-        env["PYTHONIOENCODING"] = "utf-8"
-        with st.spinner("AI đang quét và tóm tắt tin tức... (Vui lòng đợi 10-15s)"): 
-            subprocess.run([sys.executable, str(Path(__file__).parent.parent / "Data" / "fetch_news.py")], env=env)
-            st.cache_data.clear()
-            st.rerun()
+    import os, subprocess, pandas as pd
+    from datetime import datetime, timedelta
+
+    # ── NÚT CẬP NHẬT ───────────────────────────────────────────────────────
+    col_hd, col_btn = st.columns([3,1])
+    with col_hd:
+        st.markdown("<div class='section-header'>⚡ Điểm Tin Nóng Thị Trường (AI – Cập nhật tự động)</div>", unsafe_allow_html=True)
+    with col_btn:
+        st.markdown("<div style='margin-top:16px;'></div>", unsafe_allow_html=True)
+        if st.button("🔄 Cập Nhật & Nhận Định AI", use_container_width=True, key="btn_update_news"):
+            env = os.environ.copy(); env["PYTHONIOENCODING"] = "utf-8"
+            with st.spinner("AI đang quét tin và nhận định intraday... (~30–60s)"):
+                subprocess.run([sys.executable, str(Path(__file__).parent.parent / "Data" / "fetch_news.py")], env=env)
+                st.cache_data.clear()
+                st.rerun()
 
     ai_news = load_json("ai_news.json")
-    if ai_news:
-        st.markdown(f"<div style='font-size:12px; color:#64748b; margin-bottom:10px;'>Cập nhật lần cuối: {ai_news.get('timestamp', '—')}</div>", unsafe_allow_html=True)
-        news_list = ai_news.get("news", [])
-        
-        import pandas as pd
-        def parse_news_date_ai(item):
-            s = item.get("source", "").split("-")[0].split("(")[0].strip()
-            try: return pd.to_datetime(s, utc=True)
-            except: return pd.to_datetime('1970-01-01', utc=True)
-        news_list = sorted(news_list, key=parse_news_date_ai, reverse=True)
-        
-        if not news_list:
-            # Hỗ trợ dữ liệu cũ
-            st.markdown("<div class='card'>", unsafe_allow_html=True)
-            for bullet in ai_news.get("bullets", []):
-                st.markdown(f"<div style='font-size:14px; color:#e2e8f0; margin-bottom:8px; line-height:1.6;'><b>{bullet}</b></div>", unsafe_allow_html=True)
-            st.markdown("</div>", unsafe_allow_html=True)
-        else:
-            # Giao diện Drop Down mới
-            for item in news_list:
-                with st.expander(f"🔹 {item.get('title', 'Tin tức mới')}"):
-                    for detail in item.get('details', []):
-                        st.markdown(f"<div style='font-size:14px; color:#cbd5e1; margin-bottom:6px; line-height:1.6;'>• {detail}</div>", unsafe_allow_html=True)
-                    st.markdown(f"<div style='margin-top:10px; font-size:12px; color:#94a3b8; font-style:italic;'>(Nguồn: {item.get('source', '')}) - <a href='{item.get('link', '#')}' target='_blank' style='color:#38bdf8;'>Đọc chi tiết</a></div>", unsafe_allow_html=True)
-    else:
-        st.info("Chưa có tin tức nào được tóm tắt. Vui lòng nhấn nút Cập nhật phía trên.")
+    if not ai_news:
+        st.info("Chưa có tin tức. Nhấn nút 'Cập Nhật & Nhận Định AI' ở trên để bắt đầu.")
+        st.stop()
+
+    ts = ai_news.get("timestamp", "—")
+    news_list = ai_news.get("news", [])
+    intraday  = ai_news.get("intraday", {})
+
+    # ── INTRADAY AI BOX ─────────────────────────────────────────────────────
+    if intraday:
+        bias     = intraday.get("bias", "Neutral")
+        bias_vn  = intraday.get("bias_vn", "Đi Ngang")
+        summary  = intraday.get("summary", "")
+        sup      = intraday.get("key_levels", {}).get("support", "N/A")
+        res      = intraday.get("key_levels", {}).get("resistance", "N/A")
+        reasons  = intraday.get("reasoning", [])
+        risk     = intraday.get("risk", "")
+        gen_at   = intraday.get("generated_at", ts[:16])
+
+        bias_color  = "#22c55e" if bias == "Bullish" else ("#ef4444" if bias == "Bearish" else "#f59e0b")
+        bias_bg     = "rgba(34,197,94,0.08)" if bias == "Bullish" else ("rgba(239,68,68,0.08)" if bias == "Bearish" else "rgba(245,158,11,0.08)")
+        bias_icon   = "📈" if bias == "Bullish" else ("📉" if bias == "Bearish" else "➡️")
+        reasons_html = "".join([f"<div style='font-size:11px; color:#94a3b8; margin-bottom:3px;'>• {r}</div>" for r in reasons])
+
+        st.markdown(f"""
+        <div style='background:{bias_bg}; border:1px solid {bias_color}; border-radius:12px;
+             padding:14px 18px; margin-bottom:14px; display:grid;
+             grid-template-columns:auto 1fr 1fr 1fr; gap:16px; align-items:start;'>
+          <div style='text-align:center; padding-right:12px; border-right:1px solid #2a3a5c;'>
+            <div style='font-size:28px;'>{bias_icon}</div>
+            <div style='font-size:18px; font-weight:900; color:{bias_color};'>{bias_vn.upper()}</div>
+            <div style='font-size:9px; color:#64748b; text-transform:uppercase;'>INTRADAY ZW</div>
+          </div>
+          <div>
+            <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Nhận Định</div>
+            <div style='font-size:13px; color:#e2e8f0; font-weight:600; line-height:1.5;'>{summary}</div>
+            {reasons_html}
+          </div>
+          <div>
+            <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Mức Giá Chú Ý</div>
+            <div style='font-size:12px; color:#22c55e;'>🟢 Hỗ trợ: <b>{sup} ¢</b></div>
+            <div style='font-size:12px; color:#ef4444; margin-top:4px;'>🔴 Kháng cự: <b>{res} ¢</b></div>
+          </div>
+          <div>
+            <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Rủi Ro Cần Theo Dõi</div>
+            <div style='font-size:11px; color:#f59e0b; line-height:1.5;'>⚠️ {risk}</div>
+            <div style='font-size:9px; color:#475569; margin-top:8px;'>🤖 AI: {gen_at}</div>
+          </div>
+        </div>""", unsafe_allow_html=True)
+
+    # ── THÔNG TIN TIN TỨC ────────────────────────────────────────────────────
+    st.markdown(f"<div style='font-size:11px; color:#64748b; margin-bottom:10px;'>⏱ Dữ liệu: {ts} &nbsp;|&nbsp; Tổng: {len(news_list)} tin trong 7 ngày gần nhất</div>", unsafe_allow_html=True)
+
+    # ── 4 SUB-TABS PHÂN LOẠI ─────────────────────────────────────────────────
+    CAT_CONFIG = {
+        "dia_chinh_tri":     ("🌍 Địa Chính Trị",      "#ef4444", "Xung đột, chính sách XK, địa chính trị Nga/Ukraine/MENA"),
+        "logistics":         ("🚢 Logistics",           "#60a5fa", "Vận tải biển, cảng, tắc nghẽn, cước phí"),
+        "san_luong_dien_tich":("🌾 Sản Lượng & Gieo Trồng","#22c55e","Diện tích, thu hoạch, báo cáo USDA NASS, ABARES"),
+        "cung_cau_nhan_dinh":("📊 Cung Cầu & Nhận Định","#a78bfa","Tồn kho, xuất khẩu, dự báo giá, phân tích chuyên gia"),
+    }
+
+    def news_for_cat(cat):
+        return [n for n in news_list if n.get("category") == cat]
+
+    def render_news_items(items, accent_color):
+        if not items:
+            st.markdown(f"<div style='color:#475569; font-size:13px; padding:12px;'>Không có tin tức trong mục này trong 7 ngày gần nhất.</div>", unsafe_allow_html=True)
+            return
+        for item in items:
+            src = item.get("source", "")
+            link = item.get("link", "#")
+            details = item.get("details", [])
+            label = f"<span style='color:{accent_color}; font-weight:700;'>●</span> {item.get('title','')}"
+            with st.expander(item.get('title', ''), expanded=False):
+                st.markdown(f"<div style='font-size:10px; color:#64748b; margin-bottom:8px;'>📅 {src}</div>", unsafe_allow_html=True)
+                for d in details:
+                    st.markdown(f"<div style='font-size:13px; color:#cbd5e1; margin-bottom:5px; line-height:1.6; padding-left:8px; border-left:2px solid {accent_color};'>• {d}</div>", unsafe_allow_html=True)
+                if link and link != "#":
+                    st.markdown(f"<a href='{link}' target='_blank' style='font-size:11px; color:#38bdf8;'>🔗 Đọc bài gốc</a>", unsafe_allow_html=True)
+
+    # Hiển thị số lượng tin mỗi category trên tab label
+    tab_labels = []
+    for cat, (label, color, _) in CAT_CONFIG.items():
+        cnt = len(news_for_cat(cat))
+        tab_labels.append(f"{label} ({cnt})")
+
+    sub_tabs = st.tabs(tab_labels)
+    for i, (cat, (label, color, desc)) in enumerate(CAT_CONFIG.items()):
+        with sub_tabs[i]:
+            st.markdown(f"<div style='font-size:11px; color:#64748b; margin-bottom:10px;'>{desc}</div>", unsafe_allow_html=True)
+            render_news_items(news_for_cat(cat), color)
 
 with tab1:
 
