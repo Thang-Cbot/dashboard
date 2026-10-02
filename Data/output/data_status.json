@@ -29,8 +29,8 @@
     },
     "weather_short": {
       "status": "[OK]",
-      "detail": "Auto-fetch 20:53:23",
-      "updated_at": "2026-10-01 20:53:23"
+      "detail": "Auto-fetch 09:15:55",
+      "updated_at": "2026-10-02 09:15:55"
     },
     "weather_long": {
       "status": "OK",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 09:11:50 (Nguồn: Chỉ số Lúa Mì Nga)",
-      "updated_at": "2026-10-02 09:11:50"
+      "detail": "Đẩy thành công lúc 09:15:34 (Nguồn: AI Điểm Tin)",
+      "updated_at": "2026-10-02 09:15:34"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -87,7 +87,7 @@
   "weather_short": {
     "status": "OK",
     "detail": "24/24 fetched",
-    "updated_at": "2026-10-01 20:53:23"
+    "updated_at": "2026-10-02 09:15:55"
   },
   "export_sales": {
     "status": "OK",
