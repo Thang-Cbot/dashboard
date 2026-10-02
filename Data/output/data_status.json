@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 07:01:32 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-10-02 07:01:32"
+      "detail": "Đẩy thành công lúc 08:45:34 (Nguồn: USDA Acreage)",
+      "updated_at": "2026-10-02 08:45:34"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -63,9 +63,9 @@
       "updated_at": "2026-10-02 07:00:48"
     },
     "russian_metrics": {
-      "status": "[ERROR]",
-      "detail": "Failed after 1 attempts",
-      "updated_at": "2026-10-01 23:58:46"
+      "status": "[OK]",
+      "detail": "Auto-fetch 09:11:44",
+      "updated_at": "2026-10-02 09:11:44"
     }
   },
   "all_ok": true,
