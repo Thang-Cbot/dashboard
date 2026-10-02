@@ -1,14 +1,14 @@
 {
   "ZW": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWZ26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 685.50\n📈 Tín hiệu: <b>🟢 LONG MSS (Win Rate: 75%)</b>\n🎯 Vùng Entry: <b>680.21 - 683.06</b>\n🛑 Stoploss: 675.41 | 💵 Take Profit: 692.65\n🧠 Lý do: Cho Pullback ve vung EMA 21-50 de BUY + Order Block + FVG ho tro + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>657.03 - 670.75</b>\n",
-    "timestamp": "15:03 02/10/2026",
-    "setup_type": "LONG",
-    "setup_entry_range": "680.21 - 683.06"
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWZ26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 682.25\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 65%)</b>\n🎯 Vùng Entry: <b>682.71 - 683.58</b>\n🛑 Stoploss: 688.71 | 💵 Take Profit: 672.45\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Order Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>656.08 - 670.75</b>\n",
+    "timestamp": "23:36 02/10/2026",
+    "setup_type": "SHORT",
+    "setup_entry_range": "682.71 - 683.58"
   },
   "ZC": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCZ26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 498.75\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 65%)</b>\n🎯 Vùng Entry: <b>501.84 - 508.47</b>\n🛑 Stoploss: 512.47 | 💵 Take Profit: 493.84\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>482.03 - 495.00</b>\n",
-    "timestamp": "10:40 02/10/2026",
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCZ26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 496.25\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 65%)</b>\n🎯 Vùng Entry: <b>499.77 - 504.68</b>\n🛑 Stoploss: 508.68 | 💵 Take Profit: 491.77\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>487.15 - 495.00</b>\n",
+    "timestamp": "23:36 02/10/2026",
     "setup_type": "SHORT",
-    "setup_entry_range": "501.84 - 508.47"
+    "setup_entry_range": "499.77 - 504.68"
   }
 }
