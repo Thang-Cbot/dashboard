@@ -53,29 +53,47 @@ def fetch_rss_news():
 
     return "\n".join(news_items)
 
-def call_gemini(api_key, prompt, temperature=0.2, max_retries=3):
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
-    payload = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": temperature, "responseMimeType": "application/json"}
-    }
+
+# Model fallback chain: thử lần lượt từ mạnh → nhẹ nếu bị 429
+GEMINI_MODELS = [
+    "gemini-2.0-flash",
+    "gemini-1.5-flash",
+    "gemini-1.5-flash-8b",
+]
+
+def call_gemini(api_key, prompt, temperature=0.2, max_retries=2):
+    """Gọi Gemini API với fallback qua nhiều model nếu bị 429."""
     import time
-    for attempt in range(max_retries):
-        try:
-            resp = requests.post(url, headers={"Content-Type": "application/json"}, json=payload, timeout=90)
-            if resp.status_code == 429:
-                wait = 30 * (attempt + 1)
-                print(f"  [WAIT] Rate limit 429, chờ {wait}s rồi thử lại ({attempt+1}/{max_retries})...")
-                time.sleep(wait)
-                continue
-            resp.raise_for_status()
-            return resp.json().get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "")
-        except requests.HTTPError as e:
-            if attempt < max_retries - 1:
-                time.sleep(20)
-            else:
-                raise
-    raise Exception("Gemini API: Vượt quá số lần thử lại (429)")
+    last_err = None
+    for model in GEMINI_MODELS:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+        payload = {
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"temperature": temperature, "responseMimeType": "application/json"}
+        }
+        for attempt in range(max_retries):
+            try:
+                resp = requests.post(url, headers={"Content-Type": "application/json"},
+                                     json=payload, timeout=90)
+                if resp.status_code == 429:
+                    wait = 20 * (attempt + 1)
+                    print(f"  [WAIT] {model}: 429, chờ {wait}s (lần {attempt+1}/{max_retries})...")
+                    time.sleep(wait)
+                    continue
+                resp.raise_for_status()
+                text = resp.json().get("candidates",[{}])[0].get("content",{}).get("parts",[{}])[0].get("text","")
+                print(f"  [OK] Model: {model}")
+                return text
+            except requests.HTTPError as e:
+                last_err = e
+                if resp.status_code != 429:
+                    break  # Lỗi khác, thử model tiếp theo
+                if attempt == max_retries - 1:
+                    print(f"  [SKIP] {model}: Hết lần retry, chuyển model tiếp theo...")
+            except Exception as e:
+                last_err = e
+                break
+    raise Exception(f"Tất cả model đều thất bại. Lỗi cuối: {last_err}")
 
 
 def filter_old_news(news_array):
