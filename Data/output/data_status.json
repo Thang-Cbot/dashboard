@@ -49,13 +49,13 @@
     },
     "ai_news": {
       "status": "[OK]",
-      "detail": "Auto-fetch 20:21:23",
-      "updated_at": "2026-10-01 20:21:23"
+      "detail": "Auto-fetch 09:15:29",
+      "updated_at": "2026-10-02 09:15:29"
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 08:45:34 (Nguồn: USDA Acreage)",
-      "updated_at": "2026-10-02 08:45:34"
+      "detail": "Đẩy thành công lúc 09:11:50 (Nguồn: Chỉ số Lúa Mì Nga)",
+      "updated_at": "2026-10-02 09:11:50"
     },
     "prices_h4": {
       "status": "[OK]",
