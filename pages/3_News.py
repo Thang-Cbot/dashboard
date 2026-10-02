@@ -60,111 +60,215 @@ with tab2:
     import os, subprocess, pandas as pd
     from datetime import datetime, timedelta
 
-    # ── NÚT CẬP NHẬT ───────────────────────────────────────────────────────
-    col_hd, col_btn = st.columns([3,1])
-    with col_hd:
-        st.markdown("<div class='section-header'>⚡ Điểm Tin Nóng Thị Trường (AI – Cập nhật tự động)</div>", unsafe_allow_html=True)
-    with col_btn:
-        st.markdown("<div style='margin-top:16px;'></div>", unsafe_allow_html=True)
-        if st.button("🔄 Cập Nhật & Nhận Định AI", use_container_width=True, key="btn_update_news"):
-            env = os.environ.copy(); env["PYTHONIOENCODING"] = "utf-8"
-            with st.spinner("AI đang quét tin và nhận định intraday... (~30–60s)"):
-                subprocess.run([sys.executable, str(Path(__file__).parent.parent / "Data" / "fetch_news.py")], env=env)
-                st.cache_data.clear()
-                st.rerun()
+    BASE_DIR = Path(__file__).parent.parent
 
-    ai_news = load_json("ai_news.json")
-    if not ai_news:
-        st.info("Chưa có tin tức. Nhấn nút 'Cập Nhật & Nhận Định AI' ở trên để bắt đầu.")
-        st.stop()
+    def run_script(name, script_path, timeout=120):
+        """Chạy script, trả về (ok, msg)"""
+        if not Path(script_path).exists():
+            return False, f"Không tìm thấy file: {script_path}"
+        env = os.environ.copy(); env["PYTHONIOENCODING"] = "utf-8"
+        try:
+            r = subprocess.run(
+                [sys.executable, str(script_path)],
+                capture_output=True, text=True, env=env,
+                timeout=timeout, encoding="utf-8", errors="replace"
+            )
+            if r.returncode == 0:
+                return True, "OK"
+            else:
+                err = (r.stderr or r.stdout or "")[-150:].strip()
+                return False, err
+        except subprocess.TimeoutExpired:
+            return False, f"Timeout >{timeout}s"
+        except Exception as e:
+            return False, str(e)[:100]
 
-    ts = ai_news.get("timestamp", "—")
-    news_list = ai_news.get("news", [])
-    intraday  = ai_news.get("intraday", {})
+    def file_age_str(fname):
+        """Trả về tuổi file data"""
+        p = DATA_OUTPUT / fname
+        if not p.exists(): return "Chưa có"
+        try:
+            d = json.loads(p.read_text(encoding="utf-8"))
+            ts = d.get("timestamp") or d.get("fetched_at") or d.get("last_updated") or ""
+            if ts:
+                dt = datetime.strptime(str(ts)[:16], "%Y-%m-%d %H:%M")
+                diff = datetime.now() - dt
+                h = int(diff.total_seconds()//3600)
+                return f"{h}h trước" if h < 24 else f"{diff.days}d trước"
+        except: pass
+        return "?"
 
-    # ── INTRADAY AI BOX ─────────────────────────────────────────────────────
-    if intraday:
-        bias     = intraday.get("bias", "Neutral")
-        bias_vn  = intraday.get("bias_vn", "Đi Ngang")
-        summary  = intraday.get("summary", "")
-        sup      = intraday.get("key_levels", {}).get("support", "N/A")
-        res      = intraday.get("key_levels", {}).get("resistance", "N/A")
-        reasons  = intraday.get("reasoning", [])
-        risk     = intraday.get("risk", "")
-        gen_at   = intraday.get("generated_at", ts[:16])
+    # ── HEADER ──────────────────────────────────────────────────────────────
+    st.markdown("<div class='section-header'>⚡ Điểm Tin Nóng Thị Trường (AI)</div>", unsafe_allow_html=True)
 
-        bias_color  = "#22c55e" if bias == "Bullish" else ("#ef4444" if bias == "Bearish" else "#f59e0b")
-        bias_bg     = "rgba(34,197,94,0.08)" if bias == "Bullish" else ("rgba(239,68,68,0.08)" if bias == "Bearish" else "rgba(245,158,11,0.08)")
-        bias_icon   = "📈" if bias == "Bullish" else ("📉" if bias == "Bearish" else "➡️")
-        reasons_html = "".join([f"<div style='font-size:11px; color:#94a3b8; margin-bottom:3px;'>• {r}</div>" for r in reasons])
+    # ── DATA STATUS CARDS ────────────────────────────────────────────────────
+    DATA_MODULES = [
+        ("📡 Macro (DXY, Dầu)",    "macro_data.json",      BASE_DIR/"Data"/"fetch_macro.py",                   60),
+        ("📊 COT (CFTC)",           "cot_data.json",         BASE_DIR/"Data"/"fetch_cot.py",                     120),
+        ("📤 Export Sales",         "export_sales.json",     BASE_DIR/"Data"/"reports"/"export_sales.py",        120),
+        ("🌤️ Thời tiết ngắn hạn",   "weather_short.json",   BASE_DIR/"Data"/"weather"/"weather_short.py",       90),
+        ("🌍 ENSO / El Niño",       "weather_long.json",     BASE_DIR/"Data"/"weather"/"weather_long.py",        90),
+        ("🧠 Macro Matrix",         "macro_scores.json",     BASE_DIR/"Data"/"macro_engine.py",                  60),
+        ("📰 AI Tin Tức",           "ai_news.json",          BASE_DIR/"Data"/"fetch_news.py",                    180),
+    ]
 
+    # Status mini-grid
+    status_html = "<div style='display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:14px;'>"
+    for label, fname, _, _ in DATA_MODULES:
+        age = file_age_str(fname)
+        p = DATA_OUTPUT / fname
+        has_data = p.exists() and p.stat().st_size > 100
+        color = "#22c55e" if has_data else "#ef4444"
+        dot   = "🟢" if has_data else "🔴"
+        status_html += f"""<div style='background:#111827; border:1px solid #1e2d45; border-radius:8px; padding:8px 10px;'>
+          <div style='font-size:11px; color:#94a3b8;'>{dot} {label}</div>
+          <div style='font-size:10px; color:{color};'>{age}</div>
+        </div>"""
+    status_html += "</div>"
+    st.markdown(status_html, unsafe_allow_html=True)
+
+    # ── NÚT CẬP NHẬT ────────────────────────────────────────────────────────
+    col_a, col_b, col_c = st.columns([1, 1, 1])
+    with col_a:
+        btn_all  = st.button("🔄 Cập Nhật Tất Cả", use_container_width=True, key="btn_update_all")
+    with col_b:
+        btn_news = st.button("📰 Chỉ Cập Nhật Tin Tức", use_container_width=True, key="btn_update_news_only")
+    with col_c:
+        btn_macro = st.button("📡 Chỉ Macro + COT", use_container_width=True, key="btn_update_macro")
+
+    # Xác định danh sách script cần chạy
+    to_run = []
+    if btn_all:
+        to_run = DATA_MODULES
+    elif btn_news:
+        to_run = [m for m in DATA_MODULES if m[1] == "ai_news.json"]
+    elif btn_macro:
+        to_run = [m for m in DATA_MODULES if m[1] in ("macro_data.json","cot_data.json","macro_scores.json")]
+
+    if to_run:
+        st.markdown("<div style='font-size:12px; color:#64748b; margin:8px 0 4px;'>Đang chạy pipeline...</div>", unsafe_allow_html=True)
+        results = {}
+        progress_ph = st.empty()
+        for i, (label, fname, script, timeout) in enumerate(to_run):
+            progress_ph.markdown(
+                f"<div style='font-size:12px; color:#f59e0b;'>⏳ [{i+1}/{len(to_run)}] {label}...</div>",
+                unsafe_allow_html=True
+            )
+            ok, msg = run_script(label, script, timeout)
+            results[label] = (ok, msg)
+
+        progress_ph.empty()
+
+        # Hiển thị kết quả
+        rows = ""
+        for label, (ok, msg) in results.items():
+            icon = "✅" if ok else "❌"
+            bg   = "#14532d" if ok else "#7f1d1d"
+            tc   = "#4ade80" if ok else "#f87171"
+            disp_msg = "Thành công" if ok else msg[:100]
+            rows += f"<div style='display:flex; gap:10px; padding:6px 10px; border-radius:6px; background:{bg}; margin-bottom:4px; align-items:center;'><span style='font-size:15px;'>{icon}</span><span style='color:#e2e8f0; font-size:12px; font-weight:600; min-width:160px;'>{label}</span><span style='color:{tc}; font-size:11px;'>{disp_msg}</span></div>"
+
+        all_ok = all(ok for ok, _ in results.values())
+        summary_color = "#22c55e" if all_ok else "#f59e0b"
         st.markdown(f"""
-        <div style='background:{bias_bg}; border:1px solid {bias_color}; border-radius:12px;
-             padding:14px 18px; margin-bottom:14px; display:grid;
-             grid-template-columns:auto 1fr 1fr 1fr; gap:16px; align-items:start;'>
-          <div style='text-align:center; padding-right:12px; border-right:1px solid #2a3a5c;'>
-            <div style='font-size:28px;'>{bias_icon}</div>
-            <div style='font-size:18px; font-weight:900; color:{bias_color};'>{bias_vn.upper()}</div>
-            <div style='font-size:9px; color:#64748b; text-transform:uppercase;'>INTRADAY ZW</div>
-          </div>
-          <div>
-            <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Nhận Định</div>
-            <div style='font-size:13px; color:#e2e8f0; font-weight:600; line-height:1.5;'>{summary}</div>
-            {reasons_html}
-          </div>
-          <div>
-            <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Mức Giá Chú Ý</div>
-            <div style='font-size:12px; color:#22c55e;'>🟢 Hỗ trợ: <b>{sup} ¢</b></div>
-            <div style='font-size:12px; color:#ef4444; margin-top:4px;'>🔴 Kháng cự: <b>{res} ¢</b></div>
-          </div>
-          <div>
-            <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Rủi Ro Cần Theo Dõi</div>
-            <div style='font-size:11px; color:#f59e0b; line-height:1.5;'>⚠️ {risk}</div>
-            <div style='font-size:9px; color:#475569; margin-top:8px;'>🤖 AI: {gen_at}</div>
-          </div>
+        <div style='background:#1a2035; border:1px solid #2a3a5c; border-radius:10px; padding:12px 14px; margin:6px 0 12px;'>
+          <div style='font-size:12px; font-weight:700; color:{summary_color}; margin-bottom:8px;'>
+            📋 Kết quả cập nhật {'— Tất cả OK ✅' if all_ok else '— Một số lỗi ⚠️'}</div>
+          {rows}
         </div>""", unsafe_allow_html=True)
 
-    # ── THÔNG TIN TIN TỨC ────────────────────────────────────────────────────
-    st.markdown(f"<div style='font-size:11px; color:#64748b; margin-bottom:10px;'>⏱ Dữ liệu: {ts} &nbsp;|&nbsp; Tổng: {len(news_list)} tin trong 7 ngày gần nhất</div>", unsafe_allow_html=True)
+        st.cache_data.clear()
+        st.rerun()
 
-    # ── 4 SUB-TABS PHÂN LOẠI ─────────────────────────────────────────────────
-    CAT_CONFIG = {
-        "dia_chinh_tri":     ("🌍 Địa Chính Trị",      "#ef4444", "Xung đột, chính sách XK, địa chính trị Nga/Ukraine/MENA"),
-        "logistics":         ("🚢 Logistics",           "#60a5fa", "Vận tải biển, cảng, tắc nghẽn, cước phí"),
-        "san_luong_dien_tich":("🌾 Sản Lượng & Gieo Trồng","#22c55e","Diện tích, thu hoạch, báo cáo USDA NASS, ABARES"),
-        "cung_cau_nhan_dinh":("📊 Cung Cầu & Nhận Định","#a78bfa","Tồn kho, xuất khẩu, dự báo giá, phân tích chuyên gia"),
-    }
+    ai_news = load_json("ai_news.json")
+    if not ai_news or not ai_news.get("news"):
+        st.info("Chưa có tin tức. Nhấn **'🔄 Cập Nhật Tất Cả'** ở trên để bắt đầu.")
+    else:
+        ts = ai_news.get("timestamp", "—")
+        news_list = ai_news.get("news", [])
+        intraday  = ai_news.get("intraday", {})
 
-    def news_for_cat(cat):
-        return [n for n in news_list if n.get("category") == cat]
+        # ── INTRADAY AI BOX ─────────────────────────────────────────────────────
+        if intraday:
+            bias     = intraday.get("bias", "Neutral")
+            bias_vn  = intraday.get("bias_vn", "Đi Ngang")
+            summary  = intraday.get("summary", "")
+            sup      = intraday.get("key_levels", {}).get("support", "N/A")
+            res_lvl  = intraday.get("key_levels", {}).get("resistance", "N/A")
+            reasons  = intraday.get("reasoning", [])
+            risk     = intraday.get("risk", "")
+            gen_at   = intraday.get("generated_at", ts[:16])
 
-    def render_news_items(items, accent_color):
-        if not items:
-            st.markdown(f"<div style='color:#475569; font-size:13px; padding:12px;'>Không có tin tức trong mục này trong 7 ngày gần nhất.</div>", unsafe_allow_html=True)
-            return
-        for item in items:
-            src = item.get("source", "")
-            link = item.get("link", "#")
-            details = item.get("details", [])
-            label = f"<span style='color:{accent_color}; font-weight:700;'>●</span> {item.get('title','')}"
-            with st.expander(item.get('title', ''), expanded=False):
-                st.markdown(f"<div style='font-size:10px; color:#64748b; margin-bottom:8px;'>📅 {src}</div>", unsafe_allow_html=True)
-                for d in details:
-                    st.markdown(f"<div style='font-size:13px; color:#cbd5e1; margin-bottom:5px; line-height:1.6; padding-left:8px; border-left:2px solid {accent_color};'>• {d}</div>", unsafe_allow_html=True)
-                if link and link != "#":
-                    st.markdown(f"<a href='{link}' target='_blank' style='font-size:11px; color:#38bdf8;'>🔗 Đọc bài gốc</a>", unsafe_allow_html=True)
+            bias_color  = "#22c55e" if bias == "Bullish" else ("#ef4444" if bias == "Bearish" else "#f59e0b")
+            bias_bg     = "rgba(34,197,94,0.08)" if bias == "Bullish" else ("rgba(239,68,68,0.08)" if bias == "Bearish" else "rgba(245,158,11,0.08)")
+            bias_icon   = "📈" if bias == "Bullish" else ("📉" if bias == "Bearish" else "➡️")
+            reasons_html = "".join([f"<div style='font-size:11px; color:#94a3b8; margin-bottom:3px;'>• {r}</div>" for r in reasons])
 
-    # Hiển thị số lượng tin mỗi category trên tab label
-    tab_labels = []
-    for cat, (label, color, _) in CAT_CONFIG.items():
-        cnt = len(news_for_cat(cat))
-        tab_labels.append(f"{label} ({cnt})")
+            st.markdown(f"""
+            <div style='background:{bias_bg}; border:1px solid {bias_color}; border-radius:12px;
+                 padding:14px 18px; margin-bottom:14px; display:grid;
+                 grid-template-columns:auto 1fr 1fr 1fr; gap:16px; align-items:start;'>
+              <div style='text-align:center; padding-right:12px; border-right:1px solid #2a3a5c;'>
+                <div style='font-size:28px;'>{bias_icon}</div>
+                <div style='font-size:18px; font-weight:900; color:{bias_color};'>{bias_vn.upper()}</div>
+                <div style='font-size:9px; color:#64748b; text-transform:uppercase;'>INTRADAY ZW</div>
+              </div>
+              <div>
+                <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Nhận Định</div>
+                <div style='font-size:13px; color:#e2e8f0; font-weight:600; line-height:1.5;'>{summary}</div>
+                {reasons_html}
+              </div>
+              <div>
+                <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Mức Giá Chú Ý</div>
+                <div style='font-size:12px; color:#22c55e;'>🟢 Hỗ trợ: <b>{sup} ¢</b></div>
+                <div style='font-size:12px; color:#ef4444; margin-top:4px;'>🔴 Kháng cự: <b>{res_lvl} ¢</b></div>
+              </div>
+              <div>
+                <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Rủi Ro Cần Theo Dõi</div>
+                <div style='font-size:11px; color:#f59e0b; line-height:1.5;'>⚠️ {risk}</div>
+                <div style='font-size:9px; color:#475569; margin-top:8px;'>🤖 AI: {gen_at}</div>
+              </div>
+            </div>""", unsafe_allow_html=True)
 
-    sub_tabs = st.tabs(tab_labels)
-    for i, (cat, (label, color, desc)) in enumerate(CAT_CONFIG.items()):
-        with sub_tabs[i]:
-            st.markdown(f"<div style='font-size:11px; color:#64748b; margin-bottom:10px;'>{desc}</div>", unsafe_allow_html=True)
-            render_news_items(news_for_cat(cat), color)
+        # ── THÔNG TIN TIN TỨC ────────────────────────────────────────────────────
+        st.markdown(f"<div style='font-size:11px; color:#64748b; margin-bottom:10px;'>⏱ Dữ liệu: {ts} &nbsp;|&nbsp; Tổng: {len(news_list)} tin trong 7 ngày gần nhất</div>", unsafe_allow_html=True)
+
+        # ── 4 SUB-TABS PHÂN LOẠI ─────────────────────────────────────────────────
+        CAT_CONFIG = {
+            "dia_chinh_tri":      ("🌍 Địa Chính Trị",        "#ef4444", "Xung đột, chính sách XK, địa chính trị Nga/Ukraine/MENA"),
+            "logistics":          ("🚢 Logistics",              "#60a5fa", "Vận tải biển, cảng, tắc nghẽn, cước phí"),
+            "san_luong_dien_tich":("🌾 Sản Lượng & Gieo Trồng","#22c55e", "Diện tích, thu hoạch, báo cáo USDA NASS, ABARES"),
+            "cung_cau_nhan_dinh": ("📊 Cung Cầu & Nhận Định",  "#a78bfa", "Tồn kho, xuất khẩu, dự báo giá, phân tích chuyên gia"),
+        }
+
+        def news_for_cat(cat):
+            return [n for n in news_list if n.get("category") == cat]
+
+        def render_news_items(items, accent_color):
+            if not items:
+                st.markdown("<div style='color:#475569; font-size:13px; padding:12px;'>Không có tin tức trong mục này trong 7 ngày gần nhất.</div>", unsafe_allow_html=True)
+                return
+            for item in items:
+                src     = item.get("source", "")
+                link    = item.get("link", "#")
+                details = item.get("details", [])
+                with st.expander(item.get("title", ""), expanded=False):
+                    st.markdown(f"<div style='font-size:10px; color:#64748b; margin-bottom:8px;'>📅 {src}</div>", unsafe_allow_html=True)
+                    for d in details:
+                        st.markdown(f"<div style='font-size:13px; color:#cbd5e1; margin-bottom:5px; line-height:1.6; padding-left:8px; border-left:2px solid {accent_color};'>• {d}</div>", unsafe_allow_html=True)
+                    if link and link != "#":
+                        st.markdown(f"<a href='{link}' target='_blank' style='font-size:11px; color:#38bdf8;'>🔗 Đọc bài gốc</a>", unsafe_allow_html=True)
+
+        tab_labels = []
+        for cat, (label, color, _) in CAT_CONFIG.items():
+            cnt = len(news_for_cat(cat))
+            tab_labels.append(f"{label} ({cnt})")
+
+        sub_tabs = st.tabs(tab_labels)
+        for i, (cat, (label, color, desc)) in enumerate(CAT_CONFIG.items()):
+            with sub_tabs[i]:
+                st.markdown(f"<div style='font-size:11px; color:#64748b; margin-bottom:10px;'>{desc}</div>", unsafe_allow_html=True)
+                render_news_items(news_for_cat(cat), color)
 
 with tab1:
 
