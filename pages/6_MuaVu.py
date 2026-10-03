@@ -350,10 +350,20 @@ def render_muavu_tab(commodity):
 
     # El Nino impacts per region
     def enso_impact(region_key):
+        if commodity == "ZC":
+            if "Mỹ" in region_key and "Nam" not in region_key:
+                return "<span style='color:#94a3b8;font-weight:700;'>NEUTRAL</span> — Đang vụ Thu Hoạch, hiện tượng El Nino ít đe dọa trực tiếp tới nguồn cung."
+            if "Brazil" in region_key:
+                return "<span style='color:#ef4444;font-weight:700;'>BULLISH</span> — Rủi ro khô hạn cục bộ ảnh hưởng vụ Safrinha đầu năm."
+            if "Argentina" in region_key:
+                return "<span style='color:#22c55e;font-weight:700;'>BEARISH</span> — Tháng 10-12 (Gieo hạt). Mưa thuận lợi cho gieo trồng ngô."
+            if "Trung Quốc" in region_key or "Ukraine" in region_key:
+                return "—"
+
         for imp in weather_long.get("impacts", []):
             if region_key in imp.get("region", ""):
                 bias_col = "#ef4444" if imp["bias"]=="BULLISH" else "#22c55e"
-                return f"<span style='color:{bias_col};font-weight:700;'>{imp['bias']}</span> – {imp['effect'][:80]}"
+                return f"<span style='color:{bias_col};font-weight:700;'>{imp['bias']}</span> — {imp['effect'][:80]}"
         return "—"
 
     if commodity == "ZW":
