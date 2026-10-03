@@ -148,6 +148,7 @@ def score_f4s_supply_sh(manual_overrides, commodity="ZW"):
     return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
 def score_f12_global_demand(manual_overrides, commodity="ZW"):
+    if commodity == "ZC": return {"score": 4, "raw_value": "Nhu cầu suy yếu", "raw_detail": "Nhu cầu thức ăn chăn nuôi toàn cầu yếu do lo ngại kinh tế và dịch bệnh.", "last_updated": "Hiện tại", "status": "manual"}
     """F12: Nhu Cầu Toàn Cầu (Global Demand) - Ai Cập, Ả Rập, Trung Quốc..."""
     ov    = manual_overrides.get("F12_Global_Demand", {})
     score = ov.get("score", 5)
@@ -302,6 +303,7 @@ def score_f7_global_stocks(fund_data, commodity="ZW"):
 
 
 def score_f8_geopolitics(manual_overrides, commodity="ZW"):
+    if commodity == "ZC": return {"score": 5, "raw_value": "Logistics & Biển Đen", "raw_detail": "Chiến sự Biển Đen giảm nhiệt, tắc nghẽn vận tải không còn là điểm nóng.", "last_updated": "Hiện tại", "status": "manual"}
     """F8: Geopolitics & Logistics - manual."""
     ov = manual_overrides.get("F8_Geopolitics", {})
     score = ov.get("score", 5)

@@ -267,7 +267,7 @@ def render_muavu_tab(commodity):
             <div class='mv-card-title'>🟢 Sức Mạnh USD (DXY)</div>
             <div class='mv-card-value'>{dxy_live}</div>
             <div class='mv-card-sub'>Điểm: {score_badge(dxy_pt)} &nbsp;<span style='color:{pc};'>{pct_str}</span></div>
-            <div class='mv-card-sub'>DXY cao → lúa mì Mỹ đắt → Bearish XK</div>
+            <div class='mv-card-sub'>{'DXY cao → lúa mì Mỹ đắt → Bearish XK' if commodity == 'ZW' else 'DXY cao → Ngô Mỹ đắt → Bearish XK'}</div>
             <div class='mv-card-updated'>⏱ {mac_ts}</div>
         </div>""", unsafe_allow_html=True)
 
@@ -278,7 +278,7 @@ def render_muavu_tab(commodity):
             <div class='mv-card-title'>🟢 Giá Dầu Brent</div>
             <div class='mv-card-value'>{oil_live} USD/thùng</div>
             <div class='mv-card-sub'>Điểm: {score_badge(oil_pt)} &nbsp;<span style='color:{pc2};'>{pct2}</span></div>
-            <div class='mv-card-sub'>Dầu ảnh hưởng cước tàu & phân bón</div>
+            <div class='mv-card-sub'>{'Dầu ảnh hưởng cước tàu & phân bón' if commodity == 'ZW' else 'Ngô chạy theo Dầu (40% SP nấu Ethanol)'}</div>
             <div class='mv-card-updated'>⏱ {mac_ts}</div>
         </div>""", unsafe_allow_html=True)
 
@@ -558,6 +558,22 @@ def render_muavu_tab(commodity):
 
     pct_1m = ((close - low1m) / (high1m - low1m) * 100) if isinstance(close,(int,float)) and isinstance(high1m,(int,float)) and high1m!=low1m else None
 
+    if commodity == "ZW":
+        sym_text = f"THÔNG SỐ GIÁ ZW (ZWZ26) - Cập nhật: {zw_date}"
+        dca_time = "Cuối T11 - Giữa T12/2026"
+        dca_reason = "Khi áp lực xả hàng Úc+Argentina đạt đỉnh, El Niño bắt đầu ảnh hưởng Q1/2027"
+        z1_price = f"{s1:.0f} - 680¢"
+        z2_price = f"{s2:.0f} - 620¢"
+    else:
+        sym_text = f"THÔNG SỐ GIÁ ZC (ZCZ26) - Cập nhật: {zw_date}"
+        dca_time = "Giai đoạn T10 - T11/2026"
+        dca_reason = "Khi áp lực mùa vụ thu hoạch tại Mỹ đạt đỉnh điểm (Nguồn cung bung ra mạnh nhất)"
+        s1_val = s1 if isinstance(s1, (int,float)) else 400
+        s2_val = s2 if isinstance(s2, (int,float)) else 380
+        z1_price = f"{s1_val:.0f} - {s1_val+10:.0f}¢"
+        z2_price = f"{s2_val:.0f} - {s2_val+10:.0f}¢"
+
+
     col_a, col_b = st.columns([1, 1])
     with col_a:
         rsi_color = "#22c55e" if isinstance(rsi,(int,float)) and rsi < 35 else ("#ef4444" if isinstance(rsi,(int,float)) and rsi > 65 else "#eab308")
@@ -565,7 +581,7 @@ def render_muavu_tab(commodity):
         st.markdown(f"""
         <div class='dca-box'>
           <div style='font-size:11px;font-weight:700;color:#f59e0b;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;'>
-            📊 THÔNG SỐ GIÁ ZW (ZWZ26) – Cập nhật: {zw_date}
+            📊 {sym_text}
           </div>
           <div style='display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;'>
             <div class='dca-zone'>
@@ -595,17 +611,17 @@ def render_muavu_tab(commodity):
           </div>
           <div class='dca-zone' style='border-color:#22c55e; margin-bottom:8px;'>
             <div style='font-size:10px;color:#64748b;'>THỜI GIAN GOM TỐI ƯU</div>
-            <div style='font-size:15px;font-weight:700;color:#86efac;'>Cuối T11 – Giữa T12/2026</div>
-            <div style='font-size:11px;color:#94a3b8;'>Khi áp lực xả hàng Úc+Argentina đạt đỉnh, El Niño bắt đầu ảnh hưởng Q1/2027</div>
+            <div style='font-size:15px;font-weight:700;color:#86efac;'>{dca_time}</div>
+            <div style='font-size:11px;color:#94a3b8;'>{dca_reason}</div>
           </div>
           <div class='dca-zone' style='border-color:#f59e0b; margin-bottom:8px;'>
             <div style='font-size:10px;color:#64748b;'>VÙNG GOM ZONE 1 (Ưu tiên)</div>
-            <div style='font-size:18px;font-weight:800;color:#fde68a;'>{s1:.0f} – 680¢</div>
+            <div style='font-size:18px;font-weight:800;color:#fde68a;'>{z1_price}</div>
             <div style='font-size:11px;color:#94a3b8;'>Hỗ trợ kỹ thuật S1 + Đáy 1 tháng gần nhất</div>
           </div>
           <div class='dca-zone' style='border-color:#94a3b8;'>
             <div style='font-size:10px;color:#64748b;'>VÙNG GOM ZONE 2 (Dự phòng Bearish cực đoan)</div>
-            <div style='font-size:18px;font-weight:800;color:#cbd5e1;'>{s2:.0f} – 620¢</div>
+            <div style='font-size:18px;font-weight:800;color:#cbd5e1;'>{z2_price}</div>
             <div style='font-size:11px;color:#94a3b8;'>Chỉ DCA thêm khi có tin tức vĩ mô cực kỳ Bearish bất ngờ</div>
           </div>
         </div>
