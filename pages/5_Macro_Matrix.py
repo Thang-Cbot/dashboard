@@ -439,23 +439,40 @@ def render_macro_tab(commodity):
     </div>""", unsafe_allow_html=True)
 
 
-    # Define factor names and descriptions
-    factor_dict = {
-        "F1":  {"name": "Nguồn Cung Biển Đen",             "desc": "Nga & Ukraine: Tốc độ XK, giá FOB, Thuế"},
-        "F2":  {"name": "Sản Lượng & Diện Tích Mỹ",   "desc": "Tiến độ gieo gặt, Chất lượng G/E, Năng suất"},
-        "F2W": {"name": "Thời Tiết Mỹ (US Weather)",       "desc": "Hạn hán, mưa bão tại các vành đai lúa mì Mỹ"},
-        "F3":  {"name": "Nguồn Cung Khác (EU, Canada, Ấn Độ)", "desc": "Tình hình mùa vụ Châu Âu, Canada, Ấn Độ xả hàng"},
-        "F4":  {"name": "Thời Tiết Nam Bán Cầu",            "desc": "Rủi ro thời tiết: Úc / Argentina (El Niño/La Niña)"},
-        "F4S": {"name": "Nguồn Cung Nam Bán Cầu (Úc, Argentina)", "desc": "Sản lượng thu hoạch dự báo Úc & Argentina"},
-        "F5":  {"name": "Báo Cáo Xuất Khẩu Mỹ",            "desc": "Weekly Export Sales (Nhu cầu thực tế từ Mỹ)"},
-        "F6":  {"name": "Tồn Kho Mỹ (US Stocks)",           "desc": "Ending Stocks % Change (WASDE)"},
-        "F7":  {"name": "Tồn Kho Toàn Cầu (Global Stocks)", "desc": "World Ending Stocks % Change (WASDE)"},
-        "F8":  {"name": "Địa Chính Trị & Logistics",        "desc": "Rủi ro chiến tranh Biển Đen, Tắc nghẽn vận tải"},
-        "F9":  {"name": "Sức Mạnh USD (DXY)",               "desc": "Năng lực cạnh tranh xuất khẩu của Mỹ"},
-        "F10": {"name": "Giá Dầu Thô (WTI/Brent)",          "desc": "Chi phí cước tàu & Phân bón"},
-        "F11": {"name": "Vị Thế Các Quỹ (COT)",             "desc": "Dòng tiền Smart Money (Rủi ro Short Squeeze)"},
-        "F12": {"name": "Nhu Cầu Toàn Cầu (Global Demand)", "desc": "Ai Cập, Ả Rập, Trung Quốc... đang mua hay hủy đơn?"},
-    }
+    if commodity == "ZW":
+        factor_dict = {
+            "F1":  {"name": "Nguồn Cung Biển Đen",             "desc": "Nga & Ukraine: Tốc độ XK, giá FOB, Thuế"},
+            "F2":  {"name": "Sản Lượng & Diện Tích Mỹ",   "desc": "Tiến độ gieo gặt, Chất lượng G/E, Năng suất"},
+            "F2W": {"name": "Thời Tiết Mỹ (US Weather)",       "desc": "Hạn hán, mưa bão tại các vành đai lúa mì Mỹ"},
+            "F3":  {"name": "Nguồn Cung Khác (EU, Canada, Ấn Độ)", "desc": "Tình hình mùa vụ Châu Âu, Canada, Ấn Độ xả hàng"},
+            "F4":  {"name": "Thời Tiết Nam Bán Cầu",            "desc": "Rủi ro thời tiết: Úc / Argentina (El Niño/La Niña)"},
+            "F4S": {"name": "Nguồn Cung Nam Bán Cầu (Úc, Argentina)", "desc": "Sản lượng thu hoạch dự báo Úc & Argentina"},
+            "F5":  {"name": "Báo Cáo Xuất Khẩu Mỹ",            "desc": "Weekly Export Sales (Nhu cầu thực tế từ Mỹ)"},
+            "F6":  {"name": "Tồn Kho Mỹ (US Stocks)",           "desc": "Ending Stocks % Change (WASDE)"},
+            "F7":  {"name": "Tồn Kho Toàn Cầu (Global Stocks)", "desc": "World Ending Stocks % Change (WASDE)"},
+            "F8":  {"name": "Địa Chính Trị & Logistics",        "desc": "Rủi ro chiến tranh Biển Đen, Tắc nghẽn vận tải"},
+            "F9":  {"name": "Sức Mạnh USD (DXY)",               "desc": "Năng lực cạnh tranh xuất khẩu của Mỹ"},
+            "F10": {"name": "Giá Dầu Thô (WTI/Brent)",          "desc": "Chi phí cước tàu & Phân bón"},
+            "F11": {"name": "Vị Thế Các Quỹ (COT)",             "desc": "Dòng tiền Smart Money (Rủi ro Short Squeeze)"},
+            "F12": {"name": "Nhu Cầu Toàn Cầu (Global Demand)", "desc": "Ai Cập, Ả Rập, Trung Quốc... đang mua hay hủy đơn?"},
+        }
+    else:
+        factor_dict = {
+            "F1":  {"name": "Chiến Sự Biển Đen (Ukraine)",      "desc": "Ukraine là nhà xuất khẩu Ngô. Đã giảm trọng số."},
+            "F2":  {"name": "Sản Lượng Ngô Mỹ",                 "desc": "Tiến độ gieo gặt, Năng suất. Mùa gặt đang diễn ra."},
+            "F2W": {"name": "Thời Tiết Vành Đai Ngô (Mỹ)",      "desc": "Hạn hán, mưa bão tại vùng Corn Belt"},
+            "F3":  {"name": "Trung Quốc & Brazil (Chuyển Trục)","desc": "Mất thị phần TQ vào tay Brazil (Mega Bearish)"},
+            "F4":  {"name": "Thời Tiết Nam Mỹ",                 "desc": "Rủi ro thời tiết tại Brazil, Argentina"},
+            "F4S": {"name": "Nguồn Cung Nam Mỹ",                "desc": "Brazil soán ngôi Mỹ. (Úc bị gạch bỏ)"},
+            "F5":  {"name": "Báo Cáo Xuất Khẩu Mỹ",             "desc": "Weekly Export Sales"},
+            "F6":  {"name": "Quả Tạ Tồn Kho Nội Địa Mỹ",        "desc": "Báo cáo Grain Stocks 30/09 (Mega Bearish)"},
+            "F7":  {"name": "Tồn Kho Ngô Toàn Cầu",             "desc": "World Ending Stocks % Change (WASDE)"},
+            "F8":  {"name": "Địa Chính Trị & Logistics",        "desc": "Tắc nghẽn vận tải kênh đào Panama/Suez"},
+            "F9":  {"name": "Sức Mạnh USD (DXY)",               "desc": "USD neo cao đè bẹp xuất khẩu Ngô Mỹ"},
+            "F10": {"name": "Dầu Thô (WTI) & Cồn Ethanol",      "desc": "Trọng số #1. Ngô chạy theo Dầu (Chiếm 40% SP)"},
+            "F11": {"name": "Vị Thế Các Quỹ (COT)",             "desc": "Dòng tiền Smart Money (Rủi ro Short Squeeze)"},
+            "F12": {"name": "Nhu Cầu Toàn Cầu (Thức Ăn)",       "desc": "Nhu cầu nhập khẩu thức ăn chăn nuôi thế giới"},
+        }
 
     with col2:
         st.markdown('<div class="section-title">BẢNG MA TRẬN 13 YẾU TỐ (FIXED FACTORS)</div>', unsafe_allow_html=True)

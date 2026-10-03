@@ -125,6 +125,7 @@ def score_f2w_us_weather(manual_overrides, fund_data, commodity="ZW"):
         return {"score": score, "raw_value": f"Điểm: {score}/10", "raw_detail": note, "last_updated": last_up, "status": "manual"}
 
 def score_f3_other_supply(manual_overrides, commodity="ZW"):
+    if commodity == "ZC": return {"score": 2, "raw_value": "Mất thị phần TQ", "raw_detail": "Trung Quốc mua Ngô Brazil. Brazil soán ngôi Mỹ. MEGA BEARISH", "last_updated": "Hiện tại", "status": "manual"}
     """F3: Nguồn Cung Khác (EU, Canada, Ấn Độ...) - manual."""
     ov = manual_overrides.get("F3_Other_Supply", manual_overrides.get("F3_EU_Supply", {}))
     score = ov.get("score", 5)
@@ -139,6 +140,7 @@ def score_f4_weather_sh(manual_overrides, commodity="ZW"):
     return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
 def score_f4s_supply_sh(manual_overrides, commodity="ZW"):
+    if commodity == "ZC": return {"score": 2, "raw_value": "Mùa vụ Nam Mỹ", "raw_detail": "Brazil là nước XK Ngô #1. Úc bị loại khỏi biến số (ít Ngô). MEGA BEARISH", "last_updated": "Hiện tại", "status": "manual"}
     """F4S: Nguồn Cung Nam Bán Cầu (Úc, Argentina) - sản lượng dự báo."""
     ov    = manual_overrides.get("F4S_Supply_SH", {})
     score = ov.get("score", 5)
@@ -203,6 +205,7 @@ def score_f5_export_sales(sales_data, commodity="ZW"):
         return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:80], "last_updated": last_up, "status": "error"}
 
 def score_f6_us_stocks(fund_data, commodity="ZW"):
+    if commodity == "ZC": return {"score": 1, "raw_value": "2.1 tỷ dạ (+35% YoY)", "raw_detail": "Tồn kho Ngô Mỹ 2.1 tỷ dạ (Báo cáo 30/09). Tăng sốc 35%. Áp lực cực đoan. MEGA BEARISH", "last_updated": "Hiện tại", "status": "manual"}
     """F6: US Ending Stocks — tự tính MoM từ current/previous + dùng pct_vs_prev_report để chấm điểm."""
     filepath = OUTPUT_DIR / "fundamental_data.json"
     last_up  = get_file_mtime(filepath)
@@ -343,7 +346,9 @@ def score_f10_oil(macro_data, commodity="ZW"):
         elif price < 80: score = 5
         elif price < 90: score = 8
         else: score = 10
-        return {"score": score, "raw_value": f"Brent ${price:.2f} ({pct:+.2f}%)", "raw_detail": "Crude Oil — Cước tàu & Phân bón", "last_updated": last_up, "status": "ok"}
+        if commodity == "ZC":
+            return {"score": score, "raw_value": f"Brent ${price:.2f} ({pct:+.2f}%)", "raw_detail": "40% Ngô nấu cồn. Dầu giảm kéo Ngô sập (MEGA BEARISH).", "last_updated": last_up, "status": "ok"}
+        return {"score": score, "raw_value": f"Brent ${price:.2f} ({pct:+.2f}%)", "raw_detail": "Crude Oil -> Cước tàu & Phân bón", "last_updated": last_up, "status": "ok"}
     except Exception as e:
         return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:50], "last_updated": last_up, "status": "error"}
 
@@ -393,6 +398,26 @@ def calculate_macro_score(commodity="ZW"):
 
     current_month = str(datetime.now().month)
     weights = monthly_weights.get(current_month, {f"F{i}": round(100/11, 1) for i in range(1, 12)})
+
+    if commodity == "ZC":
+        weights["F10"] = 25
+        weights["F6"] = 20
+        weights["F3"] = 15
+        weights["F4S"] = 10
+        weights["F9"] = 10
+        weights["F1"] = 5
+        weights["F5"] = 5
+        weights["F12"] = 5
+        weights["F2"] = 5
+        weights["F4"] = 0
+        weights["F11"] = 0
+        weights["F7"] = 0
+        weights["F8"] = 0
+        weights["F2W"] = 0
+        
+        tot = sum(weights.values())
+        for k in weights: weights[k] = round((weights[k]/tot)*100, 1)
+
 
     # Calculate per-factor rich data
     factor_results = {
