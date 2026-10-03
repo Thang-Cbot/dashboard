@@ -628,11 +628,6 @@ def render_muavu_tab(commodity):
             <div style='font-size:18px;font-weight:800;color:#cbd5e1;'>{z1_price}</div>
             <div style='font-size:11px;color:#94a3b8;'>Biến động Real-time: Hỗ trợ S1 + Đáy 1 tháng gần nhất</div>
           </div>
-          <div class='dca-zone' style='border-color:#94a3b8;'>
-            <div style='font-size:10px;color:#64748b;'>VÙNG GOM ZONE 2 (Dự phòng Bearish cực đoan)</div>
-            <div style='font-size:18px;font-weight:800;color:#cbd5e1;'>{z2_price}</div>
-            <div style='font-size:11px;color:#94a3b8;'>Chỉ DCA thêm khi có tin tức vĩ mô cực kỳ Bearish bất ngờ</div>
-          </div>
         </div>
         """, unsafe_allow_html=True)
 
