@@ -570,8 +570,8 @@ def render_muavu_tab(commodity):
         dca_reason = "Khi áp lực mùa vụ thu hoạch tại Mỹ đạt đỉnh điểm (Nguồn cung bung ra mạnh nhất)"
         s1_val = s1 if isinstance(s1, (int,float)) else 400
         s2_val = s2 if isinstance(s2, (int,float)) else 380
-        z1_price = f"{s1_val:.0f} - {s1_val+10:.0f}¢"
-        z2_price = f"{s2_val:.0f} - {s2_val+10:.0f}¢"
+        z1_price = "400 - 420¢"
+        z2_price = "380 - 400¢"
 
 
     col_a, col_b = st.columns([1, 1])
