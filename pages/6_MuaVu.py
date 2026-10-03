@@ -562,16 +562,20 @@ def render_muavu_tab(commodity):
         sym_text = f"THÔNG SỐ GIÁ ZW (ZWZ26) - Cập nhật: {zw_date}"
         dca_time = "Cuối T11 - Giữa T12/2026"
         dca_reason = "Khi áp lực xả hàng Úc+Argentina đạt đỉnh, El Niño bắt đầu ảnh hưởng Q1/2027"
-        z1_price = f"{s1:.0f} - 680¢"
-        z2_price = f"{s2:.0f} - 620¢"
+        s1_v = s1 if isinstance(s1, (int,float)) else 600
+        s2_v = s2 if isinstance(s2, (int,float)) else 550
+        l1_v = low1m if isinstance(low1m, (int,float)) else s1_v+15
+        z1_price = f"{min(s1_v, l1_v):.0f} - {max(s1_v, l1_v):.0f}¢"
+        z2_price = f"{s2_v:.0f} - {s2_v+20:.0f}¢"
     else:
         sym_text = f"THÔNG SỐ GIÁ ZC (ZCZ26) - Cập nhật: {zw_date}"
         dca_time = "Giai đoạn T10 - T11/2026"
         dca_reason = "Khi áp lực mùa vụ thu hoạch tại Mỹ đạt đỉnh điểm (Nguồn cung bung ra mạnh nhất)"
-        s1_val = s1 if isinstance(s1, (int,float)) else 400
-        s2_val = s2 if isinstance(s2, (int,float)) else 380
-        z1_price = f"{s1_val:.0f} - {s1_val+10:.0f}¢"
-        z2_price = f"{s2_val:.0f} - {s2_val+10:.0f}¢"
+        s1_v = s1 if isinstance(s1, (int,float)) else 400
+        s2_v = s2 if isinstance(s2, (int,float)) else 380
+        l1_v = low1m if isinstance(low1m, (int,float)) else s1_v+15
+        z1_price = f"{min(s1_v, l1_v):.0f} - {max(s1_v, l1_v):.0f}¢"
+        z2_price = f"{s2_v:.0f} - {s2_v+15:.0f}¢"
 
 
     col_a, col_b = st.columns([1, 1])
