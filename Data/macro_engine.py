@@ -400,19 +400,19 @@ def calculate_macro_score(commodity="ZW"):
     weights = monthly_weights.get(current_month, {f"F{i}": round(100/11, 1) for i in range(1, 12)})
 
     if commodity == "ZC":
-        weights["F10"] = 25
-        weights["F6"] = 20
-        weights["F3"] = 15
-        weights["F4S"] = 10
-        weights["F9"] = 10
-        weights["F1"] = 5
+        weights["F10"] = 16
+        weights["F6"] = 14
+        weights["F3"] = 12
+        weights["F2"] = 10
+        weights["F9"] = 8
+        weights["F4S"] = 8
+        weights["F4"] = 7
+        weights["F11"] = 7
         weights["F5"] = 5
-        weights["F12"] = 5
-        weights["F2"] = 5
-        weights["F4"] = 0
-        weights["F11"] = 0
-        weights["F7"] = 0
-        weights["F8"] = 0
+        weights["F7"] = 4
+        weights["F12"] = 4
+        weights["F1"] = 3
+        weights["F8"] = 2
         weights["F2W"] = 0
         
         tot = sum(weights.values())
