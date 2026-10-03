@@ -193,15 +193,14 @@ with c3:
 st.markdown("<br>", unsafe_allow_html=True)
 
 # Quick nav — dùng st.page_link để có thể click
-col1, col2, col3, col4, col5, col6, col7 = st.columns(7, gap="small")
+col1, col2, col3, col4, col5, col6 = st.columns(6, gap="small")
 for col, icon, title, desc, page in [
     (col1, "📊", "Tổng Quan",       "Tóm tắt thị trường & Alert",  "pages/1_Overview.py"),
     (col2, "📈", "Hồ Sơ Mã",       "Biểu đồ H1 & chiến lược",     "pages/2_Profiles.py"),
     (col3, "📰", "Tin Tức",         "Xuất khẩu, USDA, WASDE",       "pages/3_News.py"),
-    (col4, "🌤️","Thời Tiết",      "ENSO & dự báo ngắn hạn",       "pages/4_Weather.py"),
-    (col5, "🗺️","Bản Đồ Nông Sản","Mỹ + Thế Giới, cập nhật thời tiết", "pages/5_AgriMap.py"),
-    (col6, "🌾","Mùa Vụ",   "Chiến lược mùa vụ, DCA dài hạn", "pages/6_MuaVu.py"),
-    (col7, "⚙️","System Logs",   "Sức khỏe hệ thống, Đồng bộ", "pages/7_System_Logs.py"),
+    (col4, "🌤️","Thời Tiết & Bản Đồ","ENSO, bản đồ cảnh báo 3N",   "pages/4_Weather_Map.py"),
+    (col5, "🌾","Mùa Vụ",   "Chiến lược mùa vụ, DCA dài hạn", "pages/6_MuaVu.py"),
+    (col6, "⚙️","System Logs",   "Sức khỏe hệ thống, Đồng bộ", "pages/7_System_Logs.py"),
 ]:
     with col:
         st.markdown(f"""

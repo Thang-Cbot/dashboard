@@ -123,7 +123,7 @@ def make_us_fig(regions: dict) -> go.Figure:
         lat, lon = STATE_CENTERS.get(s, (0,0))
         fig.add_trace(go.Scattergeo(lon=[lon], lat=[lat], text=[s], mode="text", textfont=dict(color="black", size=10, weight="bold"), hoverinfo="skip"))
 
-    fig.update_layout(geo_scope="usa", geo=dict(bgcolor="rgba(0,0,0,0)", lakecolor="#1e293b", projection_type="albers usa"), margin=dict(l=0, r=0, t=0, b=0), paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", height=350, dragmode=False)
+    fig.update_layout(geo_scope="usa", geo=dict(bgcolor="rgba(0,0,0,0)", lakecolor="#1e293b", projection_type="albers usa"), margin=dict(l=0, r=0, t=0, b=0), paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", height=350, dragmode=False, showlegend=False)
     return fig
 
 def make_world_fig(regions: dict) -> go.Figure:
@@ -139,7 +139,7 @@ def make_world_fig(regions: dict) -> go.Figure:
 
     fig = go.Figure()
     fig.add_trace(go.Choropleth(locations=isos, z=z_vals, locationmode="ISO-3", colorscale=WORLD_CS, showscale=False, hoverinfo="text", hovertext=hover_texts, marker_line_color="#475569", marker_line_width=1, zmin=0, zmax=2))
-    fig.update_layout(geo=dict(showcoastlines=True, coastlinecolor="#334155", showland=True, landcolor="#1e293b", bgcolor="rgba(0,0,0,0)", projection_type="equirectangular", center=dict(lat=20, lon=0), projection_scale=1.1), margin=dict(l=0, r=0, t=0, b=0), paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", height=280, dragmode=False)
+    fig.update_layout(geo=dict(showcoastlines=True, coastlinecolor="#334155", showland=True, landcolor="#1e293b", bgcolor="rgba(0,0,0,0)", projection_type="equirectangular", center=dict(lat=20, lon=0), projection_scale=1.1), margin=dict(l=0, r=0, t=0, b=0), paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", height=280, dragmode=False, showlegend=False)
     return fig
 
 def make_enso_world_fig(impacts: list) -> go.Figure:
@@ -148,15 +148,24 @@ def make_enso_world_fig(impacts: list) -> go.Figure:
     isos = []; z_vals = []; texts = []
     for imp in impacts:
         region = imp.get("region","")
-        iso = ISO_MAP.get(region)
+        iso = None
+        # Add some more mappings for reliability
+        ISO_MAP.update({"Nga": "RUS", "Ukraine": "UKR", "EU": "FRA", "Biển Đen": "UKR", "Pháp": "FRA"})
+        for k, v in ISO_MAP.items():
+            if k.lower() in region.lower():
+                iso = v
+                break
         if iso:
             bias = imp.get("bias","").upper()
             z = 0 if "BULL" in bias else (2 if "BEAR" in bias else 1)
             isos.append(iso); z_vals.append(z)
             texts.append(f"<b>{region}</b><br>{imp.get('crop','')} - {imp.get('effect','')}")
-    if isos:
-        fig.add_trace(go.Choropleth(locations=isos, z=z_vals, locationmode="ISO-3", colorscale=[[0,"#ef4444"],[0.5,"#eab308"],[1,"#22c55e"]], showscale=False, hoverinfo="text", hovertext=texts, zmin=0, zmax=2, marker_line_color="#475569", marker_line_width=1))
-    fig.update_layout(geo=dict(showcoastlines=True, coastlinecolor="#334155", showland=True, landcolor="#1e293b", bgcolor="rgba(0,0,0,0)", projection_type="natural earth", center=dict(lat=0, lon=0), projection_scale=1), margin=dict(l=0, r=0, t=0, b=0), paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", height=350, dragmode=False)
+    if not isos:
+        isos = ["USA"] # dummy
+        z_vals = [1]
+        texts = ["Chưa có dữ liệu tác động"]
+    fig.add_trace(go.Choropleth(locations=isos, z=z_vals, locationmode="ISO-3", colorscale=[[0,"#ef4444"],[0.5,"#eab308"],[1,"#22c55e"]], showscale=False, hoverinfo="text", hovertext=texts, zmin=0, zmax=2, marker_line_color="#475569", marker_line_width=1))
+    fig.update_layout(geo=dict(showcoastlines=True, coastlinecolor="#334155", showland=True, landcolor="#1e293b", bgcolor="rgba(0,0,0,0)", projection_type="natural earth", center=dict(lat=0, lon=0), projection_scale=1), margin=dict(l=0, r=0, t=0, b=0), paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", height=350, dragmode=False, showlegend=False)
     return fig
 
 # ─── MAIN UI ──────────────────────────────────────────────────────────────────
@@ -176,24 +185,19 @@ with tab1:
     regions_short = ws.get("regions", {})
     
     with col_map:
-        st.markdown("<div class='map-card'>", unsafe_allow_html=True)
         st.markdown("<div class='map-title'>🇺🇸 Hoa Kỳ (Lúa Mì & Ngô)</div>", unsafe_allow_html=True)
         fig_us = make_us_fig(regions_short)
         st.plotly_chart(fig_us, use_container_width=True, config={"displayModeBar": False})
-        st.markdown("</div>", unsafe_allow_html=True)
         
-        st.markdown("<div class='map-card'>", unsafe_allow_html=True)
         st.markdown("<div class='map-title'>🌍 Khu Vực Quốc Tế (Đối Thủ)</div>", unsafe_allow_html=True)
         fig_world = make_world_fig(regions_short)
         st.plotly_chart(fig_world, use_container_width=True, config={"displayModeBar": False})
-        st.markdown("</div>", unsafe_allow_html=True)
         
     with col_table:
-        st.markdown("<div class='map-card' style='height:100%;'>", unsafe_allow_html=True)
-        st.markdown("<div class='map-title'>📋 Báo Cáo Rủi Ro (Tất Cả Các Vùng)</div>", unsafe_allow_html=True)
-        
         if regions_short:
-            html = "<table>"
+            html = "<div class='map-card' style='height:100%;'>"
+            html += "<div class='map-title'>📋 Báo Cáo Rủi Ro (Tất Cả Các Vùng)</div>"
+            html += "<table>"
             html += "<tr><th style='width:30%'>Khu Vực</th><th style='width:15%;text-align:center;'>Mưa (mm)</th><th style='width:15%;text-align:center;'>T° Max</th><th style='width:40%'>Cảnh Báo</th></tr>"
             
             for rname, rdata in regions_short.items():
@@ -216,11 +220,10 @@ with tab1:
                     <td style='text-align:center;color:#f97316;'>{temp}</td>
                     <td><span style='color:{risk_color};font-weight:600;'>{risk_icon} {risk}</span></td>
                 </tr>"""
-            html += "</table>"
+            html += "</table></div>"
             st.markdown(html, unsafe_allow_html=True)
         else:
             st.info("Chưa có dữ liệu thời tiết.")
-        st.markdown("</div>", unsafe_allow_html=True)
 
 # ================= TAB 2: ENSO =================
 with tab2:
@@ -255,7 +258,6 @@ with tab2:
             <p style='font-size:13px; color:#94a3b8; margin:8px 0 0; line-height:1.5;'>{enso_desc}</p>
         </div>""", unsafe_allow_html=True)
         
-        st.markdown("<div class='map-card'>", unsafe_allow_html=True)
         st.markdown("""<div class='map-title'>
             🌍 TÁC ĐỘNG ENSO ĐẾN GIÁ NÔNG SẢN
             <br><span style='font-size:11px;font-weight:400;color:#94a3b8;'>
@@ -265,13 +267,12 @@ with tab2:
         if impacts:
             fig_enso = make_enso_world_fig(impacts)
             st.plotly_chart(fig_enso, use_container_width=True, config={"displayModeBar": False})
-        st.markdown("</div>", unsafe_allow_html=True)
         
     with col_enso_tbl:
-        st.markdown("<div class='map-card' style='height:100%;'>", unsafe_allow_html=True)
-        st.markdown("<div class='map-title'>📋 Bảng Phân Tích Tác Động</div>", unsafe_allow_html=True)
         if impacts:
-            html3 = """<table>
+            html3 = "<div class='map-card' style='height:100%;'>"
+            html3 += "<div class='map-title'>📋 Bảng Phân Tích Tác Động</div>"
+            html3 += """<table>
             <tr>
             <th>Khu Vực</th>
             <th>Nông Sản</th>
@@ -303,11 +304,10 @@ with tab2:
                     <td style='text-align:center;color:{sev_color};font-weight:600;'>{sev}</td>
                     <td style='text-align:center;'>{bias_html}</td>
                 </tr>"""
-            html3 += "</table>"
+            html3 += "</table></div>"
             st.markdown(html3, unsafe_allow_html=True)
         else:
             st.info("Chưa có dữ liệu ENSO.")
-        st.markdown("</div>", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     pass
