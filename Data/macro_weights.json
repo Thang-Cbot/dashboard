@@ -249,5 +249,15 @@
       "high": 750.0,
       "note": "Chạm đáy do lúa mì nam bán cầu thu hoạch xong, weather  premium xuất hiện ở Mỹ"
     }
+  },
+  "dca_targets": {
+    "ZC": {
+      "zone1": "400 - 420¢",
+      "zone2": "380 - 400¢"
+    },
+    "ZW": {
+      "zone1": "550 - 580¢",
+      "zone2": "500 - 530¢"
+    }
   }
 }

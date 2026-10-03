@@ -215,6 +215,8 @@ def render_muavu_tab(commodity):
     ai_analysis  = load_json(f"ai_muavu_analysis_{commodity.lower()}.json") or {}
     export_s     = load_json("export_sales.json") or {}
     weather_long = load_json("weather_long.json") or {}
+    weights_cfg  = load_json("macro_weights.json") or {}
+    dca_targets  = weights_cfg.get("dca_targets", {})
 
     breakdown    = macro.get("breakdown", {})
     cot_com      = cot.get("commodities", {}).get(commodity, {})
@@ -563,19 +565,17 @@ def render_muavu_tab(commodity):
         dca_time = "Cuối T11 - Giữa T12/2026"
         dca_reason = "Khi áp lực xả hàng Úc+Argentina đạt đỉnh, El Niño bắt đầu ảnh hưởng Q1/2027"
         s1_v = s1 if isinstance(s1, (int,float)) else 600
-        s2_v = s2 if isinstance(s2, (int,float)) else 550
         l1_v = low1m if isinstance(low1m, (int,float)) else s1_v+15
         z1_price = f"{min(s1_v, l1_v):.0f} - {max(s1_v, l1_v):.0f}¢"
-        z2_price = f"{s2_v:.0f} - {s2_v+20:.0f}¢"
+        macro_z1 = dca_targets.get(commodity, {}).get("zone1", "550 - 580¢")
     else:
         sym_text = f"THÔNG SỐ GIÁ ZC (ZCZ26) - Cập nhật: {zw_date}"
         dca_time = "Giai đoạn T10 - T11/2026"
         dca_reason = "Khi áp lực mùa vụ thu hoạch tại Mỹ đạt đỉnh điểm (Nguồn cung bung ra mạnh nhất)"
         s1_v = s1 if isinstance(s1, (int,float)) else 400
-        s2_v = s2 if isinstance(s2, (int,float)) else 380
         l1_v = low1m if isinstance(low1m, (int,float)) else s1_v+15
         z1_price = f"{min(s1_v, l1_v):.0f} - {max(s1_v, l1_v):.0f}¢"
-        z2_price = f"{s2_v:.0f} - {s2_v+15:.0f}¢"
+        macro_z1 = dca_targets.get(commodity, {}).get("zone1", "400 - 420¢")
 
 
     col_a, col_b = st.columns([1, 1])
@@ -619,9 +619,14 @@ def render_muavu_tab(commodity):
             <div style='font-size:11px;color:#94a3b8;'>{dca_reason}</div>
           </div>
           <div class='dca-zone' style='border-color:#f59e0b; margin-bottom:8px;'>
-            <div style='font-size:10px;color:#64748b;'>VÙNG GOM ZONE 1 (Ưu tiên)</div>
-            <div style='font-size:18px;font-weight:800;color:#fde68a;'>{z1_price}</div>
-            <div style='font-size:11px;color:#94a3b8;'>Hỗ trợ kỹ thuật S1 + Đáy 1 tháng gần nhất</div>
+            <div style='font-size:10px;color:#64748b;'>🎯 VÙNG GOM VĨ MÔ (Cấu trúc Dài hạn)</div>
+            <div style='font-size:18px;font-weight:800;color:#fde68a;'>{macro_z1}</div>
+            <div style='font-size:11px;color:#94a3b8;'>Đáy cấu trúc Vĩ mô / Giá thành sản xuất (Cấu hình tùy chỉnh)</div>
+          </div>
+          <div class='dca-zone' style='border-color:#94a3b8;'>
+            <div style='font-size:10px;color:#64748b;'>⚡ VÙNG GOM KỸ THUẬT (Biến động Ngắn hạn)</div>
+            <div style='font-size:18px;font-weight:800;color:#cbd5e1;'>{z1_price}</div>
+            <div style='font-size:11px;color:#94a3b8;'>Biến động Real-time: Hỗ trợ S1 + Đáy 1 tháng gần nhất</div>
           </div>
           <div class='dca-zone' style='border-color:#94a3b8;'>
             <div style='font-size:10px;color:#64748b;'>VÙNG GOM ZONE 2 (Dự phòng Bearish cực đoan)</div>
