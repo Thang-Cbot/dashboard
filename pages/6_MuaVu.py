@@ -212,7 +212,7 @@ def render_muavu_tab(commodity):
     macro_data   = load_json("macro_data.json") or {}
     fund         = load_json("fundamental_data.json") or {}
     cot          = load_json("cot_data.json") or {}
-    ai_analysis  = load_json("ai_muavu_analysis.json") or {}
+    ai_analysis  = load_json(f"ai_muavu_analysis_{commodity.lower()}.json") or {}
     export_s     = load_json("export_sales.json") or {}
     weather_long = load_json("weather_long.json") or {}
 
@@ -354,7 +354,8 @@ def render_muavu_tab(commodity):
                 return f"<span style='color:{bias_col};font-weight:700;'>{imp['bias']}</span> – {imp['effect'][:80]}"
         return "—"
 
-    table_html = f"""
+    if commodity == "ZW":
+        table_html = f"""
     <table class='reg-table'>
     <thead><tr>
       <th style='width:13%'>Khu Vực</th>
@@ -444,6 +445,99 @@ def render_muavu_tab(commodity):
     </tbody>
     </table>
     """
+    else:
+        table_html = f'''
+    <table class='reg-table'>
+    <thead><tr>
+      <th style='width:13%'>Khu Vực</th>
+      <th style='width:14%'>Lịch Mùa Vụ</th>
+      <th style='width:26%'>Sản Lượng / Tồn Kho</th>
+      <th style='width:26%'>Thời Tiết & El Niño</th>
+      <th style='width:21%'>Chính Sách / Xuất Khẩu</th>
+    </tr></thead>
+    <tbody>
+
+    <tr>
+      <td><div class='region-flag'>🇺🇸</div><div class='region-header'>Bắc Bán Cầu<br>(Mỹ)</div></td>
+      <td><span class='harvest-badge'>THU HOẠCH T9-T11</span><br>Gieo Hạt: T4-T5</td>
+      <td>
+        <span class='dot-green'>🟢</span> <b>Sản lượng Mỹ:</b> {score_badge(pts(f2_s))}<br>
+        <small style='color:#94a3b8;'>{note(f2_s, 70)}</small>{upd(f2_s)}
+        <span class='dot-green'>🟢</span> <b>Export Sales (tuần {exp_date}):</b><br>
+        <b style='color:#34d399; font-size:15px;'>{net_sales} MT</b>
+        <div style='font-size:9px;color:#475569;'>Cập nhật {exp_updated}</div>
+        <span class='dot-red'>🔴</span> <b>Tồn kho Mỹ (Cực lớn):</b> {score_badge(pts(breakdown.get("F6", {})))}<br>
+        <small style='color:#94a3b8;'>{note(breakdown.get("F6", {}), 70)}</small>
+      </td>
+      <td>
+        <span class='dot-yellow'>🟡</span> Thời tiết (Corn Belt): {score_badge(pts(f2w_s))}<br>
+        <small>Vào mùa thu hoạch, rủi ro thời tiết nội địa không còn quá đáng ngại.</small><br>
+        <b>El Niño:</b> {enso_impact("Bắc Mỹ")}
+      </td>
+      <td>
+        <span class='dot-green'>🟢</span> Dầu thô & Ethanol: {score_badge(pts(breakdown.get("F10", {})))}<br>
+        <small>{note(breakdown.get("F10", {}))}</small><br>
+        <span class='dot-green'>🟢</span> DXY {dxy_live} → Cản trở XK.
+      </td>
+    </tr>
+
+    <tr>
+      <td><div class='region-flag'>🇧🇷</div><div class='region-header'>Nam Mỹ<br>(Brazil)</div></td>
+      <td><span class='harvest-badge'>SAFRINHA T6-T8</span><br>Gieo Vụ 2: T1-T2<br>Vụ 1 (nhỏ): T9-T11</td>
+      <td>
+        <span class='dot-red'>🔴</span> Nguồn cung Nam Mỹ: {score_badge(pts(f4s_s))}<br>
+        <small>{note(f4s_s)}</small>{upd(f4s_s)}
+      </td>
+      <td>
+        <span class='dot-yellow'>🟡</span> Thời tiết Nam Mỹ: {score_badge(pts(f4_s))}<br>
+        <small>El Nino/La Nina cực kỳ quan trọng cho vụ Safrinha đầu năm.</small><br>
+        <b>El Niño:</b> {enso_impact("Nam Mỹ")}
+      </td>
+      <td>
+        <span class='dot-red'>🔴</span> Mất thị phần Trung Quốc: {score_badge(pts(f3_s))}<br>
+        <small>{note(f3_s, 70)}</small>
+      </td>
+    </tr>
+
+    <tr>
+      <td><div class='region-flag'>🇦🇷</div><div class='region-header'>Nam Mỹ<br>(Argentina)</div></td>
+      <td><span class='harvest-badge'>THU HOẠCH T3-T5</span><br>Gieo Hạt: T9-T11</td>
+      <td>
+        <span class='dot-yellow'>🟡</span> Thuộc chung Cung Nam Mỹ: {score_badge(pts(f4s_s))}<br>
+        <small>Argentina là nhà XK lớn thứ 3. Ảnh hưởng mạnh đến giá đầu năm.</small>
+      </td>
+      <td>
+        <b>El Niño:</b> {enso_impact("Nam Mỹ")}<br>
+        <small>La Nina gây hạn hán nặng cho Argentina (Bullish), El Nino mang mưa tốt (Bearish).</small>
+      </td>
+      <td>
+        <span class='dot-yellow'>🟡</span> Rủi ro Dịch Bệnh / Thuế XK<br>
+        <small>Dịch bệnh rụng lá (Spiroplasma) hoặc thay đổi thuế XK có thể gây sốc cung.</small>
+      </td>
+    </tr>
+
+    <tr>
+      <td><div class='region-flag'>🇨🇳🇺🇦</div><div class='region-header'>Trung Quốc &<br>Ukraine</div></td>
+      <td><span class='harvest-badge'>THU HOẠCH T9-T10</span><br>TQ Nhập khẩu đỉnh T4-T8</td>
+      <td>
+        <span class='dot-yellow'>🟡</span> Biển Đen (Ukraine XK): {score_badge(pts(f1_s))}<br>
+        <small>{note(f1_s, 70)}</small>{upd(f1_s)}
+      </td>
+      <td>
+        <b>El Niño:</b> {enso_impact("Châu Á")}<br>
+        <small>Mùa vụ TQ ảnh hưởng bởi lũ lụt hoặc hạn hán cục bộ.</small>
+      </td>
+      <td>
+        <span class='dot-yellow'>🟡</span> Logistics Biển Đen: {score_badge(pts(f8_s))}<br>
+        <small>{note(f8_s, 60)}</small><br>
+        <span class='dot-yellow'>🟡</span> Nhu cầu (F12): {score_badge(pts(breakdown.get("F12", {})))}
+      </td>
+    </tr>
+
+    </tbody>
+    </table>
+    '''
+
     st.markdown(table_html, unsafe_allow_html=True)
 
 

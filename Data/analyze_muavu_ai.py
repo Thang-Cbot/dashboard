@@ -8,7 +8,7 @@ from datetime import datetime
 DATA_DIR = Path(__file__).parent
 OUTPUT_DIR = DATA_DIR / "output"
 API_KEY_FILE = DATA_DIR / "api_key.txt"
-ANALYSIS_FILE = OUTPUT_DIR / "ai_muavu_analysis.json"
+ANALYSIS_FILE = OUTPUT_DIR / "ai_muavu_analysis_zw.json"
 
 def get_api_key():
     try:
