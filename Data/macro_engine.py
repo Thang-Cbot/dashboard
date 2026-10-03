@@ -24,7 +24,7 @@ def get_file_mtime(filepath):
     except:
         return "—"
 
-def score_f1_blacksea(manual_overrides, bs_data):
+def score_f1_blacksea(manual_overrides, bs_data, commodity="ZW"):
     """F1: Nga/Ukraine Black Sea supply via manual override + blacksea data."""
     file_ok = (OUTPUT_DIR / "blacksea_wheat.json").exists()
     last_up  = get_file_mtime(OUTPUT_DIR / "blacksea_wheat.json")
@@ -49,7 +49,7 @@ def score_f1_blacksea(manual_overrides, bs_data):
     note = ov.get("note", "")
     return {"score": score, "raw_value": raw_val, "raw_detail": raw_detail or note, "last_updated": ov.get("updated_at", last_up), "status": "manual"}
 
-def score_f2_us_production(fund_data):
+def score_f2_us_production(fund_data, commodity="ZW"):
     """F2: US Production & Acreage (Macro Structural Supply)."""
     filepath = OUTPUT_DIR / "fundamental_data.json"
     last_up  = get_file_mtime(filepath)
@@ -57,7 +57,7 @@ def score_f2_us_production(fund_data):
         return {"score": 5, "raw_value": "N/A", "raw_detail": "Không có dữ liệu", "last_updated": last_up, "status": "error"}
     try:
         import re as _re
-        zw = fund_data.get("ZW", fund_data)
+        zw = fund_data.get(commodity, fund_data)
         
         # 1. Lấy dữ liệu Sản Lượng (Production)
         prod = zw.get("us_production", {})
@@ -103,7 +103,7 @@ def score_f2_us_production(fund_data):
     except Exception as e:
         return {"score": 5, "raw_value": "Lỗi xử lý Data", "raw_detail": str(e)[:50], "last_updated": last_up, "status": "error"}
 
-def score_f2w_us_weather(manual_overrides, fund_data):
+def score_f2w_us_weather(manual_overrides, fund_data, commodity="ZW"):
     """F2W: Thời Tiết Mỹ (Manual Score + Auto Text)."""
     filepath = OUTPUT_DIR / "fundamental_data.json"
     last_up  = get_file_mtime(filepath)
@@ -112,7 +112,7 @@ def score_f2w_us_weather(manual_overrides, fund_data):
     note  = manual_overrides.get("F2W_US_Weather", {}).get("note", "")
     
     try:
-        zw = fund_data.get("ZW", {}) if fund_data else {}
+        zw = fund_data.get(commodity, {}) if fund_data else {}
         weather_logic = zw.get("weather", {}).get("logic", "")
         short_weather = zw.get("short_term_weather", "")
         
@@ -124,28 +124,28 @@ def score_f2w_us_weather(manual_overrides, fund_data):
     except Exception as e:
         return {"score": score, "raw_value": f"Điểm: {score}/10", "raw_detail": note, "last_updated": last_up, "status": "manual"}
 
-def score_f3_other_supply(manual_overrides):
+def score_f3_other_supply(manual_overrides, commodity="ZW"):
     """F3: Nguồn Cung Khác (EU, Canada, Ấn Độ...) - manual."""
     ov = manual_overrides.get("F3_Other_Supply", manual_overrides.get("F3_EU_Supply", {}))
     score = ov.get("score", 5)
     note = ov.get("note", "")
     return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
-def score_f4_weather_sh(manual_overrides):
+def score_f4_weather_sh(manual_overrides, commodity="ZW"):
     """F4: Thời Tiết Nam Bán Cầu (Úc / Argentina) - manual."""
     ov = manual_overrides.get("F4_Weather_SH", manual_overrides.get("F4_Southern_Hemisphere", {}))
     score = ov.get("score", 5)
     note  = ov.get("note", "")
     return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
-def score_f4s_supply_sh(manual_overrides):
+def score_f4s_supply_sh(manual_overrides, commodity="ZW"):
     """F4S: Nguồn Cung Nam Bán Cầu (Úc, Argentina) - sản lượng dự báo."""
     ov    = manual_overrides.get("F4S_Supply_SH", {})
     score = ov.get("score", 5)
     note  = ov.get("note", "")
     return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
-def score_f12_global_demand(manual_overrides):
+def score_f12_global_demand(manual_overrides, commodity="ZW"):
     """F12: Nhu Cầu Toàn Cầu (Global Demand) - Ai Cập, Ả Rập, Trung Quốc..."""
     ov    = manual_overrides.get("F12_Global_Demand", {})
     score = ov.get("score", 5)
@@ -153,7 +153,7 @@ def score_f12_global_demand(manual_overrides):
     return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
 
-def score_f5_export_sales(sales_data):
+def score_f5_export_sales(sales_data, commodity="ZW"):
     """F5: US Weekly Export Sales — dùng dữ liệu chi tiết từ fundamental_data.json (ZW.export_sales_weekly)."""
     filepath_fund = OUTPUT_DIR / "fundamental_data.json"
     filepath_sale = OUTPUT_DIR / "export_sales.json"
@@ -163,7 +163,7 @@ def score_f5_export_sales(sales_data):
     fund_data_local = load_json(filepath_fund)
     try:
         if fund_data_local:
-            zw_f = fund_data_local.get("ZW", {})
+            zw_f = fund_data_local.get(commodity, {})
             es   = zw_f.get("export_sales_weekly", {})
             if es:
                 latest_str  = es.get("latest_net_sales", "")   # "313.5 nghìn tấn"
@@ -194,7 +194,7 @@ def score_f5_export_sales(sales_data):
         # Fallback về export_sales.json
         if not sales_data:
             return {"score": 5, "raw_value": "N/A", "raw_detail": "Chưa có dữ liệu Export Sales", "last_updated": last_up, "status": "error"}
-        zw  = sales_data.get("commodities", {}).get("ZW", {})
+        zw  = sales_data.get("commodities", {}).get(commodity, {})
         net = float(zw.get("current_mt", 0)) / 1000
         pct = float(zw.get("pct_change", 0))
         score = 9 if net > 500 else (7 if net > 300 else (5 if net > 100 else (4 if net > 0 else 3)))
@@ -202,7 +202,7 @@ def score_f5_export_sales(sales_data):
     except Exception as e:
         return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:80], "last_updated": last_up, "status": "error"}
 
-def score_f6_us_stocks(fund_data):
+def score_f6_us_stocks(fund_data, commodity="ZW"):
     """F6: US Ending Stocks — tự tính MoM từ current/previous + dùng pct_vs_prev_report để chấm điểm."""
     filepath = OUTPUT_DIR / "fundamental_data.json"
     last_up  = get_file_mtime(filepath)
@@ -251,7 +251,7 @@ def score_f6_us_stocks(fund_data):
     except Exception as e:
         return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:80], "last_updated": last_up, "status": "error"}
 
-def score_f7_global_stocks(fund_data):
+def score_f7_global_stocks(fund_data, commodity="ZW"):
     """F7: Global Ending Stocks — tự tính MoM từ current/previous + logic text."""
     filepath = OUTPUT_DIR / "fundamental_data.json"
     last_up  = get_file_mtime(filepath)
@@ -298,14 +298,14 @@ def score_f7_global_stocks(fund_data):
         return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:80], "last_updated": last_up, "status": "error"}
 
 
-def score_f8_geopolitics(manual_overrides):
+def score_f8_geopolitics(manual_overrides, commodity="ZW"):
     """F8: Geopolitics & Logistics - manual."""
     ov = manual_overrides.get("F8_Geopolitics", {})
     score = ov.get("score", 5)
     note = ov.get("note", "")
     return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
-def score_f9_dxy(macro_data):
+def score_f9_dxy(macro_data, commodity="ZW"):
     """F9: DXY Index."""
     filepath = OUTPUT_DIR / "macro_data.json"
     last_up  = get_file_mtime(filepath)
@@ -327,7 +327,7 @@ def score_f9_dxy(macro_data):
     except Exception as e:
         return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:50], "last_updated": last_up, "status": "error"}
 
-def score_f10_oil(macro_data):
+def score_f10_oil(macro_data, commodity="ZW"):
     """F10: Crude Oil WTI/Brent."""
     filepath = OUTPUT_DIR / "macro_data.json"
     last_up  = get_file_mtime(filepath)
@@ -347,7 +347,7 @@ def score_f10_oil(macro_data):
     except Exception as e:
         return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:50], "last_updated": last_up, "status": "error"}
 
-def score_f11_cot(cot_data):
+def score_f11_cot(cot_data, commodity="ZW"):
     """F11: COT Net Position."""
     filepath = OUTPUT_DIR / "cot_data.json"
     last_up  = get_file_mtime(filepath)
@@ -358,7 +358,7 @@ def score_f11_cot(cot_data):
         commodities = cot_data.get("commodities", {})
         zw_data = None
         for code, data in commodities.items():
-            if data.get("commodity") == "ZW":
+            if data.get("commodity") == commodity:
                 zw_data = data
                 break
         if not zw_data:
@@ -379,7 +379,7 @@ def score_f11_cot(cot_data):
         return {"score": 5, "raw_value": "N/A", "raw_detail": str(e)[:50], "last_updated": last_up, "status": "error"}
 
 
-def calculate_macro_score():
+def calculate_macro_score(commodity="ZW"):
     # Load all data
     fund_data    = load_json(OUTPUT_DIR / "fundamental_data.json")
     macro_data   = load_json(OUTPUT_DIR / "macro_data.json")
@@ -396,20 +396,20 @@ def calculate_macro_score():
 
     # Calculate per-factor rich data
     factor_results = {
-        "F1":  score_f1_blacksea(manual_overrides, bs_data),
-        "F2":  score_f2_us_production(fund_data),
-        "F2W": score_f2w_us_weather(manual_overrides, fund_data),
-        "F3":  score_f3_other_supply(manual_overrides),
-        "F4":  score_f4_weather_sh(manual_overrides),
-        "F4S": score_f4s_supply_sh(manual_overrides),
-        "F5":  score_f5_export_sales(sales_data),
-        "F6":  score_f6_us_stocks(fund_data),
-        "F7":  score_f7_global_stocks(fund_data),
-        "F8":  score_f8_geopolitics(manual_overrides),
-        "F9":  score_f9_dxy(macro_data),
-        "F10": score_f10_oil(macro_data),
-        "F11": score_f11_cot(cot_data),
-        "F12": score_f12_global_demand(manual_overrides),
+        "F1":  score_f1_blacksea(manual_overrides, bs_data, commodity),
+        "F2":  score_f2_us_production(fund_data, commodity),
+        "F2W": score_f2w_us_weather(manual_overrides, fund_data, commodity),
+        "F3":  score_f3_other_supply(manual_overrides, commodity),
+        "F4":  score_f4_weather_sh(manual_overrides, commodity),
+        "F4S": score_f4s_supply_sh(manual_overrides, commodity),
+        "F5":  score_f5_export_sales(sales_data, commodity),
+        "F6":  score_f6_us_stocks(fund_data, commodity),
+        "F7":  score_f7_global_stocks(fund_data, commodity),
+        "F8":  score_f8_geopolitics(manual_overrides, commodity),
+        "F9":  score_f9_dxy(macro_data, commodity),
+        "F10": score_f10_oil(macro_data, commodity),
+        "F11": score_f11_cot(cot_data, commodity),
+        "F12": score_f12_global_demand(manual_overrides, commodity),
     }
 
     total_score_10 = 0
@@ -447,14 +447,15 @@ def calculate_macro_score():
         "breakdown":   breakdown,
     }
 
-    with open(OUTPUT_DIR / "macro_scores.json", "w", encoding="utf-8") as f:
+    with open(OUTPUT_DIR / f"macro_scores_{commodity.lower()}.json", "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=4)
 
     try:
-        print(f"[MACRO ENGINE] Month {current_month}: {final_score_100}/100 OK")
+        print(f"[MACRO ENGINE] {commodity} Month {current_month}: {final_score_100}/100 OK")
     except:
-        print(f"[MACRO ENGINE] Done.")
+        print(f"[MACRO ENGINE] {commodity} Done.")
 
 
 if __name__ == "__main__":
-    calculate_macro_score()
+    calculate_macro_score("ZW")
+    calculate_macro_score("ZC")

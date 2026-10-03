@@ -74,23 +74,14 @@ def load_json(filename):
         except: return {}
     return {}
 
-macro        = load_json("macro_scores.json")
-macro_data   = load_json("macro_data.json")
-fund         = load_json("fundamental_data.json")
-cot          = load_json("cot_data.json")
-ai_analysis  = load_json("ai_muavu_analysis.json")
-export_s     = load_json("export_sales.json")
-weather_long = load_json("weather_long.json")
 
-breakdown    = macro.get("breakdown", {})
-cot_zw       = cot.get("commodities", {}).get("001602", {})
 
 # Price helpers — read directly from D1 CSV for 1-month range
 @st.cache_data(ttl=120)
-def get_zw_price_info():
+def get_price_info(commodity):
     try:
         rows = []
-        with open(DATA_OUTPUT / "ZW_active_D1.csv", encoding="utf-8") as f:
+        with open(DATA_OUTPUT / f"{commodity}_active_D1.csv", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             for r in reader: rows.append(r)
         if not rows: return {}
@@ -114,7 +105,7 @@ def get_zw_price_info():
         }
     except: return {}
 
-zw_info = get_zw_price_info()
+
 
 # ─── SIDEBAR NAV ─────────────────────────────────────────────────────────────
 st.sidebar.page_link("app.py",              label="🏠 Trang Chủ")
@@ -441,15 +432,15 @@ st.markdown("---")
 st.subheader("🤖 PHẦN 3: KẾT LUẬN & KẾ HOẠCH DCA (AI ANALYSIS)")
 
 # DCA Snapshot Box
-close   = zw_info.get("close", "N/A")
-high1m  = zw_info.get("high_1m", "N/A")
-low1m   = zw_info.get("low_1m", "N/A")
-s1      = zw_info.get("s1", "N/A")
-s2      = zw_info.get("s2", "N/A")
-r1      = zw_info.get("r1", "N/A")
-atr     = zw_info.get("atr", "N/A")
-rsi     = zw_info.get("rsi", "N/A")
-zw_date = zw_info.get("date", "—")
+close   = price_info.get("close", "N/A")
+high1m  = price_info.get("high_1m", "N/A")
+low1m   = price_info.get("low_1m", "N/A")
+s1      = price_info.get("s1", "N/A")
+s2      = price_info.get("s2", "N/A")
+r1      = price_info.get("r1", "N/A")
+atr     = price_info.get("atr", "N/A")
+rsi     = price_info.get("rsi", "N/A")
+zw_date = price_info.get("date", "—")
 
 pct_1m = ((close - low1m) / (high1m - low1m) * 100) if isinstance(close,(int,float)) and isinstance(high1m,(int,float)) and high1m!=low1m else None
 
@@ -512,3 +503,30 @@ if ai_analysis and "analysis" in ai_analysis:
     st.markdown(ai_analysis["analysis"])
 else:
     st.warning("Chưa có bản phân tích AI. Ấn nút **'🔄 Cập Nhật Mùa Vụ (AI)'** ở cột trái.")
+tab_zw, tab_zc = st.tabs(["🌾 Lúa Mì (ZW)", "🌽 Ngô (ZC)"])
+
+def render_muavu_tab(commodity):
+    price_info = get_price_info(commodity)
+    macro        = load_json(f"macro_scores_{commodity.lower()}.json") or {}
+    macro_data   = load_json("macro_data.json") or {}
+    fund         = load_json("fundamental_data.json") or {}
+    cot          = load_json("cot_data.json") or {}
+    ai_analysis  = load_json("ai_muavu_analysis.json") or {}
+    export_s     = load_json("export_sales.json") or {}
+    weather_long = load_json("weather_long.json") or {}
+
+    breakdown    = macro.get("breakdown", {})
+    # For COT, ZW is "001602", what is ZC? Let's just use commodity code
+    cot_com      = cot.get("commodities", {}).get(commodity, {})
+    if not cot_com:
+        for k, v in cot.get("commodities", {}).items():
+            if v.get("commodity") == commodity:
+                cot_com = v
+                break
+
+
+
+with tab_zw:
+    render_muavu_tab("ZW")
+with tab_zc:
+    render_muavu_tab("ZC")
