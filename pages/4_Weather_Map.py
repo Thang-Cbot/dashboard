@@ -236,6 +236,24 @@ with tab2:
         enso_status = enso_status.replace(bad, good)
         enso_desc   = enso_desc.replace(bad, good)
         
+    # Dịch thuật
+    if "Advisory" in enso_status:
+        enso_status = enso_status.replace("Advisory", "(Cảnh Báo)")
+    if "Watch" in enso_status:
+        enso_status = enso_status.replace("Watch", "(Theo Dõi)")
+        
+    desc_lower = enso_desc.lower()
+    if "strengthening" in desc_lower and "90%" in desc_lower:
+        enso_desc = "El Niño đang mạnh lên, với hơn 90% khả năng sẽ trở thành đợt siêu El Niño cực đoan (rất mạnh) trong mùa thu và đông năm 2026-27 ở Bán cầu Bắc."
+    elif "el niño conditions are present" in desc_lower:
+        enso_desc = "Hiện tượng El Niño đang xuất hiện và dự kiến sẽ tiếp tục kéo dài."
+    elif "la niña conditions are present" in desc_lower:
+        enso_desc = "Hiện tượng La Niña đang xuất hiện và dự kiến sẽ tiếp tục kéo dài."
+    elif "neutral" in desc_lower:
+        enso_desc = "Trạng thái ENSO hiện tại đang ở mức trung tính (Neutral)."
+    elif "transition" in desc_lower and "la niña" in desc_lower:
+        enso_desc = "Dự kiến sẽ chuyển sang trạng thái La Niña trong vài tháng tới."
+        
     status_lower = enso_status.lower()
     if "el ni" in status_lower:
         badge_color = "#ef4444"; badge_text = "🌡️ El Niño"
