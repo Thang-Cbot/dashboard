@@ -251,7 +251,7 @@ body {{ margin:0; background:transparent; font-family:'Inter',sans-serif; color:
   function fitBoard() {{
     var b = document.getElementById('board');
     var avail = b.parentElement.clientWidth;
-    var s = Math.min(1, avail / {TOTAL_W});
+    var s = avail / {TOTAL_W};
     b.style.zoom = s;
   }}
   window.addEventListener('resize', fitBoard);
