@@ -50,6 +50,7 @@ LƯU Ý QUAN TRỌNG:
 - Chấm dứt suy diễn vô căn cứ.
 - Cập nhật trường 'note' bằng tiếng Việt, giải thích lý do cho điểm số. TRÍCH DẪN SỐ LIỆU TỪ TIN TỨC.
 - Phân biệt rõ LÚA MÌ (ZW) và NGÔ (ZC) cho các yếu tố.
+- RIÊNG YẾU TỐ F12 (Global Demand): CHỈ đánh giá dựa trên các cuộc ĐẤU THẦU (Tenders) hoặc mua hàng thực tế của các quốc gia nhập khẩu lớn (Ai Cập GASC, Algeria, Ả Rập, Trung Quốc...). TUYỆT ĐỐI KHÔNG dùng số liệu "US Export Sales" (Doanh số xuất khẩu Mỹ) vào mục F12 này vì số liệu Mỹ đã được tính riêng ở mục F5.
 
 Trả về DUY NHẤT một cục JSON đúng chuẩn định dạng như sau, KHÔNG bọc trong markdown, KHÔNG có text thừa:
 {{
@@ -61,8 +62,8 @@ Trả về DUY NHẤT một cục JSON đúng chuẩn định dạng như sau, K
   "F4S_Supply_SH_ZC": {{"score": 2, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
   "F8_Geopolitics_ZW": {{"score": 7, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
   "F8_Geopolitics_ZC": {{"score": 5, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
-  "F12_Global_Demand_ZW": {{"score": 4, "note": "Doanh số xuất khẩu lúa mì đạt...", "updated_at": "YYYY-MM-DD HH:MM"}},
-  "F12_Global_Demand_ZC": {{"score": 3, "note": "Doanh số xuất khẩu ngô đạt...", "updated_at": "YYYY-MM-DD HH:MM"}}
+  "F12_Global_Demand_ZW": {{"score": 4, "note": "GASC Ai Cập đấu thầu mua...", "updated_at": "YYYY-MM-DD HH:MM"}},
+  "F12_Global_Demand_ZC": {{"score": 3, "note": "Nhu cầu nhập khẩu toàn cầu chậm lại...", "updated_at": "YYYY-MM-DD HH:MM"}}
 }}
 Thay "YYYY-MM-DD HH:MM" bằng {datetime.now().strftime('%Y-%m-%d %H:%M')}.
 """
