@@ -31,6 +31,7 @@ def fetch_rss_news():
         ("Google News (Geo)",     "https://news.google.com/rss/search?q=Russia+Ukraine+wheat+grain+Black+Sea&hl=en-US&gl=US&ceid=US:en", 10),
         ("Google News (Supply)",  "https://news.google.com/rss/search?q=wheat+corn+USDA+crop+harvest+production&hl=en-US&gl=US&ceid=US:en", 8),
         ("Google News (Shipping)","https://news.google.com/rss/search?q=wheat+corn+freight+shipping+logistics+port&hl=en-US&gl=US&ceid=US:en", 6),
+        ("Google News (Tenders)", "https://news.google.com/rss/search?q=wheat+tender+GASC+Algeria+Saudi+purchase&hl=en-US&gl=US&ceid=US:en", 10),
     ]
 
     for source_name, url, limit in feeds:
@@ -54,11 +55,9 @@ def fetch_rss_news():
     return "\n".join(news_items)
 
 
-# Model fallback chain: thử lần lượt từ mạnh → nhẹ nếu bị 429
+# Model fallback chain:
 GEMINI_MODELS = [
-    "gemini-2.0-flash",
-    "gemini-1.5-flash",
-    "gemini-1.5-flash-8b",
+    "gemini-2.5-flash"
 ]
 
 def call_gemini(api_key, prompt, temperature=0.2, max_retries=2):
