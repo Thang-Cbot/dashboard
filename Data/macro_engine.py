@@ -142,17 +142,19 @@ def score_f4_weather_sh(manual_overrides, commodity="ZW"):
     return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
 def score_f4s_supply_sh(manual_overrides, commodity="ZW"):
-    if commodity == "ZC": return {"score": 2, "raw_value": "Mùa vụ Nam Mỹ", "raw_detail": "Brazil là nước XK Ngô #1. Úc bị loại khỏi biến số (ít Ngô). MEGA BEARISH", "last_updated": "Hiện tại", "status": "manual"}
     """F4S: Nguồn Cung Nam Bán Cầu (Úc, Argentina) - sản lượng dự báo."""
-    ov    = manual_overrides.get("F4S_Supply_SH", {})
+    ov = manual_overrides.get(f"F4S_Supply_SH_{commodity}", manual_overrides.get("F4S_Supply_SH", {}))
+    if not ov and commodity == "ZC":
+        return {"score": 2, "raw_value": "Mùa vụ Nam Mỹ", "raw_detail": "Brazil là nước XK Ngô #1. Úc bị loại khỏi biến số (ít Ngô). MEGA BEARISH", "last_updated": "Hiện tại", "status": "manual"}
     score = ov.get("score", 5)
     note  = ov.get("note", "")
     return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}
 
 def score_f12_global_demand(manual_overrides, commodity="ZW"):
-    if commodity == "ZC": return {"score": 4, "raw_value": "Nhu cầu suy yếu", "raw_detail": "Nhu cầu thức ăn chăn nuôi toàn cầu yếu do lo ngại kinh tế và dịch bệnh.", "last_updated": "Hiện tại", "status": "manual"}
     """F12: Nhu Cầu Toàn Cầu (Global Demand) - Ai Cập, Ả Rập, Trung Quốc..."""
-    ov    = manual_overrides.get("F12_Global_Demand", {})
+    ov = manual_overrides.get(f"F12_Global_Demand_{commodity}", manual_overrides.get("F12_Global_Demand", {}))
+    if not ov and commodity == "ZC":
+        return {"score": 4, "raw_value": "Nhu cầu suy yếu", "raw_detail": "Nhu cầu thức ăn chăn nuôi toàn cầu yếu do lo ngại kinh tế và dịch bệnh.", "last_updated": "Hiện tại", "status": "manual"}
     score = ov.get("score", 5)
     note  = ov.get("note", "")
     return {"score": score, "raw_value": f"Phân tích Chuyên gia: {score}/10", "raw_detail": note, "last_updated": ov.get("updated_at", "Thủ công"), "status": "manual"}

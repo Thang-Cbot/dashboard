@@ -40,27 +40,29 @@ def update_macro_overrides():
         news_text = "No recent news."
 
     prompt = f"""Bạn là chuyên gia phân tích Vĩ mô hàng hóa CBOT (Ngô & Lúa Mì).
-Nhiệm vụ: Cập nhật các yếu tố vĩ mô (từ 1 đến 10 điểm, 1 = Mega Bearish, 10 = Mega Bullish) dựa trên tin tức thị trường mới nhất.
+Nhiệm vụ: Cập nhật các yếu tố vĩ mô thủ công (từ 1 đến 10 điểm, 1 = Mega Bearish, 10 = Mega Bullish) dựa trên tin tức thị trường mới nhất.
 
 Tin tức mới nhất:
 {news_text}
 
-Trạng thái các yếu tố hiện tại:
-{json.dumps(weights.get('manual_overrides', {}), ensure_ascii=False, indent=2)}
-
 LƯU Ý QUAN TRỌNG:
-- BẮT BUỘC BÁO CÁO DỮ LIỆU THỰC TẾ TRẮNG ĐEN (Zero-Hallucination). Không xào nấu tin cũ. Nếu không có tin mới về một yếu tố, hãy giữ nguyên nhận định cũ nhưng ghi rõ "Chưa có tin mới, duy trì nhận định cũ".
+- BẮT BUỘC BÁO CÁO DỮ LIỆU THỰC TẾ TRẮNG ĐEN (Zero-Hallucination). Không xào nấu tin cũ. Nếu không có tin mới về một yếu tố, hãy ghi rõ "Chưa có tin mới, duy trì nhận định cũ".
 - Chấm dứt suy diễn vô căn cứ.
-- Cập nhật trường 'note' bằng tiếng Việt, giải thích lý do cho điểm số.
+- Cập nhật trường 'note' bằng tiếng Việt, giải thích lý do cho điểm số. TRÍCH DẪN SỐ LIỆU TỪ TIN TỨC.
+- Phân biệt rõ LÚA MÌ (ZW) và NGÔ (ZC) cho các yếu tố.
 
 Trả về DUY NHẤT một cục JSON đúng chuẩn định dạng như sau, KHÔNG bọc trong markdown, KHÔNG có text thừa:
 {{
-  "F1_Russia_Policy": {{"score": 2, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
-  "F3_Other_Supply": {{"score": 8, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
-  "F4_Weather_SH": {{"score": 5, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
-  "F4S_Supply_SH": {{"score": 5, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
-  "F8_Geopolitics": {{"score": 7, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
-  "F12_Global_Demand": {{"score": 4, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}}
+  "F1_Russia_Policy_ZW": {{"score": 2, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
+  "F1_Ukraine_Policy_ZC": {{"score": 3, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
+  "F3_Other_Supply_ZW": {{"score": 8, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
+  "F3_Other_Supply_ZC": {{"score": 2, "note": "Mất thị phần TQ...", "updated_at": "YYYY-MM-DD HH:MM"}},
+  "F4S_Supply_SH_ZW": {{"score": 5, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
+  "F4S_Supply_SH_ZC": {{"score": 2, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
+  "F8_Geopolitics_ZW": {{"score": 7, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
+  "F8_Geopolitics_ZC": {{"score": 5, "note": "...", "updated_at": "YYYY-MM-DD HH:MM"}},
+  "F12_Global_Demand_ZW": {{"score": 4, "note": "Doanh số xuất khẩu lúa mì đạt...", "updated_at": "YYYY-MM-DD HH:MM"}},
+  "F12_Global_Demand_ZC": {{"score": 3, "note": "Doanh số xuất khẩu ngô đạt...", "updated_at": "YYYY-MM-DD HH:MM"}}
 }}
 Thay "YYYY-MM-DD HH:MM" bằng {datetime.now().strftime('%Y-%m-%d %H:%M')}.
 """
@@ -85,8 +87,10 @@ Thay "YYYY-MM-DD HH:MM" bằng {datetime.now().strftime('%Y-%m-%d %H:%M')}.
             
             # Merge
             for k, v in new_overrides.items():
-                if k in weights['manual_overrides']:
+                if k in weights.get('manual_overrides', {}):
                     weights['manual_overrides'][k].update(v)
+                else:
+                    weights['manual_overrides'][k] = v
             
             with open(MACRO_WEIGHTS_FILE, 'w', encoding='utf-8') as f:
                 json.dump(weights, f, ensure_ascii=False, indent=2)

@@ -3,32 +3,32 @@
     "F1_Russia_Policy": {
       "score": 2,
       "note": "Chưa có tin mới về chính sách của Nga, duy trì nhận định cũ: Nga bỏ thuế xuất khẩu lúa mì (Zero export duty) đến hết tháng 12/2026 để xả hàng, gây áp lực giảm giá mạnh.",
-      "updated_at": "2026-10-04 08:36"
+      "updated_at": "2026-10-04 08:39"
     },
     "F3_Other_Supply": {
       "score": 8,
       "note": "Chưa có tin mới về nguồn cung từ các khu vực khác ngoài Mỹ, duy trì nhận định cũ: Sản lượng EU giảm mạnh xuống 137.5 triệu tấn do nắng nóng khắc nghiệt ở Pháp và Đức. Nguồn cung thắt chặt.",
-      "updated_at": "2026-10-04 08:36"
+      "updated_at": "2026-10-04 08:39"
     },
     "F4_Weather_SH": {
       "score": 3,
       "note": "Chưa có tin mới về thời tiết Nam Bán cầu, duy trì nhận định cũ: Thời tiết tháng 9 cải thiện rõ rệt (mưa tốt tại Nam Úc/Victoria và Argentina) giúp xoa dịu lo ngại hạn hán trước đó, gây áp lực giảm giá (Bearish).",
-      "updated_at": "2026-10-04 08:36"
+      "updated_at": "2026-10-04 08:39"
     },
     "F4S_Supply_SH": {
       "score": 3,
       "note": "Chưa có tin mới về nguồn cung Nam Bán cầu, duy trì nhận định cũ: ABARES (Úc) và BCR (Argentina) vừa ĐIỀU CHỈNH TĂNG dự báo sản lượng so với tháng trước do thời tiết thuận lợi. Nguồn cung tốt hơn mức kỳ vọng (đã priced-in) tạo sức ép Bearish.",
-      "updated_at": "2026-10-04 08:36"
+      "updated_at": "2026-10-04 08:39"
     },
     "F8_Geopolitics": {
       "score": 7,
-      "note": "Xung đột Biển Đen tiếp tục leo thang với các cuộc tấn công vào năng lực xuất khẩu của Nga và Ukraine, buộc cả hai nước phải tìm kiếm các tuyến đường xuất khẩu thay thế, gây gián đoạn logistics và hỗ trợ giá lúa mì.",
-      "updated_at": "2026-10-04 08:36"
+      "note": "Xung đột Biển Đen tiếp tục leo thang khi Nga và Ukraine tấn công năng lực xuất khẩu của nhau, buộc cả hai nước phải tìm kiếm các tuyến đường xuất khẩu thay thế. Điều này gây gián đoạn logistics và hỗ trợ giá lúa mì.",
+      "updated_at": "2026-10-04 08:39"
     },
     "F12_Global_Demand": {
       "score": 3,
-      "note": "Doanh số xuất khẩu ngô của Mỹ chỉ đạt 535.989 MT, thấp hơn đáng kể so với dự kiến (0.5-1.3 MMT), cho thấy nhu cầu toàn cầu yếu hơn đối với ngô Mỹ. Doanh số xuất khẩu lúa mì cũng ở mức vừa phải (289.255 MT).",
-      "updated_at": "2026-10-04 08:36"
+      "note": "Tin tức mới nhất xác nhận doanh số xuất khẩu ngô của Mỹ chỉ đạt 535.989 MT, thấp hơn đáng kể so với dự kiến (0.5-1.3 MMT), cho thấy nhu cầu toàn cầu yếu hơn đối với ngô Mỹ. Doanh số xuất khẩu lúa mì cũng ở mức vừa phải (289.255 MT).",
+      "updated_at": "2026-10-04 08:39"
     },
     "F2W_US_Weather": {
       "score": 5,
@@ -37,6 +37,56 @@
     "F5_Export_Sales": {
       "score": 2,
       "note": "Báo cáo Export Sales thấp hơn tuần trước khá nhiều, lực cầu yếu. Score 2 = Bearish"
+    },
+    "F1_Russia_Policy_ZW": {
+      "score": 7,
+      "note": "Chính sách của Nga liên quan đến việc tấn công năng lực xuất khẩu Biển Đen và sau đó tìm cách xuất khẩu thay thế, gây gián đoạn nguồn cung và hỗ trợ giá lúa mì.",
+      "updated_at": "2026-10-04 08:47"
+    },
+    "F1_Ukraine_Policy_ZC": {
+      "score": 5,
+      "note": "Chưa có tin mới về chính sách của Ukraine ảnh hưởng trực tiếp đến ngô, duy trì nhận định cũ.",
+      "updated_at": "2026-10-04 08:47"
+    },
+    "F3_Other_Supply_ZW": {
+      "score": 7,
+      "note": "Báo cáo tồn kho USDA cho thấy tồn kho lúa mì thắt chặt hơn, cho thấy nguồn cung có thể hạn chế.",
+      "updated_at": "2026-10-04 08:47"
+    },
+    "F3_Other_Supply_ZC": {
+      "score": 1,
+      "note": "Báo cáo tồn kho hàng quý của USDA cho thấy tồn kho ngô Mỹ đạt 2,1 tỷ giạ, cao hơn đáng kể so với dự kiến và gây áp lực giảm giá mạnh.",
+      "updated_at": "2026-10-04 08:47"
+    },
+    "F4S_Supply_SH_ZW": {
+      "score": 5,
+      "note": "Chưa có tin mới về nguồn cung lúa mì từ Nam Bán cầu, duy trì nhận định cũ.",
+      "updated_at": "2026-10-04 08:47"
+    },
+    "F4S_Supply_SH_ZC": {
+      "score": 5,
+      "note": "Chưa có tin mới về nguồn cung ngô từ Nam Bán cầu, duy trì nhận định cũ.",
+      "updated_at": "2026-10-04 08:47"
+    },
+    "F8_Geopolitics_ZW": {
+      "score": 8,
+      "note": "Căng thẳng địa chính trị giữa Nga và Ukraine tiếp tục leo thang với các cuộc tấn công vào năng lực xuất khẩu Biển Đen của nhau, buộc cả hai phải tìm kiếm các tuyến đường thay thế, gây gián đoạn nguồn cung và hỗ trợ giá lúa mì.",
+      "updated_at": "2026-10-04 08:47"
+    },
+    "F8_Geopolitics_ZC": {
+      "score": 5,
+      "note": "Tin tức địa chính trị tập trung vào tác động đến giá lúa mì, chưa có thông tin cụ thể về tác động trực tiếp đến ngô, duy trì nhận định cũ.",
+      "updated_at": "2026-10-04 08:47"
+    },
+    "F12_Global_Demand_ZW": {
+      "score": 4,
+      "note": "Doanh số xuất khẩu lúa mì của USDA đạt 289.255 MT, không đủ mạnh để ngăn chặn đà giảm giá của thị trường vào ngày báo cáo.",
+      "updated_at": "2026-10-04 08:47"
+    },
+    "F12_Global_Demand_ZC": {
+      "score": 2,
+      "note": "Doanh số xuất khẩu ngô cho niên vụ 2026/27 chỉ đạt 535.989 MT, thấp hơn đáng kể so với dự kiến (0.5-1.3 MMT), cho thấy nhu cầu toàn cầu yếu.",
+      "updated_at": "2026-10-04 08:47"
     }
   },
   "monthly_weights": {
