@@ -192,9 +192,9 @@ def render_seasonal_calendar(height=900):
 <html><head><meta charset='utf-8'>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-body {{ margin:0; background:#0b0f19; font-family:'Inter',sans-serif; color:#cbd5e1; }}
-.wrap {{ border:1px solid #1e2d45; border-radius:14px; background:#0e1424; padding:14px 16px; }}
-.hdr {{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px; }}
+body {{ margin:0; background:transparent; font-family:'Inter',sans-serif; color:#cbd5e1; overflow-x:hidden; }}
+.wrap {{ width:100%; box-sizing:border-box; padding:4px 0; }}
+.hdr {{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px; padding:0 4px; }}
 .title {{ font-size:15px; font-weight:800; color:#e2e8f0; letter-spacing:1px; }}
 .legend span {{ font-size:11px; margin-left:14px; font-weight:700; }}
 .panel {{ display:flex; gap:12px; margin-bottom:14px; flex-wrap:wrap; }}
@@ -234,7 +234,7 @@ body {{ margin:0; background:#0b0f19; font-family:'Inter',sans-serif; color:#cbd
     </div>
   </div>
   <div class='panel'>{panel}</div>
-  <div class='scroll'><div class='board'>
+  <div class='scroll'><div class='board' id='board'>
     <div class='qrow'>{q_html}</div>
     <div style='font-size:10px;color:{COLORS["ZW"]};font-weight:800;margin:6px 0 4px 4px;'>🌾 NHÁNH LÚA MÌ (ZW)</div>
     <div class='row'>{zw_cards}</div>
@@ -247,5 +247,16 @@ body {{ margin:0; background:#0b0f19; font-family:'Inter',sans-serif; color:#cbd
   "Xu hướng mùa vụ" là quy luật lịch sử; "Vĩ mô hiện tại" lấy từ Macro Score (≥55 Tăng · ≤45 Giảm · còn lại Đi ngang).
   Rê chuột vào thẻ để xem đầy đủ.</div>
 </div>
+<script>
+  function fitBoard() {{
+    var b = document.getElementById('board');
+    var avail = b.parentElement.clientWidth;
+    var s = Math.min(1, avail / {TOTAL_W});
+    b.style.zoom = s;
+  }}
+  window.addEventListener('resize', fitBoard);
+  window.addEventListener('load', fitBoard);
+  fitBoard();
+</script>
 </body></html>"""
     components.html(html, height=height, scrolling=True)
