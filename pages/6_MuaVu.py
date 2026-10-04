@@ -204,6 +204,13 @@ if muavu_status:
             </table>""", unsafe_allow_html=True)
 
 
+# ─── PART 0: LA BÀN MÙA VỤ 12 THÁNG ─────────────────────────────────────────
+try:
+    from seasonal_calendar import render_seasonal_calendar
+    render_seasonal_calendar()
+except Exception as _cal_err:
+    st.warning(f"⚠️ Không hiển thị được La Bàn Mùa Vụ: {_cal_err}")
+
 # ─── PART 1: GLOBAL MACRO ────────────────────────────────────────────────────
 tab_zw, tab_zc = st.tabs(["🌾 Lúa Mì (ZW)", "🌽 Ngô (ZC)"])
 

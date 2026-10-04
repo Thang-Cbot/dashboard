@@ -1,0 +1,31 @@
+{
+  "_note": "Dữ liệu La Bàn Mùa Vụ 12 tháng. Nguồn: 'Hồ sơ Mùa vụ Tổng quát ZC & ZW'. bias: up | down | flat | mixed. marker: peak | bottom | null. curve: chỉ số minh họa định tính (0-100), KHÔNG phải giá thực.",
+  "ZW": {
+    "1":  {"focus": "Ngủ đông + Úc/Arg gặt",      "detail": "Rủi ro Winterkill (băng giá không tuyết) → giật giá. Song song áp lực thu hoạch Úc/Argentina (T11–T1).", "bias": "mixed", "marker": null,     "curve": 50},
+    "2":  {"focus": "Ngủ đông (Dormancy)",         "detail": "Cây non cần tuyết phủ giữ ấm. Rét dưới 0°C không tuyết → chết rễ → tin Bullish cực mạnh.",              "bias": "up",    "marker": null,     "curve": 56},
+    "3":  {"focus": "Cuối ngủ đông",               "detail": "Hồ sơ không ghi nhận rủi ro mùa vụ chính trong tháng này.",                                              "bias": "flat",  "marker": null,     "curve": 57},
+    "4":  {"focus": "Trổ bông bắt đầu",            "detail": "Cây tỉnh ngủ đông, nụ bắt đầu trổ. Rủi ro sương giá muộn → thị trường bơm Weather Premium.",              "bias": "up",    "marker": null,     "curve": 66},
+    "5":  {"focus": "TỬ HUYỆT: Trổ bông",          "detail": "Sương giá muộn tháng 5 quét sạch năng suất. Vùng Tạo Đỉnh (T5 – hết T6): đầu cơ mua tin đồn thời tiết.",   "bias": "up",    "marker": "peak",   "curve": 80},
+    "6":  {"focus": "Đỉnh mùa vụ → Mỹ/EU gặt",     "detail": "Cuối vùng Weather Premium. Mỹ & Châu Âu bắt đầu gặt (T6–T7). Mưa lớn lúc gặt → sốc giá chất lượng.",       "bias": "mixed", "marker": "peak",   "curve": 72},
+    "7":  {"focus": "VÙNG ĐỔ MÁU: Gặt rộ",         "detail": "Nga, Mỹ, Châu Âu đồng loạt chạy máy gặt. Hàng chục triệu tấn đổ ra cảng → giá sập.",                      "bias": "down",  "marker": "bottom", "curve": 34},
+    "8":  {"focus": "Nga & Biển Đen gặt",          "detail": "Mùa gặt Nga (T7–T8) — 'quả bom' đè giá lớn nhất thế giới. Giá chạm đáy sâu nhất năm.",                    "bias": "down",  "marker": "bottom", "curve": 25},
+    "9":  {"focus": "Gieo hạt vụ mới + Phục hồi",  "detail": "Đất khô hạn vùng Plains → hạt khó nảy mầm → tăng nhẹ. Kho vơi dần, bắt đầu Vùng Phục Hồi (T9–T11).",      "bias": "up",    "marker": null,     "curve": 40},
+    "10": {"focus": "Vùng Phục Hồi",               "detail": "Kho chứa vơi dần, giá hồi phục (Pullback). Theo dõi độ ẩm đất cho cây non nảy mầm.",                     "bias": "up",    "marker": null,     "curve": 50},
+    "11": {"focus": "Phục hồi + Úc/Arg vào gặt",   "detail": "Cuối Vùng Phục Hồi. Úc & Argentina bắt đầu thu hoạch (T11–T1) → áp lực cung mới.",                       "bias": "mixed", "marker": null,     "curve": 54},
+    "12": {"focus": "Áp lực gặt Nam Bán Cầu",      "detail": "Mùa gặt Úc/Argentina thường phá vỡ đà phục hồi mùa đông. Lúa mì Mỹ/Nga vào ngủ đông.",                   "bias": "down",  "marker": null,     "curve": 46}
+  },
+  "ZC": {
+    "1":  {"focus": "Brazil gieo Safrinha",        "detail": "Brazil gieo vụ 2 Safrinha (T1–T3) — vụ chi phối mạnh nguồn cung Ngô toàn cầu.",                          "bias": "flat",  "marker": null,     "curve": 45},
+    "2":  {"focus": "Safrinha + Arg kết thúc gieo","detail": "Tiếp tục gieo Safrinha. Argentina kết thúc gieo hạt (T9–T2).",                                            "bias": "flat",  "marker": null,     "curve": 45},
+    "3":  {"focus": "Argentina bắt đầu gặt",       "detail": "Argentina thu hoạch (T3–T7). Safrinha kết thúc gieo.",                                                    "bias": "flat",  "marker": null,     "curve": 43},
+    "4":  {"focus": "Mỹ gieo hạt (Planting)",      "detail": "Mưa lớn / đất lạnh làm trễ gieo. Trễ quá hạn → nông dân chuyển sang Đậu tương → Bullish.",                 "bias": "up",    "marker": null,     "curve": 55},
+    "5":  {"focus": "Mỹ gieo hạt (cao điểm)",      "detail": "Hạn chót gieo hạt (Prevented Planting). Tiến độ gieo là biến số giá chính.",                              "bias": "up",    "marker": null,     "curve": 62},
+    "6":  {"focus": "Brazil gặt Safrinha",         "detail": "Safrinha thu hoạch (T6–T9). Ngô Mỹ phát triển chuẩn bị trổ cờ.",                                          "bias": "mixed", "marker": null,     "curve": 66},
+    "7":  {"focus": "TỬ HUYỆT: Trổ cờ & Thụ phấn", "detail": "Sóng nhiệt / Heat Dome làm râu khô héo, bắp lép. Phần bù rủi ro thời tiết cực lớn → Tạo Đỉnh năm.",       "bias": "up",    "marker": "peak",   "curve": 85},
+    "8":  {"focus": "Vào hạt & Đổ cứng",           "detail": "Sương giá sớm làm chết lá, ngưng tích lũy tinh bột → giá nảy ngắn hạn bù rủi ro sản lượng.",             "bias": "mixed", "marker": null,     "curve": 68},
+    "9":  {"focus": "Mỹ bắt đầu thu hoạch",        "detail": "Thu hoạch Mỹ (T9–T11). Argentina bắt đầu gieo vụ mới.",                                                   "bias": "down",  "marker": null,     "curve": 45},
+    "10": {"focus": "THU HOẠCH RỘ (Mỹ)",           "detail": "Kho đầy ắp, nông dân bán Hedging ồ ạt thu tiền mặt → Áp lực thu hoạch — Tạo Đáy năm.",                   "bias": "down",  "marker": "bottom", "curve": 25},
+    "11": {"focus": "Kết thúc thu hoạch",          "detail": "Nguồn cung vật lý khổng lồ vẫn ép thị trường. Năng suất thực tế (Yield) quyết định độ sâu của đáy.",       "bias": "down",  "marker": "bottom", "curve": 29},
+    "12": {"focus": "Sau thu hoạch",               "detail": "Hồ sơ không ghi nhận rủi ro mùa vụ chính. Chú ý thời tiết gieo trồng Nam Mỹ (ENSO).",                    "bias": "flat",  "marker": null,     "curve": 37}
+  }
+}
