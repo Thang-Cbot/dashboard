@@ -9,7 +9,7 @@ import streamlit as st
 import subprocess
 from pathlib import Path
 
-st.set_page_config(page_title="Mùa Vụ - CBOT", page_icon="🌾", layout="wide")
+st.set_page_config(page_title="Mùa Vụ - CBOT", page_icon="🌾", layout="wide", initial_sidebar_state="collapsed")
 
 BASE_DIR = Path(__file__).parent.parent
 DATA_OUTPUT = BASE_DIR / "Data" / "output"
