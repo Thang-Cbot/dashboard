@@ -141,6 +141,14 @@ if st.sidebar.button("🌍 CẬP NHẬT VĨ MÔ", use_container_width=True, type
         )
         st.write("✅ COT fetched" if r3.returncode == 0 else f"⚠️ COT: {r3.stderr[-200:]}")
 
+        # Step 3.5: AI Update Manual Overrides
+        st.write("🤖 AI cập nhật các yếu tố Vĩ mô thủ công...")
+        r35 = subprocess.run(
+            [sys.executable, str(BASE_DIR / "Data" / "update_macro_overrides_ai.py")],
+            capture_output=True, text=True, encoding="utf-8", env=env, timeout=120
+        )
+        st.write("✅ AI Overrides" if r35.returncode == 0 else f"⚠️ AI Lỗi: {r35.stderr[-200:] if r35.stderr else ''}")
+
         # Step 4: Re-run macro engine to recalculate all scores
         st.write("🧠 Tính điểm Ma Trận Vĩ Mô...")
         try:
