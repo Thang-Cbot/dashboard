@@ -4,8 +4,8 @@
   "modules": {
     "usda": {
       "status": "[OK]",
-      "detail": "Auto-fetch 02:58:41",
-      "updated_at": "2026-09-29 02:58:41"
+      "detail": "Auto-fetch 22:00:17",
+      "updated_at": "2026-10-05 22:00:17"
     },
     "prices": {
       "status": "[OK]",
@@ -101,8 +101,8 @@
   },
   "usda": {
     "status": "OK",
-    "detail": "Updated: 2026-10-01 | WASDE: Sep",
-    "updated_at": "2026-10-01 20:20:35"
+    "detail": "Updated: 2026-10-05 | WASDE: Sep",
+    "updated_at": "2026-10-05 22:00:17"
   },
   "weather_long": {
     "status": "OK",
