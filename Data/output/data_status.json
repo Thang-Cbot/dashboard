@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 21:00:42",
-      "updated_at": "2026-10-05 21:00:42"
+      "detail": "Auto-fetch 22:00:35",
+      "updated_at": "2026-10-05 22:00:35"
     },
     "cot": {
       "status": "PARTIAL",
@@ -53,9 +53,9 @@
       "updated_at": "2026-10-02 09:15:29"
     },
     "github_sync": {
-      "status": "[ERROR]",
-      "detail": "Lỗi Push: 7a1c90ebfb253a but expected 784c297192cc27ef4e9dca0546f737ff48d970a7)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-10-05 22:00:23"
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 22:00:32 (Nguồn: Giá H4)",
+      "updated_at": "2026-10-05 22:00:32"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -76,8 +76,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=101.69, DXY=102.323",
-    "updated_at": "2026-10-05 21:47:40"
+    "detail": "Brent=102.03, DXY=102.244",
+    "updated_at": "2026-10-05 22:00:35"
   },
   "acreage": {
     "status": "OK",
