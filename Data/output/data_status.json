@@ -8,14 +8,14 @@
       "updated_at": "2026-09-29 02:58:41"
     },
     "prices": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 23:35:52",
-      "updated_at": "2026-10-02 23:35:52"
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-10-05 20:28:42"
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 23:36:18",
-      "updated_at": "2026-10-02 23:36:18"
+      "detail": "Auto-fetch 20:32:03",
+      "updated_at": "2026-10-05 20:32:03"
     },
     "cot": {
       "status": "PARTIAL",
@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 23:36:24 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-10-02 23:36:24"
+      "detail": "Đẩy thành công lúc 23:37:12 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-10-02 23:37:12"
     },
     "prices_h4": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 23:36:10",
-      "updated_at": "2026-10-02 23:36:10"
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-10-05 20:30:42"
     },
     "russian_metrics": {
       "status": "[OK]",
@@ -71,13 +71,13 @@
   "all_ok": true,
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 23:35",
-    "updated_at": "2026-10-02 23:35:51"
+    "detail": "ZC+ZW updated at 07:52",
+    "updated_at": "2026-10-03 07:52:25"
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=101.76, DXY=101.96",
-    "updated_at": "2026-10-02 23:36:18"
+    "detail": "Brent=90.74, DXY=99.09",
+    "updated_at": "2026-10-05 20:32:02"
   },
   "acreage": {
     "status": "OK",
@@ -87,21 +87,26 @@
   "weather_short": {
     "status": "OK",
     "detail": "24/24 fetched",
-    "updated_at": "2026-10-02 09:15:55"
+    "updated_at": "2026-10-03 07:36:27"
   },
   "export_sales": {
     "status": "OK",
     "detail": "Kỳ: 09/24/2026 | ZW=289,300 MT, ZC=536,000 MT",
-    "updated_at": "2026-10-02 18:58:36"
+    "updated_at": "2026-10-04 08:39:11"
   },
   "cot": {
     "status": "[OK] Success",
     "detail": "",
-    "updated_at": "2026-10-01 20:20:52"
+    "updated_at": "2026-10-04 08:39:14"
   },
   "usda": {
     "status": "OK",
     "detail": "Updated: 2026-10-01 | WASDE: Sep",
     "updated_at": "2026-10-01 20:20:35"
+  },
+  "weather_long": {
+    "status": "OK",
+    "detail": "Status: El Niño Advisory",
+    "updated_at": "2026-10-03 07:36:29"
   }
 }

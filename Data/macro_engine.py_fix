@@ -1,0 +1,36 @@
+import json
+import os
+from pathlib import Path
+from datetime import datetime
+
+# Paths
+BASE_DIR = Path(__file__).parent
+OUTPUT_DIR = BASE_DIR / "output"
+
+def load_json(filepath):
+    if not filepath.exists():
+        return None
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except:
+        return None
+
+def get_file_mtime(filepath):
+    """Return last modified time of file as formatted string."""
+    try:
+        ts = os.path.getmtime(filepath)
+        return datetime.fromtimestamp(ts).strftime("%Y-%m-%d %H:%M")
+    except:
+        return "—"
+
+def score_f1_blacksea(manual_overrides, bs_data, commodity="ZW"):
+    """F1: Nga/Ukraine Black Sea supply via manual override + blacksea data."""
+    if commodity == "ZC": return {"score": 3, "raw_value": "Ukraine XK (F1)", "raw_detail": "Ukraine duy trì tiến độ xuất khẩu Ngô an toàn. Nga không phải yếu tố Ngô trọng điểm.", "last_updated": "Hiện tại", "status": "manual"}
+    
+    file_ok = (OUTPUT_DIR / "blacksea_wheat.json").exists()
+    last_up  = get_file_mtime(OUTPUT_DIR / "blacksea_wheat.json")
+
+    # Try to get raw value from blacksea file
+    raw_val = "Dữ liệu Chuyên gia"
+    raw_detail = ""

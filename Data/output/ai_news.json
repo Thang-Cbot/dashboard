@@ -1,19 +1,21 @@
 {
-  "timestamp": "2026-10-02 20:07:09",
+  "timestamp": "2026-10-04 09:04:25",
   "news": [],
   "intraday": {
-    "bias": "Neutral",
-    "bias_vn": "Đi Ngang",
-    "summary": "Chưa đủ dữ liệu để nhận định intraday",
+    "bias": "Bearish",
+    "bias_vn": "Giảm",
+    "summary": "Áp lực bán từ nhà đầu tư lớn có thể duy trì, ZW có xu hướng giảm trong ngày.",
     "key_levels": {
-      "support": "N/A",
-      "resistance": "N/A"
+      "support": "675.0 cents",
+      "resistance": "690.0 cents"
     },
     "reasoning": [
-      "Dữ liệu chưa đầy đủ"
+      "Vị thế COT ZW net short lớn, đang \"nhồi short\".",
+      "Tâm lý thị trường tiêu cực từ các quỹ lớn.",
+      "Khả năng duy trì áp lực bán trong phiên."
     ],
-    "risk": "N/A",
-    "generated_at": "2026-10-02 20:07"
+    "risk": "Rủi ro short squeeze nếu có tin tức bất ngờ hoặc phá vỡ kháng cự.",
+    "generated_at": "2026-10-04 09:04"
   },
   "categories": [
     "dia_chinh_tri",

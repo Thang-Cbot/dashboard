@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-09-30 23:41:25",
+  "checked_at": "2026-10-04 08:29:04",
   "summary": {
     "total": 16,
-    "ok": 16,
-    "warning": 0,
+    "ok": 15,
+    "warning": 1,
     "error": 0
   },
   "items": [
@@ -11,7 +11,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Sức mạnh USD (DXY)",
       "type": "🟢 Auto",
-      "value": "101.414 (+0.04%)",
+      "value": "101.93 (-0.17%)",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -20,7 +20,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Giá Dầu Brent",
       "type": "🟢 Auto",
-      "value": "99.01 USD/thùng",
+      "value": "102.25 USD/thùng",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -29,9 +29,9 @@
       "group": "Phần 1: Global Macro",
       "item": "Dòng tiền COT – ZW",
       "type": "🟢 Auto",
-      "value": "-26,049 HĐ | Q3 (DO DAM) - NHOI SHORT",
+      "value": "-26,591 HĐ | Q3 (DO DAM) - NHOI SHORT",
       "status": "✅ Có data",
-      "updated": "1 ngày trước",
+      "updated": "18 giờ trước",
       "note": ""
     },
     {
@@ -58,7 +58,7 @@
       "type": "🟢 Auto",
       "value": "El Niño Advisory",
       "status": "✅ Có data",
-      "updated": "7 ngày trước",
+      "updated": "1 ngày trước",
       "note": "El Niño is strengthening, with a greater than 90% chance of "
     },
     {
@@ -67,16 +67,16 @@
       "type": "🟢 Auto",
       "value": "Điểm 7/10",
       "status": "✅ Có data",
-      "updated": "2026-09-27 21:52",
+      "updated": "2026-10-03 07:35",
       "note": "WASDE Sep: 1,531 ← 1,531 Mbu. Diện tích: 42.7 M ac"
     },
     {
       "group": "Phần 2: Bắc Bán Cầu (Mỹ)",
       "item": "Export Sales ZW",
       "type": "🟢 Auto",
-      "value": "267,600 MT (Tuần 09/17/2026)",
+      "value": "289,300 MT (Tuần 09/24/2026)",
       "status": "✅ Có data",
-      "updated": "1 ngày trước",
+      "updated": "18 giờ trước",
       "note": ""
     },
     {
@@ -85,7 +85,7 @@
       "type": "🟢 Auto",
       "value": "Điểm 4/10",
       "status": "✅ Có data",
-      "updated": "2026-09-27 21:52",
+      "updated": "2026-10-03 07:35",
       "note": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt "
     },
     {
@@ -94,7 +94,7 @@
       "type": "🟡 Thủ công",
       "value": "Điểm 5/10",
       "status": "✅ Có data",
-      "updated": "2026-09-27 21:52",
+      "updated": "2026-10-03 07:35",
       "note": "Mưa lớn bất ngờ xuất hiện tại vùng Southern Plains (Kansas, "
     },
     {
@@ -137,19 +137,19 @@
       "group": "Phần 3: AI Analysis & DCA",
       "item": "Phân tích AI (Gemini)",
       "type": "🤖 AI",
-      "value": "2788 ký tự",
-      "status": "✅ Đã phân tích",
-      "updated": "2026-09-30 23:41:25",
+      "value": "Chưa có",
+      "status": "⚠️ Chưa có – hãy ấn 'Cập Nhật'",
+      "updated": "—",
       "note": ""
     },
     {
       "group": "Phần 3: AI Analysis & DCA",
       "item": "Giá ZW (D1 chart)",
       "type": "🟢 Auto",
-      "value": "690.50 cents",
+      "value": "683.00 cents",
       "status": "✅ Có data",
-      "updated": "2026-09-30",
-      "note": "RSI 40.4 | ATR 18.0"
+      "updated": "2026-10-02",
+      "note": "RSI 39.4 | ATR 18.0"
     }
   ]
 }
