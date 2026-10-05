@@ -1,8 +1,8 @@
 {
-    "timestamp": "2026-10-04 09:04:15",
+    "timestamp": "2026-10-05 21:48:01",
     "month": "10",
-    "total_score": 56.6,
-    "trend": "Slightly Bullish — Tăng Nhẹ",
+    "total_score": 50.5,
+    "trend": "Sideways — Đi Ngang",
     "breakdown": {
         "F1": {
             "score_1_to_10": 2,
@@ -19,7 +19,7 @@
             "contribution": 0.7,
             "raw_value": "1,531 Mbu | MoM: +0.00% | Acreage: -5.9%",
             "raw_detail": "WASDE Sep: 1,531 ← 1,531 Mbu. Diện tích: 42.7 M ac",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-05 21:47",
             "status": "ok"
         },
         "F2W": {
@@ -28,7 +28,7 @@
             "contribution": 0.0,
             "raw_value": "Phân tích Chuyên gia: 5/10",
             "raw_detail": "Mưa lớn bất ngờ xuất hiện tại vùng Southern Plains (Kansas, Oklahoma, Texas). | Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-05 21:47",
             "status": "manual"
         },
         "F3": {
@@ -50,12 +50,12 @@
             "status": "manual"
         },
         "F4S": {
-            "score_1_to_10": 7,
+            "score_1_to_10": 5,
             "weight_pct": 17,
-            "contribution": 1.19,
-            "raw_value": "Phân tích Chuyên gia: 7/10",
-            "raw_detail": "Báo cáo tồn kho USDA cho thấy tồn kho lúa mì Mỹ thắt chặt hơn so với dự kiến, cho thấy nguồn cung tại Mỹ đang ở mức thấp hơn.",
-            "last_updated": "2026-10-04 08:57",
+            "contribution": 0.85,
+            "raw_value": "Phân tích Chuyên gia: 5/10",
+            "raw_detail": "Chưa có tin mới, duy trì nhận định cũ.",
+            "last_updated": "2026-10-05 21:47",
             "status": "manual"
         },
         "F5": {
@@ -64,7 +64,7 @@
             "contribution": 0.2,
             "raw_value": "+289.3k MT | WoW:+8.1% | YoY:-29.7%",
             "raw_detail": "Tuần 09/24/2026 | Lũy kế: 6.603 triệu tấn | Prev: 267.6 nghìn tấn",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-05 21:47",
             "status": "ok"
         },
         "F6": {
@@ -73,7 +73,7 @@
             "contribution": 0.3,
             "raw_value": "717 Mbu | WASDE Sep: +0.0% (717 ← 717 Mbu)",
             "raw_detail": "Giảm sâu 18.5% so với niên vụ trước, phản ánh thiệt hại sản lượng lúa mì đông nặ",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-05 21:47",
             "status": "ok"
         },
         "F7": {
@@ -82,7 +82,7 @@
             "contribution": 0.2,
             "raw_value": "276.29 Mmt | WASDE Sep: +1.11% (276.29 ← 273.25 Mmt)",
             "raw_detail": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-05 21:47",
             "status": "ok"
         },
         "F8": {
@@ -95,21 +95,21 @@
             "status": "manual"
         },
         "F9": {
-            "score_1_to_10": 4,
+            "score_1_to_10": 3,
             "weight_pct": 5,
-            "contribution": 0.2,
-            "raw_value": "DXY 101.93 (-0.17%)",
+            "contribution": 0.15,
+            "raw_value": "DXY 102.32 (+0.00%)",
             "raw_detail": "USD Index — Sức mạnh đồng đô",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-05 21:47",
             "status": "ok"
         },
         "F10": {
             "score_1_to_10": 10,
             "weight_pct": 5,
             "contribution": 0.5,
-            "raw_value": "Brent $102.25 (-0.06%)",
+            "raw_value": "Brent $101.69 (+0.00%)",
             "raw_detail": "Crude Oil -> Cước tàu & Phân bón",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-05 21:47",
             "status": "ok"
         },
         "F11": {
@@ -118,16 +118,16 @@
             "contribution": 0.35,
             "raw_value": "Net: -22,109 (-10,093)",
             "raw_detail": "Q3 (DO DAM) - NHOI SHORT",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-05 21:47",
             "status": "ok"
         },
         "F12": {
-            "score_1_to_10": 7,
+            "score_1_to_10": 5,
             "weight_pct": 11,
-            "contribution": 0.77,
-            "raw_value": "Phân tích Chuyên gia: 7/10",
-            "raw_detail": "Tuần qua, GASC Ai Cập và Algeria liên tiếp mở các cuộc đấu thầu mua số lượng lớn lúa mì Biển Đen. Nhu cầu quốc tế (Tenders) đang có dấu hiệu phục hồi tích cực.",
-            "last_updated": "2026-10-04 09:04",
+            "contribution": 0.55,
+            "raw_value": "Phân tích Chuyên gia: 5/10",
+            "raw_detail": "Chưa có tin mới, duy trì nhận định cũ.",
+            "last_updated": "2026-10-05 21:47",
             "status": "manual"
         }
     }

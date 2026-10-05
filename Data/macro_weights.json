@@ -40,53 +40,53 @@
     },
     "F1_Russia_Policy_ZW": {
       "score": 5,
-      "note": "Chưa có tin mới về chính sách xuất khẩu cụ thể từ Nga. Tin tức đề cập Nga đang tìm cách xuất khẩu thay thế do gián đoạn Biển Đen, nhưng không phải là thay đổi chính sách xuất khẩu.",
-      "updated_at": "2026-10-04 08:57"
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-05 21:47"
     },
     "F1_Ukraine_Policy_ZC": {
       "score": 5,
-      "note": "Chưa có tin mới về chính sách xuất khẩu cụ thể từ Ukraine. Tin tức đề cập Ukraine đang tìm cách xuất khẩu thay thế do gián đoạn Biển Đen, nhưng không phải là thay đổi chính sách xuất khẩu.",
-      "updated_at": "2026-10-04 08:57"
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-05 21:47"
     },
     "F3_Other_Supply_ZW": {
-      "score": 7,
-      "note": "Nguồn cung lúa mì từ Biển Đen (Nga và Ukraine) bị gián đoạn do các cuộc tấn công vào năng lực xuất khẩu của nhau, buộc hai nước phải tìm cách xuất khẩu thay thế, làm giảm nguồn cung sẵn có trên thị trường toàn cầu.",
-      "updated_at": "2026-10-04 08:57"
+      "score": 5,
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-05 21:47"
     },
     "F3_Other_Supply_ZC": {
       "score": 5,
-      "note": "Chưa có tin mới cụ thể về nguồn cung ngô ngoài Mỹ. Tin tức về gián đoạn Biển Đen chủ yếu liên quan đến lúa mì.",
-      "updated_at": "2026-10-04 08:57"
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-05 21:47"
     },
     "F4S_Supply_SH_ZW": {
-      "score": 7,
-      "note": "Báo cáo tồn kho USDA cho thấy tồn kho lúa mì Mỹ thắt chặt hơn so với dự kiến, cho thấy nguồn cung tại Mỹ đang ở mức thấp hơn.",
-      "updated_at": "2026-10-04 08:57"
+      "score": 5,
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-05 21:47"
     },
     "F4S_Supply_SH_ZC": {
-      "score": 1,
-      "note": "Báo cáo tồn kho hàng quý của USDA cho thấy tồn kho ngô Mỹ đạt 2,1 tỷ giạ, cao hơn đáng kể so với dự kiến, gây áp lực giảm giá mạnh lên thị trường.",
-      "updated_at": "2026-10-04 08:57"
+      "score": 5,
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-05 21:47"
     },
     "F8_Geopolitics_ZW": {
-      "score": 8,
-      "note": "Xung đột địa chính trị giữa Nga và Ukraine leo thang với các cuộc tấn công vào năng lực xuất khẩu Biển Đen của nhau, gây gián đoạn chuỗi cung ứng và hỗ trợ giá lúa mì.",
-      "updated_at": "2026-10-04 08:57"
+      "score": 5,
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-05 21:47"
     },
     "F8_Geopolitics_ZC": {
       "score": 5,
-      "note": "Chưa có tin tức cụ thể về tác động địa chính trị đến thị trường ngô. Tin tức về gián đoạn Biển Đen chủ yếu liên quan đến lúa mì.",
-      "updated_at": "2026-10-04 08:57"
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-05 21:47"
     },
     "F12_Global_Demand_ZW": {
-      "score": 7,
-      "note": "Tuần qua, GASC Ai Cập và Algeria liên tiếp mở các cuộc đấu thầu mua số lượng lớn lúa mì Biển Đen. Nhu cầu quốc tế (Tenders) đang có dấu hiệu phục hồi tích cực.",
-      "updated_at": "2026-10-04 09:04"
+      "score": 5,
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-05 21:47"
     },
     "F12_Global_Demand_ZC": {
       "score": 5,
-      "note": "Chưa có tin mới về các cuộc đấu thầu hoặc mua hàng thực tế từ các quốc gia nhập khẩu lớn. Các số liệu 'US Export Sales' không được sử dụng cho yếu tố này.",
-      "updated_at": "2026-10-04 08:57"
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-05 21:47"
     }
   },
   "monthly_weights": {
