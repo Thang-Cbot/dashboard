@@ -48,14 +48,14 @@
       "updated_at": "2026-10-06 15:03:07"
     },
     "ai_news": {
-      "status": "OK",
-      "detail": "Điểm tin AI thành công",
-      "updated_at": "2026-10-06 06:34:03"
+      "status": "[OK]",
+      "detail": "Auto-fetch 15:34:40",
+      "updated_at": "2026-10-06 15:34:40"
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 15:03:12 (Nguồn: USDA Acreage)",
-      "updated_at": "2026-10-06 15:03:12"
+      "detail": "Đẩy thành công lúc 15:33:41 (Nguồn: Thời Tiết Ngắn Hạn)",
+      "updated_at": "2026-10-06 15:33:41"
     },
     "prices_h4": {
       "status": "[OK]",
