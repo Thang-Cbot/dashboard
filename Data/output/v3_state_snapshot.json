@@ -1,9 +1,9 @@
 {
-  "timestamp": "06/10/2026 06:16",
+  "timestamp": "06/10/2026 06:34",
   "macro": {
-    "brent_price": 100.96,
+    "brent_price": 100.26,
     "brent_pct": 0.0,
-    "dxy_price": 102.222,
+    "dxy_price": 102.102,
     "dxy_pct": 0.0
   },
   "commodities": {

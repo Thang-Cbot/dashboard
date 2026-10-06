@@ -1,21 +1,121 @@
 {
-  "timestamp": "2026-10-04 09:04:25",
-  "news": [],
+  "timestamp": "2026-10-06 06:34:03",
+  "news": [
+    {
+      "title": "Giá lúa mì CBOT ngày 5/10: Hợp đồng tháng 12 ở mức 683 cent/giạ",
+      "details": [
+        "Giá lúa mì (SRW) hợp đồng tháng 12/2026 chốt ở mức 683 cent/giạ.",
+        "Dữ liệu giá được cập nhật vào 4:30 PM ngày 5/10."
+      ],
+      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-wheat-futures-140025553.html?.tsrc=rss",
+      "source": "05 Oct 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Giá ngô CBOT ngày 5/10: Hợp đồng tháng 12 ở mức 497 cent/giạ",
+      "details": [
+        "Giá ngô (CBOT) hợp đồng tháng 12/2026 chốt ở mức 497 cent/giạ.",
+        "Dữ liệu giá được cập nhật vào 4:30 PM ngày 5/10."
+      ],
+      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-corn-futures-140025763.html?.tsrc=rss",
+      "source": "05 Oct 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Lúa mì tăng mạnh đầu tuần, bù đắp một phần đà giảm trước đó",
+      "details": [
+        "Giá lúa mì khởi đầu tuần với mức tăng hai chữ số.",
+        "Thị trường lúa mì biến động trái chiều vào thứ Sáu tuần trước.",
+        "Hợp đồng lúa mì SRW Chicago ổn định đến tăng 3 cent, nhưng hợp đồng tháng 12 giảm 20.25 cent."
+      ],
+      "link": "https://www.barchart.com/story/news/4960855/wheat-rallying-early-on-monday?.tsrc=rss",
+      "source": "05 Oct 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Lúa mì giao dịch trái chiều vào giữa ngày thứ Sáu",
+      "details": [
+        "Thị trường lúa mì biến động trái chiều vào thứ Sáu.",
+        "Hợp đồng lúa mì SRW Chicago giảm nhẹ.",
+        "Hợp đồng lúa mì HRW Kansas City giảm 3-4 cent.",
+        "Lúa mì vụ xuân Minneapolis tăng nhẹ đến 1.5 cent."
+      ],
+      "link": "https://www.barchart.com/story/news/4933098/wheat-trading-mixed-at-midday?.tsrc=rss",
+      "source": "02 Oct 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Ngô tiếp tục giảm giá vào đầu tháng 10 do doanh số xuất khẩu thấp",
+      "details": [
+        "Giá ngô kỳ hạn giảm 4-5 cent vào thứ Năm.",
+        "Giá ngô giao ngay trung bình toàn quốc giảm 2 cent, xuống còn 4.56 3/4 USD/giạ.",
+        "Doanh số xuất khẩu ngô niên vụ 2026/27 chỉ đạt 535,989 MT, thấp hơn kỳ vọng 0.5-1.3 MMT."
+      ],
+      "link": "https://www.barchart.com/story/news/4912291/corn-selling-extends-to-start-october?.tsrc=rss",
+      "source": "01 Oct 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Lúa mì giảm giá vào giữa ngày thứ Năm, doanh số xuất khẩu yếu",
+      "details": [
+        "Thị trường lúa mì chủ yếu giảm giá vào thứ Năm.",
+        "Lúa mì SRW Chicago giảm nhẹ.",
+        "Hợp đồng lúa mì HRW Kansas City giảm 3-4 cent.",
+        "Báo cáo Doanh số Xuất khẩu của USDA cho thấy chỉ 289,255 MT."
+      ],
+      "link": "https://www.barchart.com/story/news/4912311/wheat-trading-on-the-lower-side-at-midday?.tsrc=rss",
+      "source": "01 Oct 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Lúa mì tăng giá vào thứ Năm bất chấp báo cáo tồn kho USDA",
+      "details": [
+        "Giá lúa mì tăng 4-7 cent vào sáng thứ Năm.",
+        "Thị trường lúa mì đã bỏ qua báo cáo Tồn kho ngũ cốc của USDA cho thấy tồn kho thắt chặt hơn vào thứ Tư.",
+        "Trước đó, lúa mì SRW Chicago đã giảm 5.5 đến 17 cent."
+      ],
+      "link": "https://www.barchart.com/story/news/4904145/wheat-pushing-higher-on-thursday?.tsrc=rss",
+      "source": "01 Oct 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Giá ngô sụt giảm mạnh sau báo cáo tồn kho USDA cao hơn dự kiến",
+      "details": [
+        "Giá ngô kỳ hạn giảm 18.25 đến 21.25 cent vào thứ Tư.",
+        "Giá ngô giao ngay trung bình toàn quốc giảm 20.75 cent, xuống còn 4.58 USD/giạ.",
+        "Nguyên nhân do báo cáo tồn kho hàng quý của USDA cho thấy tồn kho ngô cao hơn dự kiến, đạt 2.1 tỷ giạ."
+      ],
+      "link": "https://www.barchart.com/story/news/4891081/corn-collapse-on-wednesday-as-usda-reports-larger-than-expected-stocks?.tsrc=rss",
+      "source": "30 Sep 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Biển Đen nguy hiểm nhất kể từ chiến tranh, đe dọa nguồn cung ngũ cốc toàn cầu",
+      "details": [
+        "Biển Đen trở nên nguy hiểm nhất kể từ khi chiến tranh Nga-Ukraine bắt đầu.",
+        "Tình hình này đang làm tắc nghẽn hoạt động vận chuyển ngũ cốc toàn cầu.",
+        "Xung đột tiếp diễn gây ra rủi ro lớn cho an ninh lương thực thế giới."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZDB6enNFVXJjZ2tIU1IzdUJWdmhiNDc5bTJUeXpRWi1rUFU1UlNhdENxeE50YXdxOVppemlVVDNMaHpIenVHYVJneXN1ZXFFaFB0ZkpZc0tMNV9qOGJzLVhSNFJBdE5nOGhYbEkyNERqRzFFMDF3M2MyY1N2aW1laWxZV1Y?oc=5",
+      "source": "02 Oct 2026 - Google News (Geo)",
+      "category": "dia_chinh_tri"
+    }
+  ],
   "intraday": {
-    "bias": "Bearish",
-    "bias_vn": "Giảm",
-    "summary": "Áp lực bán từ nhà đầu tư lớn có thể duy trì, ZW có xu hướng giảm trong ngày.",
+    "bias": "Bullish",
+    "bias_vn": "Tăng",
+    "summary": "ZW có thể tiếp tục đà tăng đầu tuần, hướng tới vùng kháng cự 695.",
     "key_levels": {
-      "support": "675.0 cents",
-      "resistance": "690.0 cents"
+      "support": "685",
+      "resistance": "695"
     },
     "reasoning": [
-      "Vị thế COT ZW net short lớn, đang \"nhồi short\".",
-      "Tâm lý thị trường tiêu cực từ các quỹ lớn.",
-      "Khả năng duy trì áp lực bán trong phiên."
+      "ZW tăng mạnh đầu tuần, bù đắp đà giảm trước đó.",
+      "Giá tham chiếu 691.5 cao hơn giá đóng cửa hôm qua 683.",
+      "Khả năng short covering nếu giá tiếp tục tăng."
     ],
-    "risk": "Rủi ro short squeeze nếu có tin tức bất ngờ hoặc phá vỡ kháng cự.",
-    "generated_at": "2026-10-04 09:04"
+    "risk": "Áp lực bán từ vị thế Nhoi Short của các quỹ lớn có thể hạn chế đà tăng.",
+    "generated_at": "2026-10-06 06:33"
   },
   "categories": [
     "dia_chinh_tri",
