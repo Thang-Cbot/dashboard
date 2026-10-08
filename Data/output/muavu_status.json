@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-04 08:29:04",
+  "checked_at": "2026-10-08 10:07:13",
   "summary": {
     "total": 16,
     "ok": 15,
@@ -11,7 +11,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Sức mạnh USD (DXY)",
       "type": "🟢 Auto",
-      "value": "101.93 (-0.17%)",
+      "value": "102.245 (+0.41%)",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -20,7 +20,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Giá Dầu Brent",
       "type": "🟢 Auto",
-      "value": "102.25 USD/thùng",
+      "value": "102.35 USD/thùng",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -29,28 +29,28 @@
       "group": "Phần 1: Global Macro",
       "item": "Dòng tiền COT – ZW",
       "type": "🟢 Auto",
-      "value": "-26,591 HĐ | Q3 (DO DAM) - NHOI SHORT",
+      "value": "-18,432 HĐ | Q4 (CAM) - COVER SHORT",
       "status": "✅ Có data",
-      "updated": "18 giờ trước",
+      "updated": "16 giờ trước",
       "note": ""
     },
     {
       "group": "Phần 1: Global Macro",
       "item": "Nhu Cầu Thế Giới (F12)",
       "type": "🟡 Thủ công",
-      "value": "Điểm 4/10",
+      "value": "Điểm 2/10",
       "status": "✅ Có data",
-      "updated": "2026-09-27 21:51",
-      "note": "Ả Rập Xê Út hủy thầu mua 535k tấn do giá cao. Tuy nhiên Ai C"
+      "updated": "2026-08-27 08:00",
+      "note": "Ai Cap tam ngung nhap khau do boi thu noi dia. Arab Saudi ky"
     },
     {
       "group": "Phần 1: Global Macro",
       "item": "Địa Chính Trị / Logistics (F8)",
       "type": "🟡 Thủ công",
-      "value": "Điểm 7/10",
+      "value": "Điểm 8/10",
       "status": "✅ Có data",
-      "updated": "2026-09-27 21:51",
-      "note": "Xung đột Biển Đen leo thang với các cuộc tấn công vào cảng b"
+      "updated": "2026-09-26 21:46",
+      "note": "Chiến sự Nga-Ukraine leo thang. Chờ đón tin tốt về thương mạ"
     },
     {
       "group": "Phần 1: Global Macro",
@@ -58,7 +58,7 @@
       "type": "🟢 Auto",
       "value": "El Niño Advisory",
       "status": "✅ Có data",
-      "updated": "1 ngày trước",
+      "updated": "6 ngày trước",
       "note": "El Niño is strengthening, with a greater than 90% chance of "
     },
     {
@@ -67,7 +67,7 @@
       "type": "🟢 Auto",
       "value": "Điểm 7/10",
       "status": "✅ Có data",
-      "updated": "2026-10-03 07:35",
+      "updated": "2026-09-25 06:30",
       "note": "WASDE Sep: 1,531 ← 1,531 Mbu. Diện tích: 42.7 M ac"
     },
     {
@@ -76,7 +76,7 @@
       "type": "🟢 Auto",
       "value": "289,300 MT (Tuần 09/24/2026)",
       "status": "✅ Có data",
-      "updated": "18 giờ trước",
+      "updated": "16 giờ trước",
       "note": ""
     },
     {
@@ -85,7 +85,7 @@
       "type": "🟢 Auto",
       "value": "Điểm 4/10",
       "status": "✅ Có data",
-      "updated": "2026-10-03 07:35",
+      "updated": "2026-09-25 06:30",
       "note": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt "
     },
     {
@@ -94,26 +94,26 @@
       "type": "🟡 Thủ công",
       "value": "Điểm 5/10",
       "status": "✅ Có data",
-      "updated": "2026-10-03 07:35",
+      "updated": "2026-09-25 06:30",
       "note": "Mưa lớn bất ngờ xuất hiện tại vùng Southern Plains (Kansas, "
     },
     {
       "group": "Phần 2: Châu Âu (EU)",
       "item": "Nguồn cung EU (F3)",
       "type": "🟡 Thủ công",
-      "value": "Điểm 8/10",
+      "value": "Điểm 2/10",
       "status": "✅ Có data",
-      "updated": "2026-09-27 21:51",
-      "note": "Sản lượng EU giảm mạnh xuống 137.5 triệu tấn do nắng nóng kh"
+      "updated": "2026-08-27 08:00",
+      "note": "An Do boi thu 120M tan xa toi da 6M. EU va Canada kha quan. "
     },
     {
       "group": "Phần 2: Biển Đen (Nga & Ukraine)",
       "item": "Chính sách XK Nga (F1)",
       "type": "🟡 Thủ công",
-      "value": "Điểm 2/10",
+      "value": "Điểm 8/10",
       "status": "✅ Có data",
-      "updated": "2026-09-27 21:51",
-      "note": "Nga bỏ thuế xuất khẩu lúa mì (Zero export duty) đến hết thán"
+      "updated": "2026-09-26 21:46",
+      "note": "Ukraine tập kích chưa từng có vào Moskva. Đàm phán đình chiế"
     },
     {
       "group": "Phần 2: Nam Bán Cầu (Úc & Argentina)",
@@ -121,17 +121,17 @@
       "type": "🟡 Thủ công",
       "value": "Điểm 3/10",
       "status": "✅ Có data",
-      "updated": "2026-09-27 22:08",
-      "note": "Thời tiết tháng 9 cải thiện rõ rệt (mưa tốt tại Nam Úc/Victo"
+      "updated": "2026-08-27 08:00",
+      "note": "Thoi tiet Nam Ban Cau: Uc co mua thuan loi, Argentina dieu k"
     },
     {
       "group": "Phần 2: Nam Bán Cầu (Úc & Argentina)",
       "item": "Sản lượng Nam BC (F4S)",
       "type": "🟡 Thủ công",
-      "value": "Điểm 3/10",
+      "value": "Điểm 2/10",
       "status": "✅ Có data",
-      "updated": "2026-09-27 22:08",
-      "note": "ABARES (Úc) và BCR (Argentina) vừa ĐIỀU CHỈNH TĂNG dự báo sả"
+      "updated": "2026-08-27 08:00",
+      "note": "Uc du bao san luong tang them 3M tan so voi du bao thang 6. "
     },
     {
       "group": "Phần 3: AI Analysis & DCA",
@@ -146,10 +146,10 @@
       "group": "Phần 3: AI Analysis & DCA",
       "item": "Giá ZW (D1 chart)",
       "type": "🟢 Auto",
-      "value": "683.00 cents",
+      "value": "685.25 cents",
       "status": "✅ Có data",
-      "updated": "2026-10-02",
-      "note": "RSI 39.4 | ATR 18.0"
+      "updated": "2026-10-08",
+      "note": "RSI 42.3 | ATR 16.3"
     }
   ]
 }
