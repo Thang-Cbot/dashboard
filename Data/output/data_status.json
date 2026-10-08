@@ -1,102 +1,97 @@
 {
-  "last_full_update": "2026-10-06 06:34:03",
-  "elapsed_seconds": 239.3,
+  "last_full_update": "2026-10-02 06:35:32",
+  "elapsed_seconds": 288.2,
   "modules": {
     "usda": {
       "status": "OK",
       "detail": "WASDE + Crop Progress updated",
-      "updated_at": "2026-10-06 06:30:19"
+      "updated_at": "2026-10-02 06:31:09"
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 07:00:39",
-      "updated_at": "2026-10-07 07:00:39"
+      "detail": "Auto-fetch 07:26:55",
+      "updated_at": "2026-10-08 07:26:55"
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 07:01:03",
-      "updated_at": "2026-10-07 07:01:03"
+      "detail": "Auto-fetch 07:10:54",
+      "updated_at": "2026-10-08 07:10:54"
     },
     "cot": {
-      "status": "OK",
+      "status": "PARTIAL",
       "detail": "COT CFTC updated (fallback if 403)",
-      "updated_at": "2026-10-06 06:30:38"
+      "updated_at": "2026-10-02 06:31:23"
     },
     "export_sales": {
       "status": "OK",
       "detail": "Export Sales updated",
-      "updated_at": "2026-10-06 06:30:43"
+      "updated_at": "2026-10-02 06:31:32"
     },
     "weather_short": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 15:33:33",
-      "updated_at": "2026-10-06 15:33:33"
+      "status": "OK",
+      "detail": "Weather short-term updated",
+      "updated_at": "2026-10-02 06:32:16"
     },
     "weather_long": {
       "status": "OK",
       "detail": "ENSO/El Nino updated",
-      "updated_at": "2026-10-06 06:31:18"
+      "updated_at": "2026-10-02 06:32:21"
     },
     "ai": {
       "status": "OK",
       "detail": "Generated AI narrative",
-      "updated_at": "2026-10-06 06:31:32"
+      "updated_at": "2026-10-02 06:32:41"
     },
     "acreage": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 15:03:07",
-      "updated_at": "2026-10-06 15:03:07"
+      "status": "OK",
+      "detail": "Planted acreage ZC/ZW/ZS updated",
+      "updated_at": "2026-10-02 06:35:11"
     },
     "ai_news": {
       "status": "[OK]",
-      "detail": "Auto-fetch 15:34:40",
-      "updated_at": "2026-10-06 15:34:40"
+      "detail": "Auto-fetch 06:57:31",
+      "updated_at": "2026-10-08 06:57:31"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 07:01:07 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-10-07 07:01:07"
+      "status": "[ERROR]",
+      "detail": "Lỗi Push: to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
+      "updated_at": "2026-10-08 07:11:11"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 07:00:54",
-      "updated_at": "2026-10-07 07:00:54"
+      "detail": "Auto-fetch 07:10:50",
+      "updated_at": "2026-10-08 07:10:50"
     }
   },
   "all_ok": true,
-  "prices": {
+  "export_sales": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 07:01",
-    "updated_at": "2026-10-07 07:01:16"
-  },
-  "macro": {
-    "status": "OK",
-    "detail": "Brent=101.18, DXY=101.911",
-    "updated_at": "2026-10-07 07:01:17"
+    "detail": "Kỳ: 09/24/2026 | ZW=289,300 MT, ZC=536,000 MT",
+    "updated_at": "2026-10-07 17:34:02"
   },
   "acreage": {
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-10-06 15:03:07"
-  },
-  "weather_short": {
-    "status": "OK",
-    "detail": "24/24 fetched",
-    "updated_at": "2026-10-06 15:33:33"
+    "updated_at": "2026-10-07 17:34:07"
   },
   "usda": {
     "status": "OK",
     "detail": "Updated: 2026-10-07 | WASDE: Sep",
-    "updated_at": "2026-10-07 07:01:02"
+    "updated_at": "2026-10-07 17:34:20"
   },
   "cot": {
     "status": "[OK] Success",
     "detail": "",
-    "updated_at": "2026-10-07 07:01:18"
+    "updated_at": "2026-10-07 17:34:23"
   },
-  "export_sales": {
+  "prices": {
     "status": "OK",
-    "detail": "Kỳ: 09/24/2026 | ZW=289,300 MT, ZC=536,000 MT",
-    "updated_at": "2026-10-07 07:01:22"
+    "detail": "ZC+ZW updated at 07:26",
+    "updated_at": "2026-10-08 07:26:55"
+  },
+  "macro": {
+    "status": "OK",
+    "detail": "Brent=101.1, DXY=102.248",
+    "updated_at": "2026-10-08 07:10:54"
   }
 }

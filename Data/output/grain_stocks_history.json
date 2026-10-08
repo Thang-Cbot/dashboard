@@ -3,10 +3,9 @@
     {
       "quarter": "Q4 2025",
       "report_date": "30/09/2025",
-      "stocks": "2,134 triệu bushels",
-      "yoy_change": "+19.8%",
-      "status": "Lịch sử",
-      "note": "USDA Grain Stocks 30/09/2025"
+      "stocks": "1,780 triệu bushels",
+      "yoy_change": "+2.5%",
+      "status": "Lịch sử"
     },
     {
       "quarter": "Q1 2026",
@@ -27,15 +26,7 @@
       "report_date": "30/06/2026",
       "stocks": "920 triệu bushels",
       "yoy_change": "+8.0%",
-      "status": "Lich su"
-    },
-    {
-      "quarter": "Q4 2026",
-      "report_date": "30/09/2026",
-      "stocks": "1,850 triệu bushels",
-      "yoy_change": "-13.3%",
-      "status": "Mới nhất",
-      "note": "USDA Grain Stocks 30/09/2026"
+      "status": "Mới nhất"
     }
   ],
   "ZC": [
@@ -65,14 +56,7 @@
       "report_date": "30/06/2026",
       "stocks": "5.29 tỷ bushels",
       "yoy_change": "+14.0%",
-      "status": "Lich su"
-    },
-    {
-      "quarter": "Q4 2026",
-      "report_date": "30/09/2026",
-      "stocks": "2,100 ty bushels",
-      "yoy_change": "+35.0%",
-      "status": "Moi nhat"
+      "status": "Mới nhất"
     }
   ]
 }

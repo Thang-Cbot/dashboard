@@ -1,120 +1,158 @@
 {
-  "timestamp": "2026-10-06 15:34:40",
+  "timestamp": "2026-10-08 06:57:31",
   "news": [
     {
-      "title": "Lúa mì tăng giá mạnh vào giữa ngày thứ Hai",
+      "title": "Giá lúa mì giảm mạnh vào thứ Tư",
       "details": [
-        "Giá lúa mì duy trì đà tăng từ đầu phiên giao dịch.",
-        "Hợp đồng lúa mì SRW Chicago tăng 7-8 cent/bushel.",
-        "Hợp đồng lúa mì HRW Kansas City tăng 5-6 cent/bushel.",
-        "Lúa mì vụ xuân MPLS tăng 6-9 cent/bushel."
+        "Giá lúa mì giảm vào thứ Tư, xóa bỏ đà tăng của thứ Ba.",
+        "Hợp đồng lúa mì SRW Chicago giảm 17-18 cent.",
+        "Hợp đồng lúa mì HRW Kansas City giảm 18-19 cent.",
+        "Lúa mì vụ xuân MPLS giảm 12-14 cent trên hầu hết các tháng gần nhất."
+      ],
+      "link": "https://www.barchart.com/story/news/5011299/wheat-falling-lower-on-wednesday?.tsrc=rss",
+      "source": "07 Oct 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giá hợp đồng tương lai ngô CBOT (tháng 12/2026)",
+      "details": [
+        "Giá hợp đồng tương lai ngô CBOT (tháng 12/2026) là 508 cent/bushel.",
+        "Thông tin giá được cập nhật vào 4:30 PM thứ Tư, ngày 07 tháng 10."
+      ],
+      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-corn-futures-140022076.html?.tsrc=rss",
+      "source": "07 Oct 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giá hợp đồng tương lai lúa mì SRW CBOT (tháng 12/2026)",
+      "details": [
+        "Giá hợp đồng tương lai lúa mì SRW (tháng 12/2026) là 704 cent/bushel.",
+        "Thông tin giá được cập nhật vào 4:30 PM thứ Tư, ngày 07 tháng 10."
+      ],
+      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-wheat-futures-140020493.html?.tsrc=rss",
+      "source": "07 Oct 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Lúa mì giảm giá vào sáng thứ Tư sau đà tăng hôm thứ Ba",
+      "details": [
+        "Giá lúa mì giảm 2-7 cent vào sáng thứ Tư.",
+        "Thị trường lúa mì đã tăng mạnh vào thứ Ba, ghi nhận mức tăng hai chữ số khi đóng cửa.",
+        "Hợp đồng SRW Chicago tăng 9,5 đến 12 cent vào thứ Ba.",
+        "Lượng hợp đồng mở tăng 7.047 hợp đồng vào thứ Ba."
+      ],
+      "link": "https://www.barchart.com/story/news/5004732/wheat-fading-back-on-wednesday-am-trade?.tsrc=rss",
+      "source": "07 Oct 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Các yếu tố chính thúc đẩy biến động giá ngũ cốc (Ngô, Lúa mì)",
+      "details": [
+        "Hoạt động của các quỹ đầu tư là một yếu tố chính gây biến động.",
+        "Sự khác biệt trong các báo cáo của USDA cũng góp phần vào sự biến động.",
+        "Thay đổi chính sách năng lượng ảnh hưởng đến thị trường ngũ cốc.",
+        "Nhu cầu thương mại là động lực của biến động giá hai chiều trên thị trường ngũ cốc, năng lượng và chăn nuôi."
+      ],
+      "link": "https://www.barchart.com/story/news/4992804/corn-soybeans-and-wheat-what-is-really-driving-grain-volatility?.tsrc=rss",
+      "source": "06 Oct 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giá ngô tăng thúc đẩy lạc quan thị trường thiết bị nông nghiệp",
+      "details": [
+        "Giá ngô tăng trong mùa thu hoạch đang tạo ra sự lạc quan trên thị trường thiết bị nông nghiệp.",
+        "Giá trị đấu giá máy kéo đã qua sử dụng (100 mã lực trở lên) tăng gần 5% so với cùng kỳ năm trước.",
+        "Các đại lý thiết bị nông nghiệp đang trở nên lạc quan hơn cho cuối năm và năm 2027.",
+        "Tuy nhiên, sự tăng giá nhiên liệu và các yếu tố khác vẫn là những thách thức."
+      ],
+      "link": "https://finance.yahoo.com/markets/commodities/articles/sandhills-sees-optimism-farm-equipment-154200360.html?.tsrc=rss",
+      "source": "06 Oct 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Lúa mì tiếp tục đà tăng vào sáng thứ Ba",
+      "details": [
+        "Giá lúa mì tiếp tục tăng vào sáng thứ Ba.",
+        "Thị trường lúa mì đã duy trì đà tăng từ đầu tuần.",
+        "Hợp đồng SRW Chicago đóng cửa phiên thứ Hai tăng 5,5 đến 9,5 cent.",
+        "Lượng hợp đồng mở giảm nhẹ 460 hợp đồng, trong khi hợp đồng HRW Kansas City tăng 4 cent."
+      ],
+      "link": "https://www.barchart.com/story/news/4982053/wheat-extending-bounce-to-tuesday-morning?.tsrc=rss",
+      "source": "06 Oct 2026 - Yahoo Finance"
+    },
+    {
+      "title": "Giá lúa mì tăng vào giữa ngày thứ Hai",
+      "details": [
+        "Giá lúa mì duy trì đà tăng vào giữa ngày thứ Hai.",
+        "Hợp đồng SRW Chicago tăng 7-8 cent trong phiên.",
+        "Hợp đồng HRW Kansas City tăng 5-6 cent vào giữa ngày thứ Hai.",
+        "Lúa mì vụ xuân MPLS giao dịch tăng 6-9 cent."
       ],
       "link": "https://www.barchart.com/story/news/4966561/wheat-higher-on-mondays-midday?.tsrc=rss",
-      "source": "05 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
+      "source": "05 Oct 2026 - Yahoo Finance"
     },
     {
-      "title": "Giá ngô CBOT chốt phiên ngày 5/10",
+      "title": "Lúa mì tăng giá mạnh vào đầu ngày thứ Hai",
       "details": [
-        "Giá ngô CBOT được ghi nhận vào 4:30 PM ngày 5/10.",
-        "Hợp đồng ngô tháng 12/2026 chốt ở mức 497 cent/bushel.",
-        "Thông tin về khối lượng giao dịch trong ngày và ngày hôm trước cũng được cung cấp."
+        "Giá lúa mì khởi đầu tuần với mức tăng hai chữ số vào thứ Hai.",
+        "Thị trường lúa mì biến động trái chiều vào thứ Sáu tuần trước, với KC dẫn đầu xu hướng giảm.",
+        "Hợp đồng SRW Chicago đóng cửa phiên thứ Sáu ổn định đến tăng 3 cent.",
+        "Hợp đồng tháng 12 giảm 20,25 cent vào thứ Sáu."
       ],
-      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-corn-futures-140025763.html?.tsrc=rss",
-      "source": "05 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
+      "link": "https://www.barchart.com/story/news/4960855/wheat-rallying-early-on-monday?.tsrc=rss",
+      "source": "05 Oct 2026 - Yahoo Finance"
     },
     {
-      "title": "Ngô tiếp tục giảm giá vào đầu tháng 10 do doanh số xuất khẩu yếu",
+      "title": "Giá hợp đồng tương lai lúa mì CBOT (cập nhật)",
       "details": [
-        "Hợp đồng ngô giảm 4-5 cent/bushel vào thứ Năm.",
-        "Giá ngô giao ngay trung bình quốc gia giảm 2 cent xuống 4.56 3/4 USD.",
-        "Doanh số xuất khẩu ngô niên vụ 2026/27 chỉ đạt 535.989 tấn, thấp hơn dự kiến (0.5-1.3 triệu tấn)."
+        "Giá hợp đồng tương lai lúa mì CBOT (tháng 12/2026) là 756 cent/bushel.",
+        "Thông tin giá được cập nhật vào thứ Tư trên Sở Giao dịch Chicago."
       ],
-      "link": "https://www.barchart.com/story/news/4912291/corn-selling-extends-to-start-october?.tsrc=rss",
-      "source": "01 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
+      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-bot-table-140031049.html?.tsrc=rss",
+      "source": "07 Oct 2026 - Yahoo Finance"
     },
     {
-      "title": "Lúa mì giảm giá vào giữa ngày thứ Năm",
+      "title": "Đà tăng ngắn ngủi của ngô và lúa mì không duy trì được",
       "details": [
-        "Giá lúa mì chủ yếu giảm vào thứ Năm.",
-        "Lúa mì SRW Chicago giảm nhẹ.",
-        "Hợp đồng HRW Kansas City giảm 3-4 cent/bushel.",
-        "Báo cáo Doanh số Xuất khẩu của USDA cho thấy 289.255 tấn lúa mì, thấp hơn dự kiến."
+        "Giá ngô, đậu tương và lúa mì vụ đông đều giảm vào giữa tuần.",
+        "Đà tăng ngắn ngủi trước đó đã không thể tìm thấy động lực để duy trì."
       ],
-      "link": "https://www.barchart.com/story/news/4912311/wheat-trading-on-the-lower-side-at-midday?.tsrc=rss",
-      "source": "01 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
+      "link": "https://www.farmprogress.com/markets-and-quotes/afternoon-market-recap",
+      "source": "07 Oct 2026 - Farm Progress"
     },
     {
-      "title": "Báo cáo tồn kho USDA gây sốc, giá ngô mất mốc 5 USD",
+      "title": "Giá ngô giảm khi thị trường chờ đợi báo cáo USDA",
       "details": [
-        "Giá ngô chịu áp lực giảm trong mùa thu hoạch do tồn kho dồi dào.",
-        "Tồn kho ngô cao hơn dự kiến tạo nguồn cung đệm lớn.",
-        "Nhu cầu mạnh và lo ngại thời tiết có thể giữ tiềm năng giá trên 5 USD vào đầu năm 2027.",
-        "Các nhà phân tích nhận định thị trường ngô vẫn còn nhiều biến động."
+        "Giá hợp đồng tương lai ngô và đậu tương đang giao dịch thấp hơn.",
+        "Thị trường không thể kéo dài đà tăng của thứ Ba.",
+        "Thị trường đang chờ đợi các báo cáo của USDA vào thứ Sáu."
       ],
-      "link": "https://www.farmprogress.com/corn/usda-supply-shocker-knocks-corn-off-5-perch-for-now",
-      "source": "06 Oct 2026 - Farm Progress",
-      "category": "cung_cau_nhan_dinh"
+      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
+      "source": "07 Oct 2026 - Farm Progress"
     },
     {
-      "title": "Ngày hè nhiều mây có ảnh hưởng đến năng suất ngô?",
+      "title": "Chiến tranh Ukraine khiến lúa mì bị thối rữa",
       "details": [
-        "Cần đánh giá bắp ngô khi thu hoạch để xem tình trạng 'tip back' (bắp không đầy hạt ở đầu).",
-        "Nhiều bắp bị 'tip back' có thể do căng thẳng từ điều kiện nhiều mây trong giai đoạn đổ hạt sớm.",
-        "Điều kiện thời tiết bất lợi trong mùa hè có thể làm giảm năng suất ngô tổng thể."
+        "Xung đột ở Ukraine đang gây ra tình trạng lúa mì bị thối rữa.",
+        "Điều này có thể ảnh hưởng nghiêm trọng đến nguồn cung lúa mì toàn cầu.",
+        "Tình hình này làm gia tăng lo ngại về an ninh lương thực thế giới."
       ],
-      "link": "https://www.farmprogress.com/corn/did-cloudy-summer-days-hurt-corn-yields-",
-      "source": "06 Oct 2026 - Farm Progress",
-      "category": "san_luong_dien_tich"
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOYl8wVGdua21Hdy03UWo3Z1huTnVneGhFNFE1VjV5eVZDZmt0aXJydTJCOVMxbHJOcjhHZjBjMUNyNF9wVU8xLXN6VTgzYUFMSjRnQzZxTUlmREF5N0h5VlZ5UWJ0d1N1UXgzbXhFcmVFTnpVSjVqWWx4TFl4cjVZVFJfZ1FQdGc?oc=5",
+      "source": "07 Oct 2026 - Google News (Geopolitics)"
     },
     {
-      "title": "Biển Đen trở thành điểm nóng, đe dọa nguồn cung ngũ cốc toàn cầu",
+      "title": "Giá lúa mì tăng khi Nga, Ukraine tìm cách xuất khẩu",
       "details": [
-        "Tình hình Biển Đen căng thẳng nhất kể từ khi chiến tranh Nga-Ukraine bắt đầu.",
-        "Các cuộc tấn công và phong tỏa gây tắc nghẽn nghiêm trọng cho xuất khẩu ngũ cốc.",
-        "Đe dọa an ninh lương thực toàn cầu và đẩy giá ngũ cốc tăng cao.",
-        "Ảnh hưởng đến các tuyến đường vận chuyển quan trọng của ngũ cốc."
+        "Giá lúa mì đang tăng lên.",
+        "Nguyên nhân là do Nga và Ukraine đang tìm kiếm các giải pháp thay thế cho việc xuất khẩu ngũ cốc.",
+        "Điều này phản ánh những thách thức trong chuỗi cung ứng do xung đột đang diễn ra."
       ],
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZDB6enNFVXJjZ2tIU1IzdUJWdmhiNDc5bTJUeXpRWi1rUFU1UlNhdENxeE50YXdxOVppemlVVDNMaHpIenVHYVJneXN1ZXFFaFB0ZkpZc0tMNV9qOGJzLVhSNFJBdE5nOGhYbEkyNERqRzFFMDF3M2MyY1N2aW1laWxZV1Y?oc=5",
-      "source": "02 Oct 2026 - CBC",
-      "category": "dia_chinh_tri"
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNYldLcDU3LWE0dE90THhYcDNHdVNGa1pHWlNXOTU2SFZvcVhzc0N5eEdYTU9hMFJQeEVFQjBENkwzVnRZZTRPWUJWNGVwdDREVWgxOEpPTlczY3Awb3VmUDRJWmk1Q0ZLZm5zby00R2J6MVMwUV85UElEWFl2NF9meU0wMm1FMTBnWUhhaThpVlotcV90dFVMcThPbHRDakh2TVB6YQ?oc=5",
+      "source": "06 Oct 2026 - Google News (Geopolitics)"
     },
     {
-      "title": "Nhu cầu nhập khẩu lúa mì thức ăn chăn nuôi của Việt Nam tăng mạnh",
+      "title": "Khủng hoảng ngũ cốc Biển Đen mới: Nạn đói đang cận kề",
       "details": [
-        "Việt Nam là thị trường nhập khẩu lúa mì thức ăn chăn nuôi quan trọng.",
-        "Nhu cầu thức ăn chăn nuôi tăng cao mở ra cơ hội thương mại và đầu tư chiến lược.",
-        "Báo cáo 'Vietnam Feed Wheat Import Guide 2023-2026' được phát hành.",
-        "Cung cấp hướng dẫn cho các nhà sản xuất, xuất khẩu và phân phối lúa mì."
+        "Một cuộc khủng hoảng ngũ cốc mới đang diễn ra ở Biển Đen.",
+        "Tình hình này có thể dẫn đến tình trạng thiếu lương thực và nạn đói trên diện rộng.",
+        "Điều này gây ra những lo ngại nghiêm trọng về an ninh lương thực toàn cầu."
       ],
-      "link": "https://finance.yahoo.com/markets/commodities/articles/vietnam-feed-wheat-import-market-143500579.html?.tsrc=rss",
-      "source": "01 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOQ2xZRU9zV3VZbEdRajJ5NUlBYmpVV09OWlhzNGZHVmZtUEVMV0trSV9VVU5NNm1HSXF0MmlmRWRENkQ4Mmg4Y1p5YVpLOVVoNFdNUmIzbUdvdzd5NWZyazE3YndlM21GSEd2X1V3Y2FiWmIwNUlkdlRiUVZKa2h5V0EySjEwY05L?oc=5",
+      "source": "24 Sep 2026 - Google News (Geopolitics)"
     }
-  ],
-  "intraday": {
-    "bias": "Bearish",
-    "bias_vn": "Giảm",
-    "summary": "ZW chịu áp lực giảm do vị thế short mạnh từ COT và thiếu xúc tác tăng giá.",
-    "key_levels": {
-      "support": "688.00",
-      "resistance": "698.00"
-    },
-    "reasoning": [
-      "Vị thế NHOI SHORT mạnh từ báo cáo COT",
-      "Thiếu các yếu tố hỗ trợ tăng giá rõ ràng",
-      "Áp lực giảm từ thị trường ngũ cốc chung (ngô)"
-    ],
-    "risk": "Bất ngờ từ tin tức hoặc thay đổi đột ngột tâm lý thị trường.",
-    "generated_at": "2026-10-06 15:34"
-  },
-  "categories": [
-    "dia_chinh_tri",
-    "logistics",
-    "san_luong_dien_tich",
-    "cung_cau_nhan_dinh"
   ]
 }
