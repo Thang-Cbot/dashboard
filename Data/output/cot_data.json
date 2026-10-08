@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-07 17:34:20",
+  "fetched_at": "2026-10-08 20:05:58",
   "source": "CFTC ZIP (Disaggregated Futures Only) + Rolling Beta 13W",
   "commodities": {
     "002602": {
@@ -15,11 +15,11 @@
       "action": "Cam bat day. Canh gia hoi de danh SHORT.",
       "rolling_beta_13w": 333.82,
       "cutoff_price_tue": 522.0,
-      "latest_price": 505.25,
-      "latest_price_date": "2026-10-07",
-      "price_lag_change": -16.75,
-      "estimated_extra_contracts": -5591.0,
-      "net_estimated": 375629.0,
+      "latest_price": 502.5,
+      "latest_price_date": "2026-10-08",
+      "price_lag_change": -19.5,
+      "estimated_extra_contracts": -6509.0,
+      "net_estimated": 374711.0,
       "quadrant_estimated": "Q2 (DO NHAT) - XA LONG",
       "action_estimated": "Cam bat day. Canh gia hoi de danh SHORT.",
       "history": [
@@ -128,7 +128,7 @@
           "price_date": "2026-09-29"
         }
       ],
-      "fetched_at": "2026-10-07 17:34:23"
+      "fetched_at": "2026-10-08 20:06:41"
     },
     "001602": {
       "commodity": "ZW",
@@ -143,13 +143,13 @@
       "action": "Uu tien SHORT thuan xu huong.",
       "rolling_beta_13w": 459.66,
       "cutoff_price_tue": 692.75,
-      "latest_price": 700.75,
-      "latest_price_date": "2026-10-07",
-      "price_lag_change": 8.0,
-      "estimated_extra_contracts": 3677.0,
-      "net_estimated": -18432.0,
-      "quadrant_estimated": "Q4 (CAM) - COVER SHORT",
-      "action_estimated": "Cam Short duoi. Canh LONG bat hoi.",
+      "latest_price": 687.0,
+      "latest_price_date": "2026-10-08",
+      "price_lag_change": -5.75,
+      "estimated_extra_contracts": -2643.0,
+      "net_estimated": -24752.0,
+      "quadrant_estimated": "Q3 (DO DAM) - NHOI SHORT",
+      "action_estimated": "Uu tien SHORT thuan xu huong.",
       "history": [
         {
           "report_date": "2026-07-07",
@@ -256,7 +256,7 @@
           "price_date": "2026-09-29"
         }
       ],
-      "fetched_at": "2026-10-07 17:34:23"
+      "fetched_at": "2026-10-08 20:06:41"
     }
   }
 }

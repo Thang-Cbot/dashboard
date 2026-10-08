@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-08 10:07:13",
+  "checked_at": "2026-10-08 20:38:52",
   "summary": {
     "total": 16,
     "ok": 15,
@@ -11,7 +11,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Sức mạnh USD (DXY)",
       "type": "🟢 Auto",
-      "value": "102.245 (+0.41%)",
+      "value": "102.334 (+0.09%)",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -20,7 +20,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Giá Dầu Brent",
       "type": "🟢 Auto",
-      "value": "102.35 USD/thùng",
+      "value": "104.18 USD/thùng",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -29,9 +29,9 @@
       "group": "Phần 1: Global Macro",
       "item": "Dòng tiền COT – ZW",
       "type": "🟢 Auto",
-      "value": "-18,432 HĐ | Q4 (CAM) - COVER SHORT",
+      "value": "-24,752 HĐ | Q3 (DO DAM) - NHOI SHORT",
       "status": "✅ Có data",
-      "updated": "16 giờ trước",
+      "updated": "vừa cập nhật",
       "note": ""
     },
     {
@@ -74,9 +74,9 @@
       "group": "Phần 2: Bắc Bán Cầu (Mỹ)",
       "item": "Export Sales ZW",
       "type": "🟢 Auto",
-      "value": "289,300 MT (Tuần 09/24/2026)",
+      "value": "451,600 MT (Tuần 10/01/2026)",
       "status": "✅ Có data",
-      "updated": "16 giờ trước",
+      "updated": "vừa cập nhật",
       "note": ""
     },
     {
@@ -146,10 +146,10 @@
       "group": "Phần 3: AI Analysis & DCA",
       "item": "Giá ZW (D1 chart)",
       "type": "🟢 Auto",
-      "value": "685.25 cents",
+      "value": "687.00 cents",
       "status": "✅ Có data",
       "updated": "2026-10-08",
-      "note": "RSI 42.3 | ATR 16.3"
+      "note": "RSI 43.0 | ATR 16.7"
     }
   ]
 }
