@@ -23,9 +23,9 @@
       "updated_at": "2026-10-02 06:31:23"
     },
     "export_sales": {
-      "status": "OK",
-      "detail": "Export Sales updated",
-      "updated_at": "2026-10-02 06:31:32"
+      "status": "[OK]",
+      "detail": "Auto-fetch 12:07:11",
+      "updated_at": "2026-10-09 12:07:11"
     },
     "weather_short": {
       "status": "OK",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 12:05:37 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-10-09 12:05:37"
+      "detail": "Đẩy thành công lúc 12:06:05 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-10-09 12:06:05"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -72,7 +72,7 @@
   "export_sales": {
     "status": "OK",
     "detail": "Kỳ: 10/01/2026 | ZW=451,600 MT, ZC=769,500 MT",
-    "updated_at": "2026-10-08 20:05:13"
+    "updated_at": "2026-10-09 12:07:11"
   },
   "acreage": {
     "status": "OK",
