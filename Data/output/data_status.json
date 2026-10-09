@@ -49,13 +49,13 @@
     },
     "ai_news": {
       "status": "[OK]",
-      "detail": "Auto-fetch 08:52:06",
-      "updated_at": "2026-10-09 08:52:06"
+      "detail": "Auto-fetch 00:02:20",
+      "updated_at": "2026-10-10 00:02:20"
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 00:00:53 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-10-10 00:00:53"
+      "detail": "Đẩy thành công lúc 00:01:31 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-10-10 00:01:31"
     },
     "prices_h4": {
       "status": "[OK]",

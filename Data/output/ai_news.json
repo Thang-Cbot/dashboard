@@ -1,155 +1,19 @@
 {
-  "timestamp": "2026-10-09 08:52:06",
-  "news": [
-    {
-      "title": "Chuẩn bị cho Báo cáo WASDE quan trọng vào thứ Sáu",
-      "details": [
-        "Báo cáo Cung cầu Nông nghiệp Thế giới (WASDE) sắp tới vào thứ Sáu được dự báo sẽ là yếu tố tác động mạnh đến thị trường.",
-        "Nhà đầu tư và nông dân cần chuẩn bị cho những biến động giá tiềm năng.",
-        "Báo cáo sẽ cung cấp cái nhìn sâu sắc về dự báo sản lượng, tồn kho và xuất khẩu."
-      ],
-      "link": "https://www.farmprogress.com/markets-and-quotes/afternoon-market-recap",
-      "source": "08 Oct 2026 - Farm Progress",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Giá ngũ cốc biến động: Ngô và Lúa mì tăng nhẹ trước dữ liệu USDA",
-      "details": [
-        "Giá ngô và lúa mì có xu hướng tăng nhẹ trên thị trường.",
-        "Giá đậu tương giảm, tạo ra sự biến động trái chiều trong nhóm ngũ cốc.",
-        "Thị trường đang chờ đợi dữ liệu mới từ Bộ Nông nghiệp Hoa Kỳ (USDA) để định hình xu hướng tiếp theo."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOcS14YlpEbElZYzZ3QU90MWF3RGVXckRyUUFsck9BSjBLa1k4dENkd1BaQjh4ekFFb0xBNFVtOUxCN2VVdHJDY0FLSlI3VGpubzUzRUEyREUtak1ma2NHUklOMFU4cGZwU0RGSVBiU1JRVDJCWU5Ud19Lek1odHRHTFFHTzRqSzVCelp4MXRsOA?oc=5",
-      "source": "08 Oct 2026 - Google News (Supply)",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Lúa mì CBOT tăng nhẹ vào sáng thứ Năm",
-      "details": [
-        "Hợp đồng lúa mì tăng 1-2 cent trên hầu hết các hợp đồng vào sáng thứ Năm.",
-        "Thị trường lúa mì đã không duy trì được đà tăng từ thứ Ba và suy yếu vào thứ Tư.",
-        "Hợp đồng SRW Chicago giảm 13 ¾ đến 17 ¾ cent trên diện rộng vào thứ Tư.",
-        "Lượng hợp đồng mở tăng 2,739 hợp đồng."
-      ],
-      "link": "https://www.barchart.com/story/news/5072315/wheat-trading-with-marginal-thursday-am-strength?.tsrc=rss",
-      "source": "08 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Giá lúa mì tăng khi Nga, Ukraine tìm cách xuất khẩu thay thế",
-      "details": [
-        "Giá lúa mì tăng do Nga và Ukraine đang tìm kiếm các giải pháp thay thế cho hoạt động xuất khẩu ngũ cốc.",
-        "Xung đột ở Biển Đen tiếp tục gây áp lực lên chuỗi cung ứng ngũ cốc toàn cầu.",
-        "Các nỗ lực tìm kiếm tuyến đường xuất khẩu mới có thể hỗ trợ giá lúa mì trên thị trường."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNYldLcDU3LWE0dE90THhYcDNHdVNGa1pHWlNXOTU2SFZvcVhzc0N5eEdYTU9hMFJQeEVFQjBENkwzVnRZZTRPWUJWNGVwdDREVWgxOEpPTlczY3Awb3VmUDRJWmk1Q0ZLZm5zby00R2J6MVMwUV85UElEWFl2NF9meU0wMm1FMTBnWUhhaThpVlotcV90dFVMcThPbHRDakh2TVB6YQ?oc=5",
-      "source": "08 Oct 2026 - Google News (Geo)",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "4 yếu tố chính định hình thị trường lúa mì",
-      "details": [
-        "Giá lúa mì ổn định sau đợt giảm mạnh vào tháng 9, được hỗ trợ bởi nguồn cung thắt chặt.",
-        "Các yếu tố cần theo dõi bao gồm tình hình gieo trồng vụ đông và xung đột ở Biển Đen.",
-        "Xu hướng sản xuất và xuất khẩu toàn cầu cũng là động lực chính cho giá lúa mì."
-      ],
-      "link": "https://www.farmprogress.com/wheat/monitor-these-4-wheat-market-drivers-as-prices-stabilize",
-      "source": "08 Oct 2026 - Farm Progress",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Giá lúa mì giảm mạnh vào thứ Tư",
-      "details": [
-        "Thị trường lúa mì không duy trì được đà tăng từ thứ Ba và suy yếu vào thứ Tư.",
-        "Hợp đồng SRW Chicago giảm từ 13 ¾ đến 17 ¾ cent trên diện rộng.",
-        "Hợp đồng HRW Kansas City cũng ghi nhận mức giảm từ 13 ½ đến 17 ¾ cent khi đóng cửa vào thứ Tư."
-      ],
-      "link": "https://www.barchart.com/story/news/5016728/wheat-falls-lower-on-wednesday?.tsrc=rss",
-      "source": "07 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Thu hoạch tại Mỹ bị trì hoãn, USDA đánh giá lại quy mô mùa vụ",
-      "details": [
-        "Hoạt động thu hoạch ngũ cốc tại Mỹ đang bị trì hoãn do các yếu tố thời tiết hoặc logistics.",
-        "Bộ Nông nghiệp Hoa Kỳ (USDA) dự kiến sẽ đánh giá lại quy mô mùa vụ trong các báo cáo sắp tới.",
-        "Sự chậm trễ này có thể ảnh hưởng đến nguồn cung và gây biến động giá trên thị trường."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQRmdmNTZ0UThVMmVGYUMtbEEzOFVFMTQwc2JTOUxER0MxUUdfVzZDbThxdWlzLTFrWHhiRUZibTcycVhCQjkxVWFMZnB0blBlYk5JNktXVHFDdkVIRTY3UG85R0JUN2hpYzhBLWdTUU1VMUpGS1ZmNVF4aDZoNWticEhuOU14dlo4WWdMQW41VngzUlV2VktNX2Fybk9oMjBIYXc?oc=5",
-      "source": "07 Oct 2026 - Google News (Supply)",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Thu hoạch ngô tại Iowa chậm trễ, thị trường cảnh giác trước báo cáo USDA",
-      "details": [
-        "Sự chậm trễ trong thu hoạch ngô ở Iowa đang khiến thị trường cảnh giác cao độ.",
-        "Thị trường đang chờ đợi các báo cáo quan trọng từ USDA để có cái nhìn rõ hơn về sản lượng.",
-        "Tình hình thu hoạch có thể ảnh hưởng đến dự báo sản lượng và giá ngô trong thời gian tới."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNcE82cE5uLXE4TWIwbmNYbTZManFyQ2F0SlJfV0FVYTRRV2NEWTVMcUNSN0RKNDYzcUtJYVJvSU51TXVSS0FYcExRN0o5NWpocWg2OWNEWTUxbW9NMEdpcVpwMzdNemhQS3VPRldOZ0VBYmp6RDdCaUFobTlUSllOV0pTVnU?oc=5",
-      "source": "07 Oct 2026 - Google News (Supply)",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Tấn công tàu dân sự gần Bulgaria đe dọa tuyến đường ngũ cốc Biển Đen",
-      "details": [
-        "Các cuộc tấn công vào tàu dân sự gần Bulgaria tạo ra rủi ro mới và nghiêm trọng cho tuyến đường ngũ cốc Biển Đen.",
-        "Tình hình an ninh leo thang có thể làm gián đoạn nghiêm trọng hoạt động xuất khẩu ngũ cốc từ khu vực này.",
-        "Điều này có thể đẩy giá ngũ cốc toàn cầu lên cao do lo ngại về nguồn cung."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPTUhGRjdTc0pQeVVwVktNMkQ4NWtpRXdWREkxOGFXV1JrdG5qWm00RDhkbFMzWjdDaGRzZUQ0dUh6VnlJSVhacm5TTTBFSHhlTGlCSTloVlBfeTlwRzBtalBhVW50N1drZUs2eWFubG5vN2VHdTExSGNUZWhYMThGTG1xLXd5dkFBc3ZFR2t1OEtCWnQwSVJpMUZ1Y1ZGTVY4bEVXRVBSbld2TUtyVEtETlhRenNRZDRRenhfWHFJcmhWQ3A4bEQ5WFFhSzY?oc=5",
-      "source": "07 Oct 2026 - Google News (Shipping)",
-      "category": "logistics"
-    },
-    {
-      "title": "Các yếu tố chính thúc đẩy biến động giá ngũ cốc",
-      "details": [
-        "Hoạt động của các quỹ đầu cơ là một yếu tố chính gây ra biến động giá trên thị trường ngũ cốc.",
-        "Sự khác biệt trong báo cáo USDA và thay đổi chính sách năng lượng cũng ảnh hưởng đáng kể.",
-        "Nhu cầu thương mại đang thúc đẩy biến động hai chiều trên thị trường ngũ cốc, năng lượng và chăn nuôi."
-      ],
-      "link": "https://www.barchart.com/story/news/4992804/corn-soybeans-and-wheat-what-is-really-driving-grain-volatility?.tsrc=rss",
-      "source": "06 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Báo cáo tiến độ mùa vụ USDA ngày 5/10: Cập nhật thu hoạch ngô, đậu tương",
-      "details": [
-        "Báo cáo tiến độ mùa vụ của USDA ngày 5 tháng 10 năm 2026 cung cấp thông tin cập nhật về thu hoạch ngô, đậu tương và bông.",
-        "Dữ liệu này rất quan trọng để đánh giá nguồn cung hiện tại và dự kiến trên thị trường.",
-        "Tiến độ thu hoạch có thể ảnh hưởng đến tâm lý thị trường và giá cả các mặt hàng nông sản."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOWV9SYTdqcWRuV2RfU2RnV0FfWk9XdW9mck00TE9VQ1J2d2JSRFZqbXhvcHZpOWlqY0tFdmg0anpsci1xU3lhb3dhU05iVzRnX2Rfc3FSVE9qVDhHQ3BYV3RlRGFCM2tjWTB2SGxHQlN4eXNIMHBBME5DcTU5am5JN3dfSzVxd2xuZ3loV2tEY0dhaEZKUWxZLU94cWdsRTdFdHQ4QTMtX3dBUQ?oc=5",
-      "source": "06 Oct 2026 - Google News (Supply)",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Báo cáo USDA gây sốc đẩy giá ngô xuống dưới 5 USD",
-      "details": [
-        "Báo cáo cung cấp của USDA đã gây bất ngờ lớn, khiến giá ngô giảm mạnh.",
-        "Giá ngô đã bị đẩy xuống dưới mức 5 USD/giạ sau báo cáo này.",
-        "Tác động này có thể chỉ là tạm thời, thị trường đang chờ đợi các yếu tố mới để định hình lại xu hướng."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQWUF2VWNZN1ROcExHcVlCUjd3bEhDS3RUenNpNGZCY1phYVpRZEItQmZHN2NqWWJZREttUFFZY1JmdDRPLWl3R19GMmFWYlJWdm9pcVo3YWtKbEpuSnBIem9TekdGWGswZFVhbXZGbVgwV0RHTDFQa2dqdFJXYUxhUFNlQUZJdDZ2VjNwcnlR?oc=5",
-      "source": "06 Oct 2026 - Google News (Supply)",
-      "category": "cung_cau_nhan_dinh"
-    }
-  ],
+  "timestamp": "2026-10-10 00:02:20",
+  "news": [],
   "intraday": {
     "bias": "Neutral",
     "bias_vn": "Đi Ngang",
-    "summary": "ZW biến động nhẹ, tăng do tin tức nhưng bị kìm hãm bởi COT và chờ WASDE.",
+    "summary": "Chưa đủ dữ liệu để nhận định intraday",
     "key_levels": {
-      "support": "678.00",
-      "resistance": "688.00"
+      "support": "N/A",
+      "resistance": "N/A"
     },
     "reasoning": [
-      "Giá tăng nhẹ do tin tức địa chính trị và trước USDA.",
-      "Vị thế COT Net Short mạnh tạo áp lực giảm giá.",
-      "Thị trường chờ Báo cáo WASDE quan trọng vào thứ Sáu."
+      "Dữ liệu chưa đầy đủ"
     ],
-    "risk": "Rủi ro biến động cao trước WASDE và diễn biến địa chính trị.",
-    "generated_at": "2026-10-09 08:51"
+    "risk": "N/A",
+    "generated_at": "2026-10-10 00:02"
   },
   "categories": [
     "dia_chinh_tri",
