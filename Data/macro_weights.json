@@ -2,90 +2,90 @@
   "manual_overrides": {
     "F1_Russia_Policy": {
       "score": 2,
-      "note": "Chưa có tin mới về chính sách của Nga, duy trì nhận định cũ: Nga bỏ thuế xuất khẩu lúa mì (Zero export duty) đến hết tháng 12/2026 để xả hàng, gây áp lực giảm giá mạnh.",
+      "note": "ChÆ°a cÃ³ tin má»›i vá» chÃ­nh sÃ¡ch cá»§a Nga, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©: Nga bá» thuáº¿ xuáº¥t kháº©u lÃºa mÃ¬ (Zero export duty) Ä‘áº¿n háº¿t thÃ¡ng 12/2026 Ä‘á»ƒ xáº£ hÃ ng, gÃ¢y Ã¡p lá»±c giáº£m giÃ¡ máº¡nh.",
       "updated_at": "2026-10-04 08:39"
     },
     "F3_Other_Supply": {
       "score": 8,
-      "note": "Chưa có tin mới về nguồn cung từ các khu vực khác ngoài Mỹ, duy trì nhận định cũ: Sản lượng EU giảm mạnh xuống 137.5 triệu tấn do nắng nóng khắc nghiệt ở Pháp và Đức. Nguồn cung thắt chặt.",
+      "note": "ChÆ°a cÃ³ tin má»›i vá» nguá»“n cung tá»« cÃ¡c khu vá»±c khÃ¡c ngoÃ i Má»¹, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©: Sáº£n lÆ°á»£ng EU giáº£m máº¡nh xuá»‘ng 137.5 triá»‡u táº¥n do náº¯ng nÃ³ng kháº¯c nghiá»‡t á»Ÿ PhÃ¡p vÃ  Äá»©c. Nguá»“n cung tháº¯t cháº·t.",
       "updated_at": "2026-10-04 08:39"
     },
     "F4_Weather_SH": {
       "score": 3,
-      "note": "Chưa có tin mới về thời tiết Nam Bán cầu, duy trì nhận định cũ: Thời tiết tháng 9 cải thiện rõ rệt (mưa tốt tại Nam Úc/Victoria và Argentina) giúp xoa dịu lo ngại hạn hán trước đó, gây áp lực giảm giá (Bearish).",
+      "note": "ChÆ°a cÃ³ tin má»›i vá» thá»i tiáº¿t Nam BÃ¡n cáº§u, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©: Thá»i tiáº¿t thÃ¡ng 9 cáº£i thiá»‡n rÃµ rá»‡t (mÆ°a tá»‘t táº¡i Nam Ãšc/Victoria vÃ  Argentina) giÃºp xoa dá»‹u lo ngáº¡i háº¡n hÃ¡n trÆ°á»›c Ä‘Ã³, gÃ¢y Ã¡p lá»±c giáº£m giÃ¡ (Bearish).",
       "updated_at": "2026-10-04 08:39"
     },
     "F4S_Supply_SH": {
       "score": 3,
-      "note": "Chưa có tin mới về nguồn cung Nam Bán cầu, duy trì nhận định cũ: ABARES (Úc) và BCR (Argentina) vừa ĐIỀU CHỈNH TĂNG dự báo sản lượng so với tháng trước do thời tiết thuận lợi. Nguồn cung tốt hơn mức kỳ vọng (đã priced-in) tạo sức ép Bearish.",
+      "note": "ChÆ°a cÃ³ tin má»›i vá» nguá»“n cung Nam BÃ¡n cáº§u, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©: ABARES (Ãšc) vÃ  BCR (Argentina) vá»«a ÄIá»€U CHá»ˆNH TÄ‚NG dá»± bÃ¡o sáº£n lÆ°á»£ng so vá»›i thÃ¡ng trÆ°á»›c do thá»i tiáº¿t thuáº­n lá»£i. Nguá»“n cung tá»‘t hÆ¡n má»©c ká»³ vá»ng (Ä‘Ã£ priced-in) táº¡o sá»©c Ã©p Bearish.",
       "updated_at": "2026-10-04 08:39"
     },
     "F8_Geopolitics": {
       "score": 7,
-      "note": "Xung đột Biển Đen tiếp tục leo thang khi Nga và Ukraine tấn công năng lực xuất khẩu của nhau, buộc cả hai nước phải tìm kiếm các tuyến đường xuất khẩu thay thế. Điều này gây gián đoạn logistics và hỗ trợ giá lúa mì.",
+      "note": "Xung Ä‘á»™t Biá»ƒn Äen tiáº¿p tá»¥c leo thang khi Nga vÃ  Ukraine táº¥n cÃ´ng nÄƒng lá»±c xuáº¥t kháº©u cá»§a nhau, buá»™c cáº£ hai nÆ°á»›c pháº£i tÃ¬m kiáº¿m cÃ¡c tuyáº¿n Ä‘Æ°á»ng xuáº¥t kháº©u thay tháº¿. Äiá»u nÃ y gÃ¢y giÃ¡n Ä‘oáº¡n logistics vÃ  há»— trá»£ giÃ¡ lÃºa mÃ¬.",
       "updated_at": "2026-10-04 08:39"
     },
     "F12_Global_Demand": {
       "score": 3,
-      "note": "Tin tức mới nhất xác nhận doanh số xuất khẩu ngô của Mỹ chỉ đạt 535.989 MT, thấp hơn đáng kể so với dự kiến (0.5-1.3 MMT), cho thấy nhu cầu toàn cầu yếu hơn đối với ngô Mỹ. Doanh số xuất khẩu lúa mì cũng ở mức vừa phải (289.255 MT).",
+      "note": "Tin tá»©c má»›i nháº¥t xÃ¡c nháº­n doanh sá»‘ xuáº¥t kháº©u ngÃ´ cá»§a Má»¹ chá»‰ Ä‘áº¡t 535.989 MT, tháº¥p hÆ¡n Ä‘Ã¡ng ká»ƒ so vá»›i dá»± kiáº¿n (0.5-1.3 MMT), cho tháº¥y nhu cáº§u toÃ n cáº§u yáº¿u hÆ¡n Ä‘á»‘i vá»›i ngÃ´ Má»¹. Doanh sá»‘ xuáº¥t kháº©u lÃºa mÃ¬ cÅ©ng á»Ÿ má»©c vá»«a pháº£i (289.255 MT).",
       "updated_at": "2026-10-04 08:39"
     },
     "F2W_US_Weather": {
       "score": 5,
-      "note": "Đã cập nhật tự động từ AI"
+      "note": "ÄÃ£ cáº­p nháº­t tá»± Ä‘á»™ng tá»« AI"
     },
     "F5_Export_Sales": {
       "score": 2,
-      "note": "Báo cáo Export Sales thấp hơn tuần trước khá nhiều, lực cầu yếu. Score 2 = Bearish"
+      "note": "BÃ¡o cÃ¡o Export Sales tháº¥p hÆ¡n tuáº§n trÆ°á»›c khÃ¡ nhiá»u, lá»±c cáº§u yáº¿u. Score 2 = Bearish"
     },
     "F1_Russia_Policy_ZW": {
       "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "note": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
       "updated_at": "2026-10-10 08:32"
     },
     "F1_Ukraine_Policy_ZC": {
       "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "note": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
       "updated_at": "2026-10-10 08:32"
     },
     "F3_Other_Supply_ZW": {
       "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "note": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
       "updated_at": "2026-10-10 08:32"
     },
     "F3_Other_Supply_ZC": {
       "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "note": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
       "updated_at": "2026-10-10 08:32"
     },
     "F4S_Supply_SH_ZW": {
       "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "note": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
       "updated_at": "2026-10-10 08:32"
     },
     "F4S_Supply_SH_ZC": {
       "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "note": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
       "updated_at": "2026-10-10 08:32"
     },
     "F8_Geopolitics_ZW": {
       "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "note": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
       "updated_at": "2026-10-10 08:32"
     },
     "F8_Geopolitics_ZC": {
       "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "note": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
       "updated_at": "2026-10-10 08:32"
     },
     "F12_Global_Demand_ZW": {
       "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "note": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
       "updated_at": "2026-10-10 08:32"
     },
     "F12_Global_Demand_ZC": {
       "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "note": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
       "updated_at": "2026-10-10 08:32"
     }
   },
@@ -287,27 +287,27 @@
     "10_2026": {
       "low": 700.0,
       "high": 740.0,
-      "note": "Tháng 10 áp lực từ thu hoạch Nam Bán Cầu, giá sideway tích lũy vùng 700-740."
+      "note": "ThÃ¡ng 10 Ã¡p lá»±c tá»« thu hoáº¡ch Nam BÃ¡n Cáº§u, giÃ¡ sideway tÃ­ch lÅ©y vÃ¹ng 700-740."
     },
     "11_2026": {
       "low": 705.0,
       "high": 730.0,
-      "note": "Tháng 11 Đỉnh thu hoạch Nam bán cầu"
+      "note": "ThÃ¡ng 11 Äá»‰nh thu hoáº¡ch Nam bÃ¡n cáº§u"
     },
     "12_2026": {
       "low": 680.0,
       "high": 750.0,
-      "note": "Chạm đáy do lúa mì nam bán cầu thu hoạch xong, weather  premium xuất hiện ở Mỹ"
+      "note": "Cháº¡m Ä‘Ã¡y do lÃºa mÃ¬ nam bÃ¡n cáº§u thu hoáº¡ch xong, weather  premium xuáº¥t hiá»‡n á»Ÿ Má»¹"
     }
   },
   "dca_targets": {
     "ZC": {
-      "zone1": "400 - 420¢",
-      "zone2": "380 - 400¢"
+      "zone1": "400 - 420Â¢",
+      "zone2": "380 - 400Â¢"
     },
     "ZW": {
       "zone1": "550 - 580¢",
-      "zone2": "500 - 530¢"
+      "zone2": "500 - 530Â¢"
     }
   }
 }

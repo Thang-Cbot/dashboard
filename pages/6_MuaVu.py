@@ -628,7 +628,7 @@ def render_muavu_tab(commodity):
           <div class='dca-zone' style='border-color:#f59e0b; margin-bottom:8px;'>
             <div style='font-size:10px;color:#64748b;'>🎯 VÙNG GOM VĨ MÔ (Cấu trúc Dài hạn)</div>
             <div style='font-size:18px;font-weight:800;color:#fde68a;'>{macro_z1}</div>
-            <div style='font-size:11px;color:#94a3b8;'>Đáy cấu trúc Vĩ mô / Giá thành sản xuất (Cấu hình tùy chỉnh)</div>
+            <div style='font-size:11px;color:#94a3b8;'>Cơ sở định giá (Cố định): War Premium | Dầu thô | DXY</div>
           </div>
           <div class='dca-zone' style='border-color:#94a3b8;'>
             <div style='font-size:10px;color:#64748b;'>⚡ VÙNG GOM KỸ THUẬT (Biến động Ngắn hạn)</div>
