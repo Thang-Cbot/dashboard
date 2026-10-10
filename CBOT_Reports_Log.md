@@ -9,7 +9,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 # PHẦN I: THÔNG TIN TỔNG QUAN & VĨ MÔ
 
 ## 🌐 1. TỔNG QUAN VĨ MÔ TOÀN CẦU (MACRO INDICATORS OVERVIEW)
-*Cập nhật tự động qua `macro_tracker.py` vào lúc 07:51 ICT ngày 10/10/2026*
+*Cập nhật tự động qua `macro_tracker.py` vào lúc 08:31 ICT ngày 10/10/2026*
 
 | Chỉ số Vĩ mô | Mức giá hiện tại | Biến động 24h | Xu hướng & Đánh giá tác động đến Nông sản |
 | :--- | :---: | :---: | :--- |
@@ -18,14 +18,14 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 
 
 ## 💰 DÒNG TIỀN COT (SMART MONEY MATRIX)
-*Cập nhật từ nguồn CFTC Public API (Ngày báo cáo chốt sổ: **2026-09-29**)*
+*Cập nhật từ nguồn CFTC Public API (Ngày báo cáo chốt sổ: **2026-10-06**)*
 
 ### Bảng Dòng Tiền Managed Money
 
 | Mã | Commodity | Net Position | Tuần Qua | Trạng Thái Matrix | Điểm Bias |
 | :--- | :--- | :---: | :---: | :--- | :---: |
-| **002602** | ZC | **381,220** | **-22,877** | **Q2 (DO NHAT) - XA LONG**<br>*Cam bat day. Canh gia hoi de danh SHORT.* | 🔴 **-1.0** |
-| **001602** | ZW | **-22,109** | **-10,093** | **Q3 (DO DAM) - NHOI SHORT**<br>*Uu tien SHORT thuan xu huong.* | 🔴 **-1.5** |
+| **002602** | ZC | **329,839** | **-51,381** | **Q2 (DO NHAT) - XA LONG**<br>*Cam bat day. Canh gia hoi de danh SHORT.* | 🔴 **-1.0** |
+| **001602** | ZW | **-28,830** | **-6,721** | **Q3 (DO DAM) - NHOI SHORT**<br>*Uu tien SHORT thuan xu huong.* | 🔴 **-1.5** |
 
 
 
@@ -39,7 +39,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 ---
 
 ## 🌡️ 2. BẢN TIN THỜI TIẾT & MÙA VỤ TOÀN CẦU (WEATHER INTELLIGENCE REPORT)
-*Cập nhật tự động lúc 07:51 ICT ngày 10/10/2026 — Nguồn: NOAA, USDA, BOM Australia*
+*Cập nhật tự động lúc 08:31 ICT ngày 10/10/2026 — Nguồn: NOAA, USDA, BOM Australia*
 
 ### 🇺🇸 Thời tiết Nội địa Mỹ (US Domestic Weather)
 
@@ -75,7 +75,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 
 | Ngày Báo Cáo (ICT) | Mã | Giá Chốt (Close) | Dự báo Chốt Phiên | Tín Hiệu H1 (EMA 21/50) | Volatility | Intraday Bias | Xem Chi Tiết |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **10/10/2026** | **ZC** | **480.50 ¢** | **484.45 ¢ (+3.95)** | 🐻 Bearish (495.42 < 499.04) | 5.00 cents | Rình mua (Long on dip) | [Xem Ngô (ZC)](#2-báo-cáo-mã-zc-ngô---phiên-chốt-10102026) |
+| **10/10/2026** | **ZC** | **480.50 ¢** | **484.42 ¢ (+3.92)** | 🐻 Bearish (495.42 < 499.04) | 5.00 cents | Rình mua (Long on dip) | [Xem Ngô (ZC)](#2-báo-cáo-mã-zc-ngô---phiên-chốt-10102026) |
 | **10/10/2026** | **ZW** | **670.75 ¢** | **672.24 ¢ (+1.49)** | 🐻 Bearish (680.72 < 685.12) | 4.75 cents | Bán khống hồi (Short on rally) | [Xem Lúa mì (ZW)](#3-báo-cáo-mã-zw-lúa-mì---phiên-chốt-10102026) |
 | **10/10/2026** 
 ---
@@ -131,8 +131,8 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 #### 2. Báo cáo Cung cầu & Tồn kho USDA (USDA WASDE)
 | Mã nông sản | Thông số Tồn kho | Mỹ (US Ending Stocks) | Thế giới (Global) | Lần cập nhật tới | Tác động biện chứng WASDE |
 | :---: | :--- | :---: | :---: | :---: | :--- |
-| **ZC** | **Kỳ trước**<br>**Kỳ hiện tại**<br>***Dự báo kỳ tới*** | 1,653 triệu bushels (2026/27)<br>**1,567 triệu bushels (2026/27)**<br>*Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)* | 274.66 triệu tấn (2026/27)<br>**272.10 triệu tấn (2026/27)**<br>*Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)* | 09/10/2026 lúc 23:00 (VN) | Tồn kho thấp nhất 12 năm -> Gom Long dài hạn (DCA) - Tồn kho ngô toàn cầu chạm mức thấp nhất 12 năm qua (kể từ niên vụ 2013/14). |
-| **ZW** | **Kỳ trước**<br>**Kỳ hiện tại**<br>***Dự báo kỳ tới*** | 717 triệu bushels (2026/27)<br>**717 triệu bushels (2026/27)**<br>*Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)* | 273.25 triệu tấn (2026/27)<br>**276.29 triệu tấn (2026/27)**<br>*Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)* | 09/10/2026 lúc 23:00 (VN) | Cung toàn cầu giảm -> Gom Long dài hạn (DCA) - Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu. |
+| **ZC** | **Kỳ trước**<br>**Kỳ hiện tại**<br>***Dự báo kỳ tới*** | 1,567 triệu bushels (2026/27)<br>**1,849 triệu bushels (2026/27)**<br>*Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)* | 272.10 triệu tấn (2026/27)<br>**280.44 triệu tấn (2026/27)**<br>*Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)* | 11/11/2026 lúc 00:00 (VN) | Tồn kho thấp nhất 12 năm -> Gom Long dài hạn (DCA) - Tồn kho ngô toàn cầu chạm mức thấp nhất 12 năm qua (kể từ niên vụ 2013/14). |
+| **ZW** | **Kỳ trước**<br>**Kỳ hiện tại**<br>***Dự báo kỳ tới*** | 717 triệu bushels (2026/27)<br>**740 triệu bushels (2026/27)**<br>*Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)* | 276.29 triệu tấn (2026/27)<br>**276.04 triệu tấn (2026/27)**<br>*Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)* | 11/11/2026 lúc 00:00 (VN) | Cung toàn cầu giảm -> Gom Long dài hạn (DCA) - Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu. |
 
 #### 3. Báo cáo Bán hàng & Giao hàng Xuất khẩu (USDA Weekly Export Sales & Inspections)
 | Mã nông sản | Báo cáo | Số liệu trước đó | Số liệu mới nhất | Dự báo kỳ tiếp theo | Lần cập nhật tới | Tác động biện chứng xuất khẩu |
@@ -230,7 +230,7 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 | **Trung hạn** | ↕️ **Đi ngang (Sideways)** | Đi ngang tích lũy (Sideways Accumulation) | Giao dịch Swing trading biên độ |
 | **Ngắn hạn** | 🐻 **Giảm (Bearish)** | EMA_21 H1 < EMA_50 H1 (Áp lực bán duy trì) | Canh vào lệnh ngắn hạn (Intraday) |
 
-*   **Giá Chốt Phiên (Close):** 480.50 cents | **Dự báo Chốt Phiên:** **`484.45 cents`** (+3.95).
+*   **Giá Chốt Phiên (Close):** 480.50 cents | **Dự báo Chốt Phiên:** **`484.42 cents`** (+3.92).
 *   **Thanh khoản phiên chốt:** Volume: **`531,873`** (Chênh lệch: **`+344,295`**) | OI: **`887,521`** (Chênh lệch: **`-36`**)
 *   **Mô hình nến H1:** **`Không phát hiện mô hình nến đặc biệt`**
 *   **Dòng tiền (Volume + OI):** **`Giảm do phe Long tháo chạy (Long Liquidation)`**
@@ -251,17 +251,17 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Báo cáo COT Managed Money | Ngô (ZC) | Đánh giá & Hành động |
 | :--- | :---: | :--- |
-| **Ngày Báo Cáo** | **2026-09-29** | Cập nhật mới nhất từ CFTC |
+| **Ngày Báo Cáo** | **2026-10-06** | Cập nhật mới nhất từ CFTC |
 | **Trạng Thái Matrix** | **Q2 (DO NHAT) - XA LONG** | *Cam bat day. Canh gia hoi de danh SHORT.* |
-| **Net Position** | **381,220** | Hợp đồng (Long - Short) |
-| **Thay đổi Tuần qua** | **-22,877** | Hợp đồng thay đổi so với tuần trước |
+| **Net Position** | **329,839** | Hợp đồng (Long - Short) |
+| **Thay đổi Tuần qua** | **-51,381** | Hợp đồng thay đổi so với tuần trước |
 
 
 ---
 
 ### C. Phân Tích Kỹ Thuật H1/M15 (HĐ ZCZ26)
 *   **Chỉ báo EMA H1:** `EMA_21` (495.42) < `EMA_50` (499.04).
-*   **Động lượng & Dao động:** RSI (14) = **`30.48`** | ATR (14) = **`6.10`** cents | Volatility = **`5.00 cents`**.
+*   **Động lượng & Dao động:** RSI (14) = **`30.52`** | ATR (14) = **`6.10`** cents | Volatility = **`5.00 cents`**.
 *   **Vùng cản Pivot:** Hỗ trợ S1: **`471.36`** | S2: **`470.25`** || Kháng cự R1: **`500.25`** | R2: **`544.75`**
 
 ---
@@ -271,8 +271,8 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Chỉ tiêu Cơ bản USDA | Số liệu mới nhất | Tác động |
 | :--- | :--- | :--- |
-| **Tồn kho Mỹ (US ES)** | 1,567 triệu bushels (2026/27) | Tồn kho thấp nhất 12 năm -> Gom Long dài hạn (DCA) |
-| **Tồn kho Thế giới** | 272.10 triệu tấn (2026/27) | Tồn kho ngô toàn cầu chạm mức thấp nhất 12 năm qua (kể từ niên vụ 2013/14). |
+| **Tồn kho Mỹ (US ES)** | 1,849 triệu bushels (2026/27) | Tồn kho thấp nhất 12 năm -> Gom Long dài hạn (DCA) |
+| **Tồn kho Thế giới** | 280.44 triệu tấn (2026/27) | Tồn kho ngô toàn cầu chạm mức thấp nhất 12 năm qua (kể từ niên vụ 2013/14). |
 | **Tiến độ Gieo trồng** | 97% đã gieo trồng | Tiến độ nhanh -> Canh Short ngắn hạn |
 | **Chất lượng G/E** | 54% Good to Excellent | Phản ánh rủi ro thời tiết Midwest |
 | **Đối thủ (Brazil)** | Brazil & Argentina | Brazil vụ 2 khô hạn -> Gom Long trung hạn |
@@ -359,7 +359,7 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 | **Ngắn hạn** | 🐻 **Giảm (Bearish)** | EMA_21 H1 < EMA_50 H1 (Áp lực bán duy trì) | Canh vào lệnh ngắn hạn (Intraday) |
 
 *   **Giá Chốt Phiên (Close):** 670.75 cents | **Dự báo Chốt Phiên:** **`672.24 cents`** (+1.49).
-*   **Thanh khoản phiên chốt:** Volume: **`102,348`** (Chênh lệch: **`+35,136`**) | OI: **`251,400`** (Chênh lệch: **`-45`**)
+*   **Thanh khoản phiên chốt:** Volume: **`102,344`** (Chênh lệch: **`+35,132`**) | OI: **`251,400`** (Chênh lệch: **`-45`**)
 *   **Mô hình nến H1:** **`Không phát hiện mô hình nến đặc biệt`**
 *   **Dòng tiền (Volume + OI):** **`Giảm do phe Long tháo chạy (Long Liquidation)`**
 *   **Đánh giá xu hướng kết hợp:** 📉 **TÍCH LŨY TIÊU CỰC (Distribution):** Nến đi ngang nhưng dòng tiền rút dần (OI giảm), cảnh báo rủi ro suy sụt sắp tới.
@@ -379,10 +379,10 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Báo cáo COT Managed Money | Lúa Mì (ZW) | Đánh giá & Hành động |
 | :--- | :---: | :--- |
-| **Ngày Báo Cáo** | **2026-09-29** | Cập nhật mới nhất từ CFTC |
+| **Ngày Báo Cáo** | **2026-10-06** | Cập nhật mới nhất từ CFTC |
 | **Trạng Thái Matrix** | **Q3 (DO DAM) - NHOI SHORT** | *Uu tien SHORT thuan xu huong.* |
-| **Net Position** | **-22,109** | Hợp đồng (Long - Short) |
-| **Thay đổi Tuần qua** | **-10,093** | Hợp đồng thay đổi so với tuần trước |
+| **Net Position** | **-28,830** | Hợp đồng (Long - Short) |
+| **Thay đổi Tuần qua** | **-6,721** | Hợp đồng thay đổi so với tuần trước |
 
 
 ---
@@ -399,7 +399,7 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Chỉ tiêu Cơ bản USDA | Số liệu mới nhất | Tác động |
 | :--- | :--- | :--- |
-| **Tồn kho Mỹ (US ES)** | 717 triệu bushels (2026/27) | Cung toàn cầu giảm -> Gom Long dài hạn (DCA) |
+| **Tồn kho Mỹ (US ES)** | 740 triệu bushels (2026/27) | Cung toàn cầu giảm -> Gom Long dài hạn (DCA) |
 | **Tiến độ Thu hoạch** | Đông N/A, Xuân N/A | Bắt đầu thu hoạch -> Canh Short ngắn hạn |
 | **Chất lượng G/E** | Đông N/A (Cuối vụ), Xuân N/A | Cực kỳ thấp, rủi ro thiếu hụt chất lượng cao |
 | **Đối thủ (Australia)** | Hạn hán El Nino đe dọa mùa màng, sản lượng có thể giảm mạnh | Tác động cung cầu Châu Á |
