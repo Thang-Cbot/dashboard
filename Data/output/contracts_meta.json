@@ -43,7 +43,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 102344.0,
+      "today_volume": 102348.0,
       "prev_volume": 67212.0,
       "today_oi": 251400,
       "prev_oi": 251445,
@@ -53,5 +53,5 @@
       "logic": "Giá giảm đi kèm Volume tăng nhưng OI giảm. Phe Long đang chủ động đóng vị thế hàng loạt để cắt lỗ, lực bán tháo kỹ thuật mạnh."
     }
   },
-  "updated_at": "2026-10-10 08:00:36"
+  "updated_at": "2026-10-10 09:00:20"
 }
