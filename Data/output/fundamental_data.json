@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-10-08",
+  "last_updated_fundamentals": "2026-10-10",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -33,29 +33,29 @@
       "latest_date": "05/10/2026"
     },
     "us_ending_stocks": {
-      "next_date": "09/10/2026 lúc 23:00 (VN)",
+      "next_date": "11/11/2026 lúc 00:00 (VN)",
       "forecast": "1,940 triệu bushels (Dự kiến giảm)",
       "action": "Tồn kho giảm -> Gom Long dài hạn (DCA)",
       "logic": "Giảm mạnh so với niên vụ trước (giảm ~8.6%) do diện tích gieo trồng giảm 6%.",
-      "previous": "1,653 triệu bushels (2026/27)",
-      "current": "1,567 triệu bushels (2026/27)",
+      "previous": "1,567 triệu bushels (2026/27)",
+      "current": "1,849 triệu bushels (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -7.6,
       "pct_vs_prev_report": -8.6,
-      "current_month": "Sep",
-      "previous_month": "Aug"
+      "current_month": "Oct",
+      "previous_month": "Sep"
     },
     "global_ending_stocks": {
-      "next_date": "09/10/2026 lúc 23:00 (VN)",
+      "next_date": "11/11/2026 lúc 00:00 (VN)",
       "forecast": "276.8 triệu tấn (Tiếp tục giảm)",
       "action": "Tồn kho thấp nhất 12 năm -> Gom Long dài hạn (DCA)",
       "logic": "Tồn kho ngô toàn cầu chạm mức thấp nhất 12 năm qua (kể từ niên vụ 2013/14).",
-      "previous": "274.66 triệu tấn (2026/27)",
-      "current": "272.10 triệu tấn (2026/27)",
+      "previous": "272.10 triệu tấn (2026/27)",
+      "current": "280.44 triệu tấn (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -9.9,
-      "current_month": "Sep",
-      "previous_month": "Aug"
+      "current_month": "Oct",
+      "previous_month": "Sep"
     },
     "export_sales_weekly": {
       "report_type": "BAN_HANG",
@@ -120,19 +120,19 @@
       "logic": "Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại đang xuất hiện vùng khô hạn cục bộ ở rìa phía Bắc (Minnesota, Northern Plains) đe dọa trực tiếp tỷ lệ nảy mầm của cây ngô non."
     },
     "cot_report": {
-      "latest": "[2026-09-29] Net Long 381,220 HD | -22,877",
-      "next_date": "02/10/2026 (Hang tuan, Thu Sau)",
+      "latest": "[2026-10-06] Net Long 329,839 HD | -51,381",
+      "next_date": "09/10/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q2 (DO NHAT) - XA LONG",
       "action": "Cam bat day. Canh gia hoi de danh SHORT.",
-      "logic": "[2026-09-29] MM nam Long rong 381,220 HD. Tuan nay giam bot 22,877 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-10-08): +374,711 HD (Q2 (DO NHAT) - XA LONG) [Lag=-19.50c, Beta=333.8]",
+      "logic": "[2026-10-06] MM nam Long rong 329,839 HD. Tuan nay giam bot 51,381 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-10-09): +309,787 HD (Q2 (DO NHAT) - XA LONG) [Lag=-28.25c, Beta=709.8]",
       "raw_data": {
-        "net_position": 381220.0,
-        "change": -22877.0,
-        "long": 439843.0,
-        "short": 58623.0,
-        "net_estimated": 374711.0,
+        "net_position": 329839.0,
+        "change": -51381.0,
+        "long": 393249.0,
+        "short": 63410.0,
+        "net_estimated": 309787.0,
         "quadrant_est": "Q2 (DO NHAT) - XA LONG",
-        "beta_13w": 333.82
+        "beta_13w": 709.8
       }
     },
     "import_demand": {
@@ -192,11 +192,11 @@
       "month": "Tháng 06"
     },
     "us_production": {
-      "current": "15,800 triệu bushels (2026/27)",
-      "current_month": "Sep",
-      "next_date": "09/10/2026 lúc 23:00 (VN)",
-      "previous": "16,013 triệu bushels (2026/27)",
-      "previous_month": "Aug"
+      "current": "16,034 triệu bushels (2026/27)",
+      "current_month": "Oct",
+      "next_date": "11/11/2026 lúc 00:00 (VN)",
+      "previous": "15,800 triệu bushels (2026/27)",
+      "previous_month": "Sep"
     }
   },
   "ZW": {
@@ -231,29 +231,29 @@
       "latest_date": "05/10/2026"
     },
     "us_ending_stocks": {
-      "next_date": "09/10/2026 lúc 23:00 (VN)",
+      "next_date": "11/11/2026 lúc 00:00 (VN)",
       "forecast": "755 triệu bushels (Dự kiến giảm)",
       "action": "Tồn kho thắt chặt -> Gom Long dài hạn (DCA)",
       "logic": "Giảm sâu 18.5% so với niên vụ trước, phản ánh thiệt hại sản lượng lúa mì đông nặng nề.",
       "previous": "717 triệu bushels (2026/27)",
-      "current": "717 triệu bushels (2026/27)",
+      "current": "740 triệu bushels (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -64.9,
       "pct_vs_prev_report": -1.6,
-      "current_month": "Sep",
-      "previous_month": "Aug"
+      "current_month": "Oct",
+      "previous_month": "Sep"
     },
     "global_ending_stocks": {
-      "next_date": "09/10/2026 lúc 23:00 (VN)",
+      "next_date": "11/11/2026 lúc 00:00 (VN)",
       "forecast": "274.2 triệu tấn (Tiếp tục giảm)",
       "action": "Cung toàn cầu giảm -> Gom Long dài hạn (DCA)",
       "logic": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
-      "previous": "273.25 triệu tấn (2026/27)",
-      "current": "276.29 triệu tấn (2026/27)",
+      "previous": "276.29 triệu tấn (2026/27)",
+      "current": "276.04 triệu tấn (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
       "pct_change": -11.8,
-      "current_month": "Sep",
-      "previous_month": "Aug"
+      "current_month": "Oct",
+      "previous_month": "Sep"
     },
     "export_sales_weekly": {
       "report_type": "BAN_HANG",
@@ -325,19 +325,19 @@
       "logic": "Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ) + Hạn hán mùa thu làm giảm 20% diện tích gieo trồng của Úc."
     },
     "cot_report": {
-      "latest": "[2026-09-29] Net Short 22,109 HD | -10,093",
-      "next_date": "02/10/2026 (Hang tuan, Thu Sau)",
+      "latest": "[2026-10-06] Net Short 28,830 HD | -6,721",
+      "next_date": "09/10/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "logic": "[2026-09-29] MM nam Short rong 22,109 HD. Tuan nay giam bot 10,093 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-10-08): -24,752 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-5.75c, Beta=459.7]",
+      "logic": "[2026-10-06] MM nam Short rong 28,830 HD. Tuan nay giam bot 6,721 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-10-09): -39,227 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-33.25c, Beta=312.7]",
       "raw_data": {
-        "net_position": -22109.0,
-        "change": -10093.0,
-        "long": 82747.0,
-        "short": 104856.0,
-        "net_estimated": -24752.0,
+        "net_position": -28830.0,
+        "change": -6721.0,
+        "long": 86954.0,
+        "short": 115784.0,
+        "net_estimated": -39227.0,
         "quadrant_est": "Q3 (DO DAM) - NHOI SHORT",
-        "beta_13w": 459.66
+        "beta_13w": 312.68
       }
     },
     "import_demand": {
@@ -400,11 +400,11 @@
       "month": "Tháng 06"
     },
     "us_production": {
-      "current": "1,531 triệu bushels (2026/27)",
-      "current_month": "Sep",
-      "next_date": "09/10/2026 lúc 23:00 (VN)",
+      "current": "1,534 triệu bushels (2026/27)",
+      "current_month": "Oct",
+      "next_date": "11/11/2026 lúc 00:00 (VN)",
       "previous": "1,531 triệu bushels (2026/27)",
-      "previous_month": "Aug"
+      "previous_month": "Sep"
     }
   },
   "ZS": {
@@ -436,26 +436,26 @@
       "previous_date": "05/10/2026"
     },
     "us_ending_stocks": {
-      "next_date": "09/10/2026 lúc 23:00 (VN)",
+      "next_date": "11/11/2026 lúc 00:00 (VN)",
       "forecast": "305 triệu bushels (Dự kiến giảm)",
       "action": "Nhu cầu Biodiesel cao -> Gom Long dài hạn (DCA)",
       "logic": "Giảm nhẹ so với niên vụ trước do nhu cầu ép dầu nội địa (Crush) sản xuất Biodiesel đạt mức cao kỷ lục.",
-      "previous": "320 triệu bushels (2026/27)",
-      "current": "310 triệu bushels (2026/27)",
+      "previous": "310 triệu bushels (2026/27)",
+      "current": "315 triệu bushels (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
-      "current_month": "Sep",
-      "previous_month": "Aug"
+      "current_month": "Oct",
+      "previous_month": "Sep"
     },
     "global_ending_stocks": {
-      "next_date": "09/10/2026 lúc 23:00 (VN)",
+      "next_date": "11/11/2026 lúc 00:00 (VN)",
       "forecast": "124.50 triệu tấn (Giảm nhẹ)",
       "action": "Cung cầu thắt chặt -> Gom Long dài hạn (DCA)",
       "logic": "Giảm nhẹ so với niên vụ trước, cho thấy cán quan cung cầu toàn cầu duy trì trạng thái thắt chặt vừa phải.",
-      "previous": "124.21 triệu tấn (2026/27)",
-      "current": "124.02 triệu tấn (2026/27)",
+      "previous": "124.02 triệu tấn (2026/27)",
+      "current": "124.28 triệu tấn (2026/27)",
       "forecast_next": "Chưa có dự báo (Đợi AI cập nhật trước kỳ báo cáo)",
-      "current_month": "Sep",
-      "previous_month": "Aug"
+      "current_month": "Oct",
+      "previous_month": "Sep"
     },
     "exports": {
       "latest": "Giao hàng (Inspections): 296,972 tấn (Tuần kết thúc Jul 20, 2026)",
@@ -530,13 +530,13 @@
     "swing_short_sl": "1214.50 cents",
     "swing_short_tp": "1191.00 cents",
     "us_production": {
-      "current": "4,535 triệu bushels (2026/27)",
-      "current_month": "Sep",
-      "next_date": "09/10/2026 lúc 23:00 (VN)",
-      "previous": "4,519 triệu bushels (2026/27)",
-      "previous_month": "Aug"
+      "current": "4,562 triệu bushels (2026/27)",
+      "current_month": "Oct",
+      "next_date": "11/11/2026 lúc 00:00 (VN)",
+      "previous": "4,535 triệu bushels (2026/27)",
+      "previous_month": "Sep"
     }
   },
-  "wasde_report_month": "Sep",
-  "last_updated_cot": "2026-10-08 20:06:41"
+  "wasde_report_month": "Oct",
+  "last_updated_cot": "2026-10-10 07:52:49"
 }
