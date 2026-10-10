@@ -58,6 +58,69 @@ def get_cot_by_code(cot_data, code):
             return v
     return {}
 
+def get_dynamic_dca(code):
+    try:
+        suffix = CONTRACT_TYPES.get(code, "active")
+        csv_path = DATA_OUTPUT / f"{code}_{suffix}_D1.csv"
+        if not csv_path.exists():
+            csv_path = DATA_OUTPUT / f"{code}_active_D1.csv"
+        if not csv_path.exists():
+            return None
+            
+        import csv
+        rows = []
+        with open(csv_path, encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for r in reader: rows.append(r)
+        if not rows: return None
+        last = rows[-1]
+        recent = rows[-22:]
+        s1 = float(last.get("S1", 0))
+        atr = float(last.get("ATR", 10))
+        lows = [float(r["Low"]) for r in recent if r.get("Low")]
+        low_1m = min(lows) if lows else s1
+        
+        tech_lo = min(s1, low_1m)
+        tech_hi = max(s1, low_1m)
+        
+        macro_data = load_json("macro_data.json") or {}
+        macro_scores = load_json(f"macro_scores_{code.lower()}.json") or {}
+        breakdown = macro_scores.get("breakdown", {})
+        
+        oil_live = macro_data.get("brent", {}).get("price")
+        dxy_live = macro_data.get("dxy", {}).get("price")
+        f8_val = float(breakdown.get("F8", {}).get("score_1_to_10", 0))
+        
+        if oil_live is None or dxy_live is None or oil_live == "N/A":
+            return None
+            
+        o_val = float(oil_live)
+        d_val = float(dxy_live)
+        
+        if code == "ZW":
+            fv = 550 + (o_val - 70)*2.0 + (100 - d_val)*5.0 + (f8_val * 5.0)
+            macro_lo, macro_hi = fv - 15, fv + 15
+        elif code == "ZC":
+            fv = 400 + (o_val - 70)*2.0 + (100 - d_val)*3.0 + 10
+            macro_lo, macro_hi = fv - 10, fv + 10
+        else:
+            return None
+            
+        tol = atr
+        ov_lo, ov_hi = max(tech_lo, macro_lo), min(tech_hi, macro_hi)
+        gap = ov_lo - ov_hi
+        
+        if gap <= tol:
+            c_lo, c_hi = (ov_lo, ov_hi) if gap <= 0 else (ov_hi, ov_lo)
+            return f"{c_lo:.0f} - {c_hi:.0f}¢"
+        elif tech_hi < macro_lo:
+            return f"{tech_lo:.0f} - {tech_hi:.0f}¢"
+        else:
+            return f"{macro_lo:.0f} - {macro_hi:.0f}¢"
+            
+    except Exception as e:
+        return None
+
 
 # ── CSS & nav ──
 st.markdown("""
@@ -1241,7 +1304,9 @@ with col1:
     live_sl  = sl_match.group(1) + " cents" if sl_match else "—"
     live_tp  = tp_match.group(1) + " cents" if tp_match else "—"
     # DCA zone tu fundamental_data
-    dca_val  = data.get("dca_brackets", "—") or "—"
+    dca_val = get_dynamic_dca(code)
+    if not dca_val:
+        dca_val = data.get("dca_brackets", "—") or "—"
     # Xu huong tu contracts_meta
     liq_trend = meta_data.get("liquidity", {}).get("trend", data.get("swing_trend", "—"))
 
@@ -1538,7 +1603,9 @@ if swing_logic or dca_logic:
             </div>""", unsafe_allow_html=True)
     if dca_logic:
         with lc2:
-            dca_brackets = data.get("dca_brackets", "—")
+            dca_brackets = get_dynamic_dca(code)
+            if not dca_brackets:
+                dca_brackets = data.get("dca_brackets", "—")
             st.markdown(f"""<div class='card' style='border-left:3px solid #34d399;'>
                 <div style='display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;'>
                     <div style='font-size:12px;font-weight:700;color:#34d399;'>📦 Chiến Lược DCA</div>
