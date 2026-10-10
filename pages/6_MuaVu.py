@@ -572,17 +572,76 @@ def render_muavu_tab(commodity):
         dca_time = "Cuối T11 - Giữa T12/2026"
         dca_reason = "Khi áp lực xả hàng Úc+Argentina đạt đỉnh, El Niño bắt đầu ảnh hưởng Q1/2027"
         s1_v = s1 if isinstance(s1, (int,float)) else 600
-        l1_v = low1m if isinstance(low1m, (int,float)) else s1_v+15
-        z1_price = f"{min(s1_v, l1_v):.0f} - {max(s1_v, l1_v):.0f}¢"
-        macro_z1 = dca_targets.get(commodity, {}).get("zone1", "550 - 580¢")
     else:
         sym_text = f"THÔNG SỐ GIÁ ZC (ZCZ26) - Cập nhật: {zw_date}"
         dca_time = "Giai đoạn T10 - T11/2026"
         dca_reason = "Khi áp lực mùa vụ thu hoạch tại Mỹ đạt đỉnh điểm (Nguồn cung bung ra mạnh nhất)"
         s1_v = s1 if isinstance(s1, (int,float)) else 400
-        l1_v = low1m if isinstance(low1m, (int,float)) else s1_v+15
-        z1_price = f"{min(s1_v, l1_v):.0f} - {max(s1_v, l1_v):.0f}¢"
-        macro_z1 = dca_targets.get(commodity, {}).get("zone1", "400 - 420¢")
+
+    # ── VÙNG GOM KỸ THUẬT (S1 + Đáy 1 tháng) ──
+    l1_v = low1m if isinstance(low1m, (int,float)) else s1_v + 15
+    tech_lo, tech_hi = min(s1_v, l1_v), max(s1_v, l1_v)
+    z1_price = f"{tech_lo:.0f} - {tech_hi:.0f}¢"
+
+    # ── VÙNG GOM VĨ MÔ ĐỘNG (xem GEMINI.md) ──
+    # ZW: FV = 550 + (Dầu-70)*2 + (100-DXY)*5 + F8*5   | biên ±15
+    # ZC: FV = 400 + (Dầu-70)*2 + (100-DXY)*3 + 10     | biên ±10
+    macro_lo = macro_hi = None
+    try:
+        o_val = float(oil_live)
+        d_val = float(dxy_live)
+        try: f8_val = float(f8_s.get("score_1_to_10", 5))
+        except: f8_val = 5.0
+        if commodity == "ZW":
+            war_premium = f8_val * 5.0
+            fv = 550 + (o_val - 70)*2.0 + (100 - d_val)*5.0 + war_premium
+            macro_lo, macro_hi = fv - 15, fv + 15
+            macro_text = f"Gốc 550¢ | War Premium (F8={f8_val:.0f}): +{war_premium:.0f}¢ | Brent: {o_val:.1f}$ | DXY: {d_val:.1f}"
+        else:
+            fv = 400 + (o_val - 70)*2.0 + (100 - d_val)*3.0 + 10
+            macro_lo, macro_hi = fv - 10, fv + 10
+            macro_text = f"Gốc 400¢ | Brent: {o_val:.1f}$ | DXY: {d_val:.1f}"
+        macro_z1 = f"{macro_lo:.0f} - {macro_hi:.0f}¢"
+    except Exception:
+        macro_z1 = dca_targets.get(commodity, {}).get("zone1", "550 - 580¢" if commodity == "ZW" else "400 - 420¢")
+        macro_text = "Cơ sở định giá: Lỗi tải dữ liệu Dầu/DXY — đang dùng cấu hình tĩnh"
+
+    # ── TÍN HIỆU DCA VÀNG: HỢP LƯU KỸ THUẬT & VĨ MÔ ──
+    # Dung sai: 1 ATR (tối thiểu 5¢) — 2 vùng cách nhau ≤ dung sai vẫn coi là hợp lưu
+    tol = max(float(atr), 5.0) if isinstance(atr, (int,float)) else 10.0
+    px  = close if isinstance(close, (int,float)) else None
+    conf_level = "none"
+    if macro_lo is not None:
+        ov_lo, ov_hi = max(tech_lo, macro_lo), min(tech_hi, macro_hi)
+        gap = ov_lo - ov_hi   # <=0: chồng lấn ; >0: khoảng hở giữa 2 vùng
+        if gap <= tol:
+            # Vùng hợp lưu (nếu chỉ "gần chạm" thì lấy khoảng hở làm vùng)
+            c_lo, c_hi = (ov_lo, ov_hi) if gap <= 0 else (ov_hi, ov_lo)
+            conf_zone = f"{c_lo:.0f} - {c_hi:.0f}¢"
+            if px is not None and px <= c_hi:
+                conf_level = "gold"
+                conf_title = "🚨 TÍN HIỆU DCA VÀNG: Hợp Lưu Kỹ Thuật & Vĩ Mô — KÍCH HOẠT"
+                conf_msg = (f"Giá hiện tại <b>{px:.2f}¢</b> đã vào/sát vùng hợp lưu <b>{conf_zone}</b>. "
+                            f"Kỹ thuật ({z1_price}) trùng Giá trị thực ({macro_z1}) → Bắt đầu giải ngân DCA từng phần.")
+            else:
+                conf_level = "armed"
+                dist = (px - c_hi) if px is not None else 0
+                conf_title = "🟡 HỢP LƯU ĐÃ HÌNH THÀNH — Chờ giá về vùng"
+                conf_msg = (f"Vùng hợp lưu <b>{conf_zone}</b> (Kỹ thuật {z1_price} ∩ Vĩ mô {macro_z1}). "
+                            f"Giá hiện tại {px:.2f}¢ còn cao hơn <b>{dist:.0f}¢</b> (~{dist/tol:.1f} ATR) → Đặt lệnh chờ, chưa đuổi giá.")
+        elif tech_hi < macro_lo:
+            conf_level = "under"
+            conf_title = "🟢 ĐỊNH GIÁ THẤP: Kỹ thuật nằm DƯỚI Giá trị thực"
+            conf_msg = (f"Vùng kỹ thuật {z1_price} thấp hơn vùng Vĩ mô {macro_z1} khoảng <b>{macro_lo - tech_hi:.0f}¢</b>. "
+                        f"Đám đông đang bán dưới giá trị thực → Cơ hội gom, nhưng xác nhận thêm bằng RSI/COT.")
+        else:
+            conf_level = "none"
+            conf_title = "⚪ CHƯA HỢP LƯU — Kỹ thuật còn cao hơn Vĩ mô"
+            conf_msg = (f"Vùng kỹ thuật {z1_price} cao hơn vùng Vĩ mô {macro_z1} khoảng <b>{tech_lo - macro_hi:.0f}¢</b> "
+                        f"(dung sai {tol:.0f}¢). Chưa phải điểm DCA chính — chỉ mua thăm dò nếu cần.")
+    else:
+        conf_title = "⚪ Không đủ dữ liệu Vĩ mô để xét Hợp lưu"
+        conf_msg = "Thiếu Dầu/DXY trong macro_data.json."
 
 
     col_a, col_b = st.columns([1, 1])
@@ -628,7 +687,7 @@ def render_muavu_tab(commodity):
           <div class='dca-zone' style='border-color:#f59e0b; margin-bottom:8px;'>
             <div style='font-size:10px;color:#64748b;'>🎯 VÙNG GOM VĨ MÔ (Cấu trúc Dài hạn)</div>
             <div style='font-size:18px;font-weight:800;color:#fde68a;'>{macro_z1}</div>
-            <div style='font-size:11px;color:#94a3b8;'>Cơ sở định giá (Cố định): War Premium | Dầu thô | DXY</div>
+            <div style='font-size:11px;color:#94a3b8;'>{macro_text}</div>
           </div>
           <div class='dca-zone' style='border-color:#94a3b8;'>
             <div style='font-size:10px;color:#64748b;'>⚡ VÙNG GOM KỸ THUẬT (Biến động Ngắn hạn)</div>
@@ -637,6 +696,23 @@ def render_muavu_tab(commodity):
           </div>
         </div>
         """, unsafe_allow_html=True)
+
+    # ── BANNER: TÍN HIỆU DCA VÀNG ──
+    _styles = {
+        "gold":  ("#f59e0b", "linear-gradient(90deg,#7c2d12,#b45309,#7c2d12)", "#fef3c7", "animation:dcaPulse 1.6s ease-in-out infinite;"),
+        "armed": ("#eab308", "#1f1a0a", "#fde68a", ""),
+        "under": ("#22c55e", "#0b1f14", "#bbf7d0", ""),
+        "none":  ("#475569", "#111820", "#cbd5e1", ""),
+    }
+    _bd, _bg, _fg, _anim = _styles.get(conf_level, _styles["none"])
+    st.markdown(f"""
+    <style>@keyframes dcaPulse {{0%,100%{{box-shadow:0 0 0 0 rgba(245,158,11,.7);}}50%{{box-shadow:0 0 22px 6px rgba(245,158,11,.45);}}}}</style>
+    <div style='margin-top:14px;border:2px solid {_bd};border-radius:14px;padding:14px 20px;background:{_bg};{_anim}'>
+      <div style='font-size:15px;font-weight:800;color:{_fg};letter-spacing:.5px;'>{conf_title}</div>
+      <div style='font-size:12.5px;color:#e2e8f0;margin-top:6px;line-height:1.55;'>{conf_msg}</div>
+      <div style='font-size:10.5px;color:#94a3b8;margin-top:6px;'>Quy tắc: Hợp lưu khi Vùng Kỹ thuật ∩ Vùng Vĩ mô (dung sai 1 ATR = {tol:.0f}¢). Kích hoạt khi giá đóng cửa ≤ cận trên vùng hợp lưu.</div>
+    </div>
+    """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
     if ai_analysis and "analysis" in ai_analysis:
