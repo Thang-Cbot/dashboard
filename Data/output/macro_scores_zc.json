@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-10-11 13:03:08",
+    "timestamp": "2026-10-12 06:48:47",
     "month": "10",
     "total_score": 43.2,
     "trend": "Slightly Bearish — Giảm Nhẹ",
@@ -45,7 +45,7 @@
             "weight_pct": 6.9,
             "contribution": 0.21,
             "raw_value": "Phân tích Chuyên gia: 3/10",
-            "raw_detail": "ChÆ°a cÃ³ tin má»›i vá» thá»i tiáº¿t Nam BÃ¡n cáº§u, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©: Thá»i tiáº¿t thÃ¡ng 9 cáº£i thiá»‡n rÃµ rá»‡t (mÆ°a tá»‘t táº¡i Nam Ãšc/Victoria vÃ  Argentina) giÃºp xoa dá»‹u lo ngáº¡i háº¡n hÃ¡n trÆ°á»›c Ä‘Ã³, gÃ¢y Ã¡p lá»±c giáº£m giÃ¡ (Bearish).",
+            "raw_detail": "Chưa có tin mới về thời tiết Nam Bán cầu, duy trì nhận định cũ: Thời tiết tháng 9 cải thiện rõ rệt (mưa tốt tại Nam Úc/Victoria và Argentina) giúp xoa dịu lo ngại hạn hán trước đó, gây áp lực giảm giá (Bearish).",
             "last_updated": "2026-10-04 08:39",
             "status": "manual"
         },
@@ -54,7 +54,7 @@
             "weight_pct": 7.8,
             "contribution": 0.39,
             "raw_value": "Phân tích Chuyên gia: 5/10",
-            "raw_detail": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
+            "raw_detail": "Chưa có tin mới, duy trì nhận định cũ.",
             "last_updated": "2026-10-10 08:32",
             "status": "manual"
         },
@@ -98,18 +98,18 @@
             "score_1_to_10": 3,
             "weight_pct": 7.8,
             "contribution": 0.23,
-            "raw_value": "DXY 102.21 (+0.00%)",
+            "raw_value": "DXY 102.27 (+0.06%)",
             "raw_detail": "USD Index — Sức mạnh đồng đô",
-            "last_updated": "2026-10-11 13:02",
+            "last_updated": "2026-10-12 06:17",
             "status": "ok"
         },
         "F10": {
             "score_1_to_10": 10,
             "weight_pct": 15.7,
             "contribution": 1.57,
-            "raw_value": "Brent $104.72 (+0.00%)",
+            "raw_value": "Brent $105.44 (+0.69%)",
             "raw_detail": "40% Ngô nấu cồn. Dầu giảm kéo Ngô sập (MEGA BEARISH).",
-            "last_updated": "2026-10-11 13:02",
+            "last_updated": "2026-10-12 06:17",
             "status": "ok"
         },
         "F11": {
@@ -126,7 +126,7 @@
             "weight_pct": 3.9,
             "contribution": 0.2,
             "raw_value": "Phân tích Chuyên gia: 5/10",
-            "raw_detail": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
+            "raw_detail": "Chưa có tin mới, duy trì nhận định cũ.",
             "last_updated": "2026-10-10 08:32",
             "status": "manual"
         }
