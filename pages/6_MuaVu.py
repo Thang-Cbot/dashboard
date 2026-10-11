@@ -167,7 +167,7 @@ if muavu_status:
 
     # Summary bar
     bar_color = "#22c55e" if err_cnt==0 else ("#eab308" if warn_cnt>0 else "#ef4444")
-    with st.expander(f"📋 Báo cáo trạng thái dữ liệu — ✅ {ok_cnt}/{total} OK  ⚠️ {warn_cnt}  ❌ {err_cnt}  |  Kiểm tra lúc: {checked}", expanded=(err_cnt>0 or warn_cnt>0)):
+    with st.expander(f"📋 Báo cáo trạng thái dữ liệu — ✅ {ok_cnt}/{total} OK  ⚠️ {warn_cnt}  ❌ {err_cnt}  |  Kiểm tra lúc: {checked}", expanded=False):
         items = muavu_status.get("items", [])
         # Group by group
         groups = {}
