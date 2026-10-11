@@ -181,8 +181,88 @@ with tab1:
     ws_ts = ws.get("fetched_at", "—")
     st.markdown(f"<div style='font-size:12px;color:#94a3b8;margin-bottom:12px;'>⏱️ Cập nhật (Open-Meteo): {ws_ts}</div>", unsafe_allow_html=True)
     
-    col_map, col_table = st.columns([6, 4], gap="large")
     regions_short = ws.get("regions", {})
+
+    # ── TÓM TẮT THỜI TIẾT NGẮN HẠN (3 NGÀY) ──
+    if regions_short:
+        # 1. Thống kê US Corn
+        corn_keys = [k for k in regions_short if k.startswith("US_Corn")]
+        corn_rains = [regions_short[k].get("total_3d_rain_mm", 0) for k in corn_keys if isinstance(regions_short[k].get("total_3d_rain_mm"), (int, float))]
+        corn_temps = [regions_short[k].get("max_temp_C", 0) for k in corn_keys if isinstance(regions_short[k].get("max_temp_C"), (int, float))]
+        avg_corn_rain = sum(corn_rains) / len(corn_rains) if corn_rains else 0
+        max_corn_temp = max(corn_temps) if corn_temps else 0
+
+        # 2. Thống kê US Wheat
+        wheat_keys = [k for k in regions_short if k.startswith("US_Wheat")]
+        wheat_rains = [regions_short[k].get("total_3d_rain_mm", 0) for k in wheat_keys if isinstance(regions_short[k].get("total_3d_rain_mm"), (int, float))]
+        wheat_temps = [regions_short[k].get("max_temp_C", 0) for k in wheat_keys if isinstance(regions_short[k].get("max_temp_C"), (int, float))]
+        avg_wheat_rain = sum(wheat_rains) / len(wheat_rains) if wheat_rains else 0
+        max_wheat_temp = max(wheat_temps) if wheat_temps else 0
+
+        # 3. Phân tích tác động Mỹ
+        if avg_corn_rain < 3.0:
+            corn_text = f"Thời tiết khô ráo, nắng ấm (Mưa TB <b>{avg_corn_rain:.1f}mm</b>, T° Max <b>{max_corn_temp:.1f}°C</b>). Cực kỳ thuận lợi đẩy nhanh tiến độ <b>thu hoạch Ngô & Đậu tương</b> ➔ Tăng áp lực bán vụ mùa (Bearish giá ngô ZC)."
+        elif avg_corn_rain > 20.0:
+            corn_text = f"Mưa lớn diện rộng (Mưa TB <b>{avg_corn_rain:.1f}mm</b>) làm gián đoạn máy gặt và nguy cơ ẩm mốc hạt ngô ➔ Hỗ trợ giữ giá Ngô (Bullish ngắn hạn)."
+        else:
+            corn_text = f"Thời tiết có mưa rải rác (Mưa TB <b>{avg_corn_rain:.1f}mm</b>, T° Max <b>{max_corn_temp:.1f}°C</b>), tiến độ thu hoạch duy trì đều đặn."
+
+        if avg_wheat_rain < 2.0:
+            wheat_text = f"Đại đa số các bang chính (Kansas, Oklahoma, Texas) khô hanh (Mưa TB <b>{avg_wheat_rain:.1f}mm</b>, T° lên tới <b>{max_wheat_temp:.1f}°C</b>). Thuận lợi làm đất nhưng độ ẩm tầng mặt cạn kiệt, đe dọa nảy mầm lúa mì vụ đông (Bullish hỗ trợ giá ZW)."
+        else:
+            wheat_text = f"Đón các đợt mưa quý giá (Mưa TB <b>{avg_wheat_rain:.1f}mm</b>), bổ sung độ ẩm tầng đất mặt giúp mầm lúa mì vụ đông phát triển tốt."
+
+        # 4. Quốc tế
+        intl_items = []
+        br = regions_short.get("Brazil_MatoGrosso", {})
+        if br:
+            br_rain = br.get("total_3d_rain_mm", 0)
+            br_temp = br.get("max_temp_C", 0)
+            if br_temp >= 35 or br_rain < 5:
+                intl_items.append(f"• <b>Brazil (Mato Grosso):</b> Nắng nóng gay gắt (<b>{br_temp}°C</b>, mưa chỉ <b>{br_rain}mm</b>), rủi ro khô hạn làm chậm tiến độ gieo trồng đậu tương và ngô vụ 1.")
+            else:
+                intl_items.append(f"• <b>Brazil (Mato Grosso):</b> Thời tiết ổn định ({br_temp}°C, mưa {br_rain}mm), tiến độ gieo trồng bình thường.")
+
+        rus = regions_short.get("Russia_Rostov", {})
+        ukr = regions_short.get("Ukraine_Poltava", {})
+        r_rain = rus.get("total_3d_rain_mm", 0)
+        u_rain = ukr.get("total_3d_rain_mm", 0)
+        intl_items.append(f"• <b>Biển Đen (Nga & Ukraine):</b> Khô ráo (Rostov {r_rain}mm, Poltava {u_rain}mm, 22-24°C), tạo điều kiện cho nông dân hoàn tất gieo sạ lúa mì trước mùa đông.")
+
+        arg = regions_short.get("Argentina_Pampas", {})
+        if arg:
+            a_rain = arg.get("total_3d_rain_mm", 0)
+            intl_items.append(f"• <b>Argentina (Pampas):</b> Mưa rải rác (<b>{a_rain}mm</b>, 16.5°C), duy trì độ ẩm đất thuận lợi.")
+
+        intl_text = "<br>".join(intl_items)
+
+        st.markdown(f"""
+        <div style='background: linear-gradient(135deg, #111827 0%, #172554 100%); 
+                    border: 1px solid #1e3a8a; border-left: 5px solid #38bdf8; 
+                    border-radius: 12px; padding: 14px 18px; margin-bottom: 16px;'>
+          <div style='display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px; flex-wrap:wrap; gap:8px;'>
+            <div style='font-size: 14px; font-weight: 800; color: #38bdf8; letter-spacing: 0.5px; display:flex; align-items:center; gap:8px;'>
+              <span>🌤️</span> TỔNG HỢP & TÓM TẮT THỜI TIẾT NGẮN HẠN (3 NGÀY TỚI)
+            </div>
+            <div style='font-size: 11px; font-weight: 600; color: #94a3b8; background: rgba(15,23,42,0.7); padding: 3px 10px; border-radius: 6px; border: 1px solid #1e2d45;'>
+              📡 Dự báo vệ tinh Open-Meteo
+            </div>
+          </div>
+          <div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px;'>
+            <div style='background: rgba(15, 23, 42, 0.75); padding: 12px 14px; border-radius: 8px; border: 1px solid #1e2d45;'>
+              <div style='font-size: 12px; font-weight: 700; color: #fbbf24; margin-bottom: 6px;'>🇺🇸 Vành Đai Nông Nghiệp Hoa Kỳ</div>
+              <div style='font-size: 12px; color: #cbd5e1; line-height: 1.55; margin-bottom: 6px;'>🌽 <b>Vụ Ngô (Corn Belt):</b> {corn_text}</div>
+              <div style='font-size: 12px; color: #cbd5e1; line-height: 1.55;'>🌾 <b>Vụ Lúa Mì (Wheat Belt):</b> {wheat_text}</div>
+            </div>
+            <div style='background: rgba(15, 23, 42, 0.75); padding: 12px 14px; border-radius: 8px; border: 1px solid #1e2d45;'>
+              <div style='font-size: 12px; font-weight: 700; color: #34d399; margin-bottom: 6px;'>🌍 Thị Trường Quốc Tế & Đối Thủ Cạnh Tranh</div>
+              <div style='font-size: 12px; color: #cbd5e1; line-height: 1.55;'>{intl_text}</div>
+            </div>
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    col_map, col_table = st.columns([6, 4], gap="large")
     
     with col_map:
         st.markdown("<div class='map-title'>🇺🇸 Hoa Kỳ (Lúa Mì & Ngô)</div>", unsafe_allow_html=True)
