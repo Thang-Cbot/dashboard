@@ -27,11 +27,12 @@ def fetch_rss_news():
 
     feeds = [
         ("Yahoo Finance",         "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ZC=F,ZW=F", 10),
-        ("Farm Progress",         "https://www.farmprogress.com/rss.xml", 10),
+        ("Farm Progress",         "https://www.farmprogress.com/rss.xml", 8),
+        ("Sky News (Biển Đen & TG)", "https://feeds.skynews.com/feeds/rss/world.xml", 12),
         ("Google News (Geo)",     "https://news.google.com/rss/search?q=Russia+Ukraine+wheat+grain+Black+Sea&hl=en-US&gl=US&ceid=US:en", 10),
         ("Google News (Supply)",  "https://news.google.com/rss/search?q=wheat+corn+USDA+crop+harvest+production&hl=en-US&gl=US&ceid=US:en", 8),
         ("Google News (Shipping)","https://news.google.com/rss/search?q=wheat+corn+freight+shipping+logistics+port&hl=en-US&gl=US&ceid=US:en", 6),
-        ("Google News (Tenders)", "https://news.google.com/rss/search?q=wheat+tender+GASC+Algeria+Saudi+purchase&hl=en-US&gl=US&ceid=US:en", 10),
+        ("Google News (Tenders)", "https://news.google.com/rss/search?q=wheat+tender+GASC+Algeria+Saudi+purchase&hl=en-US&gl=US&ceid=US:en", 8),
     ]
 
     for source_name, url, limit in feeds:
@@ -55,9 +56,11 @@ def fetch_rss_news():
     return "\n".join(news_items)
 
 
-# Model fallback chain:
+# Model fallback chain (tiết kiệm token tối đa):
 GEMINI_MODELS = [
-    "gemini-2.5-flash"
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite",
+    "gemini-2.0-flash",
 ]
 
 def call_gemini(api_key, prompt, temperature=0.2, max_retries=2):
@@ -168,68 +171,125 @@ Chỉ trả về JSON thuần, không markdown, không giải thích. Cấu trú
         print(f"  [ERR] Phân loại tin: {e}")
         news_array = []
 
-    # ── BƯỚC 2: Nhận định Intraday bằng Gemini ────────────────────────────
-    print("  [+] Gọi AI nhận định intraday...")
+    # ── BƯỚC 2: Nhận định Intraday cho cả ZW và ZC bằng Gemini ──────────
+    print("  [+] Gọi AI nhận định intraday cho Lúa mì (ZW) và Ngô (ZC)...")
+    now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+    intraday = {}
     try:
-        # Lấy giá và COT mới nhất
+        # Lấy giá và COT mới nhất cho cả ZW và ZC
         macro   = {}
-        cot_zw  = {}
+        cot     = {}
         try:
             macro = json.loads((OUTPUT_DIR / "macro_data.json").read_text(encoding="utf-8"))
             cot   = json.loads((OUTPUT_DIR / "cot_data.json").read_text(encoding="utf-8"))
-            cot_zw = cot.get("commodities", {}).get("001602", {})
         except: pass
 
-        zw_price  = macro.get("zw_ref",{}).get("price", "N/A")
-        zw_pct    = macro.get("zw_ref",{}).get("pct", 0)
         dxy       = macro.get("dxy",{}).get("price", "N/A")
         oil       = macro.get("brent",{}).get("price", "N/A")
-        cot_net   = cot_zw.get("net_estimated", "N/A")
-        cot_quad  = cot_zw.get("quadrant_estimated", "N/A")
         price_ts  = macro.get("timestamp", "N/A")
 
-        # Top 5 tin quan trọng nhất để đưa vào context
-        top_news_ctx = "\n".join([f"- {n.get('title','')} ({n.get('category','')})" for n in news_array[:5]])
+        # Dữ liệu ZW (Lúa mì)
+        cot_zw    = cot.get("commodities", {}).get("001602", {})
+        zw_price  = macro.get("zw_ref",{}).get("price") or cot_zw.get("latest_price", "N/A")
+        zw_pct    = macro.get("zw_ref",{}).get("pct", 0)
+        cot_net_zw= cot_zw.get("net_estimated", "N/A")
+        cot_quad_zw= cot_zw.get("quadrant_estimated", "N/A")
 
-        prompt_intraday = f"""Bạn là chuyên gia giao dịch hàng hóa CBOT, phân tích intraday cho Lúa mì (ZW).
+        # Dữ liệu ZC (Ngô)
+        cot_zc    = cot.get("commodities", {}).get("002602", {})
+        zc_price  = macro.get("zc_ref",{}).get("price") or cot_zc.get("latest_price", "N/A")
+        zc_pct    = macro.get("zc_ref",{}).get("pct", 0)
+        cot_net_zc= cot_zc.get("net_estimated", "N/A")
+        cot_quad_zc= cot_zc.get("quadrant_estimated", "N/A")
 
-DỮ LIỆU THỰC TẾ (cập nhật {price_ts}):
+        # Top 6 tin quan trọng nhất để đưa vào context
+        top_news_ctx = "\n".join([f"- {n.get('title','')} ({n.get('category','')})" for n in news_array[:6]])
+
+        prompt_intraday = f"""Bạn là chuyên gia giao dịch hàng hóa CBOT hàng đầu. Hãy phân tích xu hướng INTRADAY hôm nay cho cả 2 mặt hàng: Lúa mì (ZW) và Ngô (ZC).
+
+DỮ LIỆU THỰC TẾ LIÊN THỊ TRƯỜNG (cập nhật {price_ts}):
+- Vĩ mô chung: DXY={dxy}, Dầu Brent={oil} USD
+
+1. LÚA MÌ (ZW):
 - Giá ZW tham chiếu: {zw_price} cents ({zw_pct:+.2f}%)
-- DXY: {dxy}
-- Dầu Brent: {oil} USD
-- COT ZW Net (ước tính): {cot_net:,.0f} HĐ — Quadrant: {cot_quad}
+- Vị thế COT Smart Money Net: {cot_net_zw} HĐ — Quadrant: {cot_quad_zw}
 
-TIN TỨC NỔI BẬT HÔM NAY:
+2. NGÔ (ZC):
+- Giá ZC tham chiếu: {zc_price} cents ({zc_pct:+.2f}%)
+- Vị thế COT Smart Money Net: {cot_net_zc} HĐ — Quadrant: {cot_quad_zc}
+
+TIN TỨC THỊ TRƯỜNG & ĐỊA CHÍNH TRỊ NỔI BẬT:
 {top_news_ctx}
 
-Yêu cầu: Đưa ra nhận định INTRADAY ngắn gọn cho ZW hôm nay. Trả về JSON với cấu trúc:
+Yêu cầu: Đưa ra nhận định INTRADAY độc lập cho từng mã ZW và ZC.
+Trả về JSON thuần (không bọc markdown) với cấu trúc sau:
 {{
-  "bias": "Bullish" hoặc "Bearish" hoặc "Neutral",
-  "bias_vn": "Tăng" hoặc "Giảm" hoặc "Đi Ngang",
-  "summary": "1 câu tóm tắt nhận định (tối đa 100 ký tự)",
-  "key_levels": {{
-    "support": "mức hỗ trợ gần nhất (cents)",
-    "resistance": "mức kháng cự gần nhất (cents)"
+  "ZW": {{
+    "bias": "Bullish" hoặc "Bearish" hoặc "Neutral",
+    "bias_vn": "Tăng" hoặc "Giảm" hoặc "Đi Ngang",
+    "summary": "1 câu tóm tắt nhận định ZW (tối đa 110 ký tự)",
+    "key_levels": {{
+      "support": "mức hỗ trợ gần nhất (cents)",
+      "resistance": "mức kháng cự gần nhất (cents)"
+    }},
+    "reasoning": ["lý do 1 (tối đa 70 ký tự)", "lý do 2", "lý do 3"],
+    "risk": "rủi ro chính cần theo dõi đối với ZW (tối đa 90 ký tự)",
+    "generated_at": "{now_str}"
   }},
-  "reasoning": ["lý do 1 (tối đa 60 ký tự)", "lý do 2", "lý do 3"],
-  "risk": "rủi ro chính cần theo dõi (tối đa 80 ký tự)",
-  "generated_at": "{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}"
-}}
-Chỉ trả JSON thuần, không markdown."""
+  "ZC": {{
+    "bias": "Bullish" hoặc "Bearish" hoặc "Neutral",
+    "bias_vn": "Tăng" hoặc "Giảm" hoặc "Đi Ngang",
+    "summary": "1 câu tóm tắt nhận định ZC (tối đa 110 ký tự)",
+    "key_levels": {{
+      "support": "mức hỗ trợ gần nhất (cents)",
+      "resistance": "mức kháng cự gần nhất (cents)"
+    }},
+    "reasoning": ["lý do 1 (tối đa 70 ký tự)", "lý do 2", "lý do 3"],
+    "risk": "rủi ro chính cần theo dõi đối với ZC (tối đa 90 ký tự)",
+    "generated_at": "{now_str}"
+  }}
+}}"""
 
         text2 = call_gemini(api_key, prompt_intraday, 0.3)
         text2 = text2.replace("```json","").replace("```","").strip()
-        intraday = json.loads(text2)
+        parsed_raw = json.loads(text2)
+
+        zw_res = parsed_raw.get("ZW", {})
+        zc_res = parsed_raw.get("ZC", {})
+
+        intraday = {
+            "ZW": zw_res,
+            "ZC": zc_res,
+            "bias": zw_res.get("bias", "Neutral"),
+            "bias_vn": zw_res.get("bias_vn", "Đi Ngang"),
+            "summary": zw_res.get("summary", ""),
+            "key_levels": zw_res.get("key_levels", {}),
+            "reasoning": zw_res.get("reasoning", []),
+            "risk": zw_res.get("risk", ""),
+            "generated_at": zw_res.get("generated_at", now_str)
+        }
     except Exception as e:
         print(f"  [WARN] Nhận định intraday lỗi: {e}")
+        def default_item(name):
+            return {
+                "bias": "Neutral",
+                "bias_vn": "Đi Ngang",
+                "summary": f"Chưa đủ dữ liệu để nhận định intraday {name}",
+                "key_levels": {"support": "N/A", "resistance": "N/A"},
+                "reasoning": ["Đang chờ cập nhật dữ liệu"],
+                "risk": "N/A",
+                "generated_at": now_str
+            }
         intraday = {
+            "ZW": default_item("ZW"),
+            "ZC": default_item("ZC"),
             "bias": "Neutral",
             "bias_vn": "Đi Ngang",
-            "summary": "Chưa đủ dữ liệu để nhận định intraday",
+            "summary": "Chưa đủ dữ liệu để nhận định",
             "key_levels": {"support": "N/A", "resistance": "N/A"},
-            "reasoning": ["Dữ liệu chưa đầy đủ"],
+            "reasoning": ["Đang chờ cập nhật dữ liệu"],
             "risk": "N/A",
-            "generated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+            "generated_at": now_str
         }
 
     # ── LƯU KẾT QUẢ ──────────────────────────────────────────────────────

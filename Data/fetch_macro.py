@@ -28,6 +28,7 @@ def fetch_macro_data() -> dict:
         "brent": {},
         "dxy": {},
         "zw_ref": {},
+        "zc_ref": {},
     }
 
     # ── Brent Crude Oil ────────────────────────────
@@ -107,6 +108,32 @@ def fetch_macro_data() -> dict:
     except Exception as e:
         result["zw_ref"] = {"price": 600.0, "prev": 600.0, "pct": 0.0, "error": str(e)}
         print(f"  ⚠️  ZW Ref: Lỗi → {e}. Dùng giá trị fallback.")
+
+    # ── ZC Reference (liên thị trường ngô) ─────────
+    try:
+        zc = yf.Ticker(MACRO_TICKERS["zc_ref"])
+        zc_data = zc.history(period="2d")
+        if len(zc_data) >= 2:
+            price = float(zc_data["Close"].iloc[-1])
+            prev  = float(zc_data["Close"].iloc[-2])
+            pct   = ((price - prev) / prev) * 100
+        elif not zc_data.empty:
+            price = float(zc_data["Close"].iloc[-1])
+            prev  = price
+            pct   = 0.0
+        else:
+            price, prev, pct = 450.0, 450.0, 0.0
+
+        result["zc_ref"] = {
+            "price": round(price, 2),
+            "prev":  round(prev,  2),
+            "pct":   round(pct,   3),
+            "ticker": MACRO_TICKERS["zc_ref"],
+        }
+        print(f"  ✅ ZC Ref: {price:.2f} cents ({pct:+.2f}%)")
+    except Exception as e:
+        result["zc_ref"] = {"price": 450.0, "prev": 450.0, "pct": 0.0, "error": str(e)}
+        print(f"  ⚠️  ZC Ref: Lỗi → {e}. Dùng giá trị fallback.")
 
     return result
 

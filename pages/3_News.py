@@ -187,47 +187,60 @@ with tab2:
         news_list = ai_news.get("news", [])
         intraday  = ai_news.get("intraday", {})
 
-        # ── INTRADAY AI BOX ─────────────────────────────────────────────────────
+        # ── INTRADAY AI BOX (ZW & ZC) ───────────────────────────────────────────
         if intraday:
-            bias     = intraday.get("bias", "Neutral")
-            bias_vn  = intraday.get("bias_vn", "Đi Ngang")
-            summary  = intraday.get("summary", "")
-            sup      = intraday.get("key_levels", {}).get("support", "N/A")
-            res_lvl  = intraday.get("key_levels", {}).get("resistance", "N/A")
-            reasons  = intraday.get("reasoning", [])
-            risk     = intraday.get("risk", "")
-            gen_at   = intraday.get("generated_at", ts[:16])
+            zw_data = intraday.get("ZW") if isinstance(intraday.get("ZW"), dict) and intraday.get("ZW") else intraday
+            zc_data = intraday.get("ZC") if isinstance(intraday.get("ZC"), dict) and intraday.get("ZC") else {}
 
-            bias_color  = "#22c55e" if bias == "Bullish" else ("#ef4444" if bias == "Bearish" else "#f59e0b")
-            bias_bg     = "rgba(34,197,94,0.08)" if bias == "Bullish" else ("rgba(239,68,68,0.08)" if bias == "Bearish" else "rgba(245,158,11,0.08)")
-            bias_icon   = "📈" if bias == "Bullish" else ("📉" if bias == "Bearish" else "➡️")
-            reasons_html = "".join([f"<div style='font-size:11px; color:#94a3b8; margin-bottom:3px;'>• {r}</div>" for r in reasons])
+            def render_intraday_card(comm_code, comm_name, data_dict):
+                if not data_dict:
+                    st.info(f"Chưa có dữ liệu nhận định cho {comm_name}. Hãy nhấn '🔄 Cập Nhật Tất Cả' để cập nhật.")
+                    return
+                bias     = data_dict.get("bias", "Neutral")
+                bias_vn  = data_dict.get("bias_vn", "Đi Ngang")
+                summary  = data_dict.get("summary", "")
+                sup      = data_dict.get("key_levels", {}).get("support", "N/A")
+                res_lvl  = data_dict.get("key_levels", {}).get("resistance", "N/A")
+                reasons  = data_dict.get("reasoning", [])
+                risk     = data_dict.get("risk", "")
+                gen_at   = data_dict.get("generated_at", ts[:16])
 
-            st.markdown(f"""
-            <div style='background:{bias_bg}; border:1px solid {bias_color}; border-radius:12px;
-                 padding:14px 18px; margin-bottom:14px; display:grid;
-                 grid-template-columns:auto 1fr 1fr 1fr; gap:16px; align-items:start;'>
-              <div style='text-align:center; padding-right:12px; border-right:1px solid #2a3a5c;'>
-                <div style='font-size:28px;'>{bias_icon}</div>
-                <div style='font-size:18px; font-weight:900; color:{bias_color};'>{bias_vn.upper()}</div>
-                <div style='font-size:9px; color:#64748b; text-transform:uppercase;'>INTRADAY ZW</div>
-              </div>
-              <div>
-                <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Nhận Định</div>
-                <div style='font-size:13px; color:#e2e8f0; font-weight:600; line-height:1.5;'>{summary}</div>
-                {reasons_html}
-              </div>
-              <div>
-                <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Mức Giá Chú Ý</div>
-                <div style='font-size:12px; color:#22c55e;'>🟢 Hỗ trợ: <b>{sup} ¢</b></div>
-                <div style='font-size:12px; color:#ef4444; margin-top:4px;'>🔴 Kháng cự: <b>{res_lvl} ¢</b></div>
-              </div>
-              <div>
-                <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Rủi Ro Cần Theo Dõi</div>
-                <div style='font-size:11px; color:#f59e0b; line-height:1.5;'>⚠️ {risk}</div>
-                <div style='font-size:9px; color:#475569; margin-top:8px;'>🤖 AI: {gen_at}</div>
-              </div>
-            </div>""", unsafe_allow_html=True)
+                bias_color  = "#22c55e" if bias == "Bullish" else ("#ef4444" if bias == "Bearish" else "#f59e0b")
+                bias_bg     = "rgba(34,197,94,0.08)" if bias == "Bullish" else ("rgba(239,68,68,0.08)" if bias == "Bearish" else "rgba(245,158,11,0.08)")
+                bias_icon   = "📈" if bias == "Bullish" else ("📉" if bias == "Bearish" else "➡️")
+                reasons_html = "".join([f"<div style='font-size:11px; color:#94a3b8; margin-bottom:3px;'>• {r}</div>" for r in reasons])
+
+                st.markdown(f"""
+                <div style='background:{bias_bg}; border:1px solid {bias_color}; border-radius:12px;
+                     padding:14px 18px; margin-bottom:12px; display:grid;
+                     grid-template-columns:auto 1fr 1fr 1fr; gap:16px; align-items:start;'>
+                  <div style='text-align:center; padding-right:12px; border-right:1px solid #2a3a5c;'>
+                    <div style='font-size:28px;'>{bias_icon}</div>
+                    <div style='font-size:18px; font-weight:900; color:{bias_color};'>{bias_vn.upper()}</div>
+                    <div style='font-size:9.5px; color:#94a3b8; font-weight:700; text-transform:uppercase;'>INTRADAY {comm_code}</div>
+                  </div>
+                  <div>
+                    <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Nhận Định</div>
+                    <div style='font-size:13px; color:#e2e8f0; font-weight:600; line-height:1.5;'>{summary}</div>
+                    {reasons_html}
+                  </div>
+                  <div>
+                    <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Mức Giá Chú Ý</div>
+                    <div style='font-size:12px; color:#22c55e;'>🟢 Hỗ trợ: <b>{sup} ¢</b></div>
+                    <div style='font-size:12px; color:#ef4444; margin-top:4px;'>🔴 Kháng cự: <b>{res_lvl} ¢</b></div>
+                  </div>
+                  <div>
+                    <div style='font-size:10px; color:#64748b; text-transform:uppercase; margin-bottom:4px;'>Rủi Ro Cần Theo Dõi</div>
+                    <div style='font-size:11px; color:#f59e0b; line-height:1.5;'>⚠️ {risk}</div>
+                    <div style='font-size:9px; color:#475569; margin-top:8px;'>🤖 AI: {gen_at}</div>
+                  </div>
+                </div>""", unsafe_allow_html=True)
+
+            tab_zw_ai, tab_zc_ai = st.tabs(["🌾 Nhận Định Lúa Mì (ZW)", "🌽 Nhận Định Ngô (ZC)"])
+            with tab_zw_ai:
+                render_intraday_card("ZW", "Lúa Mì (ZW)", zw_data)
+            with tab_zc_ai:
+                render_intraday_card("ZC", "Ngô (ZC)", zc_data)
 
         # ── THÔNG TIN TIN TỨC ────────────────────────────────────────────────────
         st.markdown(f"<div style='font-size:11px; color:#64748b; margin-bottom:10px;'>⏱ Dữ liệu: {ts} &nbsp;|&nbsp; Tổng: {len(news_list)} tin trong 7 ngày gần nhất</div>", unsafe_allow_html=True)

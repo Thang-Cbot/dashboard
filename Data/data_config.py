@@ -89,6 +89,7 @@ MACRO_TICKERS = {
     "brent": "BZ=F",
     "dxy":   "DX-Y.NYB",
     "zw_ref": "ZW=F",   # Tham chiếu liên thị trường lúa mì
+    "zc_ref": "ZC=F",   # Tham chiếu liên thị trường ngô
 }
 
 # Cấu hình tháng giao dịch cho từng hàng hóa
