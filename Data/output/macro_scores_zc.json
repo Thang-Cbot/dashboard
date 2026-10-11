@@ -1,7 +1,7 @@
 {
-    "timestamp": "2026-10-04 09:04:15",
+    "timestamp": "2026-10-11 13:03:08",
     "month": "10",
-    "total_score": 43.6,
+    "total_score": 43.2,
     "trend": "Slightly Bearish — Giảm Nhẹ",
     "breakdown": {
         "F1": {
@@ -14,12 +14,12 @@
             "status": "manual"
         },
         "F2": {
-            "score_1_to_10": 8,
+            "score_1_to_10": 4,
             "weight_pct": 9.8,
-            "contribution": 0.78,
-            "raw_value": "15,800 Mbu | MoM: -1.33% | Acreage: -2.9%",
-            "raw_detail": "WASDE Sep: 15,800 ← 16,013 Mbu. Diện tích: 95.3 M ac",
-            "last_updated": "2026-10-04 08:39",
+            "contribution": 0.39,
+            "raw_value": "16,034 Mbu | MoM: +1.48% | Acreage: -2.9%",
+            "raw_detail": "WASDE Oct: 16,034 ← 15,800 Mbu. Diện tích: 95.3 M ac",
+            "last_updated": "2026-10-11 13:03",
             "status": "ok"
         },
         "F2W": {
@@ -28,7 +28,7 @@
             "contribution": 0.0,
             "raw_value": "Phân tích Chuyên gia: 5/10",
             "raw_detail": "Mưa lớn kéo dài ở phía Đông Corn Belt (Illinois, Ohio). | Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-11 13:03",
             "status": "manual"
         },
         "F3": {
@@ -45,26 +45,26 @@
             "weight_pct": 6.9,
             "contribution": 0.21,
             "raw_value": "Phân tích Chuyên gia: 3/10",
-            "raw_detail": "Chưa có tin mới về thời tiết Nam Bán cầu, duy trì nhận định cũ: Thời tiết tháng 9 cải thiện rõ rệt (mưa tốt tại Nam Úc/Victoria và Argentina) giúp xoa dịu lo ngại hạn hán trước đó, gây áp lực giảm giá (Bearish).",
+            "raw_detail": "ChÆ°a cÃ³ tin má»›i vá» thá»i tiáº¿t Nam BÃ¡n cáº§u, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©: Thá»i tiáº¿t thÃ¡ng 9 cáº£i thiá»‡n rÃµ rá»‡t (mÆ°a tá»‘t táº¡i Nam Ãšc/Victoria vÃ  Argentina) giÃºp xoa dá»‹u lo ngáº¡i háº¡n hÃ¡n trÆ°á»›c Ä‘Ã³, gÃ¢y Ã¡p lá»±c giáº£m giÃ¡ (Bearish).",
             "last_updated": "2026-10-04 08:39",
             "status": "manual"
         },
         "F4S": {
-            "score_1_to_10": 1,
+            "score_1_to_10": 5,
             "weight_pct": 7.8,
-            "contribution": 0.08,
-            "raw_value": "Phân tích Chuyên gia: 1/10",
-            "raw_detail": "Báo cáo tồn kho hàng quý của USDA cho thấy tồn kho ngô Mỹ đạt 2,1 tỷ giạ, cao hơn đáng kể so với dự kiến, gây áp lực giảm giá mạnh lên thị trường.",
-            "last_updated": "2026-10-04 08:57",
+            "contribution": 0.39,
+            "raw_value": "Phân tích Chuyên gia: 5/10",
+            "raw_detail": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
+            "last_updated": "2026-10-10 08:32",
             "status": "manual"
         },
         "F5": {
-            "score_1_to_10": 7,
+            "score_1_to_10": 8,
             "weight_pct": 4.9,
-            "contribution": 0.34,
-            "raw_value": "+536.0k MT | WoW:-36.1% | YoY:+16.3%",
-            "raw_detail": "Tuần 09/24/2026 | Lũy kế: 5.804 triệu tấn | Prev: 838.3 nghìn tấn",
-            "last_updated": "2026-10-04 08:39",
+            "contribution": 0.39,
+            "raw_value": "+769.5k MT | WoW:+43.6% | YoY:+8.5%",
+            "raw_detail": "Tuần 10/01/2026 | Lũy kế: 7.402 triệu tấn | Prev: 536.0 nghìn tấn",
+            "last_updated": "2026-10-11 13:03",
             "status": "ok"
         },
         "F6": {
@@ -77,12 +77,12 @@
             "status": "manual"
         },
         "F7": {
-            "score_1_to_10": 4,
+            "score_1_to_10": 6,
             "weight_pct": 3.9,
-            "contribution": 0.16,
-            "raw_value": "276.29 Mmt | WASDE Sep: +1.11% (276.29 ← 273.25 Mmt)",
+            "contribution": 0.23,
+            "raw_value": "276.04 Mmt | WASDE Oct: -0.09% (276.04 ← 276.29 Mmt)",
             "raw_detail": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-11 13:03",
             "status": "ok"
         },
         "F8": {
@@ -95,30 +95,30 @@
             "status": "manual"
         },
         "F9": {
-            "score_1_to_10": 4,
+            "score_1_to_10": 3,
             "weight_pct": 7.8,
-            "contribution": 0.31,
-            "raw_value": "DXY 101.93 (-0.17%)",
+            "contribution": 0.23,
+            "raw_value": "DXY 102.21 (+0.00%)",
             "raw_detail": "USD Index — Sức mạnh đồng đô",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-11 13:02",
             "status": "ok"
         },
         "F10": {
             "score_1_to_10": 10,
             "weight_pct": 15.7,
             "contribution": 1.57,
-            "raw_value": "Brent $102.25 (-0.06%)",
+            "raw_value": "Brent $104.72 (+0.00%)",
             "raw_detail": "40% Ngô nấu cồn. Dầu giảm kéo Ngô sập (MEGA BEARISH).",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-11 13:02",
             "status": "ok"
         },
         "F11": {
             "score_1_to_10": 2,
             "weight_pct": 6.9,
             "contribution": 0.14,
-            "raw_value": "Net: +381,220 (-22,877)",
+            "raw_value": "Net: +329,839 (-51,381)",
             "raw_detail": "Q2 (DO NHAT) - XA LONG",
-            "last_updated": "2026-10-04 08:39",
+            "last_updated": "2026-10-11 13:03",
             "status": "ok"
         },
         "F12": {
@@ -126,8 +126,8 @@
             "weight_pct": 3.9,
             "contribution": 0.2,
             "raw_value": "Phân tích Chuyên gia: 5/10",
-            "raw_detail": "Chưa có tin mới về các cuộc đấu thầu hoặc mua hàng thực tế từ các quốc gia nhập khẩu lớn. Các số liệu 'US Export Sales' không được sử dụng cho yếu tố này.",
-            "last_updated": "2026-10-04 08:57",
+            "raw_detail": "ChÆ°a cÃ³ tin má»›i, duy trÃ¬ nháº­n Ä‘á»‹nh cÅ©.",
+            "last_updated": "2026-10-10 08:32",
             "status": "manual"
         }
     }
