@@ -236,11 +236,8 @@ with tab2:
                   </div>
                 </div>""", unsafe_allow_html=True)
 
-            tab_zw_ai, tab_zc_ai = st.tabs(["🌾 Nhận Định Lúa Mì (ZW)", "🌽 Nhận Định Ngô (ZC)"])
-            with tab_zw_ai:
-                render_intraday_card("ZW", "Lúa Mì (ZW)", zw_data)
-            with tab_zc_ai:
-                render_intraday_card("ZC", "Ngô (ZC)", zc_data)
+            render_intraday_card("ZW", "Lúa Mì (ZW)", zw_data)
+            render_intraday_card("ZC", "Ngô (ZC)", zc_data)
 
         # ── THÔNG TIN TIN TỨC ────────────────────────────────────────────────────
         st.markdown(f"<div style='font-size:11px; color:#64748b; margin-bottom:10px;'>⏱ Dữ liệu: {ts} &nbsp;|&nbsp; Tổng: {len(news_list)} tin trong 7 ngày gần nhất</div>", unsafe_allow_html=True)

@@ -222,6 +222,7 @@ TIN TỨC THỊ TRƯỜNG & ĐỊA CHÍNH TRỊ NỔI BẬT:
 {top_news_ctx}
 
 Yêu cầu: Đưa ra nhận định INTRADAY độc lập cho từng mã ZW và ZC.
+Mục "reasoning" BẮT BUỘC liệt kê đủ 5 yếu tố cốt lõi tác động đến giá (kết hợp cung cầu, báo cáo USDA, vị thế COT Smart Money, địa chính trị/logistics, và kỹ thuật).
 Trả về JSON thuần (không bọc markdown) với cấu trúc sau:
 {{
   "ZW": {{
@@ -232,7 +233,13 @@ Trả về JSON thuần (không bọc markdown) với cấu trúc sau:
       "support": "mức hỗ trợ gần nhất (cents)",
       "resistance": "mức kháng cự gần nhất (cents)"
     }},
-    "reasoning": ["lý do 1 (tối đa 70 ký tự)", "lý do 2", "lý do 3"],
+    "reasoning": [
+      "yếu tố 1 (tối đa 80 ký tự)",
+      "yếu tố 2",
+      "yếu tố 3",
+      "yếu tố 4",
+      "yếu tố 5"
+    ],
     "risk": "rủi ro chính cần theo dõi đối với ZW (tối đa 90 ký tự)",
     "generated_at": "{now_str}"
   }},
@@ -244,7 +251,13 @@ Trả về JSON thuần (không bọc markdown) với cấu trúc sau:
       "support": "mức hỗ trợ gần nhất (cents)",
       "resistance": "mức kháng cự gần nhất (cents)"
     }},
-    "reasoning": ["lý do 1 (tối đa 70 ký tự)", "lý do 2", "lý do 3"],
+    "reasoning": [
+      "yếu tố 1 (tối đa 80 ký tự)",
+      "yếu tố 2",
+      "yếu tố 3",
+      "yếu tố 4",
+      "yếu tố 5"
+    ],
     "risk": "rủi ro chính cần theo dõi đối với ZC (tối đa 90 ký tự)",
     "generated_at": "{now_str}"
   }}

@@ -1,34 +1,48 @@
 {
-  "timestamp": "2026-10-11 13:19:24",
+  "timestamp": "2026-10-11 13:28:57",
   "news": [
     {
       "title": "Lúa mì giảm mạnh do USDA tăng dự trữ",
       "details": [
-        "Giá lúa mì giảm trên cả ba sàn giao dịch.",
-        "Báo cáo USDA cho thấy dự trữ lúa mì tăng, gây áp lực giảm giá.",
-        "Hợp đồng SRW Chicago giảm 20-21 cent, HRW Kansas giảm 20-22 cent."
+        "Báo cáo USDA mang tính tiêu cực, cho thấy tồn kho lúa mì tăng.",
+        "Hợp đồng lúa mì SRW Chicago giảm 20-21 cent.",
+        "Hợp đồng lúa mì HRW Kansas City giảm 20-22 cent.",
+        "Tồn kho tăng gây áp lực giảm giá lên thị trường lúa mì."
       ],
       "link": "https://www.barchart.com/story/news/5423085/wheat-falling-as-usda-raises-stocks?.tsrc=rss",
       "source": "09 Oct 2026 - Yahoo Finance",
       "category": "cung_cau_nhan_dinh"
     },
     {
-      "title": "Báo cáo WASDE gây sốc khiến giá ngô và lúa mì lao dốc",
+      "title": "Cơ hội bán lúa mì trước khi giá tiếp tục giảm",
       "details": [
-        "Báo cáo WASDE gây bất ngờ, dẫn đến biến động mạnh trên thị trường.",
-        "Giá ngô giảm mạnh sau báo cáo.",
-        "Giá lúa mì vụ đông cũng chịu cắt giảm nghiêm trọng."
+        "Hợp đồng tương lai lúa mì mềm đỏ mùa đông tháng 12 có cơ hội bán.",
+        "Dự báo giá lúa mì sẽ tiếp tục suy yếu và giảm sâu hơn.",
+        "Nhận định thị trường cho thấy xu hướng giảm giá."
+      ],
+      "link": "https://www.barchart.com/story/news/5463926/why-you-should-sell-wheat-here-before-prices-move-lower?.tsrc=rss",
+      "source": "09 Oct 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Báo cáo WASDE gây sốc, giá ngô và lúa mì lao dốc",
+      "details": [
+        "Báo cáo WASDE gây biến động mạnh trên thị trường.",
+        "Giá ngô giảm mạnh, được mô tả là 'chảy máu'.",
+        "Giá lúa mì mùa đông cũng chịu cắt giảm nghiêm trọng trong phiên giao dịch thứ Sáu.",
+        "Tác động tiêu cực từ báo cáo USDA/WASDE lên cả ngô và lúa mì."
       ],
       "link": "https://www.farmprogress.com/markets-and-quotes/afternoon-market-recap",
       "source": "09 Oct 2026 - Farm Progress",
       "category": "cung_cau_nhan_dinh"
     },
     {
-      "title": "Sản lượng ngô USDA bất ngờ tăng, giá giảm xuống thấp nhất 8 tuần",
+      "title": "Sản lượng ngô USDA gây sốc, giá ngô xuống thấp nhất 8 tuần",
       "details": [
         "USDA công bố sản lượng ngô tăng bất ngờ, trái với kỳ vọng thị trường.",
         "Giá ngô giảm xuống mức thấp nhất trong 8 tuần.",
-        "Đậu tương tăng nhẹ dù số liệu cũng cao hơn."
+        "Đậu tương kết thúc phiên tăng dù số liệu cũng cao hơn.",
+        "Sản lượng tăng gây áp lực giảm giá lên ngô."
       ],
       "link": "https://www.farmprogress.com/marketing/usda-yield-shocker-sends-corn-sinking-to-eight-week-low",
       "source": "09 Oct 2026 - Farm Progress",
@@ -37,139 +51,138 @@
     {
       "title": "Nông dân Ukraine thiếu động lực gieo trồng, nguồn cung ngũ cốc toàn cầu bị đe dọa",
       "details": [
-        "Thế giới phụ thuộc vào ngũ cốc của Ukraine.",
-        "Nông dân Ukraine đang mất dần động lực để gieo trồng do chiến tranh.",
-        "Tình hình này đe dọa nghiêm trọng nguồn cung ngũ cốc toàn cầu."
+        "Thế giới phụ thuộc vào ngũ cốc Ukraine, nhưng nông dân nước này đang mất động lực gieo trồng.",
+        "Chiến tranh và các thách thức khác làm giảm khả năng sản xuất và xuất khẩu.",
+        "Tiềm ẩn nguy cơ thiếu hụt nguồn cung ngũ cốc toàn cầu."
       ],
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1XSHo3OVZwWkpjbWtaenNwMkNaZ1cxUnpGd1NyUmZCM2dpV3V3NlpXODIwdDdvdTlYVlJxNTM5SGRneGNjYWRlZERtWFN0ZHNvZ3dqZDBRR1BXSFVscGJZdEJ4SXBsNjBubUdlaWVRa1RpQjFlNEgzX1JsYTBTd9IBgwFBVV95cUxPTW82R2FFR3ZQQm1PUk1RNVdfMGlXNS1TYXNDb3U1NDBtUm0tYjFrQ0loWS1VTlNEaT",
-      "source": "10 Oct 2026 - Google News (Geo)",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1XSHo3OVZwWkpjbWtaenNwMkNaZ1cxUnpGd1NyUmZCM2dpV3V3NlpXODIwdDdvdTlYVlJxNTM5SGRneGNjYWRlZERtWFN0ZHNvZ3dqZDBRR1BXSFVscGJZdEJ4SXBsNjBubUdlaWVRa1RpQjFlNEgzX1JsYTBTd9IBgwFBVV95cUxPTW82R2FFR3ZQQm1PUk1RNVdfMGlXNS1TYXNDb3U1NDBtUm0tYjFrQ0loWS1VTlNEaTAyVV8tcnhONW5tZE1JMVdES196NEVLeFRES05qU2p2Q0NIWWFKZk16Q2JQcGtHYjZiOHF1QzBHckl0VFpfWVl2QWNCTXVrOWFNdw?oc=5",
+      "source": "10 Oct 2026 - CNBC",
       "category": "dia_chinh_tri"
     },
     {
       "title": "Nông dân Ukraine chật vật bán nông sản giữa chiến tranh và hạn hán",
       "details": [
-        "Nông dân Ukraine đối mặt khó khăn kép từ chiến tranh và hạn hán.",
-        "Việc bán nông sản thu hoạch gặp trở ngại lớn.",
-        "Tình hình này ảnh hưởng nghiêm trọng đến khả năng sản xuất và xuất khẩu."
+        "Nông dân Ukraine gặp khó khăn lớn trong việc tiêu thụ nông sản.",
+        "Tác động kép từ chiến tranh và hạn hán ảnh hưởng đến sản xuất và chuỗi cung ứng.",
+        "Giá ngũ cốc có thể bị ảnh hưởng do khó khăn trong việc đưa hàng ra thị trường."
       ],
-      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxORHhTb1g1R2RIRzUybW9xc0dNb1RrSXdIaG5IV0Z2MlFfVFJVejdNX0dzR01ZbldSekw2eXdzaWNWcERvbF9DTjgwUGNWYjVKY0poQWlEeXduSUNkVGMydVNZQzdpZXpQUFVDLTdOY25jLVFVTFdtalBPMVQ4U0UxbHR0N1BFYV93V2p5a25Wc1MwRk9wVlHSAZYBQVVfeXFMUFRKWkxxcW5ua0xhTTBOLWt4S3dqdTZUUT",
-      "source": "10 Oct 2026 - Google News (Geo)",
+      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxORHhTb1g1R2RIRzUybW9xc0dNb1RrSXdIaG5IV0Z2MlFfVFJVejdNX0dzR01ZbldSekw2eXdzaWNWcERvbF9DTjgwUGNWYjVKY0poQWlEeXduSUNkVGMydVNZQzdpZXpQUFVDLTdOY25jLVFVTFdtalBPMVQ4U0UxbHR0N1BFYV93V2p5a25Wc1MwRk9wVlHSAZYBQVVfeXFMUFRKWkxxcW5ua0xhTTBOLWt4S3dqdTZUUTIzbGJFT1RoLTUycDAwVG5uZ21SdFdVNlhkbC02azZOZ20wbkdvczE4UlpITDcwbGJ0dUllaVhXdDJISk9sb3JRTTZSTlduYkw3QUdYMHRvWTJnSjlTYVNuM0VaaHlhXzJyLUF1RWFKMTRHdG1jSXlERVZRMnZn?oc=5",
+      "source": "10 Oct 2026 - DW.com",
       "category": "dia_chinh_tri"
     },
     {
-      "title": "Thu hoạch nông sản Mỹ bị trì hoãn, USDA chuẩn bị đánh giá kích thước vụ mùa",
+      "title": "Chiến tranh Ukraine bế tắc gây ảnh hưởng nghiêm trọng toàn cầu",
       "details": [
-        "Hoạt động thu hoạch tại Mỹ đang bị trì hoãn.",
-        "USDA sẽ sớm công bố đánh giá về kích thước vụ mùa.",
-        "Thông tin này sẽ ảnh hưởng đến dự báo cung cầu thị trường."
+        "Tình trạng bế tắc trong cuộc chiến Ukraine-Nga đang gây ra những tác động tàn khốc.",
+        "Ảnh hưởng tiêu cực lan rộng ra toàn cầu, bao gồm cả thị trường nông sản.",
+        "Gây ra sự bất ổn về nguồn cung và giá cả hàng hóa."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNNkYzWWczeUlZU0dXWHduSEtEMXdfakZGR21oMzlvZjVjdkVIaEV2UmduWldTOWNiU2RrWVZxZDVyb1h3LXFUTVEwQ3RmOUw5azhXQ1RfcVpoem1ybmN3aWMyN01KUXB1b2FvYmxXQkt1aXB4SUp4YndrUUFFdGtvRy10ZU1LWFdTelNRX3hCdlVKLTBSMFhTcThZb2JvZw?oc=5",
+      "source": "05 Oct 2026 - The Independent",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Thu hoạch tại Mỹ bị trì hoãn, USDA sẽ đánh giá lại quy mô vụ mùa",
+      "details": [
+        "Hoạt động thu hoạch nông sản tại Mỹ đang bị chậm trễ.",
+        "USDA sẽ tiến hành đánh giá lại quy mô các vụ mùa.",
+        "Tiềm ẩn sự không chắc chắn về nguồn cung và sản lượng cuối cùng.",
+        "Có thể ảnh hưởng đến dự báo tồn kho và giá cả."
       ],
       "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQRmdmNTZ0UThVMmVGYUMtbEEzOFVFMTQwc2JTOUxER0MxUUdfVzZDbThxdWlzLTFrWHhiRUZibTcycVhCQjkxVWFMZnB0blBlYm5JNktXVHFDdkVIRTY3UG85R0JUN2hpYzhBLWdTUU1VMUpGS1ZmNVF4aDZoNWticEhuOU14dlo4WWdMQW41VngzUlV2VktNX2Fybk9oMjBIYXc?oc=5",
-      "source": "07 Oct 2026 - Google News (Supply)",
+      "source": "07 Oct 2026 - DTN Progressive Farmer",
       "category": "san_luong_dien_tich"
     },
     {
       "title": "Thu hoạch ngô Mỹ chậm trễ tại 11 bang do thời tiết ẩm ướt",
       "details": [
-        "Thu hoạch ngô tại Mỹ đang bị chậm tiến độ.",
-        "11 bang ghi nhận sự chậm trễ do điều kiện thời tiết ẩm ướt.",
-        "Tình trạng này có thể ảnh hưởng đến tổng sản lượng và chất lượng ngô."
+        "Thu hoạch ngô tại 11 bang của Mỹ đang bị chậm tiến độ.",
+        "Thời tiết ẩm ướt là nguyên nhân chính làm chậm công việc đồng áng.",
+        "Có thể ảnh hưởng đến chất lượng và tổng sản lượng ngô.",
+        "Gây lo ngại về nguồn cung ngô trong ngắn hạn."
       ],
       "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPc0k1dlhqYnVKcm42V1JHWEI1VHhnd0J5RzZoVllQS1hGZEFybzVJVmdFV2RnVllRODUzbjd6VEVlZVQ1Yi0ydmpSSmhyLU5jLTg1R04wOFpyTzBZZVd0OVZ2S1VQQjJnQ3dIaENYT19NUEFHczFVUVBOeEpRc3F2bUJTaEc?oc=5",
-      "source": "09 Oct 2026 - Google News (Supply)",
+      "source": "09 Oct 2026 - AgroLatam",
       "category": "san_luong_dien_tich"
     },
     {
-      "title": "Mỹ dự kiến vụ thu hoạch đậu tương lớn nhất lịch sử, ngô lớn thứ hai",
+      "title": "Thu hoạch đậu tương Mỹ lớn nhất lịch sử, ngô lớn thứ hai",
       "details": [
-        "Dự báo vụ thu hoạch đậu tương của Mỹ sẽ đạt mức lớn nhất từ trước đến nay.",
-        "Vụ thu hoạch ngô được dự kiến là lớn thứ hai trong lịch sử.",
-        "Thông tin này có thể gây áp lực lên giá cả do nguồn cung dồi dào."
+        "Dự kiến vụ thu hoạch đậu tương của Mỹ sẽ đạt mức lớn nhất từ trước đến nay.",
+        "Vụ thu hoạch ngô được dự báo là lớn thứ hai trong lịch sử.",
+        "Cho thấy nguồn cung dồi dào cho cả đậu tương và ngô.",
+        "Có thể tạo áp lực giảm giá lên thị trường ngô."
       ],
       "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOcnBWSXo0eXJHeE5UT1hlWUlNa2VkMkFfd1hjNWFqTTFDVlZZVGFocmJJTGhzTDcwaTRXTlJRNUl0bE16bFFDczk0WEFVeUVlbEt4eDNvaVZfNGFXUEV1eDYzR0g1MjYyV0JzWEFCRncyeXlvWTBCNllIQU9LOHkzcUZhWloyb0xxdTNBejUxQXd1ZGRqb19LNXdiUFM4VFR4Vmdn?oc=5",
-      "source": "09 Oct 2026 - Google News (Supply)",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Báo cáo tiến độ vụ mùa USDA (5/10/2026): Cập nhật thu hoạch ngô, đậu tương",
-      "details": [
-        "Báo cáo tiến độ vụ mùa của USDA được công bố vào ngày 5 tháng 10 năm 2026.",
-        "Cung cấp thông tin cập nhật về tiến độ thu hoạch ngô và đậu tương.",
-        "Dữ liệu này là yếu tố quan trọng ảnh hưởng đến dự báo sản lượng cuối cùng."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOWV9SYTdqcWRuV2RfU2RnV0FfWk9XdW9mck00TE9VQ1J2d2JSRFZqbXhvcHZpOWlqY0tFdmg0anpsci1xU3lhb3dhU05iVzRnX2RfcXJURU9qVDhHQ3BYV3RlRGFCM2tjWTB2SGxHQlN4eXNIMHBBME5DcTU5am5JN3dfSzVxd2xuZ3loV2tEY0dhaEZKUWxZLU94aGdsRTdFdHQ4QTMtX3dBUQ?oc=5",
-      "source": "06 Oct 2026 - Google News (Supply)",
+      "source": "09 Oct 2026 - Agri-Pulse Communications, Inc.",
       "category": "san_luong_dien_tich"
     },
     {
       "title": "Tấn công tàu dân sự gần Bulgaria đe dọa tuyến đường ngũ cốc Biển Đen",
       "details": [
-        "Các cuộc tấn công vào tàu dân sự gần Bulgaria làm tăng rủi ro.",
-        "Tuyến đường vận chuyển ngũ cốc qua Biển Đen đối mặt với mối đe dọa mới.",
-        "Tình hình này có thể làm gián đoạn xuất khẩu và đẩy giá ngũ cốc lên cao."
+        "Các cuộc tấn công vào tàu dân sự gần Bulgaria tạo ra rủi ro mới.",
+        "Đe dọa sự an toàn của tuyến đường vận chuyển ngũ cốc qua Biển Đen.",
+        "Có thể làm tăng chi phí vận chuyển và bảo hiểm, ảnh hưởng đến xuất khẩu.",
+        "Gây bất ổn cho nguồn cung ngũ cốc toàn cầu."
       ],
-      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPTUhGRjdTc0pQeVVwVktNMkQ4NWtpRXdWREkxOGFXV1JrdG5qWm00RDhkbFMzWjdCaGRzZUQ0dUh6VnlJSVhacm5TTTBFSHhlTGlCSTloVlBfeTlwRzBtalBhVW50N1drZUs2eWFubG5vN2VHdTExSGNUZWhYMThGTG1xLXd5dkFBc3ZFR2t1OEtCWnQwSVJpMUZ1Y1ZGTVY4bEVXRVBSbld2TUtyVEtETlhRenNRZDRRen",
-      "source": "07 Oct 2026 - Google News (Shipping)",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPTUhGRjdTc0pQeVVwVktNMkQ4NWtpRXdWREkxOGFXV1JrdG5qWm00RDhkbFMzWjdDaGRzZUQ0dUh6VnlJSVhacm5TTTBFSHhlTGlCSTloVlBfeTlwRzBtalBhVW50N1drZUs2eWFubG5vN2VHdTExSGNUZWhYMThGTG1xLXd5dkFBc3ZFR2t1OEtCWnQwSVJpMUZ1Y1ZGTVY4bEVXRVBSbld2TUtyVEtETlhRenNRZDRRenhfWHFJcmhWQ3A4bEQ5WFFhSzY?oc=5",
+      "source": "07 Oct 2026 - електронна зернова біржа України",
       "category": "logistics"
-    },
-    {
-      "title": "Đậu tương giảm giá do USDA tăng sản lượng và tồn kho",
-      "details": [
-        "Giá đậu tương giảm 12-13 cent trên các hợp đồng kỳ hạn gần.",
-        "Áp lực giảm giá lan tỏa từ thị trường ngô và lúa mì.",
-        "Báo cáo USDA cho thấy sản lượng và tồn kho đậu tương tăng."
-      ],
-      "link": "https://www.barchart.com/story/news/5423056/soybeans-fading-lower-as-usda-raises-production-and-stocks?.tsrc=rss",
-      "source": "09 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
     }
   ],
   "intraday": {
     "ZW": {
       "bias": "Bearish",
       "bias_vn": "Giảm",
-      "summary": "Lúa mì chịu áp lực giảm do dự trữ USDA tăng và vị thế Smart Money NHOI SHORT mạnh.",
+      "summary": "Giá lúa mì dự kiến giảm do dự trữ USDA tăng, báo cáo WASDE tiêu cực và vị thế Smart Money bán ròng mạnh.",
       "key_levels": {
-        "support": "665.0",
-        "resistance": "678.0"
+        "support": "660.0",
+        "resistance": "675.0"
       },
       "reasoning": [
-        "Vị thế COT Smart Money NHOI SHORT mạnh.",
-        "USDA tăng dự trữ lúa mì, gây áp lực cung.",
-        "Báo cáo WASDE gần đây gây sốc, giá lao dốc."
+        "Cung cầu: USDA tăng dự trữ, gây áp lực giảm giá.",
+        "Báo cáo USDA: WASDE gây sốc, đẩy giá lúa mì lao dốc.",
+        "Vị thế COT Smart Money: Q3 NHOI SHORT, tín hiệu bán mạnh.",
+        "Địa chính trị/Logistics: Nông dân Ukraine khó khăn, nhưng nguồn cung hiện tại dồi dào.",
+        "Kỹ thuật: Xu hướng giảm mạnh sau các tin tức tiêu cực."
       ],
-      "risk": "Bất ổn địa chính trị Ukraine có thể bất ngờ hỗ trợ giá lúa mì.",
-      "generated_at": "2026-10-11 13:19"
+      "risk": "Rủi ro chính là bất ngờ về nguồn cung Ukraine hoặc thay đổi chính sách xuất khẩu.",
+      "generated_at": "2026-10-11 13:28"
     },
     "ZC": {
       "bias": "Bearish",
       "bias_vn": "Giảm",
-      "summary": "Ngô đối mặt áp lực giảm mạnh do sản lượng USDA tăng và báo cáo WASDE tiêu cực.",
+      "summary": "Giá ngô dự kiến giảm do báo cáo WASDE và sản lượng USDA gây sốc, cùng với vị thế Smart Money giảm mua.",
       "key_levels": {
-        "support": "475.0",
-        "resistance": "483.0"
+        "support": "470.0",
+        "resistance": "485.0"
       },
       "reasoning": [
-        "Sản lượng ngô USDA bất ngờ tăng, gây áp lực cung.",
-        "Báo cáo WASDE gần đây gây sốc, giá lao dốc.",
-        "Giá ngô giảm xuống thấp nhất 8 tuần."
+        "Cung cầu: Sản lượng ngô USDA gây sốc, giá xuống thấp nhất 8 tuần.",
+        "Báo cáo USDA: WASDE và sản lượng USDA đều tiêu cực, đẩy giá giảm.",
+        "Vị thế COT Smart Money: Q2 XA LONG, cho thấy giảm vị thế mua.",
+        "Địa chính trị/Logistics: Nông dân Ukraine khó khăn, chưa tác động trực tiếp lên giá intraday.",
+        "Kỹ thuật: Giá đã chạm mức thấp nhất 8 tuần, xu hướng giảm rõ rệt."
       ],
-      "risk": "Vị thế Smart Money vẫn đang net long, có thể hỗ trợ giá nếu có tin tức tích cực.",
-      "generated_at": "2026-10-11 13:19"
+      "risk": "Rủi ro chính là thay đổi đột ngột trong dự báo thời tiết hoặc nhu cầu xuất khẩu.",
+      "generated_at": "2026-10-11 13:28"
     },
     "bias": "Bearish",
     "bias_vn": "Giảm",
-    "summary": "Lúa mì chịu áp lực giảm do dự trữ USDA tăng và vị thế Smart Money NHOI SHORT mạnh.",
+    "summary": "Giá lúa mì dự kiến giảm do dự trữ USDA tăng, báo cáo WASDE tiêu cực và vị thế Smart Money bán ròng mạnh.",
     "key_levels": {
-      "support": "665.0",
-      "resistance": "678.0"
+      "support": "660.0",
+      "resistance": "675.0"
     },
     "reasoning": [
-      "Vị thế COT Smart Money NHOI SHORT mạnh.",
-      "USDA tăng dự trữ lúa mì, gây áp lực cung.",
-      "Báo cáo WASDE gần đây gây sốc, giá lao dốc."
+      "Cung cầu: USDA tăng dự trữ, gây áp lực giảm giá.",
+      "Báo cáo USDA: WASDE gây sốc, đẩy giá lúa mì lao dốc.",
+      "Vị thế COT Smart Money: Q3 NHOI SHORT, tín hiệu bán mạnh.",
+      "Địa chính trị/Logistics: Nông dân Ukraine khó khăn, nhưng nguồn cung hiện tại dồi dào.",
+      "Kỹ thuật: Xu hướng giảm mạnh sau các tin tức tiêu cực."
     ],
-    "risk": "Bất ổn địa chính trị Ukraine có thể bất ngờ hỗ trợ giá lúa mì.",
-    "generated_at": "2026-10-11 13:19"
+    "risk": "Rủi ro chính là bất ngờ về nguồn cung Ukraine hoặc thay đổi chính sách xuất khẩu.",
+    "generated_at": "2026-10-11 13:28"
   },
   "categories": [
     "dia_chinh_tri",
