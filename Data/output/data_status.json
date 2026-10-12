@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 09:00:23",
-      "updated_at": "2026-10-12 09:00:23"
+      "detail": "Auto-fetch 13:02:02",
+      "updated_at": "2026-10-12 13:02:02"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 09:00:44 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-10-12 09:00:44"
+      "detail": "Đẩy thành công lúc 09:01:14 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-10-12 09:01:14"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -70,9 +70,9 @@
   },
   "all_ok": true,
   "export_sales": {
-    "status": "OK",
-    "detail": "Kỳ: 10/01/2026 | ZW=451,600 MT, ZC=769,500 MT",
-    "updated_at": "2026-10-10 08:32:14"
+    "status": "NoData",
+    "detail": "Kỳ: None | NoData",
+    "updated_at": "2026-10-12 10:47:33"
   },
   "acreage": {
     "status": "OK",
@@ -87,26 +87,26 @@
   "cot": {
     "status": "[OK] Success",
     "detail": "",
-    "updated_at": "2026-10-11 13:03:08"
+    "updated_at": "2026-10-12 10:47:22"
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 09:00",
-    "updated_at": "2026-10-12 09:00:22"
+    "detail": "ZC+ZW updated at 13:01",
+    "updated_at": "2026-10-12 13:02:02"
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=103.19, DXY=102.147",
-    "updated_at": "2026-10-12 09:00:41"
+    "detail": "Brent=103.25, DXY=102.17",
+    "updated_at": "2026-10-12 10:47:20"
   },
   "weather_short": {
     "status": "OK",
     "detail": "24/24 fetched",
-    "updated_at": "2026-10-09 22:52:43"
+    "updated_at": "2026-10-12 10:48:04"
   },
   "weather_long": {
     "status": "OK",
     "detail": "Status: El Niño Advisory",
-    "updated_at": "2026-10-12 06:30:05"
+    "updated_at": "2026-10-12 10:48:06"
   }
 }

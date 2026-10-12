@@ -1,7 +1,7 @@
 {
-    "timestamp": "2026-10-12 06:48:47",
+    "timestamp": "2026-10-12 10:48:06",
     "month": "10",
-    "total_score": 43.2,
+    "total_score": 40.1,
     "trend": "Slightly Bearish — Giảm Nhẹ",
     "breakdown": {
         "F1": {
@@ -19,7 +19,7 @@
             "contribution": 0.39,
             "raw_value": "16,034 Mbu | MoM: +1.48% | Acreage: -2.9%",
             "raw_detail": "WASDE Oct: 16,034 ← 15,800 Mbu. Diện tích: 95.3 M ac",
-            "last_updated": "2026-10-11 13:03",
+            "last_updated": "2026-10-12 10:47",
             "status": "ok"
         },
         "F2W": {
@@ -28,7 +28,7 @@
             "contribution": 0.0,
             "raw_value": "Phân tích Chuyên gia: 5/10",
             "raw_detail": "Mưa lớn kéo dài ở phía Đông Corn Belt (Illinois, Ohio). | Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại",
-            "last_updated": "2026-10-11 13:03",
+            "last_updated": "2026-10-12 10:47",
             "status": "manual"
         },
         "F3": {
@@ -50,12 +50,12 @@
             "status": "manual"
         },
         "F4S": {
-            "score_1_to_10": 5,
+            "score_1_to_10": 1,
             "weight_pct": 7.8,
-            "contribution": 0.39,
-            "raw_value": "Phân tích Chuyên gia: 5/10",
-            "raw_detail": "Chưa có tin mới, duy trì nhận định cũ.",
-            "last_updated": "2026-10-10 08:32",
+            "contribution": 0.08,
+            "raw_value": "Phân tích Chuyên gia: 1/10",
+            "raw_detail": "USDA công bố sản lượng ngô tăng bất ngờ, khiến giá ngô giảm xuống mức thấp nhất trong 8 tuần. Vụ thu hoạch ngô Mỹ được dự báo là lớn thứ hai trong lịch sử, cho thấy nguồn cung dồi dào. (Tin tức 09 Oct 2026)",
+            "last_updated": "2026-10-12 10:45",
             "status": "manual"
         },
         "F5": {
@@ -64,7 +64,7 @@
             "contribution": 0.39,
             "raw_value": "+769.5k MT | WoW:+43.6% | YoY:+8.5%",
             "raw_detail": "Tuần 10/01/2026 | Lũy kế: 7.402 triệu tấn | Prev: 536.0 nghìn tấn",
-            "last_updated": "2026-10-11 13:03",
+            "last_updated": "2026-10-12 10:47",
             "status": "ok"
         },
         "F6": {
@@ -82,7 +82,7 @@
             "contribution": 0.23,
             "raw_value": "276.04 Mmt | WASDE Oct: -0.09% (276.04 ← 276.29 Mmt)",
             "raw_detail": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
-            "last_updated": "2026-10-11 13:03",
+            "last_updated": "2026-10-12 10:47",
             "status": "ok"
         },
         "F8": {
@@ -98,18 +98,18 @@
             "score_1_to_10": 3,
             "weight_pct": 7.8,
             "contribution": 0.23,
-            "raw_value": "DXY 102.27 (+0.06%)",
+            "raw_value": "DXY 102.17 (-0.04%)",
             "raw_detail": "USD Index — Sức mạnh đồng đô",
-            "last_updated": "2026-10-12 06:17",
+            "last_updated": "2026-10-12 10:47",
             "status": "ok"
         },
         "F10": {
             "score_1_to_10": 10,
             "weight_pct": 15.7,
             "contribution": 1.57,
-            "raw_value": "Brent $105.44 (+0.69%)",
+            "raw_value": "Brent $103.25 (-1.40%)",
             "raw_detail": "40% Ngô nấu cồn. Dầu giảm kéo Ngô sập (MEGA BEARISH).",
-            "last_updated": "2026-10-12 06:17",
+            "last_updated": "2026-10-12 10:47",
             "status": "ok"
         },
         "F11": {
@@ -118,7 +118,7 @@
             "contribution": 0.14,
             "raw_value": "Net: +329,839 (-51,381)",
             "raw_detail": "Q2 (DO NHAT) - XA LONG",
-            "last_updated": "2026-10-11 13:03",
+            "last_updated": "2026-10-12 10:47",
             "status": "ok"
         },
         "F12": {
@@ -126,8 +126,8 @@
             "weight_pct": 3.9,
             "contribution": 0.2,
             "raw_value": "Phân tích Chuyên gia: 5/10",
-            "raw_detail": "Chưa có tin mới, duy trì nhận định cũ.",
-            "last_updated": "2026-10-10 08:32",
+            "raw_detail": "Chưa có tin mới về các cuộc đấu thầu hoặc mua hàng thực tế của các quốc gia nhập khẩu lớn.",
+            "last_updated": "2026-10-12 10:45",
             "status": "manual"
         }
     }
