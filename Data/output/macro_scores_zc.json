@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-10-12 10:48:06",
+    "timestamp": "2026-10-12 15:46:54",
     "month": "10",
     "total_score": 40.1,
     "trend": "Slightly Bearish — Giảm Nhẹ",
@@ -19,7 +19,7 @@
             "contribution": 0.39,
             "raw_value": "16,034 Mbu | MoM: +1.48% | Acreage: -2.9%",
             "raw_detail": "WASDE Oct: 16,034 ← 15,800 Mbu. Diện tích: 95.3 M ac",
-            "last_updated": "2026-10-12 10:47",
+            "last_updated": "2026-10-12 15:46",
             "status": "ok"
         },
         "F2W": {
@@ -28,7 +28,7 @@
             "contribution": 0.0,
             "raw_value": "Phân tích Chuyên gia: 5/10",
             "raw_detail": "Mưa lớn kéo dài ở phía Đông Corn Belt (Illinois, Ohio). | Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại",
-            "last_updated": "2026-10-12 10:47",
+            "last_updated": "2026-10-12 15:46",
             "status": "manual"
         },
         "F3": {
@@ -64,7 +64,7 @@
             "contribution": 0.39,
             "raw_value": "+769.5k MT | WoW:+43.6% | YoY:+8.5%",
             "raw_detail": "Tuần 10/01/2026 | Lũy kế: 7.402 triệu tấn | Prev: 536.0 nghìn tấn",
-            "last_updated": "2026-10-12 10:47",
+            "last_updated": "2026-10-12 15:46",
             "status": "ok"
         },
         "F6": {
@@ -82,7 +82,7 @@
             "contribution": 0.23,
             "raw_value": "276.04 Mmt | WASDE Oct: -0.09% (276.04 ← 276.29 Mmt)",
             "raw_detail": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
-            "last_updated": "2026-10-12 10:47",
+            "last_updated": "2026-10-12 15:46",
             "status": "ok"
         },
         "F8": {
@@ -98,18 +98,18 @@
             "score_1_to_10": 3,
             "weight_pct": 7.8,
             "contribution": 0.23,
-            "raw_value": "DXY 102.17 (-0.04%)",
+            "raw_value": "DXY 102.29 (+0.00%)",
             "raw_detail": "USD Index — Sức mạnh đồng đô",
-            "last_updated": "2026-10-12 10:47",
+            "last_updated": "2026-10-12 15:46",
             "status": "ok"
         },
         "F10": {
             "score_1_to_10": 10,
             "weight_pct": 15.7,
             "contribution": 1.57,
-            "raw_value": "Brent $103.25 (-1.40%)",
+            "raw_value": "Brent $104.40 (+0.00%)",
             "raw_detail": "40% Ngô nấu cồn. Dầu giảm kéo Ngô sập (MEGA BEARISH).",
-            "last_updated": "2026-10-12 10:47",
+            "last_updated": "2026-10-12 15:46",
             "status": "ok"
         },
         "F11": {
@@ -118,7 +118,7 @@
             "contribution": 0.14,
             "raw_value": "Net: +329,839 (-51,381)",
             "raw_detail": "Q2 (DO NHAT) - XA LONG",
-            "last_updated": "2026-10-12 10:47",
+            "last_updated": "2026-10-12 15:46",
             "status": "ok"
         },
         "F12": {
