@@ -16,7 +16,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 34800.0,
+      "today_volume": 35077.0,
       "prev_volume": 23746.0,
       "today_oi": 887521,
       "prev_oi": 887521,
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 10722.0,
+      "today_volume": 10950.0,
       "prev_volume": 5078.0,
       "today_oi": 251400,
       "prev_oi": 251400,
-      "today_close": 670.75,
+      "today_close": 670.5,
       "prev_close": 666.25,
       "trend": "Tăng do phe Short chốt lời (Short Covering)",
       "logic": "Giá tăng đi kèm Volume tăng nhưng OI giảm. Cho thấy phe Short đang ồ ạt cắt lỗ/chốt vị thế bán khống, giúp giá đẩy lên nhanh nhưng thiếu dòng tiền mới mua lên."
     }
   },
-  "updated_at": "2026-10-12 15:47:39"
+  "updated_at": "2026-10-12 16:00:28"
 }
