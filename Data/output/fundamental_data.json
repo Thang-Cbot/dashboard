@@ -19,7 +19,7 @@
       "action": "Argentina thu hoạch rộ -> Canh Short ngắn hạn / Gom Long dài hạn (DCA)",
       "logic": "Argentina đang thu hoạch rộ đạt 66%. Việc giá ngô giữ vững trên 445-450 cents bất bất chấp áp lực thu hoạch cho thấy ngô đã xác lập vùng đáy chu kỳ mùa vụ thành công.",
       "previous": "Mỹ: 23% thu hoạch",
-      "previous_date": "05/10/2026",
+      "previous_date": "13/10/2026",
       "latest_date": "13/10/2026"
     },
     "crop_condition": {
@@ -29,7 +29,7 @@
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
       "previous": "54% Good to Excellent",
-      "previous_date": "05/10/2026",
+      "previous_date": "13/10/2026",
       "latest_date": "13/10/2026"
     },
     "us_ending_stocks": {
@@ -197,6 +197,48 @@
       "next_date": "11/11/2026 lúc 00:00 (VN)",
       "previous": "15,800 triệu bushels (2026/27)",
       "previous_month": "Sep"
+    },
+    "progress_compare": {
+      "week_ending": "2026-10-11",
+      "source": "USDA Crop Progress",
+      "items": [
+        {
+          "key": "corn_mature",
+          "label": "Ngô chín (Mature)",
+          "kind": "progress",
+          "current": 91,
+          "prev_week": 83,
+          "year_ago": null,
+          "year_ago_src": null,
+          "avg5": 91,
+          "avg_label": "TB 5 năm (USDA)",
+          "avg_n": 5
+        },
+        {
+          "key": "corn_harvested",
+          "label": "Thu hoạch ngô",
+          "kind": "progress",
+          "current": 33,
+          "prev_week": 23,
+          "year_ago": null,
+          "year_ago_src": null,
+          "avg5": 39,
+          "avg_label": "TB 5 năm (USDA)",
+          "avg_n": 5
+        },
+        {
+          "key": "corn_condition",
+          "label": "Chất lượng ngô (G/E)",
+          "kind": "condition",
+          "current": 56,
+          "prev_week": 54,
+          "year_ago": null,
+          "year_ago_src": null,
+          "avg5": 57.0,
+          "avg_label": "TB 3 năm (tự tính)",
+          "avg_n": 3
+        }
+      ]
     }
   },
   "ZW": {
@@ -207,7 +249,7 @@
       "action": "Tiến độ ổn định -> Canh Short ngắn hạn",
       "logic": "Lúa mì xuân gieo trồng phát triển thuận lợi. Lúa mì đông đã trổ bông vượt trung bình.",
       "previous": "Đông 36% gieo, Xuân N/A",
-      "previous_date": "05/10/2026",
+      "previous_date": "13/10/2026",
       "latest_date": "13/10/2026"
     },
     "harvest_progress": {
@@ -217,7 +259,7 @@
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Đông N/A, Xuân N/A",
-      "previous_date": "05/10/2026",
+      "previous_date": "13/10/2026",
       "latest_date": "13/10/2026"
     },
     "crop_condition": {
@@ -227,7 +269,7 @@
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông N/A (Cuối vụ), Xuân N/A",
-      "previous_date": "05/10/2026",
+      "previous_date": "13/10/2026",
       "latest_date": "13/10/2026"
     },
     "us_ending_stocks": {
@@ -405,6 +447,36 @@
       "next_date": "11/11/2026 lúc 00:00 (VN)",
       "previous": "1,531 triệu bushels (2026/27)",
       "previous_month": "Sep"
+    },
+    "progress_compare": {
+      "week_ending": "2026-10-11",
+      "source": "USDA Crop Progress",
+      "items": [
+        {
+          "key": "ww_planted",
+          "label": "Gieo lúa mì đông",
+          "kind": "progress",
+          "current": 51,
+          "prev_week": 36,
+          "year_ago": null,
+          "year_ago_src": null,
+          "avg5": 58,
+          "avg_label": "TB 5 năm (USDA)",
+          "avg_n": 5
+        },
+        {
+          "key": "ww_emerged",
+          "label": "Lúa mì đông nảy mầm",
+          "kind": "progress",
+          "current": 27,
+          "prev_week": 16,
+          "year_ago": null,
+          "year_ago_src": null,
+          "avg5": 32,
+          "avg_label": "TB 5 năm (USDA)",
+          "avg_n": 5
+        }
+      ]
     }
   },
   "ZS": {
@@ -423,7 +495,7 @@
       "logic": "Mỹ bắt đầu thu hoạch vào tháng 9-11. Argentina đang thu hoạch đậu tương đạt 75% tiến độ. Việc Argentina sắp kết thúc thu hoạch rộ đồng nghĩa với việc áp lực bán tháo lớn nhất của Nam Mỹ đã phản ánh hoàn toàn vào giá (priced-in), tạo điều kiện cho giá đậu tương thiết lập đáy chu kỳ mùa vụ và bước vào pha tăng trưởng.",
       "previous": "Mỹ: 25% thu hoạch",
       "latest_date": "13/10/2026",
-      "previous_date": "05/10/2026"
+      "previous_date": "13/10/2026"
     },
     "crop_condition": {
       "latest": "57% Good to Excellent",
@@ -433,7 +505,7 @@
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào tháng 6.",
       "latest_date": "13/10/2026",
       "previous": "57% Good to Excellent",
-      "previous_date": "05/10/2026"
+      "previous_date": "13/10/2026"
     },
     "us_ending_stocks": {
       "next_date": "11/11/2026 lúc 00:00 (VN)",
