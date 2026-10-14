@@ -4,7 +4,7 @@
       "symbol": "ZC",
       "contract": "ZCU26 (September 2026)",
       "anchor_price": 482.5,
-      "generated_at": "2026-10-14 11:01:10",
+      "generated_at": "2026-10-14 12:41:45",
       "forecast_week": "October 12-16, 2026",
       "composite_bias": 3.6,
       "detailed_scores": {
@@ -87,7 +87,11 @@
       },
       {
         "label": "Wed 07-11",
-        "price": 481.75
+        "price": 481.25
+      },
+      {
+        "label": "Wed 11-15",
+        "price": 482.5
       },
       {
         "label": "Wed 23-01",
@@ -463,7 +467,7 @@
       "symbol": "ZW",
       "contract": "ZWU26 (September 2026)",
       "anchor_price": 666.75,
-      "generated_at": "2026-10-14 11:01:10",
+      "generated_at": "2026-10-14 12:41:45",
       "forecast_week": "October 12-16, 2026",
       "composite_bias": 5.9,
       "detailed_scores": {
@@ -545,7 +549,11 @@
       },
       {
         "label": "Wed 07-11",
-        "price": 666.75
+        "price": 666.5
+      },
+      {
+        "label": "Wed 11-15",
+        "price": 666.5
       },
       {
         "label": "Wed 23-01",
@@ -921,7 +929,7 @@
       "symbol": "ZS",
       "contract": "ZSU26 (September 2026)",
       "anchor_price": 1190.0,
-      "generated_at": "2026-10-14 11:01:10",
+      "generated_at": "2026-10-14 12:41:45",
       "forecast_week": "October 12-16, 2026",
       "composite_bias": 0.6,
       "detailed_scores": {
