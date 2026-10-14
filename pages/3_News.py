@@ -524,6 +524,56 @@ with tab1:
             return f"{curr_val}%"
         return re.sub(r'(\d+)%', replacer, c_str)
 
+    def render_compare_html(cmp):
+        """Bảng so sánh cùng kỳ: tuần này vs tuần trước / năm trước / TB 5 năm (sinh bởi crop_compare.py)."""
+        if not cmp or not cmp.get("items"):
+            return ""
+        def pct(v):
+            return "N/A" if v is None else f"{v:g}%"
+        def delta(cur, ref):
+            if cur is None or ref is None:
+                return ""
+            d = round(cur - ref, 1)
+            if d > 0:
+                return f" <span style='color:#22c55e; font-size:11px; font-weight:700;'>(+{d:g})</span>"
+            if d < 0:
+                return f" <span style='color:#ef4444; font-size:11px; font-weight:700;'>({d:g})</span>"
+            return " <span style='color:#94a3b8; font-size:11px; font-weight:700;'>(0)</span>"
+        try:
+            from datetime import datetime as _dt
+            we = _dt.fromisoformat(cmp.get("week_ending", "")).strftime("%d/%m/%Y")
+        except Exception:
+            we = cmp.get("week_ending", "—")
+        th = "padding:4px 6px; color:#64748b; font-size:10px; font-weight:600; text-align:right; text-transform:uppercase;"
+        rows = ""
+        for it in cmp["items"]:
+            cur = it.get("current")
+            ya = it.get("year_ago")
+            av = it.get("avg5")
+            ya_txt = pct(ya) + delta(cur, ya) if ya is not None else "<span style='color:#475569;'>N/A</span>"
+            av_txt = pct(av) + delta(cur, av) if av is not None else "<span style='color:#475569;'>N/A</span>"
+            av_note = f"<div style='font-size:9px; color:#475569;'>{it.get('avg_label', '')}</div>"
+            rows += (
+                "<tr style='border-top:1px solid #1e2d45;'>"
+                f"<td style='padding:6px; color:#cbd5e1; font-size:12px;'>{it.get('label', '')}</td>"
+                f"<td style='padding:6px; text-align:right; color:#e2e8f0; font-weight:700; font-size:12px;'>{pct(cur)}</td>"
+                f"<td style='padding:6px; text-align:right; color:#94a3b8; font-size:12px;'>{pct(it.get('prev_week'))}</td>"
+                f"<td style='padding:6px; text-align:right; color:#cbd5e1; font-size:12px;'>{ya_txt}</td>"
+                f"<td style='padding:6px; text-align:right; color:#cbd5e1; font-size:12px;'>{av_txt}{av_note}</td>"
+                "</tr>"
+            )
+        return (
+            "<div style='margin-top:12px; padding-top:10px; border-top:1px dashed #2a3a5c;'>"
+            f"<div style='font-size:11px; color:#38bdf8; font-weight:700; margin-bottom:6px;'>📅 So sánh cùng kỳ — tuần kết thúc {we}</div>"
+            "<table style='width:100%; border-collapse:collapse;'>"
+            f"<tr><th style='{th} text-align:left;'>Chỉ số</th><th style='{th}'>Tuần này</th><th style='{th}'>Tuần trước</th>"
+            f"<th style='{th}'>Năm trước</th><th style='{th}'>TB 5 năm</th></tr>"
+            f"{rows}</table>"
+            "<div style='font-size:9px; color:#475569; margin-top:4px;'>(±) = chênh lệch điểm % so với kỳ so sánh (+ nhanh hơn / tốt hơn). "
+            "N/A = USDA không công bố hoặc chưa có dữ liệu lưu trữ.</div>"
+            "</div>"
+        )
+
     if fund:
         cols2 = st.columns(2)
         for i, (code, name, emoji) in enumerate([("ZC", "Ngô", "🌽"), ("ZW", "Lúa Mì", "🌾")]):
@@ -574,6 +624,7 @@ with tab1:
 <div style='font-size:10px; color:#475569;'>{curr_dt}</div>
 </div>
 </div>"""
+                html_content += render_compare_html(d.get("progress_compare"))
                 html_content += "</div>"
                 st.markdown(html_content, unsafe_allow_html=True)
 

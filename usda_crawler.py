@@ -399,12 +399,19 @@ def run_crawler_and_update():
     # 2. Crop Progress
     prog_url, prog_date = get_latest_release_txt_url("2179")
     prog_data = {}
+    prog_compare = {}
     if prog_url:
         print(f"Fetching Crop Progress from: {prog_url}")
         r = requests.get(prog_url, timeout=15)
         if r.status_code == 200:
             prog_data = parse_crop_progress(r.text)
             print("Successfully parsed Crop Progress.")
+            try:
+                import crop_compare
+                prog_compare = crop_compare.run(r.text)
+                print(f"Crop Progress compare (vs năm trước / TB 5 năm): {list(prog_compare.keys())}")
+            except Exception as e:
+                print(f"  [WARN] Crop compare lỗi: {e}")
             
     # 3. Export Inspections
     inspections_data = parse_inspections()
@@ -513,6 +520,8 @@ def run_crawler_and_update():
                         fund[code]["competitors"]["latest"] = f"Úc: {au}M tấn | Nga: {ru}M tấn"
 
             # Crop Progress
+            if prog_compare.get(code):
+                fund[code]["progress_compare"] = prog_compare[code]
             if code in prog_data:
                 p_data = prog_data[code]
                 fmt_date = ""
