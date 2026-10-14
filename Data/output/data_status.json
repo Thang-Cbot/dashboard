@@ -55,7 +55,7 @@
     "github_sync": {
       "status": "[ERROR]",
       "detail": "Lỗi Push: ard.git\n ! [remote rejected]     main -> main (Internal Server Error)\nerror: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'",
-      "updated_at": "2026-10-14 22:00:58"
+      "updated_at": "2026-10-14 22:01:03"
     },
     "prices_h4": {
       "status": "[OK]",
