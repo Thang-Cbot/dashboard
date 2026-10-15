@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-10-14",
+  "last_updated_fundamentals": "2026-10-15",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -124,13 +124,13 @@
       "next_date": "09/10/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q2 (DO NHAT) - XA LONG",
       "action": "Cam bat day. Canh gia hoi de danh SHORT.",
-      "logic": "[2026-10-06] MM nam Long rong 329,839 HD. Tuan nay giam bot 51,381 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-10-13): +311,917 HD (Q2 (DO NHAT) - XA LONG) [Lag=-25.25c, Beta=709.8]",
+      "logic": "[2026-10-06] MM nam Long rong 329,839 HD. Tuan nay giam bot 51,381 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-10-15): +310,674 HD (Q2 (DO NHAT) - XA LONG) [Lag=-27.00c, Beta=709.8]",
       "raw_data": {
         "net_position": 329839.0,
         "change": -51381.0,
         "long": 393249.0,
         "short": 63410.0,
-        "net_estimated": 311917.0,
+        "net_estimated": 310674.0,
         "quadrant_est": "Q2 (DO NHAT) - XA LONG",
         "beta_13w": 709.8
       }
@@ -346,11 +346,11 @@
       }
     },
     "competitors": {
-      "latest": "Úc & Argentina",
-      "next_date": "Liên tục (Cập nhật hàng tuần)",
-      "forecast": "Úc giảm 41% sản lượng, Arg giảm 25%",
-      "action": "Thiệt hại kép -> Gom Long dài hạn (DCA)",
-      "logic": "Úc: Diện tích gieo trồng dự kiến giảm sâu 20.4% xuống còn 9.8 triệu ha. Sản lượng dự kiến giảm mạnh 41% xuống 21.3 triệu tấn do hạn hán đầu vụ ở phía Bắc NSW/Nam Queensland. Argentina: Đã gieo trồng được 14.2% diện tích. Sản lượng dự kiến đạt 20.7 triệu tấn (giảm 25% so với mức kỷ lục niên vụ trước) do nông dân lo ngại chi phí phân bón cao và rủi ro bệnh dịch từ El Niño."
+      "latest": "Úc & Argentina (USDA WASDE 10/2026)",
+      "next_date": "Cập nhật hàng tháng theo WASDE",
+      "forecast": "Úc 29.9 - 31.0M tấn | Argentina ~21.5M tấn",
+      "action": "Cung Nam Bán Cầu dồi dào -> Cản mạnh tại vùng giá cao (BSL)",
+      "logic": "Úc (ABARES & WASDE 10/2026): Mưa cuối đông cải thiện rõ rệt, sản lượng dự báo đạt 29.9 - 31.0 triệu tấn (cao hơn trung bình 10 năm). Argentina (WASDE 10/2026 & BCR): Sản lượng đạt khoảng 21.5 triệu tấn, xuất khẩu dự kiến 15.5 triệu tấn. Nguồn cung Nam Bán Cầu sắp gặt vào cuối năm sẽ tạo áp lực cạnh tranh gay gắt với lúa mì Mỹ."
     },
     "other_competitors": {
       "latest": "Nga, Ukraine & EU",
@@ -371,13 +371,13 @@
       "next_date": "09/10/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "logic": "[2026-10-06] MM nam Short rong 28,830 HD. Tuan nay giam bot 6,721 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-10-13): -39,774 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-35.00c, Beta=312.7]",
+      "logic": "[2026-10-06] MM nam Short rong 28,830 HD. Tuan nay giam bot 6,721 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-10-15): -38,601 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-31.25c, Beta=312.7]",
       "raw_data": {
         "net_position": -28830.0,
         "change": -6721.0,
         "long": 86954.0,
         "short": 115784.0,
-        "net_estimated": -39774.0,
+        "net_estimated": -38601.0,
         "quadrant_est": "Q3 (DO DAM) - NHOI SHORT",
         "beta_13w": 312.68
       }
@@ -610,5 +610,5 @@
     }
   },
   "wasde_report_month": "Oct",
-  "last_updated_cot": "2026-10-14 08:57:21"
+  "last_updated_cot": "2026-10-15 19:36:44"
 }

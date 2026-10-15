@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 19:00:14",
-      "updated_at": "2026-10-15 19:00:15"
+      "detail": "Auto-fetch 20:17:08",
+      "updated_at": "2026-10-15 20:17:08"
     },
     "macro": {
       "status": "[OK]",
@@ -53,9 +53,9 @@
       "updated_at": "2026-10-14 21:22:25"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 19:00:33 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-10-15 19:00:33"
+      "status": "[ERROR]",
+      "detail": "Lỗi Push: fatal: unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Could not resolve host: github.com",
+      "updated_at": "2026-10-15 19:32:35"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -72,27 +72,27 @@
   "export_sales": {
     "status": "OK",
     "detail": "Kỳ: 10/01/2026 | ZW=451,600 MT, ZC=769,500 MT",
-    "updated_at": "2026-10-14 08:56:59"
+    "updated_at": "2026-10-15 19:36:20"
   },
   "acreage": {
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-10-14 08:57:04"
+    "updated_at": "2026-10-15 19:36:25"
   },
   "usda": {
     "status": "OK",
-    "detail": "Updated: 2026-10-14 | WASDE: Oct",
-    "updated_at": "2026-10-14 08:57:16"
+    "detail": "Updated: 2026-10-15 | WASDE: Oct",
+    "updated_at": "2026-10-15 19:36:40"
   },
   "cot": {
     "status": "[OK] Success",
     "detail": "",
-    "updated_at": "2026-10-14 08:57:21"
+    "updated_at": "2026-10-15 19:36:44"
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 19:00",
-    "updated_at": "2026-10-15 19:00:14"
+    "detail": "ZC+ZW updated at 20:16",
+    "updated_at": "2026-10-15 20:17:08"
   },
   "macro": {
     "status": "OK",
