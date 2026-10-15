@@ -53,9 +53,9 @@
       "updated_at": "2026-10-14 21:22:25"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 14:01:04 (Nguồn: Giá H1 + Macro)",
-      "updated_at": "2026-10-15 14:01:04"
+      "status": "[ERROR]",
+      "detail": "Lỗi Push: fatal: unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Could not resolve host: github.com",
+      "updated_at": "2026-10-15 14:44:14"
     },
     "prices_h4": {
       "status": "[ERROR]",
