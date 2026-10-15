@@ -1094,11 +1094,8 @@ with _tab_h1:
             _h1_clr_up = "#22c55e"; _h1_clr_dn = "#ef4444"
 
             _fig_h1 = make_subplots(
-                rows=2, cols=1,
-                shared_xaxes=True,
-                vertical_spacing=0.05,
-                row_heights=[0.80, 0.20],
-                subplot_titles=[f"Biểu đồ nến H1 — {selected_name} ({selected_contract})", "Volume"]
+                rows=1, cols=1,
+                subplot_titles=[f"Biểu đồ nến H1 — {selected_name} ({selected_contract})"]
             )
 
             # Nến Candlestick H1
@@ -1199,13 +1196,6 @@ with _tab_h1:
                     hoverinfo="text",
                 ), row=1, col=1)
 
-            # Volume bars
-            _h1_vol_colors = [_h1_clr_up if r["Close"] >= r["Open"] else _h1_clr_dn for _, r in _dfh1.iterrows()]
-            _fig_h1.add_trace(go.Bar(
-                x=_dfh1["Label"], y=_dfh1["Volume"],
-                name="Volume", marker_color=_h1_vol_colors, opacity=0.6,
-            ), row=2, col=1)
-
             # Nhãn Close nến cuối
             _h1_last_close = _dfh1["Close"].iloc[-1]
             _h1_last_label = _dfh1["Label"].iloc[-1]
@@ -1295,13 +1285,6 @@ with _tab_h1:
                     hovertext=[f"🩸 Kịch bản 3 (Săn SSL): {y:.2f}¢" for y in _cone_bear]
                 ), row=1, col=1)
 
-                # Đồng bộ danh sách categories cho Subplot 2 (Volume)
-                _fig_h1.add_trace(go.Bar(
-                    x=_future_lbls, y=[0]*len(_future_lbls),
-                    name="Dự phóng", marker_color="rgba(0,0,0,0)",
-                    showlegend=False, hoverinfo="skip"
-                ), row=2, col=1)
-
                 # Các vùng thanh khoản ngang SMC (Horizontal Zones)
                 _fig_h1.add_hrect(
                     y0=_base_bsl[0], y1=_base_bsl[1],
@@ -1352,22 +1335,19 @@ with _tab_h1:
                 xaxis=dict(
                     gridcolor="#1e2d45", tickangle=-45, tickfont=dict(size=9),
                     range=[_h1_x_start, _h1_x_end],
-                    rangeslider=dict(visible=False), type="category",
+                    type="category",
+                    showspikes=True, spikemode="across", spikesnap="cursor",
+                    spikecolor="#94a3b8", spikethickness=1, spikedash="dot",
+                    rangeslider=dict(visible=False),
                 ),
                 yaxis=dict(
                     gridcolor="#1e2d45", tickformat=".2f",
                     range=[_h1_ylo - _h1_yp, _h1_yhi + _h1_yp],
+                    side="right",
                     title="Giá (¢/bu)", title_font=dict(size=11),
+                    showspikes=True, spikemode="across", spikesnap="cursor",
+                    spikecolor="#94a3b8", spikethickness=1, spikedash="dot",
                 ),
-                xaxis2=dict(
-                    gridcolor="#1e2d45", tickangle=-45, tickfont=dict(size=9),
-                    type="category",
-                    rangeslider=dict(
-                        visible=True, bgcolor="#0d1425",
-                        bordercolor="#334155", borderwidth=1, thickness=0.04,
-                    ),
-                ),
-                yaxis2=dict(gridcolor="#1e2d45", title="Volume", title_font=dict(size=10)),
                 showlegend=True,
                 legend=dict(
                     x=0.01, y=0.99, bgcolor="rgba(15,22,41,0.5)",
