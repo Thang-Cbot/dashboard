@@ -204,7 +204,8 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ── TAB: D1 và Giá H4 ────────────────────────────────────────
-_tab_d1, _tab_h4, _tab_h1 = st.tabs(["📅 Tab D1", "📊 Giá H4", "⏱️ Giá H1"])
+_tab_d1, _tab_h4, _tab_h1 = st.tabs(["📅 Tab D1", "📊 Giá H4", "🔮 Giá H1 & Future Cone"])
+
 
 # ─── TAB D1: Giữ nguyên nội dung cũ ─────────────────────────
 with _tab_d1:
@@ -951,6 +952,109 @@ with _tab_h1:
             _dfh1["EMA21"] = _dfh1["Close"].ewm(span=21, adjust=False).mean()
             _dfh1["EMA50"] = _dfh1["Close"].ewm(span=50, adjust=False).mean()
 
+            # --- TÍNH BIẾN ĐỘNG ATR (14 nến H1) CHO FUTURE CONE ---
+            _dfh1_tr = pd.concat([
+                _dfh1["High"] - _dfh1["Low"],
+                (_dfh1["High"] - _dfh1["Close"].shift(1)).abs(),
+                (_dfh1["Low"] - _dfh1["Close"].shift(1)).abs()
+            ], axis=1).max(axis=1)
+            _h1_atr14 = float(_dfh1_tr.tail(14).mean()) if len(_dfh1_tr) >= 14 else 2.5
+
+            # --- DỮ LIỆU ĐỘNG VĨ MÔ & V3 SNAPSHOT ---
+            _v3_state = load_json("v3_state_snapshot.json")
+            _v3_comm = _v3_state.get("commodities", {}).get(code, {}).get("active", {})
+            _v3_macro = _v3_state.get("macro", {})
+
+            # Thiết lập Trục Fair Value và Vùng BSL / SSL chuẩn hóa
+            if code == "ZW":
+                _base_fv = 670.0
+                _base_bsl = [674.0, 678.0]
+                _base_ssl = [661.5, 665.5]
+                _unit_lbl = "¢/bu"
+            elif code == "ZC":
+                _base_fv = 480.0
+                _base_bsl = [485.0, 488.0]
+                _base_ssl = [474.0, 478.0]
+                _unit_lbl = "¢/bu"
+            else:
+                _base_fv = float(_dfh1["Close"].iloc[-1])
+                _base_bsl = [_base_fv + 1.5 * _h1_atr14, _base_fv + 2.5 * _h1_atr14]
+                _base_ssl = [_base_fv - 2.5 * _h1_atr14, _base_fv - 1.5 * _h1_atr14]
+                _unit_lbl = "pts"
+
+            if _v3_comm:
+                _r1 = _v3_comm.get("r1")
+                _s1 = _v3_comm.get("s1")
+                _r2 = _v3_comm.get("r2")
+                _s2 = _v3_comm.get("s2")
+                if _r1 and _s1 and abs((_r1 + _s1)/2 - _base_fv) <= 15.0:
+                    _base_fv = round((_r1 + _s1)/2, 2)
+                if _r1 and _r1 > _base_fv:
+                    _base_bsl[0] = min(_base_bsl[0], _r1)
+                    if _r2 and _r2 < _base_bsl[1] + 25.0:
+                        _base_bsl[1] = max(_base_bsl[1], _r2)
+                if _s1 and _s1 < _base_fv:
+                    _base_ssl[1] = max(_base_ssl[1], _s1)
+                    if _s2 and _s2 > _base_ssl[0] - 25.0:
+                        _base_ssl[0] = min(_base_ssl[0], _s2)
+
+            # Vi chỉnh theo biến động Vĩ Mô DXY & Brent
+            _brent_pct = float(_v3_macro.get("brent_pct", 0.0)) if _v3_macro else 0.0
+            _dxy_pct   = float(_v3_macro.get("dxy_pct", 0.0)) if _v3_macro else 0.0
+            _macro_shift = 0.0
+            if _brent_pct > 1.0: _macro_shift += 0.5
+            elif _brent_pct < -1.0: _macro_shift -= 0.5
+            if _dxy_pct > 0.5: _macro_shift -= 0.5
+            elif _dxy_pct < -0.5: _macro_shift += 0.5
+            _fair_value = round(_base_fv + _macro_shift, 2)
+
+            _sig_type = live_sig.get("setup_type", "THEO DÕI") if live_sig else "THEO DÕI"
+            _sig_entry = live_sig.get("setup_entry_range", f"{_base_ssl[0]:.1f} - {_base_bsl[1]:.1f}") if live_sig else f"{_base_ssl[0]:.1f} - {_base_bsl[1]:.1f}"
+
+            # ── CONTROLS & KPI CARDS CHO FUTURE CHART 2.0 ──
+            _c_ctrl1, _c_ctrl2 = st.columns([3, 1])
+            with _c_ctrl1:
+                _show_future = st.checkbox("🔮 Bật Future Chart 2.0 (Phễu Kịch Bản Động & Vùng Thanh Khoản SMC)", value=True, key=f"future_cone_{code}_{suffix}")
+            with _c_ctrl2:
+                _future_hrs = st.selectbox("Khung dự phóng", [12, 18, 24], index=0, format_func=lambda x: f"+{x} Giờ tới", key=f"future_hrs_{code}_{suffix}")
+
+            if _show_future:
+                _c_kpi1, _c_kpi2, _c_kpi3, _c_kpi4 = st.columns(4)
+                _c_kpi1.markdown(f"""
+                <div style='background:#111b2e;border:1px solid #1e293b;border-top:3px solid #38bdf8;border-radius:6px;padding:8px 12px;'>
+                    <div style='font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;'>🎯 TRỤC FAIR VALUE</div>
+                    <div style='font-size:18px;font-weight:800;color:#38bdf8;margin:2px 0;'>{_fair_value:.2f} <span style='font-size:11px;color:#64748b;'>{_unit_lbl}</span></div>
+                    <div style='font-size:10px;color:#64748b;'>Trọng tâm cân bằng cung cầu</div>
+                </div>
+                """, unsafe_allow_html=True)
+
+                _c_kpi2.markdown(f"""
+                <div style='background:#111b2e;border:1px solid #1e293b;border-top:3px solid #f43f5e;border-radius:6px;padding:8px 12px;'>
+                    <div style='font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;'>🩸 TRẦN BSL (RESISTANCE)</div>
+                    <div style='font-size:18px;font-weight:800;color:#fb7185;margin:2px 0;'>{_base_bsl[0]:.1f} - {_base_bsl[1]:.1f} <span style='font-size:11px;color:#64748b;'>{_unit_lbl}</span></div>
+                    <div style='font-size:10px;color:#64748b;'>Săn Buy-Side Liq · Canh Fakeout Bán</div>
+                </div>
+                """, unsafe_allow_html=True)
+
+                _c_kpi3.markdown(f"""
+                <div style='background:#111b2e;border:1px solid #1e293b;border-top:3px solid #22c55e;border-radius:6px;padding:8px 12px;'>
+                    <div style='font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;'>🛡️ SÀN SSL (SUPPORT)</div>
+                    <div style='font-size:18px;font-weight:800;color:#4ade80;margin:2px 0;'>{_base_ssl[0]:.1f} - {_base_ssl[1]:.1f} <span style='font-size:11px;color:#64748b;'>{_unit_lbl}</span></div>
+                    <div style='font-size:10px;color:#64748b;'>Săn Sell-Side Liq · Vùng gom DCA Mua</div>
+                </div>
+                """, unsafe_allow_html=True)
+
+                _sig_badge_color = "#22c55e" if "LONG" in _sig_type else ("#ef4444" if "SHORT" in _sig_type else "#f59e0b")
+                _c_kpi4.markdown(f"""
+                <div style='background:#111b2e;border:1px solid #1e293b;border-top:3px solid {_sig_badge_color};border-radius:6px;padding:8px 12px;'>
+                    <div style='font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;'>⚡ KHUYẾN NGHỊ REAL-TIME</div>
+                    <div style='font-size:18px;font-weight:800;color:{_sig_badge_color};margin:2px 0;'>{_sig_type}</div>
+                    <div style='font-size:10px;color:#64748b;'>Vùng Action: {_sig_entry}</div>
+                </div>
+                """, unsafe_allow_html=True)
+                st.markdown("<div style='height:6px'></div>", unsafe_allow_html=True)
+
+
             # Xác định Swing High / Swing Low (Fractal 5 nến)
             _dfh1['Swing_High'] = False
             _dfh1['Swing_Low']  = False
@@ -1114,15 +1218,131 @@ with _tab_h1:
                 row=1, col=1
             )
 
+            # --- VẼ FUTURE SCENARIO CONE & VÙNG THANH KHOẢN SMC TRÊN BIỂU ĐỒ ---
+            _cone_x = []
+            _cone_bull = []
+            _cone_fv = []
+            _cone_bear = []
+            if _show_future:
+                _last_dt = _dfh1["Datetime"].iloc[-1]
+                _last_close = float(_dfh1["Close"].iloc[-1])
+                _last_lbl = _dfh1["Label"].iloc[-1]
+
+                _cone_steps = _future_hrs
+                _future_dts = [_last_dt + pd.Timedelta(hours=i) for i in range(1, _cone_steps + 1)]
+                _future_lbls = [f"🔮 +{i}h (" + dt.strftime("%H:%M") + ")" for i, dt in enumerate(_future_dts, 1)]
+                _cone_x = [_last_lbl] + _future_lbls
+
+                _target_bull = _base_bsl[1] if _last_close < _base_bsl[1] else _last_close + 1.2 * _h1_atr14
+                _target_fv   = _fair_value
+                _target_bear = _base_ssl[0] if _last_close > _base_ssl[0] else _last_close - 1.2 * _h1_atr14
+
+                import math
+                _cone_bull = [_last_close]
+                _cone_fv   = [_last_close]
+                _cone_bear = [_last_close]
+
+                for _step in range(1, _cone_steps + 1):
+                    _decay_bull = 1.0 - math.exp(-_step / 4.0)
+                    _decay_fv   = 1.0 - math.exp(-_step / 3.0)
+                    _decay_bear = 1.0 - math.exp(-_step / 4.0)
+                    
+                    _cone_bull.append(round(_last_close + (_target_bull - _last_close) * _decay_bull, 2))
+                    _cone_fv.append(round(_last_close + (_target_fv - _last_close) * _decay_fv, 2))
+                    _cone_bear.append(round(_last_close + (_target_bear - _last_close) * _decay_bear, 2))
+
+                # Đổ bóng phễu xác suất 80% (Confidence Interval)
+                _fig_h1.add_trace(go.Scatter(
+                    x=_cone_x, y=_cone_bear,
+                    mode="lines", line=dict(color="rgba(239, 68, 68, 0.35)", width=1.5, dash="dash"),
+                    showlegend=False, hoverinfo="skip"
+                ), row=1, col=1)
+
+                _fig_h1.add_trace(go.Scatter(
+                    x=_cone_x, y=_cone_bull,
+                    mode="lines", line=dict(color="rgba(34, 197, 94, 0.35)", width=1.5, dash="dash"),
+                    fill="tonexty", fillcolor="rgba(99, 102, 241, 0.12)",
+                    name="🔮 Phễu Xác Suất 80%", hoverinfo="skip"
+                ), row=1, col=1)
+
+                # Đường kịch bản 1: Bullish Sweep BSL
+                _fig_h1.add_trace(go.Scatter(
+                    x=_cone_x, y=_cone_bull,
+                    mode="lines+markers", name="🚀 Kịch Bản 1: Săn BSL (Bullish)",
+                    line=dict(color="#38bdf8", width=2.2, dash="dot"),
+                    marker=dict(size=4, color="#38bdf8"),
+                    hoverinfo="text",
+                    hovertext=[f"🚀 Kịch bản 1 (Săn BSL): {y:.2f}¢" for y in _cone_bull]
+                ), row=1, col=1)
+
+                # Đường kịch bản 2: Reversion về Fair Value
+                _fig_h1.add_trace(go.Scatter(
+                    x=_cone_x, y=_cone_fv,
+                    mode="lines+markers", name="🎯 Kịch Bản 2: Về Fair Value",
+                    line=dict(color="#f59e0b", width=2.5, dash="dashdot"),
+                    marker=dict(size=4, color="#f59e0b"),
+                    hoverinfo="text",
+                    hovertext=[f"🎯 Kịch bản 2 (Fair Value): {y:.2f}¢" for y in _cone_fv]
+                ), row=1, col=1)
+
+                # Đường kịch bản 3: Bearish Sweep SSL
+                _fig_h1.add_trace(go.Scatter(
+                    x=_cone_x, y=_cone_bear,
+                    mode="lines+markers", name="🩸 Kịch Bản 3: Săn SSL (Bearish)",
+                    line=dict(color="#fb7185", width=2.2, dash="dot"),
+                    marker=dict(size=4, color="#fb7185"),
+                    hoverinfo="text",
+                    hovertext=[f"🩸 Kịch bản 3 (Săn SSL): {y:.2f}¢" for y in _cone_bear]
+                ), row=1, col=1)
+
+                # Đồng bộ danh sách categories cho Subplot 2 (Volume)
+                _fig_h1.add_trace(go.Bar(
+                    x=_future_lbls, y=[0]*len(_future_lbls),
+                    name="Dự phóng", marker_color="rgba(0,0,0,0)",
+                    showlegend=False, hoverinfo="skip"
+                ), row=2, col=1)
+
+                # Các vùng thanh khoản ngang SMC (Horizontal Zones)
+                _fig_h1.add_hrect(
+                    y0=_base_bsl[0], y1=_base_bsl[1],
+                    fillcolor="rgba(244, 63, 94, 0.12)", line_width=1,
+                    line_color="rgba(244, 63, 94, 0.45)",
+                    annotation_text=f"🩸 VÙNG SĂN BSL ({_base_bsl[0]:.1f}-{_base_bsl[1]:.1f}) · Canh Fakeout Bán",
+                    annotation_position="top left",
+                    annotation_font=dict(size=10, color="#fb7185", family="Inter"),
+                    row=1, col=1
+                )
+                _fig_h1.add_hline(
+                    y=_fair_value, line_dash="dash",
+                    line_color="rgba(56, 189, 248, 0.65)", line_width=1.5,
+                    annotation_text=f"🎯 TRỤC FAIR VALUE ({_fair_value:.2f})",
+                    annotation_position="top left",
+                    annotation_font=dict(size=10, color="#38bdf8", family="Inter"),
+                    row=1, col=1
+                )
+                _fig_h1.add_hrect(
+                    y0=_base_ssl[0], y1=_base_ssl[1],
+                    fillcolor="rgba(34, 197, 94, 0.12)", line_width=1,
+                    line_color="rgba(34, 197, 94, 0.45)",
+                    annotation_text=f"🛡️ VÙNG SĂN SSL ({_base_ssl[0]:.1f}-{_base_ssl[1]:.1f}) · Vùng Gom DCA Mua",
+                    annotation_position="bottom left",
+                    annotation_font=dict(size=10, color="#4ade80", family="Inter"),
+                    row=1, col=1
+                )
+
             # Layout — hiển thị mặc định 1 ngày (24 nến H1), kéo thanh trượt để xem thêm
             _h1_total = len(_dfh1)
             _h1_default = 24
             _h1_start_idx = max(0, _h1_total - _h1_default)
             _h1_x_start = _dfh1["Label"].iloc[_h1_start_idx]
-            _h1_x_end   = _dfh1["Label"].iloc[-1]
+            _h1_x_end   = _cone_x[-1] if (_show_future and len(_cone_x) > 0) else _dfh1["Label"].iloc[-1]
             _h1_vis = _dfh1.iloc[_h1_start_idx:]
-            _h1_ylo = _h1_vis["Low"].min()
-            _h1_yhi = _h1_vis["High"].max()
+            if _show_future and len(_cone_bear) > 0 and len(_cone_bull) > 0:
+                _h1_ylo = min(_h1_vis["Low"].min(), min(_cone_bear), _base_ssl[0])
+                _h1_yhi = max(_h1_vis["High"].max(), max(_cone_bull), _base_bsl[1])
+            else:
+                _h1_ylo = _h1_vis["Low"].min()
+                _h1_yhi = _h1_vis["High"].max()
             _h1_yp  = (_h1_yhi - _h1_ylo) * 0.08
 
             _fig_h1.update_layout(
@@ -1154,7 +1374,7 @@ with _tab_h1:
                     bordercolor="#334155", borderwidth=1,
                     font=dict(size=9), itemwidth=30,
                 ),
-                height=700, hovermode="x unified",
+                height=720, hovermode="x unified",
             )
             _fig_h1.update_yaxes(showgrid=True, zeroline=False)
 
@@ -1172,7 +1392,7 @@ with _tab_h1:
             _h1_last_time = _dfh1["Datetime"].iloc[-1].strftime("%d/%m/%Y %H:%M")
             st.markdown(
                 f"<div style='font-size:11px;color:#64748b;margin-bottom:8px;'>"
-                f"Nến H1 · 200 nến gần nhất · Hiển thị mặc định: 1 ngày (24 nến) — kéo thanh trượt bên dưới để xem thêm · Cập nhật đến: "
+                f"Nến H1 · 200 nến gần nhất · Hiển thị mặc định: 1 ngày (24 nến) + Phễu kịch bản tương lai · Cập nhật đến: "
                 f"<span style='color:#f59e0b;font-weight:700;'>{_h1_last_time} (VN)</span> · "
                 f"EMA <span style='color:#f59e0b;'>21 (vàng)</span> · "
                 f"EMA <span style='color:#a78bfa;'>50 (tím)</span> · "
@@ -1182,6 +1402,23 @@ with _tab_h1:
                 unsafe_allow_html=True
             )
             st.plotly_chart(_fig_h1, use_container_width=True)
+
+            # Khối diễn giải chiến thuật Future Chart 2.0
+            if _show_future:
+                st.markdown(f"""
+                <div style='background:#111b2e;border:1px solid #1e293b;border-left:4px solid #38bdf8;border-radius:6px;padding:12px 16px;margin:8px 0 16px;'>
+                    <div style='font-size:13px;font-weight:800;color:#38bdf8;margin-bottom:6px;'>
+                        🔮 NGUYÊN LÝ HOẠT ĐỘNG & TÁC CHIẾN FUTURE CHART 2.0 (DYNAMIC SCENARIO CONE)
+                    </div>
+                    <div style='font-size:12px;color:#cbd5e1;line-height:1.6;'>
+                        <b>1. Thích ứng động tự động (Auto-Adaptive):</b> Biểu đồ không dùng nến tĩnh cố định mô phỏng quá khứ (dễ sai lệch), mà trực tiếp giải mã dải xác suất từ <b>Trục Fair Value</b> ({_fair_value:.2f}¢), độ lệch chuẩn biến động <b>ATR-14</b> ({_h1_atr14:.2f}¢/giờ) và xung lượng vĩ mô <b>DXY / Brent</b>.<br>
+                        <b>2. Kịch bản 1 — Săn BSL ({_base_bsl[0]:.1f} - {_base_bsl[1]:.1f}¢):</b> Dòng tiền lớn kéo giật giá để quét lệnh Stoploss phe Bán nhỏ lẻ. Canh tín hiệu nến kiệt sức hoặc quét rút râu (Fakeout Sweep) để kích hoạt lệnh <b>SHORT</b> đè giá.<br>
+                        <b>3. Kịch bản 2 — Trọng tâm Cân Bằng (Fair Value {_fair_value:.2f}¢):</b> Khi không có tin bão giá hoặc báo cáo WASDE bất ngờ, thị trường sẽ hồi quy (Mean-Reversion) về quanh trục cân bằng cung cầu này.<br>
+                        <b>4. Kịch bản 3 — Săn SSL ({_base_ssl[0]:.1f} - {_base_ssl[1]:.1f}¢):</b> Phe tạo lập đạp thủng hỗ trợ kỹ thuật để hốt thanh khoản Long. Là vùng giải ngân <b>GOM MUA DCA TRUNG HẠN</b> hoặc chờ nến MSS đảo chiều để BUY.
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+
 
             # Bảng tóm tắt nến H1 cuối cùng
             st.markdown("<div style='font-size:12px;font-weight:700;color:#94a3b8;letter-spacing:0.5px;margin:8px 0 6px;'>📋 CÁC NẾN H1 GẦN NHẤT</div>", unsafe_allow_html=True)
