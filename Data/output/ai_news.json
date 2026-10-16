@@ -1,221 +1,47 @@
 {
-  "timestamp": "2026-10-14 21:22:25",
-  "news": [
-    {
-      "title": "Giá lúa mì CBOT mở cửa tăng nhẹ",
-      "details": [
-        "Giá lúa mì giao tháng 12/2026 trên sàn CBOT mở cửa ở mức 712 cent/bushel.",
-        "Khối lượng giao dịch tối thiểu là 5.000 bushel."
-      ],
-      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-bot-table-140048145.html?.tsrc=rss",
-      "source": "14 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Cập nhật giá lúa mì SRW ngày 14/10",
-      "details": [
-        "Giá lúa mì SRW giao tháng 12/2026 ở mức 668 cent/bushel tính đến 10:00 AM ngày 14/10.",
-        "Khối lượng giao dịch tối thiểu là 5.000 bushel."
-      ],
-      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-wheat-futures-140035603.html?.tsrc=rss",
-      "source": "14 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Chất lượng ngô Mỹ cải thiện, đậu tương ổn định",
-      "details": [
-        "Chất lượng ngô Mỹ tăng 2 điểm trong tuần kết thúc ngày 11/10.",
-        "Chất lượng đậu tương giữ ổn định trong cùng kỳ."
-      ],
-      "link": "https://www.farmprogress.com/grains/crop-progress-corn-quality-shifts-2-points-higher",
-      "source": "14 Oct 2026 - Farm Progress",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Xuất khẩu ethanol Mỹ đạt đỉnh 5 tháng, thúc đẩy nhu cầu ngô",
-      "details": [
-        "Xuất khẩu ethanol và DDG của Mỹ tăng lên mức cao nhất trong 5 tháng.",
-        "Nhu cầu tăng do các quy định về nhiên liệu sinh học mới.",
-        "Có thể đẩy diện tích đất trồng trọt cho nhiên liệu lên 70 triệu mẫu Anh vào năm 2030, tăng nhu cầu ngô và đậu tương."
-      ],
-      "link": "https://www.farmprogress.com/tv-and-radio/u-s-ethanol-exports-hit-5-month-high-on-biofuel-demand",
-      "source": "14 Oct 2026 - Farm Progress",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Đậu tương tăng giá nhờ Trung Quốc, ngô biến động nhẹ",
-      "details": [
-        "Giá đậu tương tăng qua đêm sau báo cáo về việc Trung Quốc mua hàng mới.",
-        "Giá ngô biến động nhẹ sau khi USDA báo cáo tiến độ thu hoạch được cải thiện."
-      ],
-      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
-      "source": "14 Oct 2026 - Farm Progress",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Lúa mì suy yếu nhẹ do xuất khẩu chậm chạp",
-      "details": [
-        "Giá lúa mì giảm trên diện rộng vào thứ Ba.",
-        "Hợp đồng SRW Chicago giảm 2,5 đến 4,25 cent.",
-        "Hợp đồng HRW Kansas City giảm 2,5 đến 3,25 cent.",
-        "Xuất khẩu chậm chạp tiếp tục gây áp lực lên thị trường."
-      ],
-      "link": "https://www.barchart.com/story/news/7117122/wheat-faces-modest-tuesday-weakness-with-export-drag-continuing?.tsrc=rss",
-      "source": "13 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Giá ngô giảm nhẹ vào cuối phiên thứ Ba",
-      "details": [
-        "Hợp đồng ngô tương lai đóng cửa phiên thứ Ba giảm nhẹ.",
-        "Giá ngô tiền mặt trung bình quốc gia không đổi ở mức 4,42 1/2 USD.",
-        "Báo cáo Crop Progress cho thấy 91% cây ngô Mỹ đã trưởng thành, 33% đã thu hoạch tính đến ngày 11/10."
-      ],
-      "link": "https://www.barchart.com/story/news/7116949/corn-sees-modest-weakness-at-tuesdays-close?.tsrc=rss",
-      "source": "13 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Cập nhật giá ngô CBOT ngày 13/10",
-      "details": [
-        "Giá ngô CBOT giao tháng 12/2026 ở mức 483 cent/bushel tính đến 4:30 PM ngày 13/10.",
-        "Khối lượng giao dịch tối thiểu là 5.000 bushel."
-      ],
-      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-corn-futures-140024592.html?.tsrc=rss",
-      "source": "13 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Biển Đen 'âm thầm đóng cửa', ảnh hưởng xuất khẩu ngũ cốc",
-      "details": [
-        "Các tuyến đường vận chuyển ở Biển Đen đã âm thầm bị đóng cửa.",
-        "Tình hình này ảnh hưởng nghiêm trọng đến xuất khẩu ngũ cốc từ khu vực.",
-        "Gây lo ngại về nguồn cung toàn cầu."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNQW5UNWxXWGZuV3R4cVFjTHd1ZXhJRHA2SnhGc2RuU1JFaElkU1A4SWZfdi1LUVZ2cmpjMlFpTzFUWkdDWWJ1OXZLVUh0UjN0WWs4V2Nhd3lqQllkSmlfMTA2ZWZFR3F1UmpXdlBOTUxBUTJGNE1OeHpiZHpQbEtJcmtqRHdnekNaVmRodVA2VnhlNE5aS2hORENia3JuSDh3dkJQVUk1dw?oc=5",
-      "source": "13 Oct 2026 - Modern Diplomacy",
-      "category": "logistics"
-    },
-    {
-      "title": "Giá lúa mì châu Âu tăng vọt sau gói thầu của Algeria",
-      "details": [
-        "Giá lúa mì tương lai châu Âu tăng.",
-        "Algeria đã phát hành gói thầu mua lúa mì.",
-        "Gói thầu này cho thấy nhu cầu nhập khẩu mạnh mẽ."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNTkM5Y1pKV0NjMDhPOTFXc3FtOGJNVlNOSlBiUDJ6Y1d3VThQODNEY0ZieDVsYmxPSk9lTzh0ek9kTEVmRDFlekMzaVdsM0pYYUttNm1CZF95cE93VEhHTnBIZzlka2dSOWVCeE1qbWJTRjNQSThvbXZUbXdwVUpVYUJLVTh0VGw0XzdUWUgxRVlCQzRjNWVSSGxlUTlHX2FLRlZhUkJqSElFYmk2ci1sLVl5T0pQd1RkUzJpZFhPdw?oc=5",
-      "source": "13 Oct 2026 - Investing.com India",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Lúa mì Paris tăng giá do gói thầu Algeria và hy vọng hòa bình Biển Đen mờ nhạt",
-      "details": [
-        "Giá lúa mì Paris tăng.",
-        "Được thúc đẩy bởi gói thầu mua hàng của Algeria.",
-        "Hy vọng về hòa bình ở Biển Đen đang dần tan biến, gây lo ngại về nguồn cung."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQZ0VIbmplbzg4WS13TTFQYzl2YjU3cVQ0WHBuaENQaGdaYUdpTFIzTnVnWGl3QUU1WG9SYWZwcXRGcm5kOFVydGZBNWZ5LS1rZzlmZUx2VFVzdUpRSGlHdm5nSGNobkk3eWxodC1sZi1uV2ZuWWhYeXlDOFF6UVpnaVhEU3RCbkpheHh1RWVmTzlNaHFNeFU1WW16aERWb0Rnb3EtR9IBVkFVX3lxTFBLZ3JnZ0VRdV82U2VTazhmNTA0ZWNHSEVmbHhtVDJLZ1VacjJrVl9JdXlpaFpQWDdMSnFLM3dkODBYTHdoVmx1SHhXTkVhdGtpMjliYkN3?oc=5",
-      "source": "13 Oct 2026 - Business Recorder",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Các nước Baltic kêu gọi EU cấm vận chuyển ngũ cốc Nga qua Biển Đen",
-      "details": [
-        "Các quốc gia Baltic thúc giục EU cấm vận chuyển ngũ cốc của Nga.",
-        "Lượng hàng hóa qua Biển Đen đang giảm.",
-        "Động thái này nhằm gây áp lực lên Nga và có thể ảnh hưởng đến nguồn cung ngũ cốc toàn cầu."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQWk1TR21XU1VobUlTTmZqVlhneFNmUW9QR3FoMzE0MlVKdmxtRTJfM2NTdkUzTjRrM3I4Mll5bC1mSk9BMl84c1ZsVjdsbUJWWmpXb1RJSXozNTR0d05hTlY2bGcyZ2NrZmFaMFZUNGxPY3VRS1VFLWNBaG02aHJnSmpGRXhtUDRxRG9md1d6OG5IN05DQzhrS1VleGpzVnNvM29nNmRsWmpjam00UVE?oc=5",
-      "source": "12 Oct 2026 - Marine Insight",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Zelenskyy cảnh báo nguy cơ nạn đói do phong tỏa Biển Đen",
-      "details": [
-        "Tổng thống Zelenskyy cảnh báo về nguy cơ nạn đói toàn cầu.",
-        "Hậu quả của việc Nga phong tỏa Biển Đen.",
-        "Tình hình này đe dọa nguồn cung ngũ cốc quan trọng từ Ukraine."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNNEN3SmZsMVVQQTdGa2YxUTAyczM2NmRFZjJBanNYMWxKWGFVOXhrNkNuSUplQnFHT1ZJdGlNXzlHWnJzQ1JZVFBZbWxoUE53Nk9MU0ZBZHBXYVh2S1pNYXNyODFiSU5aUEFmM3dKbWtBa21kSm9GcWFQdXFweWZzc3h5QjdsS05wYzNQYkZLQ2V2VlcwVnAzZEQ0ZVBOeFVLc3hkcTZDZ01rT0hKT191ZG5tT0xsZw?oc=5",
-      "source": "12 Oct 2026 - shelter.in.ua",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Hợp đồng ngô tương lai CME lập kỷ lục khối lượng giao dịch mới",
-      "details": [
-        "Hợp đồng ngô tương lai của CME Group đạt kỷ lục khối lượng giao dịch hàng ngày mới là 1.206.376 hợp đồng vào ngày 9/10.",
-        "Vượt qua kỷ lục trước đó là 1.128.597 hợp đồng vào ngày 29/3/2019.",
-        "Kỷ lục này được thiết lập sau khi USDA nâng triển vọng."
-      ],
-      "link": "https://finance.yahoo.com/markets/commodities/articles/cme-groups-corn-futures-set-223600835.html?.tsrc=rss",
-      "source": "12 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Báo cáo USDA gây sốc, giá ngô giảm xuống thấp nhất 8 tuần",
-      "details": [
-        "Báo cáo năng suất của USDA gây bất ngờ cho thị trường.",
-        "Giá ngô giảm mạnh xuống mức thấp nhất trong 8 tuần.",
-        "Cho thấy triển vọng nguồn cung có thể thay đổi."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQX01KbXpabndQeDFydlpEWVg3b2ZsZzNpYmxEUXdDNFlQVkw2MHlBVEh6TWtCOVE4T2xheXVnUC1iVXNFZGhIWUd3bTBmMEdCVDdqamUwSU5teDZ5YTJJeDFBeUtzWm91U2FicHlWVWdwNDNhcWVhMXpQdXE5Q3prWUcyenRsZE9iY2RWNGtnUzhITmlSQ2xHeXJn?oc=5",
-      "source": "09 Oct 2026 - Farm Progress",
-      "category": "san_luong_dien_tich"
-    }
-  ],
+  "timestamp": "2026-10-16 09:10:35",
+  "news": [],
   "intraday": {
     "ZW": {
-      "bias": "Bearish",
-      "bias_vn": "Giảm",
-      "summary": "Lúa mì có xu hướng giảm nhẹ do xuất khẩu chậm chạp và vị thế bán ròng mạnh từ Smart Money.",
+      "bias": "Neutral",
+      "bias_vn": "Đi Ngang",
+      "summary": "Chưa đủ dữ liệu để nhận định intraday ZW",
       "key_levels": {
-        "support": "662.00",
-        "resistance": "672.00"
+        "support": "N/A",
+        "resistance": "N/A"
       },
       "reasoning": [
-        "Cung cầu: Xuất khẩu lúa mì chậm chạp, gây áp lực giảm giá.",
-        "Báo cáo USDA: Không có báo cáo mới, nhưng nhu cầu yếu có thể ảnh hưởng.",
-        "Vị thế COT Smart Money: Net short lớn, Q3 (NHOI SHORT) cho thấy xu hướng giảm.",
-        "Địa chính trị/Logistics: DXY mạnh gây áp lực, không có tin địa chính trị trực tiếp.",
-        "Kỹ thuật: Giá tham chiếu giảm, xu hướng intraday yếu."
+        "Đang chờ cập nhật dữ liệu"
       ],
-      "risk": "Bất ngờ tăng nhu cầu xuất khẩu hoặc thay đổi tâm lý thị trường có thể đảo chiều.",
-      "generated_at": "2026-10-14 21:22"
+      "risk": "N/A",
+      "generated_at": "2026-10-16 09:10"
     },
     "ZC": {
-      "bias": "Bearish",
-      "bias_vn": "Giảm",
-      "summary": "Ngô có xu hướng giảm nhẹ do chất lượng cải thiện và Smart Money giảm vị thế mua, bất chấp nhu cầu ethanol tăng.",
+      "bias": "Neutral",
+      "bias_vn": "Đi Ngang",
+      "summary": "Chưa đủ dữ liệu để nhận định intraday ZC",
       "key_levels": {
-        "support": "475.00",
-        "resistance": "482.00"
+        "support": "N/A",
+        "resistance": "N/A"
       },
       "reasoning": [
-        "Cung cầu: Chất lượng ngô Mỹ cải thiện (tăng cung), nhu cầu ethanol tăng (tăng cầu).",
-        "Báo cáo USDA: Chất lượng cải thiện có thể dẫn đến dự báo sản lượng tốt.",
-        "Vị thế COT Smart Money: Net long nhưng giảm (XA LONG), cho thấy thận trọng.",
-        "Địa chính trị/Logistics: Giá dầu Brent cao hỗ trợ nhu cầu ethanol, DXY mạnh.",
-        "Kỹ thuật: Giá tham chiếu giảm mạnh, cho thấy áp lực bán intraday."
+        "Đang chờ cập nhật dữ liệu"
       ],
-      "risk": "Nhu cầu ethanol tiếp tục tăng mạnh hoặc yếu tố thời tiết bất ngờ có thể hỗ trợ giá.",
-      "generated_at": "2026-10-14 21:22"
+      "risk": "N/A",
+      "generated_at": "2026-10-16 09:10"
     },
-    "bias": "Bearish",
-    "bias_vn": "Giảm",
-    "summary": "Lúa mì có xu hướng giảm nhẹ do xuất khẩu chậm chạp và vị thế bán ròng mạnh từ Smart Money.",
+    "bias": "Neutral",
+    "bias_vn": "Đi Ngang",
+    "summary": "Chưa đủ dữ liệu để nhận định",
     "key_levels": {
-      "support": "662.00",
-      "resistance": "672.00"
+      "support": "N/A",
+      "resistance": "N/A"
     },
     "reasoning": [
-      "Cung cầu: Xuất khẩu lúa mì chậm chạp, gây áp lực giảm giá.",
-      "Báo cáo USDA: Không có báo cáo mới, nhưng nhu cầu yếu có thể ảnh hưởng.",
-      "Vị thế COT Smart Money: Net short lớn, Q3 (NHOI SHORT) cho thấy xu hướng giảm.",
-      "Địa chính trị/Logistics: DXY mạnh gây áp lực, không có tin địa chính trị trực tiếp.",
-      "Kỹ thuật: Giá tham chiếu giảm, xu hướng intraday yếu."
+      "Đang chờ cập nhật dữ liệu"
     ],
-    "risk": "Bất ngờ tăng nhu cầu xuất khẩu hoặc thay đổi tâm lý thị trường có thể đảo chiều.",
-    "generated_at": "2026-10-14 21:22"
+    "risk": "N/A",
+    "generated_at": "2026-10-16 09:10"
   },
   "categories": [
     "dia_chinh_tri",
