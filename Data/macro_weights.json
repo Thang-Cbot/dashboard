@@ -41,52 +41,52 @@
     "F1_Russia_Policy_ZW": {
       "score": 5,
       "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-12 10:45"
+      "updated_at": "2026-10-16 17:56"
     },
     "F1_Ukraine_Policy_ZC": {
-      "score": 7,
-      "note": "Nông dân Ukraine thiếu động lực gieo trồng và chật vật bán nông sản do chiến tranh và hạn hán, tiềm ẩn nguy cơ thiếu hụt nguồn cung ngũ cốc toàn cầu. (Tin tức 10 Oct 2026)",
-      "updated_at": "2026-10-12 10:45"
+      "score": 5,
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-16 17:56"
     },
     "F3_Other_Supply_ZW": {
       "score": 5,
       "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-12 10:45"
+      "updated_at": "2026-10-16 17:56"
     },
     "F3_Other_Supply_ZC": {
       "score": 5,
       "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-12 10:45"
+      "updated_at": "2026-10-16 17:56"
     },
     "F4S_Supply_SH_ZW": {
-      "score": 2,
-      "note": "Báo cáo USDA cho thấy tồn kho lúa mì tăng, gây áp lực giảm giá mạnh. Hợp đồng lúa mì SRW Chicago giảm 20-21 cent, HRW Kansas City giảm 20-22 cent. Báo cáo WASDE cũng gây sốc, khiến giá lúa mì mùa đông giảm nghiêm trọng. (Tin tức 09 Oct 2026)",
-      "updated_at": "2026-10-12 10:45"
+      "score": 5,
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-16 17:56"
     },
     "F4S_Supply_SH_ZC": {
-      "score": 1,
-      "note": "USDA công bố sản lượng ngô tăng bất ngờ, khiến giá ngô giảm xuống mức thấp nhất trong 8 tuần. Vụ thu hoạch ngô Mỹ được dự báo là lớn thứ hai trong lịch sử, cho thấy nguồn cung dồi dào. (Tin tức 09 Oct 2026)",
-      "updated_at": "2026-10-12 10:45"
+      "score": 5,
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-16 17:56"
     },
     "F8_Geopolitics_ZW": {
-      "score": 8,
-      "note": "Chiến tranh Ukraine bế tắc gây bất ổn nguồn cung ngũ cốc toàn cầu. Nông dân Ukraine gặp khó khăn trong sản xuất và xuất khẩu. Các cuộc tấn công tàu dân sự đe dọa tuyến đường ngũ cốc Biển Đen, làm tăng rủi ro vận chuyển và ảnh hưởng xuất khẩu. (Tin tức 05, 07, 10 Oct 2026)",
-      "updated_at": "2026-10-12 10:45"
+      "score": 5,
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-16 17:56"
     },
     "F8_Geopolitics_ZC": {
-      "score": 8,
-      "note": "Chiến tranh Ukraine bế tắc gây bất ổn nguồn cung ngũ cốc toàn cầu. Nông dân Ukraine gặp khó khăn trong sản xuất và xuất khẩu. Các cuộc tấn công tàu dân sự đe dọa tuyến đường ngũ cốc Biển Đen, làm tăng rủi ro vận chuyển và ảnh hưởng xuất khẩu. (Tin tức 05, 07, 10 Oct 2026)",
-      "updated_at": "2026-10-12 10:45"
+      "score": 5,
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-16 17:56"
     },
     "F12_Global_Demand_ZW": {
       "score": 5,
-      "note": "Chưa có tin mới về các cuộc đấu thầu hoặc mua hàng thực tế của các quốc gia nhập khẩu lớn.",
-      "updated_at": "2026-10-12 10:45"
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-16 17:56"
     },
     "F12_Global_Demand_ZC": {
       "score": 5,
-      "note": "Chưa có tin mới về các cuộc đấu thầu hoặc mua hàng thực tế của các quốc gia nhập khẩu lớn.",
-      "updated_at": "2026-10-12 10:45"
+      "note": "Chưa có tin mới, duy trì nhận định cũ.",
+      "updated_at": "2026-10-16 17:56"
     }
   },
   "monthly_weights": {
