@@ -1,14 +1,14 @@
 {
   "ZW": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWZ26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 669.25\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 79%)</b>\n🎯 Vùng Entry: <b>671.34 - 672.06</b>\n🛑 Stoploss: 677.85 | 💵 Take Profit: 659.76\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>645.32 - 661.50</b>\n",
-    "timestamp": "03:55 16/10/2026",
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZWZ26)</b> 🚨\n🌾 Mã: <b>Lúa Mì</b> | Giá H1: 663.00\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 84%)</b>\n🎯 Vùng Entry: <b>668.49 - 669.74</b>\n🛑 Stoploss: 673.89 | 💵 Take Profit: 660.19\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZWZ26)</b> 💎\nVùng chờ mua an toàn: <b>648.89 - 661.50</b>\n",
+    "timestamp": "17:02 16/10/2026",
     "setup_type": "SHORT",
-    "setup_entry_range": "671.34 - 672.06"
+    "setup_entry_range": "668.49 - 669.74"
   },
   "ZC": {
-    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCZ26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 478.75\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 74%)</b>\n🎯 Vùng Entry: <b>480.56 - 482.61</b>\n🛑 Stoploss: 486.61 | 💵 Take Profit: 472.56\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>462.32 - 470.25</b>\n",
-    "timestamp": "09:50 15/10/2026",
+    "msg": "🚨 <b>CBOT ENTRY ALARM (ICT MSS - ZCZ26)</b> 🚨\n🌾 Mã: <b>Ngô</b> | Giá H1: 476.75\n📈 Tín hiệu: <b>🔴 SHORT MSS (Win Rate: 74%)</b>\n🎯 Vùng Entry: <b>478.78 - 480.20</b>\n🛑 Stoploss: 484.20 | 💵 Take Profit: 470.78\n🧠 Lý do: Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block\n\n💎 <b>VÙNG GOM DCA DÀI HẠN (ZCZ26)</b> 💎\nVùng chờ mua an toàn: <b>463.08 - 470.25</b>\n",
+    "timestamp": "17:02 16/10/2026",
     "setup_type": "SHORT",
-    "setup_entry_range": "480.56 - 482.61"
+    "setup_entry_range": "478.78 - 480.20"
   }
 }
