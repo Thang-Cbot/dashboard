@@ -24,15 +24,20 @@ def get_api_key():
 
 def fetch_rss_news():
     news_items = []
+    ns = {'content': 'http://purl.org/rss/1.0/modules/content/'}
 
     feeds = [
-        ("Yahoo Finance",         "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ZC=F,ZW=F", 10),
-        ("Farm Progress",         "https://www.farmprogress.com/rss.xml", 8),
-        ("Sky News (Biển Đen & TG)", "https://feeds.skynews.com/feeds/rss/world.xml", 12),
-        ("Google News (Geo)",     "https://news.google.com/rss/search?q=Russia+Ukraine+wheat+grain+Black+Sea&hl=en-US&gl=US&ceid=US:en", 10),
+        ("BestWeather / Jim Roemer (Climatelligence)", "https://climatelligence.substack.com/feed", 5),
+        ("Barchart Grain Market Wrap", "https://www.barchart.com/news/rss/commodities/grain", 8),
+        ("Dow Jones & Desk Chicago (Marex/Kirk Maltais)", "https://news.google.com/rss/search?q=(%22On+the+Home+Front%22+OR+%22Kirk+Maltais%22+OR+%22Marex%22+OR+%22Jim+Roemer%22)+wheat+corn+CBOT&hl=en-US&gl=US&ceid=US:en", 8),
+        ("World Grain",           "https://www.world-grain.com/rss/articles", 6),
+        ("Yahoo Finance",         "https://feeds.finance.yahoo.com/rss/2.0/headline?s=ZC=F,ZW=F", 8),
+        ("Farm Progress",         "https://www.farmprogress.com/rss.xml", 6),
+        ("Sky News (Biển Đen & TG)", "https://feeds.skynews.com/feeds/rss/world.xml", 8),
+        ("Google News (Geo)",     "https://news.google.com/rss/search?q=Russia+Ukraine+wheat+grain+Black+Sea&hl=en-US&gl=US&ceid=US:en", 8),
         ("Google News (Supply)",  "https://news.google.com/rss/search?q=wheat+corn+USDA+crop+harvest+production&hl=en-US&gl=US&ceid=US:en", 8),
-        ("Google News (Shipping)","https://news.google.com/rss/search?q=wheat+corn+freight+shipping+logistics+port&hl=en-US&gl=US&ceid=US:en", 6),
-        ("Google News (Tenders)", "https://news.google.com/rss/search?q=wheat+tender+GASC+Algeria+Saudi+purchase&hl=en-US&gl=US&ceid=US:en", 8),
+        ("Google News (Shipping)","https://news.google.com/rss/search?q=wheat+corn+freight+shipping+logistics+port&hl=en-US&gl=US&ceid=US:en", 5),
+        ("Google News (Tenders)", "https://news.google.com/rss/search?q=wheat+tender+GASC+Algeria+Saudi+purchase&hl=en-US&gl=US&ceid=US:en", 6),
     ]
 
     for source_name, url, limit in feeds:
@@ -43,7 +48,13 @@ def fetch_rss_news():
             tree = ET.parse(resp)
             for item in tree.findall('.//item')[:limit]:
                 title    = item.find('title').text or ""
-                desc     = (item.find('description').text or "")[:300]
+                desc     = (item.find('description').text or "")[:350]
+                content_el = item.find('content:encoded', ns)
+                if content_el is not None and content_el.text:
+                    import re
+                    clean_c = re.sub('<[^<]+?>', ' ', content_el.text)
+                    clean_c = re.sub(r'\s+', ' ', clean_c).strip()
+                    desc = clean_c[:600]
                 link     = item.find('link').text or ""
                 pub_date = item.find('pubDate').text or ""
                 if title:
@@ -222,7 +233,8 @@ TIN TỨC THỊ TRƯỜNG & ĐỊA CHÍNH TRỊ NỔI BẬT:
 {top_news_ctx}
 
 Yêu cầu: Đưa ra nhận định INTRADAY độc lập cho từng mã ZW và ZC.
-Mục "reasoning" BẮT BUỘC liệt kê đủ 5 yếu tố cốt lõi tác động đến giá (kết hợp cung cầu, báo cáo USDA, vị thế COT Smart Money, địa chính trị/logistics, và kỹ thuật).
+QUY TẮC TỐI CAO MÙA THU HOẠCH & XUỐNG GIỐNG: Thời tiết thực địa (BestWeather / Jim Roemer: mưa US Plains, khô ráo Corn Belt, thời tiết Nam Mỹ/Úc) là VUA, quyết định việc bơm hay xóa bỏ Weather Risk Premium, có trọng số ưu tiên cao hơn biến động nhỏ của DXY/Dầu và tin Biển Đen đã bão hòa.
+Mục "reasoning" BẮT BUỘC liệt kê đủ 5 yếu tố cốt lõi tác động đến giá (ưu tiên số 1 là Thời tiết thực địa & Tiến độ mùa vụ, tiếp theo là cung cầu/USDA, vị thế COT & dòng tiền Desk Chicago/Marex, địa chính trị/logistics, và kỹ thuật).
 Trả về JSON thuần (không bọc markdown) với cấu trúc sau:
 {{
   "ZW": {{
@@ -323,6 +335,14 @@ Trả về JSON thuần (không bọc markdown) với cấu trúc sau:
         by_cat[c] = by_cat.get(c, 0) + 1
     print(f"  [OK] Lưu {len(news_array)} tin | Phân loại: {by_cat}")
     print(f"  [OK] Intraday bias: {intraday.get('bias','?')} — {intraday.get('summary','')}")
+
+    # ── BƯỚC 3: Tự động chạy luôn VIP Intel (Jim Roemer & Dow Jones Wrap) ──
+    try:
+        from fetch_vip_intel import run_vip_intel_pipeline
+        run_vip_intel_pipeline()
+    except Exception as e:
+        print(f"  [WARN] Chạy kèm fetch_vip_intel: {e}")
+
     return True
 
 if __name__ == "__main__":

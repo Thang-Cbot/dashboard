@@ -1,36 +1,28 @@
 {
-  "fetched_at": "2026-10-16 19:31:35",
+  "fetched_at": "2026-10-18 19:26:11",
   "source": "CFTC ZIP (Disaggregated Futures Only) + Rolling Beta 13W",
   "commodities": {
     "002602": {
       "commodity": "ZC",
       "cftc_code": "002602",
-      "report_date": "2026-10-06",
-      "long_curr": 393249.0,
-      "short_curr": 63410.0,
-      "net_position": 329839.0,
-      "net_prev": 381220.0,
-      "change": -51381.0,
+      "report_date": "2026-10-13",
+      "long_curr": 330244.0,
+      "short_curr": 83819.0,
+      "net_position": 246425.0,
+      "net_prev": 329839.0,
+      "change": -83414.0,
       "quadrant": "Q2 (DO NHAT) - XA LONG",
       "action": "Cam bat day. Canh gia hoi de danh SHORT.",
-      "rolling_beta_13w": 709.8,
-      "cutoff_price_tue": 508.0,
-      "latest_price": 476.0,
+      "rolling_beta_13w": 1013.31,
+      "cutoff_price_tue": 482.75,
+      "latest_price": 474.25,
       "latest_price_date": "2026-10-16",
-      "price_lag_change": -32.0,
-      "estimated_extra_contracts": -22714.0,
-      "net_estimated": 307125.0,
+      "price_lag_change": -8.5,
+      "estimated_extra_contracts": -8613.0,
+      "net_estimated": 237812.0,
       "quadrant_estimated": "Q2 (DO NHAT) - XA LONG",
       "action_estimated": "Cam bat day. Canh gia hoi de danh SHORT.",
       "history": [
-        {
-          "report_date": "2026-07-14",
-          "net_position": 11361.0,
-          "long": 294328.0,
-          "short": 282967.0,
-          "price_close_tue": 460.5,
-          "price_date": "2026-07-14"
-        },
         {
           "report_date": "2026-07-21",
           "net_position": 56713.0,
@@ -126,39 +118,39 @@
           "short": 63410.0,
           "price_close_tue": 508.0,
           "price_date": "2026-10-06"
+        },
+        {
+          "report_date": "2026-10-13",
+          "net_position": 246425.0,
+          "long": 330244.0,
+          "short": 83819.0,
+          "price_close_tue": 482.75,
+          "price_date": "2026-10-13"
         }
       ],
-      "fetched_at": "2026-10-16 19:31:37"
+      "fetched_at": "2026-10-18 19:26:14"
     },
     "001602": {
       "commodity": "ZW",
       "cftc_code": "001602",
-      "report_date": "2026-10-06",
-      "long_curr": 86954.0,
-      "short_curr": 115784.0,
-      "net_position": -28830.0,
-      "net_prev": -22109.0,
-      "change": -6721.0,
+      "report_date": "2026-10-13",
+      "long_curr": 89109.0,
+      "short_curr": 121664.0,
+      "net_position": -32555.0,
+      "net_prev": -28830.0,
+      "change": -3725.0,
       "quadrant": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "rolling_beta_13w": 312.68,
-      "cutoff_price_tue": 704.25,
-      "latest_price": 660.0,
+      "rolling_beta_13w": 273.51,
+      "cutoff_price_tue": 669.25,
+      "latest_price": 660.5,
       "latest_price_date": "2026-10-16",
-      "price_lag_change": -44.25,
-      "estimated_extra_contracts": -13836.0,
-      "net_estimated": -42666.0,
+      "price_lag_change": -8.75,
+      "estimated_extra_contracts": -2393.0,
+      "net_estimated": -34948.0,
       "quadrant_estimated": "Q3 (DO DAM) - NHOI SHORT",
       "action_estimated": "Uu tien SHORT thuan xu huong.",
       "history": [
-        {
-          "report_date": "2026-07-14",
-          "net_position": -34887.0,
-          "long": 76020.0,
-          "short": 110907.0,
-          "price_close_tue": 659.75,
-          "price_date": "2026-07-14"
-        },
         {
           "report_date": "2026-07-21",
           "net_position": -18399.0,
@@ -254,9 +246,17 @@
           "short": 115784.0,
           "price_close_tue": 704.25,
           "price_date": "2026-10-06"
+        },
+        {
+          "report_date": "2026-10-13",
+          "net_position": -32555.0,
+          "long": 89109.0,
+          "short": 121664.0,
+          "price_close_tue": 669.25,
+          "price_date": "2026-10-13"
         }
       ],
-      "fetched_at": "2026-10-16 19:31:37"
+      "fetched_at": "2026-10-18 19:26:14"
     }
   }
 }

@@ -109,6 +109,7 @@ with tab2:
         ("🌍 ENSO / El Niño",       "weather_long.json",     BASE_DIR/"Data"/"weather"/"weather_long.py",        90),
         ("🧠 Macro Matrix",         "macro_scores.json",     BASE_DIR/"Data"/"macro_engine.py",                  60),
         ("📰 AI Tin Tức",           "ai_news.json",          BASE_DIR/"Data"/"fetch_news.py",                    180),
+        ("🌟 BestWeather & DJ",     "vip_intel.json",        BASE_DIR/"Data"/"fetch_vip_intel.py",               150),
     ]
 
     # Status mini-grid
@@ -127,12 +128,14 @@ with tab2:
     st.markdown(status_html, unsafe_allow_html=True)
 
     # ── NÚT CẬP NHẬT ────────────────────────────────────────────────────────
-    col_a, col_b, col_c = st.columns([1, 1, 1])
+    col_a, col_b, col_c, col_d = st.columns([1, 1, 1, 1])
     with col_a:
         btn_all  = st.button("🔄 Cập Nhật Tất Cả", use_container_width=True, key="btn_update_all")
     with col_b:
         btn_news = st.button("📰 Chỉ Cập Nhật Tin Tức", use_container_width=True, key="btn_update_news_only")
     with col_c:
+        btn_vip  = st.button("🌟 Quét BestWeather & DJ", use_container_width=True, key="btn_update_vip_only")
+    with col_d:
         btn_macro = st.button("📡 Chỉ Macro + COT", use_container_width=True, key="btn_update_macro")
 
     # Xác định danh sách script cần chạy
@@ -140,7 +143,9 @@ with tab2:
     if btn_all:
         to_run = DATA_MODULES
     elif btn_news:
-        to_run = [m for m in DATA_MODULES if m[1] == "ai_news.json"]
+        to_run = [m for m in DATA_MODULES if m[1] in ("ai_news.json", "vip_intel.json")]
+    elif btn_vip:
+        to_run = [m for m in DATA_MODULES if m[1] == "vip_intel.json"]
     elif btn_macro:
         to_run = [m for m in DATA_MODULES if m[1] in ("macro_data.json","cot_data.json","macro_scores.json")]
 
@@ -180,6 +185,8 @@ with tab2:
         st.rerun()
 
     ai_news = load_json("ai_news.json")
+    vip_intel = load_json("vip_intel.json")
+
     if not ai_news or not ai_news.get("news"):
         st.info("Chưa có tin tức. Nhấn **'🔄 Cập Nhật Tất Cả'** ở trên để bắt đầu.")
     else:
@@ -239,8 +246,102 @@ with tab2:
             render_intraday_card("ZW", "Lúa Mì (ZW)", zw_data)
             render_intraday_card("ZC", "Ngô (ZC)", zc_data)
 
+        # ── KHỐI TÌNH BÁO CHIẾN LƯỢC VIP: JIM ROEMER (BESTWEATHER) & DOW JONES WRAP ──
+        if vip_intel and (vip_intel.get("bestweather_report") or vip_intel.get("dowjones_barchart_wrap")):
+            vip_ts = vip_intel.get("timestamp", "—")
+            bw = vip_intel.get("bestweather_report", {})
+            dj = vip_intel.get("dowjones_barchart_wrap", {})
+
+            st.markdown(
+                f"<div style='background:linear-gradient(90deg,#1e1b4b,#172554); border:1px solid #4f46e5; border-radius:10px; padding:10px 16px; margin:18px 0 12px 0; display:flex; align-items:center; justify-content:space-between;'>"
+                f"<span style='font-size:15px; font-weight:800; color:#a5b4fc; letter-spacing:0.5px;'>🌟 TÌNH BÁO CHIẾN LƯỢC VIP: JIM ROEMER (BESTWEATHER) & DOW JONES / BARCHART WRAP</span>"
+                f"<span style='font-size:11px; color:#818cf8;'>⏱ Quét tự động: {vip_ts}</span>"
+                f"</div>",
+                unsafe_allow_html=True,
+            )
+
+            vip_col1, vip_col2 = st.columns(2)
+
+            with vip_col1:
+                wp_status = bw.get("weather_premium_status", "TRUNG TÍNH")
+                wp_color = "#ef4444" if "XÌ HƠI" in wp_status.upper() or "BEARISH" in wp_status.upper() else ("#22c55e" if "BƠM" in wp_status.upper() or "BULLISH" in wp_status.upper() else "#f59e0b")
+                reg_html = ""
+                for reg in bw.get("regional_impacts", []):
+                    imp = reg.get("impact", "Neutral")
+                    ic = "#ef4444" if imp == "Bearish" else ("#22c55e" if imp == "Bullish" else "#f59e0b")
+                    reg_html += (
+                        f"<div style='background:#0f172a; border-left:3px solid {ic}; padding:8px 10px; border-radius:6px; margin-bottom:6px;'>"
+                        f"<div style='display:flex; justify-content:space-between; font-size:12px; font-weight:700; color:#e2e8f0;'>"
+                        f"<span>{reg.get('region', '')}</span>"
+                        f"<span style='color:{ic}; font-size:11px;'>{imp.upper()}</span>"
+                        f"</div>"
+                        f"<div style='font-size:11.5px; color:#94a3b8; margin-top:2px;'><b>Thời tiết:</b> {reg.get('condition', '')}</div>"
+                        f"<div style='font-size:11.5px; color:#cbd5e1; margin-top:2px;'>➔ {reg.get('detail', '')}</div>"
+                        f"</div>"
+                    )
+
+                col1_html = (
+                    f"<div class='card' style='border-color:#3b82f6;'>"
+                    f"<div style='display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;'>"
+                    f"<span style='font-size:14px; font-weight:800; color:#60a5fa;'>🌦️ Jim Roemer (BestWeather & Climatelligence)</span>"
+                    f"<span style='background:rgba(59,130,246,0.15); border:1px solid {wp_color}; color:{wp_color}; font-size:10px; font-weight:800; padding:2px 8px; border-radius:6px;'>Weather Premium: {wp_status}</span>"
+                    f"</div>"
+                    f"<div style='font-size:13px; font-weight:700; color:#f8fafc; margin-bottom:6px;'>{bw.get('headline_vn', '')}</div>"
+                    f"<div style='font-size:12px; color:#cbd5e1; line-height:1.5; margin-bottom:10px; background:#111827; padding:8px 10px; border-radius:6px;'>{bw.get('executive_summary', '')}</div>"
+                    f"{reg_html}"
+                    f"<div style='font-size:11.5px; color:#fde047; background:rgba(234,179,8,0.1); border:1px solid rgba(234,179,8,0.3); padding:8px 10px; border-radius:6px; margin-top:8px;'>"
+                    f"❄️ <b>Triển vọng Mùa Đông (Winter Outlook):</b> {bw.get('winter_outlook', '')}"
+                    f"</div>"
+                    f"</div>"
+                )
+                st.markdown(col1_html, unsafe_allow_html=True)
+
+                for art in bw.get("articles", [])[:4]:
+                    with st.expander(f"📘 [BestWeather] {art.get('title_vn', art.get('title_en', ''))}", expanded=False):
+                        st.markdown(f"<div style='font-size:10px; color:#64748b; margin-bottom:6px;'>📅 {art.get('date', '')} | Bản gốc: <i>{art.get('title_en', '')}</i></div>", unsafe_allow_html=True)
+                        for kp in art.get("key_points", []):
+                            st.markdown(f"<div style='font-size:12.5px; color:#cbd5e1; margin-bottom:4px; padding-left:8px; border-left:2px solid #3b82f6;'>• {kp}</div>", unsafe_allow_html=True)
+                        if art.get("link"):
+                            st.markdown(f"<a href='{art.get('link')}' target='_blank' style='font-size:11px; color:#38bdf8;'>🔗 Mở bài gốc trên Climatelligence / BestWeather</a>", unsafe_allow_html=True)
+
+            with vip_col2:
+                col2_html = (
+                    f"<div class='card' style='border-color:#a855f7;'>"
+                    f"<div style='display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;'>"
+                    f"<span style='font-size:14px; font-weight:800; color:#c084fc;'>🏛️ Dow Jones & Barchart Grain Market Wrap</span>"
+                    f"<span style='background:rgba(168,85,247,0.15); color:#d8b4fe; font-size:10px; font-weight:700; padding:2px 8px; border-radius:6px;'>Desk Chicago / Marex</span>"
+                    f"</div>"
+                    f"<div style='font-size:13px; font-weight:700; color:#f8fafc; margin-bottom:10px;'>{dj.get('session_headline', '')}</div>"
+                    f"<div style='background:#0f172a; border-left:3px solid #22c55e; padding:8px 10px; border-radius:6px; margin-bottom:6px;'>"
+                    f"<div style='font-size:11px; font-weight:700; color:#4ade80;'>🌾 ON THE HOME FRONT (Thực địa Mùa vụ & Thời tiết Mỹ)</div>"
+                    f"<div style='font-size:12px; color:#cbd5e1; margin-top:2px; line-height:1.45;'>{dj.get('on_the_home_front', '')}</div>"
+                    f"</div>"
+                    f"<div style='background:#0f172a; border-left:3px solid #ef4444; padding:8px 10px; border-radius:6px; margin-bottom:6px;'>"
+                    f"<div style='font-size:11px; font-weight:700; color:#f87171;'>💸 CUT AND RUN (Dòng tiền Quỹ & Bán phòng hộ Pre-hedge)</div>"
+                    f"<div style='font-size:12px; color:#cbd5e1; margin-top:2px; line-height:1.45;'>{dj.get('cut_and_run_funds', '')}</div>"
+                    f"</div>"
+                    f"<div style='background:#0f172a; border-left:3px solid #38bdf8; padding:8px 10px; border-radius:6px; margin-bottom:6px;'>"
+                    f"<div style='font-size:11px; font-weight:700; color:#38bdf8;'>🚢 FEELING FLAT / EXPORT DEMAND (Phản ứng Cầu Xuất khẩu)</div>"
+                    f"<div style='font-size:12px; color:#cbd5e1; margin-top:2px; line-height:1.45;'>{dj.get('feeling_flat_demand', '')}</div>"
+                    f"</div>"
+                    f"<div style='background:#0f172a; border-left:3px solid #f59e0b; padding:8px 10px; border-radius:6px;'>"
+                    f"<div style='font-size:11px; font-weight:700; color:#fbbf24;'>💡 INSIGHT & BOTTOM LINE (Chuỗi xu hướng & Tác chiến)</div>"
+                    f"<div style='font-size:12px; color:#cbd5e1; margin-top:2px; line-height:1.45;'>{dj.get('insight_bottom_line', '')}</div>"
+                    f"</div>"
+                    f"</div>"
+                )
+                st.markdown(col2_html, unsafe_allow_html=True)
+
+                for art in dj.get("articles", [])[:5]:
+                    with st.expander(f"📰 [Desk Wrap] {art.get('title_vn', '')}", expanded=False):
+                        st.markdown(f"<div style='font-size:10px; color:#64748b; margin-bottom:6px;'>📅 {art.get('source', '')}</div>", unsafe_allow_html=True)
+                        for sp in art.get("summary_points", []):
+                            st.markdown(f"<div style='font-size:12.5px; color:#cbd5e1; margin-bottom:4px; padding-left:8px; border-left:2px solid #a855f7;'>• {sp}</div>", unsafe_allow_html=True)
+                        if art.get("link"):
+                            st.markdown(f"<a href='{art.get('link')}' target='_blank' style='font-size:11px; color:#38bdf8;'>🔗 Mở bản tin gốc</a>", unsafe_allow_html=True)
+
         # ── THÔNG TIN TIN TỨC ────────────────────────────────────────────────────
-        st.markdown(f"<div style='font-size:11px; color:#64748b; margin-bottom:10px;'>⏱ Dữ liệu: {ts} &nbsp;|&nbsp; Tổng: {len(news_list)} tin trong 7 ngày gần nhất</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='font-size:11px; color:#64748b; margin-top:14px; margin-bottom:10px;'>⏱ Dữ liệu: {ts} &nbsp;|&nbsp; Tổng: {len(news_list)} tin trong 7 ngày gần nhất</div>", unsafe_allow_html=True)
 
         # ── 4 SUB-TABS PHÂN LOẠI ─────────────────────────────────────────────────
         CAT_CONFIG = {
