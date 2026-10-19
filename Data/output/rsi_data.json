@@ -202,7 +202,7 @@
       33.85,
       39.27,
       37.61,
-      38.31
+      40.32
     ],
     "patterns": [
       {
@@ -369,20 +369,9 @@
         "start_val": 43.56,
         "mid_val": 33.65,
         "end_val": 39.62
-      },
-      {
-        "type": "M",
-        "start_idx": 93,
-        "mid_idx": 95,
-        "end_idx": 97,
-        "start_time": "19:00",
-        "end_time": "23:00",
-        "start_val": 39.62,
-        "mid_val": 33.16,
-        "end_val": 39.27
       }
     ],
-    "is_forming": "M"
+    "is_forming": "W"
   },
   "zc": {
     "labels": [
