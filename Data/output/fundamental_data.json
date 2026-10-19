@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-10-17",
+  "last_updated_fundamentals": "2026-10-20",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -13,24 +13,24 @@
       "latest_date": "2026-07-27T12:00:00+0000"
     },
     "harvest_progress": {
-      "latest": "Mỹ: 33% thu hoạch",
-      "next_date": "20/10/2026 lúc 03:00 (VN)",
+      "latest": "Mỹ: 44% thu hoạch",
+      "next_date": "27/10/2026 lúc 03:00 (VN)",
       "forecast": "Argentina: 72% thu hoạch",
       "action": "Argentina thu hoạch rộ -> Canh Short ngắn hạn / Gom Long dài hạn (DCA)",
       "logic": "Argentina đang thu hoạch rộ đạt 66%. Việc giá ngô giữ vững trên 445-450 cents bất bất chấp áp lực thu hoạch cho thấy ngô đã xác lập vùng đáy chu kỳ mùa vụ thành công.",
-      "previous": "Mỹ: 23% thu hoạch",
+      "previous": "Mỹ: 33% thu hoạch",
       "previous_date": "13/10/2026",
-      "latest_date": "13/10/2026"
+      "latest_date": "19/10/2026"
     },
     "crop_condition": {
       "latest": "56% Good to Excellent",
-      "next_date": "20/10/2026 lúc 03:00 (VN)",
+      "next_date": "27/10/2026 lúc 03:00 (VN)",
       "forecast": "70% G/E",
       "action": "Chất lượng tốt ban đầu -> Canh Short ngắn hạn",
       "logic": "Sẽ được USDA công bố xếp hạng Good/Excellent đầu tiên vào đầu tháng 6 khi ngô nảy mầm hoàn chỉnh.",
-      "previous": "54% Good to Excellent",
+      "previous": "56% Good to Excellent",
       "previous_date": "13/10/2026",
-      "latest_date": "13/10/2026"
+      "latest_date": "19/10/2026"
     },
     "us_ending_stocks": {
       "next_date": "11/11/2026 lúc 00:00 (VN)",
@@ -82,8 +82,19 @@
       "previous_date": "10/01/2026",
       "pct_change": 45.9,
       "logic": "Ngô niên vụ 2025/26 đạt 1,122.4 nghìn tấn, đưa lũy kế lên 8.764 triệu tấn, cao hơn 10.4% so với cùng kỳ năm ngoái.",
-      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)",
+      "next_date": "26/10/2026 lúc 22:00 (VN)",
       "inspections": {
+        "volume": 672475,
+        "week_ago": 1313733,
+        "year_ago": 1324992,
+        "ytd_current": 9131468,
+        "ytd_previous": 9345710,
+        "ytd_yoy_pct": -2.3,
+        "week_ending": "OCT 15, 2026",
+        "week_ago_date": "10/08/2026"
+      },
+      "inspections_week_ending": "OCT 15, 2026",
+      "inspections_previous": {
         "volume": 1301956,
         "week_ago": 1402933,
         "year_ago": 1210281,
@@ -92,17 +103,6 @@
         "ytd_yoy_pct": 5.3,
         "week_ending": "OCT 08, 2026",
         "week_ago_date": "10/01/2026"
-      },
-      "inspections_week_ending": "OCT 08, 2026",
-      "inspections_previous": {
-        "volume": 1367685,
-        "week_ago": 1580999,
-        "year_ago": 1701634,
-        "ytd_current": 7110012,
-        "ytd_previous": 6810437,
-        "ytd_yoy_pct": 4.4,
-        "week_ending": "OCT 01, 2026",
-        "week_ago_date": "09/24/2026"
       }
     },
     "competitors": {
@@ -124,13 +124,13 @@
       "next_date": "16/10/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q2 (DO NHAT) - XA LONG",
       "action": "Cam bat day. Canh gia hoi de danh SHORT.",
-      "logic": "[2026-10-13] MM nam Long rong 246,425 HD. Tuan nay giam bot 83,414 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-10-16): +237,812 HD (Q2 (DO NHAT) - XA LONG) [Lag=-8.50c, Beta=1013.3]",
+      "logic": "[2026-10-13] MM nam Long rong 246,425 HD. Tuan nay giam bot 83,414 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-10-19): +230,719 HD (Q2 (DO NHAT) - XA LONG) [Lag=-15.50c, Beta=1013.3]",
       "raw_data": {
         "net_position": 246425.0,
         "change": -83414.0,
         "long": 330244.0,
         "short": 83819.0,
-        "net_estimated": 237812.0,
+        "net_estimated": 230719.0,
         "quadrant_est": "Q2 (DO NHAT) - XA LONG",
         "beta_13w": 1013.31
       }
@@ -199,18 +199,18 @@
       "previous_month": "Sep"
     },
     "progress_compare": {
-      "week_ending": "2026-10-11",
+      "week_ending": "2026-10-18",
       "source": "USDA Crop Progress",
       "items": [
         {
           "key": "corn_mature",
           "label": "Ngô chín (Mature)",
           "kind": "progress",
-          "current": 91,
-          "prev_week": 83,
+          "current": 95,
+          "prev_week": 91,
           "year_ago": null,
           "year_ago_src": null,
-          "avg5": 91,
+          "avg5": 96,
           "avg_label": "TB 5 năm (USDA)",
           "avg_n": 5
         },
@@ -218,11 +218,11 @@
           "key": "corn_harvested",
           "label": "Thu hoạch ngô",
           "kind": "progress",
-          "current": 33,
-          "prev_week": 23,
+          "current": 44,
+          "prev_week": 33,
           "year_ago": null,
           "year_ago_src": null,
-          "avg5": 39,
+          "avg5": 52,
           "avg_label": "TB 5 năm (USDA)",
           "avg_n": 5
         },
@@ -231,46 +231,46 @@
           "label": "Chất lượng ngô (G/E)",
           "kind": "condition",
           "current": 56,
-          "prev_week": 54,
+          "prev_week": 56,
           "year_ago": null,
           "year_ago_src": null,
-          "avg5": 57.0,
-          "avg_label": "TB 3 năm (tự tính)",
-          "avg_n": 3
+          "avg5": 53.0,
+          "avg_label": "TB 2 năm (tự tính)",
+          "avg_n": 2
         }
       ]
     }
   },
   "ZW": {
     "us_planting": {
-      "latest": "Đông 51% gieo, Xuân N/A",
-      "next_date": "20/10/2026 lúc 03:00 (VN)",
+      "latest": "Đông 63% gieo, Xuân N/A",
+      "next_date": "27/10/2026 lúc 03:00 (VN)",
       "forecast": "Lúa xuân: 98%",
       "action": "Tiến độ ổn định -> Canh Short ngắn hạn",
       "logic": "Lúa mì xuân gieo trồng phát triển thuận lợi. Lúa mì đông đã trổ bông vượt trung bình.",
-      "previous": "Đông 36% gieo, Xuân N/A",
+      "previous": "Đông 51% gieo, Xuân N/A",
       "previous_date": "13/10/2026",
-      "latest_date": "13/10/2026"
+      "latest_date": "19/10/2026"
     },
     "harvest_progress": {
       "latest": "Đông N/A, Xuân N/A",
-      "next_date": "20/10/2026 lúc 03:00 (VN)",
+      "next_date": "27/10/2026 lúc 03:00 (VN)",
       "forecast": "Mỹ: 12% lúa đông đã thu hoạch",
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Đông N/A, Xuân N/A",
       "previous_date": "13/10/2026",
-      "latest_date": "13/10/2026"
+      "latest_date": "19/10/2026"
     },
     "crop_condition": {
       "latest": "Đông N/A (Cuối vụ), Xuân N/A",
-      "next_date": "20/10/2026 lúc 03:00 (VN)",
+      "next_date": "27/10/2026 lúc 03:00 (VN)",
       "forecast": "Duy trì cực xấu 25-27% G/E",
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông N/A (Cuối vụ), Xuân N/A",
       "previous_date": "13/10/2026",
-      "latest_date": "13/10/2026"
+      "latest_date": "19/10/2026"
     },
     "us_ending_stocks": {
       "next_date": "11/11/2026 lúc 00:00 (VN)",
@@ -322,8 +322,19 @@
       "previous_date": "10/01/2026",
       "pct_change": -29.2,
       "logic": "Lúa Mì niên vụ 2026/27 đạt 319.9 nghìn tấn, đưa lũy kế lên 7.145 triệu tấn, thấp hơn 31.3% so với cùng kỳ năm ngoái.",
-      "next_date": "Thứ 5 hàng tuần, 21:30 (VN)",
+      "next_date": "26/10/2026 lúc 22:00 (VN)",
       "inspections": {
+        "volume": 240308,
+        "week_ago": 307025,
+        "year_ago": 493487,
+        "ytd_current": 7219804,
+        "ytd_previous": 11205426,
+        "ytd_yoy_pct": -35.6,
+        "week_ending": "OCT 15, 2026",
+        "week_ago_date": "10/08/2026"
+      },
+      "inspections_week_ending": "OCT 15, 2026",
+      "inspections_previous": {
         "volume": 304660,
         "week_ago": 302674,
         "year_ago": 447531,
@@ -332,17 +343,6 @@
         "ytd_yoy_pct": -34.9,
         "week_ending": "OCT 08, 2026",
         "week_ago_date": "10/01/2026"
-      },
-      "inspections_week_ending": "OCT 08, 2026",
-      "inspections_previous": {
-        "volume": 302356,
-        "week_ago": 337047,
-        "year_ago": 592223,
-        "ytd_current": 6671688,
-        "ytd_previous": 10264408,
-        "ytd_yoy_pct": -35.0,
-        "week_ending": "OCT 01, 2026",
-        "week_ago_date": "09/24/2026"
       }
     },
     "competitors": {
@@ -371,13 +371,13 @@
       "next_date": "16/10/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "logic": "[2026-10-13] MM nam Short rong 32,555 HD. Tuan nay giam bot 3,725 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-10-16): -34,948 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-8.75c, Beta=273.5]",
+      "logic": "[2026-10-13] MM nam Short rong 32,555 HD. Tuan nay giam bot 3,725 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-10-19): -36,247 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-13.50c, Beta=273.5]",
       "raw_data": {
         "net_position": -32555.0,
         "change": -3725.0,
         "long": 89109.0,
         "short": 121664.0,
-        "net_estimated": -34948.0,
+        "net_estimated": -36247.0,
         "quadrant_est": "Q3 (DO DAM) - NHOI SHORT",
         "beta_13w": 273.51
       }
@@ -449,18 +449,18 @@
       "previous_month": "Sep"
     },
     "progress_compare": {
-      "week_ending": "2026-10-11",
+      "week_ending": "2026-10-18",
       "source": "USDA Crop Progress",
       "items": [
         {
           "key": "ww_planted",
           "label": "Gieo lúa mì đông",
           "kind": "progress",
-          "current": 51,
-          "prev_week": 36,
+          "current": 63,
+          "prev_week": 51,
           "year_ago": null,
           "year_ago_src": null,
-          "avg5": 58,
+          "avg5": 69,
           "avg_label": "TB 5 năm (USDA)",
           "avg_n": 5
         },
@@ -468,11 +468,11 @@
           "key": "ww_emerged",
           "label": "Lúa mì đông nảy mầm",
           "kind": "progress",
-          "current": 27,
-          "prev_week": 16,
+          "current": 39,
+          "prev_week": 27,
           "year_ago": null,
           "year_ago_src": null,
-          "avg5": 32,
+          "avg5": 43,
           "avg_label": "TB 5 năm (USDA)",
           "avg_n": 5
         }
@@ -488,13 +488,13 @@
       "logic": "Trung bình 5 năm đạt 88%. Tiến độ hiện tại được cập nhật mới nhất."
     },
     "harvest_progress": {
-      "latest": "Mỹ: 46% thu hoạch",
-      "next_date": "20/10/2026 lúc 03:00 (VN)",
+      "latest": "Mỹ: 64% thu hoạch",
+      "next_date": "27/10/2026 lúc 03:00 (VN)",
       "forecast": "Argentina: 82% thu hoạch",
       "action": "Hết áp lực bán tháo -> Gom Long dài hạn (DCA)",
       "logic": "Mỹ bắt đầu thu hoạch vào tháng 9-11. Argentina đang thu hoạch đậu tương đạt 75% tiến độ. Việc Argentina sắp kết thúc thu hoạch rộ đồng nghĩa với việc áp lực bán tháo lớn nhất của Nam Mỹ đã phản ánh hoàn toàn vào giá (priced-in), tạo điều kiện cho giá đậu tương thiết lập đáy chu kỳ mùa vụ và bước vào pha tăng trưởng.",
-      "previous": "Mỹ: 25% thu hoạch",
-      "latest_date": "13/10/2026",
+      "previous": "Mỹ: 46% thu hoạch",
+      "latest_date": "19/10/2026",
       "previous_date": "13/10/2026"
     },
     "crop_condition": {
@@ -610,5 +610,5 @@
     }
   },
   "wasde_report_month": "Oct",
-  "last_updated_cot": "2026-10-18 19:26:14"
+  "last_updated_cot": "2026-10-20 06:24:11"
 }
