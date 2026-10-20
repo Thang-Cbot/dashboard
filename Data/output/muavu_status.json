@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-20 06:45:10",
+  "checked_at": "2026-10-20 21:28:11",
   "summary": {
     "total": 16,
     "ok": 15,
@@ -11,7 +11,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Sức mạnh USD (DXY)",
       "type": "🟢 Auto",
-      "value": "101.973 (+0.00%)",
+      "value": "101.709 (-0.27%)",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -20,7 +20,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Giá Dầu Brent",
       "type": "🟢 Auto",
-      "value": "109.25 USD/thùng",
+      "value": "108.4 USD/thùng",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -31,7 +31,7 @@
       "type": "🟢 Auto",
       "value": "-36,247 HĐ | Q3 (DO DAM) - NHOI SHORT",
       "status": "✅ Có data",
-      "updated": "vừa cập nhật",
+      "updated": "15 giờ trước",
       "note": ""
     },
     {
@@ -58,7 +58,7 @@
       "type": "🟢 Auto",
       "value": "El Niño Advisory",
       "status": "✅ Có data",
-      "updated": "1 ngày trước",
+      "updated": "13 giờ trước",
       "note": "El Niño continues to strengthen, with a strong-to-very stron"
     },
     {
@@ -76,7 +76,7 @@
       "type": "🟢 Auto",
       "value": "319,900 MT (Tuần 10/08/2026)",
       "status": "✅ Có data",
-      "updated": "vừa cập nhật",
+      "updated": "15 giờ trước",
       "note": ""
     },
     {
@@ -146,10 +146,10 @@
       "group": "Phần 3: AI Analysis & DCA",
       "item": "Giá ZW (D1 chart)",
       "type": "🟢 Auto",
-      "value": "655.25 cents",
+      "value": "656.50 cents",
       "status": "✅ Có data",
-      "updated": "2026-10-19",
-      "note": "RSI 33.6 | ATR 15.5"
+      "updated": "2026-10-20",
+      "note": "RSI 34.4 | ATR 14.7"
     }
   ]
 }
