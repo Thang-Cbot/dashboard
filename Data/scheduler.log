@@ -25364,3 +25364,8 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-10-22 22:16:26] [INFO] ▶ Kích hoạt: AI Điểm Tin Biển Đen
 [2026-10-22 22:17:09] [INFO] ✅ AI Điểm Tin Biển Đen hoàn thành (attempt 1)
 [2026-10-22 22:17:09] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: AI Điểm Tin Biển Đen)...
+[2026-10-22 22:17:14] [Sync] ✅ Đồng bộ Github thành công (AI Điểm Tin Biển Đen)!
+[2026-10-22 22:17:14] [INFO] ⏰ Đợi Black Sea News: còn 56.71h (25/10 07:00:02 VN)
+[2026-10-23 06:35:33] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-10-23 06:36:25] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-10-23 06:36:25] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
