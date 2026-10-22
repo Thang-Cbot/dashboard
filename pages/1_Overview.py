@@ -232,13 +232,27 @@ def render_overview():
             quad = zc_cot.get("quadrant", zc_cot.get("quadrant_label", "—"))
             nc   = "#22c55e" if chg > 0 else "#ef4444"
             arrow = "▲" if chg > 0 else "▼"
-            points.append(f"📊 <b>COT Ngô (ZC):</b> Net <span style='color:{nc}'>{net:+,} HD</span> ({arrow}{abs(chg):,}) — {quad}")
+            net_est = zc_cot.get("net_estimated")
+            est_str = f" | Est: <b>{net_est:+,.0f} HD</b>" if net_est is not None else ""
+            points.append(f"🌽 <b>COT Ngô (ZC):</b> Net <span style='color:{nc}'>{net:+,} HD</span> ({arrow}{abs(chg):,}){est_str} — {quad}")
+
+        # 6. COT ZW (Lúa Mì)
+        zw_cot = get_cot_by_code(cot, "ZW")
+        if zw_cot:
+            net  = zw_cot.get("net_position", 0) or 0
+            chg  = zw_cot.get("change", 0) or 0
+            quad = zw_cot.get("quadrant", zw_cot.get("quadrant_label", "—"))
+            nc   = "#22c55e" if chg > 0 else "#ef4444"
+            arrow = "▲" if chg > 0 else "▼"
+            net_est = zw_cot.get("net_estimated")
+            est_str = f" | Est: <b>{net_est:+,.0f} HD</b>" if net_est is not None else ""
+            points.append(f"🌾 <b>COT Lúa Mì (ZW):</b> Net <span style='color:{nc}'>{net:+,} HD</span> ({arrow}{abs(chg):,}){est_str} — {quad}")
 
         # Fallback
         if len(points) < 3:
             points.append("🔄 <b>Hint:</b> Nhấn <b>RUN ALL DATA</b> trên sidebar để nạp dữ liệu mới nhất.")
 
-        for i, pt in enumerate(points[:6], 1):
+        for i, pt in enumerate(points, 1):
             st.markdown(f"""
             <div style='padding:8px 12px; border-left:3px solid #334155;
                         background:#0f1629; border-radius:4px; margin-bottom:6px;

@@ -296,7 +296,7 @@ def render_muavu_tab(commodity):
         cot_dot = "🟢" if cot_com else "🔴"
         cot_net_fmt = f"{cot_net:,.0f}" if isinstance(cot_net,(int,float)) else cot_net
         st.markdown(f"""<div class='mv-card'>
-            <div class='mv-card-title'>{cot_dot} Dòng Tiền COT – ZW</div>
+            <div class='mv-card-title'>{cot_dot} Dòng Tiền COT – {commodity}</div>
             <div class='mv-card-value' style='color:{cot_color};'>{cot_net_fmt} HĐ</div>
             <div class='mv-card-sub'>{cot_q}</div>
             <div class='mv-card-updated'>⏱ {cot_up}</div>

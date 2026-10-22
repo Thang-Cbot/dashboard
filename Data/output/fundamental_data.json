@@ -380,7 +380,12 @@
         "net_estimated": -36247.0,
         "quadrant_est": "Q3 (DO DAM) - NHOI SHORT",
         "beta_13w": 273.51
-      }
+      },
+      "net_estimated": -43564.0,
+      "latest_price": 629.0,
+      "price_lag_change": -40.25,
+      "estimated_extra_contracts": -11009.0,
+      "quadrant_estimated": "Q3 (DO DAM) - NHOI SHORT"
     },
     "import_demand": {
       "latest": "Thị trường cốt lõi",
