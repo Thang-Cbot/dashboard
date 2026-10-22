@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-10-20",
+  "last_updated_fundamentals": "2026-10-22",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -124,13 +124,13 @@
       "next_date": "16/10/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q2 (DO NHAT) - XA LONG",
       "action": "Cam bat day. Canh gia hoi de danh SHORT.",
-      "logic": "[2026-10-13] MM nam Long rong 246,425 HD. Tuan nay giam bot 83,414 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-10-19): +230,719 HD (Q2 (DO NHAT) - XA LONG) [Lag=-15.50c, Beta=1013.3]",
+      "logic": "[2026-10-13] MM nam Long rong 246,425 HD. Tuan nay giam bot 83,414 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-10-22): +227,932 HD (Q2 (DO NHAT) - XA LONG) [Lag=-18.25c, Beta=1013.3]",
       "raw_data": {
         "net_position": 246425.0,
         "change": -83414.0,
         "long": 330244.0,
         "short": 83819.0,
-        "net_estimated": 230719.0,
+        "net_estimated": 227932.0,
         "quadrant_est": "Q2 (DO NHAT) - XA LONG",
         "beta_13w": 1013.31
       }
@@ -371,21 +371,16 @@
       "next_date": "16/10/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "logic": "[2026-10-13] MM nam Short rong 32,555 HD. Tuan nay giam bot 3,725 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-10-19): -36,247 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-13.50c, Beta=273.5]",
+      "logic": "[2026-10-13] MM nam Short rong 32,555 HD. Tuan nay giam bot 3,725 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-10-22): -44,042 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-42.00c, Beta=273.5]",
       "raw_data": {
         "net_position": -32555.0,
         "change": -3725.0,
         "long": 89109.0,
         "short": 121664.0,
-        "net_estimated": -36247.0,
+        "net_estimated": -44042.0,
         "quadrant_est": "Q3 (DO DAM) - NHOI SHORT",
         "beta_13w": 273.51
-      },
-      "net_estimated": -43564.0,
-      "latest_price": 629.0,
-      "price_lag_change": -40.25,
-      "estimated_extra_contracts": -11009.0,
-      "quadrant_estimated": "Q3 (DO DAM) - NHOI SHORT"
+      }
     },
     "import_demand": {
       "latest": "Thị trường cốt lõi",
@@ -615,5 +610,5 @@
     }
   },
   "wasde_report_month": "Oct",
-  "last_updated_cot": "2026-10-20 06:24:11"
+  "last_updated_cot": "2026-10-22 19:36:57"
 }
