@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-10-15 09:19:33",
+  "timestamp": "2026-10-22 18:26:49",
   "metrics": {
     "planted_area": "N/A",
-    "production_forecast": "N/A",
-    "harvest_progress": "Đã thu hoạch 28 triệu tấn, năng suất giảm 4.5%",
-    "fob_price": "Giá xuất khẩu lúa mì Nga tăng vọt nhưng giá chào hàng Biển Đen vẫn ở mức thấp do rủi ro và chiết khấu",
-    "export_tax": "N/A",
-    "export_capacity": "Giảm hơn 80% do các cảng Biển Đen bị ảnh hưởng và các cuộc tấn công tàu thuyền làm đình trệ thương mại",
-    "quality_notes": "Hư hại do sương giá",
-    "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Thu (Vụ Xuân)",
-    "ai_assessment": "Áp lực xả hàng của Nga lên giá CBOT hiện tại bị hạn chế đáng kể do các rủi ro địa chính trị và tấn công tại Biển Đen làm đình trệ xuất khẩu, dù giá chào hàng Biển Đen có thể thấp hơn."
+    "production_forecast": "N/A (Có rủi ro về năng suất do thiếu nhiên liệu và mưa)",
+    "harvest_progress": "Đang bắt đầu/diễn ra (đối mặt với rủi ro thiếu nhiên liệu và mưa)",
+    "fob_price": "N/A (Giá lúa mì Biển Đen có xu hướng giảm/ổn định do chiết khấu, trong khi giá kỳ hạn toàn cầu tăng)",
+    "export_tax": "N/A (Chính phủ Nga có thể đang tìm cách thúc đẩy xuất khẩu)",
+    "export_capacity": "N/A",
+    "quality_notes": "N/A (Có rủi ro về chất lượng do mưa)",
+    "harvest_time": "Tháng 6 - Tháng 8",
+    "ai_assessment": "Mặc dù có áp lực tiềm tàng từ khối lượng lớn và giá chiết khấu của lúa mì Biển Đen, các cuộc tấn công leo thang và gián đoạn tại các cảng Biển Đen đang làm chậm đáng kể hoạt động xuất khẩu của Nga, có thể làm giảm áp lực xả hàng trực tiếp lên giá CBOT trong ngắn hạn, nhưng vẫn duy trì sự cạnh tranh về giá."
   }
 }
