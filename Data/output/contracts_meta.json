@@ -6,9 +6,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZCH27.CBT",
-      "year": 2027,
-      "month": 3
+      "ticker": "ZCZ26.CBT",
+      "year": 2026,
+      "month": 12
     },
     "dca": {
       "ticker": "ZCZ26.CBT",
@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 203319.0,
-      "prev_volume": 272696.0,
+      "today_volume": 7322.0,
+      "prev_volume": 319491.0,
       "today_oi": 798811,
       "prev_oi": 798716,
-      "today_close": 460.25,
+      "today_close": 461.0,
       "prev_close": 463.25,
       "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
       "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 84368.0,
-      "prev_volume": 75134.0,
+      "today_volume": 4605.0,
+      "prev_volume": 126790.0,
       "today_oi": 251091,
       "prev_oi": 251110,
-      "today_close": 624.75,
+      "today_close": 630.25,
       "prev_close": 628.25,
-      "trend": "Giảm do phe Long tháo chạy (Long Liquidation)",
-      "logic": "Giá giảm đi kèm Volume tăng nhưng OI giảm. Phe Long đang chủ động đóng vị thế hàng loạt để cắt lỗ, lực bán tháo kỹ thuật mạnh."
+      "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
+      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
-  "updated_at": "2026-10-23 07:00:32"
+  "updated_at": "2026-10-23 09:01:00"
 }
