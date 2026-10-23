@@ -1,59 +1,219 @@
 {
-  "timestamp": "2026-10-22 06:00:33",
-  "news": [],
+  "timestamp": "2026-10-23 16:15:38",
+  "news": [
+    {
+      "title": "Thời tiết Nam Mỹ thuận lợi gây áp lực giảm giá ngũ cốc",
+      "details": [
+        "Dự báo thời tiết thuận lợi ở Nam Mỹ trong 60-90 ngày tới.",
+        "Điều kiện thời tiết này được nhận định là tiêu cực cho giá ngũ cốc, đặc biệt là đậu tương.",
+        "Brazil có độ ẩm đất tốt cho việc gieo trồng và tăng trưởng ban đầu của đậu tương.",
+        "Argentina có đủ độ ẩm cho ngô và đậu tương trong giai đoạn gieo trồng và phát triển sớm."
+      ],
+      "link": "https://climatelligence.substack.com/p/south-america-why-the-next-6090-days",
+      "source": "17 Oct 2026 - BestWeather / Jim Roemer (Climatelligence)",
+      "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Giá ngô giảm trở lại vào thứ Năm",
+      "details": [
+        "Hợp đồng tương lai ngô giảm 2 ¼ đến 3 ¾ cent trong phiên giao dịch.",
+        "Giá ngô giao ngay trung bình toàn quốc giảm 2 ½ cent, đạt $4.22 ½.",
+        "Giá đóng cửa trung bình cho hợp đồng tháng 12 là $4.84."
+      ],
+      "link": "https://www.barchart.com/story/news/8340794/corn-fades-back-lower-on-thursday",
+      "source": "22 Oct 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Lúa mì tiếp tục xu hướng giảm giá vào thứ Năm",
+      "details": [
+        "Thị trường lúa mì ghi nhận sự suy yếu trên cả ba loại hợp đồng.",
+        "Lúa mì SRW Chicago giảm 3 ½ đến 6 ½ cent.",
+        "Lúa mì HRW Kansas City giảm 5 ¼ đến 9 ½ cent.",
+        "Lúa mì vụ xuân Minneapolis giảm 4 ½ đến 10 ½ cent."
+      ],
+      "link": "https://www.barchart.com/story/news/8340814/wheat-continues-weaker-trade-on-thursday",
+      "source": "22 Oct 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Báo cáo cảnh báo khủng hoảng lương thực toàn cầu năm 2027",
+      "details": [
+        "S&P Global cảnh báo về nguy cơ khủng hoảng lương thực toàn cầu vào năm 2027.",
+        "Nguyên nhân chính là sự thiếu hụt nhiên liệu và phân bón.",
+        "Hiện tượng El Niño cũng được dự báo sẽ góp phần làm trầm trọng thêm tình hình."
+      ],
+      "link": "https://www.world-grain.com/articles/23366-report-ingredients-in-place-for-global-food-crisis",
+      "source": "22 Oct 2026 - World Grain",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Các công ty Ả Rập Xê Út ký thỏa thuận ngũ cốc thức ăn chăn nuôi",
+      "details": [
+        "SABIL và NGC sẽ cung cấp dịch vụ chuỗi cung ứng và logistics cho Tanmiah Food Co.",
+        "Thỏa thuận này cho thấy nhu cầu ổn định đối với ngũ cốc thức ăn chăn nuôi tại khu vực.",
+        "Có thể tác động đến nhu cầu nhập khẩu ngũ cốc toàn cầu."
+      ],
+      "link": "https://www.world-grain.com/articles/23360-saudi-companies-sign-feed-grain-agreements",
+      "source": "21 Oct 2026 - World Grain",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Giá hợp đồng tương lai ngô CBOT ngày 22/10",
+      "details": [
+        "Giá hợp đồng tương lai ngô (CBOT) giao tháng 12/2026 là 464 cent/bushel.",
+        "Dữ liệu được ghi nhận vào lúc 4:30:00 PM ngày thứ Năm, 22 tháng 10.",
+        "Thông tin về giá mở cửa, cao nhất, thấp nhất và thay đổi trong ngày."
+      ],
+      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-corn-futures-140101579.html?.tsrc=rss",
+      "source": "22 Oct 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Giá hợp đồng tương lai lúa mì SRW CBOT ngày 22/10",
+      "details": [
+        "Giá hợp đồng tương lai lúa mì SRW (CBOT) giao tháng 12/2026 là 631 cent/bushel.",
+        "Dữ liệu được ghi nhận vào lúc 4:30:00 PM ngày thứ Năm, 22 tháng 10.",
+        "Thông tin về giá mở cửa, cao nhất, thấp nhất và thay đổi trong ngày."
+      ],
+      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-wheat-futures-140100550.html?.tsrc=rss",
+      "source": "22 Oct 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Giá lúa mì giảm mạnh vào thứ Tư do tin tức Biển Đen",
+      "details": [
+        "Thị trường lúa mì suy yếu trên cả ba loại hợp đồng vào thứ Tư.",
+        "Tin tức từ khu vực Biển Đen gây áp lực giảm giá.",
+        "Hợp đồng SRW Chicago giảm 7 ½ đến 16 ½ cent.",
+        "Hợp đồng HRW Kansas City giảm 6 ¼ đến 18 ¾ cent."
+      ],
+      "link": "https://www.barchart.com/story/news/8293544/wheat-falls-on-wednesday-with-black-sea-news?.tsrc=rss",
+      "source": "21 Oct 2026 - Yahoo Finance",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Năng suất ngô bị ảnh hưởng: Không chỉ do bệnh đốm đen",
+      "details": [
+        "Vụ thu hoạch ngô năm nay đối mặt với nhiều thách thức độc đáo.",
+        "Bệnh đốm đen (tar spot) không phải là nguyên nhân duy nhất gây giảm năng suất.",
+        "Cần rút ra bài học kinh nghiệm từ những khó khăn trong việc đưa ngô vào kho."
+      ],
+      "link": "https://www.farmprogress.com/farm-operations/yield-ding-on-corn-not-all-about-tar-spot",
+      "source": "23 Oct 2026 - Farm Progress",
+      "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Nga tìm cách duy trì xuất khẩu lúa mì qua khu vực tranh chấp",
+      "details": [
+        "Nga đang chuyển hướng sang một khu vực tranh chấp để đảm bảo dòng chảy xuất khẩu lúa mì.",
+        "Động thái này nhằm duy trì vị thế của Nga trên thị trường ngũ cốc toàn cầu.",
+        "Có thể ảnh hưởng đến nguồn cung và giá lúa mì quốc tế."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOMWFDQzBTSkpnUU1LNjZaSjdtX2QyX1JIQTJPY3lqY00zcWJfbnN3bFpXUEQ0RlpGVTE3ZS1KNEl1MkthQTB2UnhPXzJ1YnNaSkl3V1NZc1JnTXIxNWN0enlzQjQxZmJ0emZfY0NhLThhdU9ISXNFd2FqdkliN1VZdFc3b1VZT2I3dmNtdUQ4OUczTDFmXzc4TlZ5VmFXMGFTcmV2LXFpdWJuYURweXNnMkE2cUc?oc=5",
+      "source": "23 Oct 2026 - Google News (Geo)",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Khủng hoảng ngũ cốc Biển Đen của Ukraine đe dọa thị trường lúa mì và ngô Mỹ",
+      "details": [
+        "Cuộc khủng hoảng ngũ cốc ở Biển Đen của Ukraine có thể gây biến động lớn.",
+        "Thị trường lúa mì và ngô của Mỹ có thể chịu ảnh hưởng đáng kể.",
+        "Gián đoạn xuất khẩu từ Biển Đen làm thay đổi động lực cung cầu toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNMVB5ZHVqNGF5YXJPYmRNYklHLVNrT0EtajBQQ0x5YlNKLUlaMndCX3lwd0xWcm1tc25lSUNXX2h5ZTI5SXBzTUYtV2ZzaXhGUXJyeDZTdGw2WkJtb3ZTVFkwQXY3WDh0c2lxWTI0ZXMtM3pmSVFvQUxXdXpQcmhnNV9hUDdwVGFULWVlN29XSWM?oc=5",
+      "source": "19 Oct 2026 - Google News (Geo)",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Ukraine đề nghị các nước láng giềng cho phép vận chuyển ngũ cốc qua đường bộ",
+      "details": [
+        "Ukraine đang tìm kiếm các tuyến đường bộ thay thế để vận chuyển ngũ cốc.",
+        "Động thái này diễn ra sau khi các tuyến đường biển ở Biển Đen bị phong tỏa.",
+        "Việc vận chuyển qua đường bộ có thể giúp duy trì xuất khẩu nhưng chi phí và hiệu quả là thách thức."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQcWRyb1A3MFU3dmtIT2RldTRvNUgtWDFRekJTN2NBQkFGUmE4SkdGWnpyWDN5MmZqcW12bU5iVkFiUVNzMnBlSVBPNWZ6dnNuYl9VOVZWdDNtRnd1SlFHNVZEQW0zX1BOMVROSTlHX2N4Y1pVN25hcnY0M25oMW95WkFXM2UtZ19VMVF0dDM3NVcwWjVuZ250WjJNSGQ3Z3Z3THJOZVh3QTVFelZvVzdTcTdqTWFMOFk?oc=5",
+      "source": "17 Oct 2026 - Google News (Geo)",
+      "category": "logistics"
+    },
+    {
+      "title": "Thu hoạch ngô Mỹ chậm hơn trung bình 5 năm, gieo trồng lúa mì vụ đông bị trì hoãn",
+      "details": [
+        "Tiến độ thu hoạch ngô của Mỹ chậm hơn 8 điểm phần trăm so với mức trung bình 5 năm.",
+        "Thu hoạch đậu tương đang có tiến triển tốt.",
+        "Việc gieo trồng lúa mì vụ đông vẫn bị trì hoãn.",
+        "Tình hình này có thể ảnh hưởng đến nguồn cung và giá cả trong tương lai."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOa0ZmNmdxWHhjczJvWnhDdDE5b2hqSWVfRFhxTHF1cWExY2c2NlRGa3RUVHllWDZmSkhnMXNjSnZlenpFZV9qRTNRUklBV0JxOEdYV1JrNU8xcjVjZk1WNDE5NkZFUlJWelI2ZmYxRWtxX0VFTHZISjhOWHQ5SEh2TWlUUkhrUF91d0d3RlhPWQ?oc=5",
+      "source": "19 Oct 2026 - Google News (Supply)",
+      "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Chi phí vận chuyển và dầu diesel tăng siết chặt biên lợi nhuận lúa mì Brazil",
+      "details": [
+        "Chi phí vận chuyển hàng hóa và dầu diesel tăng cao đang ảnh hưởng đến Brazil.",
+        "Biên lợi nhuận của ngành lúa mì Brazil bị thu hẹp đáng kể.",
+        "Điều này có thể ảnh hưởng đến khả năng cạnh tranh xuất khẩu của Brazil.",
+        "Tác động tiềm năng đến nguồn cung lúa mì toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQUzIwVVlkM1FFVVpKSTJxNE5odzhsQW93QTFCWXMtdWhTdVFZYXdfcnFySGlIbjVadGFNbXB6R0drVXVRWmxsQU1NVW4zMS1QNGFtcG1KclRZUDBjekR4RVI2Vmh6TkYwM1VLMDFzRjBoT3hjTkQwOThqcU9uZXF5OW1CcXFSaGJZZWFvdlg0QXJyQS1Ua1pXSlBmbUpNT0k?oc=5",
+      "source": "22 Oct 2026 - Google News (Shipping)",
+      "category": "logistics"
+    }
+  ],
   "intraday": {
     "ZW": {
       "bias": "Bearish",
       "bias_vn": "Giảm",
-      "summary": "Giá lúa mì giảm mạnh do áp lực bán từ Smart Money và tiến độ thu hoạch thuận lợi, giảm Weather Risk Premium.",
+      "summary": "Lúa mì chịu áp lực giảm từ thời tiết Nam Mỹ thuận lợi và vị thế short của Smart Money, dù giá hồi phục nhẹ.",
       "key_levels": {
-        "support": "620.00",
-        "resistance": "635.00"
+        "support": "620.00 cents",
+        "resistance": "632.00 cents"
       },
       "reasoning": [
-        "Thời tiết thuận lợi cho thu hoạch, giảm Weather Risk Premium.",
-        "Smart Money NHOI SHORT mạnh, gia tăng áp lực bán trên thị trường.",
-        "Nguồn cung dồi dào hoặc nhu cầu yếu đẩy giá xuống thấp hơn.",
-        "Giá phá vỡ các ngưỡng hỗ trợ kỹ thuật quan trọng, kích hoạt lệnh bán.",
-        "Tin tức Biển Đen đã bão hòa, không còn hỗ trợ giá lúa mì."
+        "Thời tiết Nam Mỹ thuận lợi gây áp lực giảm giá lúa mì.",
+        "Xu hướng giảm giá lúa mì tiếp tục vào thứ Năm.",
+        "Smart Money đang NHOI SHORT mạnh (-44042 HĐ).",
+        "Tin Biển Đen đã bão hòa, ít tác động mới.",
+        "Giá cố gắng hồi phục nhẹ nhưng xu hướng chung vẫn giảm."
       ],
-      "risk": "Rủi ro chính là thời tiết xấu bất ngờ hoặc thay đổi vị thế Smart Money.",
-      "generated_at": "2026-10-22 06:00"
+      "risk": "Rủi ro chính là sự thay đổi đột ngột dự báo thời tiết hoặc căng thẳng địa chính trị leo thang.",
+      "generated_at": "2026-10-23 16:15"
     },
     "ZC": {
-      "bias": "Neutral",
-      "bias_vn": "Đi Ngang",
-      "summary": "Ngô tăng nhẹ nhưng Smart Money XA LONG cho thấy sự thận trọng, giữ xu hướng đi ngang trong phiên.",
+      "bias": "Bearish",
+      "bias_vn": "Giảm",
+      "summary": "Ngô tiếp tục giảm do thời tiết Nam Mỹ thuận lợi, dù Smart Money vẫn long nhưng có dấu hiệu chốt lời.",
       "key_levels": {
-        "support": "460.00",
-        "resistance": "468.00"
+        "support": "455.00 cents",
+        "resistance": "462.00 cents"
       },
       "reasoning": [
-        "Khô ráo Corn Belt hỗ trợ thu hoạch, nhưng lo ngại về độ ẩm đất cho vụ sau.",
-        "Smart Money XA LONG, cho thấy sự thận trọng hoặc chốt lời vị thế mua.",
-        "Giá tăng nhẹ do lực mua kỹ thuật hoặc chốt lời ngắn hạn.",
-        "Giá giữ vững trên các ngưỡng hỗ trợ kỹ thuật, thu hút lực mua.",
-        "Tin tức Biển Đen đã bão hòa, không tác động đáng kể lên giá ngô."
+        "Thời tiết Nam Mỹ thuận lợi gây áp lực giảm giá ngô.",
+        "Giá ngô giảm trở lại vào thứ Năm, nguồn cung dồi dào.",
+        "Smart Money đang XA LONG (Q2), có thể chốt lời.",
+        "Thỏa thuận ngũ cốc thức ăn chăn nuôi Saudi hỗ trợ nhu cầu.",
+        "Giá đang trong xu hướng giảm, có thể kiểm tra các ngưỡng hỗ trợ."
       ],
-      "risk": "Áp lực bán từ Smart Money XA LONG hoặc tin tức mùa vụ bất lợi.",
-      "generated_at": "2026-10-22 06:00"
+      "risk": "Rủi ro chính là thời tiết bất lợi ở các vùng trồng chính hoặc thay đổi chính sách thương mại.",
+      "generated_at": "2026-10-23 16:15"
     },
     "bias": "Bearish",
     "bias_vn": "Giảm",
-    "summary": "Giá lúa mì giảm mạnh do áp lực bán từ Smart Money và tiến độ thu hoạch thuận lợi, giảm Weather Risk Premium.",
+    "summary": "Lúa mì chịu áp lực giảm từ thời tiết Nam Mỹ thuận lợi và vị thế short của Smart Money, dù giá hồi phục nhẹ.",
     "key_levels": {
-      "support": "620.00",
-      "resistance": "635.00"
+      "support": "620.00 cents",
+      "resistance": "632.00 cents"
     },
     "reasoning": [
-      "Thời tiết thuận lợi cho thu hoạch, giảm Weather Risk Premium.",
-      "Smart Money NHOI SHORT mạnh, gia tăng áp lực bán trên thị trường.",
-      "Nguồn cung dồi dào hoặc nhu cầu yếu đẩy giá xuống thấp hơn.",
-      "Giá phá vỡ các ngưỡng hỗ trợ kỹ thuật quan trọng, kích hoạt lệnh bán.",
-      "Tin tức Biển Đen đã bão hòa, không còn hỗ trợ giá lúa mì."
+      "Thời tiết Nam Mỹ thuận lợi gây áp lực giảm giá lúa mì.",
+      "Xu hướng giảm giá lúa mì tiếp tục vào thứ Năm.",
+      "Smart Money đang NHOI SHORT mạnh (-44042 HĐ).",
+      "Tin Biển Đen đã bão hòa, ít tác động mới.",
+      "Giá cố gắng hồi phục nhẹ nhưng xu hướng chung vẫn giảm."
     ],
-    "risk": "Rủi ro chính là thời tiết xấu bất ngờ hoặc thay đổi vị thế Smart Money.",
-    "generated_at": "2026-10-22 06:00"
+    "risk": "Rủi ro chính là sự thay đổi đột ngột dự báo thời tiết hoặc căng thẳng địa chính trị leo thang.",
+    "generated_at": "2026-10-23 16:15"
   },
   "categories": [
     "dia_chinh_tri",

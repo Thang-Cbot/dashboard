@@ -44,7 +44,7 @@ tr:hover td { background:#1e2d45; }
 </style>""", unsafe_allow_html=True)
 
 st.sidebar.page_link("app.py",              label="🏠 Trang Chủ")
-st.sidebar.page_link("pages/1_Overview.py", label="📊 Tổng Quan")
+st.sidebar.page_link("pages/1_Overview.py", label="⚡ Tổng Quan (RUN TIN TỨC)")
 st.sidebar.page_link("pages/2_Profiles.py", label="📈 Hồ Sơ Từng Mã")
 st.sidebar.page_link("pages/3_News.py",     label="📰 Báo Cáo USDA & Tin Tức")
 st.sidebar.page_link("pages/4_Weather_Map.py",label="🌤️ Thời Tiết & Bản Đồ")

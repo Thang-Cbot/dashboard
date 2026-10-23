@@ -76,7 +76,7 @@ def sidebar_status():
     # Navigation links
     st.sidebar.markdown("---")
     st.sidebar.page_link("app.py",              label="🏠 Trang Chủ")
-    st.sidebar.page_link("pages/1_Overview.py", label="📊 Tổng Quan")
+    st.sidebar.page_link("pages/1_Overview.py", label="⚡ Tổng Quan (RUN TIN TỨC)")
     st.sidebar.page_link("pages/2_Profiles.py", label="📈 Hồ Sơ Từng Mã")
     st.sidebar.page_link("pages/3_News.py",     label="📰 Báo Cáo USDA & Tin Tức")
     st.sidebar.page_link("pages/4_Weather_Map.py",label="🌤️ Thời Tiết & Bản Đồ")
@@ -195,7 +195,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 # Quick nav — dùng st.page_link để có thể click
 col1, col2, col3, col4, col5, col6 = st.columns(6, gap="small")
 for col, icon, title, desc, page in [
-    (col1, "📊", "Tổng Quan",       "Tóm tắt thị trường & Alert",  "pages/1_Overview.py"),
+    (col1, "⚡", "RUN TIN TỨC",     "Bảng 5 Phần + Chiến Lược Phần 6", "pages/1_Overview.py"),
     (col2, "📈", "Hồ Sơ Mã",       "Biểu đồ H1 & chiến lược",     "pages/2_Profiles.py"),
     (col3, "📰", "Tin Tức",         "Xuất khẩu, USDA, WASDE",       "pages/3_News.py"),
     (col4, "🌤️","Thời Tiết & Bản Đồ","ENSO, bản đồ cảnh báo 3N",   "pages/4_Weather_Map.py"),
