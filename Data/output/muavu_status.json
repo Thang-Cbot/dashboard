@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-21 16:23:04",
+  "checked_at": "2026-10-24 09:12:05",
   "summary": {
     "total": 16,
     "ok": 15,
@@ -11,7 +11,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Sức mạnh USD (DXY)",
       "type": "🟢 Auto",
-      "value": "101.799 (+0.07%)",
+      "value": "101.752 (+0.14%)",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -20,7 +20,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Giá Dầu Brent",
       "type": "🟢 Auto",
-      "value": "110.08 USD/thùng",
+      "value": "111.66 USD/thùng",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -29,9 +29,9 @@
       "group": "Phần 1: Global Macro",
       "item": "Dòng tiền COT – ZW",
       "type": "🟢 Auto",
-      "value": "-36,247 HĐ | Q3 (DO DAM) - NHOI SHORT",
+      "value": "-57,123 HĐ | Q3 (DO DAM) - NHOI SHORT",
       "status": "✅ Có data",
-      "updated": "1 ngày trước",
+      "updated": "1 giờ trước",
       "note": ""
     },
     {
@@ -58,7 +58,7 @@
       "type": "🟢 Auto",
       "value": "El Niño Advisory",
       "status": "✅ Có data",
-      "updated": "1 ngày trước",
+      "updated": "4 ngày trước",
       "note": "El Niño continues to strengthen, with a strong-to-very stron"
     },
     {
@@ -74,9 +74,9 @@
       "group": "Phần 2: Bắc Bán Cầu (Mỹ)",
       "item": "Export Sales ZW",
       "type": "🟢 Auto",
-      "value": "319,900 MT (Tuần 10/08/2026)",
+      "value": "239,600 MT (Tuần 10/15/2026)",
       "status": "✅ Có data",
-      "updated": "1 ngày trước",
+      "updated": "1 giờ trước",
       "note": ""
     },
     {
@@ -146,10 +146,10 @@
       "group": "Phần 3: AI Analysis & DCA",
       "item": "Giá ZW (D1 chart)",
       "type": "🟢 Auto",
-      "value": "638.50 cents",
+      "value": "625.00 cents",
       "status": "✅ Có data",
-      "updated": "2026-10-21",
-      "note": "RSI 28.8 | ATR 14.9"
+      "updated": "2026-10-23",
+      "note": "RSI 25.7 | ATR 14.9"
     }
   ]
 }

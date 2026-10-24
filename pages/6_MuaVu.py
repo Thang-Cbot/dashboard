@@ -122,24 +122,20 @@ if st.sidebar.button("🔄 Cập Nhật Mùa Vụ (AI)", type="primary", use_con
         env = os.environ.copy(); env["PYTHONIOENCODING"] = "utf-8"
 
         # Step 1: Fetch macro data
-        st.write("📡 Bước 1/3: Tải dữ liệu macro (DXY, Dầu)...")
+        st.write("📡 Bước 1/2: Tải dữ liệu macro (DXY, Dầu)...")
         r1 = subprocess.run([sys.executable, str(BASE_DIR/"Data"/"fetch_macro.py")],
                             capture_output=True, text=True, env=env)
         st.write("✅ Macro OK" if r1.returncode==0 else f"❌ Macro: {r1.stderr[-100:]}")
 
-        # Step 2: Run AI analysis
-        st.write("🤖 Bước 2/3: Phân tích AI (Gemini)...")
-        r2 = subprocess.run([sys.executable, str(BASE_DIR/"Data"/"analyze_muavu_ai.py")],
-                            capture_output=True, text=True, env=env)
-        st.write("✅ AI OK" if r2.returncode==0 else f"❌ AI: {r2.stderr[-100:]}")
+        # Step 2 (Phân tích AI Gemini - analyze_muavu_ai.py) đã tắt: bảng tác chiến được cập nhật thủ công.
 
-        # Step 3: Check status of all items
-        st.write("🔍 Bước 3/3: Kiểm tra trạng thái toàn bộ dữ liệu...")
+        # Step 2: Check status of all items
+        st.write("🔍 Bước 2/2: Kiểm tra trạng thái toàn bộ dữ liệu...")
         r3 = subprocess.run([sys.executable, str(BASE_DIR/"Data"/"check_muavu_status.py")],
                             capture_output=True, text=True, env=env)
         st.write("✅ Kiểm tra xong" if r3.returncode==0 else f"❌ Check: {r3.stderr[-100:]}")
 
-        if r2.returncode==0 and r3.returncode==0:
+        if r3.returncode==0:
             _s.update(label="✅ Cập nhật hoàn tất!", state="complete", expanded=False)
         else:
             _s.update(label="⚠️ Hoàn tất với một số lỗi", state="error")
@@ -722,12 +718,14 @@ def render_muavu_tab(commodity):
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("<br>", unsafe_allow_html=True)
+        # ─── PART 4: BẢNG TỔNG HỢP TÁC CHIẾN 2 TUẦN TỚI ────────────────────────────
+    st.markdown("---")
+    st.subheader("⚔️ PHẦN 4: BẢNG TỔNG HỢP TÁC CHIẾN 2 TUẦN TỚI")
     if ai_analysis and "analysis" in ai_analysis:
-        st.caption(f"⏱ Lần phân tích AI cuối: **{ai_analysis.get('last_updated', '')}** — Ấn 'Cập Nhật Mùa Vụ' để làm mới.")
+        st.caption(f"⏱ Cập nhật lần cuối: **{ai_analysis.get('last_updated', '')}** — Kế hoạch tác chiến cập nhật thủ công.")
         st.markdown(ai_analysis["analysis"], unsafe_allow_html=True)
     else:
-        st.warning("Chưa có bản phân tích AI. Ấn nút **'🔄 Cập Nhật Mùa Vụ (AI)'** ở cột trái.")
+        st.warning("Chưa có bản phân tích tác chiến. Cập nhật thủ công qua Antigravity.")
 
 
 with tab_zw:
