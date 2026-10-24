@@ -725,7 +725,7 @@ def render_muavu_tab(commodity):
     st.markdown("<br>", unsafe_allow_html=True)
     if ai_analysis and "analysis" in ai_analysis:
         st.caption(f"⏱ Lần phân tích AI cuối: **{ai_analysis.get('last_updated', '')}** — Ấn 'Cập Nhật Mùa Vụ' để làm mới.")
-        st.markdown(ai_analysis["analysis"])
+        st.markdown(ai_analysis["analysis"], unsafe_allow_html=True)
     else:
         st.warning("Chưa có bản phân tích AI. Ấn nút **'🔄 Cập Nhật Mùa Vụ (AI)'** ở cột trái.")
 
