@@ -1,47 +1,170 @@
 {
-  "timestamp": "2026-10-25 18:20:40",
-  "news": [],
+  "timestamp": "2026-10-25 20:58:25",
+  "news": [
+    {
+      "title": "Giá lúa mì giảm mạnh vào cuối tuần, mất 35.5 cent",
+      "details": [
+        "Giá lúa mì giảm vào cuối tuần, hợp đồng tháng 12 giảm 35.5 cent trong tuần.",
+        "Thị trường lúa mì Chicago SRW và KC HRW đều ghi nhận mức giảm.",
+        "Các nhà đầu tư lúa mì đang gặp khó khăn trong việc tìm kiếm động lực tăng giá."
+      ],
+      "link": "https://www.barchart.com/story/news/8387266/wheat-bulls-fail-to-find-footing-on-friday",
+      "source": "23 Oct 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Giá ngô giảm sâu, USDA NASS điều chỉnh báo cáo tháng 9",
+      "details": [
+        "Giá ngô giảm vào cuối tuần, hợp đồng tháng 12 giảm 18.25 cent trong tuần.",
+        "USDA NASS đã phát hành bản điều chỉnh báo cáo tháng 9, gây áp lực giảm giá ngô.",
+        "Giá ngô giao ngay trung bình quốc gia giảm 4.5 cent xuống 4.17 1/4 USD."
+      ],
+      "link": "https://www.barchart.com/story/news/8387240/corn-falls-lower-into-the-weekend-as-nass-issues-correction-to-september-report",
+      "source": "23 Oct 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Báo cáo cảnh báo nguy cơ khủng hoảng lương thực toàn cầu năm 2027",
+      "details": [
+        "S&P Global cảnh báo về một cuộc khủng hoảng lương thực toàn cầu tiềm ẩn vào năm 2027.",
+        "Nguyên nhân chính là thiếu hụt nhiên liệu và phân bón, cùng với tác động của hiện tượng El Niño.",
+        "Điều này có thể dẫn đến giá lương thực tăng cao và bất ổn nguồn cung trong dài hạn."
+      ],
+      "link": "https://www.world-grain.com/articles/23366-report-ingredients-in-place-for-global-food-crisis",
+      "source": "22 Oct 2026 - World Grain",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Gói cứu trợ diesel 8 tỷ USD cho nông dân gây tranh cãi khi chi phí thu hoạch ngô tăng",
+      "details": [
+        "Gói cứu trợ diesel 8 tỷ USD của Trump cho nông dân đang vấp phải nhiều chỉ trích.",
+        "Chi phí thu hoạch ngô tăng thêm 8 USD/acre do giá diesel vẫn ở mức cao.",
+        "Giá diesel cao tiếp tục là gánh nặng lớn, ảnh hưởng đến lợi nhuận của các trang trại ngô."
+      ],
+      "link": "https://finance.yahoo.com/economy/policy/articles/trumps-8b-diesel-relief-farmers-113000074.html?.tsrc=rss",
+      "source": "23 Oct 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Giá ngô giảm gần mức thấp nhất 11 tuần, cảnh báo thị trường ngũ cốc",
+      "details": [
+        "Giá ngô tương lai tiếp tục giảm, tiến gần mức thấp nhất trong 11 tuần.",
+        "Tiến độ thu hoạch ngô nhanh chóng là một yếu tố chính gây áp lực giảm giá.",
+        "Sự suy yếu của ngô đang phát tín hiệu cảnh báo cho toàn bộ thị trường ngũ cốc."
+      ],
+      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
+      "source": "23 Oct 2026 - Farm Progress",
+      "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Nga sử dụng khu vực tranh chấp để duy trì xuất khẩu lúa mì",
+      "details": [
+        "Nga đang tìm cách duy trì dòng chảy xuất khẩu lúa mì thông qua một khu vực tranh chấp.",
+        "Động thái này cho thấy nỗ lực của Nga nhằm đảm bảo nguồn cung ra thị trường toàn cầu.",
+        "Tình hình địa chính trị tiếp tục ảnh hưởng đến thương mại lúa mì quốc tế."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOMWFDQzBTSkpnUU1LNjZaSjdtX2QyX1JIQTJPY3lqY00zcWJfbnN3bFpXUEQ0RlpGVTE3ZS1KNEl1MkthQTB2UnhPXzJ1YnNaSkl3V1NZc1JnTXIxNWN0enlzQjQxZmJ0emZfY0NhLThhdU9ISXNFd2FqdkliN1VZdFc3b1VZT2I3dmNtdUQ4OUczTDFmXzc4TlZ5VmFXMGFTcmV2LXFpdWJuYURweXNnMkE2cUc?oc=5",
+      "source": "23 Oct 2026 - Google News (Geo)",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Ukraine muốn chuyển kiểm tra hải quan vào EU để tránh máy bay không người lái của Nga",
+      "details": [
+        "Ukraine đang tìm cách chuyển các trạm kiểm soát hải quan vào bên trong EU.",
+        "Mục tiêu là tránh các cuộc tấn công bằng máy bay không người lái của Nga vào cơ sở hạ tầng xuất khẩu.",
+        "Động thái này nhằm đảm bảo an toàn và thông suốt cho hoạt động xuất khẩu ngũ cốc của Ukraine."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNOHlVZENCd2FZNEQ4MUVfMWJ0VTNLX0xMc3NteUtXUUxXSXlON19WTEpXM0I3V2JxVGhfS09xWlBBSEp6WDF1VEdLMXE5SkRoQ1d1TUxRMmdHY3ljMzE0WXFRNHNGTTBQeVhDaTY5YmZpajVKdlhDNjBPN2pOYWxGU1dGQzQ?oc=5",
+      "source": "23 Oct 2026 - Google News (Geo)",
+      "category": "logistics"
+    },
+    {
+      "title": "Tàu chở ngũ cốc Thổ Nhĩ Kỳ bị chìm do drone ở Biển Đen, rủi ro vận chuyển tăng",
+      "details": [
+        "Một tàu chở ngũ cốc Thổ Nhĩ Kỳ đã bị chìm do tấn công bằng máy bay không người lái ở Biển Đen.",
+        "Sự cố này làm tăng đáng kể rủi ro vận chuyển và chi phí bảo hiểm cho thị trường lúa mì EU.",
+        "Các cuộc tấn công leo thang ở Biển Đen đe dọa nguồn cung ngũ cốc toàn cầu và có thể đẩy giá lương thực lên cao."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE8yTXVnV0xoVHVZWTV1bnpqcjBZQ1RpZ3VyUG1rWDBDdFRuVzBSd0VnZ3VuQ25jQnBFN2RGa3cxRFd6dVJ6QnVGdFRQYTJtQXlnWkRweTNOX3lpUDl4VDZiX2R6bGhmMmd1cXptWHMwNjMyQQ?oc=5",
+      "source": "24 Oct 2026 - Google News (Geo)",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Thị trường lúa mì giảm giá do xuất khẩu yếu hơn lo ngại hạn hán",
+      "details": [
+        "Thị trường lúa mì giảm giá khi xuất khẩu yếu hơn đã lấn át các lo ngại về hạn hán.",
+        "Nhu cầu xuất khẩu thấp đang gây áp lực giảm giá, bất chấp các vấn đề về thời tiết.",
+        "Điều này cho thấy yếu tố cung cầu hiện tại đang chi phối thị trường hơn các dự báo thời tiết dài hạn."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPY2VUWDFuQU9wZ1NNUmNndmxUX1FiNkNCaE54M3E0cnFrZmNYWDF4WG9NT0FSWjJBSFM4SFY0M1dTWWk3VHptMFJHX2dkdS1RVm4zVi1Ta0JwMTNKTXFkUFhHbDVUaEFHcGhzeENJMC1GTUUtOXFNUDA5Z1R4WVJka0toUzRiWU1WbVhVdVVGekdiZE5SNEEtdndLNA?oc=5",
+      "source": "22 Oct 2026 - Google News (Geo)",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Thu hoạch ngô Mỹ chậm hơn trung bình 5 năm, gieo trồng lúa mì vụ đông trì hoãn",
+      "details": [
+        "Thu hoạch ngô của Mỹ đang chậm hơn 8% so với mức trung bình 5 năm.",
+        "Việc gieo trồng lúa mì vụ đông vẫn bị trì hoãn, có thể ảnh hưởng đến sản lượng tương lai.",
+        "Tiến độ thu hoạch và gieo trồng chậm có thể gây lo ngại về nguồn cung trong các tháng tới."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOa0ZmNmdxWHhjczJvWnhDdDE5b2hqSWVfRFhxTHF1cWExY2c2NlRGa3RUVHllWDZmSkhnMXNjSnZlenpFZV9qRTNRUklBV0JxOEdYV1JrNU8xcjVjZk1WNDE5NkZFUlJWelI2ZmYxRWtxX0VFTHZISjhOWHQ5SEh2TWlUUkhrUF91d0d3RlhPWQ?oc=5",
+      "source": "19 Oct 2026 - Google News (Supply)",
+      "category": "san_luong_dien_tich"
+    }
+  ],
   "intraday": {
     "ZW": {
-      "bias": "Neutral",
-      "bias_vn": "Đi Ngang",
-      "summary": "Chưa đủ dữ liệu để nhận định intraday ZW",
+      "bias": "Bearish",
+      "bias_vn": "Giảm",
+      "summary": "Giá lúa mì chịu áp lực giảm mạnh do nguồn cung dồi dào, vị thế COT tiêu cực và xuất khẩu Nga ổn định.",
       "key_levels": {
-        "support": "N/A",
-        "resistance": "N/A"
+        "support": "615.0",
+        "resistance": "635.0"
       },
       "reasoning": [
-        "Đang chờ cập nhật dữ liệu"
+        "Thời tiết thuận lợi cho gieo trồng lúa mì mùa đông US Plains.",
+        "Nguồn cung lúa mì toàn cầu dồi dào, Nga duy trì xuất khẩu.",
+        "Smart Money NHOI SHORT mạnh, vị thế COT tiêu cực.",
+        "Xuất khẩu lúa mì của Nga ổn định, rủi ro Biển Đen bão hòa.",
+        "Giá ZW giảm mạnh cuối tuần, xu hướng kỹ thuật tiêu cực."
       ],
-      "risk": "N/A",
-      "generated_at": "2026-10-25 18:20"
+      "risk": "Bất ngờ về thời tiết xấu ảnh hưởng gieo trồng lúa mì mùa đông hoặc leo thang địa chính trị.",
+      "generated_at": "2026-10-25 20:58"
     },
     "ZC": {
-      "bias": "Neutral",
-      "bias_vn": "Đi Ngang",
-      "summary": "Chưa đủ dữ liệu để nhận định intraday ZC",
+      "bias": "Bearish",
+      "bias_vn": "Giảm",
+      "summary": "Giá ngô tiếp tục giảm sâu do thu hoạch thuận lợi, báo cáo USDA tiêu cực và Smart Money chốt lời.",
       "key_levels": {
-        "support": "N/A",
-        "resistance": "N/A"
+        "support": "450.0",
+        "resistance": "465.0"
       },
       "reasoning": [
-        "Đang chờ cập nhật dữ liệu"
+        "Thời tiết khô ráo thuận lợi cho thu hoạch ngô tại Corn Belt.",
+        "USDA điều chỉnh báo cáo, nguồn cung ngô dồi dào gây áp lực giá.",
+        "Smart Money XA LONG, cho thấy sự thận trọng và chốt lời.",
+        "Không có yếu tố địa chính trị nổi bật tác động trực tiếp.",
+        "Giá ZC giảm sâu, tiệm cận mức thấp nhất 11 tuần, xu hướng giảm."
       ],
-      "risk": "N/A",
-      "generated_at": "2026-10-25 18:20"
+      "risk": "Bất ngờ về nhu cầu xuất khẩu tăng mạnh hoặc thời tiết bất lợi ảnh hưởng thu hoạch cuối vụ.",
+      "generated_at": "2026-10-25 20:58"
     },
-    "bias": "Neutral",
-    "bias_vn": "Đi Ngang",
-    "summary": "Chưa đủ dữ liệu để nhận định",
+    "bias": "Bearish",
+    "bias_vn": "Giảm",
+    "summary": "Giá lúa mì chịu áp lực giảm mạnh do nguồn cung dồi dào, vị thế COT tiêu cực và xuất khẩu Nga ổn định.",
     "key_levels": {
-      "support": "N/A",
-      "resistance": "N/A"
+      "support": "615.0",
+      "resistance": "635.0"
     },
     "reasoning": [
-      "Đang chờ cập nhật dữ liệu"
+      "Thời tiết thuận lợi cho gieo trồng lúa mì mùa đông US Plains.",
+      "Nguồn cung lúa mì toàn cầu dồi dào, Nga duy trì xuất khẩu.",
+      "Smart Money NHOI SHORT mạnh, vị thế COT tiêu cực.",
+      "Xuất khẩu lúa mì của Nga ổn định, rủi ro Biển Đen bão hòa.",
+      "Giá ZW giảm mạnh cuối tuần, xu hướng kỹ thuật tiêu cực."
     ],
-    "risk": "N/A",
-    "generated_at": "2026-10-25 18:20"
+    "risk": "Bất ngờ về thời tiết xấu ảnh hưởng gieo trồng lúa mì mùa đông hoặc leo thang địa chính trị.",
+    "generated_at": "2026-10-25 20:58"
   },
   "categories": [
     "dia_chinh_tri",
