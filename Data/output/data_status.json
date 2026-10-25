@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 22:00:44",
-      "updated_at": "2026-10-25 22:00:44"
+      "detail": "Auto-fetch 06:07:51",
+      "updated_at": "2026-10-26 06:07:51"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 22:01:13 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-10-25 22:01:13"
+      "detail": "Đẩy thành công lúc 22:02:38 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-10-25 22:02:38"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -96,13 +96,13 @@
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 22:00",
-    "updated_at": "2026-10-25 22:00:43"
+    "detail": "ZC+ZW updated at 06:07",
+    "updated_at": "2026-10-26 06:07:51"
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=111.7, DXY=101.81",
-    "updated_at": "2026-10-25 22:01:07"
+    "detail": "Brent=110.51, DXY=101.81",
+    "updated_at": "2026-10-26 05:57:26"
   },
   "weather_short": {
     "status": "OK",
