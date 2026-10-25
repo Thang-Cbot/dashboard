@@ -48,14 +48,14 @@
       "updated_at": "2026-10-25 17:50:04"
     },
     "ai_news": {
-      "status": "[ERROR]",
-      "detail": "Failed after 1 attempts",
-      "updated_at": "2026-10-24 20:04:05"
+      "status": "[OK]",
+      "detail": "Auto-fetch 18:21:40",
+      "updated_at": "2026-10-25 18:21:40"
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 18:02:05 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-10-25 18:02:05"
+      "detail": "Đẩy thành công lúc 18:20:40 (Nguồn: Thời Tiết Ngắn Hạn)",
+      "updated_at": "2026-10-25 18:20:40"
     },
     "prices_h4": {
       "status": "[OK]",

@@ -1,156 +1,6 @@
 {
-  "timestamp": "2026-10-24 20:03:57",
-  "news": [
-    {
-      "title": "Giá Lúa Mì Giảm Sâu Cuối Tuần",
-      "details": [
-        "Hợp đồng lúa mì SRW Chicago giảm nhẹ đến 2 ¾ cent.",
-        "Hợp đồng tháng 12 giảm 35 ½ cent trong tuần.",
-        "Hợp đồng lúa mì HRW Kansas giảm 1 ¼ đến 3 ¾ cent vào thứ Sáu."
-      ],
-      "link": "https://www.barchart.com/story/news/8387266/wheat-bulls-fail-to-find-footing-on-friday",
-      "source": "23 Oct 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Ngô Giảm Giá Mạnh Cuối Tuần, NASS Điều Chỉnh Báo Cáo Tháng 9",
-      "details": [
-        "Hợp đồng ngô giảm 1 ¼ đến 4 ½ cent vào thứ Sáu.",
-        "Hợp đồng tháng 12 giảm thêm 18 ¼ cent trong tuần.",
-        "Giá ngô giao ngay trung bình quốc gia giảm 4 ½ cent xuống $4.17 ¼.",
-        "NASS đã điều chỉnh báo cáo tháng 9, có thể ảnh hưởng đến tâm lý thị trường."
-      ],
-      "link": "https://www.barchart.com/story/news/8387240/corn-falls-lower-into-the-weekend-as-nass-issues-correction-to-september-report",
-      "source": "23 Oct 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Ngô Gửi Tín Hiệu Đỏ Cho Thị Trường Ngũ Cốc",
-      "details": [
-        "Hợp đồng ngô tiếp tục giảm qua đêm, chạm mức thấp nhất 11 tuần.",
-        "Tiến độ thu hoạch nhanh chóng gây áp lực giảm giá.",
-        "Giá ngô yếu có thể kéo theo các loại ngũ cốc khác."
-      ],
-      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
-      "source": "23 Oct 2026 - Farm Progress",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Lúa Mì và Đậu Tương Tỏa Sáng Hơn Đồng Trong Thị Trường Hàng Hóa",
-      "details": [
-        "Lúa mì, đậu tương và đường ghi nhận mức tăng đáng kể trong năm.",
-        "Các mặt hàng này có lợi nhuận điều chỉnh rủi ro mạnh mẽ.",
-        "Đồng (copper) hoạt động kém hiệu quả dù được truyền thông chú ý nhiều."
-      ],
-      "link": "https://finance.yahoo.com/markets/commodities/articles/optionmetrics-flags-hidden-gems-commodities-172655787.html?.tsrc=rss",
-      "source": "23 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Romania Tố Nga Dùng Drone Đánh Chìm Tàu Hàng Ở Biển Đen",
-      "details": [
-        "Romania cáo buộc Nga sử dụng drone tấn công tàu hàng.",
-        "Vụ việc khiến 1 người thiệt mạng và 3 người mất tích.",
-        "Gia tăng rủi ro địa chính trị và an ninh hàng hải tại Biển Đen.",
-        "Có thể ảnh hưởng đến hành lang xuất khẩu ngũ cốc."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPOF9iZ3FoTHAycU5fWGxKNWNiYnpvRXlwUWJ2ZVFtQU9IUmF4UWJTU1AwTEFRT21vNWRDNzRjWTgtY0F6Vkp0RkdxeG9xM1A0X1RRX19Eb0RqVG9tbTBNeWFRaXZ2SzEtUUFEc2VjZlZPaUxtR3JGTUNEN3VRdWtRMEdTM21OSTVSQWNJN3FaOWpBNHdld3IyZS1sbVA1a2wxLVJXRm01ejhKWXZzQU5B?oc=5",
-      "source": "23 Oct 2026 - Reuters",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Nga Dùng Vùng Tranh Chấp Để Duy Trì Xuất Khẩu Lúa Mì",
-      "details": [
-        "Nga chuyển hướng sang một khu vực tranh chấp để đảm bảo dòng chảy xuất khẩu lúa mì.",
-        "Chiến lược này nhằm duy trì vị thế trên thị trường ngũ cốc toàn cầu.",
-        "Động thái này có thể làm phức tạp thêm tình hình địa chính trị."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOMWFDQzBTSkpnUU1LNjZaSjdtX2QyX1JIQTJPY3lqY00zcWJfbnN3bFpXUEQ0RlpGVTE3ZS1KNEl1MkthQTB2UnhPXzJ1YnNaSkl3V1NZc1JnTXIxNWN0enlzQjQxZmJ0emZfY0NhLThhdU9ISXNFd2FqdkliN1VZdFc3b1VZT2I3dmNtdUQ4OUczTDFmXzc4TlZ5VmFXMGFTcmV2LXFpdWJuYURweXNnMkE2cUc?oc=5",
-      "source": "23 Oct 2026 - Bloomberg",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Ukraine Muốn Chuyển Kiểm Tra Hải Quan Vào EU Để Tránh Drone Nga",
-      "details": [
-        "Ukraine tìm cách di chuyển các điểm kiểm tra hải quan vào bên trong EU.",
-        "Mục tiêu là tránh các cuộc tấn công bằng drone của Nga.",
-        "Động thái này nhằm bảo vệ hoạt động xuất khẩu ngũ cốc.",
-        "Có thể ảnh hưởng đến hiệu quả và chi phí logistics."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNOHlVZENCd2FZNEQ4MUVfMWJ0VTNLX0xMc3NteUtXUUxXSXlON19WTEpXM0I3V2JxVGhfS09xWlBBSEp6WDF1VEdLMXE5SkRoQ1d1TUxRMmdHY3ljMzE0WXFRNHNGTTBQeVhDaTY5YmZpajVKdlhDNjBPN2pOYWxGU1dGQzQ?oc=5",
-      "source": "23 Oct 2026 - Financial Times",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "NATO Tăng Cường Lực Lượng Tại Biển Đen Khi Xung Đột Leo Thang",
-      "details": [
-        "NATO triển khai thêm lực lượng đến Biển Đen.",
-        "Động thái diễn ra trong bối cảnh xung đột với Nga leo thang.",
-        "Gia tăng căng thẳng địa chính trị trong khu vực.",
-        "Có thể ảnh hưởng đến an toàn hàng hải và thương mại ngũ cốc."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE85U3JFUnVRVTQ4ejZNc3liRVVrcTdiVmhkVFhGeUgxUWNRXzdTajVJTTNkc0ZWMFRYRTZNd1VKc0JublY3Vy1WRk02c19selFxa0tELXlmVXhPbnVfQlJVenhNdlF0ZENh?oc=5",
-      "source": "22 Oct 2026 - World Socialist Web Site",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Bão Lớn Gây Trì Hoãn Thu Hoạch, Đe Dọa Lợi Nhuận Nông Dân Mỹ",
-      "details": [
-        "Các cơn bão lớn gây trì hoãn thu hoạch tại các vùng trồng trọt trọng điểm của Mỹ.",
-        "Tình trạng này đe dọa lợi nhuận của nông dân.",
-        "Có thể ảnh hưởng đến tổng sản lượng và chất lượng ngũ cốc."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxObVhoX2p4RWxDZzVleF9lNmxaem9XWE1xTndGXzZyOUtMMkJZdnE1MzlSc3ZtM3V5MGtiZ0RvVGp4cTducW9iNW9xeGswUXJZbXRUeC1MT2NnWEVWQ3ltYUt5MFB6bHowd1lycS1oWUVGYURvR045ZTRXZXJOdW5mMnNOckI0bk5MVjhlclRaVjVLZEpELVE?oc=5",
-      "source": "20 Oct 2026 - AgroLatam",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Thu Hoạch Ngô Mỹ Chậm Hơn Trung Bình 5 Năm, Lúa Mì Đông Vẫn Trì Hoãn",
-      "details": [
-        "Thu hoạch ngô Mỹ chậm 8% so với mức trung bình 5 năm.",
-        "Thu hoạch đậu tương đang tăng tốc.",
-        "Gieo trồng lúa mì đông vẫn bị trì hoãn.",
-        "Tình hình này có thể ảnh hưởng đến nguồn cung và giá cả trong tương lai."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOa0ZmNmdxWHhjczJvWnhDdDE5b2hqSWVfRFhxTHF1cWExY2c2NlRGa3RUVHllWDZmSkhnMXNjSnZlenpFZV9qRTNRUklBV0JxOEdYV1JrNU8xcjVjZk1WNDE5NkZFUlJWelI2ZmYxRWtxX0VFTHZISjhOWHQ5SEh2TWlUUkhrUF91d0d3RlhPWQ?oc=5",
-      "source": "19 Oct 2026 - AgroLatam",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Năng Suất Ngô USDA Bất Ngờ Tăng Nhờ Vùng Husker",
-      "details": [
-        "Báo cáo USDA cho thấy năng suất ngô bất ngờ tăng.",
-        "Sự tăng trưởng này chủ yếu nhờ vào khu vực Husker.",
-        "Thông tin này có thể tác động tích cực đến nguồn cung ngô."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQek9WLXNxYjZVVkJXWUxPYXJQcm55eDBkdVYtN3IyTkg0c00yUFVoU2pJUUFLQVpCcmt2R0otNGF4TkhKQ0FiZVN0RXV5bnk5Z2daN1dnWHAyYk5EdG9xS2hKRUlNeDFJekY5OE12cEdDU2N0clpUTE5SYlBLLUQ3WTdzbmQ0SV9DMUhSQVM5Y28?oc=5",
-      "source": "19 Oct 2026 - Farm Progress",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Báo Cáo Cảnh Báo Khủng Hoảng Lương Thực Toàn Cầu Năm 2027",
-      "details": [
-        "S&P Global cảnh báo về nguy cơ khủng hoảng lương thực toàn cầu vào năm 2027.",
-        "Nguyên nhân chính là thiếu hụt nhiên liệu và phân bón.",
-        "Hiện tượng El Niño dự kiến sẽ gây thêm khó khăn."
-      ],
-      "link": "https://www.world-grain.com/articles/23366-report-ingredients-in-place-for-global-food-crisis",
-      "source": "22 Oct 2026 - World Grain",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Gói Cứu Trợ Diesel 8 Tỷ USD Của Trump Gây Tranh Cãi Khi Chi Phí Thu Hoạch Ngô Tăng",
-      "details": [
-        "Chính sách cứu trợ diesel 8 tỷ USD của Trump cho nông dân bị chỉ trích.",
-        "Chi phí thu hoạch ngô tăng thêm 8 USD mỗi mẫu Anh.",
-        "Giá diesel cao làm tăng chi phí sản xuất nông nghiệp.",
-        "Ảnh hưởng đến lợi nhuận của nông dân và giá thành sản phẩm."
-      ],
-      "link": "https://finance.yahoo.com/economy/policy/articles/trumps-8b-diesel-relief-farmers-113000074.html?.tsrc=rss",
-      "source": "23 Oct 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    }
-  ],
+  "timestamp": "2026-10-25 18:20:40",
+  "news": [],
   "intraday": {
     "ZW": {
       "bias": "Neutral",
@@ -164,7 +14,7 @@
         "Đang chờ cập nhật dữ liệu"
       ],
       "risk": "N/A",
-      "generated_at": "2026-10-24 20:03"
+      "generated_at": "2026-10-25 18:20"
     },
     "ZC": {
       "bias": "Neutral",
@@ -178,7 +28,7 @@
         "Đang chờ cập nhật dữ liệu"
       ],
       "risk": "N/A",
-      "generated_at": "2026-10-24 20:03"
+      "generated_at": "2026-10-25 18:20"
     },
     "bias": "Neutral",
     "bias_vn": "Đi Ngang",
@@ -191,7 +41,7 @@
       "Đang chờ cập nhật dữ liệu"
     ],
     "risk": "N/A",
-    "generated_at": "2026-10-24 20:03"
+    "generated_at": "2026-10-25 18:20"
   },
   "categories": [
     "dia_chinh_tri",
