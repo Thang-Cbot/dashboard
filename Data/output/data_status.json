@@ -44,8 +44,8 @@
     },
     "acreage": {
       "status": "[OK]",
-      "detail": "Auto-fetch 19:32:16",
-      "updated_at": "2026-10-24 19:32:16"
+      "detail": "Auto-fetch 17:50:04",
+      "updated_at": "2026-10-25 17:50:04"
     },
     "ai_news": {
       "status": "[ERROR]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 17:49:12 (Nguồn: Giá H4)",
-      "updated_at": "2026-10-25 17:49:12"
+      "detail": "Đẩy thành công lúc 17:49:18 (Nguồn: Vĩ Mô (Macro))",
+      "updated_at": "2026-10-25 17:49:18"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -82,7 +82,7 @@
   "acreage": {
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-10-24 19:32:16"
+    "updated_at": "2026-10-25 17:50:04"
   },
   "usda": {
     "status": "OK",
