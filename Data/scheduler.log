@@ -26309,3 +26309,8 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-10-26 15:47:13] [INFO] ▶ Kích hoạt: Thời Tiết Ngắn Hạn
 [2026-10-26 15:47:49] [INFO] ✅ Thời Tiết Ngắn Hạn hoàn thành (attempt 1)
 [2026-10-26 15:47:49] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Thời Tiết Ngắn Hạn)...
+[2026-10-26 15:47:53] [Sync] ✅ Đồng bộ Github thành công (Thời Tiết Ngắn Hạn)!
+[2026-10-26 15:47:53] [INFO] ⏰ Đợi Weather Short: còn 14.20h (27/10 06:00:02 VN)
+[2026-10-26 16:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-10-26 16:00:28] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-10-26 16:00:28] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
