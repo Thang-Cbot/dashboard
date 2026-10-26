@@ -2,9 +2,32 @@
   "_note": "Sua file nay khi tai khoan / lich su kien / san chi phi thay doi. Nut 'Cap Nhat Mua Vu (AI)' se doc file nay de dung Bang Ma Tran Tac Chien.",
   "updated": "2026-10-24",
   "window": "26/10/2026 - 08/11/2026 (2 tuan)",
-  "account": {"cash_usd": 30350, "open_positions": 0, "max_lots_per_commodity": 2},
-  "margin_per_lot_usd": {"ZWH27": 2800, "ZCH27": 1700},
-  "break_even_cents": {"ZW": "600 - 615", "ZC": "435 - 450"},
+  "account": {
+    "cash_usd": 30350,
+    "open_positions": 1,
+    "max_lots_per_commodity": 2,
+    "positions_detail": [
+      {
+        "commodity": "ZW",
+        "contract": "ZWH27",
+        "side": "BUY",
+        "lots": 1,
+        "entry_price": 635.0,
+        "tranche": 1,
+        "date": "2026-10-26 10:36"
+      }
+    ],
+    "margin_used_usd": 2800,
+    "free_cash_usd": 27550
+  },
+  "margin_per_lot_usd": {
+    "ZWH27": 2800,
+    "ZCH27": 1700
+  },
+  "break_even_cents": {
+    "ZW": "600 - 615",
+    "ZC": "435 - 450"
+  },
   "official_cot_note": {
     "ZW": "Official COT 20/10: Net Short -52,000 HD; uoc tinh realtime ~ -57,000 HD (top 5-10% lich su short cuc dai)",
     "ZC": "Official COT 20/10: Net Long +164,423 HD (xa -82,002 HD tuan nay); realtime +156,972 HD"
