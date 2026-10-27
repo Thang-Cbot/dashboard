@@ -1,10 +1,10 @@
 {
-  "timestamp": "27/10/2026 15:55",
+  "timestamp": "27/10/2026 16:01",
   "macro": {
-    "brent_price": 111.71,
-    "brent_pct": -3.54,
-    "dxy_price": 102.162,
-    "dxy_pct": 0.198
+    "brent_price": 111.59,
+    "brent_pct": -3.644,
+    "dxy_price": 102.184,
+    "dxy_pct": 0.22
   },
   "commodities": {
     "ZC": {
@@ -21,12 +21,12 @@
         "s2": 450.25,
         "r1": 456.0,
         "r2": 533.5,
-        "volume": 1003.0,
+        "volume": 1346.0,
         "open_interest": 770493,
         "contract": "ZCZ26",
         "weather": "Trời nóng tại Midwest, mưa rải rác",
-        "predicted_close": 454.03408652441493,
-        "predicted_change": -0.2159134755850904
+        "predicted_close": 454.02266731720357,
+        "predicted_change": -0.22733268279640345
       },
       "swing": {
         "time": "2026-10-27 15:00",
@@ -41,7 +41,7 @@
         "s2": 450.25,
         "r1": 456.0,
         "r2": 533.5,
-        "volume": 1003.0,
+        "volume": 1346.0,
         "open_interest": 770493,
         "contract": "ZCZ26"
       },
@@ -58,7 +58,7 @@
         "s2": 450.25,
         "r1": 456.0,
         "r2": 533.5,
-        "volume": 1003.0,
+        "volume": 1346.0,
         "open_interest": 770493,
         "contract": "ZCZ26"
       },
@@ -84,12 +84,12 @@
         "s2": 612.5,
         "r1": 627.5,
         "r2": 716.75,
-        "volume": 1379.0,
+        "volume": 1436.0,
         "open_interest": 242462,
         "contract": "ZWZ26",
         "weather": "Hạn hán vĩ mô",
-        "predicted_close": 615.4927913432844,
-        "predicted_change": -0.5072086567155991
+        "predicted_close": 615.4854824855622,
+        "predicted_change": -0.5145175144378253
       },
       "swing": {
         "time": "2026-10-27 15:00",
@@ -104,7 +104,7 @@
         "s2": 626.5,
         "r1": 640.0,
         "r2": 732.75,
-        "volume": 464.0,
+        "volume": 491.0,
         "open_interest": 137961,
         "contract": "ZWH27"
       },
@@ -121,7 +121,7 @@
         "s2": 612.5,
         "r1": 627.5,
         "r2": 716.75,
-        "volume": 1379.0,
+        "volume": 1436.0,
         "open_interest": 242462,
         "contract": "ZWZ26"
       },
