@@ -48,14 +48,14 @@
       "updated_at": "2026-10-27 20:04:17"
     },
     "ai_news": {
-      "status": "[ERROR]",
-      "detail": "Failed after 1 attempts",
-      "updated_at": "2026-10-26 20:15:44"
+      "status": "[OK]",
+      "detail": "Auto-fetch 20:22:11",
+      "updated_at": "2026-10-27 20:22:11"
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 20:01:25 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
-      "updated_at": "2026-10-27 20:01:25"
+      "detail": "Đẩy thành công lúc 20:04:24 (Nguồn: USDA Acreage)",
+      "updated_at": "2026-10-27 20:04:24"
     },
     "prices_h4": {
       "status": "[OK]",
