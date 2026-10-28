@@ -26983,3 +26983,10 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-10-28 23:55:52] [INFO] ▶ Kích hoạt: Chỉ số Lúa Mì Nga
 [2026-10-28 23:56:08] [INFO] ✅ Chỉ số Lúa Mì Nga hoàn thành (attempt 1)
 [2026-10-28 23:56:08] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Chỉ số Lúa Mì Nga)...
+[2026-10-28 23:56:13] [Sync] ⚠️ Lỗi Github Push: to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-10-28 23:56:13] [INFO] ⏰ Đợi Russian Metrics: còn 7.56h (29/10 07:30:02 VN)
+[2026-10-29 00:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-10-29 00:00:22] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-10-29 00:00:22] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
