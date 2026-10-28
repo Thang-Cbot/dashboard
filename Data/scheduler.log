@@ -26948,3 +26948,12 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-10-28 22:25:52] [INFO] ▶ Kích hoạt: AI Điểm Tin
 [2026-10-28 22:26:21] [INFO] ✅ Thời Tiết Ngắn Hạn hoàn thành (attempt 1)
 [2026-10-28 22:26:21] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Thời Tiết Ngắn Hạn)...
+[2026-10-28 22:26:25] [Sync] ⚠️ Lỗi Github Push: to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-10-28 22:26:25] [INFO] ⏰ Đợi Weather Short: còn 7.56h (29/10 06:00:02 VN)
+[2026-10-28 22:27:52] [WARN] ⏳ AI Điểm Tin timeout
+[2026-10-28 22:27:52] [INFO] ⏰ Đợi AI News: còn 7.54h (29/10 06:00:02 VN)
+[2026-10-28 23:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-10-28 23:00:35] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-10-28 23:00:35] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
