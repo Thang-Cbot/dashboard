@@ -26914,3 +26914,10 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-10-28 21:55:52] [INFO] ▶ Kích hoạt: USDA Acreage
 [2026-10-28 21:55:58] [INFO] ✅ USDA Acreage hoàn thành (attempt 1)
 [2026-10-28 21:55:58] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: USDA Acreage)...
+[2026-10-28 21:56:01] [Sync] ⚠️ Lỗi Github Push: to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-10-28 21:56:01] [INFO] ⏰ Đợi Acreage Reports: còn 7.57h (29/10 05:30:02 VN)
+[2026-10-28 22:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-10-28 22:00:23] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-10-28 22:00:23] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
