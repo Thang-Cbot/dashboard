@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-10-27 21:50:46",
+  "timestamp": "2026-10-28 23:56:08",
   "metrics": {
     "planted_area": "N/A",
     "production_forecast": "N/A",
     "harvest_progress": "N/A",
-    "fob_price": "Có xu hướng giảm do chiết khấu Biển Đen và tình hình xuất khẩu không ổn định.",
+    "fob_price": "N/A",
     "export_tax": "N/A",
     "export_capacity": "N/A",
     "quality_notes": "N/A",
     "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Tháng 9 (Vụ Xuân)",
-    "ai_assessment": "Áp lực xả hàng từ Nga lên giá CBOT hiện tại vẫn đáng kể, thể hiện qua các báo giá Biển Đen thấp và chiết khấu, mặc dù hoạt động xuất khẩu đang đối mặt với nhiều rủi ro và gián đoạn do xung đột."
+    "ai_assessment": "Các cuộc tấn công và gián đoạn thương mại ở Biển Đen đang làm giảm áp lực xả hàng từ Nga, hỗ trợ giá lúa mì CBOT tăng cao."
   }
 }
