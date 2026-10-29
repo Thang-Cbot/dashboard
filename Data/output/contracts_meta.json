@@ -6,9 +6,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZCZ26.CBT",
-      "year": 2026,
-      "month": 12
+      "ticker": "ZCH27.CBT",
+      "year": 2027,
+      "month": 3
     },
     "dca": {
       "ticker": "ZCZ26.CBT",
@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 3007.0,
-      "prev_volume": 224285.0,
-      "today_oi": 769032,
+      "today_volume": 6261.0,
+      "prev_volume": 220459.0,
+      "today_oi": 773231,
       "prev_oi": 768998,
-      "today_close": 452.5,
+      "today_close": 451.75,
       "prev_close": 448.75,
       "trend": "Tăng nhẹ tích lũy (Accumulation Rally)",
       "logic": "Giá tăng nhẹ với các chỉ số thanh khoản hỗn hợp, cho thấy thị trường đang tích lũy lực cầu hoặc đi ngang."
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 591.0,
-      "prev_volume": 90142.0,
-      "today_oi": 241434,
+      "today_volume": 2717.0,
+      "prev_volume": 68836.0,
+      "today_oi": 241721,
       "prev_oi": 241454,
-      "today_close": 601.25,
+      "today_close": 599.25,
       "prev_close": 610.25,
-      "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
-      "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
+      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
+      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
-  "updated_at": "2026-10-29 07:14:23"
+  "updated_at": "2026-10-29 10:25:05"
 }
