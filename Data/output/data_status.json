@@ -44,8 +44,8 @@
     },
     "acreage": {
       "status": "[OK]",
-      "detail": "Auto-fetch 21:55:58",
-      "updated_at": "2026-10-28 21:55:58"
+      "detail": "Auto-fetch 17:36:19",
+      "updated_at": "2026-10-29 17:36:19"
     },
     "ai_news": {
       "status": "[ERROR]",
@@ -55,7 +55,7 @@
     "github_sync": {
       "status": "[ERROR]",
       "detail": "Lỗi Push: to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "updated_at": "2026-10-29 17:00:46"
+      "updated_at": "2026-10-29 17:01:35"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -82,7 +82,7 @@
   "acreage": {
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-10-28 21:55:58"
+    "updated_at": "2026-10-29 17:36:19"
   },
   "usda": {
     "status": "OK",
