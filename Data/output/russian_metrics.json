@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-28 23:56:08",
+  "timestamp": "2026-10-29 21:13:15",
   "metrics": {
     "planted_area": "N/A",
     "production_forecast": "N/A",
@@ -9,6 +9,6 @@
     "export_capacity": "N/A",
     "quality_notes": "N/A",
     "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Tháng 9 (Vụ Xuân)",
-    "ai_assessment": "Các cuộc tấn công và gián đoạn thương mại ở Biển Đen đang làm giảm áp lực xả hàng từ Nga, hỗ trợ giá lúa mì CBOT tăng cao."
+    "ai_assessment": "Các rủi ro về logistics và xung đột ở Biển Đen đang làm gián đoạn xuất khẩu lúa mì của Nga, dẫn đến việc hỗ trợ giá CBOT thay vì tạo áp lực xả hàng."
   }
 }

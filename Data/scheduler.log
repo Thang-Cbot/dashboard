@@ -27293,3 +27293,10 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-10-29 21:05:59] [INFO] ▶ Kích hoạt: COT CFTC
 [2026-10-29 21:06:09] [INFO] ✅ COT CFTC hoàn thành (attempt 1)
 [2026-10-29 21:06:09] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: COT CFTC)...
+[2026-10-29 21:06:13] [Sync] ⚠️ Lỗi Github Push: to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-10-29 21:06:13] [INFO] ⏰ Đợi COT CFTC: còn 34.15h (31/10 07:15:02 VN)
+[2026-10-29 21:13:00] [INFO] ▶ Kích hoạt: Chỉ số Lúa Mì Nga
+[2026-10-29 21:13:15] [INFO] ✅ Chỉ số Lúa Mì Nga hoàn thành (attempt 1)
+[2026-10-29 21:13:15] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Chỉ số Lúa Mì Nga)...
