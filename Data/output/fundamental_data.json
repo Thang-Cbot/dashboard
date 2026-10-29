@@ -124,13 +124,13 @@
       "next_date": "23/10/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q2 (DO NHAT) - XA LONG",
       "action": "Cam bat day. Canh gia hoi de danh SHORT.",
-      "logic": "[2026-10-20] MM nam Long rong 164,423 HD. Tuan nay giam bot 82,002 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-10-26): +155,028 HD (Q2 (DO NHAT) - XA LONG) [Lag=-7.25c, Beta=1295.9]",
+      "logic": "[2026-10-20] MM nam Long rong 164,423 HD. Tuan nay giam bot 82,002 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-10-29): +146,928 HD (Q2 (DO NHAT) - XA LONG) [Lag=-13.50c, Beta=1295.9]",
       "raw_data": {
         "net_position": 164423.0,
         "change": -82002.0,
         "long": 297797.0,
         "short": 133374.0,
-        "net_estimated": 155028.0,
+        "net_estimated": 146928.0,
         "quadrant_est": "Q2 (DO NHAT) - XA LONG",
         "beta_13w": 1295.9
       }
@@ -359,13 +359,13 @@
       "next_date": "23/10/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "logic": "[2026-10-20] MM nam Short rong 52,005 HD. Tuan nay giam bot 19,450 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-10-26): -61,067 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-27.00c, Beta=335.6]",
+      "logic": "[2026-10-20] MM nam Short rong 52,005 HD. Tuan nay giam bot 19,450 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-10-29): -67,360 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-45.75c, Beta=335.6]",
       "raw_data": {
         "net_position": -52005.0,
         "change": -19450.0,
         "long": 88258.0,
         "short": 140263.0,
-        "net_estimated": -61067.0,
+        "net_estimated": -67360.0,
         "quadrant_est": "Q3 (DO DAM) - NHOI SHORT",
         "beta_13w": 335.62
       }
@@ -598,5 +598,5 @@
     }
   },
   "wasde_report_month": "Oct",
-  "last_updated_cot": "2026-10-27 06:36:59"
+  "last_updated_cot": "2026-10-29 21:06:09"
 }

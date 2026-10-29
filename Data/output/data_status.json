@@ -18,9 +18,9 @@
       "updated_at": "2026-10-29 21:00:43"
     },
     "cot": {
-      "status": "PARTIAL",
-      "detail": "COT CFTC updated (fallback if 403)",
-      "updated_at": "2026-10-02 06:31:23"
+      "status": "[OK]",
+      "detail": "Auto-fetch 21:06:09",
+      "updated_at": "2026-10-29 21:06:09"
     },
     "export_sales": {
       "status": "[OK]",
@@ -55,7 +55,7 @@
     "github_sync": {
       "status": "[ERROR]",
       "detail": "Lỗi Push: to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "updated_at": "2026-10-29 21:00:46"
+      "updated_at": "2026-10-29 21:01:33"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -92,7 +92,7 @@
   "cot": {
     "status": "[OK] Success",
     "detail": "",
-    "updated_at": "2026-10-27 06:36:59"
+    "updated_at": "2026-10-29 21:06:09"
   },
   "prices": {
     "status": "OK",
