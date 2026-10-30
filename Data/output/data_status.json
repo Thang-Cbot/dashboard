@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 20:08:32",
-      "updated_at": "2026-10-30 20:08:32"
+      "detail": "Auto-fetch 21:00:55",
+      "updated_at": "2026-10-30 21:00:55"
     },
     "cot": {
       "status": "[OK]",
@@ -55,7 +55,7 @@
     "github_sync": {
       "status": "[ERROR]",
       "detail": "Lỗi Push: to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "updated_at": "2026-10-30 21:00:39"
+      "updated_at": "2026-10-30 21:00:52"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -101,8 +101,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=113.02, DXY=101.807",
-    "updated_at": "2026-10-30 20:08:31"
+    "detail": "Brent=113.36, DXY=101.993",
+    "updated_at": "2026-10-30 21:00:55"
   },
   "weather_short": {
     "status": "OK",
