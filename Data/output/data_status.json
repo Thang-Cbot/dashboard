@@ -48,14 +48,14 @@
       "updated_at": "2026-10-29 17:36:19"
     },
     "ai_news": {
-      "status": "[ERROR]",
-      "detail": "Failed after 1 attempts",
-      "updated_at": "2026-10-31 04:46:50"
+      "status": "[OK]",
+      "detail": "Auto-fetch 06:01:02",
+      "updated_at": "2026-10-31 06:01:02"
     },
     "github_sync": {
       "status": "[ERROR]",
       "detail": "Lỗi Push: to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "updated_at": "2026-10-31 06:00:30"
+      "updated_at": "2026-10-31 06:00:35"
     },
     "prices_h4": {
       "status": "[OK]",
