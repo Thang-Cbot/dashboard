@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 13:30:16",
-      "updated_at": "2026-10-30 13:30:16"
+      "detail": "Auto-fetch 18:00:30",
+      "updated_at": "2026-10-30 18:00:30"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[ERROR]",
-      "detail": "Lỗi Push: to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "updated_at": "2026-10-30 13:30:42"
+      "detail": "Lỗi Push: fatal: unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Could not resolve host: github.com",
+      "updated_at": "2026-10-30 17:05:30"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -96,8 +96,8 @@
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 13:29",
-    "updated_at": "2026-10-30 13:30:16"
+    "detail": "ZC+ZW updated at 18:00",
+    "updated_at": "2026-10-30 18:00:30"
   },
   "macro": {
     "status": "OK",
