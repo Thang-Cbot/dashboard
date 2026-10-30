@@ -1,16 +1,16 @@
 {
-    "timestamp": "2026-10-18 19:26:51",
+    "timestamp": "2026-10-30 09:08:29",
     "month": "10",
-    "total_score": 42.5,
-    "trend": "Slightly Bearish — Giảm Nhẹ",
+    "total_score": 48.1,
+    "trend": "Sideways — Đi Ngang",
     "breakdown": {
         "F1": {
-            "score_1_to_10": 3,
+            "score_1_to_10": 5,
             "weight_pct": 2.9,
-            "contribution": 0.09,
-            "raw_value": "Ukraine XK (F1)",
-            "raw_detail": "Ukraine duy trì tiến độ xuất khẩu Ngô an toàn. Nga không phải yếu tố Ngô trọng điểm.",
-            "last_updated": "Hiện tại",
+            "contribution": 0.14,
+            "raw_value": "Phân tích Chuyên gia: 5/10",
+            "raw_detail": "[Daily Market Wire 30/10] Hành lang Biển Đen & cảng Danube chịu rủi ro tập kích UAV khiến cước và phí bảo hiểm chiến tranh neo cao, làm chậm tốc độ xuất khẩu ngô của Ukraine.",
+            "last_updated": "2026-10-30 09:05",
             "status": "manual"
         },
         "F2": {
@@ -19,7 +19,7 @@
             "contribution": 0.39,
             "raw_value": "16,034 Mbu | MoM: +1.48% | Acreage: -2.9%",
             "raw_detail": "WASDE Oct: 16,034 ← 15,800 Mbu. Diện tích: 95.3 M ac",
-            "last_updated": "2026-10-18 19:26",
+            "last_updated": "2026-10-29 23:13",
             "status": "ok"
         },
         "F2W": {
@@ -28,34 +28,34 @@
             "contribution": 0.0,
             "raw_value": "Phân tích Chuyên gia: 5/10",
             "raw_detail": "Mưa lớn kéo dài ở phía Đông Corn Belt (Illinois, Ohio). | Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại",
-            "last_updated": "2026-10-18 19:26",
+            "last_updated": "2026-10-29 23:13",
             "status": "manual"
         },
         "F3": {
-            "score_1_to_10": 2,
+            "score_1_to_10": 4,
             "weight_pct": 11.8,
-            "contribution": 0.24,
-            "raw_value": "Mất thị phần TQ",
-            "raw_detail": "Trung Quốc mua Ngô Brazil. Brazil soán ngôi Mỹ. MEGA BEARISH",
-            "last_updated": "Hiện tại",
+            "contribution": 0.47,
+            "raw_value": "Phân tích Chuyên gia: 4/10",
+            "raw_detail": "[Daily Market Wire 30/10 - Lachstock] Mưa quay lại miền Trung Brazil hỗ trợ gieo hạt đậu tương; theo IMEA, Mato Grosso đã gieo vượt 75% (so với TB 5 năm 64%), giúp giảm rủi ro trễ lịch gieo ngô vụ 2 (Safrinha).",
+            "last_updated": "2026-10-30 09:05",
             "status": "manual"
         },
         "F4": {
-            "score_1_to_10": 3,
+            "score_1_to_10": 7,
             "weight_pct": 6.9,
-            "contribution": 0.21,
-            "raw_value": "Phân tích Chuyên gia: 3/10",
-            "raw_detail": "Chưa có tin mới về thời tiết Nam Bán cầu, duy trì nhận định cũ: Thời tiết tháng 9 cải thiện rõ rệt (mưa tốt tại Nam Úc/Victoria và Argentina) giúp xoa dịu lo ngại hạn hán trước đó, gây áp lực giảm giá (Bearish).",
-            "last_updated": "2026-10-04 08:39",
+            "contribution": 0.48,
+            "raw_value": "Phân tích Chuyên gia: 7/10",
+            "raw_detail": "[Daily Market Wire 30/10 - Grain Central] Đông Úc dự báo mưa 15-50mm tại Victoria, Nam Úc và NSW làm đình trệ thu hoạch (parked headers) và tăng nguy cơ lúa mì nảy mầm trên bông (shot & sprung / hạ cấp chất lượng). Tại Argentina (BAGE), 90% lúa mì đủ ẩm và 58% đã trổ bông, nhưng mưa lạnh kéo dài và thiếu nắng làm tăng rủi ro nấm bệnh.",
+            "last_updated": "2026-10-30 09:05",
             "status": "manual"
         },
         "F4S": {
-            "score_1_to_10": 5,
+            "score_1_to_10": 4,
             "weight_pct": 7.8,
-            "contribution": 0.39,
-            "raw_value": "Phân tích Chuyên gia: 5/10",
-            "raw_detail": "Chưa có tin mới, duy trì nhận định cũ.",
-            "last_updated": "2026-10-16 17:56",
+            "contribution": 0.31,
+            "raw_value": "Phân tích Chuyên gia: 4/10",
+            "raw_detail": "[Daily Market Wire 30/10] Miền Nam Brazil và Argentina mưa lớn, nhiệt độ thấp làm chậm tiến độ làm đất và gieo hạt ngô vụ 1, dù độ ẩm đất tích lũy tốt cho giai đoạn sau.",
+            "last_updated": "2026-10-30 09:05",
             "status": "manual"
         },
         "F5": {
@@ -63,8 +63,8 @@
             "weight_pct": 4.9,
             "contribution": 0.24,
             "raw_value": "N/A",
-            "raw_detail": "could not convert string to float: '1.122.4'",
-            "last_updated": "2026-10-18 19:26",
+            "raw_detail": "could not convert string to float: '1.303.9'",
+            "last_updated": "2026-10-29 23:13",
             "status": "error"
         },
         "F6": {
@@ -82,52 +82,52 @@
             "contribution": 0.23,
             "raw_value": "276.04 Mmt | WASDE Oct: -0.09% (276.04 ← 276.29 Mmt)",
             "raw_detail": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
-            "last_updated": "2026-10-18 19:26",
+            "last_updated": "2026-10-29 23:13",
             "status": "ok"
         },
         "F8": {
-            "score_1_to_10": 5,
+            "score_1_to_10": 6,
             "weight_pct": 2.0,
-            "contribution": 0.1,
-            "raw_value": "Logistics & Biển Đen",
-            "raw_detail": "Chiến sự Biển Đen giảm nhiệt, tắc nghẽn vận tải không còn là điểm nóng.",
-            "last_updated": "Hiện tại",
+            "contribution": 0.12,
+            "raw_value": "Phân tích Chuyên gia: 6/10",
+            "raw_detail": "[DTN / EIA 30/10] Căng thẳng Trung Đông giữ giá dầu WTI trên $101.7/thùng, thúc đẩy sản lượng Ethanol Mỹ tăng hơn 2% lên 1.118 triệu thùng/ngày, hỗ trợ trực tiếp nhu cầu tiêu thụ Ngô nội địa.",
+            "last_updated": "2026-10-30 09:05",
             "status": "manual"
         },
         "F9": {
             "score_1_to_10": 4,
             "weight_pct": 7.8,
             "contribution": 0.31,
-            "raw_value": "DXY 101.84 (+0.00%)",
+            "raw_value": "DXY 101.73 (-0.45%)",
             "raw_detail": "USD Index — Sức mạnh đồng đô",
-            "last_updated": "2026-10-18 19:26",
+            "last_updated": "2026-10-30 09:00",
             "status": "ok"
         },
         "F10": {
             "score_1_to_10": 10,
             "weight_pct": 15.7,
             "contribution": 1.57,
-            "raw_value": "Brent $109.86 (+0.00%)",
+            "raw_value": "Brent $113.85 (-1.27%)",
             "raw_detail": "40% Ngô nấu cồn. Dầu giảm kéo Ngô sập (MEGA BEARISH).",
-            "last_updated": "2026-10-18 19:26",
+            "last_updated": "2026-10-30 09:00",
             "status": "ok"
         },
         "F11": {
             "score_1_to_10": 2,
             "weight_pct": 6.9,
             "contribution": 0.14,
-            "raw_value": "Net: +246,425 (-83,414)",
+            "raw_value": "Net: +164,423 (-82,002)",
             "raw_detail": "Q2 (DO NHAT) - XA LONG",
-            "last_updated": "2026-10-18 19:26",
+            "last_updated": "2026-10-29 23:13",
             "status": "ok"
         },
         "F12": {
-            "score_1_to_10": 5,
+            "score_1_to_10": 7,
             "weight_pct": 3.9,
-            "contribution": 0.2,
-            "raw_value": "Phân tích Chuyên gia: 5/10",
-            "raw_detail": "Chưa có tin mới, duy trì nhận định cũ.",
-            "last_updated": "2026-10-16 17:56",
+            "contribution": 0.27,
+            "raw_value": "Phân tích Chuyên gia: 7/10",
+            "raw_detail": "[USDA FAS 29/10] Doanh số xuất khẩu Ngô Mỹ tuần kết thúc 22/10 đạt 1.304 triệu tấn (vượt TB 4 tuần), dẫn đầu bởi lực mua mạnh từ Mexico và Nhật Bản; Hàn Quốc (NOFI/MFG) tích cực gom ngô giao đầu năm 2027.",
+            "last_updated": "2026-10-30 09:05",
             "status": "manual"
         }
     }

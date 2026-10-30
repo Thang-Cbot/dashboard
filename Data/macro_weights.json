@@ -1,92 +1,93 @@
 {
   "manual_overrides": {
     "F1_Russia_Policy": {
-      "score": 2,
-      "note": "Chưa có tin mới về chính sách của Nga, duy trì nhận định cũ: Nga bỏ thuế xuất khẩu lúa mì (Zero export duty) đến hết tháng 12/2026 để xả hàng, gây áp lực giảm giá mạnh.",
-      "updated_at": "2026-10-04 08:39"
+      "score": 4,
+      "note": "[Daily Market Wire 30/10 & Interfax] Nga duy trì thuế XK 0% đến 31/12/2026 nhưng áp giá sàn FOB khuyến nghị $230-$235/tấn. Mở tạm thời tàu qua Biển Azov đến 15/11 có hải quân hộ tống. Lúa mì Nga vẫn tạo áp lực cạnh tranh nhưng đà phá giá đã bị chặn bởi sàn FOB.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F3_Other_Supply": {
-      "score": 8,
-      "note": "Chưa có tin mới về nguồn cung từ các khu vực khác ngoài Mỹ, duy trì nhận định cũ: Sản lượng EU giảm mạnh xuống 137.5 triệu tấn do nắng nóng khắc nghiệt ở Pháp và Đức. Nguồn cung thắt chặt.",
-      "updated_at": "2026-10-04 08:39"
+      "score": 7,
+      "note": "[Daily Market Wire 30/10] Sàn MATIF châu Âu giảm sâu (-A$14 swap) do cạnh tranh xuất khẩu, nhưng nguồn cung lúa mì chất lượng cao tại Pháp/Đức vẫn thắt chặt sau vụ mùa mưa lũ.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F4_Weather_SH": {
-      "score": 3,
-      "note": "Chưa có tin mới về thời tiết Nam Bán cầu, duy trì nhận định cũ: Thời tiết tháng 9 cải thiện rõ rệt (mưa tốt tại Nam Úc/Victoria và Argentina) giúp xoa dịu lo ngại hạn hán trước đó, gây áp lực giảm giá (Bearish).",
-      "updated_at": "2026-10-04 08:39"
+      "score": 7,
+      "note": "[Daily Market Wire 30/10 - Grain Central] Đông Úc dự báo mưa 15-50mm tại Victoria, Nam Úc và NSW làm đình trệ thu hoạch (parked headers) và tăng nguy cơ lúa mì nảy mầm trên bông (shot & sprung / hạ cấp chất lượng). Tại Argentina (BAGE), 90% lúa mì đủ ẩm và 58% đã trổ bông, nhưng mưa lạnh kéo dài và thiếu nắng làm tăng rủi ro nấm bệnh.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F4S_Supply_SH": {
-      "score": 3,
-      "note": "Chưa có tin mới về nguồn cung Nam Bán cầu, duy trì nhận định cũ: ABARES (Úc) và BCR (Argentina) vừa ĐIỀU CHỈNH TĂNG dự báo sản lượng so với tháng trước do thời tiết thuận lợi. Nguồn cung tốt hơn mức kỳ vọng (đã priced-in) tạo sức ép Bearish.",
-      "updated_at": "2026-10-04 08:39"
+      "score": 6,
+      "note": "[Daily Market Wire 30/10 - Grain Central] Dù tổng sản lượng vụ đông Úc dự báo đạt ~31-32 triệu tấn và Argentina ước đạt 23.4 triệu tấn, mưa lớn đúng kỳ thu hoạch tại Đông Úc đe dọa làm giảm tỷ lệ lúa mì xay xát (Milling) chuyển sang lúa mì chăn nuôi (SFW Feed). Giá ASX Úc giữ nhịp tốt hơn CBOT và MATIF.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F8_Geopolitics": {
       "score": 7,
-      "note": "Xung đột Biển Đen tiếp tục leo thang khi Nga và Ukraine tấn công năng lực xuất khẩu của nhau, buộc cả hai nước phải tìm kiếm các tuyến đường xuất khẩu thay thế. Điều này gây gián đoạn logistics và hỗ trợ giá lúa mì.",
-      "updated_at": "2026-10-04 08:39"
+      "note": "[Reuters & Daily Market Wire 30/10] Không có thỏa thuận an ninh Biển Đen nào đạt được. Nga chỉ mở tạm eo biển Kerch/Azov đến 15/11 dưới sự hộ tống hải quân. Tập kích cảng Odesa/Danube và Ras Tanura (Trung Đông) giữ phí bảo hiểm chiến tranh và giá dầu WTI ở mức cao >$101/thùng.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F12_Global_Demand": {
-      "score": 3,
-      "note": "Tin tức mới nhất xác nhận doanh số xuất khẩu ngô của Mỹ chỉ đạt 535.989 MT, thấp hơn đáng kể so với dự kiến (0.5-1.3 MMT), cho thấy nhu cầu toàn cầu yếu hơn đối với ngô Mỹ. Doanh số xuất khẩu lúa mì cũng ở mức vừa phải (289.255 MT).",
-      "updated_at": "2026-10-04 08:39"
+      "score": 8,
+      "note": "[Daily Market Wire 30/10 & Bloomberg] Tập đoàn nhà nước Trung Quốc (COFCO) chính thức hỏi mua lúa mì mềm vụ đông Mỹ (US SRW) giao đầu năm 2027. Jordan (MIT) chốt mua 60k tấn lúa mì từ CHS (27/10) và mở thầu mới 120k tấn. Doanh số USDA Export Sales tuần kết thúc 22/10 lập đỉnh niên vụ 849,800 tấn (+254.7%).",
+      "updated_at": "2026-10-30 09:05"
     },
     "F2W_US_Weather": {
       "score": 5,
-      "note": "Đã cập nhật tự động từ AI"
+      "note": "[NOAA / Jim Roemer 30/10] Mưa rải rác 15-35mm tại Southern Plains (Kansas, Oklahoma) cải thiện độ ẩm đất cho lúa mì vụ Đông nảy mầm. Midwest khô ráo thuận lợi thu hoạch Ngô (đã đạt 60% theo USDA 26/10). Cảnh báo rủi ro rét đậm sớm (Early Freeze) giữa tháng 11.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F5_Export_Sales": {
       "score": 2,
       "note": "Báo cáo Export Sales thấp hơn tuần trước khá nhiều, lực cầu yếu. Score 2 = Bearish"
     },
     "F1_Russia_Policy_ZW": {
-      "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-16 17:56"
+      "score": 4,
+      "note": "[Daily Market Wire 30/10 & Interfax] Nga duy trì thuế XK 0% đến 31/12/2026 nhưng áp giá sàn FOB khuyến nghị $230-$235/tấn. Mở tạm thời tàu qua Biển Azov đến 15/11 có hải quân hộ tống. Lúa mì Nga vẫn tạo áp lực cạnh tranh nhưng đà phá giá đã bị chặn bởi sàn FOB.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F1_Ukraine_Policy_ZC": {
       "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-16 17:56"
+      "note": "[Daily Market Wire 30/10] Hành lang Biển Đen & cảng Danube chịu rủi ro tập kích UAV khiến cước và phí bảo hiểm chiến tranh neo cao, làm chậm tốc độ xuất khẩu ngô của Ukraine.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F3_Other_Supply_ZW": {
-      "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-16 17:56"
+      "score": 7,
+      "note": "[Daily Market Wire 30/10] Sàn MATIF châu Âu giảm sâu (-A$14 swap) do cạnh tranh xuất khẩu, nhưng nguồn cung lúa mì chất lượng cao tại Pháp/Đức vẫn thắt chặt sau vụ mùa mưa lũ.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F3_Other_Supply_ZC": {
-      "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-16 17:56"
+      "score": 4,
+      "note": "[Daily Market Wire 30/10 - Lachstock] Mưa quay lại miền Trung Brazil hỗ trợ gieo hạt đậu tương; theo IMEA, Mato Grosso đã gieo vượt 75% (so với TB 5 năm 64%), giúp giảm rủi ro trễ lịch gieo ngô vụ 2 (Safrinha).",
+      "updated_at": "2026-10-30 09:05"
     },
     "F4S_Supply_SH_ZW": {
-      "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-16 17:56"
+      "score": 6,
+      "note": "[Daily Market Wire 30/10 - Grain Central] Dù tổng sản lượng vụ đông Úc dự báo đạt ~31-32 triệu tấn và Argentina ước đạt 23.4 triệu tấn, mưa lớn đúng kỳ thu hoạch tại Đông Úc đe dọa làm giảm tỷ lệ lúa mì xay xát (Milling) chuyển sang lúa mì chăn nuôi (SFW Feed). Giá ASX Úc giữ nhịp tốt hơn CBOT và MATIF.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F4S_Supply_SH_ZC": {
-      "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-16 17:56"
+      "score": 4,
+      "note": "[Daily Market Wire 30/10] Miền Nam Brazil và Argentina mưa lớn, nhiệt độ thấp làm chậm tiến độ làm đất và gieo hạt ngô vụ 1, dù độ ẩm đất tích lũy tốt cho giai đoạn sau.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F8_Geopolitics_ZW": {
-      "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-16 17:56"
+      "score": 7,
+      "note": "[Reuters & Daily Market Wire 30/10] Không có thỏa thuận an ninh Biển Đen nào đạt được. Nga chỉ mở tạm eo biển Kerch/Azov đến 15/11 dưới sự hộ tống hải quân. Tập kích cảng Odesa/Danube và Ras Tanura (Trung Đông) giữ phí bảo hiểm chiến tranh và giá dầu WTI ở mức cao >$101/thùng.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F8_Geopolitics_ZC": {
-      "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-16 17:56"
+      "score": 6,
+      "note": "[DTN / EIA 30/10] Căng thẳng Trung Đông giữ giá dầu WTI trên $101.7/thùng, thúc đẩy sản lượng Ethanol Mỹ tăng hơn 2% lên 1.118 triệu thùng/ngày, hỗ trợ trực tiếp nhu cầu tiêu thụ Ngô nội địa.",
+      "updated_at": "2026-10-30 09:05"
     },
     "F12_Global_Demand_ZW": {
-      "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-16 17:56"
+      "score": 8,
+      "note": "[Daily Market Wire 30/10 & Bloomberg] Tập đoàn nhà nước Trung Quốc (COFCO) chính thức hỏi mua lúa mì mềm vụ đông Mỹ (US SRW) giao đầu năm 2027. Jordan (MIT) chốt mua 60k tấn lúa mì từ CHS (27/10) và mở thầu mới 120k tấn. Doanh số USDA Export Sales tuần kết thúc 22/10 lập đỉnh niên vụ 849,800 tấn (+254.7%).",
+      "updated_at": "2026-10-30 09:05"
     },
     "F12_Global_Demand_ZC": {
-      "score": 5,
-      "note": "Chưa có tin mới, duy trì nhận định cũ.",
-      "updated_at": "2026-10-16 17:56"
+      "score": 7,
+      "note": "[USDA FAS 29/10] Doanh số xuất khẩu Ngô Mỹ tuần kết thúc 22/10 đạt 1.304 triệu tấn (vượt TB 4 tuần), dẫn đầu bởi lực mua mạnh từ Mexico và Nhật Bản; Hàn Quốc (NOFI/MFG) tích cực gom ngô giao đầu năm 2027.",
+      "updated_at": "2026-10-30 09:05"
     }
   },
   "monthly_weights": {

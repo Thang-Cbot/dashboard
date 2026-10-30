@@ -1,57 +1,67 @@
 {
   "_note": "Sua file nay khi tai khoan / lich su kien / san chi phi thay doi. Nut 'Cap Nhat Mua Vu (AI)' se doc file nay de dung Bang Ma Tran Tac Chien.",
-  "updated": "2026-10-24",
-  "window": "26/10/2026 - 08/11/2026 (2 tuan)",
+  "updated": "2026-10-30",
+  "window": "30/10/2026 - 13/11/2026 (2 tuan)",
   "account": {
-    "cash_usd": 30350,
-    "open_positions": 1,
-    "max_lots_per_commodity": 2,
+    "cash_usd": 37138.45,
+    "open_positions": 3,
+    "max_lots_per_commodity": 3,
     "positions_detail": [
+      {
+        "commodity": "ZW",
+        "contract": "ZWZ26",
+        "side": "BUY",
+        "lots": 2,
+        "entry_price": 614.0,
+        "tranche": "1 & 2 (621.0 + 607.0, Limit TP @ 617.4)",
+        "date": "2026-10-29"
+      },
       {
         "commodity": "ZW",
         "contract": "ZWH27",
         "side": "BUY",
         "lots": 1,
         "entry_price": 635.0,
-        "tranche": 1,
-        "date": "2026-10-26 10:36"
+        "tranche": "Core Strategic",
+        "date": "2026-10-26"
       }
     ],
-    "margin_used_usd": 2800,
-    "free_cash_usd": 27550
+    "margin_used_usd": 8400,
+    "free_cash_usd": 28738.45
   },
   "margin_per_lot_usd": {
+    "ZWZ26": 2800,
     "ZWH27": 2800,
-    "ZCH27": 1700
+    "ZCH27": 2000
   },
   "break_even_cents": {
     "ZW": "600 - 615",
     "ZC": "435 - 450"
   },
   "official_cot_note": {
-    "ZW": "Official COT 20/10: Net Short -52,000 HD; uoc tinh realtime ~ -57,000 HD (top 5-10% lich su short cuc dai)",
-    "ZC": "Official COT 20/10: Net Long +164,423 HD (xa -82,002 HD tuan nay); realtime +156,972 HD"
+    "ZW": "Official COT 20/10: Net Short -51,134 HD (Cho bao cao COT moi dem 30/10)",
+    "ZC": "Official COT 20/10: Net Long +164,423 HD (da cat giam -82,002 HD Long)"
   },
   "calendar": {
-    "week_1": "26/10-30/10: Tuan cuoi thang 10 - chot NAV thang; dinh thu hoach ngo/dau tuong My (harvest climax, cash dump); dam phan Nga-Ukraine be tac; AgResource: XK Nga/Ukraine chi 40-50% binh thuong",
-    "week_2": "02/11-08/11: 03/11 Bau cu giua ky My; 05-18/11 Goldman Roll (Dec -> Mar); 10/11 dam phan ky thuat 3 ben; WASDE thang 11"
+    "week_1": "30/10-06/11: Chot so thang 10; Báo cáo Export Sales W dat dinh 849.8k tan; COFCO Trung Quoc hoi mua US SRW giao dau 2027; Mua lon 15-50mm tai Dong Uc lam dinh tre thu hoach & de doa ha cap chat luong (shot & sprung).",
+    "week_2": "05/11-18/11: Chu ky Goldman Roll & Index Roll (Quy mua dong Short Z26 de cuon sang H27); Báo cáo WASDE thang 11; Rui ro ret dam som (Early Freeze) tai My."
   },
   "playbook": {
     "ZW": {
-      "tranche1": "ZWH27 632-638 (tuong duong ZWZ26 618-624)",
-      "tranche2": "ZWH27 625-630 (du phong rung lac chot NAV)",
-      "trigger": "ZWZ26 bat pha qua 635 -> Quy cat lo short",
-      "target": "680-720 (+50 den +80 cent)",
-      "stop": "Dong nen ngay ZWH27 duoi 610",
-      "scalp_rule": "ZWZ26: chi luot Long nhanh o 622-624, chot 629-631, khong om qua dem vi sap Goldman Roll"
+      "tranche1": "Đang nắm 2 Lots ZWZ26 @ BQ 614.0c (Lệnh chờ TP @ 617.4c)",
+      "tranche2": "Đang nắm 1 Lot ZWH27 @ 635.0c (Vị thế hạt nhân giữ qua mùa đông)",
+      "trigger": "ZWZ26 vượt 610.0c -> Quét thẳng lên 614.0 - 617.4c khớp TP 2 Lots Kỳ Z",
+      "target": "ZWZ26: 617.4c (Thoát gọn Kỳ Z) | ZWH27: 650.0 - 680.0c",
+      "stop": "Bảo toàn vốn với đệm tiền mặt ròng $28,738 USD",
+      "scalp_rule": "Sau khi khớp TP 2 Lots ZWZ26 tại 617.4c, giải phóng $5,600 USD ký quỹ và chuyển hẳn sang đánh Kỳ H (ZWH27)."
     },
     "ZC": {
-      "tranche1": "ZCH27 456-462 (tuong duong ZCZ26 bi ep ve 444-450)",
-      "tranche2": "ZCH27 448-454 (don capitulation wick sat gia von)",
-      "trigger": "ZCZ26 lay lai 465 -> hap thu xong hang thu hoach",
-      "target": "495-515 (+40 den +55 cent)",
-      "stop": "Dong nen ngay ZCH27 duoi 440",
-      "scalp_rule": "Dau tuan 44 TUYET DOI khong bat day o 456; doi Quy xa not Long + ap luc thu hoach ep gia ve 444-450 moi giai ngan Tranche 1"
+      "tranche1": "Canh mua 1 Lot ZCEH27 (Kỳ tháng 03/2027) tại 462.5 - 464.5 ¢/bu",
+      "tranche2": "Dự phòng gom thêm 1 Lot ZCEH27 nếu nhúng về 456.0 - 458.0 ¢/bu",
+      "trigger": "ZCEZ26 giữ vững nền 448-451c và vượt 456c",
+      "target": "ZCEH27: 478.0 - 495.0 ¢/bu",
+      "stop": "Đóng nến ngày ZCEH27 dưới 448.0 ¢/bu",
+      "scalp_rule": "Ưu tiên tuyệt đối hợp đồng ZCEH27 để tránh áp lực đáo hạn tháng 11 và hưởng trọn sóng Ethanol (1.118 triệu thùng/ngày)."
     }
   }
 }

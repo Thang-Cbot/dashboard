@@ -161,6 +161,64 @@ def fetch_agweb_market_analysis() -> list:
     return articles[:8]
 
 
+def fetch_graincentral_daily_market_wire() -> dict:
+    """
+    Quét trực tiếp bài viết 'Daily Market Wire [DD Month YYYY]' từ https://www.graincentral.com/markets/
+    (tác giả Lachstock Consulting) khớp với ngày ra lệnh để phân rã vào 5 Phần của RUN TIN TỨC.
+    """
+    now = datetime.datetime.now()
+    target_date_str = f"{now.day} {now.strftime('%B %Y')}"  # VD: "30 October 2026"
+    slug_date = f"{now.day}-{now.strftime('%B-%Y').lower()}"
+    direct_url = f"https://www.graincentral.com/markets/daily-market-wire-{slug_date}/"
+
+    print(f"  [+] Đang quét Grain Central: Daily Market Wire {target_date_str}...")
+    result = {
+        "title": f"Daily Market Wire {target_date_str}",
+        "url": direct_url,
+        "content": "",
+    }
+
+    # 1. Thử lấy trực tiếp URL theo ngày hoặc qua Jina Reader
+    for url_try in [direct_url, f"https://r.jina.ai/{direct_url}"]:
+        try:
+            r = requests.get(url_try, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+            if r.status_code == 200 and len(r.text) > 800:
+                txt = clean_html(r.text) if not url_try.startswith("https://r.jina.ai") else r.text
+                if "Daily Market Wire" in txt or "Lachstock" in txt:
+                    result["content"] = txt[:4500]
+                    return result
+        except Exception:
+            pass
+
+    # 2. Quét trang chuyên mục https://www.graincentral.com/markets/ để tìm bài Daily Market Wire mới nhất
+    try:
+        r = requests.get(
+            "https://r.jina.ai/https://www.graincentral.com/markets/",
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=15,
+        )
+        if r.status_code == 200:
+            m = re.search(
+                r"(https://www\.graincentral\.com/markets/daily-market-wire-[a-z0-9\-]+/?)",
+                r.text,
+                flags=re.I,
+            )
+            if m:
+                latest_url = m.group(1)
+                result["url"] = latest_url
+                r2 = requests.get(
+                    f"https://r.jina.ai/{latest_url}",
+                    headers={"User-Agent": "Mozilla/5.0"},
+                    timeout=15,
+                )
+                if r2.status_code == 200:
+                    result["content"] = r2.text[:4500]
+    except Exception as e:
+        print(f"  [WARN] Grain Central Daily Market Wire: {e}")
+
+    return result
+
+
 def analyze():
     print("\n=====================================================================")
     print("  CBOT RUN TIN TỨC 6 PHẦN — BẢNG 5 PHẦN + CHIẾN LƯỢC TÁC CHIẾN PHẦN 6")
@@ -191,6 +249,13 @@ def analyze():
             for a in agweb_articles
         ]
     ) or "Chưa có bài mới từ AgWeb."
+
+    gc_wire = fetch_graincentral_daily_market_wire()
+    gc_wire_text = (
+        f"Tiêu đề: {gc_wire.get('title')} ({gc_wire.get('url')})\nNội dung: {gc_wire.get('content')}"
+        if gc_wire.get("content")
+        else "Chưa có bài Daily Market Wire hôm nay."
+    )
 
     zw = fund.get("ZW", {})
     zc = fund.get("ZC", {})
@@ -272,6 +337,10 @@ Hãy thực thi giao thức **RUN TIN TỨC 6 PHẦN CHUẨN MỰC** tại thờ
 
 [5. Chuyên Mục AgWeb Market Analysis (https://www.agweb.com/markets/market-analysis)]
 {agweb_text}
+
+[6. Bản Tin Grain Central — Daily Market Wire (https://www.graincentral.com/markets/ - Lachstock Consulting)]
+(BẮT BUỘC bóc tách các yếu tố trong bài viết này và phân bổ tương ứng vào cả 5 Phần từ Phần 1 đến Phần 5):
+{gc_wire_text}
 
 === YÊU CẦU ĐẦU RA (TRẢ VỀ JSON THUẦN, KHÔNG BỌC MARKDOWN) ===
 Trả về đúng cấu trúc JSON sau:
