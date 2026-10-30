@@ -703,9 +703,9 @@
       "open": 449.0
     },
     "2026-10-29": {
-      "volume": 4246.0,
-      "open_interest": 773229,
-      "close": 451.0,
+      "volume": 4813.0,
+      "open_interest": 770011,
+      "close": 451.5,
       "open": 451.25
     }
   },
@@ -1413,9 +1413,9 @@
       "open": 610.5
     },
     "2026-10-29": {
-      "volume": 1814.0,
-      "open_interest": 241702,
-      "close": 607.75,
+      "volume": 2733.0,
+      "open_interest": 236505,
+      "close": 608.25,
       "open": 605.0
     }
   },
