@@ -1,36 +1,28 @@
 {
-  "fetched_at": "2026-10-29 23:13:26",
+  "fetched_at": "2026-10-31 07:34:37",
   "source": "CFTC ZIP (Disaggregated Futures Only) + Rolling Beta 13W",
   "commodities": {
     "002602": {
       "commodity": "ZC",
       "cftc_code": "002602",
-      "report_date": "2026-10-20",
-      "long_curr": 297797.0,
-      "short_curr": 133374.0,
-      "net_position": 164423.0,
-      "net_prev": 246425.0,
-      "change": -82002.0,
+      "report_date": "2026-10-27",
+      "long_curr": 249351.0,
+      "short_curr": 168238.0,
+      "net_position": 81113.0,
+      "net_prev": 164423.0,
+      "change": -83310.0,
       "quadrant": "Q2 (DO NHAT) - XA LONG",
       "action": "Cam bat day. Canh gia hoi de danh SHORT.",
-      "rolling_beta_13w": 1295.9,
-      "cutoff_price_tue": 462.0,
-      "latest_price": 451.5,
-      "latest_price_date": "2026-10-29",
-      "price_lag_change": -10.5,
-      "estimated_extra_contracts": -13607.0,
-      "net_estimated": 150816.0,
+      "rolling_beta_13w": 1902.51,
+      "cutoff_price_tue": 448.75,
+      "latest_price": 447.75,
+      "latest_price_date": "2026-10-30",
+      "price_lag_change": -1.0,
+      "estimated_extra_contracts": -1903.0,
+      "net_estimated": 79210.0,
       "quadrant_estimated": "Q2 (DO NHAT) - XA LONG",
       "action_estimated": "Cam bat day. Canh gia hoi de danh SHORT.",
       "history": [
-        {
-          "report_date": "2026-07-28",
-          "net_position": 126776.0,
-          "long": 314454.0,
-          "short": 187678.0,
-          "price_close_tue": 480.5,
-          "price_date": "2026-07-28"
-        },
         {
           "report_date": "2026-08-04",
           "net_position": 144821.0,
@@ -126,39 +118,39 @@
           "short": 133374.0,
           "price_close_tue": 462.0,
           "price_date": "2026-10-20"
+        },
+        {
+          "report_date": "2026-10-27",
+          "net_position": 81113.0,
+          "long": 249351.0,
+          "short": 168238.0,
+          "price_close_tue": 448.75,
+          "price_date": "2026-10-27"
         }
       ],
-      "fetched_at": "2026-10-29 23:13:28"
+      "fetched_at": "2026-10-31 07:34:38"
     },
     "001602": {
       "commodity": "ZW",
       "cftc_code": "001602",
-      "report_date": "2026-10-20",
-      "long_curr": 88258.0,
-      "short_curr": 140263.0,
-      "net_position": -52005.0,
-      "net_prev": -32555.0,
-      "change": -19450.0,
+      "report_date": "2026-10-27",
+      "long_curr": 79627.0,
+      "short_curr": 154233.0,
+      "net_position": -74606.0,
+      "net_prev": -52005.0,
+      "change": -22601.0,
       "quadrant": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "rolling_beta_13w": 335.62,
-      "cutoff_price_tue": 643.25,
-      "latest_price": 604.5,
-      "latest_price_date": "2026-10-29",
-      "price_lag_change": -38.75,
-      "estimated_extra_contracts": -13005.0,
-      "net_estimated": -65010.0,
+      "rolling_beta_13w": 385.48,
+      "cutoff_price_tue": 610.25,
+      "latest_price": 603.5,
+      "latest_price_date": "2026-10-30",
+      "price_lag_change": -6.75,
+      "estimated_extra_contracts": -2602.0,
+      "net_estimated": -77208.0,
       "quadrant_estimated": "Q3 (DO DAM) - NHOI SHORT",
       "action_estimated": "Uu tien SHORT thuan xu huong.",
       "history": [
-        {
-          "report_date": "2026-07-28",
-          "net_position": -8163.0,
-          "long": 85168.0,
-          "short": 93331.0,
-          "price_close_tue": 679.75,
-          "price_date": "2026-07-28"
-        },
         {
           "report_date": "2026-08-04",
           "net_position": -24870.0,
@@ -254,9 +246,17 @@
           "short": 140263.0,
           "price_close_tue": 643.25,
           "price_date": "2026-10-20"
+        },
+        {
+          "report_date": "2026-10-27",
+          "net_position": -74606.0,
+          "long": 79627.0,
+          "short": 154233.0,
+          "price_close_tue": 610.25,
+          "price_date": "2026-10-27"
         }
       ],
-      "fetched_at": "2026-10-29 23:13:28"
+      "fetched_at": "2026-10-31 07:34:38"
     }
   }
 }
