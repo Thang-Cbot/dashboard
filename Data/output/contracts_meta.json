@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 188409.0,
+      "today_volume": 250205.0,
       "prev_volume": 250205.0,
       "today_oi": 770038,
       "prev_oi": 770011,
-      "today_close": 447.5,
+      "today_close": 447.75,
       "prev_close": 451.25,
       "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
       "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 68640.0,
+      "today_volume": 132278.0,
       "prev_volume": 132278.0,
       "today_oi": 236477,
       "prev_oi": 236505,
-      "today_close": 603.25,
+      "today_close": 603.5,
       "prev_close": 603.75,
       "trend": "Giảm suy yếu / Đáy ngắn hạn (Long Liquidation Decline)",
       "logic": "Giá giảm cùng với Volume giảm và OI giảm. Nhịp giảm chủ yếu do phe Long tháo chạy cắt lỗ giải chấp vị thế (Long Liquidation) chứ không có lực bán khống mới. Áp lực giảm chuẩn bị cạn kiệt."
     }
   },
-  "updated_at": "2026-10-31 10:00:31"
+  "updated_at": "2026-10-31 11:00:29"
 }
