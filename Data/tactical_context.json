@@ -1,6 +1,6 @@
 {
   "_note": "Sua file nay khi tai khoan / lich su kien / san chi phi thay doi. Nut 'Cap Nhat Mua Vu (AI)' se doc file nay de dung Bang Ma Tran Tac Chien.",
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "window": "30/10/2026 - 13/11/2026 (2 tuan)",
   "account": {
     "cash_usd": 37138.45,
@@ -39,8 +39,8 @@
     "ZC": "435 - 450"
   },
   "official_cot_note": {
-    "ZW": "Official COT 20/10: Net Short -51,134 HD (Cho bao cao COT moi dem 30/10)",
-    "ZC": "Official COT 20/10: Net Long +164,423 HD (da cat giam -82,002 HD Long)"
+    "ZW": "Official COT 27/10 (công bố 30/10): Net Short -74,606 HĐ (Futures+Options: -74,859 HĐ, bán thêm -22.6k HĐ); Est realtime: -77,208 HĐ",
+    "ZC": "Official COT 27/10 (công bố 30/10): Net Long +81,113 HĐ (Futures+Options: +55,943 HĐ, đã xả -83.3k HĐ tuần này và -82k tuần trước)"
   },
   "calendar": {
     "week_1": "30/10-06/11: Chot so thang 10; Báo cáo Export Sales W dat dinh 849.8k tan; COFCO Trung Quoc hoi mua US SRW giao dau 2027; Mua lon 15-50mm tai Dong Uc lam dinh tre thu hoach & de doa ha cap chat luong (shot & sprung).",
