@@ -28098,3 +28098,13 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-11-02 06:00:40] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Thời Tiết Ngắn Hạn)...
 [2026-11-02 06:00:41] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
 [2026-11-02 06:00:41] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
+[2026-11-02 06:00:44] [Sync] ⚠️ Lỗi Github Push: to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-11-02 06:00:44] [Sync] ⚠️ Lỗi Github Push: to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-11-02 06:00:44] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-11-02 06:00:44] [INFO] ⏰ Đợi Weather Short: còn 23.99h (03/11 06:00:02 VN)
+[2026-11-02 06:00:48] [INFO] ✅ Vĩ Mô (Macro) hoàn thành (attempt 1)
+[2026-11-02 06:00:48] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Vĩ Mô (Macro))...
