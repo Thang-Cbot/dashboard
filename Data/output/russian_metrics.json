@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-10-29 21:13:15",
+  "timestamp": "2026-11-02 08:58:40",
   "metrics": {
     "planted_area": "N/A",
     "production_forecast": "N/A",
     "harvest_progress": "N/A",
-    "fob_price": "N/A",
+    "fob_price": "Black Sea quotations remained subdued (Oct 2026), but no specific value. Prices were stable in June 2026.",
     "export_tax": "N/A",
-    "export_capacity": "N/A",
+    "export_capacity": "Xuất khẩu đang gặp rủi ro và dự kiến giảm do xung đột leo thang và các cuộc tấn công vào cảng Biển Đen, điều kiện giao dịch tệ hơn năm 2022.",
     "quality_notes": "N/A",
-    "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Tháng 9 (Vụ Xuân)",
-    "ai_assessment": "Các rủi ro về logistics và xung đột ở Biển Đen đang làm gián đoạn xuất khẩu lúa mì của Nga, dẫn đến việc hỗ trợ giá CBOT thay vì tạo áp lực xả hàng."
+    "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Thu (Vụ Xuân)",
+    "ai_assessment": "Các báo cáo gần đây nhất (2026) cho thấy xuất khẩu lúa mì của Nga qua Biển Đen đang bị đình trệ nghiêm trọng do xung đột leo thang và các cuộc tấn công vào tàu thuyền, dẫn đến giá lúa mì kỳ hạn tăng cao. Điều này làm giảm áp lực xả hàng từ Nga lên giá CBOT."
   }
 }

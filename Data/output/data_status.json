@@ -55,7 +55,7 @@
     "github_sync": {
       "status": "[ERROR]",
       "detail": "Lỗi Push: to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "updated_at": "2026-11-02 08:29:08"
+      "updated_at": "2026-11-02 08:30:34"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -64,8 +64,8 @@
     },
     "russian_metrics": {
       "status": "[OK]",
-      "detail": "Auto-fetch 21:13:15",
-      "updated_at": "2026-10-29 21:13:15"
+      "detail": "Auto-fetch 08:58:40",
+      "updated_at": "2026-11-02 08:58:40"
     },
     "blacksea_news": {
       "status": "[OK]",
