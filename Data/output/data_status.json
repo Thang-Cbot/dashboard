@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 00:00:15",
-      "updated_at": "2026-11-03 00:00:15"
+      "detail": "Auto-fetch 01:00:17",
+      "updated_at": "2026-11-03 01:00:17"
     },
     "macro": {
       "status": "[OK]",
@@ -55,7 +55,7 @@
     "github_sync": {
       "status": "[ERROR]",
       "detail": "Lỗi Push: to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "updated_at": "2026-11-03 00:00:31"
+      "updated_at": "2026-11-03 00:01:27"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -77,27 +77,27 @@
   "export_sales": {
     "status": "OK",
     "detail": "Kỳ: 10/22/2026 | ZW=849,800 MT, ZC=1.30M MT",
-    "updated_at": "2026-10-31 07:34:20"
+    "updated_at": "2026-11-03 00:52:04"
   },
   "acreage": {
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-10-31 07:34:24"
+    "updated_at": "2026-11-03 00:52:08"
   },
   "usda": {
     "status": "OK",
-    "detail": "Updated: 2026-10-31 | WASDE: Oct",
-    "updated_at": "2026-10-31 07:34:36"
+    "detail": "Updated: 2026-11-03 | WASDE: Oct",
+    "updated_at": "2026-11-03 00:52:20"
   },
   "cot": {
     "status": "[OK] Success",
     "detail": "",
-    "updated_at": "2026-10-31 07:34:38"
+    "updated_at": "2026-11-03 00:52:24"
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 00:00",
-    "updated_at": "2026-11-03 00:00:15"
+    "detail": "ZC+ZW updated at 01:00",
+    "updated_at": "2026-11-03 01:00:17"
   },
   "macro": {
     "status": "OK",
