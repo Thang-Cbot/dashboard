@@ -1,13 +1,13 @@
 {
-    "timestamp": "2026-10-31 09:46:59",
-    "month": "10",
-    "total_score": 61.5,
+    "timestamp": "2026-11-02 22:57:37",
+    "month": "11",
+    "total_score": 61.7,
     "trend": "Slightly Bullish — Tăng Nhẹ",
     "breakdown": {
         "F1": {
             "score_1_to_10": 4,
-            "weight_pct": 10,
-            "contribution": 0.4,
+            "weight_pct": 8,
+            "contribution": 0.32,
             "raw_value": "Dữ liệu Chuyên gia",
             "raw_detail": "[Daily Market Wire 30/10 & Interfax] Nga duy trì thuế XK 0% đến 31/12/2026 nhưng áp giá sàn FOB khuyến nghị $230-$235/tấn. Mở tạm thời tàu qua Biển Azov đến 15/11 có hải quân hộ tống. Lúa mì Nga vẫn tạo áp lực cạnh tranh nhưng đà phá giá đã bị chặn bởi sàn FOB.",
             "last_updated": "2026-10-30 09:05",
@@ -42,8 +42,8 @@
         },
         "F4": {
             "score_1_to_10": 7,
-            "weight_pct": 10,
-            "contribution": 0.7,
+            "weight_pct": 8,
+            "contribution": 0.56,
             "raw_value": "Phân tích Chuyên gia: 7/10",
             "raw_detail": "[Daily Market Wire 30/10 - Grain Central] Đông Úc dự báo mưa 15-50mm tại Victoria, Nam Úc và NSW làm đình trệ thu hoạch (parked headers) và tăng nguy cơ lúa mì nảy mầm trên bông (shot & sprung / hạ cấp chất lượng). Tại Argentina (BAGE), 90% lúa mì đủ ẩm và 58% đã trổ bông, nhưng mưa lạnh kéo dài và thiếu nắng làm tăng rủi ro nấm bệnh.",
             "last_updated": "2026-10-30 09:05",
@@ -51,8 +51,8 @@
         },
         "F4S": {
             "score_1_to_10": 6,
-            "weight_pct": 17,
-            "contribution": 1.02,
+            "weight_pct": 21,
+            "contribution": 1.26,
             "raw_value": "Phân tích Chuyên gia: 6/10",
             "raw_detail": "[Daily Market Wire 30/10 - Grain Central] Dù tổng sản lượng vụ đông Úc dự báo đạt ~31-32 triệu tấn và Argentina ước đạt 23.4 triệu tấn, mưa lớn đúng kỳ thu hoạch tại Đông Úc đe dọa làm giảm tỷ lệ lúa mì xay xát (Milling) chuyển sang lúa mì chăn nuôi (SFW Feed). Giá ASX Úc giữ nhịp tốt hơn CBOT và MATIF.",
             "last_updated": "2026-10-30 09:05",
@@ -98,18 +98,18 @@
             "score_1_to_10": 4,
             "weight_pct": 5,
             "contribution": 0.2,
-            "raw_value": "DXY 101.96 (-0.07%)",
+            "raw_value": "DXY 101.58 (+0.00%)",
             "raw_detail": "USD Index — Sức mạnh đồng đô",
-            "last_updated": "2026-10-31 09:00",
+            "last_updated": "2026-11-02 22:00",
             "status": "ok"
         },
         "F10": {
             "score_1_to_10": 10,
             "weight_pct": 5,
             "contribution": 0.5,
-            "raw_value": "Brent $112.33 (-2.22%)",
+            "raw_value": "Brent $105.99 (+0.00%)",
             "raw_detail": "Crude Oil -> Cước tàu & Phân bón",
-            "last_updated": "2026-10-31 09:00",
+            "last_updated": "2026-11-02 22:00",
             "status": "ok"
         },
         "F11": {

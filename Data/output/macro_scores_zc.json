@@ -1,6 +1,6 @@
 {
-    "timestamp": "2026-10-31 09:46:59",
-    "month": "10",
+    "timestamp": "2026-11-02 22:57:37",
+    "month": "11",
     "total_score": 48.1,
     "trend": "Sideways — Đi Ngang",
     "breakdown": {
@@ -98,18 +98,18 @@
             "score_1_to_10": 4,
             "weight_pct": 7.8,
             "contribution": 0.31,
-            "raw_value": "DXY 101.96 (-0.07%)",
+            "raw_value": "DXY 101.58 (+0.00%)",
             "raw_detail": "USD Index — Sức mạnh đồng đô",
-            "last_updated": "2026-10-31 09:00",
+            "last_updated": "2026-11-02 22:00",
             "status": "ok"
         },
         "F10": {
             "score_1_to_10": 10,
             "weight_pct": 15.7,
             "contribution": 1.57,
-            "raw_value": "Brent $112.33 (-2.22%)",
+            "raw_value": "Brent $105.99 (+0.00%)",
             "raw_detail": "40% Ngô nấu cồn. Dầu giảm kéo Ngô sập (MEGA BEARISH).",
-            "last_updated": "2026-10-31 09:00",
+            "last_updated": "2026-11-02 22:00",
             "status": "ok"
         },
         "F11": {
