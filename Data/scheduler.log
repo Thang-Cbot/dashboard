@@ -28124,3 +28124,10 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-11-02 06:30:02] [INFO] ▶ Kích hoạt: ENSO / Weather Long
 [2026-11-02 06:30:05] [INFO] ✅ ENSO / Weather Long hoàn thành (attempt 1)
 [2026-11-02 06:30:05] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: ENSO / Weather Long)...
+[2026-11-02 06:30:08] [Sync] ⚠️ Lỗi Github Push: to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-11-02 06:30:08] [INFO] ⏰ Đợi ENSO Long-Term: còn 168.00h (09/11 06:30:02 VN)
+[2026-11-02 08:28:29] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-11-02 08:28:47] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-11-02 08:28:47] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
