@@ -55,12 +55,12 @@
     "github_sync": {
       "status": "[ERROR]",
       "detail": "Lỗi Push: to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "updated_at": "2026-11-03 10:37:45"
+      "updated_at": "2026-11-03 12:41:20"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 10:36:15",
-      "updated_at": "2026-11-03 10:36:15"
+      "detail": "Auto-fetch 12:41:26",
+      "updated_at": "2026-11-03 12:41:26"
     },
     "russian_metrics": {
       "status": "[OK]",
