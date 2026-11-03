@@ -55,7 +55,7 @@
     "github_sync": {
       "status": "[ERROR]",
       "detail": "Lỗi Push: to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "updated_at": "2026-11-03 08:50:02"
+      "updated_at": "2026-11-03 08:50:06"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -101,8 +101,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=104.71, DXY=101.799",
-    "updated_at": "2026-11-03 08:50:04"
+    "detail": "Brent=104.86, DXY=101.799",
+    "updated_at": "2026-11-03 08:51:09"
   },
   "weather_short": {
     "status": "OK",

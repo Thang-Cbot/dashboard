@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-03 08:33:38",
+  "checked_at": "2026-11-03 08:51:09",
   "summary": {
     "total": 16,
     "ok": 15,
@@ -11,7 +11,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Sức mạnh USD (DXY)",
       "type": "🟢 Auto",
-      "value": "101.8 (+0.00%)",
+      "value": "101.799 (+0.00%)",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -20,7 +20,7 @@
       "group": "Phần 1: Global Macro",
       "item": "Giá Dầu Brent",
       "type": "🟢 Auto",
-      "value": "104.75 USD/thùng",
+      "value": "104.86 USD/thùng",
       "status": "✅ Có data",
       "updated": "vừa cập nhật",
       "note": ""
@@ -146,10 +146,10 @@
       "group": "Phần 3: AI Analysis & DCA",
       "item": "Giá ZW (D1 chart)",
       "type": "🟢 Auto",
-      "value": "606.00 cents",
+      "value": "606.50 cents",
       "status": "✅ Có data",
-      "updated": "2026-11-02",
-      "note": "RSI 25.5 | ATR 13.8"
+      "updated": "2026-11-03",
+      "note": "RSI 26.0 | ATR 12.3"
     }
   ]
 }
