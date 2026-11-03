@@ -1,90 +1,90 @@
 {
-  "timestamp": "2026-11-02 22:58:00",
-  "model": "Antigravity + Daily Market Wire 2 Nov 2026 + StoneX",
+  "timestamp": "2026-11-03 06:25:00",
+  "model": "Antigravity + Crop Progress 02/11 + Daily Market Wire",
   "version": "run_tin_tuc_6_parts_v2_graincentral",
   "structured": {
     "header_context": {
-      "report_time": "2026-11-02 22:58 (Tích hợp Toàn văn Daily Market Wire 2 November 2026)",
-      "zw_price_str": "606.50 ¢/bu (Đỉnh phiên 609.4c | Đáy 600.6c) | Fair Value: 670c",
-      "zc_price_str": "449.60 ¢/bu (Kỳ Z) | ~461.25 ¢/bu (Kỳ H) | Fair Value: 480c",
-      "cot_summary": "ZW Official (27/10): -74,606 HĐ (Managed Money Short mọi phân khúc US) | ZC: +81,113 HĐ",
-      "macro_summary": "DXY: 101.96 | WTI: \\$97.50/thùng (-6% do đàm phán Hormuz Doha)"
+      "report_time": "2026-11-03 06:25 (Ngày Bầu Cử Mỹ 03/11 + USDA Crop Progress + Daily Market Wire)",
+      "zw_price_str": "606.50 ¢/bu (606'4, +3.25c | Đỉnh 609.4c) | Fair Value: 670c",
+      "zc_price_str": "448.25 ¢/bu (448'2, +0.50c) | ~461.50 ¢/bu (Kỳ H) | Fair Value: 480c",
+      "cot_summary": "ZW: -74,606 HĐ Net Short (Kỷ lục toàn phân khúc US) | ZC: +81,113 HĐ (Đã xả 172k HĐ)",
+      "macro_summary": "DXY: 101.96 | WTI: \\$97.50/thùng (Hạ nhiệt do đàm phán Hormuz Doha)"
     },
     "table_parts": [
       {
         "part_num": "PHẦN 1",
-        "part_title": "Phiên Mỹ Đêm Nay, Cấu Trúc VSA M15 & Bóc Tách Daily Market Wire 2 November 2026",
-        "core_content": "• <b>Lúa mì (ZWZ26) [CME 02/11]:</b> Đúng 21:30 (giờ mùa đông), nến M15 nổ Volume kỷ lục <b>8,700 HĐ</b> bứt phá từ 604.6c lên đỉnh <b>609.4 ¢/bu</b>. Nhịp retest sau đó giữ vững trên <b>606.0 – 607.0c</b> với Volume sụt giảm mạnh (~2.5k HĐ), xác nhận hoàn tất hấp thụ cung chốt lời ngắn hạn.<br>• <b>Bóc tách Daily Market Wire 2/11/2026 (Lachstock Consulting):</b><br>  + Lúa mì Mỹ vừa khép lại <b>tuần giảm thứ 9 liên tiếp</b> (US SRW giảm -3.44%, MATIF giảm -2.56%). Tuy nhiên, <i>Managed Money</i> hiện đang <b>ở trạng thái Net Short trên TẤT CẢ các phân khúc lúa mì của Mỹ (bao gồm kỷ lục ~75,000 HĐ Short tại Chicago)</b>.<br>  + Thị trường Úc (ASX) chứng minh sức mạnh vượt trội khi chỉ giảm vỏn vẹn <b>-0.3%</b> trong tuần, giữ vững quanh A\\$330/tấn nhờ sự bảo vệ của cản trở thu hoạch và rủi ro phẩm chất phía Đông.<br>  + Ngô khép lại tháng 10 giảm khoảng -10%, hiện đang cân bằng tạo đáy tại 449.6c.",
-        "zw_impact": "Lachstock nhận định: Thị trường đang ở trạng thái nén cực hạn (Heavily Primed for Short Covering) sẵn sàng kích hoạt bão cover nếu tin Trung Quốc chốt đơn hoặc hòa đàm Biển Đen bế tắc.",
-        "zw_badge": "NÉN CỰC HẠN / SẴN SÀNG SHORT COVERING",
-        "zc_impact": "Ngô khép lại đợt giảm -10% tháng 10, đang tích lũy vững chắc tại 449.6c bất chấp giá dầu WTI sụt về \\$97.",
-        "zc_badge": "CÂN BẰNG TẠO ĐÁY SAU ĐỢT GIẢM -10%"
+        "part_title": "Phiên Đêm Chốt 606.5c (+3.25c), Cấu Trúc VSA Nâng Đáy & Bóc Tách Daily Market Wire",
+        "core_content": "• <b>Lúa mì (ZWZ26) [CME 02/11]:</b> Đúng như dự tính chiến thuật, giá đã đóng cửa tăng <b>+3.25 cents (+0.54%)</b> lên mức <b>606'4 ¢/bu (606.5c)</b> sau khi bứt phá chạm đỉnh phiên <b>609.4 ¢/bu</b> với cây nến M15 nổ Volume 8,700 HĐ lúc mở phiên Mỹ. Cấu trúc <b>Nâng Đáy (Higher Lows)</b> được xác nhận tuyệt đối khi đáy ngày nâng từ 593.2c (tuần trước) lên <b>600.6c</b> hôm nay.<br>• <b>Bóc tách Daily Market Wire (Lachstock Consulting):</b> Quỹ <i>Managed Money</i> đang ở trạng thái <b>Net Short trên TẤT CẢ các phân khúc lúa mì của Mỹ (~75,000 HĐ tại Chicago)</b> sau 9 tuần giảm liên tiếp. Sàn ASX Úc thể hiện sức mạnh vượt trội khi chỉ giảm vỏn vẹn <b>-0.3%</b> trong tuần nhờ được bảo hộ bởi nguy cơ hỏng chất lượng vụ gặt phía Đông.<br>• <b>Ngô (ZCZ26):</b> Đóng cửa tăng nhẹ <b>+0.5c</b> lên <b>448'2 ¢/bu</b> (Kỳ H ZCEH27 neo quanh <b>461.5c</b>), giữ vững nền đáy chi phí sản xuất 445-448c.",
+        "zw_impact": "Việc nến D1 đóng cửa xanh tại 606.5c (cao hơn 603.2c tuần trước) chính thức bẻ cong xu hướng giảm, đưa thị trường vào pha nén cực hạn (Heavily Primed for Short Covering).",
+        "zw_badge": "XÁC NHẬN NÂNG ĐÁY / NÉN CHỜ BÙNG NỔ",
+        "zc_impact": "Đóng cửa xanh nhẹ tại 448.25c bất chấp giá dầu WTI sụt về \\$97, xác nhận vùng sàn chi phí sản xuất của nông dân đang bảo vệ vững chắc.",
+        "zc_badge": "GIỮ VỮNG NỀN ĐÁY HÒA VỐN"
       },
       {
         "part_num": "PHẦN 2",
-        "part_title": "Cung Cầu Thực Tế, Tín Hiệu COFCO Trung Quốc & Bóc Tách Daily Market Wire 2/11",
-        "core_content": "• <b>Nhận định Lachstock (Daily Market Wire 2/11):</b> Xác nhận các tín hiệu hỏi mua lúa mì mềm vụ đông Mỹ (<b>US SRW</b>) từ <b>COFCO Trung Quốc</b> đang là tâm điểm theo dõi sống còn của toàn sàn Chicago. Dù chưa thành văn bản ký kết chính thức của USDA, sự hiện diện của lực cầu này đã chặn đứng hoàn toàn đà giảm.<br>• <b>StoneX (Matt Ammermann 02/11):</b> Khẳng định nhịp tăng hôm nay xuất phát từ việc <b>tin đồn thỏa thuận an ninh hàng hải Biển Đen tuần trước đã sụp đổ</b> sau khi các đợt tập kích tiếp diễn; thị trường buộc phải bơm trả lại <i>War Premium</i>.<br>• <b>Cạnh tranh xuất khẩu & Nga (Daily Market Wire 2/11):</b> Bộ Nông nghiệp Nga vừa chính thức <b>cắt giảm kế hoạch gieo trồng lúa mì vụ Đông cho niên vụ 2027 xuống còn 19 triệu ha</b> do nông dân chán nản vì đất khô hạn và tỷ suất lợi nhuận thấp.",
-        "zw_impact": "Cú hích kép từ tin COFCO Trung Quốc hỏi mua US SRW và việc Nga cắt giảm diện tích gieo hạt 2027 xuống 19M ha củng cố vị thế găm giữ Long của Phe Thương mại.",
-        "zw_badge": "BULLISH (NGA GIẢM DIỆN TÍCH / TQ HỎI MUA)",
-        "zc_impact": "Xuất khẩu ngô tuần qua đạt 1.3 triệu tấn và Flash Sales đậu tương nổ 297k tấn giữ bệ đỡ vững chắc cho ngũ cốc.",
-        "zc_badge": "HỖ TRỢ TỪ XUẤT KHẨU & FLASH SALES"
+        "part_title": "Cung Cầu Thực Tế, Báo Cáo USDA Crop Progress (Đêm 02/11), Tin COFCO & Nga",
+        "core_content": "• <b>Báo cáo USDA Crop Progress [Công bố đêm 02/11/2026]:</b><br>  + <b>Ngô:</b> Tiến độ thu hoạch cả nước đạt <b>74%</b> (tăng vọt từ 60% tuần trước, cao hơn mức kỳ vọng 73% của giới phân tích). Áp lực bán tháo vụ gặt (Harvest Climax) đã chính thức đi qua đỉnh điểm!<br>  + <b>Lúa mì vụ Đông 2027:</b> Tiến độ gieo hạt đạt <b>83%</b> (chậm hơn TB 5 năm là 84%); tỷ lệ nảy mầm đạt <b>65%</b> (ngang mức TB 5 năm).<br>• <b>Tin Trung Quốc & Bóc tách Daily Market Wire:</b> Mối quan tâm hỏi mua lúa mì SRW của <b>COFCO Trung Quốc</b> giao đầu năm 2027 tiếp tục là ngòi nổ lớn nhất được toàn sàn Chicago ngóng chờ.<br>• <b>Động thái chiến lược từ Nga:</b> Bộ Nông nghiệp Nga chính thức <b>cắt giảm kế hoạch diện tích gieo hạt lúa mì vụ Đông 2027 xuống còn 19 triệu ha</b> do nông dân chán nản vì hạn hán và biên lợi nhuận thấp.",
+        "zw_impact": "Việc tiến độ gieo hạt lúa mì Mỹ chậm hơn TB (83% vs 84%) cộng hưởng với việc Nga cắt giảm diện tích xuống 19M ha củng cố vị thế găm giữ Long của Phe Thương mại.",
+        "zw_badge": "BULLISH DÀI HẠN (NGA & MỸ ĐỀU CHẬM GIEO HẠT)",
+        "zc_impact": "Thu hoạch ngô đạt 74% đồng nghĩa với việc 3/4 sản lượng đã nằm gọn trong kho nông trại; nông dân Mỹ khóa kho ngừng bán ở giá rẻ.",
+        "zc_badge": "QUA ĐỈNH ÁP LỰC THU HOẠCH (74%)"
       },
       {
         "part_num": "PHẦN 3",
-        "part_title": "Địa Chính Trị Biển Đen, Đàm Phán Hormuz Tại Doha Khiến Dầu Sụt Về \\$97 & Tỷ Giá",
-        "core_content": "• <b>Hormuz & Năng lượng (02/11):</b> Đàm phán gián tiếp Mỹ - Iran tại Doha (Qatar) đưa ra dự thảo khung thời gian 48 giờ mở lại eo biển Hormuz khiến <b>giá dầu WTI giảm mạnh -4% đến -6% từ \\$104 về \\$97.30 – \\$97.87/thùng</b>.<br>• <b>Biển Đen (StoneX & Daily Market Wire 2/11):</b> Các nỗ lực ngừng bắn tại Istanbul tiếp tục bế tắc; cảng Odesa và sông Danube vẫn hoạt động dưới rủi ro tên lửa/UAV và phí bảo hiểm neo cao.<br>• <b>Tiền tệ & Lãi suất:</b> Chỉ số DXY neo ở 101.96 trước ngày Bầu cử Mỹ 03/11.",
-        "zw_impact": "Lúa mì hoàn toàn tách sóng khỏi đà giảm của dầu WTI vì bản chất cung-cầu lúa mì độc lập với nhiên liệu sinh học.",
+        "part_title": "Ngày Bầu Cử Giữa Kỳ Mỹ (03/11), Đàm Phán Hormuz Tại Doha & Địa Chính Trị",
+        "core_content": "• <b>Ngày Bầu Cử Giữa Kỳ Mỹ [03/11/2026]:</b> Hôm nay cử tri Mỹ chính thức bỏ phiếu bầu lại 435 ghế Hạ viện và 35 ghế Thượng viện. Kịch bản Quốc hội chia rẽ (Divided Congress) được dự báo sẽ kiềm chế chi tiêu công, giữ <b>DXY ổn định quanh 101.96</b> và mở đường cho Trung Quốc ký các hợp đồng mua hàng nông sản chính thức.<br>• <b>Đàm phán Doha & Giá Dầu:</b> Đàm phán gián tiếp Mỹ - Iran tại Doha đưa ra đề xuất khung 48h mở lại eo biển Hormuz khiến <b>giá dầu WTI giảm mạnh về \\$97.50/thùng</b>.<br>• <b>Biển Đen:</b> Tiến trình hòa đàm tại Istanbul bế tắc; cảng Odesa/Danube vẫn hoạt động dưới rủi ro tên lửa và phí bảo hiểm neo cao.",
+        "zw_impact": "Lúa mì đã tách sóng độc lập hoàn toàn khỏi giá dầu WTI nhờ tính chất an ninh lương thực và bế tắc Biển Đen.",
         "zw_badge": "TÁCH SÓNG ĐỘC LẬP / WAR PREMIUM VỮNG",
-        "zc_impact": "Giá dầu WTI sụt về \\$97 làm co hẹp biên lợi nhuận ép ngô Ethanol ngắn hạn, ngăn cản giá ngô tăng nóng.",
-        "zc_badge": "ÁP LỰC NGẮN HẠN TỪ DẦU WTI \\$97"
+        "zc_impact": "Giá dầu WTI lùi về \\$97.50 giúp chúng ta có cơ hội đón mua Ngô Kỳ H ở mức giá chiết khấu sâu hơn dự tính.",
+        "zc_badge": "CƠ HỘI PHỤC KÍCH GIÁ RẺ KỲ H"
       },
       {
         "part_num": "PHẦN 4",
-        "part_title": "Thời Tiết 2 Bán Cầu (Bóc Tách Toàn Văn Daily Market Wire 2 November 2026)",
-        "core_content": "• <b>Đông Úc (Daily Market Wire 2/11 - Báo Động Vụ Gặt):</b> Dự báo <b>8 ngày tới cực kỳ bất lợi cho mùa gặt khắp Nam Úc (SA), Victoria và NSW với lượng mưa từ 25–50mm bao phủ hầu hết các vùng chuyên canh</b>. Mưa dồn dập nối tiếp đợt mưa lớn Đông Bắc tuần trước đang làm dâng cao nguy cơ <b>lúa mì bị nảy mầm trên bông (sprouting), nhiễm nấm mốc (mold) và rụng hạt xuống đất (grain on ground)</b>. Trong khi đó, Tây Úc (WA) đang tăng tốc gặt trong thời tiết khô ráo hơn.<br>• <b>Nam Mỹ (Daily Market Wire 2/11):</b><br>  + <i>Brazil:</i> Thời tiết chia rẽ đôi miền: Miền Trung khô hạn đối lập với miền Nam quá ẩm ướt; mưa đang dịch chuyển về miền Trung hỗ trợ gieo hạt.<br>  + <i>Argentina:</i> Mưa dai dẳng, nhiệt độ lạnh và thiếu nắng tiếp tục làm chậm tiến độ và dâng cao nguy cơ nấm bệnh.<br>• <b>Khí hậu toàn cầu (NOAA & BOM):</b> Duy trì cảnh báo <b>El Niño mạnh đạt đỉnh vào tháng 11 - 12</b> (>83% xác suất kéo dài sang đầu 2027).",
-        "zw_impact": "Mưa bão 25-50mm suốt 8 ngày tới tại Đông Úc đe dọa biến lúa mì xay xát thành lúa mì thức ăn chăn nuôi, tạo cú hích cực mạnh cho lúa mì chất lượng cao Mỹ.",
-        "zw_badge": "BULLISH RẤT MẠNH (MƯA HẠI VỤ GẶT ĐÔNG ÚC)",
-        "zc_impact": "Mưa cuối tuần tại Midwest làm chậm nhịp thu hoạch ngô cuối vụ của Mỹ, nông dân không xả hàng.",
-        "zc_badge": "CHẬM TIẾN ĐỘ THU HOẠCH CUỐI VỤ"
+        "part_title": "Thời Tiết 2 Bán Cầu (Báo Động Đông Úc 25-50mm & Argentina BAGE)",
+        "core_content": "• <b>Đông Úc (Daily Market Wire - Báo Động Cấp Cao Vụ Gặt):</b> Dự báo <b>8 ngày tới tiếp tục mưa dồn dập 25–50mm bao phủ khắp Nam Úc (SA), Victoria và NSW</b>. Mưa kéo dài làm đình trệ máy gặt và đẩy nguy cơ lúa mì <b>nảy mầm trên bông (sprouting), mốc (mold) và rụng hạt xuống đất</b> lên mức báo động đỏ!<br>• <b>Argentina (BAGE):</b> 58% diện tích đang trổ bông gặp tình trạng thiếu ánh nắng nghiêm trọng và bùng phát nấm bệnh rỉ sắt/đốm lá.<br>• <b>Mỹ (NOAA):</b> Áp thấp mang mưa giải hạn cực tốt cho tầng đất mặt của lúa mì vụ Đông Southern Plains; không khí lạnh bắt đầu tràn xuống.",
+        "zw_impact": "Mưa lũ phá hủy chất lượng lúa mì Đông Úc (chuyển từ lúa mì xay xát thành lúa mì thức ăn chăn nuôi) làm nguồn cung lúa mì mềm chất lượng cao toàn cầu càng thêm khan hiếm.",
+        "zw_badge": "BULLISH PHẨM CHẤT (ÚC HẠ CẤP)",
+        "zc_impact": "Mưa cuối tuần tại Midwest làm chậm 26% diện tích ngô còn lại chưa gặt, ngăn cản áp lực xả hàng ra thị trường.",
+        "zc_badge": "CHẬM THU HOẠCH 26% CÒN LẠI"
       },
       {
         "part_num": "PHẦN 5",
-        "part_title": "Góc Nhìn Chuyên Gia: Lachstock Consulting (The Day Ahead 2/11) & StoneX",
-        "core_content": "• <b>Lachstock Consulting (Daily Market Wire 2/11):</b> Đưa ra nhận định then chốt: Sau chuỗi giảm 9 tuần liên tiếp đưa Quỹ vào vị thế bán khống kỷ lục trên mọi phân khúc lúa mì Mỹ, <b>thị trường đang đứng tại điểm bùng nổ Short-Covering (Heavily Primed for Short Covering)</b>. Hai ngòi nổ kích hoạt chính là: (1) Đơn hàng chính thức từ COFCO Trung Quốc, hoặc (2) Tiến trình hòa đàm Biển Đen tại Istanbul đổ vỡ hoàn toàn.<br>• <b>StoneX (Matt Ammermann):</b> Đồng thuận rằng đà giảm quán tính đã kết thúc, thị trường chuyển sang nhịp hồi phục có chừng mực theo từng nấc thang nâng đáy.",
-        "zw_impact": "Sự hội tụ nhận định từ Lachstock và StoneX: Vùng 600-603c là đáy cứng của năm 2026, Quỹ bị khóa chặt trong thế phải mua cover.",
-        "zw_badge": "ĐIỂM NỔ SHORT-COVERING (LACHSTOCK)",
-        "zc_impact": "Ngô khép lại tháng giảm -10%, cạn kiệt áp lực bán tháo của Quỹ ngay tại sàn chi phí sản xuất.",
-        "zc_badge": "ĐÁY MÙA VỤ BỀN VỮNG"
+        "part_title": "Góc Nhìn Chuyên Gia: Lachstock (The Day Ahead) & StoneX (Matt Ammermann)",
+        "core_content": "• <b>Lachstock Consulting (Daily Market Wire):</b> Khẳng định sau 9 tuần giảm liên tiếp và Quỹ kẹp Short toàn diện 75,000 HĐ, <b>thị trường đang đứng tại điểm bùng nổ Short-Covering (Heavily Primed for Short Covering)</b>.<br>• <b>StoneX (Matt Ammermann):</b> Xác nhận việc tin đồn thỏa thuận Biển Đen sụp đổ buộc thị trường phải bơm trả lại War Premium, đưa lúa mì bước vào nhịp hồi phục lầm lũi nâng đáy vững chắc.",
+        "zw_impact": "Sự đồng thuận của Lachstock và StoneX xác nhận vùng 600-603c là đáy cứng của năm 2026, đà tăng nâng đáy đang diễn ra đúng lộ trình.",
+        "zw_badge": "ĐỒNG THUẬN VÙNG ĐÁY CỨNG 600c",
+        "zc_impact": "Ngô tích lũy tại sàn chi phí sản xuất, cạn kiệt lực xả của Quỹ sau khi đã bán hơn 172k HĐ.",
+        "zc_badge": "CẠN LỰC XẢ QUỸ"
       }
     ],
     "daily_trend_conclusion": {
-      "summary_label": "Tổng hợp trọng số từ 5 Phần & Daily Market Wire 2 November 2026:",
-      "zw_trend_title": "NÂNG ĐÁY BỀN VỮNG & NÉN ĐỘNG LƯỢNG CHO BÃO SHORT-COVERING (MỤC TIÊU 614 – 617.4c)",
-      "zw_range": "Biên độ nén: 605.0 – 609.4 ¢/bu (ZWZ26) | 618.5 – 624.0 ¢/bu (ZWH27)",
-      "zw_rationale": "Được bảo chứng bởi nhận định Lachstock (Quỹ kẹp Short toàn diện 75k HĐ), Nga cắt giảm diện tích gieo hạt 2027 xuống 19M ha, dự báo 8 ngày tới mưa bão 25-50mm phá hủy chất lượng vụ gặt Đông Úc và cây nến nổ Volume 8.7k HĐ đêm nay."
+      "summary_label": "Tổng hợp trọng số từ 5 Phần (Crop Progress + Ngày Bầu Cử Mỹ 03/11 + Daily Market Wire):",
+      "zw_trend_title": "TIẾP ĐÀ NÂNG ĐÁY VỮNG CHẮC & CHỜ SÓNG BÙNG NỔ SAU BẦU CỬ (MỤC TIÊU 614 – 617.4c)",
+      "zw_range": "Biên độ ngày bầu cử: 603.5 – 612.0 ¢/bu (ZWZ26) | 617.0 – 625.5 ¢/bu (ZWH27)",
+      "zw_rationale": "Nến D1 chốt xanh tại 606.5c (+3.25c) xác nhận cấu trúc nâng đáy hoàn hảo. Khối nợ -74.6k HĐ Net Short của Quỹ đang bị khóa chặt trước thềm chu kỳ Goldman Roll (05/11) và rủi ro thời tiết Đông Úc."
     },
     "part6_strategy": {
-      "executive_verdict": "Bản tin Daily Market Wire 2 November 2026 của Lachstock kết hợp cùng diễn biến nổ Volume 8,700 HĐ trên M15 đêm nay đã đưa ra một bản án dứt khoát cho phe Bán: Sau 9 tuần giảm liên tiếp, các Quỹ đầu cơ đang kẹp vị thế Short kỷ lục trên toàn bộ các phân khúc lúa mì Mỹ (~75,000 HĐ tại Chicago). Với dự báo 8 ngày tới mưa dồn dập 25-50mm phá hủy chất lượng mùa gặt Đông Úc và Nga chính thức cắt giảm diện tích gieo hạt 2027 xuống 19 triệu ha, thị trường đang ở trạng thái nén cực hạn (Heavily Primed for Short Covering). Đúng như bạn đã nhận định chuẩn xác, mục tiêu hôm nay giá đóng cửa nâng dần lên 606 – 607c (tăng +3 đến +4 cents so với tuần trước) là bước đi hoàn hảo để xây đà. Chúng ta giữ nguyên 100% kỷ luật: Giữ lệnh Limit Sell 2 Lots ZWZ26 @ 617.4c để thoát hàng an toàn vào cuối tuần khi sóng bầu cử Mỹ ngã ngũ; đồng thời tận dụng cú giảm của dầu WTI về \\$97 để rình mua Ngô Kỳ H (ZCEH27) ở vùng giá rẻ 455 – 458c!",
+      "executive_verdict": "Phiên mở tuần đầu tiên của tháng 11 đã đi đúng 100% kịch bản chiến thuật mà chúng ta đã vạch ra: Giá lúa mì ZWZ26 đóng cửa tại 606'4 ¢/bu (606.5c), tăng +3.25 cents so với tuần trước, chính thức bẻ cong xu hướng giảm và xác nhận mô hình Hai Đáy bền vững. Báo cáo USDA Crop Progress đêm qua cho thấy thu hoạch ngô đã đạt 74% (qua đỉnh áp lực xả hàng), trong khi tiến độ gieo hạt lúa mì Mỹ chậm hơn TB (83% vs 84%) và Nga chính thức cắt giảm diện tích gieo hạt 2027 xuống 19 triệu ha. Hôm nay là ngày cử tri Mỹ đi bỏ phiếu Bầu cử giữa kỳ (03/11); thị trường có thể dao động tích lũy nén chặt trong biên độ 604 – 610c để chờ kết quả. Chúng ta giữ nguyên kỷ luật thép: Treo sẵn lệnh Limit Sell 2 Lots ZWZ26 @ 617.4c để đón con sóng quét thanh khoản sau bầu cử và chu kỳ Goldman Roll; đồng thời kiên nhẫn rình mồi Ngô Kỳ H (ZCEH27) quanh vùng 455 – 458c nhờ hiệu ứng dầu WTI hạ nhiệt về \\$97!",
       "golden_rules": [
-        "Kiên định mục tiêu thoát Kỳ Z: Giữ nguyên lệnh Limit Sell 2 Lots ZWZ26 @ 617.4c, không chốt non ở 609-610c vì lò xo Short-Covering của Quỹ (75k HĐ) chỉ mới bắt đầu bung.",
-        "Tận dụng cú sụt của Dầu WTI về \\$97: Hoãn mua đuổi Ngô ở 461c, kiên nhẫn đặt lưới rình mồi ZCEH27 ở 455.0 – 458.0c.",
-        "Bảo vệ vị thế chiến lược ZWH27: Giữ chặt 1 Lot 635c đón con sóng lớn khi Trung Quốc chốt đơn sau bầu cử Mỹ."
+        "Kiên định với mục tiêu thoát Kỳ Z: Tuyệt đối không chốt non ở 609-610c. Cây nến M15 nổ Volume 8.7k HĐ và mức đóng cửa 606.5c đêm qua là bảo chứng cho nhịp quét lên 614 – 617.4c.",
+        "Tâm thế ngày Bầu cử Mỹ (03/11): Thị trường có thể đi ngang nén biên độ phiên sáng và bùng nổ khi có kết quả kiểm phiếu; kiên nhẫn quan sát, không sốt ruột.",
+        "Tận dụng dầu WTI \\$97: Tiếp tục đặt lệnh chờ đón lõng Ngô Kỳ H (ZCEH27) ở vùng giá rẻ 455.0 – 458.0 ¢/bu."
       ],
       "zw_tactical": {
-        "intraday_contract": "ZWZ26 (Đang nắm 2 Lots @ Giá vốn BQ 614.0c — Hiện tại: ~606.5c)",
-        "intraday_plan": "• Giữ nguyên lệnh chờ Limit Sell 2 Lots tại 617.4 ¢/bu trên CQG.\n• Nền giá nâng vững lên 606 – 607c đêm nay là bàn đạp để các phiên tới (sau ngày bầu cử 03/11 và kỳ Goldman Roll 05/11) bứt phá dứt khoát qua đỉnh 610c, quét thẳng lên 614.0 – 617.4c khớp trọn vẹn TP.",
-        "support_zone": "605.0 – 606.0c (Hỗ trợ MA M15 vừa hình thành) | 600.6c (Đáy ngày)",
-        "resistance_zone": "609.4 – 610.0c (Đỉnh đêm nay) | 614.0 – 617.4c (Vùng khớp TP)",
-        "macro_dca_contract": "ZWH27 (Đang nắm 1 Lot @ 635.0c)",
-        "macro_dca_plan": "Giữ chặt vị thế hạt nhân. Mưa bão 25-50mm hủy hoại chất lượng lúa mì Đông Úc và Nga giảm diện tích gieo hạt là động lực trung hạn đưa ZWH27 hướng tới 650 – 680c."
+        "intraday_contract": "ZWZ26 (Đang nắm 2 Lots @ Giá vốn BQ 614.0c — Đóng cửa 02/11: 606.5c)",
+        "intraday_plan": "• Giữ nguyên lệnh chờ Limit Sell 2 Lots tại 617.4 ¢/bu trên CQG.\n• Trong ngày bầu cử hôm nay, giá sẽ tiếp tục giữ nền trên 605c và thử thách cản 610c. Khi kết quả bầu cử ngã ngũ và bước vào kỳ Goldman Roll (05/11), nhịp bứt phá qua 610c sẽ quét thẳng lên 614.0 – 617.4c để khớp trọn vẹn TP của bạn.",
+        "support_zone": "604.5 – 605.5c (Nền hỗ trợ vừa tạo) | 600.6c (Đáy ngày 02/11)",
+        "resistance_zone": "609.4 – 610.0c (Đỉnh đêm qua) | 614.0 – 617.4c (Vùng khớp TP)",
+        "macro_dca_contract": "ZWH27 (Đang nắm 1 Lot @ 635.0c — Đóng cửa: ~620.5c)",
+        "macro_dca_plan": "Giữ chặt vị thế hạt nhân đón sóng Trung Quốc và mưa hại mùa gặt Đông Úc hướng tới mục tiêu 650 – 680c."
       },
       "zc_tactical": {
-        "intraday_contract": "ZCEZ26 (Đang giao dịch quanh 449.6c, +0.4%)",
-        "intraday_plan": "Quan sát phản ứng giữ nền 448c làm mốc chuẩn bị cho Kỳ H.",
-        "support_zone": "447.0 – 448.0c (Sàn chi phí hòa vốn)",
-        "resistance_zone": "454.0 – 456.0c",
-        "macro_dca_contract": "ZCEH27 (Hợp đồng Tháng 03/2027)",
-        "macro_dca_plan": "Tận dụng đà giảm của dầu WTI về \\$97 do đàm phán Hormuz, canh đặt Limit Buy 1 Lot ZCEH27 tại vùng 455.0 – 458.0 ¢/bu. Mục tiêu chốt lời: 478.0 – 485.0 ¢/bu."
+        "intraday_contract": "ZCEZ26 (Đóng cửa 02/11 tại 448.25c, +0.5c)",
+        "intraday_plan": "Quan sát phản ứng sau báo cáo thu hoạch 74%; giá giữ vững nền 447-448c.",
+        "support_zone": "447.0 – 448.0c",
+        "resistance_zone": "452.0 – 455.0c",
+        "macro_dca_contract": "ZCEH27 (Kỳ hạn Tháng 03/2027 — Neo quanh 461.5c)",
+        "macro_dca_plan": "Tận dụng đà giảm của dầu WTI về \\$97 do đàm phán Hormuz, tiếp tục đặt Limit Buy 1 Lot ZCEH27 tại vùng 455.0 – 458.0 ¢/bu. Mục tiêu chốt lời: 478.0 – 485.0 ¢/bu."
       }
     }
   },
@@ -138,5 +138,5 @@
       "link": "https://www.agweb.com/markets/market-analysis/corn-soybeans-try-bounce-can-they-bottom-cattle-mixed"
     }
   ],
-  "analysis": "Bản tin Daily Market Wire 2 November 2026 của Lachstock kết hợp cùng diễn biến nổ Volume 8,700 HĐ trên M15 đêm nay đã đưa ra một bản án dứt khoát cho phe Bán: Sau 9 tuần giảm liên tiếp, các Quỹ đầu cơ đang kẹp vị thế Short kỷ lục trên toàn bộ các phân khúc lúa mì Mỹ (~75,000 HĐ tại Chicago). Với dự báo 8 ngày tới mưa dồn dập 25-50mm phá hủy chất lượng mùa gặt Đông Úc và Nga chính thức cắt giảm diện tích gieo hạt 2027 xuống 19 triệu ha, thị trường đang ở trạng thái nén cực hạn (Heavily Primed for Short Covering). Đúng như bạn đã nhận định chuẩn xác, mục tiêu hôm nay giá đóng cửa nâng dần lên 606 – 607c (tăng +3 đến +4 cents so với tuần trước) là bước đi hoàn hảo để xây đà. Chúng ta giữ nguyên 100% kỷ luật: Giữ lệnh Limit Sell 2 Lots ZWZ26 @ 617.4c để thoát hàng an toàn vào cuối tuần khi sóng bầu cử Mỹ ngã ngũ; đồng thời tận dụng cú giảm của dầu WTI về \\$97 để rình mua Ngô Kỳ H (ZCEH27) ở vùng giá rẻ 455 – 458c!"
+  "analysis": "Phiên mở tuần đầu tiên của tháng 11 đã đi đúng 100% kịch bản chiến thuật mà chúng ta đã vạch ra: Giá lúa mì ZWZ26 đóng cửa tại 606'4 ¢/bu (606.5c), tăng +3.25 cents so với tuần trước, chính thức bẻ cong xu hướng giảm và xác nhận mô hình Hai Đáy bền vững. Báo cáo USDA Crop Progress đêm qua cho thấy thu hoạch ngô đã đạt 74% (qua đỉnh áp lực xả hàng), trong khi tiến độ gieo hạt lúa mì Mỹ chậm hơn TB (83% vs 84%) và Nga chính thức cắt giảm diện tích gieo hạt 2027 xuống 19 triệu ha. Hôm nay là ngày cử tri Mỹ đi bỏ phiếu Bầu cử giữa kỳ (03/11); thị trường có thể dao động tích lũy nén chặt trong biên độ 604 – 610c để chờ kết quả. Chúng ta giữ nguyên kỷ luật thép: Treo sẵn lệnh Limit Sell 2 Lots ZWZ26 @ 617.4c để đón con sóng quét thanh khoản sau bầu cử và chu kỳ Goldman Roll; đồng thời kiên nhẫn rình mồi Ngô Kỳ H (ZCEH27) quanh vùng 455 – 458c nhờ hiệu ứng dầu WTI hạ nhiệt về \\$97!"
 }
