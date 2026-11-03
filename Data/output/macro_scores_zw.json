@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-11-03 06:26:01",
+    "timestamp": "2026-11-04 06:26:00",
     "month": "11",
     "total_score": 61.7,
     "trend": "Slightly Bullish — Tăng Nhẹ",
@@ -19,7 +19,7 @@
             "contribution": 0.5,
             "raw_value": "1,534 Mbu | MoM: +0.20% | Acreage: -5.9%",
             "raw_detail": "WASDE Oct: 1,534 ← 1,531 Mbu. Diện tích: 42.7 M ac",
-            "last_updated": "2026-11-03 00:52",
+            "last_updated": "2026-11-03 14:59",
             "status": "ok"
         },
         "F2W": {
@@ -28,7 +28,7 @@
             "contribution": 0.0,
             "raw_value": "Phân tích Chuyên gia: 5/10",
             "raw_detail": "Mưa lớn bất ngờ xuất hiện tại vùng Southern Plains (Kansas, Oklahoma, Texas). | Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ",
-            "last_updated": "2026-11-03 00:52",
+            "last_updated": "2026-11-03 14:59",
             "status": "manual"
         },
         "F3": {
@@ -64,7 +64,7 @@
             "contribution": 0.35,
             "raw_value": "+849.8k MT | WoW:+254.7% | YoY:-32.1%",
             "raw_detail": "Tuần 10/22/2026 | Lũy kế: 7.652 triệu tấn | Prev: 239.6 nghìn tấn",
-            "last_updated": "2026-11-03 00:52",
+            "last_updated": "2026-11-03 14:59",
             "status": "ok"
         },
         "F6": {
@@ -73,7 +73,7 @@
             "contribution": 0.2,
             "raw_value": "740 Mbu | WASDE Oct: +3.2% (740 ← 717 Mbu)",
             "raw_detail": "Giảm sâu 18.5% so với niên vụ trước, phản ánh thiệt hại sản lượng lúa mì đông nặ",
-            "last_updated": "2026-11-03 00:52",
+            "last_updated": "2026-11-03 14:59",
             "status": "ok"
         },
         "F7": {
@@ -82,7 +82,7 @@
             "contribution": 0.3,
             "raw_value": "276.04 Mmt | WASDE Oct: -0.09% (276.04 ← 276.29 Mmt)",
             "raw_detail": "Giảm 4.2 triệu tấn so với niên vụ trước, tiếp tục thắt chặt cung cầu toàn cầu.",
-            "last_updated": "2026-11-03 00:52",
+            "last_updated": "2026-11-03 14:59",
             "status": "ok"
         },
         "F8": {
@@ -98,18 +98,18 @@
             "score_1_to_10": 4,
             "weight_pct": 5,
             "contribution": 0.2,
-            "raw_value": "DXY 101.67 (+0.00%)",
+            "raw_value": "DXY 101.83 (+0.07%)",
             "raw_detail": "USD Index — Sức mạnh đồng đô",
-            "last_updated": "2026-11-03 01:00",
+            "last_updated": "2026-11-04 02:00",
             "status": "ok"
         },
         "F10": {
             "score_1_to_10": 10,
             "weight_pct": 5,
             "contribution": 0.5,
-            "raw_value": "Brent $104.10 (+0.00%)",
+            "raw_value": "Brent $103.37 (-1.34%)",
             "raw_detail": "Crude Oil -> Cước tàu & Phân bón",
-            "last_updated": "2026-11-03 01:00",
+            "last_updated": "2026-11-04 02:00",
             "status": "ok"
         },
         "F11": {
@@ -118,7 +118,7 @@
             "contribution": 0.4,
             "raw_value": "Net: -74,606 (-22,601)",
             "raw_detail": "Q3 (DO DAM) - NHOI SHORT",
-            "last_updated": "2026-11-03 00:52",
+            "last_updated": "2026-11-03 06:30",
             "status": "ok"
         },
         "F12": {
