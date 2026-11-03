@@ -28720,3 +28720,9 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-11-03 17:33:16] [INFO] ▶ Kích hoạt: Giá H1 + Macro
 [2026-11-03 17:33:28] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-11-03 17:33:28] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-11-03 17:33:32] [Sync] ⚠️ Lỗi Github Push: to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-11-03 17:33:32] [INFO] ▶ Kích hoạt: Giá H4
+[2026-11-03 17:33:38] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-11-03 17:33:38] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
