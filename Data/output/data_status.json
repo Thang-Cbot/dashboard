@@ -29,8 +29,8 @@
     },
     "weather_short": {
       "status": "[OK]",
-      "detail": "Auto-fetch 06:00:40",
-      "updated_at": "2026-11-02 06:00:40"
+      "detail": "Auto-fetch 00:47:08",
+      "updated_at": "2026-11-04 00:47:08"
     },
     "weather_long": {
       "status": "[OK]",
@@ -55,7 +55,7 @@
     "github_sync": {
       "status": "[ERROR]",
       "detail": "Lỗi Push: to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "updated_at": "2026-11-04 00:16:01"
+      "updated_at": "2026-11-04 00:16:50"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -107,7 +107,7 @@
   "weather_short": {
     "status": "OK",
     "detail": "24/24 fetched",
-    "updated_at": "2026-11-02 06:00:40"
+    "updated_at": "2026-11-04 00:47:08"
   },
   "weather_long": {
     "status": "OK",
