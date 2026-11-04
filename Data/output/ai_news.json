@@ -1,170 +1,47 @@
 {
-  "timestamp": "2026-11-04 01:04:04",
-  "news": [
-    {
-      "title": "Giá lúa mì giảm vào thứ Ba",
-      "details": [
-        "Hợp đồng SRW Chicago giảm 3-5 cent vào giữa trưa thứ Ba.",
-        "Hợp đồng HRW Kansas City giảm 6-7.5 cent.",
-        "Lúa mì vụ xuân Minneapolis giảm 4-5 cent."
-      ],
-      "link": "https://www.barchart.com/story/news/8625413/wheat-posting-tuesday-losses",
-      "source": "03 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Ngô tiếp tục giảm giá giữa trưa sau hoạt động xuất khẩu",
-      "details": [
-        "Hợp đồng ngô giảm 3-4.25 cent vào giữa trưa thứ Ba.",
-        "Giá ngô giao ngay quốc gia giảm 4 cent xuống $4.07 1/4.",
-        "USDA báo cáo bán 315.000 MT ngô cho tư nhân."
-      ],
-      "link": "https://www.barchart.com/story/news/8625393/corn-holding-midday-losses-following-export-business",
-      "source": "03 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Thị trường ngũ cốc chịu áp lực: Bán khi tăng, không đuổi theo khi giảm",
-      "details": [
-        "Thị trường ngũ cốc đang trong xu hướng giảm giá.",
-        "Khuyến nghị chiến lược 'bán khi tăng, không đuổi theo khi giảm'.",
-        "Kiên nhẫn có thể mang lại cơ hội tốt hơn trong thị trường giảm giá."
-      ],
-      "link": "https://www.barchart.com/story/news/8618303/grains-under-pressure-sell-the-rally-dont-chase-the-break",
-      "source": "03 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Giá ngô, đậu tương, lúa mì bị bán quá mức, có thể phục hồi",
-      "details": [
-        "Thị trường ngô, đậu tương và lúa mì đang trong xu hướng giảm giá trên biểu đồ hàng ngày.",
-        "Các hợp đồng tương lai được nhận định là 'bị bán quá mức' (heavily oversold).",
-        "Có khả năng giá ngũ cốc sẽ phục hồi trong thời gian tới."
-      ],
-      "link": "https://www.barchart.com/story/news/8598644/corn-soybean-and-wheat-prices-are-heavily-oversold-a-rebound-for-grains-could-be-coming?.tsrc=rss",
-      "source": "02 Nov 2026 - Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "USDA công bố thêm ba đợt bán hàng nhanh vào thứ Ba",
-      "details": [
-        "USDA báo cáo ba đợt bán hàng nhanh mới vào thứ Ba.",
-        "Năm tiếp thị 2026-27 cho ngô và đậu tương bắt đầu từ ngày 1 tháng 9.",
-        "Các đợt bán hàng nhanh này có thể hỗ trợ nhu cầu xuất khẩu."
-      ],
-      "link": "https://www.farmprogress.com/marketing/flash-sales",
-      "source": "03 Nov 2026 - Farm Progress",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Quân đội Anh được phép bắn trả lực lượng Nga nếu bị tấn công",
-      "details": [
-        "Quân đội Anh sẽ được phép bắn trả lực lượng Nga nếu bị tấn công.",
-        "Đây là một phần của nhiệm vụ đa quốc gia nhằm đảm bảo hòa bình ở Ukraine.",
-        "Tình hình này làm tăng căng thẳng địa chính trị ở khu vực Biển Đen, ảnh hưởng đến vận chuyển ngũ cốc."
-      ],
-      "link": "https://news.sky.com/story/british-troops-will-be-allowed-to-fire-back-at-russian-forces-if-attacked-in-mission-13607272",
-      "source": "03 Nov 2026 - Sky News (Biển Đen & TG)",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Ngũ cốc dưới làn đạn: Các cuộc tấn công Biển Đen đe dọa nguồn cung lương thực",
-      "details": [
-        "Các cuộc tấn công của Nga và Ukraine ở Biển Đen tiếp tục diễn ra.",
-        "Tình hình này đe dọa nghiêm trọng đến nguồn cung lương thực toàn cầu.",
-        "Gây gián đoạn chuỗi cung ứng và tăng rủi ro vận chuyển ngũ cốc."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUFhlcUtjbWRJa2V2VDZNNDRNVDVuYWRfd3B0b1VYMHBiRF9qX2lQOThKbDRXM3dHckxFZkNVemU3RHNxRXhyb0NBclJwQWJYUkM5Rmc1SVBwX3NvSFdJbnZUOGpWRnJNdHpDb0hTOUM0eENVSy14UTVEdUNHM2pVVk9SWGJnUGtHV1RHR3hGUjBTRlZRNkNsRFBJdWd4UFBu0gGmAUFVX3lxTE0wQUMyVzRrUGdyd1R6VExqeExKT2w2RlhoS0pPVDVjZUhBVnc1aXJjVWktYlpza01vaGdDSWNVeml6dlV0b0lnTEJ6MHlrZkI4ZW9kUzlkcGJKVjlNSlB6TDhKdUVyUTYweUFRR1FUc2YtRUtMVHdQSFVsaC1aLWJ4dDhFLXlTU2htUlJqWE9BaWNiSzVXRU9wSldVVEx3QzlIVy1jV1E?oc=5",
-      "source": "03 Nov 2026 - Google News (Geo)",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Tấn công bằng máy bay không người lái biến Biển Đen thành tuyến đường thủy nguy hiểm nhất",
-      "details": [
-        "Các cuộc tấn công bằng máy bay không người lái của Nga đã biến Biển Đen thành tuyến đường thủy nguy hiểm nhất thế giới.",
-        "Điều này ảnh hưởng nghiêm trọng đến an toàn hàng hải và vận chuyển ngũ cốc.",
-        "Gây ra rủi ro cao và chi phí bảo hiểm tăng cho các tàu chở hàng."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1HanVrUDZ2T0g4NDRMQVJlVm1Da0gxY1Q0Q0xYcTFyd2JkaXduMXRLVDUtaEFLVktLdmliR1JPeVhyeWtEV2x1X3g2dnoyTkZWMGd2R0pncUxUTC1JcTVQSnJsUW9sdkkwaDdQaGRfeGpzZmNsZWZJQUV2a3NLQzQ?oc=5",
-      "source": "03 Nov 2026 - Google News (Geo)",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Thu hoạch ngô đạt 74%, Tennessee hoàn thành sớm nhất",
-      "details": [
-        "Tiến độ thu hoạch ngô của Mỹ đạt 74% trên toàn quốc.",
-        "Tennessee là bang đầu tiên hoàn thành thu hoạch ngô.",
-        "Tiến độ thu hoạch đậu tương cũng đang tăng tốc."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOVFFzNGx6MDI4ZjV3eEFwUkVZbVpYNXZ4NlFUc2NYXzJSa0NoYndBSGpCNjlIZjdPSnlUNDFJeUk5dUpLNk1Xb2tTLU1VWlpjZ0lOY2pQTU1SOXRSWVhjOHJyaHNTSUJOQWxfQzJnTzVFcWREM29MZG5VVGlFNmNCa0ZLc2tjbDNsRGQ1VTB4cEs?oc=5",
-      "source": "02 Nov 2026 - Google News (Supply)",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Cước vận chuyển ngô sông Danube đến Ai Cập tăng vọt, thắt chặt nguồn cung Biển Đen",
-      "details": [
-        "Cước vận chuyển ngô từ sông Danube đến Ai Cập đã tăng vọt lên 120 USD/tấn.",
-        "Sự tăng giá này làm thắt chặt nguồn cung ngô từ khu vực Biển Đen.",
-        "Chi phí vận chuyển cao hơn có thể ảnh hưởng đến giá ngô nhập khẩu của Ai Cập và các nước khác."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQbE0zUjRjX1lvTG43LTZaX0k5cVk0YkVJa0lDVm1mOXBJVzhaZEdCZ0p1TU5ZYkxIbm82V2Y0VnBhcXUzVkE1QmxNTEY2dXE2bVM4ME9Wc19BaDJWckxTNlluRFllNllkWGxiTHRFazVaeHEzMlRVVS1QcHJzWTZUcHdfR0JpSEhGLWhBX1JBY3U?oc=5",
-      "source": "03 Nov 2026 - Google News (Shipping)",
-      "category": "logistics"
-    }
-  ],
+  "timestamp": "2026-11-04 10:45:37",
+  "news": [],
   "intraday": {
     "ZW": {
-      "bias": "Bearish",
-      "bias_vn": "Giảm",
-      "summary": "Lúa mì chịu áp lực bán mạnh từ COT và tin tức, nhưng có thể có hồi phục kỹ thuật trong ngắn hạn.",
+      "bias": "Neutral",
+      "bias_vn": "Đi Ngang",
+      "summary": "Chưa đủ dữ liệu để nhận định intraday ZW",
       "key_levels": {
-        "support": "595.00",
-        "resistance": "605.00"
+        "support": "N/A",
+        "resistance": "N/A"
       },
       "reasoning": [
-        "Thời tiết: Không có rủi ro thời tiết lớn, điều kiện chung trung tính/hơi tiêu cực.",
-        "Cung cầu/USDA: Giá giảm do áp lực cung và nhu cầu yếu, bất chấp bán hàng nhanh.",
-        "Vị thế COT: Smart Money đang NHOI SHORT (Q3), cho thấy xu hướng giảm mạnh.",
-        "Địa chính trị: Tin tức Biển Đen đã bão hòa, tác động địa chính trị hạn chế.",
-        "Kỹ thuật: Giá giảm sâu, có dấu hiệu bị bán quá mức, tiềm năng hồi phục kỹ thuật."
+        "Đang chờ cập nhật dữ liệu"
       ],
-      "risk": "Thay đổi đột ngột về thời tiết hoặc dòng tiền có thể gây biến động giá.",
-      "generated_at": "2026-11-04 01:03"
+      "risk": "N/A",
+      "generated_at": "2026-11-04 10:45"
     },
     "ZC": {
-      "bias": "Bearish",
-      "bias_vn": "Giảm",
-      "summary": "Ngô giảm mạnh do smart money xả long và cung cầu yếu, nhưng có thể hồi phục kỹ thuật.",
+      "bias": "Neutral",
+      "bias_vn": "Đi Ngang",
+      "summary": "Chưa đủ dữ liệu để nhận định intraday ZC",
       "key_levels": {
-        "support": "440.00",
-        "resistance": "446.00"
+        "support": "N/A",
+        "resistance": "N/A"
       },
       "reasoning": [
-        "Thời tiết: Khô ráo Corn Belt, giảm rủi ro thời tiết, hỗ trợ áp lực giảm giá.",
-        "Cung cầu/USDA: Giá giảm bất chấp xuất khẩu, cho thấy cung vượt cầu và nhu cầu yếu.",
-        "Vị thế COT: Smart Money đang XA LONG (Q2), cho thấy sự suy yếu của xu hướng tăng.",
-        "Địa chính trị: Không có yếu tố địa chính trị trực tiếp ảnh hưởng đến ngô.",
-        "Kỹ thuật: Giá giảm mạnh, có dấu hiệu bị bán quá mức, tiềm năng hồi phục kỹ thuật."
+        "Đang chờ cập nhật dữ liệu"
       ],
-      "risk": "Bất ngờ về nhu cầu xuất khẩu hoặc thay đổi vị thế dòng tiền có thể gây biến động.",
-      "generated_at": "2026-11-04 01:03"
+      "risk": "N/A",
+      "generated_at": "2026-11-04 10:45"
     },
-    "bias": "Bearish",
-    "bias_vn": "Giảm",
-    "summary": "Lúa mì chịu áp lực bán mạnh từ COT và tin tức, nhưng có thể có hồi phục kỹ thuật trong ngắn hạn.",
+    "bias": "Neutral",
+    "bias_vn": "Đi Ngang",
+    "summary": "Chưa đủ dữ liệu để nhận định",
     "key_levels": {
-      "support": "595.00",
-      "resistance": "605.00"
+      "support": "N/A",
+      "resistance": "N/A"
     },
     "reasoning": [
-      "Thời tiết: Không có rủi ro thời tiết lớn, điều kiện chung trung tính/hơi tiêu cực.",
-      "Cung cầu/USDA: Giá giảm do áp lực cung và nhu cầu yếu, bất chấp bán hàng nhanh.",
-      "Vị thế COT: Smart Money đang NHOI SHORT (Q3), cho thấy xu hướng giảm mạnh.",
-      "Địa chính trị: Tin tức Biển Đen đã bão hòa, tác động địa chính trị hạn chế.",
-      "Kỹ thuật: Giá giảm sâu, có dấu hiệu bị bán quá mức, tiềm năng hồi phục kỹ thuật."
+      "Đang chờ cập nhật dữ liệu"
     ],
-    "risk": "Thay đổi đột ngột về thời tiết hoặc dòng tiền có thể gây biến động giá.",
-    "generated_at": "2026-11-04 01:03"
+    "risk": "N/A",
+    "generated_at": "2026-11-04 10:45"
   },
   "categories": [
     "dia_chinh_tri",

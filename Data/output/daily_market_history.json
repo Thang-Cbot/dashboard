@@ -721,15 +721,15 @@
       "open": 447.5
     },
     "2026-11-02": {
-      "volume": 211383.0,
+      "volume": 201884.0,
       "open_interest": 758030,
       "close": 448.25,
       "open": 447.5
     },
     "2026-11-03": {
-      "volume": 8278.0,
-      "open_interest": 758045,
-      "close": 441.25,
+      "volume": 14182.0,
+      "open_interest": 736488,
+      "close": 438.75,
       "open": 441.75
     }
   },
@@ -1455,15 +1455,15 @@
       "open": 603.0
     },
     "2026-11-02": {
-      "volume": 74216.0,
+      "volume": 77398.0,
       "open_interest": 231763,
       "close": 606.5,
       "open": 603.0
     },
     "2026-11-03": {
-      "volume": 2846.0,
-      "open_interest": 231738,
-      "close": 594.75,
+      "volume": 5243.0,
+      "open_interest": 228969,
+      "close": 591.75,
       "open": 598.5
     }
   },
