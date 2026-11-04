@@ -1,5 +1,7 @@
 """
 pages/6_MuaVu.py - Phân tích Mùa Vụ (ZW & ZC)
+st.sidebar.page_link("pages/7_Live_Signal.py",  label="🎯 Live Signal & Hiệu Suất")
+st.sidebar.page_link("pages/8_System_Logs.py",  label="⚙️ System Logs")
 """
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))

@@ -28,7 +28,8 @@ def sidebar_nav():
     st.sidebar.page_link("pages/5_AgriMap.py",  label="🗺️ Bản Đồ Thời Tiết & ENSO")
     st.sidebar.page_link("pages/5_Macro_Matrix.py", label="🧠 Ma Trận Vĩ Mô (Brain)")
     st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ")
-    st.sidebar.page_link("pages/7_System_Logs.py", label="⚙️ System Logs")
+    st.sidebar.page_link("pages/7_Live_Signal.py",  label="🎯 Live Signal & Hiệu Suất")
+    st.sidebar.page_link("pages/8_System_Logs.py",  label="⚙️ System Logs")
     st.sidebar.markdown("---")
 
 sidebar_nav()

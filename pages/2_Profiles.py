@@ -143,6 +143,8 @@ st.sidebar.page_link("pages/3_News.py",     label="📰 Báo Cáo USDA & Tin T�
 st.sidebar.page_link("pages/4_Weather_Map.py",label="🌤️ Thời Tiết & Bản Đồ")
 st.sidebar.page_link("pages/5_Macro_Matrix.py", label="🧠 Ma Trận Vĩ Mô (Brain)")
 st.sidebar.page_link("pages/6_MuaVu.py",   label="🌾 Mùa Vụ")
+st.sidebar.page_link("pages/7_Live_Signal.py",  label="🎯 Live Signal & Hiệu Suất")
+st.sidebar.page_link("pages/8_System_Logs.py",  label="⚙️ System Logs")
 
 st.markdown("## 📈 Hồ Sơ Chi Tiết Từng Mã")
 
