@@ -2,9 +2,10 @@
 pages/7_Live_Signal.py — Live Signal & Thống Kê Hiệu Suất Mô Phỏng CQG
 =====================================================================
 Giao diện phân tích và theo dõi tín hiệu Real-time / Backtest hiệu suất 90 ngày.
-So sánh 2 phương pháp giao dịch:
+So sánh 3 phương pháp giao dịch:
   1. ICT MSS + Pullback EMA 21-50 (Thuận xu hướng SMC)
   2. FVG + Bắt Đáy / Đỉnh SMC Zone (Đảo chiều vùng cực trị 5 sao)
+  3. Chiến Lược Hybrid (M1 + M2 Kết Hợp — Bắt Đáy/Đỉnh cạn kiệt + Thuận sóng xác nhận)
 """
 
 import streamlit as st
@@ -38,13 +39,32 @@ def clean_html(raw_html: str) -> str:
     return "\n".join([line.strip() for line in raw_html.strip().splitlines()])
 
 # ── GLOBAL CSS ──────────────────────────────────────────────────────────────────
-st.markdown(clean_html("""
+st.html("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 html, body, [class*="css"], .stApp { font-family: 'Inter', sans-serif !important; }
 .stApp { background-color: #0b1120; }
 [data-testid="stSidebar"] { background: #0d1424 !important; border-right: 1px solid #1e2d45; min-width: 260px !important; max-width: 260px !important; width: 260px !important; }
 [data-testid="stSidebarNav"] { display: none !important; }
+
+/* Top Header Bar */
+.top-header-bar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 8px 0 20px 0;
+border-bottom: 1px solid #1e293b;
+margin-bottom: 24px;
+}
+.brand-title {
+font-size: 26px;
+font-weight: 800;
+color: #f8fafc;
+letter-spacing: -0.5px;
+}
+.brand-accent {
+color: #f59e0b;
+}
 
 /* KPI Cards */
 .kpi-container {
@@ -155,6 +175,15 @@ font-weight: 500;
 padding: 3px 8px;
 border-radius: 4px;
 }
+.badge-tag-hybrid {
+background-color: rgba(168, 85, 247, 0.15);
+color: #c084fc;
+border: 1px solid rgba(168, 85, 247, 0.3);
+padding: 2px 6px;
+border-radius: 4px;
+font-size: 11px;
+font-weight: 600;
+}
 
 /* Custom Table */
 .custom-table {
@@ -203,16 +232,15 @@ background-color: #1e293b !important;
 color: #38bdf8 !important;
 }
 </style>
-"""), unsafe_allow_html=True)
-
+""")
 
 # ── SIDEBAR NAV ─────────────────────────────────────────────────────────────
-st.sidebar.markdown(clean_html("""
+st.sidebar.html("""
 <div style='text-align:center; padding:16px 0 8px;'>
 <div style='font-size:24px; font-weight:800; color:#e2e8f0;'>📊 CBOT</div>
 <div style='font-size:11px; color:#64748b; letter-spacing:2px;'>TRADING DASHBOARD</div>
 </div>
-"""), unsafe_allow_html=True)
+""")
 st.sidebar.markdown("---")
 st.sidebar.page_link("app.py",                  label="🏠 Trang Chủ")
 st.sidebar.page_link("pages/1_Overview.py",     label="⚡ Tổng Quan (RUN TIN TỨC)")
@@ -224,7 +252,6 @@ st.sidebar.page_link("pages/6_MuaVu.py",        label="🌾 Mùa Vụ")
 st.sidebar.page_link("pages/7_Live_Signal.py",  label="🎯 Live Signal & Hiệu Suất")
 st.sidebar.page_link("pages/8_System_Logs.py",  label="⚙️ System Logs")
 st.sidebar.markdown("---")
-
 
 # ── NẠP DỮ LIỆU BACKTEST ───────────────────────────────────────────────────
 @st.cache_data(ttl=60)
@@ -243,17 +270,17 @@ data = load_backtest_data()
 # ── HEADER & THANH ĐIỀU KHIỂN ──────────────────────────────────────────────
 col_header, col_actions = st.columns([3, 1])
 with col_header:
-    st.markdown(clean_html("""
+    st.html("""
     <div style='display:flex; align-items:center; gap:12px; margin-bottom:4px;'>
     <div style='font-size:28px; font-weight:800; color:#f8fafc;'>Invest<span style='color:#f59e0b;'>X</span> • Live Signal</div>
     <span style='background:#1e293b; color:#38bdf8; font-size:12px; font-weight:700; padding:4px 10px; border-radius:6px; border:1px solid #0284c7;'>CQG SIMULATION</span>
     </div>
     <div style='font-size:20px; font-weight:700; color:#f1f5f9; margin-bottom:2px;'>Lịch sử & Thống kê hiệu suất</div>
     <div style='font-size:13px; color:#94a3b8; margin-bottom:18px;'>Kết quả các tín hiệu vào lệnh mô phỏng theo dữ liệu giá thực tế CBOT trong 90 ngày qua</div>
-    """), unsafe_allow_html=True)
+    """)
 
 with col_actions:
-    st.markdown("<div style='height:14px'></div>", unsafe_allow_html=True)
+    st.html("<div style='height:14px'></div>")
     if st.button("🔄 Cập Nhật & Test Lại (90d)", use_container_width=True, type="primary"):
         with st.spinner("Đang tải dữ liệu H1 từ Yahoo và chạy lại toàn bộ mô phỏng 90 ngày..."):
             backtest_engine.run_full_backtest(force_download=True)
@@ -282,11 +309,11 @@ with col_f3:
     )
 with col_f4:
     last_gen = data.get("generated_at", "—")
-    st.markdown(clean_html(f"""
+    st.html(f"""
     <div style='text-align:right; padding-top:28px; font-size:12px; color:#64748b;'>
     ⏱ Cập nhật: <b>{last_gen}</b>
     </div>
-    """), unsafe_allow_html=True)
+    """)
 
 # Map days filter
 days_map = {
@@ -354,11 +381,20 @@ def render_kpi_cards(metrics, filter_label):
 </div>
 </div>
 """
-    st.markdown(clean_html(html), unsafe_allow_html=True)
+    st.html(html)
 
+# ── HÀM ĐỊNH DẠNG NGÀY (DD/MM/YYYY) ──────────────────────────────────────────
+def format_display_date(date_str: str) -> str:
+    try:
+        parts = date_str.split("-")
+        if len(parts) == 3:
+            return f"{parts[2]}/{parts[1]}/{parts[0]}"
+    except Exception:
+        pass
+    return date_str
 
 # ── HÀM HIỂN THỊ BẢNG TÍN HIỆU ──────────────────────────────────────────────
-def render_trade_table(trades):
+def render_trade_table(trades, show_tag: bool = False):
     if not trades:
         st.info("Không có tín hiệu nào phù hợp với bộ lọc hiện tại.")
         return
@@ -381,8 +417,8 @@ def render_trade_table(trades):
         else:
             res_badge = "<span class='badge-res-pending'>CHƯA KHỚP</span>"
             
-        entry_str = f"{t['entry_price']:.2f}" if t.get("entry_price") else "-"
-        exit_str = f"{t['exit_price']:.2f}" if t.get("exit_price") else "-"
+        entry_str = f"{t['entry_price']:.0f}" if (t.get("entry_price") and float(t['entry_price']).is_integer()) else (f"{t['entry_price']:.2f}" if t.get("entry_price") else "-")
+        exit_str = f"{t['exit_price']:.0f}" if (t.get("exit_price") and float(t['exit_price']).is_integer()) else (f"{t['exit_price']:.2f}" if t.get("exit_price") else "-")
         
         pnl = t["pnl"]
         if pnl > 0:
@@ -392,11 +428,18 @@ def render_trade_table(trades):
         else:
             pnl_html = "<span style='color:#9ca3af;'>$0</span>"
             
+        tag_html = ""
+        if show_tag and t.get("tag"):
+            tag_color = "#38bdf8" if "Trend" in t["tag"] else "#f59e0b"
+            tag_html = f" <span style='font-size:11px; color:{tag_color}; border:1px solid {tag_color}55; padding:1px 5px; border-radius:4px;'>{t['tag']}</span>"
+            
+        display_date = format_display_date(t['date'])
+            
         row = (
             f"<tr>"
-            f"<td style='color:#9ca3af; font-family:monospace;'>{t['date']}</td>"
+            f"<td style='color:#9ca3af; font-family:monospace;'>{display_date}</td>"
             f"<td>{side_badge}</td>"
-            f"<td><b style='color:#f3f4f6;'>{t['product']}</b></td>"
+            f"<td><b style='color:#f3f4f6;'>{t['product']}</b>{tag_html}</td>"
             f"<td>{res_badge}</td>"
             f"<td style='font-family:monospace; font-weight:600;'>{entry_str}</td>"
             f"<td style='font-family:monospace; font-weight:600;'>{exit_str}</td>"
@@ -416,8 +459,7 @@ def render_trade_table(trades):
         f"<tbody>{tbody}</tbody>"
         f"</table>"
     )
-    st.markdown(table_html, unsafe_allow_html=True)
-
+    st.html(table_html)
 
 # ── BIỂU ĐỒ EQUITY CURVE ────────────────────────────────────────────────────
 def render_equity_chart(trades, method_name):
@@ -430,11 +472,11 @@ def render_equity_chart(trades, method_name):
     dates = []
     equity = [10000.0]
     cur = 10000.0
-    dates.append(sorted_trades[0]["date"])
+    dates.append(format_display_date(sorted_trades[0]["date"]))
     
     for t in sorted_trades:
         cur += t["pnl"]
-        dates.append(t["date"])
+        dates.append(format_display_date(t["date"]))
         equity.append(cur)
         
     fig = go.Figure()
@@ -462,105 +504,153 @@ def render_equity_chart(trades, method_name):
     )
     st.plotly_chart(fig, use_container_width=True)
 
-
-# ── NỘI DUNG 2 PHƯƠNG PHÁP & SO SÁNH ─────────────────────────────────────────
-tab1, tab2, tab3 = st.tabs([
-    "📈 Phương Pháp 1: ICT MSS + Pullback EMA",
-    "🎯 Phương Pháp 2: FVG + Bắt Đáy / Đỉnh SMC",
-    "⚔️ So Sánh Hiệu Quả Đối Đầu (Head-to-Head)"
-])
-
+# ── NẠP DỮ LIỆU CẢ 3 PHƯƠNG PHÁP ───────────────────────────────────────────
 m1_raw = data.get("method_1", {}).get("trades", [])
 m2_raw = data.get("method_2", {}).get("trades", [])
+m3_raw = data.get("method_3", {}).get("trades", [])
 
 m1_trades, m1_metrics = filter_trades(m1_raw, selected_days, product_filter, result_filter)
 m2_trades, m2_metrics = filter_trades(m2_raw, selected_days, product_filter, result_filter)
+m3_trades, m3_metrics = filter_trades(m3_raw, selected_days, product_filter, result_filter)
+
+# ── 4 TABS GIAO DIỆN ────────────────────────────────────────────────────────
+tab1, tab2, tab3, tab4 = st.tabs([
+    "📈 Phương Pháp 1: ICT MSS + Pullback EMA",
+    "🎯 Phương Pháp 2: FVG + Bắt Đáy / Đỉnh SMC",
+    "⚡ Phương Pháp 3: Chiến Lược Hybrid (M1 + M2 Kết Hợp)",
+    "⚔️ So Sánh Hiệu Quả Đối Đầu (Cả 3 Phương Pháp)"
+])
 
 # ── TAB 1 ───────────────────────────────────────────────────────────────────
 with tab1:
-    st.markdown(clean_html("""
+    st.html("""
     <div style='background:#111827; border-left:4px solid #38bdf8; padding:12px 16px; border-radius:6px; margin-bottom:16px;'>
-    <b style='color:#38bdf8; font-size:14px;'>💎 Nguyên Lý Giao Dịch:</b>
+    <b style='color:#38bdf8; font-size:14px;'>💎 Nguyên Lý Giao Dịch (Trend-Following):</b>
     <span style='color:#cbd5e1; font-size:13px;'>
-    Thuận xu hướng cấu trúc thị trường (Trend-Following). Sau khi xuất hiện <b>Market Structure Shift (MSS)</b> phá vỡ Swing Point, 
-    hệ thống kiên nhẫn chờ giá hồi (Pullback) về dải <b>EMA 21 - 50</b> để kích hoạt lệnh. SL đặt sau Swing/ATR, chốt lời đa tầng <b>TP1 (1R) dời hòa vốn, TP2 (1.5R), TP3 (2R)</b>.
+    Thuận xu hướng cấu trúc thị trường. Sau khi xuất hiện <b>Market Structure Shift (MSS)</b> phá vỡ Swing Point, 
+    hệ thống kiên nhẫn chờ giá hồi (Pullback) về dải <b>EMA 21 - 50</b> để kích hoạt lệnh. SL đặt sau Swing/ATR, chốt lời đa tầng <b>TP1 (1R) dời hòa vốn ENTRY, TP2 (1.5R), TP3 (2R)</b>.
     </span>
     </div>
-    """), unsafe_allow_html=True)
+    """)
     
     render_kpi_cards(m1_metrics, time_filter)
     
-    st.markdown(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m1_trades)}</b> trên <b>{len(m1_trades)}</b> tín hiệu</div>", unsafe_allow_html=True)
+    st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m1_trades)}</b> trên <b>{len(m1_trades)}</b> tín hiệu</div>")
     render_trade_table(m1_trades)
-    st.markdown("<div style='height:20px'></div>", unsafe_allow_html=True)
+    st.html("<div style='height:20px'></div>")
     render_equity_chart(m1_trades, "Phương Pháp 1 (ICT Trend Pullback)")
 
 # ── TAB 2 ───────────────────────────────────────────────────────────────────
 with tab2:
-    st.markdown(clean_html("""
+    st.html("""
     <div style='background:#111827; border-left:4px solid #f59e0b; padding:12px 16px; border-radius:6px; margin-bottom:16px;'>
-    <b style='color:#f59e0b; font-size:14px;'>🎯 Nguyên Lý Giao Dịch:</b>
+    <b style='color:#f59e0b; font-size:14px;'>🎯 Nguyên Lý Giao Dịch (Contrarian Reversal):</b>
     <span style='color:#cbd5e1; font-size:13px;'>
-    Đảo chiều vùng cực trị (Contrarian Reversal). Phát hiện các cụm nến <b>Bắt Đáy / Bắt Đỉnh SMC Zone đạt chuẩn 5 sao (Điểm số >= 5/8)</b> 
+    Đảo chiều vùng cực trị. Phát hiện các cụm nến <b>Bắt Đáy / Bắt Đỉnh SMC Zone đạt chuẩn 5 sao (Điểm số >= 5/8)</b> 
     kết hợp quét thanh khoản (BSL/SSL Liquidity Sweep), RSI quá mua/quá bán và khối mất cân bằng giá (FVG). Vào lệnh ngay tại nến xác nhận đảo chiều.
     </span>
     </div>
-    """), unsafe_allow_html=True)
+    """)
     
     render_kpi_cards(m2_metrics, time_filter)
     
-    st.markdown(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m2_trades)}</b> trên <b>{len(m2_trades)}</b> tín hiệu</div>", unsafe_allow_html=True)
+    st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m2_trades)}</b> trên <b>{len(m2_trades)}</b> tín hiệu</div>")
     render_trade_table(m2_trades)
-    st.markdown("<div style='height:20px'></div>", unsafe_allow_html=True)
+    st.html("<div style='height:20px'></div>")
     render_equity_chart(m2_trades, "Phương Pháp 2 (SMC Zone Reversal)")
 
-# ── TAB 3: SO SÁNH ĐỐI ĐẦU ──────────────────────────────────────────────────
+# ── TAB 3: CHIẾN LƯỢC HYBRID (M1 + M2 KẾT HỢP) ──────────────────────────────
 with tab3:
-    st.markdown(clean_html(f"""
+    st.html("""
+    <div style='background:#111827; border-left:4px solid #a855f7; padding:12px 16px; border-radius:6px; margin-bottom:16px;'>
+    <b style='color:#c084fc; font-size:14px;'>⚡ Cơ Chế Phối Hợp Hybrid Độc Quyền (Synergy Engine):</b>
+    <span style='color:#cbd5e1; font-size:13px;'>
+    <b>1. Bắt Đáy / Bắt Đỉnh Cực Trị:</b> Chỉ kích hoạt Phương Pháp 2 khi thị trường hoàn tất chu kỳ sóng xả/tăng và xuất hiện <b>Thanh khoản bị quét (Liquidity Sweep) + RSI phân kỳ/quá mức (&lt;35 hoặc &gt;65)</b> để hấp thụ toàn bộ cung/cầu cạn kiệt.<br>
+    <b>2. Thuận Xu Hướng Đột Phá:</b> Đi đủ lệnh theo Phương Pháp 1 (EMA Pullback) khi cấu trúc MSS đã chính thức xác nhận xu hướng dòng tiền lớn tham gia.<br>
+    <b>3. Quản Trị Xung Đột Lệnh:</b> Tuyệt đối không mở vị thế ngược chiều khi lệnh xu hướng hoặc lệnh bắt đáy đang gồng lãi, giúp tối đa hóa ROI và triệt tiêu drawdown.
+    </span>
+    </div>
+    """)
+    
+    render_kpi_cards(m3_metrics, time_filter)
+    
+    st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m3_trades)}</b> trên <b>{len(m3_trades)}</b> tín hiệu (Đã gắn nhãn cơ chế kích hoạt)</div>")
+    render_trade_table(m3_trades, show_tag=True)
+    st.html("<div style='height:20px'></div>")
+    render_equity_chart(m3_trades, "Phương Pháp 3 (Chiến Lược Hybrid M1 + M2)")
+
+# ── TAB 4: SO SÁNH HIỆU QUẢ CẢ 3 PHƯƠNG PHÁP ĐỐI ĐẦU ────────────────────────
+with tab4:
+    st.html(f"""
     <div style='font-size:18px; font-weight:800; color:#f8fafc; margin-bottom:4px;'>
-    ⚔️ BẢNG SO SÁNH HIỆU QUẢ ĐỐI ĐẦU ({time_filter.upper()})
+    ⚔️ BẢNG SO SÁNH ĐỐI ĐẦU CẢ 3 CHIẾN LƯỢC ({time_filter.upper()})
     </div>
     <div style='font-size:13px; color:#94a3af; margin-bottom:16px;'>
-    Đối chiếu trực tiếp giữa Chiến lược Thuận Xu Hướng (M1) và Chiến lược Đảo Chiều Vùng Cực Trị (M2) trên vốn chuẩn $10,000 USD
+    Đối chiếu toàn diện giữa <b>M1 (Thuận Xu Hướng)</b>, <b>M2 (Đảo Chiều Cực Trị)</b> và <b>M3 (Hybrid Kết Hợp)</b> trên vốn chuẩn $10,000 USD
     </div>
-    """), unsafe_allow_html=True)
+    """)
     
     m1_pnl_color = "#10b981" if m1_metrics["total_pnl"] >= 0 else "#ef4444"
     m2_pnl_color = "#10b981" if m2_metrics["total_pnl"] >= 0 else "#ef4444"
+    m3_pnl_color = "#10b981" if m3_metrics["total_pnl"] >= 0 else "#ef4444"
     
     pending_m1_str = f" • <span style='color:#6b7280;'>({m1_metrics['pending_trades']} Chưa khớp)</span>" if m1_metrics.get("pending_trades") else ""
+    pending_m3_str = f" • <span style='color:#6b7280;'>({m3_metrics['pending_trades']} Chưa khớp)</span>" if m3_metrics.get("pending_trades") else ""
     
     comp_table = (
         f"<table class='custom-table'>"
         f"<thead><tr>"
-        f"<th style='width:30%;'>Chỉ Số Đánh Giá (Metric)</th>"
-        f"<th style='width:35%; color:#38bdf8;'>📈 Phương Pháp 1 (ICT Trend Pullback)</th>"
-        f"<th style='width:35%; color:#f59e0b;'>🎯 Phương Pháp 2 (SMC Zone Reversal)</th>"
+        f"<th style='width:22%;'>Chỉ Số Đánh Giá (Metric)</th>"
+        f"<th style='width:26%; color:#38bdf8;'>📈 Phương Pháp 1 (Trend Pullback)</th>"
+        f"<th style='width:26%; color:#f59e0b;'>🎯 Phương Pháp 2 (SMC Reversal)</th>"
+        f"<th style='width:26%; color:#c084fc;'>⚡ Phương Pháp 3 (Hybrid Kết Hợp)</th>"
         f"</tr></thead>"
         f"<tbody>"
-        f"<tr><td><b>Tổng Lợi Nhuận Ròng (PnL)</b></td><td><b style='color:{m1_pnl_color}; font-size:16px;'>{m1_metrics['total_pnl']:+,} USD</b></td><td><b style='color:{m2_pnl_color}; font-size:16px;'>{m2_metrics['total_pnl']:+,} USD</b></td></tr>"
-        f"<tr><td><b>Tỷ Suất Lợi Nhuận (ROI trên 10k)</b></td><td><b style='color:{m1_pnl_color};'>{m1_metrics['roi_pct']:+.1f}%</b></td><td><b style='color:{m2_pnl_color};'>{m2_metrics['roi_pct']:+.1f}%</b></td></tr>"
-        f"<tr><td><b>Tỷ Lệ Thắng (Win Rate)</b></td><td><b style='font-size:15px; color:#f8fafc;'>{m1_metrics['win_rate']:.1f}%</b></td><td><b style='font-size:15px; color:#f8fafc;'>{m2_metrics['win_rate']:.1f}%</b></td></tr>"
-        f"<tr><td><b>Hệ Số Lợi Nhuận (Profit Factor)</b></td><td><b>{m1_metrics['profit_factor']}</b></td><td><b>{m2_metrics['profit_factor']}</b></td></tr>"
-        f"<tr><td><b>Mức Sụt Giảm Tối Đa (Max Drawdown)</b></td><td style='color:#f87171;'>-${m1_metrics['max_drawdown']:,.0f}</td><td style='color:#f87171;'>-${m2_metrics['max_drawdown']:,.0f}</td></tr>"
-        f"<tr><td><b>Tổng Số Lệnh Phát Tín Hiệu</b></td><td>{m1_metrics['total_trades']} tín hiệu</td><td>{m2_metrics['total_trades']} tín hiệu</td></tr>"
+        f"<tr><td><b>Tổng Lợi Nhuận Ròng (PnL)</b></td>"
+        f"<td><b style='color:{m1_pnl_color}; font-size:16px;'>{m1_metrics['total_pnl']:+,} USD</b></td>"
+        f"<td><b style='color:{m2_pnl_color}; font-size:16px;'>{m2_metrics['total_pnl']:+,} USD</b></td>"
+        f"<td><b style='color:{m3_pnl_color}; font-size:16px;'>{m3_metrics['total_pnl']:+,} USD</b></td></tr>"
+        f"<tr><td><b>Tỷ Suất Lợi Nhuận (ROI trên 10k)</b></td>"
+        f"<td><b style='color:{m1_pnl_color};'>{m1_metrics['roi_pct']:+.1f}%</b></td>"
+        f"<td><b style='color:{m2_pnl_color};'>{m2_metrics['roi_pct']:+.1f}%</b></td>"
+        f"<td><b style='color:{m3_pnl_color}; font-weight:800;'>{m3_metrics['roi_pct']:+.1f}%</b></td></tr>"
+        f"<tr><td><b>Tỷ Lệ Thắng (Win Rate)</b></td>"
+        f"<td><b style='font-size:15px; color:#f8fafc;'>{m1_metrics['win_rate']:.1f}%</b></td>"
+        f"<td><b style='font-size:15px; color:#f8fafc;'>{m2_metrics['win_rate']:.1f}%</b></td>"
+        f"<td><b style='font-size:15px; color:#a855f7;'>{m3_metrics['win_rate']:.1f}%</b></td></tr>"
+        f"<tr><td><b>Hệ Số Lợi Nhuận (Profit Factor)</b></td>"
+        f"<td><b>{m1_metrics['profit_factor']}</b></td>"
+        f"<td><b>{m2_metrics['profit_factor']}</b></td>"
+        f"<td><b style='color:#10b981;'>{m3_metrics['profit_factor']}</b></td></tr>"
+        f"<tr><td><b>Mức Sụt Giảm Tối Đa (Max Drawdown)</b></td>"
+        f"<td style='color:#f87171;'>-${m1_metrics['max_drawdown']:,.0f}</td>"
+        f"<td style='color:#f87171;'>-${m2_metrics['max_drawdown']:,.0f}</td>"
+        f"<td style='color:#34d399;'>-${m3_metrics['max_drawdown']:,.0f}</td></tr>"
+        f"<tr><td><b>Tổng Số Lệnh Phát Tín Hiệu</b></td>"
+        f"<td>{m1_metrics['total_trades']} tín hiệu</td>"
+        f"<td>{m2_metrics['total_trades']} tín hiệu</td>"
+        f"<td>{m3_metrics['total_trades']} tín hiệu</td></tr>"
         f"<tr><td><b>Cơ Cấu Lệnh (Thắng / Hòa / Thua)</b></td>"
         f"<td><span style='color:#10b981;'>{m1_metrics['win_trades']} TP</span> • <span style='color:#9ca3af;'>{m1_metrics['breakeven_trades']} Hòa</span> • <span style='color:#ef4444;'>{m1_metrics['loss_trades']} SL</span>{pending_m1_str}</td>"
-        f"<td><span style='color:#10b981;'>{m2_metrics['win_trades']} TP</span> • <span style='color:#9ca3af;'>{m2_metrics['breakeven_trades']} Hòa</span> • <span style='color:#ef4444;'>{m2_metrics['loss_trades']} SL</span></td></tr>"
-        f"<tr><td><b>Phong Cách Giao Dịch Phù Hợp</b></td><td style='color:#93c5fd;'>Swing / Trend Trading (Ăn sóng dài, tỷ lệ R:R cao)</td><td style='color:#fde68a;'>Contrarian / Scalping (Bắt đảo chiều nhanh, chốt sớm)</td></tr>"
+        f"<td><span style='color:#10b981;'>{m2_metrics['win_trades']} TP</span> • <span style='color:#9ca3af;'>{m2_metrics['breakeven_trades']} Hòa</span> • <span style='color:#ef4444;'>{m2_metrics['loss_trades']} SL</span></td>"
+        f"<td><span style='color:#10b981;'>{m3_metrics['win_trades']} TP</span> • <span style='color:#9ca3af;'>{m3_metrics['breakeven_trades']} Hòa</span> • <span style='color:#ef4444;'>{m3_metrics['loss_trades']} SL</span>{pending_m3_str}</td></tr>"
+        f"<tr><td><b>Phong Cách Giao Dịch Phù Hợp</b></td>"
+        f"<td style='color:#93c5fd;'>Swing / Trend Trading (Ăn sóng dài, tỷ lệ R:R cao)</td>"
+        f"<td style='color:#fde68a;'>Contrarian / Scalping (Bắt đảo chiều nhanh, chốt sớm)</td>"
+        f"<td style='color:#c084fc;'>All-Weather Dynamic (Tự thích ứng cả Sideway và Trending)</td></tr>"
         f"</tbody></table>"
     )
-    st.markdown(comp_table, unsafe_allow_html=True)
+    st.html(comp_table)
     
-    st.markdown("<div style='height:16px'></div>", unsafe_allow_html=True)
+    st.html("<div style='height:16px'></div>")
     
-    st.markdown(clean_html("""
+    st.html("""
     <div style='background:#111827; border:1px solid #1f2937; border-radius:8px; padding:16px 20px;'>
-    <div style='font-size:15px; font-weight:700; color:#f8fafc; margin-bottom:8px;'>💡 KẾT LUẬN & KHUYẾN NGHỊ TỐI ƯU HÓA:</div>
+    <div style='font-size:15px; font-weight:700; color:#f8fafc; margin-bottom:8px;'>💡 KẾT LUẬN & ĐÁNH GIÁ THỰC CHIẾN 3 PHƯƠNG PHÁP:</div>
     <ul style='color:#cbd5e1; font-size:13px; line-height:1.7; margin:0; padding-left:20px;'>
-    <li><b>Phương Pháp 1 (Trend Pullback):</b> Đạt hiệu quả cao nhất khi thị trường Nông sản vào mùa vụ có xu hướng rõ ràng (ví dụ chu kỳ giảm thu hoạch của Ngô hoặc tin tức chiến tranh Biển Đen của Lúa Mì). Điểm mạnh là bảo toàn vốn rất tốt nhờ cơ chế dời SL hòa vốn sau khi đạt TP1.</li>
-    <li><b>Phương Pháp 2 (SMC Zone Reversal):</b> Hoạt động cực kỳ hiệu quả trong các giai đoạn thị trường tích lũy (Sideway) hoặc sau những cú xả quá đà (Sell Climax). Tỷ lệ thắng thường cao hơn ở các nhịp hồi ngắn hạn.</li>
-    <li><b>Chiến Lược Hybrid (Khuyến Nghị):</b> Kết hợp cả 2 — <i>Chỉ kích hoạt Phương Pháp 2 (Bắt Đáy) khi Phương Pháp 1 đã hoàn thành sóng xả và có tín hiệu hấp thụ cung; Ngược lại, đi lệnh đầy đủ volume theo Phương Pháp 1 khi xu hướng chính đã được xác nhận.</i></li>
+    <li><b>Phương Pháp 1 (Trend Pullback):</b> Thích hợp nhất trong các giai đoạn thị trường CBOT có xu hướng rõ ràng theo mùa vụ vụ thu hoạch (Mỹ gieo trồng/thu hoạch tháng 9-11) hoặc cú sốc địa chính trị. Điểm mạnh là bảo toàn vốn rất tốt nhờ cơ chế dời SL hòa vốn sau khi đạt TP1.</li>
+    <li><b>Phương Pháp 2 (SMC Zone Reversal):</b> Cực kỳ hiệu quả trong vùng giá đi ngang tích lũy biên độ (Sideway Range) hoặc sau các pha rũ bỏ quá đà (Sell Climax). Tỷ lệ thắng cao ở các nhịp nảy kỹ thuật ngắn hạn.</li>
+    <li><b>Phương Pháp 3 (Chiến Lược Hybrid Khuyến Nghị):</b> Giải pháp cân bằng hoàn hảo nhất: Vừa không bỏ lỡ các pha bắt đáy/đỉnh ở điểm kết thúc sóng xả (hấp thụ cung cầu), vừa nắm bắt trọn vẹn nhịp trend chính khi thị trường bùng nổ theo EMA 21-50, đồng thời triệt tiêu rủi ro mở lệnh xung đột chiều.</li>
     </ul>
     </div>
-    """), unsafe_allow_html=True)
+    """)

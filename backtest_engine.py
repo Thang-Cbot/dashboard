@@ -5,15 +5,22 @@ Mô phỏng khớp lệnh thực tế chuẩn CQG cho 2 sản phẩm:
   - ZWAZ26 (Lúa Mì CBOT kỳ hạn Dec 2026) — Hệ số nhân 50 ($50/cent)
   - ZCEZ26 (Ngô CBOT kỳ hạn Dec 2026)    — Hệ số nhân 50 ($50/cent)
 
-So sánh 2 phương pháp giao dịch:
+So sánh 3 phương pháp giao dịch:
   - Phương pháp 1: ICT MSS + Pullback EMA 21-50 (Thuận xu hướng SMC)
-  - Phương pháp 2: FVG + Bắt Đáy / Đỉnh SMC Zone (Đảo chiều vùng cực trị 4-5 sao)
+  - Phương pháp 2: FVG + Bắt Đáy / Đỉnh SMC Zone (Đảo chiều vùng cực trị 5 sao)
+  - Phương pháp 3: Chiến Lược Hybrid Kết Hợp (M1 Trend + M2 Exhaustion Absorption)
 """
 
 import sys
 import os
 import json
 import datetime
+
+if hasattr(sys.stdout, 'reconfigure'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
 from pathlib import Path
 import pandas as pd
 import numpy as np
@@ -46,7 +53,6 @@ def fetch_or_load_90d(commodity_code: str, force_download: bool = False) -> list
     if not force_download and cache_file.exists():
         try:
             mtime = datetime.datetime.fromtimestamp(cache_file.stat().st_mtime)
-            # Nếu file được tạo trong vòng 4 tiếng thì tái sử dụng
             if (datetime.datetime.now() - mtime).total_seconds() < 14400:
                 df = pd.read_csv(cache_file)
         except Exception:
@@ -86,7 +92,6 @@ def fetch_or_load_90d(commodity_code: str, force_download: bool = False) -> list
             if cache_file.exists():
                 df = pd.read_csv(cache_file)
             else:
-                # Fallback sang file active_H1 hiện có
                 fallback_file = DATA_OUTPUT / f"{commodity_code}_active_H1.csv"
                 if fallback_file.exists():
                     df = pd.read_csv(fallback_file)
@@ -94,7 +99,6 @@ def fetch_or_load_90d(commodity_code: str, force_download: bool = False) -> list
     if df is None or df.empty:
         return []
 
-    # Format sang định dạng cho ict_engine
     df_ict = df.rename(columns={
         "Time": "time", "Open": "open", "High": "high", "Low": "low", "Close": "close",
         "EMA_21": "ema21", "EMA_50": "ema50", "RSI": "rsi", "ATR": "atr",
@@ -106,14 +110,6 @@ def fetch_or_load_90d(commodity_code: str, force_download: bool = False) -> list
 def simulate_method_1(candles: list, commodity: str) -> list:
     """
     Phương pháp 1: ICT MSS + Pullback EMA 21-50 (Trend-Following)
-    Quy tắc:
-      - Quét tín hiệu khi xu hướng MSS xác nhận và setup winRate >= 70%.
-      - Đặt lệnh chờ Limit tại EMA21.
-      - Hạn chờ khớp: 24 bars (24 giờ).
-      - TP1 = 1.0R (Dời SL về hòa vốn ENTRY).
-      - TP2 = 1.5R.
-      - TP3 = 2.0R.
-      - SL = initial StopLoss.
     """
     cqg_sym = CQG_MAP.get(commodity, commodity)
     trades = []
@@ -127,14 +123,12 @@ def simulate_method_1(candles: list, commodity: str) -> list:
         ana = ict_engine.analyze(window)
         setup = ana.get("setup")
         
-        # Chỉ nhận setup chất lượng cao (winRate >= 70%)
         if setup and setup.get("winRate", 0) >= 70:
             side = "MUA" if setup["type"] == "LONG" else "BÁN"
             entry = round(candles[i]["ema21"], 2)
             sl = round(setup["stopLoss"], 2)
             risk = abs(entry - sl)
             
-            # Lọc nhiễu: risk tối thiểu 2.5 cent và tối đa 16 cent
             if risk < 2.5 or risk > 16.0:
                 continue
                 
@@ -142,7 +136,6 @@ def simulate_method_1(candles: list, commodity: str) -> list:
             tp2 = round(entry + (1.5 * risk if side == "MUA" else -1.5 * risk), 2)
             tp3 = round(entry + (2.0 * risk if side == "MUA" else -2.0 * risk), 2)
             
-            # 1. Kiểm tra khớp lệnh trong 24 giờ tiếp theo
             filled = False
             fill_idx = 0
             for j in range(i+1, min(i+25, len(candles))):
@@ -166,12 +159,12 @@ def simulate_method_1(candles: list, commodity: str) -> list:
                     "diff_points": 0.0,
                     "pnl": 0.0,
                     "win": False,
+                    "tag": "M1 Trend",
                     "reason": setup.get("reason", "")
                 })
                 pos_end_idx = i + 12
                 continue
                 
-            # 2. Lệnh đã khớp -> Theo dõi nến tiếp theo (tối đa 48 bars)
             res = "ENTRY"
             exit_p = entry
             pnl = 0.0
@@ -239,6 +232,7 @@ def simulate_method_1(candles: list, commodity: str) -> list:
                 "diff_points": diff_pts,
                 "pnl": pnl,
                 "win": res in ["TP1", "TP2", "TP3"],
+                "tag": "M1 Trend",
                 "reason": setup.get("reason", "")
             })
             
@@ -248,11 +242,6 @@ def simulate_method_1(candles: list, commodity: str) -> list:
 def simulate_method_2(candles: list, commodity: str) -> list:
     """
     Phương pháp 2: FVG + Bắt Đáy / Đỉnh SMC Zone (Contrarian Reversal)
-    Quy tắc:
-      - Quét cụm đáy/đỉnh có điểm số ICT Zone >= 5 (RSI quá bán/quá mua + Sweep BSL/SSL + Cản S/R + FVG).
-      - Vào lệnh tại nến xác nhận tạo đáy/đỉnh.
-      - SL đặt ngoài râu nến Swing + 0.75 ATR buffer.
-      - TP1 = 1.0R (Dời SL về hòa vốn), TP2 = 1.5R, TP3 = 2.0R.
     """
     cqg_sym = CQG_MAP.get(commodity, commodity)
     trades = []
@@ -353,9 +342,196 @@ def simulate_method_2(candles: list, commodity: str) -> list:
             "diff_points": diff_pts,
             "pnl": pnl,
             "win": res in ["TP1", "TP2", "TP3"],
+            "tag": "M2 Reversal",
             "reason": f"SMC Zone {score}/8: " + ", ".join(factors[:2])
         })
         
+    return trades
+
+
+def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
+    """
+    Phương pháp 3: Chiến Lược Hybrid (M1 Trend-Following + M2 Exhaustion Absorption)
+    Quy tắc phối hợp:
+      1. Bắt Đáy / Bắt Đỉnh (M2) CHỈ kích hoạt khi có sự xác nhận cạn kiệt sóng:
+         - Bắt Đáy: Bottom Zone score >= 5, có tín hiệu quét thanh khoản (SSL Sweep) hoặc RSI quá bán < 35.
+         - Bắt Đỉnh: Top Zone score >= 5, có tín hiệu quét thanh khoản (BSL Sweep) hoặc RSI quá mua > 65.
+      2. Khi không có vùng cực trị: Hệ thống đi lệnh theo sóng chính của M1 (EMA Pullback) khi cấu trúc MSS xác nhận.
+      3. Quản trị xung đột: Không mở lệnh đảo chiều ngược hướng khi đang có vị thế M1 đang chạy.
+    """
+    cqg_sym = CQG_MAP.get(commodity, commodity)
+    trades = []
+    pos_end_idx = 0
+    
+    ana_full = ict_engine.analyze(candles)
+    bzs = {b['index']: b for b in ana_full.get('bottom_zones', []) if b['score'] >= 5}
+    tzs = {t['index']: t for t in ana_full.get('top_zones', []) if t['score'] >= 5}
+    
+    for i in range(50, len(candles) - 5):
+        if i < pos_end_idx:
+            continue
+        c = candles[i]
+        
+        # 1. Kiểm tra ưu tiên: Vùng đảo chiều cực trị (M2 Exhaustion)
+        bz = bzs.get(i - 3)
+        tz = tzs.get(i - 3)
+        triggered_reversal = False
+        
+        if bz:
+            has_sweep = any('sweep' in f.lower() for f in bz.get('factors', []))
+            is_oversold = (c.get('rsi', 50) < 35) or any('oversold' in f.lower() for f in bz.get('factors', []))
+            if has_sweep or is_oversold:
+                entry = round(c['close'], 2)
+                atr = c.get('atr', 3.0)
+                sl = round(bz['price'] - 0.75 * atr, 2)
+                risk = entry - sl
+                if 2.0 <= risk <= 20.0:
+                    tp1 = round(entry + 1.0 * risk, 2)
+                    tp2 = round(entry + 1.5 * risk, 2)
+                    tp3 = round(entry + 2.0 * risk, 2)
+                    
+                    res = 'ENTRY'; exit_p = entry; pnl = 0.0; hit_tp1 = False; hit_tp2 = False
+                    end_bar = min(i + 48, len(candles))
+                    for k in range(i+1, end_bar):
+                        ck = candles[k]
+                        cur_sl = entry if hit_tp1 else sl
+                        if ck['low'] <= cur_sl:
+                            res = 'ENTRY' if hit_tp1 else 'SL'
+                            exit_p = entry if hit_tp1 else sl
+                            pnl = 0.0 if hit_tp1 else round((sl - entry) * MULTIPLIER, 2)
+                            pos_end_idx = k + 6; break
+                        if ck['high'] >= tp3:
+                            res = 'TP3'; exit_p = tp3; pnl = round((tp3 - entry) * MULTIPLIER, 2)
+                            pos_end_idx = k + 6; break
+                        elif ck['high'] >= tp2: hit_tp2 = True; hit_tp1 = True
+                        elif ck['high'] >= tp1: hit_tp1 = True
+                    else:
+                        if hit_tp2: res = 'TP2'; exit_p = tp2; pnl = round((tp2 - entry) * MULTIPLIER, 2)
+                        elif hit_tp1: res = 'TP1'; exit_p = tp1; pnl = round((tp1 - entry) * MULTIPLIER, 2)
+                        pos_end_idx = end_bar
+                    diff_pts = round(abs(exit_p - entry) if res != 'SL' else -abs(exit_p - entry), 2)
+                    trades.append({
+                        'date': c['time'][:10], 'time': c['time'], 'side': 'MUA', 'product': cqg_sym,
+                        'commodity': commodity, 'method': 'M3 (Hybrid: Bắt Đáy Hấp Thụ)', 'result': res,
+                        'entry_price': entry, 'exit_price': exit_p, 'multiplier': MULTIPLIER, 'diff_points': diff_pts,
+                        'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M2 Bắt Đáy',
+                        'reason': f"Hấp thụ đáy Climax: " + ", ".join(bz.get('factors', [])[:2])
+                    })
+                    triggered_reversal = True
+                    
+        elif tz and not triggered_reversal:
+            has_sweep = any('sweep' in f.lower() for f in tz.get('factors', []))
+            is_overbought = (c.get('rsi', 50) > 65) or any('overbought' in f.lower() for f in tz.get('factors', []))
+            if has_sweep or is_overbought:
+                entry = round(c['close'], 2)
+                atr = c.get('atr', 3.0)
+                sl = round(tz['price'] + 0.75 * atr, 2)
+                risk = sl - entry
+                if 2.0 <= risk <= 20.0:
+                    tp1 = round(entry - 1.0 * risk, 2)
+                    tp2 = round(entry - 1.5 * risk, 2)
+                    tp3 = round(entry - 2.0 * risk, 2)
+                    res = 'ENTRY'; exit_p = entry; pnl = 0.0; hit_tp1 = False; hit_tp2 = False
+                    end_bar = min(i + 48, len(candles))
+                    for k in range(i+1, end_bar):
+                        ck = candles[k]
+                        cur_sl = entry if hit_tp1 else sl
+                        if ck['high'] >= cur_sl:
+                            res = 'ENTRY' if hit_tp1 else 'SL'
+                            exit_p = entry if hit_tp1 else sl
+                            pnl = 0.0 if hit_tp1 else round((entry - sl) * MULTIPLIER, 2)
+                            pos_end_idx = k + 6; break
+                        if ck['low'] <= tp3:
+                            res = 'TP3'; exit_p = tp3; pnl = round((entry - tp3) * MULTIPLIER, 2)
+                            pos_end_idx = k + 6; break
+                        elif ck['low'] <= tp2: hit_tp2 = True; hit_tp1 = True
+                        elif ck['low'] <= tp1: hit_tp1 = True
+                    else:
+                        if hit_tp2: res = 'TP2'; exit_p = tp2; pnl = round((entry - tp2) * MULTIPLIER, 2)
+                        elif hit_tp1: res = 'TP1'; exit_p = tp1; pnl = round((entry - tp1) * MULTIPLIER, 2)
+                        pos_end_idx = end_bar
+                    diff_pts = round(abs(exit_p - entry) if res != 'SL' else -abs(exit_p - entry), 2)
+                    trades.append({
+                        'date': c['time'][:10], 'time': c['time'], 'side': 'BÁN', 'product': cqg_sym,
+                        'commodity': commodity, 'method': 'M3 (Hybrid: Bắt Đỉnh Quá Mua)', 'result': res,
+                        'entry_price': entry, 'exit_price': exit_p, 'multiplier': MULTIPLIER, 'diff_points': diff_pts,
+                        'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M2 Bắt Đỉnh',
+                        'reason': f"Quét đỉnh Quá mua: " + ", ".join(tz.get('factors', [])[:2])
+                    })
+                    triggered_reversal = True
+
+        # 2. Nếu không có vùng cực trị: Đánh thuận xu hướng M1 (EMA Pullback)
+        if not triggered_reversal:
+            window = candles[:i+1]
+            ana = ict_engine.analyze(window)
+            setup = ana.get('setup')
+            if setup and setup.get('winRate', 0) >= 70:
+                side = 'MUA' if setup['type'] == 'LONG' else 'BÁN'
+                entry = round(candles[i]['ema21'], 2)
+                sl = round(setup['stopLoss'], 2)
+                risk = abs(entry - sl)
+                if 2.5 <= risk <= 16.0:
+                    tp1 = round(entry + (1.0 * risk if side == 'MUA' else -1.0 * risk), 2)
+                    tp2 = round(entry + (1.5 * risk if side == 'MUA' else -1.5 * risk), 2)
+                    tp3 = round(entry + (2.0 * risk if side == 'MUA' else -2.0 * risk), 2)
+                    
+                    filled = False; fill_idx = 0
+                    for j in range(i+1, min(i+25, len(candles))):
+                        if side == 'MUA' and candles[j]['low'] <= entry: filled = True; fill_idx = j; break
+                        elif side == 'BÁN' and candles[j]['high'] >= entry: filled = True; fill_idx = j; break
+                        
+                    if not filled:
+                        trades.append({
+                            'date': c['time'][:10], 'time': c['time'], 'side': side, 'product': cqg_sym,
+                            'commodity': commodity, 'method': 'M3 (Hybrid: Thuận Sóng M1)', 'result': 'CHƯA KHỚP',
+                            'entry_price': entry, 'exit_price': None, 'multiplier': MULTIPLIER, 'diff_points': 0.0,
+                            'pnl': 0.0, 'win': False, 'tag': 'M1 Trend',
+                            'reason': setup.get('reason', '')
+                        })
+                        pos_end_idx = i + 12
+                        continue
+                        
+                    res = 'ENTRY'; exit_p = entry; pnl = 0.0; hit_tp1 = False; hit_tp2 = False
+                    end_bar = min(fill_idx + 48, len(candles))
+                    for k in range(fill_idx, end_bar):
+                        ck = candles[k]
+                        cur_sl = entry if hit_tp1 else sl
+                        if side == 'MUA':
+                            if ck['low'] <= cur_sl:
+                                res = 'ENTRY' if hit_tp1 else 'SL'
+                                exit_p = entry if hit_tp1 else sl
+                                pnl = 0.0 if hit_tp1 else round((sl - entry) * MULTIPLIER, 2)
+                                pos_end_idx = k + 6; break
+                            if ck['high'] >= tp3:
+                                res = 'TP3'; exit_p = tp3; pnl = round((tp3 - entry) * MULTIPLIER, 2)
+                                pos_end_idx = k + 6; break
+                            elif ck['high'] >= tp2: hit_tp2 = True; hit_tp1 = True
+                            elif ck['high'] >= tp1: hit_tp1 = True
+                        else:
+                            if ck['high'] >= cur_sl:
+                                res = 'ENTRY' if hit_tp1 else 'SL'
+                                exit_p = entry if hit_tp1 else sl
+                                pnl = 0.0 if hit_tp1 else round((entry - sl) * MULTIPLIER, 2)
+                                pos_end_idx = k + 6; break
+                            if ck['low'] <= tp3:
+                                res = 'TP3'; exit_p = tp3; pnl = round((entry - tp3) * MULTIPLIER, 2)
+                                pos_end_idx = k + 6; break
+                            elif ck['low'] <= tp2: hit_tp2 = True; hit_tp1 = True
+                            elif ck['low'] <= tp1: hit_tp1 = True
+                    else:
+                        if hit_tp2: res = 'TP2'; exit_p = tp2; pnl = round(abs(tp2 - entry) * MULTIPLIER, 2)
+                        elif hit_tp1: res = 'TP1'; exit_p = tp1; pnl = round(abs(tp1 - entry) * MULTIPLIER, 2)
+                        else: res = 'ENTRY'; exit_p = entry; pnl = 0.0
+                        pos_end_idx = end_bar
+                        
+                    diff_pts = round(abs(exit_p - entry) if res != 'SL' else -abs(exit_p - entry), 2)
+                    trades.append({
+                        'date': candles[fill_idx]['time'][:10], 'time': candles[fill_idx]['time'], 'side': side,
+                        'product': cqg_sym, 'commodity': commodity, 'method': 'M3 (Hybrid: Thuận Sóng M1)',
+                        'result': res, 'entry_price': entry, 'exit_price': exit_p, 'multiplier': MULTIPLIER,
+                        'diff_points': diff_pts, 'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M1 Trend',
+                        'reason': setup.get('reason', '')
+                    })
     return trades
 
 
@@ -368,9 +544,7 @@ def compute_metrics(trades: list, days_filter: int = None) -> dict:
             "profit_factor": 0.0, "max_drawdown": 0.0, "roi_pct": 0.0, "recommended_capital": 10000
         }
         
-    # Lọc theo số ngày gần nhất
     if days_filter is not None:
-        # Lấy ngày cuối cùng trong tập dữ liệu
         all_dates = sorted([t["date"] for t in trades])
         if all_dates:
             last_date = datetime.datetime.strptime(all_dates[-1], "%Y-%m-%d")
@@ -429,9 +603,9 @@ def compute_metrics(trades: list, days_filter: int = None) -> dict:
 
 
 def run_full_backtest(force_download: bool = False) -> dict:
-    """Chạy toàn bộ backtest 90 ngày cho 2 phương pháp trên cả ZC và ZW."""
+    """Chạy toàn bộ backtest 90 ngày cho 3 phương pháp trên cả ZC và ZW."""
     print("=" * 60)
-    print("  KHỞI ĐỘNG LIVE SIGNAL BACKTEST (90 NGÀY)")
+    print("  KHỞI ĐỘNG LIVE SIGNAL BACKTEST (3 PHƯƠNG PHÁP - 90 NGÀY)")
     print("=" * 60)
     
     zc_candles = fetch_or_load_90d("ZC", force_download=force_download)
@@ -448,6 +622,12 @@ def run_full_backtest(force_download: bool = False) -> dict:
     m2_zc = simulate_method_2(zc_candles, "ZC")
     m2_zw = simulate_method_2(zw_candles, "ZW")
     m2_all = sorted(m2_zc + m2_zw, key=lambda x: x["time"], reverse=True)
+
+    # ── Phương pháp 3 (Hybrid: M1 + M2) ──
+    print("▶ Chạy Phương pháp 3 (Chiến Lược Hybrid Kết Hợp M1 + M2)...")
+    m3_zc = simulate_method_3_hybrid(zc_candles, "ZC")
+    m3_zw = simulate_method_3_hybrid(zw_candles, "ZW")
+    m3_all = sorted(m3_zc + m3_zw, key=lambda x: x["time"], reverse=True)
     
     # Tính metrics
     m1_stats_all = compute_metrics(m1_all)
@@ -457,6 +637,10 @@ def run_full_backtest(force_download: bool = False) -> dict:
     m2_stats_all = compute_metrics(m2_all)
     m2_stats_30d = compute_metrics(m2_all, days_filter=30)
     m2_stats_7d  = compute_metrics(m2_all, days_filter=7)
+
+    m3_stats_all = compute_metrics(m3_all)
+    m3_stats_30d = compute_metrics(m3_all, days_filter=30)
+    m3_stats_7d  = compute_metrics(m3_all, days_filter=7)
     
     result = {
         "generated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -478,6 +662,15 @@ def run_full_backtest(force_download: bool = False) -> dict:
             "stats_30d": {k: v for k, v in m2_stats_30d.items() if k != "filtered_trades"},
             "stats_7d":  {k: v for k, v in m2_stats_7d.items() if k != "filtered_trades"},
             "trades": m2_all
+        },
+        "method_3": {
+            "name": "Phương Pháp 3: Chiến Lược Hybrid (M1 + M2 Kết Hợp)",
+            "type": "Hybrid Dynamic (Phối hợp Xu hướng & Vùng Cực Trị)",
+            "description": "Chỉ bắt đáy/đỉnh khi sóng xả/tăng đã hoàn tất (quét Sweep + cạn kiệt), còn lại đi lệnh thuận sóng M1 khi có MSS xác nhận.",
+            "stats_90d": {k: v for k, v in m3_stats_all.items() if k != "filtered_trades"},
+            "stats_30d": {k: v for k, v in m3_stats_30d.items() if k != "filtered_trades"},
+            "stats_7d":  {k: v for k, v in m3_stats_7d.items() if k != "filtered_trades"},
+            "trades": m3_all
         }
     }
     
@@ -488,6 +681,7 @@ def run_full_backtest(force_download: bool = False) -> dict:
     print(f"✅ Đã lưu kết quả Backtest thành công vào {BACKTEST_RESULT_FILE}")
     print(f"   - M1 (30d): Lãi ${m1_stats_30d['total_pnl']:+,.2f} | Win Rate: {m1_stats_30d['win_rate']}% | Lệnh: {m1_stats_30d['total_trades']}")
     print(f"   - M2 (30d): Lãi ${m2_stats_30d['total_pnl']:+,.2f} | Win Rate: {m2_stats_30d['win_rate']}% | Lệnh: {m2_stats_30d['total_trades']}")
+    print(f"   - M3 Hybrid (30d): Lãi ${m3_stats_30d['total_pnl']:+,.2f} | Win Rate: {m3_stats_30d['win_rate']}% | Lệnh: {m3_stats_30d['total_trades']}")
     return result
 
 

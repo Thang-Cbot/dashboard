@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04 23:22:29",
+  "generated_at": "2026-11-04 23:40:07",
   "period_days": 90,
   "method_1": {
     "name": "Phương Pháp 1: ICT MSS + Pullback EMA 21-50",
@@ -62,6 +62,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
       },
       {
@@ -78,6 +79,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
       },
       {
@@ -94,6 +96,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
       },
       {
@@ -110,6 +113,7 @@
         "diff_points": 8.0,
         "pnl": 400.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
       },
       {
@@ -126,6 +130,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block"
       },
       {
@@ -142,6 +147,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can"
       },
       {
@@ -158,6 +164,7 @@
         "diff_points": 17.46,
         "pnl": 873.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
       },
       {
@@ -174,6 +181,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
       },
       {
@@ -190,6 +198,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -206,6 +215,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -222,6 +232,7 @@
         "diff_points": 18.27,
         "pnl": 913.5,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can"
       },
       {
@@ -238,6 +249,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can"
       },
       {
@@ -254,6 +266,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can + Breaker Block"
       },
       {
@@ -270,6 +283,7 @@
         "diff_points": 11.77,
         "pnl": 588.5,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can + Breaker Block"
       },
       {
@@ -286,6 +300,7 @@
         "diff_points": 16.2,
         "pnl": 810.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -302,6 +317,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -318,6 +334,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -334,6 +351,7 @@
         "diff_points": 12.1,
         "pnl": 605.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -350,6 +368,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -366,6 +385,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -382,6 +402,7 @@
         "diff_points": -7.12,
         "pnl": -356.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can + Breaker Block"
       },
       {
@@ -398,6 +419,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -414,6 +436,7 @@
         "diff_points": -9.74,
         "pnl": -487.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -430,6 +453,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -446,6 +470,7 @@
         "diff_points": 9.56,
         "pnl": 478.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -462,6 +487,7 @@
         "diff_points": 14.02,
         "pnl": 701.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -478,6 +504,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -494,6 +521,7 @@
         "diff_points": -5.42,
         "pnl": -271.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
       },
       {
@@ -510,6 +538,7 @@
         "diff_points": -8.77,
         "pnl": -438.5,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
       },
       {
@@ -526,6 +555,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
       },
       {
@@ -542,6 +572,7 @@
         "diff_points": 14.88,
         "pnl": 744.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
       },
       {
@@ -558,6 +589,7 @@
         "diff_points": -12.3,
         "pnl": -615.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -574,6 +606,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -590,6 +623,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -606,6 +640,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -622,6 +657,7 @@
         "diff_points": -4.0,
         "pnl": -200.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -638,6 +674,7 @@
         "diff_points": -4.85,
         "pnl": -242.5,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
       },
       {
@@ -654,6 +691,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -670,6 +708,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -686,6 +725,7 @@
         "diff_points": 12.02,
         "pnl": 601.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -702,6 +742,7 @@
         "diff_points": 23.8,
         "pnl": 1190.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -718,6 +759,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -734,6 +776,7 @@
         "diff_points": 14.32,
         "pnl": 716.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -750,6 +793,7 @@
         "diff_points": -6.64,
         "pnl": -332.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
       },
       {
@@ -766,6 +810,7 @@
         "diff_points": -6.03,
         "pnl": -301.5,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -782,6 +827,7 @@
         "diff_points": -5.95,
         "pnl": -297.5,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -798,6 +844,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
       },
       {
@@ -814,6 +861,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + Breaker Block"
       },
       {
@@ -830,6 +878,7 @@
         "diff_points": -7.72,
         "pnl": -386.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -846,6 +895,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + Breaker Block"
       },
       {
@@ -862,6 +912,7 @@
         "diff_points": -7.76,
         "pnl": -388.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
       },
       {
@@ -878,6 +929,7 @@
         "diff_points": -5.84,
         "pnl": -292.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
       },
       {
@@ -894,6 +946,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
       },
       {
@@ -910,6 +963,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can + Breaker Block"
       },
       {
@@ -926,6 +980,7 @@
         "diff_points": 7.83,
         "pnl": 391.5,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -942,6 +997,7 @@
         "diff_points": -4.41,
         "pnl": -220.5,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -958,6 +1014,7 @@
         "diff_points": 23.74,
         "pnl": 1187.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -974,6 +1031,7 @@
         "diff_points": -7.72,
         "pnl": -386.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -990,6 +1048,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + Breaker Block"
       },
       {
@@ -1006,6 +1065,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -1022,6 +1082,7 @@
         "diff_points": -5.13,
         "pnl": -256.5,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -1038,6 +1099,7 @@
         "diff_points": -7.45,
         "pnl": -372.5,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -1054,6 +1116,7 @@
         "diff_points": -4.8,
         "pnl": -240.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block"
       },
       {
@@ -1070,6 +1133,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + Breaker Block"
       },
       {
@@ -1086,6 +1150,7 @@
         "diff_points": -14.01,
         "pnl": -700.5,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + Order Block + Breaker Block"
       },
       {
@@ -1102,6 +1167,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
       },
       {
@@ -1118,6 +1184,7 @@
         "diff_points": -11.14,
         "pnl": -557.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -1134,6 +1201,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block"
       },
       {
@@ -1150,6 +1218,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block"
       },
       {
@@ -1166,6 +1235,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block"
       },
       {
@@ -1182,6 +1252,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + Breaker Block"
       },
       {
@@ -1198,6 +1269,7 @@
         "diff_points": 21.3,
         "pnl": 1065.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro"
       },
       {
@@ -1214,6 +1286,7 @@
         "diff_points": 15.08,
         "pnl": 754.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block"
       },
       {
@@ -1230,6 +1303,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block"
       },
       {
@@ -1246,6 +1320,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -1262,6 +1337,7 @@
         "diff_points": 17.54,
         "pnl": 877.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
       },
       {
@@ -1278,6 +1354,7 @@
         "diff_points": 13.02,
         "pnl": 651.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
       },
       {
@@ -1294,6 +1371,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
       },
       {
@@ -1310,6 +1388,7 @@
         "diff_points": -10.09,
         "pnl": -504.5,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -1326,6 +1405,7 @@
         "diff_points": 13.06,
         "pnl": 653.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
       },
       {
@@ -1342,6 +1422,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
       },
       {
@@ -1358,6 +1439,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
       },
       {
@@ -1374,6 +1456,7 @@
         "diff_points": -8.95,
         "pnl": -447.5,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -1390,6 +1473,7 @@
         "diff_points": -4.9,
         "pnl": -245.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -1406,6 +1490,7 @@
         "diff_points": -4.0,
         "pnl": -200.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -1422,6 +1507,7 @@
         "diff_points": -6.9,
         "pnl": -345.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
       },
       {
@@ -1438,6 +1524,7 @@
         "diff_points": -8.39,
         "pnl": -419.5,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
       },
       {
@@ -1454,6 +1541,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
       },
       {
@@ -1470,6 +1558,7 @@
         "diff_points": 18.3,
         "pnl": 915.0,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
       },
       {
@@ -1486,6 +1575,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block"
       },
       {
@@ -1502,6 +1592,7 @@
         "diff_points": -7.42,
         "pnl": -371.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can"
       },
       {
@@ -1518,6 +1609,7 @@
         "diff_points": -14.18,
         "pnl": -709.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
       },
       {
@@ -1534,6 +1626,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
       },
       {
@@ -1550,6 +1643,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
       },
       {
@@ -1566,6 +1660,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + Breaker Block"
       },
       {
@@ -1582,6 +1677,7 @@
         "diff_points": -15.61,
         "pnl": -780.5,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + FVG can"
       },
       {
@@ -1598,6 +1694,7 @@
         "diff_points": 10.45,
         "pnl": 522.5,
         "win": true,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + FVG can"
       },
       {
@@ -1614,6 +1711,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + Breaker Block"
       }
     ]
@@ -1679,6 +1777,7 @@
         "diff_points": -3.34,
         "pnl": -167.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1695,6 +1794,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 6/8: RSI oversold (24.6), Bullish MSS nearby"
       },
       {
@@ -1711,6 +1811,7 @@
         "diff_points": 4.3,
         "pnl": 215.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1727,6 +1828,7 @@
         "diff_points": 10.24,
         "pnl": 512.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1743,6 +1845,7 @@
         "diff_points": 14.75,
         "pnl": 737.5,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1759,6 +1862,7 @@
         "diff_points": -3.38,
         "pnl": -169.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1775,6 +1879,7 @@
         "diff_points": 9.82,
         "pnl": 491.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1791,6 +1896,7 @@
         "diff_points": 7.82,
         "pnl": 391.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1807,6 +1913,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: RSI oversold (15.9), Unfilled bullish FVG below"
       },
       {
@@ -1823,6 +1930,7 @@
         "diff_points": 20.46,
         "pnl": 1023.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 7/8: Bearish MSS (sweep-confirmed), Unfilled bearish FVG above"
       },
       {
@@ -1839,6 +1947,7 @@
         "diff_points": -3.38,
         "pnl": -169.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 6/8: Bullish MSS (sweep-confirmed), Unfilled bullish FVG below"
       },
       {
@@ -1855,6 +1964,7 @@
         "diff_points": 10.52,
         "pnl": 526.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1871,6 +1981,7 @@
         "diff_points": -9.6,
         "pnl": -480.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1887,6 +1998,7 @@
         "diff_points": -3.28,
         "pnl": -164.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 6/8: Bullish MSS (sweep-confirmed), Unfilled bullish FVG below"
       },
       {
@@ -1903,6 +2015,7 @@
         "diff_points": -3.43,
         "pnl": -171.5,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 6/8: Bullish MSS (sweep-confirmed), Unfilled bullish FVG below"
       },
       {
@@ -1919,6 +2032,7 @@
         "diff_points": -7.14,
         "pnl": -357.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1935,6 +2049,7 @@
         "diff_points": -8.3,
         "pnl": -415.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1951,6 +2066,7 @@
         "diff_points": 21.34,
         "pnl": 1067.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1967,6 +2083,7 @@
         "diff_points": 10.58,
         "pnl": 529.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -1983,6 +2100,7 @@
         "diff_points": 4.5,
         "pnl": 225.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -1999,6 +2117,7 @@
         "diff_points": 9.84,
         "pnl": 492.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2015,6 +2134,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2031,6 +2151,7 @@
         "diff_points": -5.93,
         "pnl": -296.5,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 7/8: RSI oversold (18.5), Bullish SWEEP nearby"
       },
       {
@@ -2047,6 +2168,7 @@
         "diff_points": -8.88,
         "pnl": -444.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2063,6 +2185,7 @@
         "diff_points": 8.5,
         "pnl": 425.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2079,6 +2202,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -2095,6 +2219,7 @@
         "diff_points": 11.56,
         "pnl": 578.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -2111,6 +2236,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 6/8: RSI oversold (28.1), Bullish SWEEP nearby"
       },
       {
@@ -2127,6 +2253,7 @@
         "diff_points": -4.16,
         "pnl": -208.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2143,6 +2270,7 @@
         "diff_points": 7.18,
         "pnl": 359.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2159,6 +2287,7 @@
         "diff_points": -6.98,
         "pnl": -349.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 6/8: Bullish MSS (sweep-confirmed), Unfilled bullish FVG below"
       },
       {
@@ -2175,6 +2304,7 @@
         "diff_points": -6.76,
         "pnl": -338.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -2191,6 +2321,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 6/8: Bearish MSS (sweep-confirmed), Unfilled bearish FVG above"
       },
       {
@@ -2207,6 +2338,7 @@
         "diff_points": 13.08,
         "pnl": 654.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 6/8: Bearish MSS (sweep-confirmed), Unfilled bearish FVG above"
       },
       {
@@ -2223,6 +2355,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -2239,6 +2372,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish SWEEP nearby, Unfilled bullish FVG below"
       },
       {
@@ -2255,6 +2389,7 @@
         "diff_points": 21.38,
         "pnl": 1069.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -2271,6 +2406,7 @@
         "diff_points": 9.46,
         "pnl": 473.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2287,6 +2423,7 @@
         "diff_points": -15.91,
         "pnl": -795.5,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS (sweep-confirmed), Near R1/R2 resistance"
       },
       {
@@ -2303,6 +2440,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2319,6 +2457,7 @@
         "diff_points": -16.66,
         "pnl": -833.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 7/8: RSI overbought (78.7), Bearish SWEEP nearby"
       },
       {
@@ -2335,6 +2474,7 @@
         "diff_points": -6.52,
         "pnl": -326.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2351,6 +2491,7 @@
         "diff_points": -18.73,
         "pnl": -936.5,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -2367,6 +2508,7 @@
         "diff_points": -12.9,
         "pnl": -645.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 7/8: RSI overbought (74.1), Bearish MSS nearby"
       },
       {
@@ -2383,6 +2525,7 @@
         "diff_points": 6.98,
         "pnl": 349.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2399,6 +2542,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2415,6 +2559,7 @@
         "diff_points": 4.26,
         "pnl": 213.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2431,6 +2576,7 @@
         "diff_points": -6.49,
         "pnl": -324.5,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 6/8: Bearish MSS (sweep-confirmed), Unfilled bearish FVG above"
       },
       {
@@ -2447,6 +2593,7 @@
         "diff_points": 4.38,
         "pnl": 219.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 6/8: RSI overbought (77.7), Bearish SWEEP nearby"
       },
       {
@@ -2463,6 +2610,7 @@
         "diff_points": -16.68,
         "pnl": -834.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish SWEEP nearby, Unfilled bearish FVG above"
       },
       {
@@ -2479,6 +2627,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 7/8: RSI overbought (85.4), Bearish SWEEP nearby"
       },
       {
@@ -2495,6 +2644,7 @@
         "diff_points": 17.46,
         "pnl": 873.0,
         "win": true,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 7/8: RSI oversold (26.0), Bullish MSS nearby"
       },
       {
@@ -2511,6 +2661,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 6/8: Bearish MSS (sweep-confirmed), Unfilled bearish FVG above"
       },
       {
@@ -2527,6 +2678,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -2543,6 +2695,7 @@
         "diff_points": -4.16,
         "pnl": -208.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 6/8: Bearish MSS (sweep-confirmed), Unfilled bearish FVG above"
       },
       {
@@ -2559,6 +2712,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -2575,6 +2729,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
       },
       {
@@ -2591,6 +2746,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -2607,6 +2763,7 @@
         "diff_points": -18.85,
         "pnl": -942.5,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bearish MSS nearby, Unfilled bearish FVG above"
       },
       {
@@ -2623,6 +2780,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 7/8: RSI oversold (28.4), Bullish MSS nearby"
       },
       {
@@ -2639,7 +2797,1859 @@
         "diff_points": -7.38,
         "pnl": -369.0,
         "win": false,
+        "tag": "M2 Reversal",
         "reason": "SMC Zone 5/8: Bullish MSS nearby, Unfilled bullish FVG below"
+      }
+    ]
+  },
+  "method_3": {
+    "name": "Phương Pháp 3: Chiến Lược Hybrid (M1 + M2 Kết Hợp)",
+    "type": "Hybrid Dynamic (Phối hợp Xu hướng & Vùng Cực Trị)",
+    "description": "Chỉ bắt đáy/đỉnh khi sóng xả/tăng đã hoàn tất (quét Sweep + cạn kiệt), còn lại đi lệnh thuận sóng M1 khi có MSS xác nhận.",
+    "stats_90d": {
+      "total_pnl": -190.0,
+      "win_rate": 23.3,
+      "total_trades": 106,
+      "closed_trades": 73,
+      "win_trades": 17,
+      "loss_trades": 34,
+      "breakeven_trades": 22,
+      "pending_trades": 33,
+      "profit_factor": 0.99,
+      "max_drawdown": 4438.5,
+      "roi_pct": -1.9,
+      "recommended_capital": 10000
+    },
+    "stats_30d": {
+      "total_pnl": 3292.0,
+      "win_rate": 38.1,
+      "total_trades": 32,
+      "closed_trades": 21,
+      "win_trades": 8,
+      "loss_trades": 6,
+      "breakeven_trades": 7,
+      "pending_trades": 11,
+      "profit_factor": 2.69,
+      "max_drawdown": 1233.0,
+      "roi_pct": 32.9,
+      "recommended_capital": 10000
+    },
+    "stats_7d": {
+      "total_pnl": 400.0,
+      "win_rate": 20.0,
+      "total_trades": 6,
+      "closed_trades": 5,
+      "win_trades": 1,
+      "loss_trades": 0,
+      "breakeven_trades": 4,
+      "pending_trades": 1,
+      "profit_factor": 99.0,
+      "max_drawdown": 0.0,
+      "roi_pct": 4.0,
+      "recommended_capital": 10000
+    },
+    "trades": [
+      {
+        "date": "2026-11-04",
+        "time": "2026-11-04 21:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 443.13,
+        "exit_price": 443.13,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
+      },
+      {
+        "date": "2026-11-04",
+        "time": "2026-11-04 16:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 601.91,
+        "exit_price": 601.91,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
+      },
+      {
+        "date": "2026-11-03",
+        "time": "2026-11-03 19:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 447.14,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
+      },
+      {
+        "date": "2026-11-03",
+        "time": "2026-11-03 16:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 605.02,
+        "exit_price": 597.02,
+        "multiplier": 50.0,
+        "diff_points": 8.0,
+        "pnl": 400.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
+      },
+      {
+        "date": "2026-10-29",
+        "time": "2026-10-29 22:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 451.77,
+        "exit_price": 451.77,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block"
+      },
+      {
+        "date": "2026-10-29",
+        "time": "2026-10-29 22:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 606.21,
+        "exit_price": 606.21,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can"
+      },
+      {
+        "date": "2026-10-27",
+        "time": "2026-10-27 22:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 617.75,
+        "exit_price": 599.67,
+        "multiplier": 50.0,
+        "diff_points": 18.08,
+        "pnl": 904.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can"
+      },
+      {
+        "date": "2026-10-26",
+        "time": "2026-10-26 22:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 455.02,
+        "exit_price": 455.02,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
+      },
+      {
+        "date": "2026-10-26",
+        "time": "2026-10-26 20:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 624.34,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-23",
+        "time": "2026-10-23 21:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 459.89,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-23",
+        "time": "2026-10-23 09:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 462.17,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-21",
+        "time": "2026-10-21 23:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Bắt Đáy Hấp Thụ)",
+        "result": "ENTRY",
+        "entry_price": 628.5,
+        "exit_price": 628.5,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M2 Bắt Đáy",
+        "reason": "Hấp thụ đáy Climax: RSI oversold (15.9), Unfilled bullish FVG below"
+      },
+      {
+        "date": "2026-10-21",
+        "time": "2026-10-21 11:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 648.14,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-20",
+        "time": "2026-10-20 18:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP2",
+        "entry_price": 468.11,
+        "exit_price": 456.34,
+        "multiplier": 50.0,
+        "diff_points": 11.77,
+        "pnl": 588.5,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can + Breaker Block"
+      },
+      {
+        "date": "2026-10-20",
+        "time": "2026-10-20 15:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 658.31,
+        "exit_price": 642.57,
+        "multiplier": 50.0,
+        "diff_points": 15.74,
+        "pnl": 787.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-19",
+        "time": "2026-10-19 21:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 472.85,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-19",
+        "time": "2026-10-19 09:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 475.66,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-16",
+        "time": "2026-10-16 21:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 666.66,
+        "exit_price": 654.02,
+        "multiplier": 50.0,
+        "diff_points": 12.64,
+        "pnl": 632.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-16",
+        "time": "2026-10-16 16:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 478.8,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-16",
+        "time": "2026-10-16 07:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 668.77,
+        "exit_price": 664.77,
+        "multiplier": 50.0,
+        "diff_points": -4.0,
+        "pnl": -200.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-14",
+        "time": "2026-10-14 22:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 666.99,
+        "exit_price": 674.48,
+        "multiplier": 50.0,
+        "diff_points": -7.49,
+        "pnl": -374.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can + Breaker Block"
+      },
+      {
+        "date": "2026-10-14",
+        "time": "2026-10-14 11:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Bắt Đáy Hấp Thụ)",
+        "result": "SL",
+        "entry_price": 666.5,
+        "exit_price": 663.07,
+        "multiplier": 50.0,
+        "diff_points": -3.43,
+        "pnl": -171.5,
+        "win": false,
+        "tag": "M2 Bắt Đáy",
+        "reason": "Hấp thụ đáy Climax: Bullish MSS (sweep-confirmed), Unfilled bullish FVG below"
+      },
+      {
+        "date": "2026-10-13",
+        "time": "2026-10-13 19:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 484.48,
+        "exit_price": 484.48,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-13",
+        "time": "2026-10-13 19:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 671.2,
+        "exit_price": 680.94,
+        "multiplier": 50.0,
+        "diff_points": -9.74,
+        "pnl": -487.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-12",
+        "time": "2026-10-12 10:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 490.6,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-09",
+        "time": "2026-10-09 08:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 501.21,
+        "exit_price": 491.65,
+        "multiplier": 50.0,
+        "diff_points": 9.56,
+        "pnl": 478.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-08",
+        "time": "2026-10-08 21:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 688.81,
+        "exit_price": 674.79,
+        "multiplier": 50.0,
+        "diff_points": 14.02,
+        "pnl": 701.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-08",
+        "time": "2026-10-08 08:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 693.05,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-07",
+        "time": "2026-10-07 18:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 503.46,
+        "exit_price": 498.04,
+        "multiplier": 50.0,
+        "diff_points": -5.42,
+        "pnl": -271.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-07",
+        "time": "2026-10-07 16:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 699.72,
+        "exit_price": 690.95,
+        "multiplier": 50.0,
+        "diff_points": -8.77,
+        "pnl": -438.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-06",
+        "time": "2026-10-06 16:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 498.3,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-05",
+        "time": "2026-10-05 22:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 689.7,
+        "exit_price": 704.58,
+        "multiplier": 50.0,
+        "diff_points": 14.88,
+        "pnl": 744.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-02",
+        "time": "2026-10-02 00:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 679.31,
+        "exit_price": 691.61,
+        "multiplier": 50.0,
+        "diff_points": -12.3,
+        "pnl": -615.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-01",
+        "time": "2026-10-01 22:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 504.57,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-01",
+        "time": "2026-10-01 10:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 512.6,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-10-01",
+        "time": "2026-10-01 08:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 686.93,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-30",
+        "time": "2026-09-30 21:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 522.76,
+        "exit_price": 518.76,
+        "multiplier": 50.0,
+        "diff_points": -4.0,
+        "pnl": -200.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-30",
+        "time": "2026-09-30 21:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 692.86,
+        "exit_price": 688.01,
+        "multiplier": 50.0,
+        "diff_points": -4.85,
+        "pnl": -242.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-25",
+        "time": "2026-09-25 22:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 695.19,
+        "exit_price": 695.19,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-25",
+        "time": "2026-09-25 21:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 523.73,
+        "exit_price": 523.73,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-24",
+        "time": "2026-09-24 22:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 707.39,
+        "exit_price": 686.71,
+        "multiplier": 50.0,
+        "diff_points": 20.68,
+        "pnl": 1034.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can + Breaker Block"
+      },
+      {
+        "date": "2026-09-24",
+        "time": "2026-09-24 15:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 530.57,
+        "exit_price": 518.55,
+        "multiplier": 50.0,
+        "diff_points": 12.02,
+        "pnl": 601.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-23",
+        "time": "2026-09-23 20:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 533.03,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-23",
+        "time": "2026-09-23 20:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Bắt Đáy Hấp Thụ)",
+        "result": "SL",
+        "entry_price": 709.75,
+        "exit_price": 703.01,
+        "multiplier": 50.0,
+        "diff_points": -6.74,
+        "pnl": -337.0,
+        "win": false,
+        "tag": "M2 Bắt Đáy",
+        "reason": "Hấp thụ đáy Climax: RSI oversold (28.6), Bullish SWEEP nearby"
+      },
+      {
+        "date": "2026-09-22",
+        "time": "2026-09-22 23:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 721.82,
+        "exit_price": 707.5,
+        "multiplier": 50.0,
+        "diff_points": 14.32,
+        "pnl": 716.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-22",
+        "time": "2026-09-22 20:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 536.82,
+        "exit_price": 530.18,
+        "multiplier": 50.0,
+        "diff_points": -6.64,
+        "pnl": -332.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
+      },
+      {
+        "date": "2026-09-22",
+        "time": "2026-09-22 13:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 724.47,
+        "exit_price": 718.44,
+        "multiplier": 50.0,
+        "diff_points": -6.03,
+        "pnl": -301.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-21",
+        "time": "2026-09-21 16:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 722.99,
+        "exit_price": 728.94,
+        "multiplier": 50.0,
+        "diff_points": -5.95,
+        "pnl": -297.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-21",
+        "time": "2026-09-21 14:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 531.47,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-21",
+        "time": "2026-09-21 07:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 531.95,
+        "exit_price": 531.95,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + Breaker Block"
+      },
+      {
+        "date": "2026-09-18",
+        "time": "2026-09-18 01:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 726.86,
+        "exit_price": 719.14,
+        "multiplier": 50.0,
+        "diff_points": -7.72,
+        "pnl": -386.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-17",
+        "time": "2026-09-17 18:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 534.06,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + Breaker Block"
+      },
+      {
+        "date": "2026-09-16",
+        "time": "2026-09-16 21:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 728.57,
+        "exit_price": 720.59,
+        "multiplier": 50.0,
+        "diff_points": -7.98,
+        "pnl": -399.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-16",
+        "time": "2026-09-16 18:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 535.24,
+        "exit_price": 529.21,
+        "multiplier": 50.0,
+        "diff_points": -6.03,
+        "pnl": -301.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
+      },
+      {
+        "date": "2026-09-16",
+        "time": "2026-09-16 08:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Bắt Đỉnh Quá Mua)",
+        "result": "SL",
+        "entry_price": 729.5,
+        "exit_price": 734.98,
+        "multiplier": 50.0,
+        "diff_points": -5.48,
+        "pnl": -274.0,
+        "win": false,
+        "tag": "M2 Bắt Đỉnh",
+        "reason": "Quét đỉnh Quá mua: Bearish MSS (sweep-confirmed), Unfilled bearish FVG above"
+      },
+      {
+        "date": "2026-09-15",
+        "time": "2026-09-15 14:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 722.5,
+        "exit_price": 722.5,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can + Breaker Block"
+      },
+      {
+        "date": "2026-09-14",
+        "time": "2026-09-14 07:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Bắt Đáy Hấp Thụ)",
+        "result": "ENTRY",
+        "entry_price": 531.75,
+        "exit_price": 531.75,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M2 Bắt Đáy",
+        "reason": "Hấp thụ đáy Climax: Bullish SWEEP nearby, Unfilled bullish FVG below"
+      },
+      {
+        "date": "2026-09-10",
+        "time": "2026-09-10 23:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 530.53,
+        "exit_price": 526.12,
+        "multiplier": 50.0,
+        "diff_points": -4.41,
+        "pnl": -220.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-10",
+        "time": "2026-09-10 22:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP2",
+        "entry_price": 738.33,
+        "exit_price": 714.59,
+        "multiplier": 50.0,
+        "diff_points": 23.74,
+        "pnl": 1187.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-09",
+        "time": "2026-09-09 09:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 534.85,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-09",
+        "time": "2026-09-09 07:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Bắt Đáy Hấp Thụ)",
+        "result": "ENTRY",
+        "entry_price": 739.25,
+        "exit_price": 739.25,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M2 Bắt Đáy",
+        "reason": "Hấp thụ đáy Climax: Bullish MSS (sweep-confirmed), Unfilled bullish FVG below"
+      },
+      {
+        "date": "2026-09-08",
+        "time": "2026-09-08 15:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 747.62,
+        "exit_price": 747.62,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-04",
+        "time": "2026-09-04 15:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 538.46,
+        "exit_price": 533.33,
+        "multiplier": 50.0,
+        "diff_points": -5.13,
+        "pnl": -256.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-03",
+        "time": "2026-09-03 22:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 535.68,
+        "exit_price": 543.13,
+        "multiplier": 50.0,
+        "diff_points": -7.45,
+        "pnl": -372.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-03",
+        "time": "2026-09-03 12:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 538.95,
+        "exit_price": 534.15,
+        "multiplier": 50.0,
+        "diff_points": -4.8,
+        "pnl": -240.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block"
+      },
+      {
+        "date": "2026-09-03",
+        "time": "2026-09-03 09:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 775.34,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + Breaker Block"
+      },
+      {
+        "date": "2026-09-02",
+        "time": "2026-09-02 20:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 777.88,
+        "exit_price": 791.89,
+        "multiplier": 50.0,
+        "diff_points": -14.01,
+        "pnl": -700.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-09-01",
+        "time": "2026-09-01 17:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 537.52,
+        "exit_price": 537.52,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
+      },
+      {
+        "date": "2026-08-31",
+        "time": "2026-08-31 18:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Bắt Đỉnh Quá Mua)",
+        "result": "SL",
+        "entry_price": 771.25,
+        "exit_price": 787.16,
+        "multiplier": 50.0,
+        "diff_points": -15.91,
+        "pnl": -795.5,
+        "win": false,
+        "tag": "M2 Bắt Đỉnh",
+        "reason": "Quét đỉnh Quá mua: Bearish MSS (sweep-confirmed), Near R1/R2 resistance"
+      },
+      {
+        "date": "2026-08-27",
+        "time": "2026-08-27 20:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 530.56,
+        "exit_price": 530.56,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block"
+      },
+      {
+        "date": "2026-08-26",
+        "time": "2026-08-26 21:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 711.13,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block"
+      },
+      {
+        "date": "2026-08-26",
+        "time": "2026-08-26 09:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 702.74,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block"
+      },
+      {
+        "date": "2026-08-25",
+        "time": "2026-08-25 21:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 702.33,
+        "exit_price": 702.33,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-08-24",
+        "time": "2026-08-24 21:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 511.78,
+        "exit_price": 533.08,
+        "multiplier": 50.0,
+        "diff_points": 21.3,
+        "pnl": 1065.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro"
+      },
+      {
+        "date": "2026-08-21",
+        "time": "2026-08-21 17:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 500.99,
+        "exit_price": 516.07,
+        "multiplier": 50.0,
+        "diff_points": 15.08,
+        "pnl": 754.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block"
+      },
+      {
+        "date": "2026-08-20",
+        "time": "2026-08-20 23:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 696.77,
+        "exit_price": 696.77,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block"
+      },
+      {
+        "date": "2026-08-20",
+        "time": "2026-08-20 01:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 689.05,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-08-18",
+        "time": "2026-08-18 21:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP2",
+        "entry_price": 489.89,
+        "exit_price": 502.88,
+        "multiplier": 50.0,
+        "diff_points": 12.99,
+        "pnl": 649.5,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
+      },
+      {
+        "date": "2026-08-18",
+        "time": "2026-08-18 07:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 485.76,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
+      },
+      {
+        "date": "2026-08-17",
+        "time": "2026-08-17 15:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP1",
+        "entry_price": 685.47,
+        "exit_price": 698.49,
+        "multiplier": 50.0,
+        "diff_points": 13.02,
+        "pnl": 651.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
+      },
+      {
+        "date": "2026-08-17",
+        "time": "2026-08-17 14:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 481.54,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-08-14",
+        "time": "2026-08-14 21:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 476.23,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro"
+      },
+      {
+        "date": "2026-08-14",
+        "time": "2026-08-14 20:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 676.43,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
+      },
+      {
+        "date": "2026-08-13",
+        "time": "2026-08-13 22:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 668.58,
+        "exit_price": 678.67,
+        "multiplier": 50.0,
+        "diff_points": -10.09,
+        "pnl": -504.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-08-13",
+        "time": "2026-08-13 19:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Bắt Đỉnh Quá Mua)",
+        "result": "ENTRY",
+        "entry_price": 477.0,
+        "exit_price": 477.0,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M2 Bắt Đỉnh",
+        "reason": "Quét đỉnh Quá mua: RSI overbought (70.1), Bearish MSS (sweep-confirmed)"
+      },
+      {
+        "date": "2026-08-13",
+        "time": "2026-08-13 07:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 469.08,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block"
+      },
+      {
+        "date": "2026-08-12",
+        "time": "2026-08-12 20:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 660.74,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-08-12",
+        "time": "2026-08-12 12:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 655.37,
+        "exit_price": 664.32,
+        "multiplier": 50.0,
+        "diff_points": -8.95,
+        "pnl": -447.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-08-12",
+        "time": "2026-08-12 08:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 461.31,
+        "exit_price": 466.21,
+        "multiplier": 50.0,
+        "diff_points": -4.9,
+        "pnl": -245.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-08-11",
+        "time": "2026-08-11 16:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 462.81,
+        "exit_price": 458.81,
+        "multiplier": 50.0,
+        "diff_points": -4.0,
+        "pnl": -200.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-08-10",
+        "time": "2026-08-10 21:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 662.74,
+        "exit_price": 655.53,
+        "multiplier": 50.0,
+        "diff_points": -7.21,
+        "pnl": -360.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-08-07",
+        "time": "2026-08-07 15:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 655.83,
+        "exit_price": 664.85,
+        "multiplier": 50.0,
+        "diff_points": -9.02,
+        "pnl": -451.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-08-07",
+        "time": "2026-08-07 00:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "ENTRY",
+        "entry_price": 462.36,
+        "exit_price": 462.36,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-08-06",
+        "time": "2026-08-06 09:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 661.57,
+        "exit_price": 655.29,
+        "multiplier": 50.0,
+        "diff_points": -6.28,
+        "pnl": -314.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-08-05",
+        "time": "2026-08-05 19:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 661.32,
+        "exit_price": 670.72,
+        "multiplier": 50.0,
+        "diff_points": -9.4,
+        "pnl": -470.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
+      },
+      {
+        "date": "2026-08-05",
+        "time": "2026-08-05 15:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 465.41,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block"
+      },
+      {
+        "date": "2026-08-04",
+        "time": "2026-08-04 18:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 662.97,
+        "exit_price": 656.81,
+        "multiplier": 50.0,
+        "diff_points": -6.16,
+        "pnl": -308.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Order Block + FVG ho tro + Breaker Block"
+      },
+      {
+        "date": "2026-08-03",
+        "time": "2026-08-03 21:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 464.57,
+        "exit_price": 472.57,
+        "multiplier": 50.0,
+        "diff_points": -8.0,
+        "pnl": -400.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
+      },
+      {
+        "date": "2026-08-03",
+        "time": "2026-08-03 15:00",
+        "side": "MUA",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Bắt Đáy Hấp Thụ)",
+        "result": "ENTRY",
+        "entry_price": 654.25,
+        "exit_price": 654.25,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M2 Bắt Đáy",
+        "reason": "Hấp thụ đáy Climax: Bullish MSS nearby, Unfilled bullish FVG below"
+      },
+      {
+        "date": "2026-07-31",
+        "time": "2026-07-31 22:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 673.15,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block"
+      },
+      {
+        "date": "2026-07-31",
+        "time": "2026-07-31 10:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 684.23,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-07-30",
+        "time": "2026-07-30 19:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "TP3",
+        "entry_price": 473.54,
+        "exit_price": 461.28,
+        "multiplier": 50.0,
+        "diff_points": 12.26,
+        "pnl": 613.0,
+        "win": true,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-07-29",
+        "time": "2026-07-29 23:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 477.45,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block"
+      },
+      {
+        "date": "2026-07-29",
+        "time": "2026-07-29 07:00",
+        "side": "BÁN",
+        "product": "ZWAZ26",
+        "commodity": "ZW",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "SL",
+        "entry_price": 685.36,
+        "exit_price": 700.97,
+        "multiplier": 50.0,
+        "diff_points": -15.61,
+        "pnl": -780.5,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + FVG can"
+      },
+      {
+        "date": "2026-07-27",
+        "time": "2026-07-27 21:00",
+        "side": "MUA",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Bắt Đáy Hấp Thụ)",
+        "result": "ENTRY",
+        "entry_price": 476.5,
+        "exit_price": 476.5,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M2 Bắt Đáy",
+        "reason": "Hấp thụ đáy Climax: RSI oversold (28.4), Bullish MSS nearby"
+      },
+      {
+        "date": "2026-07-27",
+        "time": "2026-07-27 07:00",
+        "side": "BÁN",
+        "product": "ZCEZ26",
+        "commodity": "ZC",
+        "method": "M3 (Hybrid: Thuận Sóng M1)",
+        "result": "CHƯA KHỚP",
+        "entry_price": 486.22,
+        "exit_price": null,
+        "multiplier": 50.0,
+        "diff_points": 0.0,
+        "pnl": 0.0,
+        "win": false,
+        "tag": "M1 Trend",
+        "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + Breaker Block"
       }
     ]
   }
