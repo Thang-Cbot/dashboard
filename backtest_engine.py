@@ -539,9 +539,10 @@ def compute_metrics(trades: list, days_filter: int = None) -> dict:
     """Tính các chỉ số KPI: Tổng PnL, Win Rate, Tổng lệnh, Max Drawdown, ROI trên 10k USD."""
     if not trades:
         return {
-            "total_pnl": 0.0, "win_rate": 0.0, "total_trades": 0,
+            "total_pnl": 0.0, "win_rate": 0.0, "total_trades": 0, "closed_trades": 0,
             "win_trades": 0, "loss_trades": 0, "breakeven_trades": 0, "pending_trades": 0,
-            "profit_factor": 0.0, "max_drawdown": 0.0, "roi_pct": 0.0, "recommended_capital": 10000
+            "profit_factor": 0.0, "max_drawdown": 0.0, "roi_pct": 0.0, "recommended_capital": 10000,
+            "filtered_trades": []
         }
         
     if days_filter is not None:
