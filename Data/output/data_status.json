@@ -50,12 +50,12 @@
     "ai_news": {
       "status": "[ERROR]",
       "detail": "Failed after 1 attempts",
-      "updated_at": "2026-11-04 10:46:26"
+      "updated_at": "2026-11-04 20:02:02"
     },
     "github_sync": {
       "status": "[ERROR]",
       "detail": "Lỗi Push: to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "updated_at": "2026-11-04 20:01:00"
+      "updated_at": "2026-11-04 20:01:05"
     },
     "prices_h4": {
       "status": "[OK]",
