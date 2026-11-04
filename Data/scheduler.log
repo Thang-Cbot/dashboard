@@ -29170,3 +29170,50 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-11-04 11:00:48] [INFO] Đang phân tích AI tự động...
 [2026-11-04 11:01:16] [INFO] Đang chạy cập nhật Hồ sơ mã (run_pro_plus) và tạo Dashboard (gen_dashboard)...
 [2026-11-04 11:01:29] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Cập nhật Phân tích & Giao diện (H1))...
+[2026-11-04 11:01:31] [Sync] ⚠️ Lỗi Github Push: to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-11-04 11:01:31] [INFO] ⏰ Đợi Giá H1: còn 0.98h (04/11 12:00:05 VN)
+[2026-11-04 13:22:00] [INFO] ============================================================
+[2026-11-04 13:22:00] [INFO]   CBOT PRECISION SCHEDULER V2 — KHỞI ĐỘNG
+[2026-11-04 13:22:00] [INFO] ============================================================
+[2026-11-04 13:22:00] [INFO] Lịch trình đang chạy:
+[2026-11-04 13:22:00] [INFO]   [Giá H1 + Macro]    : Phút :15 mỗi giờ giao dịch
+[2026-11-04 13:22:00] [INFO]   [COT CFTC]          : Thứ Bảy 07:15 VN
+[2026-11-04 13:22:00] [INFO]   [USDA Crop Progress]: Thứ Hai 22:00 VN
+[2026-11-04 13:22:00] [INFO]   [Export Sales]      : Thứ Năm 21:32 VN
+[2026-11-04 13:22:00] [INFO]   [WASDE Monthly]     : Ngày 10 hàng tháng, 23:00 VN
+[2026-11-04 13:22:00] [INFO]   [Thời Tiết Ngắn]    : 06:00 hàng ngày
+[2026-11-04 13:22:00] [INFO]   [ENSO Long-Term]    : Thứ Hai 06:30 VN
+[2026-11-04 13:22:00] [INFO]   [USDA Acreage]      : 05:30 hàng ngày
+[2026-11-04 13:22:00] [INFO]   [AI Điểm Tin]       : 06:00 và 20:00 hàng ngày
+[2026-11-04 13:22:00] [INFO]   [AI Tin Biển Đen]   : Thứ Tư & Chủ Nhật 07:00 VN
+[2026-11-04 13:22:00] [INFO]   [Số Liệu Mùa Vụ Nga]: 07:30 hàng ngày
+[2026-11-04 13:22:00] [INFO] ------------------------------------------------------------
+[2026-11-04 13:22:00] [INFO] ▶ Kích hoạt tức thì: Cập nhật Giá ngay khi vừa khởi động hệ thống...
+[2026-11-04 13:22:00] [INFO]   ✅ Thread khởi động: job_prices
+[2026-11-04 13:22:00] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-11-04 13:22:00] [INFO] ⏰ Đợi COT CFTC: còn 65.88h (07/11 07:15:02 VN)
+[2026-11-04 13:22:00] [INFO]   ✅ Thread khởi động: job_cot
+[2026-11-04 13:22:00] [INFO] ⏰ Đợi Crop Progress: còn 128.63h (09/11 22:00:02 VN)
+[2026-11-04 13:22:00] [INFO]   ✅ Thread khởi động: job_crop_progress
+[2026-11-04 13:22:00] [INFO] ⏰ Đợi Export Sales: còn 32.17h (05/11 21:32:02 VN)
+[2026-11-04 13:22:00] [INFO]   ✅ Thread khởi động: job_export_sales
+[2026-11-04 13:22:00] [INFO] ⏰ Đợi WASDE Monthly: còn 153.63h (10/11 23:00:02 VN)
+[2026-11-04 13:22:00] [INFO]   ✅ Thread khởi động: job_wasde
+[2026-11-04 13:22:00] [INFO] ⏰ Đợi Weather Short: còn 16.63h (05/11 06:00:02 VN)
+[2026-11-04 13:22:00] [INFO]   ✅ Thread khởi động: job_weather_short
+[2026-11-04 13:22:00] [INFO] ⏰ Đợi ENSO Long-Term: còn 113.13h (09/11 06:30:02 VN)
+[2026-11-04 13:22:00] [INFO]   ✅ Thread khởi động: job_weather_long
+[2026-11-04 13:22:00] [INFO] ⏰ Đợi Acreage Reports: còn 16.13h (05/11 05:30:02 VN)
+[2026-11-04 13:22:00] [INFO]   ✅ Thread khởi động: job_acreage
+[2026-11-04 13:22:00] [INFO] ⏰ Đợi AI News: còn 6.63h (04/11 20:00:02 VN)
+[2026-11-04 13:22:00] [INFO]   ✅ Thread khởi động: job_ai_news
+[2026-11-04 13:22:00] [INFO] ⏰ Đợi Black Sea News: còn 89.63h (08/11 07:00:02 VN)
+[2026-11-04 13:22:00] [INFO]   ✅ Thread khởi động: job_blacksea_news
+[2026-11-04 13:22:00] [INFO] ⏰ Đợi Russian Metrics: còn 18.13h (05/11 07:30:02 VN)
+[2026-11-04 13:22:00] [INFO]   ✅ Thread khởi động: job_russian_metrics
+[2026-11-04 13:22:00] [INFO] ============================================================
+[2026-11-04 13:22:00] [INFO] Scheduler đang chạy ngầm. Nhấn Ctrl+C để dừng.
+[2026-11-04 13:23:44] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-11-04 13:23:44] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
