@@ -29568,3 +29568,6 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 hint: use 'git pull' before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-11-04 22:01:28] [INFO] ⏰ Đợi Giá H1: còn 0.98h (04/11 23:00:05 VN)
+[2026-11-04 23:55:20] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-11-04 23:55:38] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-11-04 23:55:38] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
