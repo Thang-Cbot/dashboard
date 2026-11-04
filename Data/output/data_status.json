@@ -53,14 +53,14 @@
       "updated_at": "2026-11-04 20:02:02"
     },
     "github_sync": {
-      "status": "[ERROR]",
-      "detail": "Lỗi Push: to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "updated_at": "2026-11-04 22:01:28"
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 23:55:44 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-11-04 23:55:44"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 22:00:34",
-      "updated_at": "2026-11-04 22:00:34"
+      "detail": "Auto-fetch 23:55:52",
+      "updated_at": "2026-11-04 23:55:52"
     },
     "russian_metrics": {
       "status": "[OK]",
