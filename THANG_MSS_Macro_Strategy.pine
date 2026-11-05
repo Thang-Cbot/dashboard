@@ -1,0 +1,151 @@
+//@version=5
+strategy("THANG [Antigravity] - MSS Macro Strategy (1 LOT)", overlay=true, initial_capital=10000, default_qty_type=strategy.fixed, default_qty_value=1, currency=currency.USD, commission_type=strategy.commission.cash_per_contract, commission_value=2.5)
+
+// ========================================================================= //
+// 1. CÀI ĐẶT THAM SỐ CẤU TRÚC MSS BIÊN ĐỘ RỘNG
+// ========================================================================= //
+grp_mss = "1. Cấu Trúc Vùng MSS (Market Structure Shift)"
+swing_len = input.int(7, "Độ dài tìm Đỉnh/Đáy Cấu Trúc (Swing Length)", minval=3, maxval=20, group=grp_mss, tooltip="Số nến xác lập đỉnh đáy lớn. 7-10 giúp lọc sạch nhiễu kỹ thuật nhỏ.")
+entry_mode = input.string("Retest Vùng MSS", "Chế độ vào lệnh", options=["Retest Vùng MSS", "Breakout Phá Vỡ Tức Thì"], group=grp_mss, tooltip="Retest: Chờ giá hồi về test lại vùng MSS vừa phá (Winrate cao nhất). Breakout: Vào ngay khi nến đóng cửa phá vỡ.")
+mss_buffer_ticks = input.float(1.0, "Vùng đệm chạm Retest (Cents)", group=grp_mss, tooltip="Khoảng dung sai khi giá quay về chạm vùng MSS (cents)")
+
+grp_vol = "2. Bộ Lọc Volume Bùng Nổ Của Dòng Tiền (Khắc Phục Thua T4-T7)"
+use_vol_filter = input.bool(true, "Bật lọc Volume khi nến Phá Vỡ MSS", group=grp_vol, tooltip="Chỉ chấp nhận MSS nếu nến phá vỡ có Volume vượt trội")
+vol_mult       = input.float(1.25, "Hệ số Volume Bùng Nổ (x SMA Volume)", minval=1.0, step=0.05, group=grp_vol, tooltip="Volume phải cao hơn 1.25 lần trung bình để xác nhận dòng tiền cá mập thật")
+vol_ma_len     = input.int(50, "Độ dài SMA Volume", group=grp_vol)
+
+grp_risk = "3. Quản Trị Rủi Ro Biên Độ Rộng"
+sl_mode = input.string("Đỉnh/Đáy Cấu Trúc (Structural)", "Kiểu đặt Stop Loss", options=["Đỉnh/Đáy Cấu Trúc (Structural)", "ATR Biên Độ Rộng"], group=grp_risk)
+sl_atr_mult = input.float(1.5, "Hệ số ATR (nếu chọn SL theo ATR)", group=grp_risk)
+rr_ratio = input.float(1.5, "Tỷ lệ Lời : Lỗ (Take Profit R:R)", group=grp_risk, step=0.1, tooltip="Biên độ ăn theo sóng lớn")
+
+grp_h4 = "4. Bộ Lọc Khung Lớn H4 (Tùy Chọn)"
+use_h4 = input.bool(true, "Chỉ đánh thuận hướng H4", group=grp_h4)
+h4_tf  = input.timeframe("240", "Khung H4", group=grp_h4)
+
+// ========================================================================= //
+// 2. NHẬN DIỆN ĐỈNH / ĐÁY CẤU TRÚC LỚN
+// ========================================================================= //
+sw_h = ta.pivothigh(high, swing_len, swing_len)
+sw_l = ta.pivotlow(low, swing_len, swing_len)
+
+var float major_high = na
+var float major_low  = na
+var float high_origin_low = na
+var float low_origin_high = na
+
+if not na(sw_h)
+    major_high := sw_h
+    high_origin_low := ta.lowest(low, swing_len * 2)
+
+if not na(sw_l)
+    major_low := sw_l
+    low_origin_high := ta.highest(high, swing_len * 2)
+
+// ========================================================================= //
+// 3. XÁC NHẬN MARKET STRUCTURE SHIFT (MSS) + BỘ LỌC VOLUME
+// ========================================================================= //
+avg_vol = ta.sma(volume, vol_ma_len)
+is_high_volume = volume >= (avg_vol * vol_mult)
+
+raw_bull_mss = not na(major_high) and ta.crossover(close, major_high)
+raw_bear_mss = not na(major_low)  and ta.crossunder(close, major_low)
+
+// Chỉ công nhận MSS khi có Volume bùng nổ (nếu bật lọc)
+bool bull_mss_break = raw_bull_mss and (not use_vol_filter or is_high_volume)
+bool bear_mss_break = raw_bear_mss and (not use_vol_filter or is_high_volume)
+
+var float active_bull_mss_lvl = na
+var float bull_mss_sl_ref = na
+var bool  bull_mss_tested = true
+
+var float active_bear_mss_lvl = na
+var float bear_mss_sl_ref = na
+var bool  bear_mss_tested = true
+
+if bull_mss_break
+    active_bull_mss_lvl := major_high
+    bull_mss_sl_ref     := not na(high_origin_low) ? high_origin_low : low[swing_len]
+    bull_mss_tested     := false
+    major_high := na
+
+if bear_mss_break
+    active_bear_mss_lvl := major_low
+    bear_mss_sl_ref     := not na(low_origin_high) ? low_origin_high : high[swing_len]
+    bear_mss_tested     := false
+    major_low := na
+
+// ========================================================================= //
+// 4. BỘ LỌC XU HƯỚNG VĨ MÔ H4
+// ========================================================================= //
+[h4_open, h4_close] = request.security(syminfo.tickerid, h4_tf, [open, close])
+h4_bull = h4_close > h4_open
+
+// ========================================================================= //
+// 5. ĐIỀU KIỆN VÀO LỆNH THEO VÙNG MSS
+// ========================================================================= //
+atr_val = ta.atr(14)
+bool buy_trigger  = false
+bool sell_trigger = false
+var float entry_sl = na
+var float entry_tp = na
+
+if entry_mode == "Retest Vùng MSS"
+    // RETEST: Chờ giá sau khi phá vỡ quay về chạm lại mức MSS vừa phá
+    if not na(active_bull_mss_lvl) and not bull_mss_tested
+        // Giá nhúng xuống chạm vùng MSS (với dung sai buffer)
+        if low <= (active_bull_mss_lvl + mss_buffer_ticks) and close >= (active_bull_mss_lvl - atr_val * 0.5) and (close > open)
+            buy_trigger := true
+            bull_mss_tested := true
+            
+            sl_pt = sl_mode == "Đỉnh/Đáy Cấu Trúc (Structural)" ? bull_mss_sl_ref : (close - atr_val * sl_atr_mult)
+            entry_sl := math.min(sl_pt, close - atr_val * 0.8)
+            entry_tp := close + ((close - entry_sl) * rr_ratio)
+            active_bull_mss_lvl := na
+
+    if not na(active_bear_mss_lvl) and not bear_mss_tested
+        // Giá hồi lên chạm vùng MSS
+        if high >= (active_bear_mss_lvl - mss_buffer_ticks) and close <= (active_bear_mss_lvl + atr_val * 0.5) and (close < open)
+            sell_trigger := true
+            bear_mss_tested := true
+            
+            sl_pt = sl_mode == "Đỉnh/Đáy Cấu Trúc (Structural)" ? bear_mss_sl_ref : (close + atr_val * sl_atr_mult)
+            entry_sl := math.max(sl_pt, close + atr_val * 0.8)
+            entry_tp := close - ((entry_sl - close) * rr_ratio)
+            active_bear_mss_lvl := na
+
+else // "Breakout Phá Vỡ Tức Thì"
+    if bull_mss_break and (close > open)
+        buy_trigger := true
+        sl_pt = sl_mode == "Đỉnh/Đáy Cấu Trúc (Structural)" ? bull_mss_sl_ref : (close - atr_val * sl_atr_mult)
+        entry_sl := math.min(sl_pt, close - atr_val * 0.8)
+        entry_tp := close + ((close - entry_sl) * rr_ratio)
+
+    if bear_mss_break and (close < open)
+        sell_trigger := true
+        sl_pt = sl_mode == "Đỉnh/Đáy Cấu Trúc (Structural)" ? bear_mss_sl_ref : (close + atr_val * sl_atr_mult)
+        entry_sl := math.max(sl_pt, close + atr_val * 0.8)
+        entry_tp := close - ((entry_sl - close) * rr_ratio)
+
+bool final_buy  = use_h4 ? (buy_trigger and h4_bull) : buy_trigger
+bool final_sell = use_h4 ? (sell_trigger and not h4_bull) : sell_trigger
+
+// ========================================================================= //
+// 6. THỰC THI LỆNH 1 LOT VÀ BẢO TOÀN VỊ THẾ
+// ========================================================================= //
+if final_buy and strategy.position_size == 0 and not na(entry_sl) and not na(entry_tp)
+    strategy.entry("BUY_MSS", strategy.long)
+    strategy.exit("TP/SL BUY", "BUY_MSS", stop=entry_sl, limit=entry_tp)
+
+if final_sell and strategy.position_size == 0 and not na(entry_sl) and not na(entry_tp)
+    strategy.entry("SELL_MSS", strategy.short)
+    strategy.exit("TP/SL SELL", "SELL_MSS", stop=entry_sl, limit=entry_tp)
+
+// ========================================================================= //
+// 7. VẼ TRỰC QUAN ĐƯỜNG VÙNG MSS LÊN CHART
+// ========================================================================= //
+plot(active_bull_mss_lvl, "Vùng Bull MSS (Chờ Retest)", color=color.lime, linewidth=2, style=plot.style_linebr)
+plot(active_bear_mss_lvl, "Vùng Bear MSS (Chờ Retest)", color=color.red, linewidth=2, style=plot.style_linebr)
+plot(major_high, "Đỉnh Cấu Trúc Chờ Phá", color=color.new(color.orange, 30), linewidth=1, style=plot.style_circles)
+plot(major_low, "Đáy Cấu Trúc Chờ Phá", color=color.new(color.blue, 30), linewidth=1, style=plot.style_circles)
+``

@@ -1,0 +1,199 @@
+//@version=5
+strategy("THANG [Antigravity] - Dual Regime (1 LOT)", overlay=true, initial_capital=10000, default_qty_type=strategy.fixed, default_qty_value=1, currency=currency.USD, commission_type=strategy.commission.cash_per_contract, commission_value=2.5)
+
+// ========================================================================= //
+// 1. CÔNG TẮC CHỌN CHẾ ĐỘ THỊ TRƯỜNG
+// ========================================================================= //
+grp_mode = "=== 1. CÔNG TẮC CHẾ ĐỘ THỊ TRƯỜNG ==="
+regime_mode = input.string("Thủ Công: Sóng Lớn MSS", "Lựa Chọn Chế Độ", options=["Thủ Công: Sóng Lớn MSS", "Thủ Công: Kẹp Biên Sideway", "Tự Động Theo ADX"], group=grp_mode)
+adx_threshold = input.int(22, "Ngưỡng ADX nhận diện Xu hướng (Nếu chọn Tự Động)", group=grp_mode)
+
+grp_mss = "=== 2. CÀI ĐẶT CHẾ ĐỘ SÓNG LỚN (MSS) ==="
+swing_len        = input.int(7, "Độ dài Swing Đỉnh/Đáy Cấu Trúc", minval=3, maxval=20, group=grp_mss)
+mss_use_vol      = input.bool(true, "Lọc Volume nến phá MSS (Cá mập)", group=grp_mss)
+mss_vol_mult     = input.float(1.25, "Hệ số Volume Bùng Nổ", step=0.05, group=grp_mss)
+mss_rr_ratio     = input.float(1.5, "Tỷ lệ R:R Sóng Lớn (Take Profit)", step=0.1, group=grp_mss)
+mss_sl_atr_mult  = input.float(1.3, "SL Hệ số ATR Sóng Lớn", step=0.1, group=grp_mss)
+
+grp_range = "=== 3. CÀI ĐẶT CHẾ ĐỘ KẸP BIÊN (SIDEWAY) ==="
+range_len        = input.int(20, "Số nến dò Đỉnh/Đáy Hộp Sideway", minval=10, maxval=50, group=grp_range)
+range_rr_ratio   = input.float(1.1, "Tỷ lệ R:R Kẹp Biên (Chốt lời nhanh)", step=0.1, group=grp_range)
+range_sl_atr_mult= input.float(0.9, "SL Hệ số ATR Kẹp Biên (SL ngắn)", step=0.1, group=grp_range)
+use_rsi_range    = input.bool(true, "Lọc RSI Quá Mua / Quá Bán", group=grp_range)
+
+grp_h4 = "=== 4. BỘ LỌC XU HƯỚNG H4 ==="
+use_h4 = input.bool(true, "Bật lọc H4 (Chỉ áp dụng cho Chế độ Trend)", group=grp_h4)
+h4_tf  = input.timeframe("240", "Khung H4", group=grp_h4)
+
+// ========================================================================= //
+// 2. NHẬN DIỆN TRẠNG THÁI THỊ TRƯỜNG & BIẾN TOÀN CỤC
+// ========================================================================= //
+[plus_di, minus_di, adx_val] = ta.dmi(14, 14)
+bool is_trending_auto = adx_val >= adx_threshold
+
+bool active_mss_mode   = (regime_mode == "Thủ Công: Sóng Lớn MSS") or (regime_mode == "Tự Động Theo ADX" and is_trending_auto)
+bool active_range_mode = (regime_mode == "Thủ Công: Kẹp Biên Sideway") or (regime_mode == "Tự Động Theo ADX" and not is_trending_auto)
+
+[h4_open, h4_close] = request.security(syminfo.tickerid, h4_tf, [open, close])
+h4_bull = h4_close > h4_open
+atr_val = ta.atr(14)
+rsi_val = ta.rsi(close, 14)
+avg_vol = ta.sma(volume, 50)
+vol_ok  = volume >= (avg_vol * mss_vol_mult)
+
+// Tính toán đỉnh/đáy lịch sử ở global scope để an toàn
+global_lowest_swing  = ta.lowest(low, 20)
+global_highest_swing = ta.highest(high, 20)
+
+// ========================================================================= //
+// 3. LOGIC CHẾ ĐỘ 1: ĐÁNH SÓNG LỚN MSS (TREND / HARVEST)
+// ========================================================================= //
+sw_h = ta.pivothigh(high, swing_len, swing_len)
+sw_l = ta.pivotlow(low, swing_len, swing_len)
+
+var float major_high = na
+var float major_low  = na
+var float high_origin_low = na
+var float low_origin_high = na
+
+if not na(sw_h)
+    major_high := sw_h
+    high_origin_low := global_lowest_swing
+
+if not na(sw_l)
+    major_low := sw_l
+    low_origin_high := global_highest_swing
+
+raw_bull_mss = not na(major_high) and ta.crossover(close, major_high)
+raw_bear_mss = not na(major_low)  and ta.crossunder(close, major_low)
+
+bool bull_mss_break = raw_bull_mss and (not mss_use_vol or vol_ok)
+bool bear_mss_break = raw_bear_mss and (not mss_use_vol or vol_ok)
+
+var float active_bull_mss_lvl = na
+var float bull_mss_sl_ref     = na
+var bool  bull_mss_tested     = true
+
+var float active_bear_mss_lvl = na
+var float bear_mss_sl_ref     = na
+var bool  bear_mss_tested     = true
+
+if bull_mss_break
+    active_bull_mss_lvl := major_high
+    bull_mss_sl_ref     := not na(high_origin_low) ? high_origin_low : (low[swing_len])
+    bull_mss_tested     := false
+    major_high := na
+
+if bear_mss_break
+    active_bear_mss_lvl := major_low
+    bear_mss_sl_ref     := not na(low_origin_high) ? low_origin_high : (high[swing_len])
+    bear_mss_tested     := false
+    major_low := na
+
+bool mss_buy_trig  = false
+bool mss_sell_trig = false
+var float mss_sl = na
+var float mss_tp = na
+
+if active_mss_mode
+    // Retest Bull MSS
+    if not na(active_bull_mss_lvl) and not bull_mss_tested
+        if low <= (active_bull_mss_lvl + 1.0) and close >= (active_bull_mss_lvl - atr_val * 0.5) and (close > open)
+            mss_buy_trig := true
+            bull_mss_tested := true
+            float safe_bull_sl = not na(bull_mss_sl_ref) ? bull_mss_sl_ref : (close - atr_val * mss_sl_atr_mult)
+            mss_sl := math.min(safe_bull_sl, close - atr_val * 0.8)
+            mss_tp := close + ((close - mss_sl) * mss_rr_ratio)
+            active_bull_mss_lvl := na
+
+    // Retest Bear MSS
+    if not na(active_bear_mss_lvl) and not bear_mss_tested
+        if high >= (active_bear_mss_lvl - 1.0) and close <= (active_bear_mss_lvl + atr_val * 0.5) and (close < open)
+            mss_sell_trig := true
+            bear_mss_tested := true
+            float safe_bear_sl = not na(bear_mss_sl_ref) ? bear_mss_sl_ref : (close + atr_val * mss_sl_atr_mult)
+            mss_sl := math.max(safe_bear_sl, close + atr_val * 0.8)
+            mss_tp := close - ((mss_sl - close) * mss_rr_ratio)
+            active_bear_mss_lvl := na
+
+// ========================================================================= //
+// 4. LOGIC CHẾ ĐỘ 2: ĐÁNH KẸP BIÊN SIDEWAY (MEAN REVERSION / WEATHER)
+// ========================================================================= //
+range_high = ta.highest(high, range_len)[1]
+range_low  = ta.lowest(low, range_len)[1]
+range_mid  = (range_high + range_low) / 2.0
+
+candle_rng = high - low
+lower_w = math.min(open, close) - low
+upper_w = high - math.max(open, close)
+lower_w_ratio = candle_rng > 0 ? (lower_w / candle_rng) * 100 : 0
+upper_w_ratio = candle_rng > 0 ? (upper_w / candle_rng) * 100 : 0
+
+bool range_touch_bottom = low <= range_low and close > range_low and (close > open) and lower_w_ratio >= 20.0
+bool rsi_range_buy_ok   = not use_rsi_range or (rsi_val <= 42)
+
+bool range_touch_top    = high >= range_high and close < range_high and (close < open) and upper_w_ratio >= 20.0
+bool rsi_range_sell_ok  = not use_rsi_range or (rsi_val >= 58)
+
+bool range_buy_trig  = false
+bool range_sell_trig = false
+var float range_sl = na
+var float range_tp = na
+
+if active_range_mode
+    if range_touch_bottom and rsi_range_buy_ok
+        range_buy_trig := true
+        range_sl := low - (atr_val * range_sl_atr_mult)
+        range_tp := close + ((close - range_sl) * range_rr_ratio)
+        
+    if range_touch_top and rsi_range_sell_ok
+        range_sell_trig := true
+        range_sl := high + (atr_val * range_sl_atr_mult)
+        range_tp := close - ((range_sl - close) * range_rr_ratio)
+
+// ========================================================================= //
+// 5. THỰC THI LỆNH 1 LOT CHUẨN XÁC
+// ========================================================================= //
+bool final_mss_buy  = active_mss_mode and mss_buy_trig and (not use_h4 or h4_bull)
+bool final_mss_sell = active_mss_mode and mss_sell_trig and (not use_h4 or not h4_bull)
+
+if final_mss_buy and strategy.position_size == 0 and not na(mss_sl) and not na(mss_tp)
+    strategy.entry("BUY_MSS", strategy.long)
+    strategy.exit("TP/SL BUY_MSS", "BUY_MSS", stop=mss_sl, limit=mss_tp)
+
+if final_mss_sell and strategy.position_size == 0 and not na(mss_sl) and not na(mss_tp)
+    strategy.entry("SELL_MSS", strategy.short)
+    strategy.exit("TP/SL SELL_MSS", "SELL_MSS", stop=mss_sl, limit=mss_tp)
+
+if active_range_mode and range_buy_trig and strategy.position_size == 0 and not na(range_sl) and not na(range_tp)
+    strategy.entry("BUY_RANGE", strategy.long)
+    strategy.exit("TP/SL BUY_RNG", "BUY_RANGE", stop=range_sl, limit=range_tp)
+
+if active_range_mode and range_sell_trig and strategy.position_size == 0 and not na(range_sl) and not na(range_tp)
+    strategy.entry("SELL_RANGE", strategy.short)
+    strategy.exit("TP/SL SELL_RNG", "SELL_RANGE", stop=range_sl, limit=range_tp)
+
+// ========================================================================= //
+// 6. GIAO DIỆN TRỰC QUAN & DASHBOARD THEO DÕI
+// ========================================================================= //
+plot(active_mss_mode ? active_bull_mss_lvl : na, "Bull MSS Level", color=color.lime, linewidth=2, style=plot.style_linebr)
+plot(active_mss_mode ? active_bear_mss_lvl : na, "Bear MSS Level", color=color.red, linewidth=2, style=plot.style_linebr)
+
+plot(active_range_mode ? range_high : na, "Đỉnh Hộp Sideway", color=color.new(color.red, 30), linewidth=1, style=plot.style_linebr)
+plot(active_range_mode ? range_low : na, "Đáy Hộp Sideway", color=color.new(color.green, 30), linewidth=1, style=plot.style_linebr)
+plot(active_range_mode ? range_mid : na, "Đường Giữa (Midline)", color=color.new(color.gray, 60), linewidth=1, style=plot.style_dotted)
+
+var table dash = table.new(position.top_right, 2, 3, bgcolor=color.new(color.black, 40), border_color=color.gray, border_width=1)
+if barstate.islast
+    string cur_mode_str = active_mss_mode ? "SÓNG LỚN (MSS TREND)" : "KẸP BIÊN (SIDEWAY)"
+    color cur_mode_clr  = active_mss_mode ? color.orange : color.aqua
+    
+    table.cell(dash, 0, 0, "HỆ THỐNG", text_color=color.yellow, text_size=size.small)
+    table.cell(dash, 1, 0, "DUAL REGIME", text_color=color.yellow, text_size=size.small)
+    
+    table.cell(dash, 0, 1, "Chế Độ:", text_color=color.white, text_size=size.small)
+    table.cell(dash, 1, 1, cur_mode_str, text_color=cur_mode_clr, text_size=size.small)
+    
+    table.cell(dash, 0, 2, "ADX(14):", text_color=color.white, text_size=size.small)
+    table.cell(dash, 1, 2, str.tostring(adx_val, "#.##") + (is_trending_auto ? " [Trend]" : " [Chop]"), text_color=is_trending_auto ? color.green : color.orange, text_size=size.small)
+``
