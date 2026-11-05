@@ -259,7 +259,78 @@ color: #94a3b8;
 line-height: 1.5;
 }
 
-/* Custom Table */
+/* Expandable Trade Accordion Table */
+.trade-table-wrapper {
+width: 100%;
+margin-top: 10px;
+font-size: 13px;
+background: #0f172a;
+border-radius: 8px;
+border: 1px solid #1e293b;
+overflow: hidden;
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+.trade-table-header {
+display: flex;
+align-items: center;
+background-color: #0b1120;
+color: #94a3b8;
+font-weight: 600;
+padding: 12px 16px;
+border-bottom: 1px solid #1e293b;
+user-select: none;
+font-size: 12px;
+}
+.trade-accordion {
+border-bottom: 1px solid #1e293b;
+background: #0f172a;
+transition: background-color 0.15s ease;
+}
+.trade-accordion:last-child {
+border-bottom: none;
+}
+.trade-accordion:hover {
+background-color: #162032;
+}
+.trade-accordion[open] {
+background-color: #0c1424;
+border-left: 3px solid #38bdf8;
+}
+.trade-summary {
+display: flex;
+align-items: center;
+padding: 12px 16px;
+cursor: pointer;
+list-style: none;
+user-select: none;
+}
+.trade-summary:hover {
+background-color: rgba(56, 189, 248, 0.04);
+}
+.trade-summary::-webkit-details-marker {
+display: none;
+}
+.trade-summary::marker {
+display: none;
+}
+.trade-arrow {
+display: inline-block;
+transition: transform 0.2s ease, color 0.2s ease;
+color: #64748b;
+font-size: 12px;
+font-weight: bold;
+}
+.trade-accordion[open] .trade-arrow {
+transform: rotate(180deg);
+color: #38bdf8;
+}
+.trade-detail-content {
+padding: 14px 18px 18px 18px;
+background: #090e17;
+border-top: 1px solid #1e293b;
+}
+
+/* Custom Table (Dùng cho Tab 4) */
 .custom-table {
 width: 100%;
 border-collapse: collapse;
@@ -549,39 +620,10 @@ def format_display_dt(dt_str: str) -> str:
         pass
     return str(dt_str)
 
-# ── HÀM HIỂN THỊ HỘ CHIẾU HÀNH TRÌNH VỊ THẾ (INSPECTOR) ─────────────────────
-def render_trade_inspector(trades, method_key: str):
-    if not trades:
-        return
-        
-    st.markdown("#### 🔍 Hộ Chiếu Hành Trình Vị Thế (Trade Journey Inspector)")
-    st.caption("Chọn bất kỳ vị thế nào để xem toàn bộ lịch trình: Tín hiệu setup ➔ Khớp lệnh ➔ Diễn biến TP1 dời hòa vốn ➔ Đóng lệnh / Trạng thái realtime.")
-    
-    trade_options = []
-    for idx, t in enumerate(trades):
-        res = t.get("result", "-")
-        pnl = t.get("pnl", 0)
-        diff = t.get("diff_points", 0)
-        pnl_str = f"+${pnl:,.0f}" if pnl > 0 else (f"-${abs(pnl):,.0f}" if pnl < 0 else "$0")
-        diff_str = f"+{diff:.2f} pts" if diff > 0 else (f"{diff:.2f} pts" if diff < 0 else "0.00 pts")
-        raw_t = t.get("fill_time") or t.get("signal_time") or t.get("time", "-")
-        t_time = format_display_dt(raw_t)
-        tag_str = f" [{t['tag']}]" if t.get("tag") else ""
-        label = f"#{idx+1:02d} • {t_time} • {t['side']} {t['product']}{tag_str} ➔ {res} ({pnl_str} | {diff_str})"
-        trade_options.append(label)
-        
-    sel_idx = st.selectbox(
-        "👉 Bấm chọn một vị thế để kiểm tra chi tiết hành trình:",
-        range(len(trade_options)),
-        format_func=lambda i: trade_options[i],
-        key=f"inspector_{method_key}"
-    )
-    
-    t = trades[sel_idx]
-    
+# ── HÀM BÓC TÁCH NỘI DUNG HỘ CHIẾU VỊ THẾ KHI XỔ XUỐNG ─────────────────────
+def get_trade_passport_inner_html(t, idx: int) -> str:
     side = t.get("side", "")
     prod = t.get("product", "")
-    comm = t.get("commodity", "")
     res = t.get("result", "")
     pnl = t.get("pnl", 0.0)
     diff = t.get("diff_points", 0.0)
@@ -608,21 +650,21 @@ def render_trade_inspector(trades, method_key: str):
     
     # Status badge HTML
     if res == "ĐANG MỞ":
-        status_badge = "<span style='background:rgba(56, 189, 248, 0.2); color:#38bdf8; border:1px solid #38bdf8; padding:4px 10px; border-radius:6px; font-weight:700;'>🟢 ĐANG MỞ (Active)</span>"
+        status_badge = "<span style='background:rgba(56, 189, 248, 0.2); color:#38bdf8; border:1px solid #38bdf8; padding:3px 8px; border-radius:4px; font-weight:700;'>🟢 ĐANG MỞ (Active)</span>"
     elif res in ["TP1", "TP2", "TP3"]:
-        status_badge = f"<span style='background:rgba(16, 185, 129, 0.2); color:#10b981; border:1px solid #10b981; padding:4px 10px; border-radius:6px; font-weight:700;'>🎯 THẮNG ({res})</span>"
+        status_badge = f"<span style='background:rgba(16, 185, 129, 0.2); color:#10b981; border:1px solid #10b981; padding:3px 8px; border-radius:4px; font-weight:700;'>🎯 THẮNG ({res})</span>"
     elif res == "ENTRY":
-        status_badge = "<span style='background:rgba(107, 114, 128, 0.2); color:#cbd5e1; border:1px solid #6b7280; padding:4px 10px; border-radius:6px; font-weight:700;'>🛡️ HÒA VỐN (ENTRY)</span>"
+        status_badge = "<span style='background:rgba(107, 114, 128, 0.2); color:#cbd5e1; border:1px solid #6b7280; padding:3px 8px; border-radius:4px; font-weight:700;'>🛡️ HÒA VỐN (ENTRY)</span>"
     elif res == "SL":
-        status_badge = "<span style='background:rgba(239, 68, 68, 0.2); color:#ef4444; border:1px solid #ef4444; padding:4px 10px; border-radius:6px; font-weight:700;'>🛑 CẮT LỖ (SL)</span>"
+        status_badge = "<span style='background:rgba(239, 68, 68, 0.2); color:#ef4444; border:1px solid #ef4444; padding:3px 8px; border-radius:4px; font-weight:700;'>🛑 CẮT LỖ (SL)</span>"
     else:
-        status_badge = "<span style='background:rgba(75, 85, 99, 0.2); color:#9ca3af; border:1px solid #4b5563; padding:4px 10px; border-radius:6px; font-weight:700;'>⏳ CHƯA KHỚP (Đã hủy)</span>"
+        status_badge = "<span style='background:rgba(75, 85, 99, 0.2); color:#9ca3af; border:1px solid #4b5563; padding:3px 8px; border-radius:4px; font-weight:700;'>⏳ CHƯA KHỚP (Đã hủy)</span>"
 
-    # Step 1: Phát hiện tín hiệu
+    # Step 1
     step1_title = f"Bước 1: Phát hiện tín hiệu Setup ({sig_time})"
     step1_desc = f"<b>Điều kiện kích hoạt:</b> {reason}"
     
-    # Step 2: Khớp lệnh
+    # Step 2
     if fill_time:
         step2_title = f"Bước 2: Khớp lệnh thành công ({fill_time})"
         step2_desc = f"Vị thế <b>{side} {prod}</b> đã khớp tại mức giá <b>{entry_p:.2f}</b>. Stop Loss ban đầu thiết lập tại <b>{sl_p:.2f}</b> (Biên rủi ro: {risk_pts:.2f} pts = ${risk_pts*50:,.0f} USD)."
@@ -632,13 +674,13 @@ def render_trade_inspector(trades, method_key: str):
         step2_desc = f"Hệ thống treo lệnh Limit <b>{side} {prod}</b> tại giá <b>{entry_p:.2f}</b>. Thị trường không quay lại đón khớp trong vòng 24 nến (24 giờ) ➔ Đã tự động hủy lệnh lúc {exit_time} để bảo toàn vốn."
         step2_icon = "⏳"
 
-    # Step 3: Quản lý vị thế & Dời SL
+    # Step 3
     if hit_tp1_time:
         step3_title = f"Bước 3: Chạm TP1 (1.0R) & Tự Động Dời SL Về Hòa Vốn ({hit_tp1_time})"
         step3_desc = f"Giá thị trường đã chạm mốc <b>TP1 ({tp1_p:.2f})</b>. Hệ thống tự động kích hoạt cơ chế bảo vệ vốn: Dời Stop Loss từ mức ban đầu <b>{sl_p:.2f}</b> về ngay điểm vào lệnh <b>{entry_p:.2f} (Breakeven)</b>, đưa vị thế về trạng thái an toàn tuyệt đối (Risk-Free)."
         step3_icon = "🛡️"
     elif res == "CHƯA KHỚP":
-        step3_title = "Bước 3: Không phát sinh diễn biến (Lệnh chưa khớp)"
+        step3_title = "Bước 3: Không phát sinh vị thế (Lệnh chưa khớp)"
         step3_desc = "Do lệnh Limit không khớp nên không phát sinh vị thế mở trên thị trường."
         step3_icon = "⚪"
     else:
@@ -646,7 +688,7 @@ def render_trade_inspector(trades, method_key: str):
         step3_desc = f"Giá dao động trong biên độ giữa mức cắt lỗ <b>SL ({sl_p:.2f})</b> và mốc <b>TP1 ({tp1_p:.2f})</b>, chưa kích hoạt dời hòa vốn."
         step3_icon = "📊"
 
-    # Step 4: Đóng lệnh & Kết quả
+    # Step 4
     if res == "ĐANG MỞ":
         step4_title = f"Bước 4: Vị thế đang chạy Realtime (Đã giữ {bars} nến ~ {bars} giờ)"
         step4_desc = f"<b>Giá thị trường hiện tại:</b> <b style='color:#38bdf8; font-size:14px;'>{exit_p:.2f}</b> • Lợi nhuận tạm tính: <b style='color:{pnl_color}; font-size:14px;'>{pnl_sign}${pnl:,.0f} ({diff_sign}{diff:.2f} pts)</b>.<br>{exit_desc}"
@@ -660,45 +702,45 @@ def render_trade_inspector(trades, method_key: str):
         step4_desc = f"<b>Giá đóng thực tế:</b> <b>{exit_p:.2f}</b> • Kết quả ròng: <b style='color:{pnl_color}; font-size:14px;'>{pnl_sign}${pnl:,.0f} USD ({diff_sign}{diff:.2f} pts)</b>.<br><b>Nhật ký:</b> {exit_desc}"
         step4_icon = "🏁"
 
-    passport_html = f"""
-    <div class='passport-card'>
-      <div class='passport-header'>
+    return f"""
+    <div style='background:rgba(15, 23, 42, 0.7); border:1px solid #1e293b; border-radius:8px; padding:14px 16px;'>
+      <div style='display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1e293b; padding-bottom:10px; margin-bottom:12px;'>
         <div>
-          <span style='font-size:18px; font-weight:800; color:#f8fafc;'>{prod} • <span style='color:{side_color};'>{side}</span></span>
-          <span style='margin-left:8px; font-size:12px; color:#94a3b8; font-family:monospace;'>⏱ Khớp: {fill_time or 'Chưa khớp'}</span>
+          <span style='font-size:15px; font-weight:800; color:#f8fafc;'>HỘ CHIẾU VỊ THẾ #{idx+1:02d} • {prod} <span style='color:{side_color};'>({side})</span></span>
+          <span style='margin-left:8px; font-size:11px; color:#94a3b8; font-family:monospace;'>⏱ Khớp: {fill_time or 'Chưa khớp'}</span>
         </div>
-        <div style='display:flex; align-items:center; gap:10px;'>
+        <div style='display:flex; align-items:center; gap:8px;'>
           {status_badge}
-          <span style='font-size:18px; font-weight:800; color:{pnl_color}; font-family:monospace;'>{pnl_sign}${pnl:,.0f}</span>
+          <span style='font-size:15px; font-weight:800; color:{pnl_color}; font-family:monospace;'>{pnl_sign}${pnl:,.0f}</span>
         </div>
       </div>
       
       <div class='passport-grid'>
         <div class='passport-metric'>
-          <div style='font-size:11px; color:#94a3b8; text-transform:uppercase;'>Giá Vào (Entry)</div>
-          <div style='font-size:16px; font-weight:700; color:#f8fafc; font-family:monospace;'>{entry_p:.2f}</div>
+          <div style='font-size:10px; color:#94a3b8; text-transform:uppercase;'>Giá Vào (Entry)</div>
+          <div style='font-size:15px; font-weight:700; color:#f8fafc; font-family:monospace;'>{entry_p:.2f}</div>
           <div style='font-size:11px; color:#64748b;'>{fill_time or 'Lệnh Limit'}</div>
         </div>
         <div class='passport-metric'>
-          <div style='font-size:11px; color:#94a3b8; text-transform:uppercase;'>Cắt Lỗ Ban Đầu (SL)</div>
-          <div style='font-size:16px; font-weight:700; color:#ef4444; font-family:monospace;'>{sl_p:.2f}</div>
+          <div style='font-size:10px; color:#94a3b8; text-transform:uppercase;'>Cắt Lỗ Ban Đầu (SL)</div>
+          <div style='font-size:15px; font-weight:700; color:#ef4444; font-family:monospace;'>{sl_p:.2f}</div>
           <div style='font-size:11px; color:#f87171;'>Rủi ro: {risk_pts:.2f} pts (${risk_pts*50:,.0f})</div>
         </div>
         <div class='passport-metric'>
-          <div style='font-size:11px; color:#94a3b8; text-transform:uppercase;'>Mục Tiêu TP (1R / 1.5R / 2R)</div>
-          <div style='font-size:13px; font-weight:700; color:#34d399; font-family:monospace;'>
+          <div style='font-size:10px; color:#94a3b8; text-transform:uppercase;'>Mục Tiêu TP (1R / 1.5R / 2R)</div>
+          <div style='font-size:12px; font-weight:700; color:#34d399; font-family:monospace;'>
             TP1: {tp1_p:.2f} | TP2: {tp2_p:.2f}<br>TP3 (Max): {tp3_p:.2f}
           </div>
-          <div style='font-size:11px; color:#10b981;'>TP1 kích hoạt dời SL hòa vốn</div>
+          <div style='font-size:10px; color:#10b981;'>TP1 kích hoạt dời SL hòa vốn</div>
         </div>
         <div class='passport-metric'>
-          <div style='font-size:11px; color:#94a3b8; text-transform:uppercase;'>Giá Đóng / Hiện Tại</div>
-          <div style='font-size:16px; font-weight:700; color:{pnl_color}; font-family:monospace;'>{exit_p if exit_p else '—'}</div>
+          <div style='font-size:10px; color:#94a3b8; text-transform:uppercase;'>Giá Đóng / Hiện Tại</div>
+          <div style='font-size:15px; font-weight:700; color:{pnl_color}; font-family:monospace;'>{exit_p if exit_p else '—'}</div>
           <div style='font-size:11px; color:#64748b;'>Đã giữ: {bars} nến ({bars}h)</div>
         </div>
       </div>
       
-      <div style='font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:10px;'>📜 HÀNH TRÌNH VỊ THẾ TỪNG BƯỚC (TRADE JOURNEY TIMELINE):</div>
+      <div style='font-size:12px; font-weight:700; color:#cbd5e1; margin-bottom:8px;'>📜 HÀNH TRÌNH VỊ THẾ TỪNG BƯỚC:</div>
       <div class='timeline-flow'>
         <div class='timeline-step'>
           <div class='timeline-step-icon'>🕒</div>
@@ -731,24 +773,22 @@ def render_trade_inspector(trades, method_key: str):
       </div>
     </div>
     """
-    st.html(passport_html)
 
-# ── HÀM HIỂN THỊ BẢNG TÍN HIỆU ──────────────────────────────────────────────
+# ── HÀM HIỂN THỊ BẢNG TÍN HIỆU VỚI MŨI TÊN XỔ XUỐNG CHI TIẾT (ACCORDION TABLE) ────
 def render_trade_table(trades, show_tag: bool = False):
     if not trades:
         st.info("Không có tín hiệu nào phù hợp với bộ lọc hiện tại.")
         return
 
     banner_html = """
-    <div style='background:rgba(56, 189, 248, 0.08); border-left:3px solid #38bdf8; padding:10px 14px; border-radius:6px; font-size:12px; color:#cbd5e1; margin:8px 0 14px 0; line-height:1.6;'>
-      💡 <b>Ý nghĩa Hệ số Quy đổi $50/pt & Điểm chênh lệch:</b> Hợp đồng chuẩn CBOT Lúa Mì (ZW) và Ngô (ZC) có quy mô <b>5,000 giạ (bushels)</b>. 
-      Biến động 1 cent (1 point / pt) = <b>$50 USD</b>. 
-      <br><b>Công thức tính:</b> <code style='color:#38bdf8; background:#0f172a; padding:2px 6px; border-radius:4px;'>Lợi Nhuận ($) = Điểm Chênh Lệch (pts) × Hệ Số ($50) × Khối lượng (1 HĐ)</code>
+    <div style='background:rgba(56, 189, 248, 0.08); border-left:3px solid #38bdf8; padding:10px 14px; border-radius:6px; font-size:12px; color:#cbd5e1; margin:8px 0 12px 0; line-height:1.6;'>
+      💡 <b>Hướng dẫn tương tác:</b> Bấm vào bất kỳ dòng lệnh nào (hoặc biểu tượng mũi tên <b style='color:#38bdf8;'>▼</b> ở cuối dòng) để <b>xổ xuống xem toàn bộ Hành Trình Lệnh</b> (Giá vào, SL ban đầu, TP đa tầng, Timeline từng bước).
+      <br><span style='color:#94a3b8;'>Hệ số CBOT $50/pt: Biến động 1 point = $50 USD. Công thức: Lợi Nhuận ($) = Điểm (pts) × $50.</span>
     </div>
     """
     st.html(banner_html)
 
-    rows = []
+    rows_html = []
     for idx, t in enumerate(trades):
         side_badge = "<span class='badge-sell'>Bán</span>" if t["side"] == "BÁN" else "<span class='badge-buy'>Mua</span>"
         
@@ -798,40 +838,56 @@ def render_trade_table(trades, show_tag: bool = False):
         tag_html = ""
         if show_tag and t.get("tag"):
             tag_color = "#38bdf8" if "Trend" in t["tag"] else "#f59e0b"
-            tag_html = f" <span style='font-size:11px; color:{tag_color}; border:1px solid {tag_color}55; padding:1px 5px; border-radius:4px;'>{t['tag']}</span>"
+            tag_html = f" <span style='font-size:11px; color:{tag_color}; border:1px solid {tag_color}55; padding:1px 4px; border-radius:4px;'>{t['tag']}</span>"
             
         raw_dt = t.get("fill_time") or t.get("signal_time") or t.get("time", "")
         display_time = format_display_dt(raw_dt)
         
-        row = (
-            f"<tr>"
-            f"<td style='color:#64748b; font-family:monospace; text-align:center;'>#{idx+1}</td>"
-            f"<td style='color:#cbd5e1; font-family:monospace; font-size:12px;'>{display_time}</td>"
-            f"<td>{side_badge}</td>"
-            f"<td><b style='color:#f8fafc;'>{t['product']}</b>{tag_html}</td>"
-            f"<td>{res_badge}</td>"
-            f"<td style='font-family:monospace; font-weight:600;'>{entry_str}</td>"
-            f"<td style='font-family:monospace; font-weight:600;'>{exit_str}</td>"
-            f"<td style='text-align:center; font-family:monospace;'>{diff_html}</td>"
-            f"<td style='text-align:center; font-family:monospace; color:#94a3b8;'>$50/pt</td>"
-            f"<td style='font-family:monospace; text-align:right;'>{pnl_html}</td>"
-            f"</tr>"
-        )
-        rows.append(row)
+        passport_content = get_trade_passport_inner_html(t, idx)
         
-    tbody = "".join(rows)
-    table_html = (
-        f"<table class='custom-table'>"
-        f"<thead><tr>"
-        f"<th style='text-align:center; width:45px;'>#</th>"
-        f"<th>Ngày & Giờ</th><th>Vị thế</th><th>Sản phẩm</th><th>Trạng thái</th>"
-        f"<th>Giá vào</th><th>Giá đóng / Hiện tại</th><th style='text-align:center;'>Chênh lệch (Pts)</th>"
-        f"<th style='text-align:center;'>Hệ số</th><th style='text-align:right;'>Lợi nhuận</th>"
-        f"</tr></thead>"
-        f"<tbody>{tbody}</tbody>"
-        f"</table>"
+        row_accordion = (
+            f"<details class='trade-accordion'>"
+            f"<summary class='trade-summary'>"
+            f"<div style='width:36px; text-align:center; color:#64748b; font-family:monospace;'>#{idx+1}</div>"
+            f"<div style='width:130px; color:#cbd5e1; font-family:monospace; font-size:12px;'>{display_time}</div>"
+            f"<div style='width:70px;'>{side_badge}</div>"
+            f"<div style='width:115px;'><b style='color:#f8fafc;'>{t['product']}</b>{tag_html}</div>"
+            f"<div style='width:105px;'>{res_badge}</div>"
+            f"<div style='width:80px; font-family:monospace; font-weight:600;'>{entry_str}</div>"
+            f"<div style='width:90px; font-family:monospace; font-weight:600;'>{exit_str}</div>"
+            f"<div style='width:90px; text-align:center; font-family:monospace;'>{diff_html}</div>"
+            f"<div style='width:65px; text-align:center; color:#94a3b8; font-family:monospace;'>$50/pt</div>"
+            f"<div style='flex:1; text-align:right; font-family:monospace; padding-right:12px;'>{pnl_html}</div>"
+            f"<div style='width:30px; text-align:center;'><span class='trade-arrow'>▼</span></div>"
+            f"</summary>"
+            f"<div class='trade-detail-content'>"
+            f"{passport_content}"
+            f"</div>"
+            f"</details>"
+        )
+        rows_html.append(row_accordion)
+        
+    full_table_html = (
+        f"<div style='overflow-x:auto; margin-bottom:16px;'>"
+        f"<div class='trade-table-wrapper' style='min-width:880px;'>"
+        f"<div class='trade-table-header'>"
+        f"<div style='width:36px; text-align:center;'>#</div>"
+        f"<div style='width:130px;'>Ngày & Giờ Khớp</div>"
+        f"<div style='width:70px;'>Vị thế</div>"
+        f"<div style='width:115px;'>Sản phẩm</div>"
+        f"<div style='width:105px;'>Trạng thái</div>"
+        f"<div style='width:80px;'>Giá vào</div>"
+        f"<div style='width:90px;'>Giá đóng/Live</div>"
+        f"<div style='width:90px; text-align:center;'>Điểm (Pts)</div>"
+        f"<div style='width:65px; text-align:center;'>Hệ số</div>"
+        f"<div style='flex:1; text-align:right; padding-right:12px;'>Lợi nhuận ($)</div>"
+        f"<div style='width:30px; text-align:center; color:#38bdf8;' title='Bấm mũi tên để xổ xuống'>Chi tiết</div>"
+        f"</div>"
+        f"{''.join(rows_html)}"
+        f"</div>"
+        f"</div>"
     )
-    st.html(table_html)
+    st.html(full_table_html)
 
 # ── BIỂU ĐỒ EQUITY CURVE ────────────────────────────────────────────────────
 def render_equity_chart(trades, method_name):
@@ -907,9 +963,7 @@ with tab1:
     
     render_kpi_cards(m1_metrics, time_filter)
     
-    st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m1_trades)}</b> trên <b>{len(m1_trades)}</b> tín hiệu</div>")
-    render_trade_inspector(m1_trades, method_key="m1")
-    st.html("<div style='height:14px'></div>")
+    st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m1_trades)}</b> trên <b>{len(m1_trades)}</b> tín hiệu (Bấm vào dòng lệnh hoặc mũi tên <b style='color:#38bdf8;'>▼</b> để xem chi tiết)</div>")
     render_trade_table(m1_trades)
     st.html("<div style='height:20px'></div>")
     render_equity_chart(m1_trades, "Phương Pháp 1 (ICT Trend Pullback)")
@@ -928,9 +982,7 @@ with tab2:
     
     render_kpi_cards(m2_metrics, time_filter)
     
-    st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m2_trades)}</b> trên <b>{len(m2_trades)}</b> tín hiệu</div>")
-    render_trade_inspector(m2_trades, method_key="m2")
-    st.html("<div style='height:14px'></div>")
+    st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m2_trades)}</b> trên <b>{len(m2_trades)}</b> tín hiệu (Bấm vào dòng lệnh hoặc mũi tên <b style='color:#38bdf8;'>▼</b> để xem chi tiết)</div>")
     render_trade_table(m2_trades)
     st.html("<div style='height:20px'></div>")
     render_equity_chart(m2_trades, "Phương Pháp 2 (SMC Zone Reversal)")
@@ -950,9 +1002,7 @@ with tab3:
     
     render_kpi_cards(m3_metrics, time_filter)
     
-    st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m3_trades)}</b> trên <b>{len(m3_trades)}</b> tín hiệu (Đã gắn nhãn cơ chế kích hoạt)</div>")
-    render_trade_inspector(m3_trades, method_key="m3")
-    st.html("<div style='height:14px'></div>")
+    st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m3_trades)}</b> trên <b>{len(m3_trades)}</b> tín hiệu (Đã gắn nhãn • Bấm vào dòng lệnh hoặc mũi tên <b style='color:#38bdf8;'>▼</b> để xem chi tiết)</div>")
     render_trade_table(m3_trades, show_tag=True)
     st.html("<div style='height:20px'></div>")
     render_equity_chart(m3_trades, "Phương Pháp 3 (Chiến Lược Hybrid M1 + M2)")
