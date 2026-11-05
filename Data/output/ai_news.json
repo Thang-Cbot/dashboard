@@ -1,47 +1,59 @@
 {
-  "timestamp": "2026-11-04 10:45:37",
+  "timestamp": "2026-11-05 21:58:49",
   "news": [],
   "intraday": {
     "ZW": {
       "bias": "Neutral",
       "bias_vn": "Đi Ngang",
-      "summary": "Chưa đủ dữ liệu để nhận định intraday ZW",
+      "summary": "ZW hồi phục nhẹ nhưng áp lực bán từ Smart Money và thời tiết thuận lợi vẫn đè nặng.",
       "key_levels": {
-        "support": "N/A",
-        "resistance": "N/A"
+        "support": "600.0",
+        "resistance": "610.0"
       },
       "reasoning": [
-        "Đang chờ cập nhật dữ liệu"
+        "Mưa US Plains hỗ trợ cây trồng, giảm rủi ro thời tiết, tạo áp lực giảm giá.",
+        "Cung cầu ổn định, thị trường chờ đợi báo cáo USDA mới về tồn kho.",
+        "Vị thế COT Smart Money NHOI SHORT mạnh, cho thấy xu hướng giảm dài hạn.",
+        "Tin tức Biển Đen đã bão hòa, tác động địa chính trị không đáng kể.",
+        "Giá hồi phục kỹ thuật nhẹ, nhưng chưa đủ mạnh để phá vỡ kháng cự."
       ],
-      "risk": "N/A",
-      "generated_at": "2026-11-04 10:45"
+      "risk": "Rủi ro chính là sự thay đổi đột ngột về dự báo thời tiết hoặc động thái từ Smart Money.",
+      "generated_at": "2026-11-05 21:58"
     },
     "ZC": {
-      "bias": "Neutral",
-      "bias_vn": "Đi Ngang",
-      "summary": "Chưa đủ dữ liệu để nhận định intraday ZC",
+      "bias": "Bullish",
+      "bias_vn": "Tăng",
+      "summary": "ZC tăng nhẹ nhờ lo ngại thời tiết khô hạn Corn Belt, dù Smart Money có dấu hiệu chốt lời.",
       "key_levels": {
-        "support": "N/A",
-        "resistance": "N/A"
+        "support": "445.0",
+        "resistance": "450.0"
       },
       "reasoning": [
-        "Đang chờ cập nhật dữ liệu"
+        "Thời tiết khô ráo tại Corn Belt làm tăng lo ngại về năng suất, hỗ trợ giá.",
+        "Nhu cầu ổn định, thị trường theo dõi sát sao tiến độ thu hoạch và xuất khẩu.",
+        "Vị thế COT Smart Money XA LONG, có thể đang chốt lời nhưng vẫn duy trì mua.",
+        "Tác động địa chính trị từ Biển Đen đã bão hòa, không còn là yếu tố chính.",
+        "Giá duy trì xu hướng tăng nhẹ, có thể kiểm tra lại các mức kháng cự gần."
       ],
-      "risk": "N/A",
-      "generated_at": "2026-11-04 10:45"
+      "risk": "Rủi ro chính là dự báo thời tiết thay đổi tích cực hoặc áp lực bán mạnh từ các quỹ.",
+      "generated_at": "2026-11-05 21:58"
     },
     "bias": "Neutral",
     "bias_vn": "Đi Ngang",
-    "summary": "Chưa đủ dữ liệu để nhận định",
+    "summary": "ZW hồi phục nhẹ nhưng áp lực bán từ Smart Money và thời tiết thuận lợi vẫn đè nặng.",
     "key_levels": {
-      "support": "N/A",
-      "resistance": "N/A"
+      "support": "600.0",
+      "resistance": "610.0"
     },
     "reasoning": [
-      "Đang chờ cập nhật dữ liệu"
+      "Mưa US Plains hỗ trợ cây trồng, giảm rủi ro thời tiết, tạo áp lực giảm giá.",
+      "Cung cầu ổn định, thị trường chờ đợi báo cáo USDA mới về tồn kho.",
+      "Vị thế COT Smart Money NHOI SHORT mạnh, cho thấy xu hướng giảm dài hạn.",
+      "Tin tức Biển Đen đã bão hòa, tác động địa chính trị không đáng kể.",
+      "Giá hồi phục kỹ thuật nhẹ, nhưng chưa đủ mạnh để phá vỡ kháng cự."
     ],
-    "risk": "N/A",
-    "generated_at": "2026-11-04 10:45"
+    "risk": "Rủi ro chính là sự thay đổi đột ngột về dự báo thời tiết hoặc động thái từ Smart Money.",
+    "generated_at": "2026-11-05 21:58"
   },
   "categories": [
     "dia_chinh_tri",

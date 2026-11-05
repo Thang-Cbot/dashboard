@@ -48,9 +48,9 @@
       "updated_at": "2026-11-05 12:30:56"
     },
     "ai_news": {
-      "status": "[ERROR]",
-      "detail": "Failed after 1 attempts",
-      "updated_at": "2026-11-05 13:02:50"
+      "status": "[OK]",
+      "detail": "Auto-fetch 21:59:49",
+      "updated_at": "2026-11-05 21:59:49"
     },
     "github_sync": {
       "status": "[OK]",
