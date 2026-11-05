@@ -33,6 +33,7 @@ sys.path.insert(0, str(BASE_DIR / "Data"))
 
 import technical_analysis
 import ict_engine
+import tv_webhook_client
 
 BACKTEST_RESULT_FILE = DATA_OUTPUT / "live_signals_backtest.json"
 CACHE_90D_ZC = DATA_OUTPUT / "ZC_90d_H1.csv"
@@ -104,7 +105,10 @@ def fetch_or_load_90d(commodity_code: str, force_download: bool = False) -> list
         "EMA_21": "ema21", "EMA_50": "ema50", "RSI": "rsi", "ATR": "atr",
         "S1": "s1", "S2": "s2", "R1": "r1", "R2": "r2"
     })
-    return df_ict.to_dict("records")
+    candles = df_ict.to_dict("records")
+    # Ghép dữ liệu nến M5 Realtime từ TradingView Webhook (nếu có)
+    candles = tv_webhook_client.merge_realtime_m5_into_candles(candles, commodity_code)
+    return candles
 
 
 def simulate_method_1(candles: list, commodity: str) -> list:

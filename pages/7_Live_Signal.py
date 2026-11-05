@@ -24,6 +24,7 @@ BACKTEST_FILE = DATA_OUTPUT / "live_signals_backtest.json"
 sys.path.insert(0, str(BASE_DIR))
 
 import backtest_engine
+import tv_webhook_client
 
 # ── CẤU HÌNH TRANG ─────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -282,10 +283,66 @@ with col_header:
 with col_actions:
     st.html("<div style='height:14px'></div>")
     if st.button("🔄 Cập Nhật & Test Lại (90d)", use_container_width=True, type="primary"):
-        with st.spinner("Đang tải dữ liệu H1 từ Yahoo và chạy lại toàn bộ mô phỏng 90 ngày..."):
+        with st.spinner("Đang tải dữ liệu H1 + Nến M5 Realtime và chạy lại mô phỏng 90 ngày..."):
             backtest_engine.run_full_backtest(force_download=True)
             st.cache_data.clear()
             st.rerun()
+
+# ── TRẠM NHẬN NẾN M5 REALTIME TỪ TRADINGVIEW WEBHOOK ─────────────────────────
+current_webhook_url = tv_webhook_client.get_webhook_url()
+rt_m5_data = tv_webhook_client.fetch_realtime_m5(timeout=3) if current_webhook_url else tv_webhook_client.load_cached_m5()
+rt_symbols = rt_m5_data.get("symbols", {})
+
+if rt_symbols:
+    cards_m5 = []
+    for sym_key, label_name in [("ZW", "🌾 Lúa Mì (ZWAZ26)"), ("ZC", "🌽 Ngô (ZCEZ26)")]:
+        s_info = rt_symbols.get(sym_key, {})
+        m5 = s_info.get("latest_m5")
+        h1_form = s_info.get("forming_h1")
+        if m5:
+            c_val = m5.get("close", 0)
+            o_val = m5.get("open", 0)
+            h_val = m5.get("high", 0)
+            l_val = m5.get("low", 0)
+            t_val = str(m5.get("time", ""))[:19].replace("T", " ")
+            m5_cnt = h1_form.get("m5_count", 1) if h1_form else 1
+            color_c = "#10b981" if c_val >= o_val else "#ef4444"
+            cards_m5.append(
+                f"<div style='background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:10px 14px; flex:1;'>"
+                f"<div style='display:flex; justify-content:space-between; align-items:center;'>"
+                f"<b style='color:#f8fafc; font-size:13px;'>{label_name} • <span style='color:#38bdf8;'>Nến M5 Realtime</span></b>"
+                f"<span style='font-size:11px; color:#64748b;'>⏱ {t_val} ({m5_cnt} nến M5/giờ)</span>"
+                f"</div>"
+                f"<div style='margin-top:6px; font-family:monospace; font-size:13px; color:#cbd5e1;'>"
+                f"Giá khớp: <b style='color:{color_c}; font-size:16px;'>{c_val}</b> &nbsp;|&nbsp; "
+                f"O: <b>{o_val}</b> • H: <b>{h_val}</b> • L: <b>{l_val}</b>"
+                f"</div></div>"
+            )
+    if cards_m5:
+        st.html("<div style='display:flex; gap:12px; margin-bottom:14px;'>" + "".join(cards_m5) + "</div>")
+
+with st.expander("📡 Cấu Hình & Nhận Nến M5 Realtime Từ TradingView Webhook (0 Độ Trễ)", expanded=not bool(current_webhook_url)):
+    c_wh1, c_wh2 = st.columns([3.5, 1])
+    with c_wh1:
+        new_wh_url = st.text_input(
+            "Link Google Apps Script Web App URL (https://script.google.com/macros/s/.../exec)",
+            value=current_webhook_url,
+            placeholder="Dán link Web App URL từ Google Apps Script vào đây..."
+        )
+    with c_wh2:
+        st.html("<div style='height:28px'></div>")
+        if st.button("💾 Lưu & Đồng Bộ M5", use_container_width=True):
+            if tv_webhook_client.save_webhook_url(new_wh_url):
+                st.success("✅ Đã lưu URL Webhook M5! Đang cập nhật lại tín hiệu...")
+                backtest_engine.run_full_backtest(force_download=False)
+                st.cache_data.clear()
+                st.rerun()
+    st.html("""
+    <div style='font-size:12px; color:#94a3b8; line-height:1.6;'>
+    💡 <b>Cơ chế:</b> TradingView (khung <b>5 phút - M5</b>) bắn JSON về link Google Script mỗi khi đóng nến M5. 
+    Hệ thống tự động gom các nến M5 thành nến H1 đang chạy (Forming H1) để kích hoạt điểm vào lệnh <b>Entry / TP / SL</b> tức thời mà không bị trễ 15 phút.
+    </div>
+    """)
 
 # ── BỘ LỌC CHUNG ────────────────────────────────────────────────────────────
 col_f1, col_f2, col_f3, col_f4 = st.columns([1.2, 1.2, 1.2, 1.5])
