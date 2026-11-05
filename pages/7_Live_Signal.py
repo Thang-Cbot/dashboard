@@ -254,10 +254,23 @@ st.sidebar.page_link("pages/7_Live_Signal.py",  label="🎯 Live Signal & Hiệu
 st.sidebar.page_link("pages/8_System_Logs.py",  label="⚙️ System Logs")
 st.sidebar.markdown("---")
 
-# ── NẠP DỮ LIỆU BACKTEST ───────────────────────────────────────────────────
+# ── TỰ ĐỘNG LÀM MỚI MỖI 5 PHÚT (THEO CHU KỲ NẾN M5) ─────────────────────────
+try:
+    from streamlit_autorefresh import st_autorefresh
+    st_autorefresh(interval=300_000, key="m5_live_signal_refresh")
+except Exception:
+    pass
+
+# ── TRẠM NHẬN NẾN M5 REALTIME TỪ TRADINGVIEW WEBHOOK ─────────────────────────
+current_webhook_url = tv_webhook_client.get_webhook_url()
+rt_m5_data = tv_webhook_client.fetch_realtime_m5(timeout=3) if current_webhook_url else tv_webhook_client.load_cached_m5()
+rt_symbols = rt_m5_data.get("symbols", {})
+rt_updated_at = rt_m5_data.get("updated_at", "")
+
+# ── NẠP DỮ LIỆU BACKTEST (TỰ CẬP NHẬT KHI CÓ NẾN M5 MỚI) ───────────────────
 @st.cache_data(ttl=60)
-def load_backtest_data():
-    if not BACKTEST_FILE.exists():
+def load_backtest_data(m5_timestamp: str = ""):
+    if not BACKTEST_FILE.exists() or m5_timestamp:
         backtest_engine.run_full_backtest(force_download=False)
     try:
         with open(BACKTEST_FILE, "r", encoding="utf-8") as f:
@@ -266,7 +279,7 @@ def load_backtest_data():
         st.error(f"Lỗi nạp dữ liệu backtest: {e}")
         return {}
 
-data = load_backtest_data()
+data = load_backtest_data(rt_updated_at)
 
 # ── HEADER & THANH ĐIỀU KHIỂN ──────────────────────────────────────────────
 col_header, col_actions = st.columns([3, 1])
@@ -274,10 +287,10 @@ with col_header:
     st.html("""
     <div style='display:flex; align-items:center; gap:12px; margin-bottom:4px;'>
     <div style='font-size:28px; font-weight:800; color:#f8fafc;'>Invest<span style='color:#f59e0b;'>X</span> • Live Signal</div>
-    <span style='background:#1e293b; color:#38bdf8; font-size:12px; font-weight:700; padding:4px 10px; border-radius:6px; border:1px solid #0284c7;'>CQG SIMULATION</span>
+    <span style='background:#1e293b; color:#38bdf8; font-size:12px; font-weight:700; padding:4px 10px; border-radius:6px; border:1px solid #0284c7;'>CQG SIMULATION • M5 REALTIME</span>
     </div>
     <div style='font-size:20px; font-weight:700; color:#f1f5f9; margin-bottom:2px;'>Lịch sử & Thống kê hiệu suất</div>
-    <div style='font-size:13px; color:#94a3b8; margin-bottom:18px;'>Kết quả các tín hiệu vào lệnh mô phỏng theo dữ liệu giá thực tế CBOT trong 90 ngày qua</div>
+    <div style='font-size:13px; color:#94a3b8; margin-bottom:18px;'>Kết quả các tín hiệu vào lệnh mô phỏng theo dữ liệu giá thực tế CBOT trong 90 ngày qua (Cập nhật tự động theo nến M5)</div>
     """)
 
 with col_actions:
@@ -287,11 +300,6 @@ with col_actions:
             backtest_engine.run_full_backtest(force_download=True)
             st.cache_data.clear()
             st.rerun()
-
-# ── TRẠM NHẬN NẾN M5 REALTIME TỪ TRADINGVIEW WEBHOOK ─────────────────────────
-current_webhook_url = tv_webhook_client.get_webhook_url()
-rt_m5_data = tv_webhook_client.fetch_realtime_m5(timeout=3) if current_webhook_url else tv_webhook_client.load_cached_m5()
-rt_symbols = rt_m5_data.get("symbols", {})
 
 if rt_symbols:
     cards_m5 = []
@@ -304,17 +312,17 @@ if rt_symbols:
             o_val = m5.get("open", 0)
             h_val = m5.get("high", 0)
             l_val = m5.get("low", 0)
-            t_val = str(m5.get("time", ""))[:19].replace("T", " ")
+            t_val = m5.get("time_vn") or str(m5.get("time", ""))[:19].replace("T", " ")
             m5_cnt = h1_form.get("m5_count", 1) if h1_form else 1
             color_c = "#10b981" if c_val >= o_val else "#ef4444"
             cards_m5.append(
                 f"<div style='background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:10px 14px; flex:1;'>"
                 f"<div style='display:flex; justify-content:space-between; align-items:center;'>"
-                f"<b style='color:#f8fafc; font-size:13px;'>{label_name} • <span style='color:#38bdf8;'>Nến M5 Realtime</span></b>"
-                f"<span style='font-size:11px; color:#64748b;'>⏱ {t_val} ({m5_cnt} nến M5/giờ)</span>"
+                f"<b style='color:#f8fafc; font-size:13px;'>{label_name} • <span style='color:#10b981;'>🟢 Đã Kết Nối M5 Realtime</span></b>"
+                f"<span style='font-size:11px; color:#94a3b8;'>⏱ {t_val} (Giờ VN • {m5_cnt} nến M5/giờ)</span>"
                 f"</div>"
                 f"<div style='margin-top:6px; font-family:monospace; font-size:13px; color:#cbd5e1;'>"
-                f"Giá khớp: <b style='color:{color_c}; font-size:16px;'>{c_val}</b> &nbsp;|&nbsp; "
+                f"Giá M5: <b style='color:{color_c}; font-size:16px;'>{c_val}</b> &nbsp;|&nbsp; "
                 f"O: <b>{o_val}</b> • H: <b>{h_val}</b> • L: <b>{l_val}</b>"
                 f"</div></div>"
             )

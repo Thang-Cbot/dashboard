@@ -4,8 +4,9 @@ tv_webhook_client.py — Module Kết Nối Nến M5 Realtime Từ TradingView (
 Cơ chế hoạt động:
   1. TradingView (khung M5) bắn Webhook POST mỗi 5 phút lên Google Apps Script (GAS).
   2. GAS lưu trữ nến M5 mới nhất + lịch sử nến M5 trong giờ + tổng hợp thành nến H1 đang chạy.
-  3. Module này gọi HTTP GET tới link GAS để lấy dữ liệu M5 Realtime (0 độ trễ) và ghép trực tiếp
-     vào dữ liệu phân tích của hệ thống (cả trên Localhost và trên thang-cbot.streamlit.app).
+  3. Module này gọi HTTP GET tới link GAS để lấy dữ liệu M5 Realtime (0 độ trễ), tự động quy đổi
+     múi giờ UTC -> Giờ Việt Nam (UTC+7) và ghép trực tiếp vào dữ liệu phân tích của hệ thống
+     (cả trên Localhost và trên thang-cbot.streamlit.app).
 """
 
 import os
@@ -20,10 +21,50 @@ OUTPUT_DIR = DATA_DIR / "output"
 CONFIG_FILE = DATA_DIR / "webhook_config.json"
 CACHE_M5_FILE = OUTPUT_DIR / "tv_realtime_m5.json"
 
+VN_OFFSET = datetime.timedelta(hours=7)
+
+
+def parse_to_vn_datetime(raw_time) -> datetime.datetime:
+    """
+    Chuyển đổi thời gian từ TradingView (ISO UTC '...Z', epoch ms, hoặc chuỗi giờ)
+    sang giờ Việt Nam (UTC+7).
+    """
+    if not raw_time:
+        return datetime.datetime.utcnow() + VN_OFFSET
+
+    s = str(raw_time).strip()
+    try:
+        # Trường hợp epoch milliseconds (từ Pine Script time_close)
+        if s.isdigit():
+            ts = int(s)
+            if ts > 1e11:
+                ts = ts / 1000.0
+            dt_utc = datetime.datetime.utcfromtimestamp(ts)
+            return dt_utc + VN_OFFSET
+
+        # Trường hợp ISO 8601 UTC (VD: 2026-11-05T06:34:43Z)
+        if s.endswith("Z"):
+            clean_s = s[:-1].split(".")[0].replace("T", " ")
+            dt_utc = datetime.datetime.strptime(clean_s, "%Y-%m-%d %H:%M:%S")
+            return dt_utc + VN_OFFSET
+
+        # Trường hợp có +00:00
+        if "+00:00" in s:
+            clean_s = s.replace("+00:00", "").split(".")[0].replace("T", " ")
+            dt_utc = datetime.datetime.strptime(clean_s, "%Y-%m-%d %H:%M:%S")
+            return dt_utc + VN_OFFSET
+
+        # Trường hợp đã là chuỗi giờ thông thường
+        clean_s = s.split(".")[0].replace("T", " ")
+        if len(clean_s) == 16:
+            return datetime.datetime.strptime(clean_s, "%Y-%m-%d %H:%M")
+        return datetime.datetime.strptime(clean_s[:19], "%Y-%m-%d %H:%M:%S")
+    except Exception:
+        return datetime.datetime.utcnow() + VN_OFFSET
+
 
 def get_webhook_url() -> str:
     """Lấy URL Google Apps Script Webhook từ file cấu hình hoặc biến môi trường."""
-    # 1. Ưu tiên đọc từ file config (được đồng bộ qua GitHub lên Streamlit Cloud)
     if CONFIG_FILE.exists():
         try:
             with open(CONFIG_FILE, "r", encoding="utf-8") as f:
@@ -33,8 +74,6 @@ def get_webhook_url() -> str:
                     return url
         except Exception:
             pass
-
-    # 2. Fallback biến môi trường
     return os.environ.get("TV_WEBHOOK_URL", "").strip()
 
 
@@ -57,7 +96,7 @@ def save_webhook_url(url: str) -> bool:
 def fetch_realtime_m5(timeout: int = 5) -> dict:
     """
     Gọi GET tới Google Apps Script Webhook để lấy dữ liệu nến M5 mới nhất.
-    Trả về dict dữ liệu hoặc đọc từ cache nếu offline.
+    Tự động bổ sung trường time_vn (Giờ Việt Nam UTC+7) cho từng mã.
     """
     url = get_webhook_url()
     if not url:
@@ -68,6 +107,13 @@ def fetch_realtime_m5(timeout: int = 5) -> dict:
         if resp.status_code == 200:
             data = resp.json()
             if isinstance(data, dict) and data.get("status") == "ok":
+                # Chuẩn hóa giờ Việt Nam cho tất cả các mã
+                for sym, s_obj in data.get("symbols", {}).items():
+                    m5 = s_obj.get("latest_m5")
+                    if m5 and m5.get("time"):
+                        vn_dt = parse_to_vn_datetime(m5["time"])
+                        m5["time_vn"] = vn_dt.strftime("%Y-%m-%d %H:%M:%S")
+                        m5["h1_bar_vn"] = vn_dt.strftime("%Y-%m-%d %H:00")
                 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
                 with open(CACHE_M5_FILE, "w", encoding="utf-8") as f:
                     json.dump(data, f, ensure_ascii=False, indent=2)
@@ -104,9 +150,10 @@ def normalize_commodity_key(raw_symbol: str) -> str:
 def merge_realtime_m5_into_candles(candles: list, commodity: str) -> list:
     """
     Ghép nến M5 Realtime (từ TradingView Webhook) vào danh sách nến H1:
+      - Quy đổi thời gian nến M5 từ UTC sang giờ Việt Nam (UTC+7) khớp chuẩn với CSV H1.
       - Nếu nến M5 thuộc cùng giờ với cây nến H1 cuối cùng: cập nhật High, Low, Close.
-      - Nếu nến M5 thuộc giờ mới (chưa có trong CSV H1): tự động tổng hợp các nến M5 trong giờ đó
-        thành cây nến H1 đang chạy (forming H1 candle) và tính lại EMA21, EMA50, RSI, ATR tức thời.
+      - Nếu nến M5 thuộc giờ mới: tự động tạo cây nến H1 đang chạy (forming H1 candle)
+        từ các nến M5 trong giờ đó và tính lại EMA21, EMA50, RSI, ATR tức thời.
     """
     if not candles:
         return candles
@@ -116,7 +163,6 @@ def merge_realtime_m5_into_candles(candles: list, commodity: str) -> list:
     if not symbols_map:
         return candles
 
-    # Tìm dữ liệu khớp với mã hàng hóa (ZW, ZC, ZS)
     sym_data = symbols_map.get(commodity.upper())
     if not sym_data:
         for k, v in symbols_map.items():
@@ -138,19 +184,14 @@ def merge_realtime_m5_into_candles(candles: list, commodity: str) -> list:
         m5_open = float(forming_h1.get("open", latest_m5.get("open", m5_close)))
         m5_high = float(forming_h1.get("high", latest_m5.get("high", m5_close)))
         m5_low = float(forming_h1.get("low", latest_m5.get("low", m5_close)))
-        m5_time_raw = str(latest_m5.get("time", ""))
 
-        # Chuẩn hóa chuỗi giờ H1 (YYYY-MM-DD HH:00:00)
-        if len(m5_time_raw) >= 13:
-            h1_time_str = m5_time_raw[:13].replace("T", " ") + ":00:00"
-        else:
-            h1_time_str = datetime.datetime.now().strftime("%Y-%m-%d %H:00:00")
+        vn_dt = parse_to_vn_datetime(latest_m5.get("time"))
+        h1_time_str = vn_dt.strftime("%Y-%m-%d %H:00")
 
         last_c = candles[-1]
         last_time_prefix = str(last_c.get("time", ""))[:13]
         new_time_prefix = h1_time_str[:13]
 
-        # Tính nhanh EMA21, EMA50 từ cây nến trước đó
         prev_ema21 = float(last_c.get("ema21", m5_close))
         prev_ema50 = float(last_c.get("ema50", m5_close))
         prev_atr = float(last_c.get("atr", abs(m5_high - m5_low) or 5.0))
@@ -164,7 +205,6 @@ def merge_realtime_m5_into_candles(candles: list, commodity: str) -> list:
         new_atr = round(float(latest_m5.get("atr") or prev_atr), 4)
 
         if new_time_prefix == last_time_prefix:
-            # Cập nhật trực tiếp vào cây nến H1 cuối cùng
             candles[-1]["high"] = max(float(last_c["high"]), m5_high)
             candles[-1]["low"] = min(float(last_c["low"]), m5_low)
             candles[-1]["close"] = m5_close
@@ -174,7 +214,6 @@ def merge_realtime_m5_into_candles(candles: list, commodity: str) -> list:
             candles[-1]["atr"] = new_atr
             candles[-1]["is_realtime_m5"] = True
         elif new_time_prefix > last_time_prefix:
-            # Thêm cây nến H1 đang hình thành từ dữ liệu M5
             new_bar = dict(last_c)
             new_bar.update({
                 "time": h1_time_str,
