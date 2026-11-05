@@ -29901,3 +29901,9 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-11-05 23:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
 [2026-11-05 23:01:30] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-11-05 23:01:30] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-11-05 23:01:33] [Sync] ⚠️ Lỗi Github Push: ard.git
+ ! [remote rejected]     main -> main (Internal Server Error)
+error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
+[2026-11-05 23:01:33] [INFO] ▶ Kích hoạt: Giá H4
+[2026-11-05 23:01:50] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-11-05 23:01:50] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
