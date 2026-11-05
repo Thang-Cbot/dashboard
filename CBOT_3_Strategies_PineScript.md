@@ -414,7 +414,7 @@ plot(showTpSlLines and inTrade ? activeTp3 : na, "TP3 (2.0R - Đích)", color=co
 tablePos = dashPosInput == "Góc Phải Dưới (Bottom Right)" ? position.bottom_right : dashPosInput == "Góc Trái Dưới (Bottom Left)" ? position.bottom_left : position.top_right
 var table dash = table.new(tablePos, 2, 9, bgcolor=color.new(#0f172a, 5), border_color=color.new(#334155, 0), border_width=1, frame_color=color.new(#38bdf8, 30), frame_width=1)
 
-if showDashboard and barstate.islast
+if showDashboard and (barstate.islast or barstate.islastconfirmedhistory)
     int   totalClosed = strategy.closedtrades
     int   wins        = strategy.wintrades
     int   losses      = strategy.losstrades
