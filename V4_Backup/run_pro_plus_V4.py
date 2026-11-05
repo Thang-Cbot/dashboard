@@ -990,7 +990,7 @@ def run_pro_plus():
 *Hệ thống phân tích tự động tích hợp Kỹ thuật H1/M15, Vĩ mô toàn cầu (Brent/DXY) và Nền tảng Nông nghiệp USDA*
 
 Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
-`c:\\Users\\Admin\\OneDrive - w2kfp\\Thang_Docs\\Dau tu thu dong\\hang hoa tai sinh\\Antigravity\\Cbot\\CBOT_Reports_Log.md`
+`D:\\0_Thang_Drive\\Antigravity\\Cbot\\CBOT_Reports_Log.md`
 
 ---
 

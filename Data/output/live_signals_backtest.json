@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05 23:33:41",
+  "generated_at": "2026-11-05 23:49:22",
   "period_days": 90,
   "upcoming_radar": [
     {
@@ -7,19 +7,19 @@
       "product": "ZWAZ26",
       "method": "M1 (Trend Pullback EMA)",
       "side": "BÁN",
-      "current_price": 605.0,
-      "entry_target": 601.79,
+      "current_price": 602.0,
+      "entry_target": 601.51,
       "distance_pts": 0.0,
-      "sl_price": 605.69,
-      "tp1_price": 597.89,
-      "tp2_price": 595.94,
-      "tp3_price": 593.99,
+      "sl_price": 605.41,
+      "tp1_price": 597.61,
+      "tp2_price": 595.66,
+      "tp3_price": 593.71,
       "risk_pts": 3.9,
       "risk_usd": 195.0,
       "rr": "1 : 2.0",
       "status": "⚡ SẴN SÀNG (Gần chạm)",
-      "action_hint": "Đặt Limit BÁN @ 601.79 (dải EMA 21-50). SL: 605.69, TP3: 593.99",
-      "condition": "Xu hướng H1 đang GIẢM. Chờ giá hồi 0.00 pts về dải EMA21-50 (601.65 - 601.79).",
+      "action_hint": "Đặt Limit BÁN @ 601.51 (dải EMA 21-50). SL: 605.41, TP3: 593.71",
+      "condition": "Xu hướng H1 đang GIẢM. Chờ giá hồi 0.00 pts về dải EMA21-50 (601.51 - 601.54).",
       "priority": "Cao"
     },
     {
@@ -47,9 +47,9 @@
       "product": "ZWAZ26",
       "method": "M2 (SMC 5★ Bắt Đỉnh)",
       "side": "BÁN",
-      "current_price": 605.0,
+      "current_price": 602.0,
       "entry_target": 602.5,
-      "distance_pts": 2.5,
+      "distance_pts": 0.5,
       "sl_price": 604.84,
       "tp1_price": 600.16,
       "tp2_price": 598.99,
@@ -83,6 +83,26 @@
       "priority": "Trung bình"
     },
     {
+      "commodity": "ZW",
+      "product": "ZWAZ26",
+      "method": "M2 (SMC 6★ Bắt Đáy)",
+      "side": "MUA",
+      "current_price": 602.0,
+      "entry_target": 598.0,
+      "distance_pts": 4.0,
+      "sl_price": 595.66,
+      "tp1_price": 600.34,
+      "tp2_price": 601.51,
+      "tp3_price": 602.68,
+      "risk_pts": 2.34,
+      "risk_usd": 117.0,
+      "rr": "1 : 2.0",
+      "status": "🔍 THEO DÕI VÙNG ĐÁY",
+      "action_hint": "Canh nến H1 nhúng qua 598.00 rồi rút chân để MUA. SL: 595.66, TP3: 602.68",
+      "condition": "Đáy SMC 6/8★ tại 598.00. Bullish MSS (sweep-confirmed), Unfilled bullish FVG below",
+      "priority": "Trung bình"
+    },
+    {
       "commodity": "ZC",
       "product": "ZCEZ26",
       "method": "M2 (SMC 6★ Bắt Đáy)",
@@ -101,26 +121,6 @@
       "action_hint": "Canh nến H1 nhúng qua 438.50 rồi rút chân để MUA. SL: 437.19, TP3: 441.12",
       "condition": "Đáy SMC 6/8★ tại 438.50. RSI oversold (24.6), Bullish MSS nearby",
       "priority": "Trung bình"
-    },
-    {
-      "commodity": "ZW",
-      "product": "ZWAZ26",
-      "method": "M2 (SMC 6★ Bắt Đáy)",
-      "side": "MUA",
-      "current_price": 605.0,
-      "entry_target": 598.0,
-      "distance_pts": 7.0,
-      "sl_price": 595.66,
-      "tp1_price": 600.34,
-      "tp2_price": 601.51,
-      "tp3_price": 602.68,
-      "risk_pts": 2.34,
-      "risk_usd": 117.0,
-      "rr": "1 : 2.0",
-      "status": "🔍 THEO DÕI VÙNG ĐÁY",
-      "action_hint": "Canh nến H1 nhúng qua 598.00 rồi rút chân để MUA. SL: 595.66, TP3: 602.68",
-      "condition": "Đáy SMC 6/8★ tại 598.00. Bullish MSS (sweep-confirmed), Unfilled bullish FVG below",
-      "priority": "Trung bình"
     }
   ],
   "method_1": {
@@ -128,7 +128,7 @@
     "type": "Trend-Following (Thuận xu hướng SMC)",
     "description": "Bắt sóng hồi về dải EMA 21-50 sau khi cấu trúc MSS xác nhận xu hướng.",
     "stats_90d": {
-      "total_pnl": 5201.5,
+      "total_pnl": 5351.5,
       "win_rate": 33.3,
       "total_trades": 95,
       "closed_trades": 66,
@@ -139,11 +139,11 @@
       "open_trades": 2,
       "profit_factor": 1.47,
       "max_drawdown": 3151.5,
-      "roi_pct": 52.0,
+      "roi_pct": 53.5,
       "recommended_capital": 10000
     },
     "stats_30d": {
-      "total_pnl": 3881.5,
+      "total_pnl": 4031.5,
       "win_rate": 50.0,
       "total_trades": 29,
       "closed_trades": 16,
@@ -154,11 +154,11 @@
       "open_trades": 2,
       "profit_factor": 3.46,
       "max_drawdown": 843.0,
-      "roi_pct": 38.8,
+      "roi_pct": 40.3,
       "recommended_capital": 10000
     },
     "stats_7d": {
-      "total_pnl": 465.0,
+      "total_pnl": 615.0,
       "win_rate": 33.3,
       "total_trades": 5,
       "closed_trades": 3,
@@ -168,8 +168,8 @@
       "pending_trades": 0,
       "open_trades": 2,
       "profit_factor": 99.0,
-      "max_drawdown": 154.5,
-      "roi_pct": 4.7,
+      "max_drawdown": 4.5,
+      "roi_pct": 6.2,
       "recommended_capital": 10000
     },
     "trades": [
@@ -214,7 +214,7 @@
         "method": "M1 (ICT MSS + EMA Pullback)",
         "result": "ĐANG MỞ",
         "entry_price": 601.91,
-        "exit_price": 605.0,
+        "exit_price": 602.0,
         "sl_price": 608.79,
         "tp1_price": 595.03,
         "tp2_price": 591.59,
@@ -222,12 +222,12 @@
         "risk_points": 6.88,
         "bars_held": 26,
         "multiplier": 50.0,
-        "diff_points": 3.09,
-        "pnl": -154.5,
+        "diff_points": 0.09,
+        "pnl": -4.5,
         "win": false,
         "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
-        "exit_desc": "Vị thế đang hoạt động ở nến mới nhất (2026-11-05 23:00). Giá hiện tại: 605.0. SL đang đặt tại 608.79."
+        "exit_desc": "Vị thế đang hoạt động ở nến mới nhất (2026-11-05 23:00). Giá hiện tại: 602.0. SL đang đặt tại 608.79."
       },
       {
         "date": "2026-11-03",
@@ -4573,7 +4573,7 @@
     "type": "Hybrid Dynamic (Phối hợp Xu hướng & Vùng Cực Trị)",
     "description": "Chỉ bắt đáy/đỉnh khi sóng xả/tăng đã hoàn tất (quét Sweep + cạn kiệt), còn lại đi lệnh thuận sóng M1 khi có MSS xác nhận.",
     "stats_90d": {
-      "total_pnl": 2400.0,
+      "total_pnl": 2550.0,
       "win_rate": 27.5,
       "total_trades": 100,
       "closed_trades": 69,
@@ -4584,11 +4584,11 @@
       "open_trades": 2,
       "profit_factor": 1.2,
       "max_drawdown": 3690.0,
-      "roi_pct": 24.0,
+      "roi_pct": 25.5,
       "recommended_capital": 10000
     },
     "stats_30d": {
-      "total_pnl": 2613.0,
+      "total_pnl": 2763.0,
       "win_rate": 38.9,
       "total_trades": 30,
       "closed_trades": 18,
@@ -4599,11 +4599,11 @@
       "open_trades": 2,
       "profit_factor": 2.31,
       "max_drawdown": 1233.0,
-      "roi_pct": 26.1,
+      "roi_pct": 27.6,
       "recommended_capital": 10000
     },
     "stats_7d": {
-      "total_pnl": 465.0,
+      "total_pnl": 615.0,
       "win_rate": 33.3,
       "total_trades": 5,
       "closed_trades": 3,
@@ -4613,8 +4613,8 @@
       "pending_trades": 0,
       "open_trades": 2,
       "profit_factor": 99.0,
-      "max_drawdown": 154.5,
-      "roi_pct": 4.7,
+      "max_drawdown": 4.5,
+      "roi_pct": 6.2,
       "recommended_capital": 10000
     },
     "trades": [
@@ -4659,7 +4659,7 @@
         "method": "M3 (Hybrid: Thuận Sóng M1)",
         "result": "ĐANG MỞ",
         "entry_price": 601.91,
-        "exit_price": 605.0,
+        "exit_price": 602.0,
         "sl_price": 608.79,
         "tp1_price": 595.03,
         "tp2_price": 591.59,
@@ -4667,12 +4667,12 @@
         "risk_points": 6.88,
         "bars_held": 26,
         "multiplier": 50.0,
-        "diff_points": 3.09,
-        "pnl": -154.5,
+        "diff_points": 0.09,
+        "pnl": -4.5,
         "win": false,
         "tag": "M1 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
-        "exit_desc": "Vị thế theo xu hướng M1 đang hoạt động ở nến mới nhất (2026-11-05 23:00). Giá hiện tại: 605.0. SL đang đặt tại 608.79."
+        "exit_desc": "Vị thế theo xu hướng M1 đang hoạt động ở nến mới nhất (2026-11-05 23:00). Giá hiện tại: 602.0. SL đang đặt tại 608.79."
       },
       {
         "date": "2026-11-03",

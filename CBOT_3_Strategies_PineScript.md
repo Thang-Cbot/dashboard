@@ -4,16 +4,23 @@ Tài liệu này chứa mã nguồn **Pine Script v5 (`strategy`)** đã đượ
 
 ---
 
-## 🌟 Điểm Nổi Bật Của Bản Tối Ưu Này (Đã Fix Hiển Thị Bảng Dashboard Góc Phải)
+## 🌟 Điểm Nổi Bật Của Bản Tối Ưu Này (Đã Bổ Sung Bảng Radar Điểm Vào Tương Lai)
 
 1. **Bảng Dashboard Thống Kê Realtime (Góc Phải Biểu Đồ):**
    * Hiển thị trực tiếp: **Phương pháp đang chạy**, **Xu hướng cấu trúc MSS**, **Dải EMA 21/50**, **RSI & ATR**, **Điểm hội tụ SMC (/8 sao)**, **Mức Entry / SL / TP1 / TP3 của lệnh đang mở**, **Tỷ lệ thắng (Win Rate %)**, **Profit Factor** và **Tổng Lợi Nhuận ($)**.
    * Cho phép tùy chỉnh vị trí bảng (`Góc Phải Trên`, `Góc Phải Dưới`, `Góc Trái Dưới`) và kích thước chữ ngay trong phần Cài đặt (`Settings ⚙️`).
-2. **Tích hợp cả 3 Phương Pháp trong 1 Script duy nhất:**
+2. **Bảng Radar Phát Hiện Điểm Vào Tương Lai (Upcoming Future Setups Table):**
+   * **Tự động quét và phát hiện trước các kịch bản lệnh kế tiếp** dựa trên cấu trúc nến hiện tại (ngay cả khi lệnh auto chưa khớp):
+     * Kịch bản 1: Thuận trend M1 đón Limit tại dải EMA21.
+     * Kịch bản 2: Đảo chiều bắt Đỉnh SMC 5★ - 6★.
+     * Kịch bản 3: Đảo chiều bắt Đáy SMC 5★ - 6★.
+   * Hiển thị đầy đủ: **Chiều (MUA/BÁN)**, **Điểm đón Plan**, **Khoảng cách điểm nến (pts)**, **Trạng thái (⚡ SẴN SÀNG / ⏳ CHỜ HỒI / 🔍 THEO DÕI)** và **Mức Cắt lỗ (SL) & Chốt lời (TP3 - 2R) kế hoạch**.
+   * Giúp Trader đối chiếu ngay tức khắc xem lệnh thực tế vào trên phần mềm CQG/TradingView có khớp với kế hoạch kỹ thuật hay không!
+3. **Tích hợp cả 3 Phương Pháp trong 1 Script duy nhất:**
    * **Phương pháp 1 (`M1 - ICT MSS + Pullback EMA 21-50`):** Chờ cấu trúc MSS xác nhận + hội tụ OB/FVG (WinRate >= 70%), đặt lệnh chờ `Limit` tại `EMA 21` (tự động hủy lệnh chờ nếu sau 24 nến giá không hồi về).
    * **Phương pháp 2 (`M2 - FVG + Bắt Đáy/Đỉnh SMC Zone 5 Sao`):** Chấm điểm hội tụ 8 yếu tố (Liquidity Sweep, MSS/CHoCH, RSI cực trị, FVG, Pivot S1/R1, ATR Spike). Vào lệnh đảo chiều khi điểm số đạt chuẩn **>= 5/8 sao**.
    * **Phương pháp 3 (`M3 - Chiến Lược Hybrid M1 + M2 Kết Hợp`):** Chỉ kích hoạt Bắt Đáy/Đỉnh M2 khi sóng xả/tăng đã cạn kiệt (bắt buộc có **Liquidity Sweep** hoặc **RSI < 35 / > 65**); còn lại đi lệnh thuận xu hướng theo M1 và khóa xung đột chiều.
-3. **Cơ chế Quản Trị Lệnh Đa Tầng Chuẩn CQG (`TP1` ➔ `Dời SL Hòa Vốn ENTRY` ➔ `TP2` ➔ `TP3`):**
+4. **Cơ chế Quản Trị Lệnh Đa Tầng Chuẩn CQG (`TP1` ➔ `Dời SL Hòa Vốn ENTRY` ➔ `TP2` ➔ `TP3`):**
    * Ngay khi giá chạm **TP1 (1.0R)**: Tự động dời Stop Loss từ mức rủi ro ban đầu về đúng **giá vào lệnh (`ENTRY`)** để bảo toàn vốn tuyệt đối.
 
 ---
@@ -61,10 +68,13 @@ limitExpireBars = input.int(24, "Hạn chờ khớp lệnh Limit EMA21 của M1 
 maxHoldBars     = input.int(48, "Thời gian giữ lệnh tối đa (Bars)", minval=12, maxval=200, group=grp_risk)
 pointMultiplier = input.float(50.0, "Hệ số nhân hợp đồng CQG ($/cent, chuẩn CBOT = 50)", minval=1.0, group=grp_risk)
 
-grp_vis = "🎨 4. HIỂN THỊ BẢNG DASHBOARD & WEBHOOK"
+grp_vis = "🎨 4. HIỂN THỊ BẢNG DASHBOARD & RADAR"
 showDashboard   = input.bool(true, "Hiển thị Bảng Dashboard Thống Kê Realtime", group=grp_vis)
 dashPosInput    = input.string("Góc Phải Trên (Top Right)", "Vị trí Bảng Dashboard", 
      options=["Góc Phải Trên (Top Right)", "Góc Phải Dưới (Bottom Right)", "Góc Trái Dưới (Bottom Left)"], group=grp_vis)
+showFutureRadar = input.bool(true, "Hiển thị Bảng Radar Điểm Vào Tương Lai (Upcoming Setups)", group=grp_vis)
+radarPosInput   = input.string("Góc Phải Dưới (Bottom Right)", "Vị trí Bảng Radar Tương Lai", 
+     options=["Góc Phải Dưới (Bottom Right)", "Góc Trái Dưới (Bottom Left)", "Góc Phải Trên (Top Right)"], group=grp_vis)
 showEmaCloud    = input.bool(true, "Hiển thị dải băng EMA 21 - EMA 50", group=grp_vis)
 showMssLabels   = input.bool(true, "Hiển thị nhãn MSS / Sweep", group=grp_vis)
 showSmcSignals  = input.bool(true, "Hiển thị nhãn 5★ Bắt Đáy / Đỉnh SMC", group=grp_vis)
@@ -212,12 +222,16 @@ if isConfirmedTop
     if atr14[swingLen] > atrAvg14[swingLen] * 1.35
         topScore += 1
 
-var int lastBotScoreSeen = 0
-var int lastTopScoreSeen = 0
+var int   lastBotScoreSeen = 0
+var int   lastTopScoreSeen = 0
+var float lastBotPrice     = na
+var float lastTopPrice     = na
 if isConfirmedBottom
     lastBotScoreSeen := bottomScore
+    lastBotPrice     := swingLowPrice
 if isConfirmedTop
     lastTopScoreSeen := topScore
+    lastTopPrice     := swingHighPrice
 
 float m1WinRate = 65.0
 if lastMssHadSweep
@@ -458,7 +472,76 @@ if showDashboard and (barstate.islast or barstate.islastconfirmedhistory)
     table.cell(dash, 1, 8, (netPnlUsd >= 0 ? "+$" : "-$") + str.tostring(math.abs(netPnlUsd), "#,##0"), text_color=netPnlUsd >= 0 ? #10b981 : #ef4444, text_size=size.small)
 
 // ============================================================================
-// 9. TÍCH HỢP WEBHOOK REALTIME BẮN VỀ GOOGLE APPS SCRIPT / DASHBOARD
+// 9. BẢNG RADAR PHÁT HIỆN ĐIỂM VÀO LỆNH TƯƠNG LAI (UPCOMING SETUPS TABLE)
+// ============================================================================
+radarPos = radarPosInput == "Góc Phải Trên (Top Right)" ? position.top_right : radarPosInput == "Góc Trái Dưới (Bottom Left)" ? position.bottom_left : position.bottom_right
+var table radarTab = table.new(radarPos, 6, 4, bgcolor=color.new(#090d16, 5), border_color=color.new(#312e81, 0), border_width=1, frame_color=color.new(#6366f1, 20), frame_width=1)
+
+if showFutureRadar and (barstate.islast or barstate.islastconfirmedhistory)
+    // 1. Tính toán Kịch bản M1 (Trend Pullback)
+    bool m1IsBear    = currentTrend == "bearish"
+    string m1Side    = m1IsBear ? "BÁN" : "MUA"
+    color  m1SideCol = m1IsBear ? #ef4444 : #10b981
+    float  m1Entry   = ema21
+    float  m1Dist    = math.abs(close - m1Entry)
+    float  m1Sl      = m1IsBear ? (m1Entry + 1.25 * atr14) : (m1Entry - 1.25 * atr14)
+    float  m1Risk    = math.abs(m1Sl - m1Entry)
+    float  m1Tp3     = m1IsBear ? (m1Entry - 2.0 * m1Risk) : (m1Entry + 2.0 * m1Risk)
+    string m1Stat    = m1Dist <= atr14 ? "⚡ SẴN SÀNG" : "⏳ CHỜ HỒI"
+    color  m1StatCol = m1Dist <= atr14 ? #facc15 : #93c5fd
+
+    // 2. Tính toán Kịch bản M2 (SMC Bắt Đỉnh)
+    float effTopPrice = not na(lastTopPrice) ? lastTopPrice : (not na(lastSwingHigh) ? lastSwingHigh : high)
+    float topDist     = math.abs(close - effTopPrice)
+    float topSl       = effTopPrice + 0.75 * atr14
+    float topRisk     = math.abs(topSl - effTopPrice)
+    float topTp3      = effTopPrice - 2.0 * topRisk
+    string topStat    = topDist <= atr14 ? "⚡ SẴN SÀNG" : "🔍 THEO DÕI"
+    color  topStatCol = topDist <= atr14 ? #facc15 : #cbd5e1
+
+    // 3. Tính toán Kịch bản M2 (SMC Bắt Đáy)
+    float effBotPrice = not na(lastBotPrice) ? lastBotPrice : (not na(lastSwingLow) ? lastSwingLow : low)
+    float botDist     = math.abs(close - effBotPrice)
+    float botSl       = effBotPrice - 0.75 * atr14
+    float botRisk     = math.abs(effBotPrice - botSl)
+    float botTp3      = effBotPrice + 2.0 * botRisk
+    string botStat    = botDist <= atr14 ? "⚡ SẴN SÀNG" : "🔍 THEO DÕI"
+    color  botStatCol = botDist <= atr14 ? #facc15 : #cbd5e1
+
+    // HEADER ROW
+    table.cell(radarTab, 0, 0, "📡 KỊCH BẢN ĐIỂM VÀO TƯƠNG LAI", text_color=#a5b4fc, bgcolor=color.new(#1e1b4b, 0), text_size=size.small)
+    table.cell(radarTab, 1, 0, "CHIỀU",   text_color=#a5b4fc, bgcolor=color.new(#1e1b4b, 0), text_size=size.small)
+    table.cell(radarTab, 2, 0, "ĐIỂM ĐÓN",text_color=#a5b4fc, bgcolor=color.new(#1e1b4b, 0), text_size=size.small)
+    table.cell(radarTab, 3, 0, "KHOẢNG CÁCH", text_color=#a5b4fc, bgcolor=color.new(#1e1b4b, 0), text_size=size.small)
+    table.cell(radarTab, 4, 0, "TRẠNG THÁI", text_color=#a5b4fc, bgcolor=color.new(#1e1b4b, 0), text_size=size.small)
+    table.cell(radarTab, 5, 0, "SL / TP3 KẾ HOẠCH", text_color=#a5b4fc, bgcolor=color.new(#1e1b4b, 0), text_size=size.small)
+
+    // ROW 1: M1 TREND PULLBACK
+    table.cell(radarTab, 0, 1, "M1: Pullback EMA21", text_color=color.white, text_size=size.small)
+    table.cell(radarTab, 1, 1, m1Side, text_color=m1SideCol, text_size=size.small)
+    table.cell(radarTab, 2, 1, str.tostring(m1Entry, "0.00"), text_color=#38bdf8, text_size=size.small)
+    table.cell(radarTab, 3, 1, str.tostring(m1Dist, "0.00") + " pts", text_color=m1Dist <= 2.0 ? #fde047 : #cbd5e1, text_size=size.small)
+    table.cell(radarTab, 4, 1, m1Stat, text_color=m1StatCol, text_size=size.small)
+    table.cell(radarTab, 5, 1, "SL: " + str.tostring(m1Sl, "0.00") + " | TP3: " + str.tostring(m1Tp3, "0.00"), text_color=#cbd5e1, text_size=size.small)
+
+    // ROW 2: M2 BẮT ĐỈNH
+    table.cell(radarTab, 0, 2, "M2: Đỉnh SMC (" + str.tostring(lastTopScoreSeen) + "★)", text_color=color.white, text_size=size.small)
+    table.cell(radarTab, 1, 2, "BÁN", text_color=#ef4444, text_size=size.small)
+    table.cell(radarTab, 2, 2, str.tostring(effTopPrice, "0.00"), text_color=#38bdf8, text_size=size.small)
+    table.cell(radarTab, 3, 2, str.tostring(topDist, "0.00") + " pts", text_color=topDist <= 2.0 ? #fde047 : #cbd5e1, text_size=size.small)
+    table.cell(radarTab, 4, 2, topStat, text_color=topStatCol, text_size=size.small)
+    table.cell(radarTab, 5, 2, "SL: " + str.tostring(topSl, "0.00") + " | TP3: " + str.tostring(topTp3, "0.00"), text_color=#cbd5e1, text_size=size.small)
+
+    // ROW 3: M2 BẮT ĐÁY
+    table.cell(radarTab, 0, 3, "M2: Đáy SMC (" + str.tostring(lastBotScoreSeen) + "★)", text_color=color.white, text_size=size.small)
+    table.cell(radarTab, 1, 3, "MUA", text_color=#10b981, text_size=size.small)
+    table.cell(radarTab, 2, 3, str.tostring(effBotPrice, "0.00"), text_color=#38bdf8, text_size=size.small)
+    table.cell(radarTab, 3, 3, str.tostring(botDist, "0.00") + " pts", text_color=botDist <= 2.0 ? #fde047 : #cbd5e1, text_size=size.small)
+    table.cell(radarTab, 4, 3, botStat, text_color=botStatCol, text_size=size.small)
+    table.cell(radarTab, 5, 3, "SL: " + str.tostring(botSl, "0.00") + " | TP3: " + str.tostring(botTp3, "0.00"), text_color=#cbd5e1, text_size=size.small)
+
+// ============================================================================
+// 10. TÍCH HỢP WEBHOOK REALTIME BẮN VỀ GOOGLE APPS SCRIPT / DASHBOARD
 // ============================================================================
 if enableWebhook and barstate.isconfirmed
     string payload = '{"symbol":"' + syminfo.ticker + '","interval":"' + timeframe.period + '","time":"' + str.tostring(time_close) + '","open":' + str.tostring(open) + ',"high":' + str.tostring(high) + ',"low":' + str.tostring(low) + ',"close":' + str.tostring(close) + ',"volume":' + str.tostring(volume) + ',"ema21":' + str.tostring(ema21, "0.0000") + ',"ema50":' + str.tostring(ema50, "0.0000") + ',"rsi":' + str.tostring(rsi14, "0.00") + ',"atr":' + str.tostring(atr14, "0.0000") + '}'
@@ -472,3 +555,4 @@ if enableWebhook and barstate.isconfirmed
 1. Mở file [**`CBOT_3_Strategies_PineScript.md`**](file:///D:/0_Thang_Drive/Antigravity/Cbot/CBOT_3_Strategies_PineScript.md), copy lại khối code `pinescript` bên trên, dán đè vào **Pine Editor** và bấm **`Save` / `Update on chart` (Cập nhật trên biểu đồ)**.
 2. **Bảng Dashboard Thống Kê Realtime** gồm 9 dòng sẽ lập tức hiện ra ở **Góc Phải Trên** của biểu đồ (hiển thị cả Lợi nhuận quy đổi theo hệ số nhân `$50/cent` chuẩn CQG, tỷ lệ thắng `W/BE/L`, `Profit Factor`, điểm `SMC /8` và mức `SL / TP3` hiện tại).
 3. Tôi cũng đã bật sẵn tùy chọn **"Chỉ hiện nhãn 5★ khi thực sự mở lệnh"** để biểu đồ gọn gàng, không bị chồng chéo nhãn `5★ ĐỈNH / ĐÁY`.
+4. **Bảng Radar Điểm Vào Tương Lai (Upcoming Setups Table)** gồm 3 kịch bản sẽ hiển thị ở **Góc Phải Dưới (Bottom Right)** của biểu đồ. Bạn có thể đối chiếu trực tiếp các mốc điểm đón Plan, khoảng cách nến (pts), trạng thái SẴN SÀNG và SL/TP3 kế hoạch để kiểm tra xem lệnh đánh thực tế của bạn trên CQG/TradingView có khớp hoàn toàn với tín hiệu hay không.
