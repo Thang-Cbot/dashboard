@@ -152,6 +152,9 @@ def simulate_method_1(candles: list, commodity: str) -> list:
                 trades.append({
                     "date": candles[i]["time"][:10],
                     "time": candles[i]["time"],
+                    "signal_time": candles[i]["time"],
+                    "fill_time": None,
+                    "exit_time": candles[min(i+24, len(candles)-1)]["time"],
                     "side": side,
                     "product": cqg_sym,
                     "commodity": commodity,
@@ -159,12 +162,19 @@ def simulate_method_1(candles: list, commodity: str) -> list:
                     "result": "CHƯA KHỚP",
                     "entry_price": entry,
                     "exit_price": None,
+                    "sl_price": sl,
+                    "tp1_price": tp1,
+                    "tp2_price": tp2,
+                    "tp3_price": tp3,
+                    "risk_points": round(risk, 2),
+                    "bars_held": 0,
                     "multiplier": MULTIPLIER,
                     "diff_points": 0.0,
                     "pnl": 0.0,
                     "win": False,
                     "tag": "M1 Trend",
-                    "reason": setup.get("reason", "")
+                    "reason": setup.get("reason", ""),
+                    "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
                 })
                 pos_end_idx = i + 12
                 continue
@@ -174,7 +184,11 @@ def simulate_method_1(candles: list, commodity: str) -> list:
             pnl = 0.0
             hit_tp1 = False
             hit_tp2 = False
+            hit_tp1_time = None
             end_bar = min(fill_idx + 48, len(candles))
+            exit_time = candles[end_bar - 1]["time"]
+            exit_idx = end_bar - 1
+            exit_desc = ""
             
             for k in range(fill_idx, end_bar):
                 ck = candles[k]
@@ -184,47 +198,80 @@ def simulate_method_1(candles: list, commodity: str) -> list:
                     if ck["low"] <= cur_sl:
                         if hit_tp1:
                             res = "ENTRY"; exit_p = entry; pnl = 0.0
+                            exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá quay đầu cắn SL hòa vốn (Bảo toàn vốn $0)."
                         else:
                             res = "SL"; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
+                            exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
                         pos_end_idx = k + 6
+                        exit_time = ck["time"]
+                        exit_idx = k
                         break
                     if ck["high"] >= tp3:
                         res = "TP3"; exit_p = tp3; pnl = round((tp3 - entry) * MULTIPLIER, 2)
+                        exit_desc = f"Giá bứt phá mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
                         pos_end_idx = k + 6
+                        exit_time = ck["time"]
+                        exit_idx = k
                         break
                     elif ck["high"] >= tp2:
                         hit_tp2 = True; hit_tp1 = True
                     elif ck["high"] >= tp1:
+                        if not hit_tp1: hit_tp1_time = ck["time"]
                         hit_tp1 = True
                 else: # BÁN
                     if ck["high"] >= cur_sl:
                         if hit_tp1:
                             res = "ENTRY"; exit_p = entry; pnl = 0.0
+                            exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá quay đầu cắn SL hòa vốn (Bảo toàn vốn $0)."
                         else:
                             res = "SL"; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
+                            exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
                         pos_end_idx = k + 6
+                        exit_time = ck["time"]
+                        exit_idx = k
                         break
                     if ck["low"] <= tp3:
                         res = "TP3"; exit_p = tp3; pnl = round((entry - tp3) * MULTIPLIER, 2)
+                        exit_desc = f"Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
                         pos_end_idx = k + 6
+                        exit_time = ck["time"]
+                        exit_idx = k
                         break
                     elif ck["low"] <= tp2:
                         hit_tp2 = True; hit_tp1 = True
                     elif ck["low"] <= tp1:
+                        if not hit_tp1: hit_tp1_time = ck["time"]
                         hit_tp1 = True
             else:
-                if hit_tp2:
+                exit_time = candles[end_bar - 1]["time"]
+                exit_idx = end_bar - 1
+                is_currently_open = (end_bar == len(candles) and (end_bar - 1 - fill_idx < 48))
+                if is_currently_open:
+                    res = "ĐANG MỞ"
+                    exit_p = candles[-1]["close"]
+                    cur_diff = (exit_p - entry) if side == "MUA" else (entry - exit_p)
+                    pnl = round(cur_diff * MULTIPLIER, 2)
+                    exit_time = "Đang chạy..."
+                    exit_desc = f"Vị thế đang hoạt động ở nến mới nhất ({candles[-1]['time']}). Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_tp1 else 'SL đang đặt tại ' + str(sl)}."
+                elif hit_tp2:
                     res = "TP2"; exit_p = tp2; pnl = round(abs(tp2 - entry) * MULTIPLIER, 2)
+                    exit_desc = f"Đạt TP2 ({tp2}) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
                 elif hit_tp1:
                     res = "TP1"; exit_p = tp1; pnl = round(abs(tp1 - entry) * MULTIPLIER, 2)
+                    exit_desc = f"Đạt TP1 ({tp1}) tỷ lệ 1.0R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
                 else:
                     res = "ENTRY"; exit_p = entry; pnl = 0.0
+                    exit_desc = "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
                 pos_end_idx = end_bar
                 
             diff_pts = round(abs(exit_p - entry) if res != "SL" else -abs(exit_p - entry), 2)
             trades.append({
                 "date": candles[fill_idx]["time"][:10],
                 "time": candles[fill_idx]["time"],
+                "signal_time": candles[i]["time"],
+                "fill_time": candles[fill_idx]["time"],
+                "exit_time": exit_time,
+                "hit_tp1_time": hit_tp1_time,
                 "side": side,
                 "product": cqg_sym,
                 "commodity": commodity,
@@ -232,12 +279,19 @@ def simulate_method_1(candles: list, commodity: str) -> list:
                 "result": res,
                 "entry_price": entry,
                 "exit_price": exit_p,
+                "sl_price": sl,
+                "tp1_price": tp1,
+                "tp2_price": tp2,
+                "tp3_price": tp3,
+                "risk_points": round(risk, 2),
+                "bars_held": exit_idx - fill_idx,
                 "multiplier": MULTIPLIER,
                 "diff_points": diff_pts,
                 "pnl": pnl,
                 "win": res in ["TP1", "TP2", "TP3"],
                 "tag": "M1 Trend",
-                "reason": setup.get("reason", "")
+                "reason": setup.get("reason", ""),
+                "exit_desc": exit_desc
             })
             
     return trades
@@ -288,7 +342,11 @@ def simulate_method_2(candles: list, commodity: str) -> list:
         pnl = 0.0
         hit_tp1 = False
         hit_tp2 = False
+        hit_tp1_time = None
         end_bar = min(idx + 4 + 48, len(candles))
+        exit_time = candles[end_bar - 1]["time"]
+        exit_idx = end_bar - 1
+        exit_desc = ""
         
         for k in range(idx + 4, end_bar):
             ck = candles[k]
@@ -298,43 +356,80 @@ def simulate_method_2(candles: list, commodity: str) -> list:
                 if ck["low"] <= cur_sl:
                     if hit_tp1:
                         res = "ENTRY"; exit_p = entry; pnl = 0.0
+                        exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
                     else:
                         res = "SL"; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
-                    pos_end_idx = k + 6; break
+                        exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
+                    pos_end_idx = k + 6
+                    exit_time = ck["time"]
+                    exit_idx = k
+                    break
                 if ck["high"] >= tp3:
                     res = "TP3"; exit_p = tp3; pnl = round((tp3 - entry) * MULTIPLIER, 2)
-                    pos_end_idx = k + 6; break
+                    exit_desc = f"Giá đảo chiều tăng mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
+                    pos_end_idx = k + 6
+                    exit_time = ck["time"]
+                    exit_idx = k
+                    break
                 elif ck["high"] >= tp2:
                     hit_tp2 = True; hit_tp1 = True
                 elif ck["high"] >= tp1:
+                    if not hit_tp1: hit_tp1_time = ck["time"]
                     hit_tp1 = True
             else: # BÁN
                 if ck["high"] >= cur_sl:
                     if hit_tp1:
                         res = "ENTRY"; exit_p = entry; pnl = 0.0
+                        exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
                     else:
                         res = "SL"; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
-                    pos_end_idx = k + 6; break
+                        exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
+                    pos_end_idx = k + 6
+                    exit_time = ck["time"]
+                    exit_idx = k
+                    break
                 if ck["low"] <= tp3:
                     res = "TP3"; exit_p = tp3; pnl = round((entry - tp3) * MULTIPLIER, 2)
-                    pos_end_idx = k + 6; break
+                    exit_desc = f"Giá đảo chiều giảm mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
+                    pos_end_idx = k + 6
+                    exit_time = ck["time"]
+                    exit_idx = k
+                    break
                 elif ck["low"] <= tp2:
                     hit_tp2 = True; hit_tp1 = True
                 elif ck["low"] <= tp1:
+                    if not hit_tp1: hit_tp1_time = ck["time"]
                     hit_tp1 = True
         else:
-            if hit_tp2:
+            exit_time = candles[end_bar - 1]["time"]
+            exit_idx = end_bar - 1
+            is_currently_open = (end_bar == len(candles) and (end_bar - 1 - (idx + 3) < 48))
+            if is_currently_open:
+                res = "ĐANG MỞ"
+                exit_p = candles[-1]["close"]
+                cur_diff = (exit_p - entry) if side == "MUA" else (entry - exit_p)
+                pnl = round(cur_diff * MULTIPLIER, 2)
+                exit_time = "Đang chạy..."
+                exit_desc = f"Vị thế đang hoạt động ở nến mới nhất ({candles[-1]['time']}). Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_tp1 else 'SL đang đặt tại ' + str(sl)}."
+            elif hit_tp2:
                 res = "TP2"; exit_p = tp2; pnl = round(abs(tp2 - entry) * MULTIPLIER, 2)
+                exit_desc = f"Đạt TP2 ({tp2}) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
             elif hit_tp1:
                 res = "TP1"; exit_p = tp1; pnl = round(abs(tp1 - entry) * MULTIPLIER, 2)
+                exit_desc = f"Đạt TP1 ({tp1}) tỷ lệ 1.0R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
             else:
                 res = "ENTRY"; exit_p = entry; pnl = 0.0
+                exit_desc = "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
             pos_end_idx = end_bar
             
         diff_pts = round(abs(exit_p - entry) if res != "SL" else -abs(exit_p - entry), 2)
         trades.append({
             "date": entry_c["time"][:10],
             "time": entry_c["time"],
+            "signal_time": candles[idx]["time"],
+            "fill_time": entry_c["time"],
+            "exit_time": exit_time,
+            "hit_tp1_time": hit_tp1_time,
             "side": side,
             "product": cqg_sym,
             "commodity": commodity,
@@ -342,12 +437,19 @@ def simulate_method_2(candles: list, commodity: str) -> list:
             "result": res,
             "entry_price": entry,
             "exit_price": exit_p,
+            "sl_price": sl,
+            "tp1_price": tp1,
+            "tp2_price": tp2,
+            "tp3_price": tp3,
+            "risk_points": round(risk, 2),
+            "bars_held": exit_idx - (idx + 3),
             "multiplier": MULTIPLIER,
             "diff_points": diff_pts,
             "pnl": pnl,
             "win": res in ["TP1", "TP2", "TP3"],
             "tag": "M2 Reversal",
-            "reason": f"SMC Zone {score}/8: " + ", ".join(factors[:2])
+            "reason": f"SMC Zone {score}/8: " + ", ".join(factors[:2]),
+            "exit_desc": exit_desc
         })
         
     return trades
@@ -394,32 +496,74 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
                     tp2 = round(entry + 1.5 * risk, 2)
                     tp3 = round(entry + 2.0 * risk, 2)
                     
-                    res = 'ENTRY'; exit_p = entry; pnl = 0.0; hit_tp1 = False; hit_tp2 = False
+                    res = 'ENTRY'; exit_p = entry; pnl = 0.0; hit_tp1 = False; hit_tp2 = False; hit_tp1_time = None
                     end_bar = min(i + 48, len(candles))
+                    exit_time = candles[end_bar - 1]["time"]
+                    exit_idx = end_bar - 1
+                    exit_desc = ""
+
                     for k in range(i+1, end_bar):
                         ck = candles[k]
                         cur_sl = entry if hit_tp1 else sl
                         if ck['low'] <= cur_sl:
-                            res = 'ENTRY' if hit_tp1 else 'SL'
-                            exit_p = entry if hit_tp1 else sl
-                            pnl = 0.0 if hit_tp1 else round((sl - entry) * MULTIPLIER, 2)
-                            pos_end_idx = k + 6; break
+                            if hit_tp1:
+                                res = 'ENTRY'; exit_p = entry; pnl = 0.0
+                                exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
+                            else:
+                                res = 'SL'; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
+                                exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
+                            pos_end_idx = k + 6
+                            exit_time = ck["time"]
+                            exit_idx = k
+                            break
                         if ck['high'] >= tp3:
                             res = 'TP3'; exit_p = tp3; pnl = round((tp3 - entry) * MULTIPLIER, 2)
-                            pos_end_idx = k + 6; break
+                            exit_desc = f"Giá bắt đáy bật tăng mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
+                            pos_end_idx = k + 6
+                            exit_time = ck["time"]
+                            exit_idx = k
+                            break
                         elif ck['high'] >= tp2: hit_tp2 = True; hit_tp1 = True
-                        elif ck['high'] >= tp1: hit_tp1 = True
+                        elif ck['high'] >= tp1:
+                            if not hit_tp1: hit_tp1_time = ck["time"]
+                            hit_tp1 = True
                     else:
-                        if hit_tp2: res = 'TP2'; exit_p = tp2; pnl = round((tp2 - entry) * MULTIPLIER, 2)
-                        elif hit_tp1: res = 'TP1'; exit_p = tp1; pnl = round((tp1 - entry) * MULTIPLIER, 2)
+                        exit_time = candles[end_bar - 1]["time"]
+                        exit_idx = end_bar - 1
+                        is_currently_open = (end_bar == len(candles) and (end_bar - 1 - i < 48))
+                        if is_currently_open:
+                            res = "ĐANG MỞ"
+                            exit_p = candles[-1]["close"]
+                            cur_diff = exit_p - entry
+                            pnl = round(cur_diff * MULTIPLIER, 2)
+                            exit_time = "Đang chạy..."
+                            exit_desc = f"Vị thế bắt đáy SMC đang hoạt động ở nến mới nhất ({candles[-1]['time']}). Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_tp1 else 'SL đang đặt tại ' + str(sl)}."
+                        elif hit_tp2:
+                            res = 'TP2'; exit_p = tp2; pnl = round((tp2 - entry) * MULTIPLIER, 2)
+                            exit_desc = f"Đạt TP2 ({tp2}) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
+                        elif hit_tp1:
+                            res = 'TP1'; exit_p = tp1; pnl = round((tp1 - entry) * MULTIPLIER, 2)
+                            exit_desc = f"Đạt TP1 ({tp1}) tỷ lệ 1.0R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
+                        else:
+                            res = 'ENTRY'; exit_p = entry; pnl = 0.0
+                            exit_desc = "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
                         pos_end_idx = end_bar
                     diff_pts = round(abs(exit_p - entry) if res != 'SL' else -abs(exit_p - entry), 2)
                     trades.append({
-                        'date': c['time'][:10], 'time': c['time'], 'side': 'MUA', 'product': cqg_sym,
+                        'date': c['time'][:10], 'time': c['time'],
+                        'signal_time': candles[i-3]['time'] if i >= 3 else c['time'],
+                        'fill_time': c['time'],
+                        'exit_time': exit_time,
+                        'hit_tp1_time': hit_tp1_time,
+                        'side': 'MUA', 'product': cqg_sym,
                         'commodity': commodity, 'method': 'M3 (Hybrid: Bắt Đáy Hấp Thụ)', 'result': res,
-                        'entry_price': entry, 'exit_price': exit_p, 'multiplier': MULTIPLIER, 'diff_points': diff_pts,
+                        'entry_price': entry, 'exit_price': exit_p,
+                        'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
+                        'risk_points': round(risk, 2), 'bars_held': exit_idx - i,
+                        'multiplier': MULTIPLIER, 'diff_points': diff_pts,
                         'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M2 Bắt Đáy',
-                        'reason': f"Hấp thụ đáy Climax: " + ", ".join(bz.get('factors', [])[:2])
+                        'reason': f"Hấp thụ đáy Climax: " + ", ".join(bz.get('factors', [])[:2]),
+                        'exit_desc': exit_desc
                     })
                     triggered_reversal = True
                     
@@ -435,32 +579,74 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
                     tp1 = round(entry - 1.0 * risk, 2)
                     tp2 = round(entry - 1.5 * risk, 2)
                     tp3 = round(entry - 2.0 * risk, 2)
-                    res = 'ENTRY'; exit_p = entry; pnl = 0.0; hit_tp1 = False; hit_tp2 = False
+                    res = 'ENTRY'; exit_p = entry; pnl = 0.0; hit_tp1 = False; hit_tp2 = False; hit_tp1_time = None
                     end_bar = min(i + 48, len(candles))
+                    exit_time = candles[end_bar - 1]["time"]
+                    exit_idx = end_bar - 1
+                    exit_desc = ""
+
                     for k in range(i+1, end_bar):
                         ck = candles[k]
                         cur_sl = entry if hit_tp1 else sl
                         if ck['high'] >= cur_sl:
-                            res = 'ENTRY' if hit_tp1 else 'SL'
-                            exit_p = entry if hit_tp1 else sl
-                            pnl = 0.0 if hit_tp1 else round((entry - sl) * MULTIPLIER, 2)
-                            pos_end_idx = k + 6; break
+                            if hit_tp1:
+                                res = 'ENTRY'; exit_p = entry; pnl = 0.0
+                                exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
+                            else:
+                                res = 'SL'; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
+                                exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
+                            pos_end_idx = k + 6
+                            exit_time = ck["time"]
+                            exit_idx = k
+                            break
                         if ck['low'] <= tp3:
                             res = 'TP3'; exit_p = tp3; pnl = round((entry - tp3) * MULTIPLIER, 2)
-                            pos_end_idx = k + 6; break
+                            exit_desc = f"Giá bắt đỉnh đảo chiều giảm mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
+                            pos_end_idx = k + 6
+                            exit_time = ck["time"]
+                            exit_idx = k
+                            break
                         elif ck['low'] <= tp2: hit_tp2 = True; hit_tp1 = True
-                        elif ck['low'] <= tp1: hit_tp1 = True
+                        elif ck['low'] <= tp1:
+                            if not hit_tp1: hit_tp1_time = ck["time"]
+                            hit_tp1 = True
                     else:
-                        if hit_tp2: res = 'TP2'; exit_p = tp2; pnl = round((entry - tp2) * MULTIPLIER, 2)
-                        elif hit_tp1: res = 'TP1'; exit_p = tp1; pnl = round((entry - tp1) * MULTIPLIER, 2)
+                        exit_time = candles[end_bar - 1]["time"]
+                        exit_idx = end_bar - 1
+                        is_currently_open = (end_bar == len(candles) and (end_bar - 1 - i < 48))
+                        if is_currently_open:
+                            res = "ĐANG MỞ"
+                            exit_p = candles[-1]["close"]
+                            cur_diff = entry - exit_p
+                            pnl = round(cur_diff * MULTIPLIER, 2)
+                            exit_time = "Đang chạy..."
+                            exit_desc = f"Vị thế bắt đỉnh SMC đang hoạt động ở nến mới nhất ({candles[-1]['time']}). Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_tp1 else 'SL đang đặt tại ' + str(sl)}."
+                        elif hit_tp2:
+                            res = 'TP2'; exit_p = tp2; pnl = round((entry - tp2) * MULTIPLIER, 2)
+                            exit_desc = f"Đạt TP2 ({tp2}) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
+                        elif hit_tp1:
+                            res = 'TP1'; exit_p = tp1; pnl = round((entry - tp1) * MULTIPLIER, 2)
+                            exit_desc = f"Đạt TP1 ({tp1}) tỷ lệ 1.0R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
+                        else:
+                            res = 'ENTRY'; exit_p = entry; pnl = 0.0
+                            exit_desc = "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
                         pos_end_idx = end_bar
                     diff_pts = round(abs(exit_p - entry) if res != 'SL' else -abs(exit_p - entry), 2)
                     trades.append({
-                        'date': c['time'][:10], 'time': c['time'], 'side': 'BÁN', 'product': cqg_sym,
+                        'date': c['time'][:10], 'time': c['time'],
+                        'signal_time': candles[i-3]['time'] if i >= 3 else c['time'],
+                        'fill_time': c['time'],
+                        'exit_time': exit_time,
+                        'hit_tp1_time': hit_tp1_time,
+                        'side': 'BÁN', 'product': cqg_sym,
                         'commodity': commodity, 'method': 'M3 (Hybrid: Bắt Đỉnh Quá Mua)', 'result': res,
-                        'entry_price': entry, 'exit_price': exit_p, 'multiplier': MULTIPLIER, 'diff_points': diff_pts,
+                        'entry_price': entry, 'exit_price': exit_p,
+                        'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
+                        'risk_points': round(risk, 2), 'bars_held': exit_idx - i,
+                        'multiplier': MULTIPLIER, 'diff_points': diff_pts,
                         'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M2 Bắt Đỉnh',
-                        'reason': f"Quét đỉnh Quá mua: " + ", ".join(tz.get('factors', [])[:2])
+                        'reason': f"Quét đỉnh Quá mua: " + ", ".join(tz.get('factors', [])[:2]),
+                        'exit_desc': exit_desc
                     })
                     triggered_reversal = True
 
@@ -486,55 +672,116 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
                         
                     if not filled:
                         trades.append({
-                            'date': c['time'][:10], 'time': c['time'], 'side': side, 'product': cqg_sym,
+                            'date': c['time'][:10], 'time': c['time'],
+                            'signal_time': c['time'],
+                            'fill_time': None,
+                            'exit_time': candles[min(i+24, len(candles)-1)]['time'],
+                            'side': side, 'product': cqg_sym,
                             'commodity': commodity, 'method': 'M3 (Hybrid: Thuận Sóng M1)', 'result': 'CHƯA KHỚP',
-                            'entry_price': entry, 'exit_price': None, 'multiplier': MULTIPLIER, 'diff_points': 0.0,
+                            'entry_price': entry, 'exit_price': None,
+                            'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
+                            'risk_points': round(risk, 2), 'bars_held': 0,
+                            'multiplier': MULTIPLIER, 'diff_points': 0.0,
                             'pnl': 0.0, 'win': False, 'tag': 'M1 Trend',
-                            'reason': setup.get('reason', '')
+                            'reason': setup.get('reason', ''),
+                            'exit_desc': 'Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn.'
                         })
                         pos_end_idx = i + 12
                         continue
                         
-                    res = 'ENTRY'; exit_p = entry; pnl = 0.0; hit_tp1 = False; hit_tp2 = False
+                    res = 'ENTRY'; exit_p = entry; pnl = 0.0; hit_tp1 = False; hit_tp2 = False; hit_tp1_time = None
                     end_bar = min(fill_idx + 48, len(candles))
+                    exit_time = candles[end_bar - 1]['time']
+                    exit_idx = end_bar - 1
+                    exit_desc = ""
+
                     for k in range(fill_idx, end_bar):
                         ck = candles[k]
                         cur_sl = entry if hit_tp1 else sl
                         if side == 'MUA':
                             if ck['low'] <= cur_sl:
-                                res = 'ENTRY' if hit_tp1 else 'SL'
-                                exit_p = entry if hit_tp1 else sl
-                                pnl = 0.0 if hit_tp1 else round((sl - entry) * MULTIPLIER, 2)
-                                pos_end_idx = k + 6; break
+                                if hit_tp1:
+                                    res = 'ENTRY'; exit_p = entry; pnl = 0.0
+                                    exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
+                                else:
+                                    res = 'SL'; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
+                                    exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
+                                pos_end_idx = k + 6
+                                exit_time = ck['time']
+                                exit_idx = k
+                                break
                             if ck['high'] >= tp3:
                                 res = 'TP3'; exit_p = tp3; pnl = round((tp3 - entry) * MULTIPLIER, 2)
-                                pos_end_idx = k + 6; break
+                                exit_desc = f"Giá bứt phá mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
+                                pos_end_idx = k + 6
+                                exit_time = ck['time']
+                                exit_idx = k
+                                break
                             elif ck['high'] >= tp2: hit_tp2 = True; hit_tp1 = True
-                            elif ck['high'] >= tp1: hit_tp1 = True
+                            elif ck['high'] >= tp1:
+                                if not hit_tp1: hit_tp1_time = ck['time']
+                                hit_tp1 = True
                         else:
                             if ck['high'] >= cur_sl:
-                                res = 'ENTRY' if hit_tp1 else 'SL'
-                                exit_p = entry if hit_tp1 else sl
-                                pnl = 0.0 if hit_tp1 else round((entry - sl) * MULTIPLIER, 2)
-                                pos_end_idx = k + 6; break
+                                if hit_tp1:
+                                    res = 'ENTRY'; exit_p = entry; pnl = 0.0
+                                    exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
+                                else:
+                                    res = 'SL'; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
+                                    exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
+                                pos_end_idx = k + 6
+                                exit_time = ck['time']
+                                exit_idx = k
+                                break
                             if ck['low'] <= tp3:
                                 res = 'TP3'; exit_p = tp3; pnl = round((entry - tp3) * MULTIPLIER, 2)
-                                pos_end_idx = k + 6; break
+                                exit_desc = f"Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
+                                pos_end_idx = k + 6
+                                exit_time = ck['time']
+                                exit_idx = k
+                                break
                             elif ck['low'] <= tp2: hit_tp2 = True; hit_tp1 = True
-                            elif ck['low'] <= tp1: hit_tp1 = True
+                            elif ck['low'] <= tp1:
+                                if not hit_tp1: hit_tp1_time = ck['time']
+                                hit_tp1 = True
                     else:
-                        if hit_tp2: res = 'TP2'; exit_p = tp2; pnl = round(abs(tp2 - entry) * MULTIPLIER, 2)
-                        elif hit_tp1: res = 'TP1'; exit_p = tp1; pnl = round(abs(tp1 - entry) * MULTIPLIER, 2)
-                        else: res = 'ENTRY'; exit_p = entry; pnl = 0.0
+                        exit_time = candles[end_bar - 1]['time']
+                        exit_idx = end_bar - 1
+                        is_currently_open = (end_bar == len(candles) and (end_bar - 1 - fill_idx < 48))
+                        if is_currently_open:
+                            res = "ĐANG MỞ"
+                            exit_p = candles[-1]["close"]
+                            cur_diff = (exit_p - entry) if side == "MUA" else (entry - exit_p)
+                            pnl = round(cur_diff * MULTIPLIER, 2)
+                            exit_time = "Đang chạy..."
+                            exit_desc = f"Vị thế theo xu hướng M1 đang hoạt động ở nến mới nhất ({candles[-1]['time']}). Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_tp1 else 'SL đang đặt tại ' + str(sl)}."
+                        elif hit_tp2:
+                            res = 'TP2'; exit_p = tp2; pnl = round(abs(tp2 - entry) * MULTIPLIER, 2)
+                            exit_desc = f"Đạt TP2 ({tp2}) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
+                        elif hit_tp1:
+                            res = 'TP1'; exit_p = tp1; pnl = round(abs(tp1 - entry) * MULTIPLIER, 2)
+                            exit_desc = f"Đạt TP1 ({tp1}) tỷ lệ 1.0R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
+                        else:
+                            res = 'ENTRY'; exit_p = entry; pnl = 0.0
+                            exit_desc = "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
                         pos_end_idx = end_bar
                         
                     diff_pts = round(abs(exit_p - entry) if res != 'SL' else -abs(exit_p - entry), 2)
                     trades.append({
-                        'date': candles[fill_idx]['time'][:10], 'time': candles[fill_idx]['time'], 'side': side,
+                        'date': candles[fill_idx]['time'][:10], 'time': candles[fill_idx]['time'],
+                        'signal_time': c['time'],
+                        'fill_time': candles[fill_idx]['time'],
+                        'exit_time': exit_time,
+                        'hit_tp1_time': hit_tp1_time,
+                        'side': side,
                         'product': cqg_sym, 'commodity': commodity, 'method': 'M3 (Hybrid: Thuận Sóng M1)',
-                        'result': res, 'entry_price': entry, 'exit_price': exit_p, 'multiplier': MULTIPLIER,
-                        'diff_points': diff_pts, 'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M1 Trend',
-                        'reason': setup.get('reason', '')
+                        'result': res, 'entry_price': entry, 'exit_price': exit_p,
+                        'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
+                        'risk_points': round(risk, 2), 'bars_held': exit_idx - fill_idx,
+                        'multiplier': MULTIPLIER, 'diff_points': diff_pts,
+                        'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M1 Trend',
+                        'reason': setup.get('reason', ''),
+                        'exit_desc': exit_desc
                     })
     return trades
 
@@ -545,6 +792,7 @@ def compute_metrics(trades: list, days_filter: int = None) -> dict:
         return {
             "total_pnl": 0.0, "win_rate": 0.0, "total_trades": 0, "closed_trades": 0,
             "win_trades": 0, "loss_trades": 0, "breakeven_trades": 0, "pending_trades": 0,
+            "open_trades": 0,
             "profit_factor": 0.0, "max_drawdown": 0.0, "roi_pct": 0.0, "recommended_capital": 10000,
             "filtered_trades": []
         }
@@ -568,6 +816,7 @@ def compute_metrics(trades: list, days_filter: int = None) -> dict:
     loss_list = [t for t in filtered if t["result"] == "SL"]
     be_list = [t for t in filtered if t["result"] == "ENTRY"]
     pending_list = [t for t in filtered if t["result"] == "CHƯA KHỚP"]
+    open_list = [t for t in filtered if t["result"] == "ĐANG MỞ"]
     
     closed_trades = len(win_list) + len(loss_list) + len(be_list)
     win_rate = round((len(win_list) / closed_trades * 100), 1) if closed_trades > 0 else 0.0
@@ -599,6 +848,7 @@ def compute_metrics(trades: list, days_filter: int = None) -> dict:
         "loss_trades": len(loss_list),
         "breakeven_trades": len(be_list),
         "pending_trades": len(pending_list),
+        "open_trades": len(open_list),
         "profit_factor": profit_factor,
         "max_drawdown": round(max_dd, 2),
         "roi_pct": roi_pct,
