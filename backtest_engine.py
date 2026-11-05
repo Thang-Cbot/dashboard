@@ -857,6 +857,163 @@ def compute_metrics(trades: list, days_filter: int = None) -> dict:
     }
 
 
+def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
+    """
+    Phát hiện các điểm vào lệnh tiềm năng trong tương lai (Upcoming Setups / Future Radar)
+    dựa trên cấu trúc nến hiện tại (H1 + M5 Realtime) để Trader chuẩn bị lệnh trước.
+    """
+    radar = []
+    commodities = [
+        ("ZC", "ZCEZ26", zc_candles),
+        ("ZW", "ZWAZ26", zw_candles)
+    ]
+    
+    for comm, prod, candles in commodities:
+        if not candles:
+            continue
+        c_last = candles[-1]
+        cur_p = round(c_last["close"], 2)
+        cur_time = c_last.get("time", "")
+        atr = round(c_last.get("atr", 3.0), 2)
+        ema21 = round(c_last.get("ema21", cur_p), 2)
+        ema50 = round(c_last.get("ema50", cur_p), 2)
+        
+        ana = ict_engine.analyze(candles)
+        trend = ana.get("trend", "neutral")
+        
+        # 1. Kịch bản M1: Thuận xu hướng Pullback EMA 21-50
+        if trend == "bearish":
+            entry = ema21
+            sl = round(entry + 1.25 * atr, 2)
+            risk = round(sl - entry, 2)
+            tp1 = round(entry - 1.0 * risk, 2)
+            tp2 = round(entry - 1.5 * risk, 2)
+            tp3 = round(entry - 2.0 * risk, 2)
+            dist = round(max(0.0, entry - cur_p), 2)
+            status = "⚡ SẴN SÀNG (Gần chạm)" if dist <= atr else "⏳ ĐANG CHỜ HỒI"
+            radar.append({
+                "commodity": comm,
+                "product": prod,
+                "method": "M1 (Trend Pullback EMA)",
+                "side": "BÁN",
+                "current_price": cur_p,
+                "entry_target": entry,
+                "distance_pts": dist,
+                "sl_price": sl,
+                "tp1_price": tp1,
+                "tp2_price": tp2,
+                "tp3_price": tp3,
+                "risk_pts": risk,
+                "risk_usd": round(risk * MULTIPLIER, 2),
+                "rr": "1 : 2.0",
+                "status": status,
+                "action_hint": f"Đặt Limit BÁN @ {entry:.2f} (dải EMA 21-50). SL: {sl:.2f}, TP3: {tp3:.2f}",
+                "condition": f"Xu hướng H1 đang GIẢM. Chờ giá hồi {dist:.2f} pts về dải EMA21-50 ({min(ema21, ema50):.2f} - {max(ema21, ema50):.2f}).",
+                "priority": "Cao" if dist <= atr else "Trung bình"
+            })
+        elif trend == "bullish":
+            entry = ema21
+            sl = round(entry - 1.25 * atr, 2)
+            risk = round(entry - sl, 2)
+            tp1 = round(entry + 1.0 * risk, 2)
+            tp2 = round(entry + 1.5 * risk, 2)
+            tp3 = round(entry + 2.0 * risk, 2)
+            dist = round(max(0.0, cur_p - entry), 2)
+            status = "⚡ SẴN SÀNG (Gần chạm)" if dist <= atr else "⏳ ĐANG CHỜ HỒI"
+            radar.append({
+                "commodity": comm,
+                "product": prod,
+                "method": "M1 (Trend Pullback EMA)",
+                "side": "MUA",
+                "current_price": cur_p,
+                "entry_target": entry,
+                "distance_pts": dist,
+                "sl_price": sl,
+                "tp1_price": tp1,
+                "tp2_price": tp2,
+                "tp3_price": tp3,
+                "risk_pts": risk,
+                "risk_usd": round(risk * MULTIPLIER, 2),
+                "rr": "1 : 2.0",
+                "status": status,
+                "action_hint": f"Đặt Limit MUA @ {entry:.2f} (dải EMA 21-50). SL: {sl:.2f}, TP3: {tp3:.2f}",
+                "condition": f"Xu hướng H1 đang TĂNG. Chờ giá hồi {dist:.2f} pts về dải EMA21-50 ({min(ema21, ema50):.2f} - {max(ema21, ema50):.2f}).",
+                "priority": "Cao" if dist <= atr else "Trung bình"
+            })
+            
+        # 2. Kịch bản M2: Bắt Đỉnh SMC 5★ - 6★ Zone
+        tz_list = [z for z in ana.get("top_zones", []) if z.get("score", 0) >= 5]
+        if tz_list:
+            tz = tz_list[-1]
+            tz_p = round(tz["price"], 2)
+            sc = tz.get("score", 5)
+            sl = round(tz_p + 0.75 * atr, 2)
+            risk = round(sl - tz_p, 2)
+            tp1 = round(tz_p - 1.0 * risk, 2)
+            tp2 = round(tz_p - 1.5 * risk, 2)
+            tp3 = round(tz_p - 2.0 * risk, 2)
+            dist = round(abs(cur_p - tz_p), 2)
+            status = "⚡ SẴN SÀNG (Đang test đỉnh)" if dist <= atr else "🔍 THEO DÕI VÙNG ĐỈNH"
+            radar.append({
+                "commodity": comm,
+                "product": prod,
+                "method": f"M2 (SMC {sc}★ Bắt Đỉnh)",
+                "side": "BÁN",
+                "current_price": cur_p,
+                "entry_target": tz_p,
+                "distance_pts": dist,
+                "sl_price": sl,
+                "tp1_price": tp1,
+                "tp2_price": tp2,
+                "tp3_price": tp3,
+                "risk_pts": risk,
+                "risk_usd": round(risk * MULTIPLIER, 2),
+                "rr": "1 : 2.0",
+                "status": status,
+                "action_hint": f"Canh nến H1 quét qua {tz_p:.2f} rồi rút râu để BÁN. SL: {sl:.2f}, TP3: {tp3:.2f}",
+                "condition": f"Đỉnh SMC {sc}/8★ tại {tz_p:.2f}. " + ", ".join(tz.get("factors", [])[:2]),
+                "priority": "Cao" if dist <= atr else "Trung bình"
+            })
+            
+        # 3. Kịch bản M2: Bắt Đáy SMC 5★ - 6★ Zone
+        bz_list = [z for z in ana.get("bottom_zones", []) if z.get("score", 0) >= 5]
+        if bz_list:
+            bz = bz_list[-1]
+            bz_p = round(bz["price"], 2)
+            sc = bz.get("score", 5)
+            sl = round(bz_p - 0.75 * atr, 2)
+            risk = round(bz_p - sl, 2)
+            tp1 = round(bz_p + 1.0 * risk, 2)
+            tp2 = round(bz_p + 1.5 * risk, 2)
+            tp3 = round(bz_p + 2.0 * risk, 2)
+            dist = round(abs(cur_p - bz_p), 2)
+            status = "⚡ SẴN SÀNG (Đang test đáy)" if dist <= atr else "🔍 THEO DÕI VÙNG ĐÁY"
+            radar.append({
+                "commodity": comm,
+                "product": prod,
+                "method": f"M2 (SMC {sc}★ Bắt Đáy)",
+                "side": "MUA",
+                "current_price": cur_p,
+                "entry_target": bz_p,
+                "distance_pts": dist,
+                "sl_price": sl,
+                "tp1_price": tp1,
+                "tp2_price": tp2,
+                "tp3_price": tp3,
+                "risk_pts": risk,
+                "risk_usd": round(risk * MULTIPLIER, 2),
+                "rr": "1 : 2.0",
+                "status": status,
+                "action_hint": f"Canh nến H1 nhúng qua {bz_p:.2f} rồi rút chân để MUA. SL: {sl:.2f}, TP3: {tp3:.2f}",
+                "condition": f"Đáy SMC {sc}/8★ tại {bz_p:.2f}. " + ", ".join(bz.get("factors", [])[:2]),
+                "priority": "Cao" if dist <= atr else "Trung bình"
+            })
+
+    # Sắp xếp theo mức độ sẵn sàng: Sẵn sàng lên đầu, khoảng cách gần lên trước
+    radar = sorted(radar, key=lambda x: (0 if "SẴN SÀNG" in x["status"] else 1, x["distance_pts"]))
+    return radar
+
+
 def run_full_backtest(force_download: bool = False) -> dict:
     """Chạy toàn bộ backtest 90 ngày cho 3 phương pháp trên cả ZC và ZW."""
     print("=" * 60)
@@ -897,9 +1054,13 @@ def run_full_backtest(force_download: bool = False) -> dict:
     m3_stats_30d = compute_metrics(m3_all, days_filter=30)
     m3_stats_7d  = compute_metrics(m3_all, days_filter=7)
     
+    print("▶ Quét Radar Điểm Vào Lệnh Tương Lai (Upcoming Future Setups)...")
+    radar_list = compute_upcoming_radar(zc_candles, zw_candles)
+    
     result = {
         "generated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "period_days": 90,
+        "upcoming_radar": radar_list,
         "method_1": {
             "name": "Phương Pháp 1: ICT MSS + Pullback EMA 21-50",
             "type": "Trend-Following (Thuận xu hướng SMC)",

@@ -330,6 +330,77 @@ background: #090e17;
 border-top: 1px solid #1e293b;
 }
 
+/* Radar Table Styles */
+.radar-table-wrapper {
+width: 100%;
+margin-top: 10px;
+font-size: 13px;
+background: #0f172a;
+border-radius: 8px;
+border: 1px solid #312e81;
+overflow: hidden;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.radar-header {
+display: flex;
+align-items: center;
+background-color: #0b0f22;
+color: #a5b4fc;
+font-weight: 700;
+padding: 12px 16px;
+border-bottom: 1px solid #1e1b4b;
+font-size: 12px;
+letter-spacing: 0.3px;
+}
+.radar-accordion {
+border-bottom: 1px solid #1e1b4b;
+background: #0f172a;
+transition: background-color 0.15s ease;
+}
+.radar-accordion:last-child {
+border-bottom: none;
+}
+.radar-accordion:hover {
+background-color: #161b36;
+}
+.radar-accordion[open] {
+background-color: #0d1227;
+border-left: 3px solid #818cf8;
+}
+.radar-summary {
+display: flex;
+align-items: center;
+padding: 12px 16px;
+cursor: pointer;
+list-style: none;
+user-select: none;
+}
+.radar-summary:hover {
+background-color: rgba(99, 102, 241, 0.06);
+}
+.radar-summary::-webkit-details-marker {
+display: none;
+}
+.radar-summary::marker {
+display: none;
+}
+.radar-arrow {
+display: inline-block;
+transition: transform 0.2s ease, color 0.2s ease;
+color: #6366f1;
+font-size: 12px;
+font-weight: bold;
+}
+.radar-accordion[open] .radar-arrow {
+transform: rotate(180deg);
+color: #a5b4fc;
+}
+.radar-detail-content {
+padding: 14px 18px 18px 18px;
+background: #090c1c;
+border-top: 1px solid #1e1b4b;
+}
+
 /* Custom Table (Dùng cho Tab 4) */
 .custom-table {
 width: 100%;
@@ -495,6 +566,164 @@ with st.expander("📡 Cấu Hình & Nhận Nến M5 Realtime Từ TradingView W
     Hệ thống tự động gom các nến M5 thành nến H1 đang chạy (Forming H1) để kích hoạt điểm vào lệnh <b>Entry / TP / SL</b> tức thời mà không bị trễ 15 phút.
     </div>
     """)
+
+# ── HÀM HIỂN THỊ RADAR PHÁT HIỆN ĐIỂM VÀO LỆNH TƯƠNG LAI ───────────────────
+def render_future_radar_section(radar_list):
+    if not radar_list:
+        return
+        
+    ready_cnt = sum(1 for r in radar_list if "SẴN SÀNG" in r.get("status", ""))
+    m1_cnt = sum(1 for r in radar_list if "M1" in r.get("method", ""))
+    m2_cnt = sum(1 for r in radar_list if "M2" in r.get("method", ""))
+    total_cnt = len(radar_list)
+    
+    rows_html = []
+    for r in radar_list:
+        comm = r["commodity"]
+        prod = r["product"]
+        method = r["method"]
+        side = r["side"]
+        cur_p = r["current_price"]
+        entry_p = r["entry_target"]
+        dist = r["distance_pts"]
+        sl_p = r["sl_price"]
+        tp1_p = r["tp1_price"]
+        tp2_p = r["tp2_price"]
+        tp3_p = r["tp3_price"]
+        risk_pts = r["risk_pts"]
+        risk_usd = r["risk_usd"]
+        rr = r["rr"]
+        status_str = r["status"]
+        action_hint = r["action_hint"]
+        condition = r["condition"]
+        
+        prod_badge = f"<span style='background:#78350f; color:#fde68a; font-weight:700; padding:2px 7px; border-radius:4px; font-size:11px;'>🌽 {prod}</span>" if comm == "ZC" else f"<span style='background:#1e3a8a; color:#bfdbfe; font-weight:700; padding:2px 7px; border-radius:4px; font-size:11px;'>🌾 {prod}</span>"
+        side_badge = "<span style='background:rgba(239, 68, 68, 0.2); color:#f87171; border:1px solid #ef4444; padding:2px 8px; border-radius:4px; font-weight:800; font-size:11px;'>BÁN</span>" if side == "BÁN" else "<span style='background:rgba(16, 185, 129, 0.2); color:#34d399; border:1px solid #10b981; padding:2px 8px; border-radius:4px; font-weight:800; font-size:11px;'>MUA</span>"
+        
+        if "SẴN SÀNG" in status_str:
+            status_badge = f"<span style='background:rgba(234, 179, 8, 0.2); color:#fde047; border:1px solid #eab308; padding:3px 8px; border-radius:4px; font-weight:700; font-size:11px;'>⚡ SẴN SÀNG ({dist:.2f} pts)</span>"
+        elif "CHỜ HỒI" in status_str:
+            status_badge = f"<span style='background:rgba(59, 130, 246, 0.15); color:#93c5fd; border:1px solid #3b82f6; padding:3px 8px; border-radius:4px; font-weight:600; font-size:11px;'>⏳ Chờ hồi {dist:.2f} pts</span>"
+        else:
+            status_badge = f"<span style='background:rgba(148, 163, 184, 0.15); color:#cbd5e1; border:1px solid #64748b; padding:3px 8px; border-radius:4px; font-weight:600; font-size:11px;'>🔍 Cách {dist:.2f} pts</span>"
+            
+        row = f"""
+        <details class='radar-accordion'>
+          <summary class='radar-summary'>
+            <div style='width:95px;'>{prod_badge}</div>
+            <div style='flex:1.2; font-weight:600; color:#e2e8f0; font-size:12px;'>{method}</div>
+            <div style='width:70px; text-align:center;'>{side_badge}</div>
+            <div style='width:80px; font-family:monospace; color:#94a3b8;'>{cur_p:.2f}</div>
+            <div style='width:95px; font-family:monospace; font-weight:700; color:#38bdf8;'>{entry_p:.2f}</div>
+            <div style='width:95px; text-align:center; font-family:monospace; color:{'#fde047' if dist <= 2.0 else '#cbd5e1'}; font-weight:{'700' if dist <= 2.0 else '400'};'>{dist:.2f} pts</div>
+            <div style='width:85px; font-family:monospace; color:#ef4444;'>{sl_p:.2f}</div>
+            <div style='width:85px; font-family:monospace; color:#34d399;'>{tp3_p:.2f}</div>
+            <div style='width:65px; text-align:center; font-family:monospace; color:#cbd5e1;'>{rr}</div>
+            <div style='width:170px;'>{status_badge}</div>
+            <div style='width:30px; text-align:center;'><span class='radar-arrow'>▼</span></div>
+          </summary>
+          <div class='radar-detail-content'>
+            <div style='display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-bottom:12px;'>
+              <div style='background:#111827; border:1px solid #374151; border-radius:6px; padding:10px;'>
+                <div style='font-size:11px; color:#94a3b8; text-transform:uppercase;'>🎯 Điểm Đón Limit ({side})</div>
+                <div style='font-size:16px; font-weight:800; color:#38bdf8; font-family:monospace; margin-top:2px;'>{entry_p:.2f}</div>
+                <div style='font-size:11px; color:#64748b;'>Giá Live: {cur_p:.2f} (Cách {dist:.2f} pts)</div>
+              </div>
+              <div style='background:#111827; border:1px solid #374151; border-radius:6px; padding:10px;'>
+                <div style='font-size:11px; color:#94a3b8; text-transform:uppercase;'>🛑 Cắt Lỗ An Toàn (SL)</div>
+                <div style='font-size:16px; font-weight:800; color:#ef4444; font-family:monospace; margin-top:2px;'>{sl_p:.2f}</div>
+                <div style='font-size:11px; color:#f87171;'>Rủi ro: {risk_pts:.2f} pts (${risk_usd:,.0f}/HĐ)</div>
+              </div>
+              <div style='background:#111827; border:1px solid #374151; border-radius:6px; padding:10px;'>
+                <div style='font-size:11px; color:#94a3b8; text-transform:uppercase;'>🏆 Mục Tiêu Chốt Lời (TP)</div>
+                <div style='font-size:13px; font-weight:700; color:#34d399; font-family:monospace; margin-top:2px;'>
+                  TP1 (Dời BE): {tp1_p:.2f}<br>
+                  TP2 (1.5R): {tp2_p:.2f}<br>
+                  TP3 (2.0R): {tp3_p:.2f}
+                </div>
+              </div>
+              <div style='background:#111827; border:1px solid #374151; border-radius:6px; padding:10px;'>
+                <div style='font-size:11px; color:#94a3b8; text-transform:uppercase;'>⚖️ Tỷ Lệ Lợi Nhuận / Rủi Ro</div>
+                <div style='font-size:16px; font-weight:800; color:#a78bfa; font-family:monospace; margin-top:2px;'>R:R = {rr}</div>
+                <div style='font-size:11px; color:#c4b5fd;'>Lợi nhuận mục tiêu: +${risk_usd*2:,.0f} USD</div>
+              </div>
+            </div>
+            <div style='background:#1e1b4b; border-left:4px solid #818cf8; border-radius:6px; padding:10px 14px; margin-bottom:8px;'>
+              <div style='font-size:12px; font-weight:700; color:#c7d2fe; margin-bottom:3px;'>💡 HƯỚNG DẪN ĐẶT LỆNH THỰC CHIẾN TRÊN CQG / TRADINGVIEW:</div>
+              <div style='font-size:12px; color:#e0e7ff; line-height:1.5;'>{action_hint}</div>
+            </div>
+            <div style='font-size:11px; color:#94a3b8;'>📊 <b>Căn cứ kỹ thuật & cấu trúc nến:</b> {condition}</div>
+          </div>
+        </details>
+        """
+        rows_html.append(row)
+        
+    radar_html = f"""
+    <div style='margin-bottom:24px;'>
+      <div style='background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border:1px solid #4338ca; border-radius:10px; padding:16px 20px; margin-bottom:14px; box-shadow: 0 4px 15px rgba(67, 56, 202, 0.15);'>
+        <div style='display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;'>
+          <div>
+            <div style='display:flex; align-items:center; gap:8px;'>
+              <span style='font-size:20px;'>📡</span>
+              <span style='font-size:18px; font-weight:800; color:#f8fafc; letter-spacing:0.3px;'>RADAR PHÁT HIỆN ĐIỂM VÀO LỆNH TƯƠNG LAI (UPCOMING SETUPS)</span>
+              <span style='background:#312e81; color:#c7d2fe; font-size:11px; font-weight:700; padding:2px 8px; border-radius:12px; border:1px solid #4f46e5;'>LIVE WATCHLIST</span>
+            </div>
+            <div style='font-size:12px; color:#94a3b8; margin-top:4px;'>
+              Dấu hiệu kịch bản lệnh tương lai dựa trên cấu trúc nến hiện tại (H1 + M5 Realtime) — Giúp Trader chuẩn bị lệnh trước trên CQG/TradingView và đối chiếu khớp lệnh thực tế.
+            </div>
+          </div>
+          <div style='display:flex; gap:10px;'>
+            <div style='background:#0f172a; border:1px solid #312e81; border-radius:8px; padding:8px 14px; text-align:center;'>
+              <div style='font-size:10px; color:#a5b4fc; text-transform:uppercase;'>Tổng Kịch Bản</div>
+              <div style='font-size:18px; font-weight:800; color:#ffffff;'>{total_cnt}</div>
+            </div>
+            <div style='background:#0f172a; border:1px solid #eab308; border-radius:8px; padding:8px 14px; text-align:center;'>
+              <div style='font-size:10px; color:#fde047; text-transform:uppercase;'>⚡ Sẵn Sàng</div>
+              <div style='font-size:18px; font-weight:800; color:#facc15;'>{ready_cnt}</div>
+            </div>
+            <div style='background:#0f172a; border:1px solid #1e3a8a; border-radius:8px; padding:8px 14px; text-align:center;'>
+              <div style='font-size:10px; color:#93c5fd; text-transform:uppercase;'>Thuận Trend (M1)</div>
+              <div style='font-size:18px; font-weight:800; color:#60a5fa;'>{m1_cnt}</div>
+            </div>
+            <div style='background:#0f172a; border:1px solid #4c1d95; border-radius:8px; padding:8px 14px; text-align:center;'>
+              <div style='font-size:10px; color:#d8b4fe; text-transform:uppercase;'>SMC Zone (M2)</div>
+              <div style='font-size:18px; font-weight:800; color:#c084fc;'>{m2_cnt}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class='radar-table-wrapper'>
+        <div class='radar-header'>
+          <div style='width:95px;'>Mã HĐ</div>
+          <div style='flex:1.2;'>Chiến Lược Dự Kiến</div>
+          <div style='width:70px; text-align:center;'>Vị Thế</div>
+          <div style='width:80px;'>Giá Live</div>
+          <div style='width:95px;'>Điểm Đón Plan</div>
+          <div style='width:95px; text-align:center;'>Khoảng Cách</div>
+          <div style='width:85px;'>Cắt Lỗ (SL)</div>
+          <div style='width:85px;'>Chốt Lời TP3</div>
+          <div style='width:65px; text-align:center;'>R:R</div>
+          <div style='width:170px;'>Trạng Thái Radar</div>
+          <div style='width:30px; text-align:center; color:#818cf8;' title='Bấm mũi tên để xem chi tiết'>Chi tiết</div>
+        </div>
+        {''.join(rows_html)}
+      </div>
+    </div>
+    """
+    st.html(radar_html)
+
+# Lấy dữ liệu radar từ data json (hoặc tính tức thì nếu chưa có)
+upcoming_radar_data = data.get("upcoming_radar", [])
+if not upcoming_radar_data:
+    try:
+        zc_c = backtest_engine.fetch_or_load_90d("ZC", force_download=False)
+        zw_c = backtest_engine.fetch_or_load_90d("ZW", force_download=False)
+        upcoming_radar_data = backtest_engine.compute_upcoming_radar(zc_c, zw_c)
+    except Exception:
+        upcoming_radar_data = []
+
+render_future_radar_section(upcoming_radar_data)
 
 # ── BỘ LỌC CHUNG ────────────────────────────────────────────────────────────
 col_f1, col_f2, col_f3, col_f4 = st.columns([1.2, 1.2, 1.2, 1.5])
