@@ -1,11 +1,16 @@
 {
   "sent_keys": {
-    "ZCEZ26|M2 (H1 SMC 6★ Bắt Đáy)|MUA|438.50": "2026-11-06 09:59:15"
+    "ZCEZ26|M2 (H1 SMC 6★ Bắt Đáy)|MUA|438.50": "2026-11-06 09:59:15",
+    "ZWAZ26|M2 (H1 SMC 6★ Bắt Đáy)|MUA|598.00": "2026-11-06 10:00:35"
   },
   "last_messages": {
     "ZCEZ26": {
       "timestamp": "2026-11-06 09:59:15",
       "msg": "📡 <b>CBOT RADAR [TEST]</b> — <b>🌽 ZCEZ26 (Ngô) | 🟢 MUA</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>06/11/2026 09:59:16</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>04/11/2026 11:00 (Nến H1 mới nhất: 06/11/2026 09:00)</code>\n• 📊 <b>Chiến lược:</b> <b>M2 (H1 SMC 6★ Bắt Đáy)</b> <i>(Đồng thuận M3 Hybrid)</i>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (Đang test đáy)</b>\n• 💹 <b>Giá Live (M5):</b> <b>440.00</b> <i>(Cách điểm đón 1.50 pts)</i>\n• 🎯 <b>Điểm Đón (MUA):</b> <b>438.50</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>437.28</code> <i>(Rủi ro: 1.22 pts = $61/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>439.72</b>\n   ├ TP2 (1.5R): <b>440.33</b>\n   └ TP3 (2.0R): <b>440.94</b>\n• 🧠 <b>Căn cứ kỹ thuật:</b> [Tầng 1A - H1 Đóng Cửa] Đáy SMC 6/8★ tại 438.50. RSI oversold (24.6), Bullish MSS nearby\n• 💡 <b>Hành động:</b> <i>Vùng đáy H1 cố định tại 438.50. Canh giá nhúng qua 438.50 rồi đóng nến M15/H1 rút chân để MUA. SL: 437.28, TP3: 440.94</i>"
+    },
+    "ZWAZ26": {
+      "timestamp": "2026-11-06 10:00:35",
+      "msg": "📡 <b>CBOT RADAR</b> — <b>🌾 ZWAZ26 (Lúa Mì) | 🟢 MUA</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>06/11/2026 10:00:36</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>04/11/2026 23:00 (Nến H1 mới nhất: 06/11/2026 09:00)</code>\n• 📊 <b>Chiến lược:</b> <b>M2 (H1 SMC 6★ Bắt Đáy)</b> <i>(Đồng thuận M3 Hybrid)</i>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (Đang test đáy)</b>\n• 💹 <b>Giá Live (M5):</b> <b>596.00</b> <i>(Cách điểm đón 2.00 pts)</i>\n• 🎯 <b>Điểm Đón (MUA):</b> <b>598.00</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>595.43</code> <i>(Rủi ro: 2.57 pts = $128/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>600.57</b>\n   ├ TP2 (1.5R): <b>601.86</b>\n   └ TP3 (2.0R): <b>603.14</b>\n• 🧠 <b>Căn cứ kỹ thuật:</b> [Tầng 1A - H1 Đóng Cửa] Đáy SMC 6/8★ tại 598.00. Bullish MSS (sweep-confirmed), Unfilled bullish FVG below\n• 💡 <b>Hành động:</b> <i>Vùng đáy H1 cố định tại 598.00. Canh giá nhúng qua 598.00 rồi đóng nến M15/H1 rút chân để MUA. SL: 595.43, TP3: 603.14</i>"
     }
   }
 }
