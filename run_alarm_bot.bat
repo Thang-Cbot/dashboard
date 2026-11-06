@@ -8,12 +8,12 @@ echo Dang khoi dong he thong quet tin hieu chay ngam...
 echo Luu y: Chi tat cua so nay khi ban muon dung nhan canh bao tren dien thoai.
 echo.
 
-cd /d "%~dp0"
+pushd "%~dp0"
 
 :: Set encoding to support UTF-8 characters in Python print
 set PYTHONIOENCODING=utf-8
 
-:: Chay bot bang moi truong ao
-.venv\Scripts\python.exe entry_alarm.py
+:: Chay bot bang python he thong (hoac .venv neu tuong thich)
+python "%~dp0entry_alarm.py"
 
 pause

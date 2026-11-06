@@ -9,13 +9,13 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 07:15:13",
-      "updated_at": "2026-11-06 07:15:13"
+      "detail": "Auto-fetch 09:24:50",
+      "updated_at": "2026-11-06 09:24:50"
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 07:15:31",
-      "updated_at": "2026-11-06 07:15:31"
+      "detail": "Auto-fetch 09:00:28",
+      "updated_at": "2026-11-06 09:00:28"
     },
     "cot": {
       "status": "[OK]",
@@ -53,14 +53,14 @@
       "updated_at": "2026-11-05 21:59:49"
     },
     "github_sync": {
-      "status": "[OK]",
-      "detail": "Đẩy thành công lúc 07:15:36 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-11-06 07:15:36"
+      "status": "[ERROR]",
+      "detail": "Exception: [WinError 2] The system cannot find the file specified",
+      "updated_at": "2026-11-06 09:01:01"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 07:15:24",
-      "updated_at": "2026-11-06 07:15:24"
+      "detail": "Auto-fetch 09:00:26",
+      "updated_at": "2026-11-06 09:00:26"
     },
     "russian_metrics": {
       "status": "[OK]",
@@ -96,13 +96,13 @@
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 07:14",
-    "updated_at": "2026-11-06 07:15:13"
+    "detail": "ZC+ZW updated at 09:24",
+    "updated_at": "2026-11-06 09:24:50"
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=99.01, DXY=101.566",
-    "updated_at": "2026-11-06 07:15:31"
+    "detail": "Brent=99.11, DXY=101.634",
+    "updated_at": "2026-11-06 09:00:28"
   },
   "weather_short": {
     "status": "OK",

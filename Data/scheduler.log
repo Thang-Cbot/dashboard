@@ -29956,3 +29956,83 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-11-06 07:15:39] [INFO] Đang phân tích AI tự động...
 [2026-11-06 07:16:32] [INFO] Đang chạy cập nhật Hồ sơ mã (run_pro_plus) và tạo Dashboard (gen_dashboard)...
 [2026-11-06 07:16:41] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Cập nhật Phân tích & Giao diện (H1))...
+[2026-11-06 07:16:45] [Sync] ✅ Đồng bộ Github thành công (Cập nhật Phân tích & Giao diện (H1))!
+[2026-11-06 07:16:45] [INFO] ⏰ Đợi Giá H1: còn 0.72h (06/11 08:00:05 VN)
+[2026-11-06 08:56:41] [INFO] ============================================================
+[2026-11-06 08:56:41] [INFO]   CBOT PRECISION SCHEDULER V2 — KHỞI ĐỘNG
+[2026-11-06 08:56:41] [INFO] ============================================================
+[2026-11-06 08:56:41] [INFO] Lịch trình đang chạy:
+[2026-11-06 08:56:41] [INFO]   [Giá H1 + Macro]    : Phút :15 mỗi giờ giao dịch
+[2026-11-06 08:56:41] [INFO]   [COT CFTC]          : Thứ Bảy 07:15 VN
+[2026-11-06 08:56:41] [INFO]   [USDA Crop Progress]: Thứ Hai 22:00 VN
+[2026-11-06 08:56:41] [INFO]   [Export Sales]      : Thứ Năm 21:32 VN
+[2026-11-06 08:56:41] [INFO]   [WASDE Monthly]     : Ngày 10 hàng tháng, 23:00 VN
+[2026-11-06 08:56:41] [INFO]   [Thời Tiết Ngắn]    : 06:00 hàng ngày
+[2026-11-06 08:56:41] [INFO]   [ENSO Long-Term]    : Thứ Hai 06:30 VN
+[2026-11-06 08:56:41] [INFO]   [USDA Acreage]      : 05:30 hàng ngày
+[2026-11-06 08:56:41] [INFO]   [AI Điểm Tin]       : 06:00 và 20:00 hàng ngày
+[2026-11-06 08:56:41] [INFO]   [AI Tin Biển Đen]   : Thứ Tư & Chủ Nhật 07:00 VN
+[2026-11-06 08:56:41] [INFO]   [Số Liệu Mùa Vụ Nga]: 07:30 hàng ngày
+[2026-11-06 08:56:41] [INFO] ------------------------------------------------------------
+[2026-11-06 08:56:41] [INFO]   ✅ Thread khởi động: job_prices
+ Giá ngay khi vừa khởi động hệ thống...
+[2026-11-06 08:56:41] [INFO]   ✅ Thread khởi động: job_cot
+1 07:15:02 VN)
+[2026-11-06 08:56:41] [INFO]   ✅ Thread khởi động: job_crop_progress
+00:02 VN)
+[2026-11-06 08:56:41] [INFO]   ✅ Thread khởi động: job_export_sales
+:32:02 VN)
+[2026-11-06 08:56:41] [INFO]   ✅ Thread khởi động: job_wasde
+10/11 23:00:02 VN)
+[2026-11-06 08:56:41] [INFO]   ✅ Thread khởi động: job_weather_short
+00:02 VN)
+[2026-11-06 08:56:41] [INFO]   ✅ Thread khởi động: job_weather_long
+6:30:02 VN)
+[2026-11-06 08:56:41] [INFO] ⏰ Đợi Acreage Reports: còn 20.56h (07/11 05:30:02 VN)
+[2026-11-06 08:56:41] [INFO]   ✅ Thread khởi động: job_ai_news
+00:02 VN)
+[2026-11-06 08:56:41] [INFO] ⏰ Đợi Black Sea News: còn 46.06h (08/11 07:00:02 VN)
+[2026-11-06 08:56:41] [INFO]   ✅ Thread khởi động: job_russian_metrics
+30:02 VN)
+[2026-11-06 08:56:41] [INFO] ============================================================
+[2026-11-06 08:56:41] [INFO] Scheduler đang chạy ngầm. Nhấn Ctrl+C để dừng.
+[2026-11-06 08:56:57] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-11-06 08:56:58] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-11-06 08:56:58] [Sync] ❌ Lỗi đồng bộ Github: [WinError 2] The system cannot find the file specified
+[2026-11-06 08:56:58] [WARNING] Lỗi đồng bộ M5 vào H1 CSV: No module named 'tv_webhook_client'
+[2026-11-06 08:56:58] [INFO] ▶ Kích hoạt: Giá H4
+[2026-11-06 08:57:05] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-11-06 08:57:05] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
+[2026-11-06 08:57:05] [Sync] ❌ Lỗi đồng bộ Github: [WinError 2] The system cannot find the file specified
+[2026-11-06 08:57:05] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-11-06 08:57:07] [INFO] ✅ Vĩ Mô (Macro) hoàn thành (attempt 1)
+[2026-11-06 08:57:07] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Vĩ Mô (Macro))...
+[2026-11-06 08:57:07] [Sync] ❌ Lỗi đồng bộ Github: [WinError 2] The system cannot find the file specified
+[2026-11-06 08:57:07] [INFO] Đang quét tín hiệu Telegram Alarm (SMC)...
+[2026-11-06 08:57:08] [INFO] Đang phân tích AI tự động...
+[2026-11-06 08:57:57] [INFO] Đang chạy cập nhật Hồ sơ mã (run_pro_plus) và tạo Dashboard (gen_dashboard)...
+[2026-11-06 08:58:07] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Cập nhật Phân tích & Giao diện (H1))...
+[2026-11-06 08:58:07] [Sync] ❌ Lỗi đồng bộ Github: [WinError 2] The system cannot find the file specified
+[2026-11-06 08:58:07] [INFO] ⏰ Đợi Giá H1: còn 0.03h (06/11 09:00:05 VN)
+[2026-11-06 09:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-11-06 09:00:21] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-11-06 09:00:22] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-11-06 09:00:22] [Sync] ❌ Lỗi đồng bộ Github: [WinError 2] The system cannot find the file specified
+[2026-11-06 09:00:22] [WARNING] Lỗi đồng bộ M5 vào H1 CSV: No module named 'tv_webhook_client'
+[2026-11-06 09:00:22] [INFO] ▶ Kích hoạt: Giá H4
+[2026-11-06 09:00:26] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-11-06 09:00:26] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
+[2026-11-06 09:00:26] [Sync] ❌ Lỗi đồng bộ Github: [WinError 2] The system cannot find the file specified
+[2026-11-06 09:00:26] [INFO] ▶ Kích hoạt: Vĩ Mô (Macro)
+[2026-11-06 09:00:28] [INFO] ✅ Vĩ Mô (Macro) hoàn thành (attempt 1)
+[2026-11-06 09:00:28] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Vĩ Mô (Macro))...
+[2026-11-06 09:00:28] [Sync] ❌ Lỗi đồng bộ Github: [WinError 2] The system cannot find the file specified
+[2026-11-06 09:00:28] [INFO] Đang quét tín hiệu Telegram Alarm (SMC)...
+[2026-11-06 09:00:29] [INFO] Đang phân tích AI tự động...
+[2026-11-06 09:00:52] [INFO] Đang chạy cập nhật Hồ sơ mã (run_pro_plus) và tạo Dashboard (gen_dashboard)...
+[2026-11-06 09:01:01] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Cập nhật Phân tích & Giao diện (H1))...
+[2026-11-06 09:01:01] [Sync] ❌ Lỗi đồng bộ Github: [WinError 2] The system cannot find the file specified
+[2026-11-06 09:01:01] [INFO] ⏰ Đợi Giá H1: còn 0.98h (06/11 10:00:05 VN)
+[2026-11-06 09:24:36] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-11-06 09:24:50] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-11-06 09:24:50] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
