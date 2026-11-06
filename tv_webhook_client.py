@@ -199,10 +199,11 @@ def merge_realtime_m5_into_candles(candles: list, commodity: str) -> list:
 
         k21 = 2.0 / (21.0 + 1.0)
         k50 = 2.0 / (50.0 + 1.0)
-        new_ema21 = round(float(latest_m5.get("ema21") or (m5_close * k21 + prev_ema21 * (1 - k21))), 4)
-        new_ema50 = round(float(latest_m5.get("ema50") or (m5_close * k50 + prev_ema50 * (1 - k50))), 4)
-        new_rsi = round(float(latest_m5.get("rsi") or prev_rsi), 2)
-        new_atr = round(float(latest_m5.get("atr") or prev_atr), 4)
+        # Không lấy ema21/ema50/atr/rsi của khung M5 đè lên khung H1 để tránh méo chỉ báo H1
+        new_ema21 = round(m5_close * k21 + prev_ema21 * (1 - k21), 4)
+        new_ema50 = round(m5_close * k50 + prev_ema50 * (1 - k50), 4)
+        new_rsi = round(prev_rsi, 2)
+        new_atr = round(prev_atr, 4)
 
         if new_time_prefix == last_time_prefix:
             candles[-1]["high"] = max(float(last_c["high"]), m5_high)
@@ -232,6 +233,147 @@ def merge_realtime_m5_into_candles(candles: list, commodity: str) -> list:
         print(f"[TV_WEBHOOK] Lỗi ghép nến M5 cho {commodity}: {e}")
 
     return candles
+
+
+def is_us_session_vn(dt_vn: datetime.datetime = None) -> bool:
+    """
+    Kiểm tra thời điểm hiện tại (Giờ Việt Nam UTC+7) có thuộc Phiên Mỹ cao điểm
+    của CBOT (19:30 -> 02:00 sáng hôm sau) hay không.
+    """
+    if dt_vn is None:
+        dt_vn = datetime.datetime.utcnow() + VN_OFFSET
+    hm = dt_vn.hour * 60 + dt_vn.minute
+    return (hm >= 19 * 60 + 30) or (hm <= 2 * 60)
+
+
+def get_m15_m30_closed_impulse(commodity: str, last_closed_h1: dict) -> dict:
+    """
+    TẦNG 1B (Adaptive Fast Mode — M15/M30 Đóng Cửa):
+    Xác định cấu trúc xung lực sớm trong lòng cây nến H1 khi vào Phiên Mỹ (19:30 - 02:00 VN)
+    hoặc khi có nến Xung Lực (Displacement >= 0.75 * ATR_H1, thân nến >= 55%).
+    Chỉ chốt cấu trúc trên cụm nến M15 / M30 ĐÃ ĐÓNG CỬA (tối thiểu 3 nến M5 = 15 phút),
+    tuyệt đối không dùng nến M5 lẻ chưa đóng cụm 15 phút để tránh nhiễu râu nến.
+    """
+    if not last_closed_h1:
+        return {"is_active": False}
+
+    c_code = normalize_commodity_key(commodity).upper()
+    cached = load_cached_m5()
+    symbols = cached.get("symbols", {})
+    sym_data = symbols.get(c_code)
+    if not sym_data:
+        for k, v in symbols.items():
+            if normalize_commodity_key(k) == c_code:
+                sym_data = v
+                break
+
+    atr_h1 = float(last_closed_h1.get("atr", 3.5) or 3.5)
+    ema21_h1 = float(last_closed_h1.get("ema21", last_closed_h1.get("close", 0)))
+    h1_high = float(last_closed_h1.get("high", 0))
+    h1_low = float(last_closed_h1.get("low", 0))
+
+    # Lấy dữ liệu từ history_m5 hoặc forming_h1
+    history_m5 = (sym_data or {}).get("history_m5", [])
+    forming_h1 = (sym_data or {}).get("forming_h1", {})
+    latest_m5 = (sym_data or {}).get("latest_m5", {})
+
+    if not latest_m5:
+        return {"is_active": False}
+
+    vn_dt = parse_to_vn_datetime(latest_m5.get("time"))
+    in_us_session = is_us_session_vn(vn_dt)
+    current_hour_prefix = vn_dt.strftime("%Y-%m-%d %H")
+
+    # Lọc các nến M5 trong giờ hiện tại đã hoàn tất mốc M15 (:15, :30, :45)
+    hour_m5 = []
+    for bar in history_m5:
+        b_dt = parse_to_vn_datetime(bar.get("time"))
+        if b_dt.strftime("%Y-%m-%d %H") == current_hour_prefix:
+            hour_m5.append((b_dt, bar))
+
+    m5_count = max(len(hour_m5), int(forming_h1.get("m5_count", 0) or 0))
+    # Phải có ít nhất 3 nến M5 (tức đã đóng xong ít nhất 1 cây nến M15) mới xét cấu trúc Tầng 1B
+    if m5_count < 3:
+        return {"is_active": False}
+
+    # Chỉ lấy đến mốc M15 đã đóng gần nhất (lấy bội số của 3 nến M5: 3 nến = M15, 6 nến = M30, 9 nến = M45)
+    closed_m15_bars_count = (min(len(hour_m5), 12) // 3) * 3
+    if closed_m15_bars_count >= 3:
+        locked_bars = [b for _, b in hour_m5[:closed_m15_bars_count]]
+        b_open = float(locked_bars[0].get("open", forming_h1.get("open", 0)))
+        b_high = max(float(x.get("high", 0)) for x in locked_bars)
+        b_low = min(float(x.get("low", 999999)) for x in locked_bars)
+        b_close = float(locked_bars[-1].get("close", 0))
+        tf_minutes = closed_m15_bars_count * 5
+    else:
+        # Fallback từ forming_h1 nếu đã đủ >= 3 nến M5
+        b_open = float(forming_h1.get("open", latest_m5.get("open", 0)))
+        b_high = float(forming_h1.get("high", latest_m5.get("high", 0)))
+        b_low = float(forming_h1.get("low", latest_m5.get("low", 0)))
+        b_close = float(forming_h1.get("close", latest_m5.get("close", 0)))
+        tf_minutes = (m5_count // 3) * 15
+
+    if b_open <= 0 or b_close <= 0 or b_high <= b_low:
+        return {"is_active": False}
+
+    candle_range = b_high - b_low
+    body_size = abs(b_close - b_open)
+    body_ratio = body_size / candle_range if candle_range > 0 else 0.0
+
+    # Ngưỡng kích hoạt:
+    # - Trong Phiên Mỹ: Biên độ cụm M15/M30 >= 0.65 * ATR_H1 và thân nến >= 55%
+    # - Ngoài Phiên Mỹ (Đột biến tin tức): Biên độ cụm M15/M30 >= 0.85 * ATR_H1 và thân nến >= 60%
+    min_atr_mult = 0.65 if in_us_session else 0.85
+    min_body_ratio = 0.55 if in_us_session else 0.60
+
+    is_displacement = (candle_range >= min_atr_mult * atr_h1) and (body_ratio >= min_body_ratio)
+    if not is_displacement:
+        return {"is_active": False}
+
+    side = "MUA" if b_close > b_open else "BÁN"
+    # Kiểm tra phá vỡ cấu trúc ngắn hạn (vượt EMA21_H1 hoặc cực trị nến H1 trước)
+    if side == "MUA" and b_close < ema21_h1 and b_close < h1_high:
+        return {"is_active": False}
+    if side == "BÁN" and b_close > ema21_h1 and b_close > h1_low:
+        return {"is_active": False}
+
+    # Điểm đón Entry chuẩn ICT cho sóng mạnh: Equilibrium 50% (0.5 Fibo / FVG) của cụm nến xung lực M15/M30
+    fvg_eq_entry = round((b_open + b_close) / 2.0, 2)
+    if side == "MUA":
+        sl_price = round(b_low - 0.35 * atr_h1, 2)
+        risk = round(max(2.0, fvg_eq_entry - sl_price), 2)
+        tp1 = round(fvg_eq_entry + 1.0 * risk, 2)
+        tp2 = round(fvg_eq_entry + 1.5 * risk, 2)
+        tp3 = round(fvg_eq_entry + 2.0 * risk, 2)
+    else:
+        sl_price = round(b_high + 0.35 * atr_h1, 2)
+        risk = round(max(2.0, sl_price - fvg_eq_entry), 2)
+        tp1 = round(fvg_eq_entry - 1.0 * risk, 2)
+        tp2 = round(fvg_eq_entry - 1.5 * risk, 2)
+        tp3 = round(fvg_eq_entry - 2.0 * risk, 2)
+
+    tf_label = "M30 Đóng Cửa" if tf_minutes >= 30 else "M15 Đóng Cửa"
+    regime_str = "Phiên Mỹ (Fast Mode)" if in_us_session else "Đột Biến Biên Độ (Displacement)"
+
+    return {
+        "is_active": True,
+        "timeframe_label": tf_label,
+        "regime_label": regime_str,
+        "side": side,
+        "open": round(b_open, 2),
+        "high": round(b_high, 2),
+        "low": round(b_low, 2),
+        "close": round(b_close, 2),
+        "entry_target": fvg_eq_entry,
+        "sl_price": sl_price,
+        "tp1_price": tp1,
+        "tp2_price": tp2,
+        "tp3_price": tp3,
+        "risk_pts": risk,
+        "body_pct": int(round(body_ratio * 100)),
+        "atr_ratio": round(candle_range / atr_h1, 2),
+        "time_vn": vn_dt.strftime("%Y-%m-%d %H:%M")
+    }
 
 
 def get_latest_m5_price(commodity: str) -> dict:

@@ -23,8 +23,11 @@ DATA_OUTPUT = BASE_DIR / "Data" / "output"
 BACKTEST_FILE = DATA_OUTPUT / "live_signals_backtest.json"
 sys.path.insert(0, str(BASE_DIR))
 
-import backtest_engine
+import importlib
 import tv_webhook_client
+import backtest_engine
+importlib.reload(tv_webhook_client)
+importlib.reload(backtest_engine)
 
 # ── CẤU HÌNH TRANG ─────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -482,14 +485,35 @@ rt_m5_data = tv_webhook_client.fetch_realtime_m5(timeout=3) if current_webhook_u
 rt_symbols = rt_m5_data.get("symbols", {})
 rt_updated_at = rt_m5_data.get("updated_at", "")
 
-# ── NẠP DỮ LIỆU BACKTEST (TỰ CẬP NHẬT KHI CÓ NẾN M5 MỚI) ───────────────────
+# ── NẠP DỮ LIỆU BACKTEST (TẦNG 1: CẤU TRÚC H1 + M15/M30 | TẦNG 2: CẬP NHẬT TRẠNG THÁI M5) ──
 @st.cache_data(ttl=60)
-def load_backtest_data(m5_timestamp: str = ""):
-    if not BACKTEST_FILE.exists() or m5_timestamp:
+def load_backtest_data(m5_timestamp: str = "", _v: int = 2):
+    need_full_run = not BACKTEST_FILE.exists()
+    if not need_full_run:
+        try:
+            age_sec = (datetime.datetime.now() - datetime.datetime.fromtimestamp(BACKTEST_FILE.stat().st_mtime)).total_seconds()
+            if age_sec > 3600:
+                need_full_run = True
+        except Exception:
+            pass
+
+    if need_full_run:
         backtest_engine.run_full_backtest(force_download=False)
+
     try:
         with open(BACKTEST_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
+            res_data = json.load(f)
+        # TẦNG 2: Cập nhật tức thời trạng thái lệnh đang mở & Radar khoảng cách theo M5 Realtime
+        zc_c = backtest_engine.fetch_or_load_90d("ZC", force_download=False)
+        zw_c = backtest_engine.fetch_or_load_90d("ZW", force_download=False)
+        res_data["upcoming_radar"] = backtest_engine.compute_upcoming_radar(zc_c, zw_c)
+        for m_key in ["method_1", "method_2", "method_3"]:
+            if m_key in res_data and "trades" in res_data[m_key]:
+                t_list = res_data[m_key]["trades"]
+                t_list = backtest_engine.apply_m5_live_status_to_trades(t_list, "ZC")
+                t_list = backtest_engine.apply_m5_live_status_to_trades(t_list, "ZW")
+                res_data[m_key]["trades"] = t_list
+        return res_data
     except Exception as e:
         st.error(f"Lỗi nạp dữ liệu backtest: {e}")
         return {}
@@ -502,10 +526,10 @@ with col_header:
     st.html("""
     <div style='display:flex; align-items:center; gap:12px; margin-bottom:4px;'>
     <div style='font-size:28px; font-weight:800; color:#f8fafc;'>Invest<span style='color:#f59e0b;'>X</span> • Live Signal</div>
-    <span style='background:#1e293b; color:#38bdf8; font-size:12px; font-weight:700; padding:4px 10px; border-radius:6px; border:1px solid #0284c7;'>CQG SIMULATION • M5 REALTIME</span>
+    <span style='background:#1e293b; color:#38bdf8; font-size:12px; font-weight:700; padding:4px 10px; border-radius:6px; border:1px solid #0284c7;'>CQG SIMULATION • ADAPTIVE 2-LAYER (H1/M15 + M5 TRACKER)</span>
     </div>
     <div style='font-size:20px; font-weight:700; color:#f1f5f9; margin-bottom:2px;'>Lịch sử & Thống kê hiệu suất</div>
-    <div style='font-size:13px; color:#94a3b8; margin-bottom:18px;'>Kết quả các tín hiệu vào lệnh mô phỏng theo dữ liệu giá thực tế CBOT trong 90 ngày qua (Cập nhật tự động theo nến M5)</div>
+    <div style='font-size:13px; color:#94a3b8; margin-bottom:18px;'>Cấu trúc & Điểm vào lệnh xác định bởi <b>Tầng 1 (H1 Đóng Cửa + M15/M30 Xung Lực Phiên Mỹ)</b> • Trạng thái khớp lệnh & Giá Live theo dõi bởi <b>Tầng 2 (M5 Realtime)</b></div>
     """)
 
 with col_actions:
@@ -562,8 +586,9 @@ with st.expander("📡 Cấu Hình & Nhận Nến M5 Realtime Từ TradingView W
                 st.rerun()
     st.html("""
     <div style='font-size:12px; color:#94a3b8; line-height:1.6;'>
-    💡 <b>Cơ chế:</b> TradingView (khung <b>5 phút - M5</b>) bắn JSON về link Google Script mỗi khi đóng nến M5. 
-    Hệ thống tự động gom các nến M5 thành nến H1 đang chạy (Forming H1) để kích hoạt điểm vào lệnh <b>Entry / TP / SL</b> tức thời mà không bị trễ 15 phút.
+    💡 <b>Kiến Trúc 2 Tầng Thích Ứng (Chống Nhiễu):</b><br>
+    • <b>Tầng 1 (Cấu Trúc & Điểm Đón):</b> Dùng <b>Nến H1 Đóng Cửa</b> (khi Sideway/Phiên Á-Âu) kết hợp <b>Nến M15/M30 Đóng Cửa Xung Lực FVG 50%</b> (khi vào Phiên Mỹ hoặc biến động mạnh &ge; 0.85 ATR) để khóa cố định điểm Entry / SL / TP.<br>
+    • <b>Tầng 2 (Theo Dõi Thực Chiến - M5 Realtime):</b> Nến M5 <b>chỉ dùng để cập nhật Giá Live, đo khoảng cách tiếp cận và kiểm tra khớp lệnh / chạm TP-SL</b>, tuyệt đối không dùng M5 để vẽ lại cấu trúc hay làm nhảy điểm SL/TP.
     </div>
     """)
 
@@ -669,7 +694,7 @@ def render_future_radar_section(radar_list):
               <span style='background:#312e81; color:#c7d2fe; font-size:11px; font-weight:700; padding:2px 8px; border-radius:12px; border:1px solid #4f46e5;'>LIVE WATCHLIST</span>
             </div>
             <div style='font-size:12px; color:#94a3b8; margin-top:4px;'>
-              Dấu hiệu kịch bản lệnh tương lai dựa trên cấu trúc nến hiện tại (H1 + M5 Realtime) — Giúp Trader chuẩn bị lệnh trước trên CQG/TradingView và đối chiếu khớp lệnh thực tế.
+              <b>Tầng 1 (Cấu trúc & Điểm vào):</b> Nến H1 Đóng Cửa (Sideway) + Nến M15/M30 Đóng Cửa FVG 50% (Phiên Mỹ / Sóng Mạnh) &nbsp;|&nbsp; <b>Tầng 2 (M5 Realtime):</b> Chỉ đo khoảng cách Giá Live & cập nhật trạng thái khớp lệnh (Không gây nhiễu cấu trúc).
             </div>
           </div>
           <div style='display:flex; gap:10px;'>

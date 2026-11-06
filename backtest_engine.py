@@ -106,9 +106,96 @@ def fetch_or_load_90d(commodity_code: str, force_download: bool = False) -> list
         "S1": "s1", "S2": "s2", "R1": "r1", "R2": "r2"
     })
     candles = df_ict.to_dict("records")
-    # Ghép dữ liệu nến M5 Realtime từ TradingView Webhook (nếu có)
-    candles = tv_webhook_client.merge_realtime_m5_into_candles(candles, commodity_code)
+    # TẦNG 1: Giữ nguyên chuỗi nến H1 đóng cửa chuẩn xác để tính cấu trúc ICT/SMC (không trộn M5 gây nhiễu)
     return candles
+
+
+def apply_m5_live_status_to_trades(trades: list, commodity: str) -> list:
+    """
+    TẦNG 2 (M5 Realtime Order Tracker):
+    Chỉ dùng giá nến M5 Realtime để cập nhật trạng thái khớp lệnh, PnL đang chạy và chạm TP/SL
+    cho các vị thế mới nhất, tuyệt đối không làm thay đổi cấu trúc hay điểm Entry/SL/TP của Tầng 1.
+    """
+    if not trades:
+        return trades
+    m5_info = tv_webhook_client.get_latest_m5_price(commodity)
+    if not m5_info:
+        return trades
+
+    m5_close = float(m5_info.get("close", 0))
+    m5_high = float(m5_info.get("high", m5_close))
+    m5_low = float(m5_info.get("low", m5_close))
+    m5_time = m5_info.get("time_vn", "")
+    if m5_close <= 0:
+        return trades
+
+    for t in trades:
+        if t.get("commodity") != commodity:
+            continue
+        res = t.get("result")
+        side = t.get("side")
+        entry = float(t.get("entry_price", 0))
+        sl = float(t.get("sl_price", 0))
+        tp1 = float(t.get("tp1_price", 0))
+        tp2 = float(t.get("tp2_price", 0))
+        tp3 = float(t.get("tp3_price", 0))
+
+        if res == "ĐANG MỞ":
+            hit_tp1 = bool(t.get("hit_tp1_time"))
+            cur_sl = entry if hit_tp1 else sl
+            if side == "MUA":
+                if m5_low <= cur_sl:
+                    if hit_tp1:
+                        t["result"] = "ENTRY"; t["exit_price"] = entry; t["pnl"] = 0.0; t["diff_points"] = 0.0
+                        t["exit_time"] = m5_time[:16]
+                        t["exit_desc"] = f"[Tầng 2 - M5 Live] Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Nến M5 vừa chạm SL hòa vốn ($0)."
+                    else:
+                        t["result"] = "SL"; t["exit_price"] = sl; t["pnl"] = round((sl - entry) * MULTIPLIER, 2)
+                        t["diff_points"] = round(-(entry - sl), 2); t["exit_time"] = m5_time[:16]
+                        t["exit_desc"] = f"[Tầng 2 - M5 Live] Giá M5 chạm mức cắt lỗ SL ({sl}) lúc {m5_time}."
+                elif m5_high >= tp3:
+                    t["result"] = "TP3"; t["exit_price"] = tp3; t["pnl"] = round((tp3 - entry) * MULTIPLIER, 2)
+                    t["diff_points"] = round(tp3 - entry, 2); t["win"] = True; t["exit_time"] = m5_time[:16]
+                    t["exit_desc"] = f"[Tầng 2 - M5 Live] Giá M5 bứt phá chạm chốt lời tối đa TP3 ({tp3}) lúc {m5_time}."
+                else:
+                    if m5_high >= tp1 and not hit_tp1:
+                        t["hit_tp1_time"] = m5_time[:16]
+                        hit_tp1 = True
+                    t["exit_price"] = round(m5_close, 2)
+                    cur_diff = round(m5_close - entry, 2)
+                    t["diff_points"] = cur_diff
+                    t["pnl"] = round(cur_diff * MULTIPLIER, 2)
+                    t["exit_desc"] = (
+                        f"[Tầng 2 - M5 Live ({m5_time})] Vị thế đang mở. Giá M5 hiện tại: {m5_close:.2f}. "
+                        f"{'Đã đạt TP1 & dời SL về hòa vốn ' + str(entry) if hit_tp1 else 'SL cố định tại ' + str(sl)}."
+                    )
+            else:  # BÁN
+                if m5_high >= cur_sl:
+                    if hit_tp1:
+                        t["result"] = "ENTRY"; t["exit_price"] = entry; t["pnl"] = 0.0; t["diff_points"] = 0.0
+                        t["exit_time"] = m5_time[:16]
+                        t["exit_desc"] = f"[Tầng 2 - M5 Live] Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Nến M5 vừa chạm SL hòa vốn ($0)."
+                    else:
+                        t["result"] = "SL"; t["exit_price"] = sl; t["pnl"] = round((entry - sl) * MULTIPLIER, 2)
+                        t["diff_points"] = round(-(sl - entry), 2); t["exit_time"] = m5_time[:16]
+                        t["exit_desc"] = f"[Tầng 2 - M5 Live] Giá M5 chạm mức cắt lỗ SL ({sl}) lúc {m5_time}."
+                elif m5_low <= tp3:
+                    t["result"] = "TP3"; t["exit_price"] = tp3; t["pnl"] = round((entry - tp3) * MULTIPLIER, 2)
+                    t["diff_points"] = round(entry - tp3, 2); t["win"] = True; t["exit_time"] = m5_time[:16]
+                    t["exit_desc"] = f"[Tầng 2 - M5 Live] Giá M5 giảm mạnh chạm chốt lời tối đa TP3 ({tp3}) lúc {m5_time}."
+                else:
+                    if m5_low <= tp1 and not hit_tp1:
+                        t["hit_tp1_time"] = m5_time[:16]
+                        hit_tp1 = True
+                    t["exit_price"] = round(m5_close, 2)
+                    cur_diff = round(entry - m5_close, 2)
+                    t["diff_points"] = cur_diff
+                    t["pnl"] = round(cur_diff * MULTIPLIER, 2)
+                    t["exit_desc"] = (
+                        f"[Tầng 2 - M5 Live ({m5_time})] Vị thế đang mở. Giá M5 hiện tại: {m5_close:.2f}. "
+                        f"{'Đã đạt TP1 & dời SL về hòa vốn ' + str(entry) if hit_tp1 else 'SL cố định tại ' + str(sl)}."
+                    )
+    return trades
 
 
 def simulate_method_1(candles: list, commodity: str) -> list:
@@ -859,8 +946,13 @@ def compute_metrics(trades: list, days_filter: int = None) -> dict:
 
 def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
     """
-    Phát hiện các điểm vào lệnh tiềm năng trong tương lai (Upcoming Setups / Future Radar)
-    dựa trên cấu trúc nến hiện tại (H1 + M5 Realtime) để Trader chuẩn bị lệnh trước.
+    KIẾN TRÚC 2 TẦNG THÍCH ỨNG (ADAPTIVE 2-LAYER RADAR):
+      - TẦNG 1A (Phiên Á/Âu & Sideway): Xác định cấu trúc & khóa cố định điểm Entry/SL/TP trên Nến H1 Đóng Cửa.
+      - TẦNG 1B (Phiên Mỹ & Sóng Xung Lực Mạnh): Kích hoạt sớm kịch bản Xung Lực (Fast Impulse) trên cụm nến
+        M15/M30 Đóng Cửa (hoặc nến Displacement bứt phá xa EMA21), đón nhịp hồi nông tại 50% FVG/Equilibrium
+        để không bị trễ 60 phút và không bị hụt lệnh khi sóng chạy mạnh.
+      - TẦNG 2 (Con trỏ Giá M5 Realtime): Chỉ dùng giá M5 để cập nhật Giá Live, đo khoảng cách tiếp cận
+        và báo trạng thái chạm vùng chờ (tuyệt đối không dùng M5 để vẽ lại cấu trúc hay dịch chuyển SL/TP).
     """
     radar = []
     commodities = [
@@ -871,17 +963,116 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
     for comm, prod, candles in commodities:
         if not candles:
             continue
+        # TẦNG 1: Chỉ lấy nến H1 đã đóng cửa để tính cấu trúc chuẩn
         c_last = candles[-1]
-        cur_p = round(c_last["close"], 2)
-        cur_time = c_last.get("time", "")
-        atr = round(c_last.get("atr", 3.0), 2)
-        ema21 = round(c_last.get("ema21", cur_p), 2)
-        ema50 = round(c_last.get("ema50", cur_p), 2)
+        h1_time = str(c_last.get("time", ""))
+        h1_close = round(float(c_last["close"]), 2)
+        h1_open = round(float(c_last.get("open", h1_close)), 2)
+        h1_high = round(float(c_last.get("high", h1_close)), 2)
+        h1_low = round(float(c_last.get("low", h1_close)), 2)
+        atr = round(float(c_last.get("atr", 3.0)), 2)
+        rsi = round(float(c_last.get("rsi", 50.0)), 1)
+        ema21 = round(float(c_last.get("ema21", h1_close)), 2)
+        ema50 = round(float(c_last.get("ema50", h1_close)), 2)
         
         ana = ict_engine.analyze(candles)
         trend = ana.get("trend", "neutral")
-        
-        # 1. Kịch bản M1: Thuận xu hướng Pullback EMA 21-50
+        setup_h1 = ana.get("setup") or {}
+        m1_has_m3 = bool(setup_h1 and setup_h1.get("winRate", 0) >= 70)
+
+        # TẦNG 2: Lấy Giá M5 Realtime chỉ để làm Con trỏ Giá Live & đo khoảng cách
+        m5_live = tv_webhook_client.get_latest_m5_price(comm)
+        cur_p = round(float(m5_live["close"]), 2) if m5_live and m5_live.get("close") else h1_close
+        m5_high = round(float(m5_live["high"]), 2) if m5_live and m5_live.get("high") else cur_p
+        m5_low = round(float(m5_live["low"]), 2) if m5_live and m5_live.get("low") else cur_p
+
+        # ── 0. TẦNG 1B: KỊCH BẢN XUNG LỰC NHANH (M15/M30 ĐÓNG CỬA HOẶC DISPLACEMENT PHIÊN MỸ) ──
+        impulse_m15 = tv_webhook_client.get_m15_m30_closed_impulse(comm, c_last)
+        if impulse_m15.get("is_active"):
+            imp_side = impulse_m15["side"]
+            imp_entry = impulse_m15["entry_target"]
+            imp_sl = impulse_m15["sl_price"]
+            imp_tp1 = impulse_m15["tp1_price"]
+            imp_tp2 = impulse_m15["tp2_price"]
+            imp_tp3 = impulse_m15["tp3_price"]
+            imp_risk = impulse_m15["risk_pts"]
+            tf_lbl = impulse_m15["timeframe_label"]
+            reg_lbl = impulse_m15["regime_label"]
+            dist = round(abs(cur_p - imp_entry), 2)
+            touched = (m5_low <= imp_entry <= m5_high)
+            status = "⚡ SẴN SÀNG (Đang khớp FVG)" if (touched or dist <= 0.6 * atr) else "⏳ CHỜ HỒI NÔNG (FVG 50%)"
+            radar.append({
+                "commodity": comm,
+                "product": prod,
+                "method": f"⚡ M1-Fast ({tf_lbl} • FVG 50%)",
+                "side": imp_side,
+                "current_price": cur_p,
+                "entry_target": imp_entry,
+                "distance_pts": dist,
+                "sl_price": imp_sl,
+                "tp1_price": imp_tp1,
+                "tp2_price": imp_tp2,
+                "tp3_price": imp_tp3,
+                "risk_pts": imp_risk,
+                "risk_usd": round(imp_risk * MULTIPLIER, 2),
+                "rr": "1 : 2.0",
+                "status": status,
+                "structure_time": impulse_m15.get("time_vn", h1_time),
+                "latest_h1_time": h1_time,
+                "m3_confluence": True,
+                "action_hint": f"[{reg_lbl}] Đặt Limit {imp_side} đón nhịp hồi nông tại 50% nến xung lực ({imp_entry:.2f}) thay vì chờ EMA21 H1 ở xa ({ema21:.2f}). SL cố định: {imp_sl:.2f}, TP3: {imp_tp3:.2f}.",
+                "condition": f"[Tầng 1B - {tf_lbl}] Phát hiện nến Xung Lực ({impulse_m15['atr_ratio']}x ATR, thân nến đặc {impulse_m15['body_pct']}%). Khóa điểm đón FVG/Equilibrium 50%; Tầng 2 (M5) chỉ đo khoảng cách.",
+                "priority": "Rất cao"
+            })
+        else:
+            # Kiểm tra nếu nến H1 vừa đóng là nến Xung Lực mạnh (Displacement) đẩy giá rời xa EMA21 (> 0.85 ATR)
+            h1_range = max(0.01, h1_high - h1_low)
+            h1_body = abs(h1_close - h1_open)
+            dist_from_ema21 = abs(h1_close - ema21)
+            if h1_range >= 0.85 * atr and (h1_body / h1_range) >= 0.55 and dist_from_ema21 >= 0.85 * atr:
+                imp_side = "MUA" if (trend == "bullish" and h1_close > h1_open) else ("BÁN" if (trend == "bearish" and h1_close < h1_open) else None)
+                if imp_side:
+                    imp_entry = round((h1_open + h1_close) / 2.0, 2)
+                    if imp_side == "MUA":
+                        imp_sl = round(h1_low - 0.35 * atr, 2)
+                        imp_risk = round(max(2.0, imp_entry - imp_sl), 2)
+                        imp_tp1 = round(imp_entry + 1.0 * imp_risk, 2)
+                        imp_tp2 = round(imp_entry + 1.5 * imp_risk, 2)
+                        imp_tp3 = round(imp_entry + 2.0 * imp_risk, 2)
+                    else:
+                        imp_sl = round(h1_high + 0.35 * atr, 2)
+                        imp_risk = round(max(2.0, imp_sl - imp_entry), 2)
+                        imp_tp1 = round(imp_entry - 1.0 * imp_risk, 2)
+                        imp_tp2 = round(imp_entry - 1.5 * imp_risk, 2)
+                        imp_tp3 = round(imp_entry - 2.0 * imp_risk, 2)
+                    dist = round(abs(cur_p - imp_entry), 2)
+                    touched = (m5_low <= imp_entry <= m5_high)
+                    status = "⚡ SẴN SÀNG (Gần vùng FVG)" if (touched or dist <= 0.75 * atr) else "⏳ CHỜ HỒI NÔNG (FVG 50%)"
+                    radar.append({
+                        "commodity": comm,
+                        "product": prod,
+                        "method": "⚡ M1-Fast (Xung Lực • FVG 50%)",
+                        "side": imp_side,
+                        "current_price": cur_p,
+                        "entry_target": imp_entry,
+                        "distance_pts": dist,
+                        "sl_price": imp_sl,
+                        "tp1_price": imp_tp1,
+                        "tp2_price": imp_tp2,
+                        "tp3_price": imp_tp3,
+                        "risk_pts": imp_risk,
+                        "risk_usd": round(imp_risk * MULTIPLIER, 2),
+                        "rr": "1 : 2.0",
+                        "status": status,
+                        "structure_time": h1_time,
+                        "latest_h1_time": h1_time,
+                        "m3_confluence": True,
+                        "action_hint": f"[Chế độ Sóng Mạnh] Giá đã bứt phá xa EMA21 ({ema21:.2f}). Đặt Limit {imp_side} đón nhịp hồi nông tại 50% thân nến xung lực ({imp_entry:.2f}). SL: {imp_sl:.2f}, TP3: {imp_tp3:.2f}.",
+                        "condition": f"[Tầng 1B - Displacement] Nến bứt phá biên độ {h1_range:.2f} pts ({h1_range/atr:.1f}x ATR), cách EMA21 {dist_from_ema21:.2f} pts. Đón tại vùng cân bằng 50% để tránh hụt lệnh.",
+                        "priority": "Rất cao"
+                    })
+
+        # ── 1. TẦNG 1A: KỊCH BẢN M1 CHUẨN (THUẬN XU HƯỚNG PULLBACK EMA 21-50 H1 ĐÓNG CỬA) ──
         if trend == "bearish":
             entry = ema21
             sl = round(entry + 1.25 * atr, 2)
@@ -889,12 +1080,13 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
             tp1 = round(entry - 1.0 * risk, 2)
             tp2 = round(entry - 1.5 * risk, 2)
             tp3 = round(entry - 2.0 * risk, 2)
-            dist = round(max(0.0, entry - cur_p), 2)
-            status = "⚡ SẴN SÀNG (Gần chạm)" if dist <= atr else "⏳ ĐANG CHỜ HỒI"
+            dist = round(abs(entry - cur_p), 2)
+            touched = (m5_low <= entry <= m5_high)
+            status = "⚡ SẴN SÀNG (Gần chạm)" if (touched or dist <= atr) else "⏳ ĐANG CHỜ HỒI"
             radar.append({
                 "commodity": comm,
                 "product": prod,
-                "method": "M1 (Trend Pullback EMA)",
+                "method": "M1 (H1 Closed • EMA Pullback)",
                 "side": "BÁN",
                 "current_price": cur_p,
                 "entry_target": entry,
@@ -907,8 +1099,11 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
                 "risk_usd": round(risk * MULTIPLIER, 2),
                 "rr": "1 : 2.0",
                 "status": status,
-                "action_hint": f"Đặt Limit BÁN @ {entry:.2f} (dải EMA 21-50). SL: {sl:.2f}, TP3: {tp3:.2f}",
-                "condition": f"Xu hướng H1 đang GIẢM. Chờ giá hồi {dist:.2f} pts về dải EMA21-50 ({min(ema21, ema50):.2f} - {max(ema21, ema50):.2f}).",
+                "structure_time": h1_time,
+                "latest_h1_time": h1_time,
+                "m3_confluence": m1_has_m3,
+                "action_hint": f"Đặt Limit BÁN cố định @ {entry:.2f} (EMA21 H1 đã đóng nến). SL: {sl:.2f}, TP3: {tp3:.2f}",
+                "condition": f"[Tầng 1A - H1 Đóng Cửa] Xu hướng GIẢM. Điểm đón khóa cố định tại EMA21-50 ({min(ema21, ema50):.2f} - {max(ema21, ema50):.2f}); Giá M5 Live cách {dist:.2f} pts.",
                 "priority": "Cao" if dist <= atr else "Trung bình"
             })
         elif trend == "bullish":
@@ -918,12 +1113,13 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
             tp1 = round(entry + 1.0 * risk, 2)
             tp2 = round(entry + 1.5 * risk, 2)
             tp3 = round(entry + 2.0 * risk, 2)
-            dist = round(max(0.0, cur_p - entry), 2)
-            status = "⚡ SẴN SÀNG (Gần chạm)" if dist <= atr else "⏳ ĐANG CHỜ HỒI"
+            dist = round(abs(cur_p - entry), 2)
+            touched = (m5_low <= entry <= m5_high)
+            status = "⚡ SẴN SÀNG (Gần chạm)" if (touched or dist <= atr) else "⏳ ĐANG CHỜ HỒI"
             radar.append({
                 "commodity": comm,
                 "product": prod,
-                "method": "M1 (Trend Pullback EMA)",
+                "method": "M1 (H1 Closed • EMA Pullback)",
                 "side": "MUA",
                 "current_price": cur_p,
                 "entry_target": entry,
@@ -936,17 +1132,23 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
                 "risk_usd": round(risk * MULTIPLIER, 2),
                 "rr": "1 : 2.0",
                 "status": status,
-                "action_hint": f"Đặt Limit MUA @ {entry:.2f} (dải EMA 21-50). SL: {sl:.2f}, TP3: {tp3:.2f}",
-                "condition": f"Xu hướng H1 đang TĂNG. Chờ giá hồi {dist:.2f} pts về dải EMA21-50 ({min(ema21, ema50):.2f} - {max(ema21, ema50):.2f}).",
+                "structure_time": h1_time,
+                "latest_h1_time": h1_time,
+                "m3_confluence": m1_has_m3,
+                "action_hint": f"Đặt Limit MUA cố định @ {entry:.2f} (EMA21 H1 đã đóng nến). SL: {sl:.2f}, TP3: {tp3:.2f}",
+                "condition": f"[Tầng 1A - H1 Đóng Cửa] Xu hướng TĂNG. Điểm đón khóa cố định tại EMA21-50 ({min(ema21, ema50):.2f} - {max(ema21, ema50):.2f}); Giá M5 Live cách {dist:.2f} pts.",
                 "priority": "Cao" if dist <= atr else "Trung bình"
             })
             
-        # 2. Kịch bản M2: Bắt Đỉnh SMC 5★ - 6★ Zone
+        # ── 2. TẦNG 1A: KỊCH BẢN M2 BẮT ĐỈNH SMC 5★ - 6★ ZONE (H1 ĐÓNG CỬA) ──
         tz_list = [z for z in ana.get("top_zones", []) if z.get("score", 0) >= 5]
         if tz_list:
             tz = tz_list[-1]
             tz_p = round(tz["price"], 2)
             sc = tz.get("score", 5)
+            tz_idx = tz.get("index", len(candles) - 1)
+            tz_time = str(candles[tz_idx].get("time", h1_time)) if 0 <= tz_idx < len(candles) else h1_time
+            tz_m3 = any("sweep" in f.lower() or "overbought" in f.lower() for f in tz.get("factors", [])) or (rsi > 65)
             sl = round(tz_p + 0.75 * atr, 2)
             risk = round(sl - tz_p, 2)
             tp1 = round(tz_p - 1.0 * risk, 2)
@@ -957,7 +1159,7 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
             radar.append({
                 "commodity": comm,
                 "product": prod,
-                "method": f"M2 (SMC {sc}★ Bắt Đỉnh)",
+                "method": f"M2 (H1 SMC {sc}★ Bắt Đỉnh)",
                 "side": "BÁN",
                 "current_price": cur_p,
                 "entry_target": tz_p,
@@ -970,17 +1172,23 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
                 "risk_usd": round(risk * MULTIPLIER, 2),
                 "rr": "1 : 2.0",
                 "status": status,
-                "action_hint": f"Canh nến H1 quét qua {tz_p:.2f} rồi rút râu để BÁN. SL: {sl:.2f}, TP3: {tp3:.2f}",
-                "condition": f"Đỉnh SMC {sc}/8★ tại {tz_p:.2f}. " + ", ".join(tz.get("factors", [])[:2]),
+                "structure_time": tz_time,
+                "latest_h1_time": h1_time,
+                "m3_confluence": tz_m3,
+                "action_hint": f"Vùng đỉnh H1 cố định tại {tz_p:.2f}. Canh giá quét qua {tz_p:.2f} rồi đóng nến M15/H1 rút râu để BÁN. SL: {sl:.2f}, TP3: {tp3:.2f}",
+                "condition": f"[Tầng 1A - H1 Đóng Cửa] Đỉnh SMC {sc}/8★ tại {tz_p:.2f}. " + ", ".join(tz.get("factors", [])[:2]),
                 "priority": "Cao" if dist <= atr else "Trung bình"
             })
             
-        # 3. Kịch bản M2: Bắt Đáy SMC 5★ - 6★ Zone
+        # ── 3. TẦNG 1A: KỊCH BẢN M2 BẮT ĐÁY SMC 5★ - 6★ ZONE (H1 ĐÓNG CỬA) ──
         bz_list = [z for z in ana.get("bottom_zones", []) if z.get("score", 0) >= 5]
         if bz_list:
             bz = bz_list[-1]
             bz_p = round(bz["price"], 2)
             sc = bz.get("score", 5)
+            bz_idx = bz.get("index", len(candles) - 1)
+            bz_time = str(candles[bz_idx].get("time", h1_time)) if 0 <= bz_idx < len(candles) else h1_time
+            bz_m3 = any("sweep" in f.lower() or "oversold" in f.lower() for f in bz.get("factors", [])) or (rsi < 35)
             sl = round(bz_p - 0.75 * atr, 2)
             risk = round(bz_p - sl, 2)
             tp1 = round(bz_p + 1.0 * risk, 2)
@@ -991,7 +1199,7 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
             radar.append({
                 "commodity": comm,
                 "product": prod,
-                "method": f"M2 (SMC {sc}★ Bắt Đáy)",
+                "method": f"M2 (H1 SMC {sc}★ Bắt Đáy)",
                 "side": "MUA",
                 "current_price": cur_p,
                 "entry_target": bz_p,
@@ -1004,13 +1212,16 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
                 "risk_usd": round(risk * MULTIPLIER, 2),
                 "rr": "1 : 2.0",
                 "status": status,
-                "action_hint": f"Canh nến H1 nhúng qua {bz_p:.2f} rồi rút chân để MUA. SL: {sl:.2f}, TP3: {tp3:.2f}",
-                "condition": f"Đáy SMC {sc}/8★ tại {bz_p:.2f}. " + ", ".join(bz.get("factors", [])[:2]),
+                "structure_time": bz_time,
+                "latest_h1_time": h1_time,
+                "m3_confluence": bz_m3,
+                "action_hint": f"Vùng đáy H1 cố định tại {bz_p:.2f}. Canh giá nhúng qua {bz_p:.2f} rồi đóng nến M15/H1 rút chân để MUA. SL: {sl:.2f}, TP3: {tp3:.2f}",
+                "condition": f"[Tầng 1A - H1 Đóng Cửa] Đáy SMC {sc}/8★ tại {bz_p:.2f}. " + ", ".join(bz.get("factors", [])[:2]),
                 "priority": "Cao" if dist <= atr else "Trung bình"
             })
 
-    # Sắp xếp theo mức độ sẵn sàng: Sẵn sàng lên đầu, khoảng cách gần lên trước
-    radar = sorted(radar, key=lambda x: (0 if "SẴN SÀNG" in x["status"] else 1, x["distance_pts"]))
+    # Sắp xếp theo mức độ sẵn sàng: Sẵn sàng & M1-Fast lên đầu, khoảng cách gần lên trước
+    radar = sorted(radar, key=lambda x: (0 if "SẴN SÀNG" in x["status"] else 1, 0 if "M1-Fast" in x["method"] else 1, x["distance_pts"]))
     return radar
 
 
@@ -1023,22 +1234,22 @@ def run_full_backtest(force_download: bool = False) -> dict:
     zc_candles = fetch_or_load_90d("ZC", force_download=force_download)
     zw_candles = fetch_or_load_90d("ZW", force_download=force_download)
     
-    # ── Phương pháp 1 (ICT Pullback) ──
+    # ── Phương pháp 1 (ICT Pullback - Tầng 1 H1 Structure + Tầng 2 M5 Status) ──
     print("▶ Chạy Phương pháp 1 (ICT MSS + Pullback EMA)...")
-    m1_zc = simulate_method_1(zc_candles, "ZC")
-    m1_zw = simulate_method_1(zw_candles, "ZW")
+    m1_zc = apply_m5_live_status_to_trades(simulate_method_1(zc_candles, "ZC"), "ZC")
+    m1_zw = apply_m5_live_status_to_trades(simulate_method_1(zw_candles, "ZW"), "ZW")
     m1_all = sorted(m1_zc + m1_zw, key=lambda x: x["time"], reverse=True)
     
-    # ── Phương pháp 2 (SMC Reversal Zone) ──
+    # ── Phương pháp 2 (SMC Reversal Zone - Tầng 1 H1 Structure + Tầng 2 M5 Status) ──
     print("▶ Chạy Phương pháp 2 (FVG + Bắt Đáy / Đỉnh SMC Zone)...")
-    m2_zc = simulate_method_2(zc_candles, "ZC")
-    m2_zw = simulate_method_2(zw_candles, "ZW")
+    m2_zc = apply_m5_live_status_to_trades(simulate_method_2(zc_candles, "ZC"), "ZC")
+    m2_zw = apply_m5_live_status_to_trades(simulate_method_2(zw_candles, "ZW"), "ZW")
     m2_all = sorted(m2_zc + m2_zw, key=lambda x: x["time"], reverse=True)
 
-    # ── Phương pháp 3 (Hybrid: M1 + M2) ──
+    # ── Phương pháp 3 (Hybrid: M1 + M2 - Tầng 1 H1 Structure + Tầng 2 M5 Status) ──
     print("▶ Chạy Phương pháp 3 (Chiến Lược Hybrid Kết Hợp M1 + M2)...")
-    m3_zc = simulate_method_3_hybrid(zc_candles, "ZC")
-    m3_zw = simulate_method_3_hybrid(zw_candles, "ZW")
+    m3_zc = apply_m5_live_status_to_trades(simulate_method_3_hybrid(zc_candles, "ZC"), "ZC")
+    m3_zw = apply_m5_live_status_to_trades(simulate_method_3_hybrid(zw_candles, "ZW"), "ZW")
     m3_all = sorted(m3_zc + m3_zw, key=lambda x: x["time"], reverse=True)
     
     # Tính metrics
@@ -1099,6 +1310,171 @@ def run_full_backtest(force_download: bool = False) -> dict:
     print(f"   - M2 (30d): Lãi ${m2_stats_30d['total_pnl']:+,.2f} | Win Rate: {m2_stats_30d['win_rate']}% | Lệnh: {m2_stats_30d['total_trades']}")
     print(f"   - M3 Hybrid (30d): Lãi ${m3_stats_30d['total_pnl']:+,.2f} | Win Rate: {m3_stats_30d['win_rate']}% | Lệnh: {m3_stats_30d['total_trades']}")
     return result
+
+
+# ── HỆ THỐNG CẢNH BÁO TELEGRAM: CBOT RADAR ──────────────────────────────────
+RADAR_STATE_FILE = DATA_OUTPUT / "radar_telegram_state.json"
+TELEGRAM_CONFIGS = [
+    {"token": "8723627742:AAEpZFbfd8RSOGi9jxoh2tKQ8TdFViXivc0", "chat_id": "5294991069"},
+    {"token": "8723627742:AAEpZFbfd8RSOGi9jxoh2tKQ8TdFViXivc0", "chat_id": "-1003920117828"},  # Group: Cbot Thắng
+]
+
+
+def _format_vn_time_str(raw_str: str) -> str:
+    """Chuyển đổi YYYY-MM-DD HH:MM sang DD/MM/YYYY HH:MM."""
+    if not raw_str:
+        return "N/A"
+    s = str(raw_str).strip()
+    try:
+        parts = s.split(" ")
+        d_parts = parts[0].split("-")
+        if len(d_parts) == 3:
+            t_part = f" {parts[1][:5]}" if len(parts) > 1 else ""
+            return f"{d_parts[2]}/{d_parts[1]}/{d_parts[0]}{t_part}"
+    except Exception:
+        pass
+    return s
+
+
+def format_cbot_radar_message(r: dict, is_test: bool = False) -> str:
+    """Định dạng tin nhắn Telegram chuẩn tiêu đề 'CBOT RADAR' với đầy đủ thời gian & chiến lược M1/M2/M3."""
+    now_vn = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime("%d/%m/%Y %H:%M:%S")
+    comm = r.get("commodity", "")
+    prod = r.get("product", comm)
+    icon_prod = "🌾" if comm == "ZW" else "🌽"
+    name_vn = "Lúa Mì" if comm == "ZW" else "Ngô"
+    side = r.get("side", "MUA")
+    side_icon = "🟢 MUA" if side == "MUA" else "🔴 BÁN"
+    method = r.get("method", "")
+    m3_conf = r.get("m3_confluence", False)
+    m3_str = " <i>(Đồng thuận M3 Hybrid)</i>" if m3_conf and "M3" not in method else ""
+
+    struct_t = _format_vn_time_str(r.get("structure_time", ""))
+    h1_t = _format_vn_time_str(r.get("latest_h1_time", ""))
+    time_candle_line = f"{struct_t}" if struct_t == h1_t or not h1_t else f"{struct_t} (Nến H1 mới nhất: {h1_t})"
+
+    cur_p = float(r.get("current_price", 0))
+    entry_p = float(r.get("entry_target", 0))
+    dist = float(r.get("distance_pts", 0))
+    sl_p = float(r.get("sl_price", 0))
+    tp1_p = float(r.get("tp1_price", 0))
+    tp2_p = float(r.get("tp2_price", 0))
+    tp3_p = float(r.get("tp3_price", 0))
+    risk_pts = float(r.get("risk_pts", 0))
+    risk_usd = float(r.get("risk_usd", 0))
+    status_str = r.get("status", "⚡ SẴN SÀNG")
+    condition = r.get("condition", "")
+    action_hint = r.get("action_hint", "")
+
+    header_tag = "📡 <b>CBOT RADAR [TEST]</b>" if is_test else "📡 <b>CBOT RADAR</b>"
+    msg = (
+        f"{header_tag} — <b>{icon_prod} {prod} ({name_vn}) | {side_icon}</b>\n"
+        f"{'─'*28}\n"
+        f"• 🕒 <b>Thời gian báo:</b> <code>{now_vn}</code> (Giờ VN)\n"
+        f"• ⏱ <b>Nến cấu trúc gốc:</b> <code>{time_candle_line}</code>\n"
+        f"• 📊 <b>Chiến lược:</b> <b>{method}</b>{m3_str}\n"
+        f"• 📡 <b>Trạng thái:</b> <b>{status_str}</b>\n"
+        f"• 💹 <b>Giá Live (M5):</b> <b>{cur_p:.2f}</b> <i>(Cách điểm đón {dist:.2f} pts)</i>\n"
+        f"• 🎯 <b>Điểm Đón ({side}):</b> <b>{entry_p:.2f}</b>\n"
+        f"• 🛑 <b>Cắt lỗ (SL):</b> <code>{sl_p:.2f}</code> <i>(Rủi ro: {risk_pts:.2f} pts = ${risk_usd:,.0f}/HĐ)</i>\n"
+        f"• 🏆 <b>Chốt lời (TP):</b>\n"
+        f"   ├ TP1 (Dời BE): <b>{tp1_p:.2f}</b>\n"
+        f"   ├ TP2 (1.5R): <b>{tp2_p:.2f}</b>\n"
+        f"   └ TP3 (2.0R): <b>{tp3_p:.2f}</b>\n"
+        f"• 🧠 <b>Căn cứ kỹ thuật:</b> {condition}\n"
+        f"• 💡 <b>Hành động:</b> <i>{action_hint}</i>"
+    )
+    return msg
+
+
+def send_cbot_radar_telegram(text: str, target_chat_id: str = None):
+    """Gửi tin nhắn CBOT RADAR qua Telegram."""
+    import requests
+    configs = [{"token": TELEGRAM_CONFIGS[0]["token"], "chat_id": target_chat_id}] if target_chat_id else TELEGRAM_CONFIGS
+    for cfg in configs:
+        url = f"https://api.telegram.org/bot{cfg['token']}/sendMessage"
+        payload = {
+            "chat_id": cfg["chat_id"],
+            "text": text,
+            "parse_mode": "HTML",
+            "reply_markup": {
+                "inline_keyboard": [[{"text": "🔍 Quét CBOT RADAR", "callback_data": "scan_market"}]]
+            }
+        }
+        try:
+            resp = requests.post(url, json=payload, timeout=10)
+            if resp.status_code == 200:
+                print(f"[CBOT RADAR] Đã gửi Telegram tới {cfg['chat_id']} thành công.")
+            else:
+                print(f"[CBOT RADAR] Lỗi gửi Telegram tới {cfg['chat_id']}: {resp.text}")
+        except Exception as e:
+            print(f"[CBOT RADAR] Lỗi kết nối Telegram ({cfg['chat_id']}): {e}")
+
+
+def scan_and_send_cbot_radar_telegram(force_test_nearest: bool = False, target_chat_id: str = None) -> bool:
+    """
+    Quét Radar Điểm Vào Lệnh Sắp Tới (M1, M1-Fast, M2, M3 Hybrid) và gửi tin nhắn 'CBOT RADAR' qua Telegram.
+    - Nếu force_test_nearest=True: gửi ngay 1 tin nhắn test của tín hiệu gần nhất trên Radar.
+    - Nếu force_test_nearest=False: chỉ gửi các kịch bản đang '⚡ SẴN SÀNG' chưa từng gửi (chống spam).
+    """
+    now_str = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime("%Y-%m-%d %H:%M:%S")
+    print(f"\n--- [{now_str}] QUÉT CBOT RADAR (LIVE SIGNAL) ---")
+
+    zc_candles = fetch_or_load_90d("ZC", force_download=False)
+    zw_candles = fetch_or_load_90d("ZW", force_download=False)
+    radar_list = compute_upcoming_radar(zc_candles, zw_candles)
+
+    if not radar_list:
+        print("[CBOT RADAR] Không có kịch bản nào trên Radar.")
+        return False
+
+    state = {"sent_keys": {}, "last_messages": {}}
+    if RADAR_STATE_FILE.exists():
+        try:
+            with open(RADAR_STATE_FILE, "r", encoding="utf-8") as f:
+                state = json.load(f)
+        except Exception:
+            pass
+
+    sent_keys = state.get("sent_keys", {})
+    last_messages = state.get("last_messages", {})
+    any_sent = False
+
+    if force_test_nearest:
+        nearest = radar_list[0]
+        msg = format_cbot_radar_message(nearest, is_test=True)
+        send_cbot_radar_telegram(msg, target_chat_id=target_chat_id)
+        key = f"{nearest['product']}|{nearest['method']}|{nearest['side']}|{nearest['entry_target']:.2f}"
+        sent_keys[key] = now_str
+        last_messages[nearest["product"]] = {"timestamp": now_str, "msg": msg}
+        state["sent_keys"] = sent_keys
+        state["last_messages"] = last_messages
+        RADAR_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        with open(RADAR_STATE_FILE, "w", encoding="utf-8") as f:
+            json.dump(state, f, ensure_ascii=False, indent=2)
+        return True
+
+    ready_items = [r for r in radar_list if "SẴN SÀNG" in r.get("status", "")]
+    for r in ready_items:
+        key = f"{r['product']}|{r['method']}|{r['side']}|{r['entry_target']:.2f}"
+        if key in sent_keys:
+            continue
+        msg = format_cbot_radar_message(r, is_test=False)
+        send_cbot_radar_telegram(msg, target_chat_id=target_chat_id)
+        sent_keys[key] = now_str
+        last_messages[r["product"]] = {"timestamp": now_str, "msg": msg}
+        any_sent = True
+
+    if len(sent_keys) > 100:
+        keys_sorted = list(sent_keys.keys())[-80:]
+        sent_keys = {k: sent_keys[k] for k in keys_sorted}
+
+    state["sent_keys"] = sent_keys
+    state["last_messages"] = last_messages
+    RADAR_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(RADAR_STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(state, f, ensure_ascii=False, indent=2)
+    return any_sent
 
 
 if __name__ == "__main__":
