@@ -3,12 +3,13 @@
     "ZCEZ26|M2 (H1 SMC 6★ Bắt Đáy)|MUA|438.50": "2026-11-06 09:59:15",
     "ZWAZ26|M2 (H1 SMC 6★ Bắt Đáy)|MUA|598.00": "2026-11-06 10:00:35",
     "ZCEZ26|M1 (H1 Closed • EMA Pullback)|BÁN|442.30": "2026-11-06 12:39:11",
-    "ZWAZ26|M1 (H1 Closed • EMA Pullback)|BÁN|599.05": "2026-11-06 12:39:11"
+    "ZWAZ26|M1 (H1 Closed • EMA Pullback)|BÁN|599.05": "2026-11-06 12:39:11",
+    "ZCEZ26|M1 (H1 Closed • EMA Pullback)|BÁN|442.26": "2026-11-06 13:31:57"
   },
   "last_messages": {
     "ZCEZ26": {
-      "timestamp": "2026-11-06 12:39:11",
-      "msg": "📡 <b>CBOT RADAR</b> — <b>🌽 ZCEZ26 (Ngô) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>06/11/2026 12:39:11</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>06/11/2026 12:00</code>\n• 📊 <b>Chiến lược:</b> <b>M1 (H1 Closed • EMA Pullback)</b> <i>(Đồng thuận M3 Hybrid)</i>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (Gần chạm)</b>\n• 💹 <b>Giá Live (M5):</b> <b>441.00</b> <i>(Cách điểm đón 1.30 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>442.30</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>443.99</code> <i>(Rủi ro: 1.69 pts = $84/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>440.61</b>\n   ├ TP2 (1.5R): <b>439.76</b>\n   └ TP3 (2.0R): <b>438.92</b>\n• 🧠 <b>Căn cứ kỹ thuật:</b> [Tầng 1A - H1 Đóng Cửa] Xu hướng GIẢM. Điểm đón khóa cố định tại EMA21-50 (442.30 - 443.66); Giá M5 Live cách 1.30 pts.\n• 💡 <b>Hành động:</b> <i>Đặt Limit BÁN cố định @ 442.30 (EMA21 H1 đã đóng nến). SL: 443.99, TP3: 438.92</i>"
+      "timestamp": "2026-11-06 13:31:57",
+      "msg": "📡 <b>CBOT RADAR</b> — <b>🌽 ZCEZ26 (Ngô) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>06/11/2026 13:31:57</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>06/11/2026 13:00</code>\n• 📊 <b>Chiến lược:</b> <b>M1 (H1 Closed • EMA Pullback)</b> <i>(Đồng thuận M3 Hybrid)</i>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (Gần chạm)</b>\n• 💹 <b>Giá Live (M5):</b> <b>441.00</b> <i>(Cách điểm đón 1.26 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>442.26</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>443.95</code> <i>(Rủi ro: 1.69 pts = $84/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>440.57</b>\n   ├ TP2 (1.5R): <b>439.72</b>\n   └ TP3 (2.0R): <b>438.88</b>\n• 🧠 <b>Căn cứ kỹ thuật:</b> [Tầng 1A - H1 Đóng Cửa] Xu hướng GIẢM. Điểm đón khóa cố định tại EMA21-50 (442.26 - 443.59); Giá M5 Live cách 1.26 pts.\n• 💡 <b>Hành động:</b> <i>Đặt Limit BÁN cố định @ 442.26 (EMA21 H1 đã đóng nến). SL: 443.95, TP3: 438.88</i>"
     },
     "ZWAZ26": {
       "timestamp": "2026-11-06 12:39:11",
