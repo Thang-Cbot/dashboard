@@ -232,3 +232,131 @@ def merge_realtime_m5_into_candles(candles: list, commodity: str) -> list:
         print(f"[TV_WEBHOOK] Lỗi ghép nến M5 cho {commodity}: {e}")
 
     return candles
+
+
+def get_latest_m5_price(commodity: str) -> dict:
+    """
+    Lấy giá nến M5 Realtime mới nhất (close, open, high, low, volume, time_vn, diff, pct).
+    Dùng để thay thế hoặc đè lên giá nến H1 trên toàn bộ các trang Streamlit.
+    """
+    c_code = normalize_commodity_key(commodity).upper()
+    cached = load_cached_m5()
+    symbols = cached.get("symbols", {})
+    sym_data = symbols.get(c_code)
+    if not sym_data:
+        for k, v in symbols.items():
+            if normalize_commodity_key(k) == c_code:
+                sym_data = v
+                break
+    if not sym_data or not sym_data.get("latest_m5"):
+        return None
+
+    m5 = sym_data["latest_m5"]
+    forming = sym_data.get("forming_h1") or m5
+    try:
+        close = float(m5.get("close", 0))
+        if close <= 0:
+            return None
+        open_p = float(forming.get("open", m5.get("open", close)))
+        high_p = float(forming.get("high", m5.get("high", close)))
+        low_p  = float(forming.get("low", m5.get("low", close)))
+        vol    = int(m5.get("volume", 0))
+        time_vn = m5.get("time_vn") or str(m5.get("time", ""))
+        diff = round(close - open_p, 2)
+        pct  = round((diff / open_p * 100.0), 2) if open_p > 0 else 0.0
+
+        contract_name = "ZCEZ26" if c_code == "ZC" else ("ZWAZ26" if c_code == "ZW" else f"{c_code}Z26")
+        return {
+            "symbol": c_code,
+            "contract": contract_name,
+            "close": close,
+            "open": open_p,
+            "high": high_p,
+            "low": low_p,
+            "volume": vol,
+            "diff": diff,
+            "pct": pct,
+            "time_vn": time_vn,
+            "interval": "M5",
+            "is_m5": True
+        }
+    except Exception:
+        return None
+
+
+def merge_realtime_m5_into_df(df, commodity: str):
+    """
+    Ghép nến M5 Realtime vào DataFrame nến H1 của Pandas (dùng cho biểu đồ và bảng giá).
+    """
+    if df is None or df.empty:
+        return df
+
+    m5_info = get_latest_m5_price(commodity)
+    if not m5_info:
+        return df
+
+    import pandas as pd
+    try:
+        tcol = next((c for c in df.columns if c.lower() in ['time', 'datetime', 'date', 'timestamp']), None)
+        if not tcol:
+            return df
+
+        m5_close = m5_info["close"]
+        m5_open  = m5_info["open"]
+        m5_high  = m5_info["high"]
+        m5_low   = m5_info["low"]
+        time_vn  = m5_info["time_vn"]
+        h1_time_str = str(time_vn)[:13] + ":00"
+
+        last_idx = df.index[-1]
+        last_time_val = str(df.loc[last_idx, tcol])[:13]
+        new_time_val  = str(h1_time_str)[:13]
+
+        ccol = next((c for c in df.columns if c.lower() == 'close'), 'Close')
+        hcol = next((c for c in df.columns if c.lower() == 'high'), 'High')
+        lcol = next((c for c in df.columns if c.lower() == 'low'), 'Low')
+        ocol = next((c for c in df.columns if c.lower() == 'open'), 'Open')
+
+        if new_time_val == last_time_val:
+            df.loc[last_idx, hcol] = max(float(df.loc[last_idx, hcol]), m5_high)
+            df.loc[last_idx, lcol] = min(float(df.loc[last_idx, lcol]), m5_low)
+            df.loc[last_idx, ccol] = m5_close
+        elif new_time_val > last_time_val:
+            new_row = df.loc[last_idx].to_dict()
+            new_row[tcol] = pd.to_datetime(h1_time_str) if isinstance(df.loc[last_idx, tcol], pd.Timestamp) else h1_time_str
+            new_row[ocol] = m5_open
+            new_row[hcol] = m5_high
+            new_row[lcol] = m5_low
+            new_row[ccol] = m5_close
+            df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
+    except Exception as e:
+        print(f"[TV_WEBHOOK] Lỗi ghép M5 vào DataFrame cho {commodity}: {e}")
+
+    return df
+
+
+def sync_m5_to_active_h1_csv():
+    """
+    Cập nhật trực tiếp giá nến M5 mới nhất vào tất cả các file CSV H1 trong Data/output/
+    để tất cả các module đọc CSV đều nhận được giá nến M5 Realtime mà không cần tải lại toàn bộ.
+    """
+    import pandas as pd
+    for comm in ["ZC", "ZW"]:
+        m5_info = get_latest_m5_price(comm)
+        if not m5_info:
+            continue
+        csv_files = [
+            OUTPUT_DIR / f"{comm}_active_H1.csv",
+            OUTPUT_DIR / f"{comm}_swing_H1.csv",
+            OUTPUT_DIR / f"{comm}_dca_H1.csv",
+            OUTPUT_DIR / f"{comm}_90d_H1.csv",
+        ]
+        for cf in csv_files:
+            if cf.exists():
+                try:
+                    df = pd.read_csv(cf)
+                    df = merge_realtime_m5_into_df(df, comm)
+                    df.to_csv(cf, index=False)
+                except Exception as e:
+                    print(f"[TV_WEBHOOK] Lỗi cập nhật M5 vào {cf.name}: {e}")
+

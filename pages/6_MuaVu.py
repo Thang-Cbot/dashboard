@@ -93,6 +93,23 @@ def get_price_info(commodity):
         highs = [float(r["High"]) for r in recent]
         lows  = [float(r["Low"])  for r in recent]
         close = float(last["Close"])
+        date_str = last["Time"][:10]
+
+        # Kiểm tra nếu có nến M5 realtime thì ghi đè close và cập nhật date
+        try:
+            import tv_webhook_client
+            m5_info = tv_webhook_client.get_latest_m5_price(commodity)
+            if m5_info and m5_info.get("close"):
+                close = m5_info["close"]
+                if m5_info.get("high") and m5_info["high"] > max(highs):
+                    highs.append(m5_info["high"])
+                if m5_info.get("low") and m5_info["low"] < min(lows):
+                    lows.append(m5_info["low"])
+                if m5_info.get("time_vn"):
+                    date_str = f"⚡ M5 ({m5_info['time_vn'][-8:]})"
+        except Exception:
+            pass
+
         return {
             "close":    close,
             "high_1m":  max(highs),
@@ -103,7 +120,7 @@ def get_price_info(commodity):
             "r2":       float(last.get("R2", 0)),
             "atr":      float(last.get("ATR", 0)),
             "rsi":      float(last.get("RSI", 0)),
-            "date":     last["Time"][:10],
+            "date":     date_str,
         }
     except: return {}
 

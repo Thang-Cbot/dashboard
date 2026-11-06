@@ -12,6 +12,10 @@ import importlib
 import components.charts as charts
 importlib.reload(charts)
 from components.charts import render_candlestick, get_smc_zones_for_display
+try:
+    import tv_webhook_client
+except ImportError:
+    tv_webhook_client = None
 
 st.set_page_config(page_title="Hồ Sơ Mã — CBOT", page_icon="favicon.png", layout="wide")
 
@@ -226,8 +230,20 @@ with _tab_d1:
                 _daily = _daily.dropna(subset=[_dcol]).rename(columns={_dcol: "Date"})
             _daily["Date"] = pd.to_datetime(_daily["Date"])
             
-            # --- OVERRIDE LATEST CLOSE WITH H1 DATA FOR CONSISTENCY ---
-            if _csv_vol_path.exists():
+            # --- OVERRIDE LATEST CLOSE WITH M5 / H1 DATA FOR CONSISTENCY ---
+            _m5_p = None
+            if tv_webhook_client:
+                try:
+                    _m5_p = tv_webhook_client.get_latest_m5_price(code)
+                except Exception:
+                    pass
+            if _m5_p and _m5_p.get("close"):
+                _daily.loc[_daily.index[-1], "Close"] = _m5_p["close"]
+                if _m5_p.get("high") and _m5_p["high"] > _daily.loc[_daily.index[-1], "High"]:
+                    _daily.loc[_daily.index[-1], "High"] = _m5_p["high"]
+                if _m5_p.get("low") and _m5_p["low"] < _daily.loc[_daily.index[-1], "Low"]:
+                    _daily.loc[_daily.index[-1], "Low"] = _m5_p["low"]
+            elif _csv_vol_path.exists():
                 try:
                     _dfh1_raw = pd.read_csv(_csv_vol_path)
                     _tcol2 = next((c for c in _dfh1_raw.columns if c.lower() in ['time','datetime','date','timestamp']), None)
@@ -413,7 +429,14 @@ with _tab_d1:
                 _d1_full = _d1_full[_d1_full["Date"].dt.weekday < 5].sort_values("Date").reset_index(drop=True)
                 _d1_full["HL_Range"] = (_d1_full["High"] - _d1_full["Low"]).round(2)
 
-                # Tải H1 để lấy giá hiện tại realtime
+                # Tải M5 hoặc H1 để lấy giá hiện tại realtime
+                _m5_stat = None
+                if tv_webhook_client:
+                    try:
+                        _m5_stat = tv_webhook_client.get_latest_m5_price(code)
+                    except Exception:
+                        pass
+
                 _h1_path = DATA_OUTPUT / f"{code}_{suffix}_H1.csv"
                 _h1_last_close = None
                 _h1_last_time  = None
@@ -427,8 +450,16 @@ with _tab_d1:
                         _h1_last_close = float(_dfh1_raw["Close"].iloc[-1])
                         _h1_last_time  = _dfh1_raw[_tcol2].iloc[-1].strftime("%d/%m %H:%M")
 
-                _ref = _h1_last_close if _h1_last_close else float(_d1_full["Close"].iloc[-1])
-                _ref_lbl = f"H1 ({_h1_last_time})" if _h1_last_time else "D1 Close"
+                if _m5_stat and _m5_stat.get("close"):
+                    _ref = _m5_stat["close"]
+                    _t_display = _m5_stat.get("time_vn", "")[-8:] if _m5_stat.get("time_vn") else ""
+                    _ref_lbl = f"⚡ M5 Realtime ({_t_display})"
+                elif _h1_last_close:
+                    _ref = _h1_last_close
+                    _ref_lbl = f"H1 ({_h1_last_time})" if _h1_last_time else "H1 Close"
+                else:
+                    _ref = float(_d1_full["Close"].iloc[-1])
+                    _ref_lbl = "D1 Close"
                 _now_dt  = _d1_full["Date"].max()
 
                 def get_prev_close(slice_df):
@@ -948,6 +979,14 @@ with _tab_h1:
             if _tcol1:
                 _dfh1[_tcol1] = pd.to_datetime(_dfh1[_tcol1], errors='coerce')
                 _dfh1 = _dfh1.dropna(subset=[_tcol1]).rename(columns={_tcol1: "Datetime"})
+
+            # Ghép nến M5 realtime mới nhất vào H1 hình thành nến forming live
+            if tv_webhook_client:
+                try:
+                    _dfh1 = tv_webhook_client.merge_realtime_m5_into_df(_dfh1, code)
+                except Exception:
+                    pass
+
             _dfh1 = _dfh1.sort_values("Datetime").tail(200).reset_index(drop=True)
 
             # Tính EMA 21 và EMA 50

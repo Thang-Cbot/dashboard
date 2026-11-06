@@ -1,64 +1,55 @@
 {
-  "timestamp": "2026-11-05 21:58:49",
+  "timestamp": "2026-11-06 06:45:00",
   "news": [],
   "intraday": {
     "ZW": {
       "bias": "Neutral",
-      "bias_vn": "Đi Ngang",
-      "summary": "ZW hồi phục nhẹ nhưng áp lực bán từ Smart Money và thời tiết thuận lợi vẫn đè nặng.",
+      "bias_vn": "Đi Ngang / Nén Biên Độ",
+      "summary": "ZW đóng cửa tại 599.2c phiên thứ 2 liên tiếp, cản 606.4c hình thành Double Top ngắn hạn. Khối 80k Net Short chưa tháo chạy.",
       "key_levels": {
-        "support": "600.0",
-        "resistance": "610.0"
+        "support": "591.2",
+        "resistance": "606.4"
       },
       "reasoning": [
-        "Mưa US Plains hỗ trợ cây trồng, giảm rủi ro thời tiết, tạo áp lực giảm giá.",
-        "Cung cầu ổn định, thị trường chờ đợi báo cáo USDA mới về tồn kho.",
-        "Vị thế COT Smart Money NHOI SHORT mạnh, cho thấy xu hướng giảm dài hạn.",
-        "Tin tức Biển Đen đã bão hòa, tác động địa chính trị không đáng kể.",
-        "Giá hồi phục kỹ thuật nhẹ, nhưng chưa đủ mạnh để phá vỡ kháng cự."
+        "Hai phiên liên tiếp chốt tại 599.2c, chưa phá vỡ cấu trúc giảm trên D1.",
+        "Đỉnh quét 606.4c bị dội ngược nhanh xác nhận cản kỹ thuật rất mạnh.",
+        "Khối lượng giao dịch thấp cho thấy phe Short 80k HĐ chưa bắt đầu đảo hàng quy mô lớn.",
+        "Lực đỡ xuất khẩu >500k tấn và IKAR cắt giảm sản lượng Nga giữ vững đáy 591.2c.",
+        "Kỳ Goldman Roll bước vào Ngày 2 (chốt tuần), thị trường chờ đợi cao điểm đảo hàng."
       ],
-      "risk": "Rủi ro chính là sự thay đổi đột ngột về dự báo thời tiết hoặc động thái từ Smart Money.",
-      "generated_at": "2026-11-05 21:58"
+      "risk": "Rủi ro thủng mốc 591.2 nếu phe Short tiếp tục gia tăng vị thế hoặc áp lực bán Roll đè nặng.",
+      "generated_at": "2026-11-06 06:45"
     },
     "ZC": {
-      "bias": "Bullish",
-      "bias_vn": "Tăng",
-      "summary": "ZC tăng nhẹ nhờ lo ngại thời tiết khô hạn Corn Belt, dù Smart Money có dấu hiệu chốt lời.",
+      "bias": "Neutral",
+      "bias_vn": "Tích Lũy Đáy",
+      "summary": "ZC neo quanh 441-442c bám sát sàn chi phí sản xuất, hưởng lợi từ giá dầu Brent tăng tiệm cận 97 USD.",
       "key_levels": {
-        "support": "445.0",
-        "resistance": "450.0"
+        "support": "440.0",
+        "resistance": "445.0"
       },
       "reasoning": [
-        "Thời tiết khô ráo tại Corn Belt làm tăng lo ngại về năng suất, hỗ trợ giá.",
-        "Nhu cầu ổn định, thị trường theo dõi sát sao tiến độ thu hoạch và xuất khẩu.",
-        "Vị thế COT Smart Money XA LONG, có thể đang chốt lời nhưng vẫn duy trì mua.",
-        "Tác động địa chính trị từ Biển Đen đã bão hòa, không còn là yếu tố chính.",
-        "Giá duy trì xu hướng tăng nhẹ, có thể kiểm tra lại các mức kháng cự gần."
+        "Thu hoạch ngô Mỹ đạt gần 80%, áp lực bán thu hoạch giảm dần.",
+        "Giá dầu thô Brent tăng vọt lên 96.7 USD/thùng hỗ trợ mạnh mẽ biên lợi nhuận ethanol.",
+        "Nông dân Mỹ hạn chế bán ra dưới ngưỡng chi phí sản xuất 440c.",
+        "Thị trường thận trọng nén biên độ trước thềm báo cáo USDA WASDE 10/11."
       ],
-      "risk": "Rủi ro chính là dự báo thời tiết thay đổi tích cực hoặc áp lực bán mạnh từ các quỹ.",
-      "generated_at": "2026-11-05 21:58"
+      "risk": "Rủi ro giảm tiếp nếu tiến độ thu hoạch dứt điểm nhanh và thiếu vắng đơn hàng xuất khẩu lớn.",
+      "generated_at": "2026-11-06 06:45"
     },
     "bias": "Neutral",
-    "bias_vn": "Đi Ngang",
-    "summary": "ZW hồi phục nhẹ nhưng áp lực bán từ Smart Money và thời tiết thuận lợi vẫn đè nặng.",
+    "bias_vn": "Đi Ngang / Nén Biên Độ",
+    "summary": "ZW đóng cửa tại 599.2c phiên thứ 2 liên tiếp, cản 606.4c hình thành Double Top ngắn hạn. Khối 80k Net Short chưa tháo chạy.",
     "key_levels": {
-      "support": "600.0",
-      "resistance": "610.0"
+      "support": "591.2",
+      "resistance": "606.4"
     },
     "reasoning": [
-      "Mưa US Plains hỗ trợ cây trồng, giảm rủi ro thời tiết, tạo áp lực giảm giá.",
-      "Cung cầu ổn định, thị trường chờ đợi báo cáo USDA mới về tồn kho.",
-      "Vị thế COT Smart Money NHOI SHORT mạnh, cho thấy xu hướng giảm dài hạn.",
-      "Tin tức Biển Đen đã bão hòa, tác động địa chính trị không đáng kể.",
-      "Giá hồi phục kỹ thuật nhẹ, nhưng chưa đủ mạnh để phá vỡ kháng cự."
-    ],
-    "risk": "Rủi ro chính là sự thay đổi đột ngột về dự báo thời tiết hoặc động thái từ Smart Money.",
-    "generated_at": "2026-11-05 21:58"
-  },
-  "categories": [
-    "dia_chinh_tri",
-    "logistics",
-    "san_luong_dien_tich",
-    "cung_cau_nhan_dinh"
-  ]
+      "Hai phiên liên tiếp chốt tại 599.2c, chưa phá vỡ cấu trúc giảm trên D1.",
+      "Đỉnh quét 606.4c bị dội ngược nhanh xác nhận cản kỹ thuật rất mạnh.",
+      "Khối lượng giao dịch thấp cho thấy phe Short 80k HĐ chưa bắt đầu đảo hàng quy mô lớn.",
+      "Lực đỡ xuất khẩu >500k tấn và IKAR cắt giảm sản lượng Nga giữ vững đáy 591.2c.",
+      "Kỳ Goldman Roll bước vào Ngày 2 (chốt tuần), thị trường chờ đợi cao điểm đảo hàng."
+    ]
+  }
 }

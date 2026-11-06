@@ -1,109 +1,109 @@
 {
-  "timestamp": "2026-11-05 06:30:00",
-  "model": "gemini-2.5-pro",
+  "timestamp": "2026-11-06 06:45:00",
+  "model": "gemini-3.8-flash-high",
   "version": "run_tin_tuc_6_parts_v2",
   "structured": {
     "header_context": {
-      "report_time": "2026-11-05 06:30 (Giờ VN)",
-      "zw_price_str": "599.2 ¢/bu (Biên độ phiên 591.2c – 606.2c | +0.6c)",
-      "zc_price_str": "443.75 ¢/bu (Fair Value gốc: 480c | Đáy 4 tháng)",
-      "cot_summary": "ZW Net Short: ~ -75,000 HĐ | ZC Net Long: ~ 80,000 HĐ",
-      "macro_summary": "Bầu cử Mỹ: Dân Chủ thắng cả 2 viện (Senate + House) | DXY: 101.45 (Giảm) | Khai hỏa Goldman Roll (Day 1)"
+      "report_time": "2026-11-06 06:45 (Giờ VN) — Phiên Sáng Thứ Sáu (Day 2 Goldman Roll)",
+      "zw_price_str": "599.2 ¢/bu (Biên độ phiên 598.0c – 606.4c | Đi ngang 0.0c so với phiên trước)",
+      "zc_price_str": "441.75 ¢/bu (Biên độ phiên 440.0c – 444.5c | -2.0c | Sát đáy chi phí sản xuất)",
+      "cot_summary": "ZW Net Short: ~ -80,000 HĐ | ZC Net Long: ~ 78,000 HĐ | Volume Roll chưa bùng nổ",
+      "macro_summary": "DXY: 101.45 (Thấp) | Dầu Brent: $96.73 (+2.23%) | Goldman Roll Day 2 | Chờ WASDE 10/11"
     },
     "table_parts": [
       {
         "part_num": "PHẦN 1",
         "part_title": "Phiên Đêm, Cấu Trúc Giá (VSA/Wyckoff) & Vị Thế COT",
-        "core_content": "Lúa mì (ZWZ26) đóng cửa phiên 04/11 tại 599.2c (+0.6c). Trong phiên, giá đã có pha bùng nổ xung lực cực mạnh sau khi test đáy năm 591.2c (chỉ cách đáy 01/07 đúng 0.8c), phóng thẳng +15 cent lên đỉnh 606.2c trước khi hạ nhiệt chốt lời cuối phiên. Cây nến D1 hình thành mô hình Hammer/Spinning Top rút chân dài xác nhận phản xạ từ chối giá thấp (Value Rejection) tại vùng đáy năm. Cấu trúc Macro Double Bottom (2 đáy vĩ mô 2026) được bảo vệ trọn vẹn. Hôm nay (05/11) chính thức là Ngày 1 của kỳ Goldman Roll, kích hoạt dòng tiền mua đảo kỳ hạn của các quỹ đầu cơ đang ôm kỷ lục Net Short ~-75,000 hợp đồng. Ngô (ZCZ26) đóng cửa tại 443.75c, bám sát sàn chi phí sản xuất.",
-        "zw_impact": "Đáy năm 591.2c được xác nhận bảo vệ thành công. Áp lực chốt lời cuối phiên về 599.2c tạo bàn đạp tích lũy lành mạnh trước khi bước vào kỳ Goldman Roll hôm nay.",
-        "zw_badge": "XÁC NHẬN ĐÁY NĂM / BƯỚC VÀO GOLDMAN ROLL",
-        "zc_impact": "Ngô giữ vững vùng hỗ trợ số tròn 440-445c, áp lực bán thu hoạch đang đi vào giai đoạn cạn kiệt.",
-        "zc_badge": "DÒ ĐÁY CHI PHÍ SẢN XUẤT"
+        "core_content": "Lúa mì (ZWZ26) đóng cửa phiên đêm 05/11 tại 599.2c, bằng đúng giá chốt phiên hôm trước. Trong phiên, giá có nhịp rướn kỹ thuật quét thanh khoản đỉnh cũ lên 606.4c nhưng ngay lập tức bị xả ngược về 602c trong 1-2 phút và đóng nến dưới mốc 600c. Cụm nến D1 xuất hiện 2 phiên liên tiếp có râu nến trên dài bị từ chối tại 606.2 - 606.4c, tạo thành cản Double Top ngắn hạn. Khối lượng giao dịch (Volume) phiên hôm qua ở mức trung bình thấp, chứng minh khối Net Short ~80.000 hợp đồng của Managed Money chưa hề có động thái tháo chạy hay mua bù thiếu (Short Covering) quy mô lớn. Áp lực đè giá tại 605-606c chủ yếu đến từ các quỹ chỉ số (Index Funds) bán ZWZ26 để roll sang ZWH27 trong Ngày 1 Goldman Roll kết hợp lực bán phòng vệ của giới thương mại.",
+        "zw_impact": "Cấu trúc giảm trên D1 chưa hề bị bẻ gãy. Vùng 606.2 - 606.4c là bức tường cản cứng. Đáy 591.2c vẫn là mốc phòng thủ quyết định.",
+        "zw_badge": "DOUBLE TOP 606.4 / CHƯA PHÁ CẤU TRÚC GIẢM",
+        "zc_impact": "Ngô (ZCZ26) giằng co giảm nhẹ 2.0c về 441.75c, bám sát hỗ trợ 440c trong bối cảnh thu hoạch đạt gần 80%.",
+        "zc_badge": "DÒ ĐÁY 440 - 442C"
       },
       {
         "part_num": "PHẦN 2",
         "part_title": "Cung Cầu Thực Tế, Báo Cáo USDA & Cạnh Tranh Quốc Tế",
-        "core_content": "Tiến độ thu hoạch ngô Mỹ đạt 74-80%, đã vượt qua giai đoạn cao điểm áp lực dồn kho. Tại Nga, giá xuất khẩu FOB lúa mì vẫn giữ vững mức sàn 250 USD/tấn do chính phủ áp đặt, giá giao ngay cảng Biển Đen neo 265-268 USD/tấn. Với mức giá CBOT 599.2c (~220 USD/tấn FOB tương đương), lúa mì Mỹ đang rẻ hơn lúa mì Nga tới 45-50 USD/tấn, kích thích nhu cầu mua bắt đáy từ các nước nhập khẩu lớn (Ai Cập, Mexico, Đông Nam Á). Cơ chế 'Bin-locking' của nông dân Mỹ tiếp tục hoạt động mạnh mẽ dưới mốc 6.00 USD/bu.",
-        "zw_impact": "Lúa mì Mỹ sở hữu lợi thế giá cạnh tranh nhất thế giới, kích hoạt lực cầu vật chất tự nhiên ngăn chặn đà giảm sâu.",
-        "zw_badge": "CẠNH TRANH GIÁ FOB MỸ CỰC CAO",
-        "zc_impact": "Nhu cầu mua ngô từ Mexico và Hàn Quốc xuất hiện rải rác hỗ trợ thị trường nội địa Mỹ.",
-        "zc_badge": "HỖ TRỢ NỘI ĐỊA"
+        "core_content": "Báo cáo Xuất khẩu Tuần của USDA (Export Sales) ghi nhận lúa mì Mỹ đạt 538.0 nghìn tấn. Dù thuật toán gắn nhãn đỏ giảm 36.7% so với tuần đỉnh đột biến (849.8k tấn), con số tuyệt đối >500k tấn vẫn thuộc mức rất cao so với trung bình thông thường (250-450k tấn), cho thấy lực cầu bắt đáy quốc tế dưới 600c là có thật. Tuy nhiên, lượng giao hàng thực tế (Shipments) tuần qua rất yếu chỉ đạt 149.2 nghìn tấn và lũy kế cả niên vụ vẫn âm 32.6% YoY. Tại Nga, hãng tư vấn IKAR vừa cắt giảm dự báo xuất khẩu lúa mì niên vụ 2026/27 xuống 39.5 triệu tấn (từ 42.0 triệu tấn) do hạn chế logistics và thời tiết vụ đông. Giá sàn xuất khẩu 250 USD/tấn FOB của Nga tiếp tục tạo bệ đỡ cho lúa mì thế giới.",
+        "zw_impact": "Cầu bắt đáy vật chất quanh 600c nâng đỡ đáy thị trường, nhưng shipment yếu và tồn kho xuất khẩu chậm hạn chế đà tăng sốc.",
+        "zw_badge": "CẦU BẮT ĐÁY VỮNG / GIAO HÀNG CHẬM",
+        "zc_impact": "Xuất khẩu ngô duy trì nhịp độ ổn định sang Mexico, nông dân Mỹ hạn chế bán ra dưới giá thành sản xuất.",
+        "zc_badge": "CẦU THƯƠNG MẠI ĐỠ GIÁ"
       },
       {
         "part_num": "PHẦN 3",
-        "part_title": "Địa Chính Trị Biển Đen, Đàm Phán UAE & Bầu Cử Giữa Kỳ Mỹ",
-        "core_content": "Kết quả bầu cử giữa kỳ Mỹ đã ngã ngũ: Đảng Dân chủ giành quyền kiểm soát cả hai viện Quốc hội (Thượng viện đạt ít nhất 54 ghế, Hạ viện chiếm đa số). Kết quả này lập tức khiến chỉ số USD (DXY) suy yếu về 101.45, triệt tiêu hoàn toàn rủi ro chiến tranh thương mại áp thuế cực đoan với Trung Quốc, đồng thời đảm bảo viện trợ quân sự cho Ukraine sẽ tiếp tục được duy trì mạnh mẽ. Về chiến sự 24-48h qua, Nga tiếp tục không kích diện rộng vào cụm cảng Odesa và Pivdennyi, khẳng định cuộc đàm phán 3 bên tại UAE vào tuần tới (10-11/11) khó có thể đạt được thỏa thuận giải phóng hành lang Biển Đen trơn tru do vướng mắc lệnh trừng phạt SWIFT.",
-        "zw_impact": "Dân chủ nắm 2 viện làm suy yếu USD và đảm bảo viện trợ Ukraine, dập tắt kỳ vọng hòa đàm một chiều, tạo bệ đỡ vĩ mô tăng giá rất mạnh.",
-        "zw_badge": "DÂN CHỦ THẮNG 2 VIỆN / DXY YẾU",
-        "zc_impact": "DXY giảm hỗ trợ trực tiếp cho xuất khẩu ngô. Nhu cầu nhiên liệu sinh học Ethanol được bảo vệ vững chắc dưới sự kiểm soát của Quốc hội Dân chủ.",
-        "zc_badge": "BẢO VỆ ETHANOL"
+        "part_title": "Địa Chính Trị Biển Đen, Đàm Phán UAE & Vĩ Mô",
+        "core_content": "Bầu cử giữa kỳ Mỹ xác lập kịch bản Quốc hội chia rẽ/Dân chủ kiểm soát kiềm chế chính sách thuế quan cực đoan, giữ chỉ số đồng USD (DXY) suy yếu quanh mốc 101.45. Giá dầu thô Brent tăng mạnh lên 96.73 USD/thùng (+2.23%), làm gia tăng chi phí nhiên liệu vận tải và phân bón trên toàn cầu. Về tình hình Biển Đen, căng thẳng quân sự quanh các cảng ngũ cốc phía nam Ukraine vẫn ở mức cao; các nỗ lực trung gian chuẩn bị cho đàm phán tại UAE vào tuần tới (10-11/11) chưa có dấu hiệu nhượng bộ rõ ràng từ phía Moscow về dỡ bỏ hạn chế xuất khẩu.",
+        "zw_impact": "DXY yếu và giá dầu Brent cao là hai lực đẩy vĩ mô hỗ trợ chi phí sàn của ngũ cốc, bù đắp áp lực kỹ thuật.",
+        "zw_badge": "DXY YẾU / DẦU BRENT TĂNG",
+        "zc_impact": "Giá dầu Brent tiệm cận 97 USD/thùng hỗ trợ mạnh mẽ biên lợi nhuận ethanol của ngô Mỹ.",
+        "zc_badge": "LỢI THẾ ETHANOL"
       },
       {
         "part_num": "PHẦN 4",
-        "part_title": "Thời Tiết & Sinh Trưởng Mùa Vụ Toàn Cầu (Đúng Chu Kỳ)",
-        "core_content": "Mỹ: Mưa rào diện rộng tại Kansas, Oklahoma, Texas giải tỏa hạn hán đất mặt, lúa mì HRW nảy mầm 65% phát triển bộ rễ tốt trước khi ngủ đông (yếu tố kìm hãm giá). Argentina: Lúa mì đang ở giai đoạn trổ bông và vào hạt (Heading/Grain-filling, thu hoạch chính phải chờ tháng 12 đến tháng 1), thời tiết mát mẻ, âm u thiếu nắng và dịch bệnh nấm lá (Rust) đe dọa năng suất thực tế, sản lượng ước tính quanh 18-19M tấn. Úc: Thời tiết sau đợt mưa đang chuyển hướng khô ráo hơn, giúp máy gặt tăng tốc tại miền Đông, nguồn cung mới bắt đầu đổ về cảng. Nga: Kế hoạch gieo trồng vụ đông bị cắt giảm 6% xuống 19M ha do chi phí lãi suất vay cao.",
-        "zw_impact": "Bức tranh thời tiết cân bằng đa chiều: Áp lực vụ gặt Úc và mưa thuận lợi tại Mỹ đối trọng với rủi ro bệnh nấm tại Argentina và cắt giảm diện tích tại Nga.",
-        "zw_badge": "ĐA CHIỀU CÂN BẰNG",
-        "zc_impact": "Thời tiết khô ráo thuận lợi tại Corn Belt giúp nông dân Mỹ hoàn tất thu hoạch 20% diện tích ngô còn lại.",
-        "zc_badge": "TRUNG TÍNH"
+        "part_title": "Thời Tiết & Sinh Trưởng Mùa Vụ Toàn Cầu (Đúng Chu Kỳ Sinh Học)",
+        "core_content": "Mỹ: Mưa rào diện rộng tại Kansas, Oklahoma đã giải tỏa hạn hán đất mặt; tỷ lệ lúa mì nảy mầm đạt ~65% phát triển bộ rễ thuận lợi trước khi đóng băng (yếu tố kìm hãm giá). Argentina: Lúa mì đang ở giai đoạn trổ bông và vào hạt (Heading/Grain-filling, thu hoạch chính phải chờ tháng 12 đến tháng 1), thời tiết mát mẻ, âm u thiếu nắng và dịch bệnh nấm lá (Rust) đe dọa năng suất thực tế, sản lượng ước tính quanh 18-19M tấn. Úc: Tây Úc (CBH) tăng tốc tiếp nhận vụ gặt mới đạt 2.71 triệu tấn; miền Đông Úc đang khô ráo trở lại giúp máy gặt hoạt động sau đợt mưa cản trở trước đó.",
+        "zw_impact": "Thời tiết Mỹ và thu hoạch Tây Úc tạo áp lực cung ngắn hạn, cân bằng với lo ngại nấm bệnh tại Argentina và cắt giảm diện tích vụ đông tại Nga.",
+        "zw_badge": "ÁP LỰC THỜI TIẾT MỸ / VỤ GẶT ÚC",
+        "zc_impact": "Thời tiết khô ráo trên vành đai Corn Belt tạo điều kiện tối ưu để hoàn tất 20% diện tích thu hoạch ngô còn lại.",
+        "zc_badge": "THU HOẠCH CUỐI VỤ"
       },
       {
         "part_num": "PHẦN 5",
-        "part_title": "Chuyên Mục Grain Central Daily Wire (Lachstock) & AgWeb Market Analysis",
-        "core_content": "Theo báo cáo mới nhất của Lachstock Consulting và AgWeb: Thị trường ngũ cốc vừa trải qua giai đoạn bán tháo cực đại (Heavily Oversold) trong tháng 10. AgWeb nhấn mạnh câu hỏi lớn nhất lúc này là 'Liệu lực bán của quỹ đã cạn kiệt hay chưa?'. Với việc ngô đã về sát đáy 4 tháng quanh 442-445c và lúa mì bật mạnh từ đáy năm 591c, các chuyên gia đồng thuận rằng áp lực bán kỹ thuật của quỹ đã đạt giới hạn rủi ro. Kỳ Goldman Roll (bắt đầu từ hôm nay 05/11) được kỳ vọng sẽ buộc phe Short phải thực hiện mua đóng bớt trạng thái (Short Covering) để tránh rủi ro biến động.",
-        "zw_impact": "Lachstock và AgWeb đồng thuận thị trường đã quá bán, chuẩn bị đón nhận dòng tiền Short-Covering cơ học.",
-        "zw_badge": "ĐỒNG THUẬN QUÁ BÁN / SHORT COVERING",
-        "zc_impact": "Ngô được định giá là vùng giá trị (Value Area) quanh mốc 445c, thu hút dòng tiền thương mại bắt đáy.",
-        "zc_badge": "VÙNG GIÁ TRỊ"
+        "part_title": "Chuyên Mục Grain Central & AgWeb Market Analysis",
+        "core_content": "Phân tích từ AgWeb và Grain Central nhấn mạnh: Thị trường đang trong giai đoạn nén biên độ (Range-bound Compression) giữa lực gom hàng ở đáy của giới thương mại và áp lực chốt lời/đảo quỹ của các định chế tài chính. Ngày thứ Sáu (06/11) là Ngày 2 của kỳ Goldman Roll, đồng thời là phiên chốt sổ tuần trước kỳ báo cáo WASDE ngày 10/11. Chuyên gia khuyến nghị theo dõi chặt chẽ hành vi gom lệnh của phe Short, vì nếu phe Short tiếp tục trì hoãn việc đảo hợp đồng, áp lực dồn toa vào tuần sau sẽ tạo ra các đợt biến động bất ngờ.",
+        "zw_impact": "Đồng thuận thị trường: Trạng thái giằng co nén chặt, rủi ro biến động mạnh dồn về tuần sau khi áp lực Roll bước vào giai đoạn cao điểm.",
+        "zw_badge": "CHỜ ĐỢI GOLDMAN ROLL CAO ĐIỂM",
+        "zc_impact": "Ngô được đánh giá đang neo ở vùng giá trị, ít chịu áp lực bán tháo nhưng thiếu động lực bứt phá độc lập.",
+        "zc_badge": "NÉN BIÊN ĐỘ"
       }
     ],
     "daily_trend_conclusion": {
-      "summary_label": "Tổng hợp trọng số từ 5 Phần trên cho phiên hôm nay (05/11/2026 - Day 1 Goldman Roll):",
-      "zw_trend_title": "KÍCH HOẠT NHỊP ĐẢO QUỸ GOLDMAN ROLL / CÔNG PHÁ LẠI 602 - 608",
-      "zw_range": "596.0 – 608.0 ¢/bu",
-      "zw_rationale": "Đáy năm 591.2c đã giữ vững. Bầu cử Mỹ trao quyền cho Đảng Dân chủ làm suy yếu DXY. Ngày 1 của Goldman Roll hôm nay sẽ bơm lực mua cơ học vào hợp đồng ZWZ26.",
-      "zc_trend_title": "TÍCH LŨY TẠO ĐÁY TRÊN SÀN CHI PHÍ (442 - 446)",
-      "zc_range": "442.0 – 446.5 ¢/bu",
-      "zc_rationale": "Ngô tạo đáy vững chắc quanh 443c, hưởng lợi từ chính sách Ethanol của Quốc hội Dân chủ."
+      "summary_label": "Tổng hợp trọng số từ 5 Phần trên cho phiên hôm nay (06/11/2026 - Thứ Sáu, Day 2 Goldman Roll):",
+      "zw_trend_title": "GIẰNG CO TRÊN TRỤC 600 / THỬ THÁCH NỀN 595 - 606",
+      "zw_range": "594.0 – 606.5 ¢/bu",
+      "zw_rationale": "Cấu trúc giảm chưa phá, cản 606.4c đã kiểm tra 2 lần bất thành. Thị trường cần thêm Volume đảo hàng của khối 80k Net Short để công phá mốc 610c.",
+      "zc_trend_title": "TÍCH LŨY TRÊN HỖ TRỢ 440C / CHỜ BÁO CÁO WASDE",
+      "zc_range": "439.0 – 445.0 ¢/bu",
+      "zc_rationale": "Ngô neo vững nhờ giá dầu thô cao và lực đỡ chi phí sản xuất, nhưng chưa có xung lực bứt phá."
     },
     "part6_strategy": {
-      "executive_verdict": "Phiên 04/11 đã hoàn thành xuất sắc nhiệm vụ lịch sử: Kiểm định thành công đáy năm (591.2c so với 590.4c) và bứt phá +15 giá chứng minh lực cầu bắt đáy cực mạnh. Cú lùi về 599.2c chốt phiên là nhịp lấy đà kỹ thuật lành mạnh. Bước sang hôm nay (05/11), kỳ Goldman Roll chính thức khai hỏa, kết hợp với bối cảnh vĩ mô thuận lợi từ kết quả bầu cử Mỹ (Dân chủ nắm 2 viện, DXY giảm). Đây là thời điểm vàng để thực hiện chiến lược thoát lệnh an toàn theo đúng lộ trình.",
+      "executive_verdict": "Thị trường lúa mì đóng cửa phiên 05/11 tại 599.2c, không đổi so với phiên trước, hình thành mô hình 2 đỉnh ngắn hạn tại 606.4c. Đây là bằng chứng khách quan cho thấy cấu trúc giảm vẫn chưa bị bẻ gãy và phe Short 80k hợp đồng vẫn đang kiên nhẫn. Tuy nhiên, việc đáy 591.2c không bị đâm thủng và lực cầu xuất khẩu vật chất duy trì >500k tấn cho thấy bệ đỡ dưới 600c đang được củng cố. Trong Ngày 2 của Goldman Roll (chốt tuần thứ Sáu), kỷ luật cao nhất là kiên định với kế hoạch, không bán tháo ở đáy và không mua đuổi khi giá chạm cản 606.",
       "golden_rules": [
-        "Giữ vững kỷ luật tác chiến: Tận dụng các nhịp kéo giá của kỳ Goldman Roll từ nay đến giữa tháng 11 để thoát 2 Lot ZWZ26, tuyệt đối không giữ sang tuần cuối cận ngày FND (30/11).",
-        "Duy trì lệnh treo chốt lời Sell Limit 2 Lots ZWZ26 @ 617'4 trên sàn CQG.",
-        "Quan sát chặt chẽ vùng hòa vốn 614.0c: Nếu động lượng suy yếu quanh 614-616c, sẵn sàng chủ động đóng 1 Lot ở hòa vốn/lãi nhẹ, giữ 1 Lot khớp 617'4."
+        "Tuân thủ tuyệt đối kỷ luật: Cấu trúc giảm chưa phá, tuyệt đối không gia tăng vị thế mua mới.",
+        "Duy trì lệnh treo Sell Limit 2 Lots ZWZ26 @ 617'4 trên sàn CQG, sẵn sàng xử lý chủ động quanh vùng hòa vốn 614c nếu động lượng suy yếu vào tuần tới.",
+        "Tận dụng cửa sổ thời gian từ nay đến giữa tháng 11 (trước FND 30/11) để hoàn tất việc thoát 2 Lot ZWZ26."
       ],
       "zw_tactical": {
         "intraday_contract": "ZWZ26 (HĐ Tháng 12/2026)",
-        "intraday_plan": "Nắm giữ 2 Lots Long (giá vốn 614.0). Quan sát lực mua cơ học ngày đầu Goldman Roll đẩy giá vượt mốc 602c để tiến về vùng cản 606-610c.",
-        "support_zone": "595.0 – 597.5 ¢/bu",
-        "resistance_zone": "606.0 – 610.0 ¢/bu",
+        "intraday_plan": "Nắm giữ 2 Lots Long (giá vốn 614.0). Quan sát phản ứng đóng nến tuần quanh mốc 600c và theo dõi sự xuất hiện của Volume đảo hàng từ phe Short.",
+        "support_zone": "591.2 – 595.0 ¢/bu",
+        "resistance_zone": "606.4 – 610.0 ¢/bu",
         "macro_dca_contract": "ZWH27 (HĐ Tháng 03/2027)",
-        "macro_dca_plan": "Tiếp tục giữ 1 Lot ZWH27 làm vị thế chiến lược. Bảo toàn số dư tiền mặt lớn ($41k+) để chờ nhịp tạo đáy W sau đàm phán UAE nhằm gom thêm cho vụ mùa 2027."
+        "macro_dca_plan": "Giữ nguyên 1 Lot ZWH27 làm vị thế chiến lược. Bảo toàn dự trữ tiền mặt lớn ($41,000+) để chuẩn bị cho chu kỳ mùa vụ 2027."
       },
       "zc_tactical": {
         "intraday_contract": "ZCZ26 (HĐ Tháng 12/2026)",
-        "intraday_plan": "Theo dõi phản ứng quanh 443-445c. Thị trường ngô đang nén chặt chờ tín hiệu bứt phá từ lúa mì.",
-        "support_zone": "441.0 – 443.0 ¢/bu",
-        "resistance_zone": "447.0 – 450.0 ¢/bu",
+        "intraday_plan": "Quan sát vùng hỗ trợ 440c. Thị trường ngô đang cạn kiệt biến động trước thềm WASDE.",
+        "support_zone": "439.0 – 441.0 ¢/bu",
+        "resistance_zone": "445.0 – 448.0 ¢/bu",
         "macro_dca_contract": "ZCEH27 (Ngô Tháng 03/2027)",
-        "macro_dca_plan": "Lên kế hoạch giải ngân 1 Lot ZCEH27 quanh vùng 455-460c khi sóng hồi toàn ngành ngũ cốc được xác nhận."
+        "macro_dca_plan": "Kiên nhẫn chờ đợi tín hiệu đảo chiều rõ nét trên khung Ngày trước khi giải ngân vị thế ngô mới."
       }
     }
   },
   "agweb_articles": [
     {
       "title": "Grains Lower Week And Month Will Fund Stop Selling November",
-      "pub_date": "05/11/2026",
-      "summary": "Analysts question whether fund liquidation has finally exhausted its momentum ahead of the Goldman Roll and USDA reports.",
+      "pub_date": "06/11/2026",
+      "summary": "Funds remain heavily short across wheat and corn, with Goldman Roll Day 2 testing key support floors ahead of the November WASDE.",
       "link": "https://www.agweb.com/markets/market-analysis/grains-lower-week-and-month-will-fund-stop-selling-november"
     },
     {
-      "title": "Corn Soybeans Try Bounce Can They Bottom Cattle Mixed",
-      "pub_date": "05/11/2026",
-      "summary": "Corn futures attempt to stabilize around multi-month lows as commercial buyers step in at harvest low price levels.",
-      "link": "https://www.agweb.com/markets/market-analysis/corn-soybeans-try-bounce-can-they-bottom-cattle-mixed"
+      "title": "Wheat Export Pace Holds Above 500k MT But Shipments Lag",
+      "pub_date": "06/11/2026",
+      "summary": "Commercial buyers continue to step in below $6.00/bu, though physical logistics and Black Sea export cuts dictate the broader trend.",
+      "link": "https://www.agweb.com/markets/market-analysis/wheat-export-pace-holds-above-500k-mt"
     }
   ],
-  "analysis": "Phiên 04/11 đã hoàn thành xuất sắc nhiệm vụ lịch sử: Kiểm định thành công đáy năm (591.2c so với 590.4c) và bứt phá +15 giá chứng minh lực cầu bắt đáy cực mạnh. Cú lùi về 599.2c chốt phiên là nhịp lấy đà kỹ thuật lành mạnh. Bước sang hôm nay (05/11), kỳ Goldman Roll chính thức khai hỏa, kết hợp với bối cảnh vĩ mô thuận lợi từ kết quả bầu cử Mỹ (Dân chủ nắm 2 viện, DXY giảm). Đây là thời điểm vàng để thực hiện chiến lược thoát lệnh an toàn theo đúng lộ trình."
+  "analysis": "Thị trường lúa mì đóng cửa phiên 05/11 tại 599.2c, hình thành mô hình 2 đỉnh ngắn hạn tại 606.4c. Cấu trúc giảm chưa bị bẻ gãy và khối 80k Net Short chưa tháo chạy. Bệ đỡ xuất khẩu >500k tấn và IKAR cắt giảm dự báo Nga giúp giữ vững đáy 591.2c. Kỷ luật hàng đầu là giữ nguyên lệnh chờ Sell Limit 617'4 cho 2 Lots ZWZ26 và kiên nhẫn chờ dòng tiền lớn nhập cuộc trong chu kỳ Roll."
 }

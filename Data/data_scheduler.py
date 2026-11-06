@@ -212,6 +212,11 @@ RUSSIAN_METRICS_SCRIPT = str(DATA_DIR / "fetch_russian_metrics.py")
 
 def _execute_price_update():
     success = run_script("Giá H1 + Macro", PRICE_SCRIPT, "prices")
+    try:
+        import tv_webhook_client
+        tv_webhook_client.sync_m5_to_active_h1_csv()
+    except Exception as e:
+        log(f"Lỗi đồng bộ M5 vào H1 CSV: {e}", "WARNING")
     run_script("Giá H4", PRICE_H4_SCRIPT, "prices_h4")
     run_script("Vĩ Mô (Macro)",   MACRO_SCRIPT, "macro")
     

@@ -15,6 +15,7 @@ import html
 import subprocess
 import streamlit as st
 from pathlib import Path
+import tv_webhook_client
 
 st.set_page_config(page_title="RUN TIN TỨC 6 Phần — CBOT", page_icon="favicon.png", layout="wide")
 
@@ -328,14 +329,33 @@ def render_overview():
         if st.button("🔄 CẬP NHẬT RUN TIN TỨC MỚI NHẤT", use_container_width=True):
             trigger_run_tin_tuc()
 
-    # ── LIVE METRICS STRIP (ZW, ZC, COT, MACRO) ──
-    zw_close = meta.get("ZW", {}).get("liquidity", {}).get("today_close") or macro.get("zw_ref", {}).get("price", 627.5)
-    zw_prev  = meta.get("ZW", {}).get("liquidity", {}).get("prev_close") or macro.get("zw_ref", {}).get("prev", 624.75)
-    zw_diff  = (zw_close - zw_prev) if isinstance(zw_close, (int, float)) and isinstance(zw_prev, (int, float)) else 0
+    # ── LIVE METRICS STRIP (ƯU TIÊN M5 REALTIME NẾU CÓ, FALLBACK H1) ──
+    m5_zw = tv_webhook_client.get_latest_m5_price("ZW")
+    m5_zc = tv_webhook_client.get_latest_m5_price("ZC")
 
-    zc_close = meta.get("ZC", {}).get("liquidity", {}).get("today_close") or macro.get("zc_ref", {}).get("price", 459.25)
-    zc_prev  = meta.get("ZC", {}).get("liquidity", {}).get("prev_close") or macro.get("zc_ref", {}).get("prev", 460.5)
-    zc_diff  = (zc_close - zc_prev) if isinstance(zc_close, (int, float)) and isinstance(zc_prev, (int, float)) else 0
+    if m5_zw:
+        zw_close = m5_zw["close"]
+        zw_diff  = m5_zw["diff"]
+        zw_tag   = "⚡ M5 Realtime"
+        zw_time  = m5_zw.get("time_vn", "")[-8:]
+    else:
+        zw_close = meta.get("ZW", {}).get("liquidity", {}).get("today_close") or macro.get("zw_ref", {}).get("price", 627.5)
+        zw_prev  = meta.get("ZW", {}).get("liquidity", {}).get("prev_close") or macro.get("zw_ref", {}).get("prev", 624.75)
+        zw_diff  = (zw_close - zw_prev) if isinstance(zw_close, (int, float)) and isinstance(zw_prev, (int, float)) else 0
+        zw_tag   = "H1 Live"
+        zw_time  = ""
+
+    if m5_zc:
+        zc_close = m5_zc["close"]
+        zc_diff  = m5_zc["diff"]
+        zc_tag   = "⚡ M5 Realtime"
+        zc_time  = m5_zc.get("time_vn", "")[-8:]
+    else:
+        zc_close = meta.get("ZC", {}).get("liquidity", {}).get("today_close") or macro.get("zc_ref", {}).get("price", 459.25)
+        zc_prev  = meta.get("ZC", {}).get("liquidity", {}).get("prev_close") or macro.get("zc_ref", {}).get("prev", 460.5)
+        zc_diff  = (zc_close - zc_prev) if isinstance(zc_close, (int, float)) and isinstance(zc_prev, (int, float)) else 0
+        zc_tag   = "H1 Live"
+        zc_time  = ""
 
     cot_zw = get_cot_by_code(cot, "ZW")
     cot_zc = get_cot_by_code(cot, "ZC")
@@ -352,7 +372,7 @@ def render_overview():
         arr_zw = "▲" if zw_diff >= 0 else "▼"
         render_html(f"""
         <div style='background:#161f33; border:1px solid #2a3a5c; border-left:4px solid #3b82f6; border-radius:10px; padding:10px 14px;'>
-            <div style='font-size:11px; color:#94a3b8; font-weight:700;'>🌾 LÚA MÌ (ZWZ26) vs FAIR VALUE 670c</div>
+            <div style='display:flex; justify-content:space-between; align-items:center;'><div style='font-size:11px; color:#94a3b8; font-weight:700;'>🌾 LÚA MÌ (ZWAZ26) vs FAIR VALUE 670c</div><span style='background:#1e3a8a; color:#93c5fd; font-size:10px; font-weight:700; padding:1px 6px; border-radius:4px;'>{zw_tag} {zw_time}</span></div>
             <div style='display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;'>
                 <span style='font-size:20px; font-weight:800; color:#f8fafc;'>{zw_close} ¢/bu</span>
                 <span style='font-size:12px; font-weight:700; color:{c_zw};'>{arr_zw} {zw_diff:+.2f}c</span>
@@ -363,7 +383,7 @@ def render_overview():
         arr_zc = "▲" if zc_diff >= 0 else "▼"
         render_html(f"""
         <div style='background:#161f33; border:1px solid #2a3a5c; border-left:4px solid #f59e0b; border-radius:10px; padding:10px 14px;'>
-            <div style='font-size:11px; color:#94a3b8; font-weight:700;'>🌽 NGÔ (ZCZ26) vs FAIR VALUE 480c</div>
+            <div style='display:flex; justify-content:space-between; align-items:center;'><div style='font-size:11px; color:#94a3b8; font-weight:700;'>🌽 NGÔ (ZCEZ26) vs FAIR VALUE 480c</div><span style='background:#78350f; color:#fde68a; font-size:10px; font-weight:700; padding:1px 6px; border-radius:4px;'>{zc_tag} {zc_time}</span></div>
             <div style='display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;'>
                 <span style='font-size:20px; font-weight:800; color:#f8fafc;'>{zc_close} ¢/bu</span>
                 <span style='font-size:12px; font-weight:700; color:{c_zc};'>{arr_zc} {zc_diff:+.2f}c</span>

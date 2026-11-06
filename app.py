@@ -93,7 +93,7 @@ def sidebar_status():
 
     for key, label in [
         ("usda",         "WASDE/Crop"),
-        ("prices",       "Giá H1"),
+        ("prices",       "Giá M5 Realtime"),
         ("macro",        "Vĩ Mô"),
         ("cot",          "COT"),
         ("export_sales", "Xuất Khẩu"),
@@ -158,11 +158,49 @@ st.markdown("""
     <div style='font-size:32px; font-weight:800; color:#e2e8f0; margin-bottom:8px;'>
         CBOT Agri-Trading Dashboard
     </div>
-    <div style='font-size:16px; color:#64748b; margin-bottom:32px;'>
+    <div style='font-size:16px; color:#64748b; margin-bottom:24px;'>
         Nông Sản Tái Sinh — ZC · ZW
     </div>
 </div>
 """, unsafe_allow_html=True)
+
+# ── Live Realtime M5 Ticker Banner ──────────────────────────────────────────
+try:
+    import tv_webhook_client
+    zc_m5 = tv_webhook_client.get_latest_m5_price("ZC")
+    zw_m5 = tv_webhook_client.get_latest_m5_price("ZW")
+except Exception:
+    zc_m5, zw_m5 = None, None
+
+if zc_m5 or zw_m5:
+    b1, b2 = st.columns(2)
+    for col, m_info, icon, label in [
+        (b1, zc_m5, "🌽", "NGÔ (ZC / ZCEZ26)"),
+        (b2, zw_m5, "🌾", "LÚA MÌ (ZW / ZWAZ26)")
+    ]:
+        if m_info:
+            c_val = m_info["close"]
+            d_val = m_info["diff"]
+            p_val = m_info["pct"]
+            t_val = m_info["time_vn"]
+            color = "#10b981" if d_val >= 0 else "#ef4444"
+            sign = "+" if d_val > 0 else ""
+            with col:
+                st.markdown(f"""
+                <div style='background:linear-gradient(135deg, #131d33 0%, #0d1527 100%); border:1px solid #233554; border-radius:12px; padding:12px 18px; margin-bottom:20px;'>
+                    <div style='display:flex; justify-content:space-between; align-items:center;'>
+                        <span style='font-size:13px; font-weight:700; color:#cbd5e1;'>{icon} {label}</span>
+                        <span style='background:#064e3b; color:#34d399; font-size:10px; font-weight:700; padding:2px 8px; border-radius:12px;'>⚡ M5 REALTIME</span>
+                    </div>
+                    <div style='display:flex; align-items:baseline; gap:12px; margin-top:6px;'>
+                        <span style='font-size:26px; font-weight:800; color:{color}; font-family:monospace;'>{c_val:.2f}</span>
+                        <span style='font-size:14px; font-weight:700; color:{color};'>{sign}{d_val:.2f} ({sign}{p_val:.2f}%)</span>
+                    </div>
+                    <div style='font-size:11px; color:#64748b; margin-top:4px;'>
+                        O: {m_info['open']:.2f} | H: {m_info['high']:.2f} | L: {m_info['low']:.2f} &nbsp;•&nbsp; ⏱ {t_val} (VN)
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
 
 # Main action buttons
 c1, c2, c3, c4 = st.columns([1, 2, 2, 1])

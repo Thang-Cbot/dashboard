@@ -312,10 +312,17 @@ def render_macro_tab(commodity):
 
             contract_periods = _next_3_calendar_months()
 
-            # ── Tính ATR và giá hiện tại từ D1 ──
+            # ── Tính ATR và giá hiện tại (Ưu tiên nến M5 Realtime, fallback D1) ──
             recent    = df_price.tail(20)
             atr_avg   = float(recent["ATR"].mean()) if "ATR" in recent.columns else 30.0
-            cur_close = float(df_price.iloc[-1]["Close"])
+            
+            m5_p = None
+            try:
+                import tv_webhook_client
+                m5_p = tv_webhook_client.get_latest_m5_price(commodity)
+            except Exception:
+                pass
+            cur_close = float(m5_p["close"]) if (m5_p and m5_p.get("close")) else float(df_price.iloc[-1]["Close"])
 
             # ── Bias: dựa vào macro score ──
             bias = (tot_score - 50) / 50.0   # -1.0 bearish … +1.0 bullish
