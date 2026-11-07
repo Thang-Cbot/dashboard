@@ -134,6 +134,101 @@ def _calc_rolling_beta(history):
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+def _calc_z_scores(code, current_history):
+    """
+    Tính Z56 (56 tuần ~ 1 năm) và Z192 (192 tuần ~ 3.7-4 năm)
+    bằng cách kết hợp file lịch sử 10 năm cot_10y_history.csv với current_history.
+    """
+    csv_path = CBOT_ROOT / "Data" / "output" / "cot_10y_history.csv"
+    rows = []
+    if csv_path.exists():
+        try:
+            df_hist = pd.read_csv(csv_path)
+            df_hist['CFTC_Contract_Market_Code'] = df_hist['CFTC_Contract_Market_Code'].astype(str).str.zfill(6)
+            sub = df_hist[df_hist['CFTC_Contract_Market_Code'] == str(code).zfill(6)].copy()
+            sub['Report_Date_as_YYYY-MM-DD'] = pd.to_datetime(sub['Report_Date_as_YYYY-MM-DD'])
+            for _, r in sub.iterrows():
+                rows.append({
+                    "date": r['Report_Date_as_YYYY-MM-DD'],
+                    "net": float(r['Net_Position'])
+                })
+        except Exception:
+            pass
+
+    for h in current_history:
+        try:
+            hdate = pd.to_datetime(h.get('report_date'))
+            if not rows or hdate > rows[-1]['date']:
+                rows.append({
+                    "date": hdate,
+                    "net": float(h.get('net_position', 0))
+                })
+        except Exception:
+            pass
+
+    if not rows:
+        return 0.0, 0.0, "Normal"
+
+    df_s = pd.DataFrame(rows).drop_duplicates(subset=['date']).sort_values('date').reset_index(drop=True)
+    if len(df_s) < 10:
+        return 0.0, 0.0, "Normal"
+
+    # Z56 (56 tuần)
+    s56 = df_s['net'].tail(56)
+    m56 = s56.mean()
+    std56 = s56.std() if s56.std() and s56.std() > 0 else 1.0
+    z56 = round(float((df_s['net'].iloc[-1] - m56) / std56), 2)
+
+    # Z192 (192 tuần)
+    s192 = df_s['net'].tail(192)
+    m192 = s192.mean()
+    std192 = s192.std() if s192.std() and s192.std() > 0 else 1.0
+    z192 = round(float((df_s['net'].iloc[-1] - m192) / std192), 2)
+
+    # Crowd
+    if z56 > 2.0 or z192 > 2.0:
+        crowd = "Extreme Long"
+    elif z56 < -2.0 or z192 < -2.0:
+        crowd = "Extreme Short"
+    elif abs(z56) > 1.5:
+        crowd = "Crowded"
+    else:
+        crowd = "Normal"
+
+    return z56, z192, crowd
+
+
+def _generate_cot_commentary(net, change, delta_long, delta_short, quadrant):
+    """Tạo nhận định phân tích hành vi Quỹ Managed Money theo chuẩn COT Matrix."""
+    # Dòng 1: Xu hướng vị thế ròng
+    if net > 0:
+        if change > 0:
+            line1 = f"COT tiếp tục NET LONG nhưng lực mua gia tăng mạnh mẽ."
+        else:
+            line1 = f"COT vẫn NET LONG nhưng lực mua suy yếu."
+    else:
+        if change < 0:
+            line1 = f"COT đang NET SHORT sâu và phe Bán tiếp tục áp đảo."
+        else:
+            line1 = f"COT vẫn NET SHORT nhưng phe Bán đang giảm bớt bán khống."
+
+    # Dòng 2: Chi tiết Long vs Short
+    if delta_long < 0 and delta_short > 0:
+        line2 = "Long giảm, Short tăng: xả Long + thêm Short, "
+        line2 += "chưa đảo chiều sang Net Short." if net > 0 else "củng cố xu hướng giảm."
+    elif delta_long > 0 and delta_short < 0:
+        line2 = "Long tăng, Short giảm: gom Long + đóng Short, dòng tiền Smart Money tích cực."
+    elif delta_long > 0 and delta_short > 0:
+        line2 = "Long tăng, Short tăng: mở rộng vị thế 2 đầu, thị trường phân hóa giằng co."
+    elif delta_long < 0 and delta_short < 0:
+        line2 = "Long giảm, Short giảm: Quỹ đồng loạt chốt lời và hạ đòn bẩy rủi ro."
+    else:
+        line2 = f"Long {'+' if delta_long >= 0 else ''}{delta_long/1000:.1f}K, Short {'+' if delta_short >= 0 else ''}{delta_short/1000:.1f}K."
+
+    return [line1, line2]
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 def fetch_all_cot():
     """Fetch COT data, backfill 13 tuan history, tinh beta va net estimate."""
     ensure_output_dir()
@@ -209,7 +304,7 @@ def fetch_all_cot():
         # ── Tinh Rolling Beta 13 tuan ─────────────────────────────────────────
         beta = _calc_rolling_beta(history)
 
-        # ── Lay 2 ky gan nhat de tinh quadrant ───────────────────────────────
+        # ── Lay 2 ky gan nhat de tinh quadrant & delta ───────────────────────
         if len(history) >= 2:
             curr_entry = history[-1]
             prev_entry = history[-2]
@@ -217,18 +312,49 @@ def fetch_all_cot():
             net_prev = prev_entry['net_position']
             change   = net_curr - net_prev
             report_date = curr_entry['report_date']
+            long_curr = curr_entry.get('long', 0)
+            short_curr = curr_entry.get('short', 0)
+            long_prev = prev_entry.get('long', long_curr)
+            short_prev = prev_entry.get('short', short_curr)
+            delta_long = long_curr - long_prev
+            delta_short = short_curr - short_prev
         elif len(history) == 1:
             curr_entry = history[-1]
             net_curr = curr_entry['net_position']
             net_prev = net_curr
             change   = 0
             report_date = curr_entry['report_date']
+            long_curr = curr_entry.get('long', 0)
+            short_curr = curr_entry.get('short', 0)
+            delta_long = 0
+            delta_short = 0
         else:
             net_curr = 0; net_prev = 0; change = 0
+            long_curr = 0; short_curr = 0; delta_long = 0; delta_short = 0
             report_date = datetime.date.today().strftime('%Y-%m-%d')
             curr_entry = {}
 
         quadrant, action = _classify_quadrant(net_curr, change)
+
+        # ── Tinh Z56, Z192, Crowd & Commentary ───────────────────────────────
+        z56, z192, crowd = _calc_z_scores(code, history)
+        commentary = _generate_cot_commentary(net_curr, change, delta_long, delta_short, quadrant)
+
+        if "Q1" in quadrant:
+            sentiment_bias = "BULL · Q1"
+        elif "Q2" in quadrant:
+            sentiment_bias = "BEAR · Q2"
+        elif "Q3" in quadrant:
+            sentiment_bias = "BEAR · Q3"
+        elif "Q4" in quadrant:
+            sentiment_bias = "BULL · Q4"
+        else:
+            sentiment_bias = "NEUTRAL"
+
+        try:
+            report_date_short = datetime.datetime.strptime(report_date, '%Y-%m-%d').strftime('%d/%m')
+        except Exception:
+            report_date_short = report_date[-5:] if report_date else "—" 
 
         # ── Uoc tinh Net hien tai (dua tren gia lag tu T3 -> hom nay) ────────
         net_estimated = None
@@ -251,16 +377,24 @@ def fetch_all_cot():
 
         # ── Build result ──────────────────────────────────────────────────────
         result = {
-            "commodity":      name,
-            "cftc_code":      code,
-            "report_date":    report_date,
-            "long_curr":      curr_entry.get('long', 0),
-            "short_curr":     curr_entry.get('short', 0),
-            "net_position":   net_curr,
-            "net_prev":       net_prev,
-            "change":         change,
-            "quadrant":       quadrant,
-            "action":         action,
+            "commodity":          name,
+            "cftc_code":          code,
+            "report_date":        report_date,
+            "report_date_short":  report_date_short,
+            "sentiment_bias":     sentiment_bias,
+            "long_curr":          long_curr,
+            "short_curr":         short_curr,
+            "delta_long":         delta_long,
+            "delta_short":        delta_short,
+            "net_position":       net_curr,
+            "net_prev":           net_prev,
+            "change":             change,
+            "quadrant":           quadrant,
+            "action":             action,
+            "z56":                z56,
+            "z192":               z192,
+            "crowd":              crowd,
+            "commentary":         commentary,
             # ── Rolling Beta & Realtime Estimate
             "rolling_beta_13w":           beta,
             "cutoff_price_tue":           cutoff_price,

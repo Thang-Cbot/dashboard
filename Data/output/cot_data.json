@@ -1,18 +1,29 @@
 {
-  "fetched_at": "2026-11-07 07:23:19",
+  "fetched_at": "2026-11-07 14:46:07",
   "source": "CFTC ZIP (Disaggregated Futures Only) + Rolling Beta 13W",
   "commodities": {
     "002602": {
       "commodity": "ZC",
       "cftc_code": "002602",
       "report_date": "2026-11-03",
+      "report_date_short": "03/11",
+      "sentiment_bias": "BEAR · Q2",
       "long_curr": 229341.0,
       "short_curr": 220546.0,
+      "delta_long": -20010.0,
+      "delta_short": 52308.0,
       "net_position": 8795.0,
       "net_prev": 81113.0,
       "change": -72318.0,
       "quadrant": "Q2 (DO NHAT) - XA LONG",
       "action": "Cam bat day. Canh gia hoi de danh SHORT.",
+      "z56": -0.56,
+      "z192": 0.2,
+      "crowd": "Normal",
+      "commentary": [
+        "COT vẫn NET LONG nhưng lực mua suy yếu.",
+        "Long giảm, Short tăng: xả Long + thêm Short, chưa đảo chiều sang Net Short."
+      ],
       "rolling_beta_13w": 3341.44,
       "cutoff_price_tue": 442.5,
       "latest_price": 441.5,
@@ -128,19 +139,30 @@
           "price_date": "2026-11-03"
         }
       ],
-      "fetched_at": "2026-11-07 07:23:20"
+      "fetched_at": "2026-11-07 14:46:09"
     },
     "001602": {
       "commodity": "ZW",
       "cftc_code": "001602",
       "report_date": "2026-11-03",
+      "report_date_short": "03/11",
+      "sentiment_bias": "BEAR · Q3",
       "long_curr": 78779.0,
       "short_curr": 165905.0,
+      "delta_long": -848.0,
+      "delta_short": 11672.0,
       "net_position": -87126.0,
       "net_prev": -74606.0,
       "change": -12520.0,
       "quadrant": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
+      "z56": -1.14,
+      "z192": -0.58,
+      "crowd": "Normal",
+      "commentary": [
+        "COT đang NET SHORT sâu và phe Bán tiếp tục áp đảo.",
+        "Long giảm, Short tăng: xả Long + thêm Short, củng cố xu hướng giảm."
+      ],
       "rolling_beta_13w": 493.4,
       "cutoff_price_tue": 599.75,
       "latest_price": 591.25,
@@ -256,7 +278,7 @@
           "price_date": "2026-11-03"
         }
       ],
-      "fetched_at": "2026-11-07 07:23:21"
+      "fetched_at": "2026-11-07 14:46:09"
     }
   }
 }

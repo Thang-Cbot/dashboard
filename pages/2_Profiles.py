@@ -1669,6 +1669,11 @@ with col3:
         action = cot_data.get("action", "")
         nc   = "#22c55e" if chg > 0 else "#ef4444"
         arrow = "▲" if chg > 0 else "▼"
+        bias = cot_data.get("sentiment_bias", "")
+        long_val = cot_data.get("long_curr", 0) or 0
+        short_val = cot_data.get("short_curr", 0) or 0
+        z56 = cot_data.get("z56", 0.0) or 0.0
+        crowd = cot_data.get("crowd", "Normal")
         
         # Real-time estimate
         net_est = cot_data.get("net_estimated")
@@ -1676,12 +1681,20 @@ with col3:
         est_date = cot_data.get("latest_price_date")
         
         # In block 1 (Chính thức)
-        st.markdown(f"""<div style='background:#0f1629; border-radius:6px; padding:10px; margin-bottom:8px;'>
-<div style='font-size:13px; font-weight:600; color:#94a3b8;'>COT Managed Money <span style='float:right; font-size:11px; color:#475569;'>{cot_data.get("report_date", "—")}</span></div>
-<div style='font-size:20px; font-weight:700; color:{nc}; margin:4px 0;'>{net:+,} HD</div>
-<div style='font-size:13px; color:{nc};'>{arrow} {abs(chg):,} HD tuần này</div>
-<div style='font-size:13px; color:#94a3b8; font-weight:600; margin-top:4px;'>{quad}</div>
-<div style='font-size:13px; color:#64748b; margin-top:2px;'>{action[:60] if action else ""}</div>
+        st.markdown(f"""<div style='background:#0f1629; border:1px solid #1e293b; border-radius:8px; padding:10px 12px; margin-bottom:8px;'>
+<div style='display:flex; justify-content:space-between; align-items:center;'>
+    <span style='font-size:12px; font-weight:700; color:#94a3b8;'>COT Managed Money</span>
+    <span style='font-size:11px; color:#64748b;'>{cot_data.get("report_date", "—")}</span>
+</div>
+<div style='display:flex; justify-content:space-between; align-items:baseline; margin:4px 0;'>
+    <span style='font-size:18px; font-weight:800; color:{nc}; font-family:monospace;'>{net/1000:+.1f}K HĐ</span>
+    <span style='font-size:12px; font-weight:700; color:{nc};'>{arrow} {chg/1000:+.1f}K</span>
+</div>
+<div style='font-size:11px; color:#cbd5e1; display:flex; justify-content:space-between; margin-top:4px;'>
+    <span>L: <b style="color:#e2e8f0;">{long_val/1000:.1f}K</b> • S: <b style="color:#e2e8f0;">{short_val/1000:.1f}K</b></span>
+    <span>Z56: <b style="color:#e2e8f0;">{z56:+.2f}σ</b> ({crowd})</span>
+</div>
+<div style='font-size:11px; color:#38bdf8; font-weight:700; margin-top:4px;'>{bias or quad}</div>
 </div>""", unsafe_allow_html=True)
 
         # Khung 2 (Ước tính)
@@ -1741,65 +1754,179 @@ c_cot, c_vol = st.columns([1.5, 1], gap="large")
 with c_cot:
     if cot_data:
         report_date = cot_data.get("report_date", "—")
+        report_date_short = cot_data.get("report_date_short")
+        if not report_date_short and report_date != "—":
+            try:
+                report_date_short = report_date[5:].replace("-", "/")
+                # format dd/mm
+                pts = report_date.split("-")
+                if len(pts) == 3:
+                    report_date_short = f"{pts[2]}/{pts[1]}"
+            except Exception:
+                report_date_short = report_date[-5:]
+        elif not report_date_short:
+            report_date_short = "—"
+
         quadrant = cot_data.get("quadrant", "—")
         action = cot_data.get("action", "—")
-        net = cot_data.get("net_position", 0)
-        chg = cot_data.get("change", 0)
-        
-        quad_color = "#ef4444" if "Q4" in quadrant or "Q3" in quadrant or "SHORT" in quadrant else "#22c55e"
-        chg_str = f"+{chg:,}" if chg > 0 else f"{chg:,}"
-        
-        table_html = f'''
-        <style>
-        .cot-table {{ width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 0; }}
-        .cot-table th {{ background: #1e293b; color: #cbd5e1; padding: 10px; text-align: left; border: 1px solid #334155; }}
-        .cot-table td {{ padding: 10px; border: 1px solid #334155; color: #e2e8f0; }}
-        .cot-table tr:nth-child(even) {{ background: #0f1629; }}
-        </style>
-        <table class="cot-table">
-            <tr>
-                <th style="width: 32%;">Báo cáo COT Managed Money</th>
-                <th style="width: 32%;">{selected_name}</th>
-                <th style="width: 36%;">Đánh giá & Hành động</th>
-            </tr>
-            <tr>
-                <td><b>Ngày Báo Cáo</b></td>
-                <td><b>{report_date}</b></td>
-                <td style="color:#94a3b8;">Cập nhật mới nhất từ CFTC</td>
-            </tr>
-            <tr>
-                <td><b>Trạng Thái Matrix</b></td>
-                <td style="color:{quad_color}; font-weight:700;">{quadrant}</td>
-                <td style="color:#cbd5e1; font-style:italic;">{action}</td>
-            </tr>
-            <tr>
-                <td><b>Net Position</b></td>
-                <td><b>{net:,}</b></td>
-                <td style="color:#94a3b8;">Hợp đồng (<span style="color:#22c55e;font-weight:bold;">Long</span> - <span style="color:#ef4444;font-weight:bold;">Short</span>)</td>
-            </tr>
-            <tr>
-                <td><b>Thay đổi Tuần qua</b></td>
-                <td><b>{chg_str}</b></td>
-                <td style="color:#94a3b8;">Hợp đồng thay đổi so với tuần trước</td>
-            </tr>
-        '''
-        
-        # Thêm dòng Realtime Estimate
+        net = cot_data.get("net_position", 0) or 0
+        chg = cot_data.get("change", 0) or 0
+        long_val = cot_data.get("long_curr", 0) or 0
+        short_val = cot_data.get("short_curr", 0) or 0
+        d_long = cot_data.get("delta_long", 0) or 0
+        d_short = cot_data.get("delta_short", 0) or 0
+        z56 = cot_data.get("z56", 0.0) or 0.0
+        z192 = cot_data.get("z192", 0.0) or 0.0
+        crowd = cot_data.get("crowd", "Normal")
+        bias = cot_data.get("sentiment_bias", "")
+        if not bias:
+            if "Q1" in quadrant: bias = "BULL · Q1"
+            elif "Q2" in quadrant: bias = "BEAR · Q2"
+            elif "Q3" in quadrant: bias = "BEAR · Q3"
+            elif "Q4" in quadrant: bias = "BULL · Q4"
+            else: bias = "NEUTRAL"
+
+        # Màu sắc
+        bias_bg = "#7f1d1d" if "BEAR" in bias else ("#14532d" if "BULL" in bias else "#334155")
+        bias_fg = "#fca5a5" if "BEAR" in bias else ("#86efac" if "BULL" in bias else "#cbd5e1")
+        net_color = "#22c55e" if net > 0 else "#ef4444"
+        chg_color = "#22c55e" if chg > 0 else "#ef4444"
+        d_long_color = "#22c55e" if d_long > 0 else "#ef4444"
+        d_short_color = "#ef4444" if d_short > 0 else "#22c55e"  # Thêm short là đỏ, giảm short là xanh
+
+        crowd_color = "#f59e0b" if "Extreme" in crowd else ("#a78bfa" if "Crowded" in crowd else "#94a3b8")
+
+        # Nhận định text tự động
+        commentary = cot_data.get("commentary", [])
+        if not commentary:
+            if net > 0:
+                l1 = f"COT vẫn NET LONG ({net/1000:+.1f}K) nhưng lực mua suy yếu." if chg < 0 else f"COT tiếp tục NET LONG ({net/1000:+.1f}K) và lực mua gia tăng."
+            else:
+                l1 = f"COT đang NET SHORT sâu ({net/1000:+.1f}K) và phe Bán tiếp tục áp đảo." if chg < 0 else f"COT vẫn NET SHORT ({net/1000:+.1f}K) nhưng phe Bán đang giảm bớt bán khống."
+
+            if d_long < 0 and d_short > 0:
+                l2 = f"Long giảm, Short tăng: xả Long ({d_long/1000:+.1f}K) + thêm Short ({d_short/1000:+.1f}K), " + ("chưa đảo chiều sang Net Short." if net > 0 else "củng cố xu hướng giảm.")
+            elif d_long > 0 and d_short < 0:
+                l2 = f"Long tăng ({d_long/1000:+.1f}K), Short giảm ({d_short/1000:+.1f}K): gom Long + cover Short, dòng tiền tích cực."
+            else:
+                l2 = f"Biến động vị thế tuần: Long {d_long/1000:+.1f}K, Short {d_short/1000:+.1f}K."
+            commentary = [l1, l2]
+
+        commentary_html = "".join([f"<div style='margin-bottom:3px;'>{c}</div>" for c in commentary])
+
+        # Realtime estimate (GIỮ NGUYÊN)
         net_est = cot_data.get("net_estimated")
         est_date = cot_data.get("latest_price_date")
-        quad_est = cot_data.get("quadrant_estimated")
-        
+        quad_est = cot_data.get("quadrant_estimated", "")
+        action_est = cot_data.get("action_estimated", "")
+        price_lag_change = cot_data.get("price_lag_change")
+        est_extra = cot_data.get("estimated_extra_contracts")
+        beta = cot_data.get("rolling_beta_13w")
+
+        realtime_html = ""
         if net_est is not None and est_date:
-            est_color = "#ef4444" if "Q4" in quad_est or "Q3" in quad_est or "SHORT" in quad_est else "#22c55e"
-            table_html += f"""<tr style="background:#1e293b; border-top: 2px solid #3b82f6;">
-<td><b style="color:#38bdf8;">Ước tính ({est_date})</b></td>
-<td><b style="color:{est_color};">{net_est:+,.0f}</b></td>
-<td style="color:{est_color}; font-weight:600;">{quad_est}</td>
-</tr>"""
-            
-        table_html += "</table>"
-        table_html = '\n'.join([line.strip() for line in table_html.split('\n')])
-        st.markdown(table_html, unsafe_allow_html=True)
+            est_color = "#22c55e" if net_est > 0 else "#ef4444"
+            lag_txt = f"{price_lag_change:+.2f}¢" if price_lag_change is not None else "—"
+            extra_txt = f"{est_extra:+,.0f} HĐ" if est_extra is not None else "—"
+            realtime_html = f"""
+            <div style='margin-top:14px; background:#111e38; border-left:3px solid #38bdf8; border-radius:8px; padding:12px 14px; font-family:Inter,sans-serif;'>
+                <div style='display:flex; justify-content:space-between; align-items:center;'>
+                    <b style='color:#38bdf8; font-size:12px; letter-spacing:0.5px;'>⚡ ƯỚC TÍNH REALTIME (THEO LAG GIÁ)</b>
+                    <span style='font-size:11px; color:#94a3b8;'>⏱ {est_date}</span>
+                </div>
+                <div style='display:flex; justify-content:space-between; align-items:baseline; margin-top:6px;'>
+                    <span style='font-size:19px; font-weight:800; color:{est_color}; font-family:monospace;'>{net_est:+,.0f} HĐ</span>
+                    <span style='font-size:12px; font-weight:700; color:{est_color};'>{quad_est}</span>
+                </div>
+                <div style='font-size:11px; color:#94a3b8; margin-top:4px;'>
+                    Độ lệch giá từ T3: <b style='color:#e2e8f0;'>{lag_txt}</b> &nbsp;|&nbsp; Lệch ước tính: <b style='color:#e2e8f0;'>{extra_txt}</b> &nbsp;|&nbsp; Beta 13W: <b style='color:#e2e8f0;'>{beta if beta else "—"}</b>
+                </div>
+                <div style='font-size:11px; color:#64748b; margin-top:3px; font-style:italic;'>
+                    {action_est}
+                </div>
+            </div>
+            """
+
+        card_html = f"""
+        <style>
+        .cot-box {{
+            background: #0b1120;
+            border: 1px solid #233554;
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-family: 'Consolas', 'JetBrains Mono', 'Courier New', monospace;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+        }}
+        .cot-top {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }}
+        .cot-grid-table {{
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }}
+        .cot-grid-table td {{
+            padding: 4px 0;
+            border-bottom: 1px dotted #1e293b;
+        }}
+        </style>
+
+        <div class='cot-box'>
+            <div class='cot-top'>
+                <div style='font-size:14px; font-weight:700; color:#f8fafc;'>
+                    {selected_name}
+                </div>
+                <div style='background:{bias_bg}; color:{bias_fg}; font-size:11px; font-weight:800; padding:3px 10px; border-radius:6px; letter-spacing:0.5px;'>
+                    {bias}
+                </div>
+            </div>
+
+            <table class='cot-grid-table'>
+                <tr>
+                    <td style='color:#94a3b8; width:22%;'>Net MM</td>
+                    <td style='text-align:right; font-weight:700; color:{net_color}; width:28%; padding-right:16px;'>{net/1000:+.1f}K</td>
+                    <td style='color:#94a3b8; width:22%; border-left:1px solid #1e293b; padding-left:14px;'>Δ tuần</td>
+                    <td style='text-align:right; font-weight:700; color:{chg_color}; width:28%;'>{chg/1000:+.1f}K</td>
+                </tr>
+                <tr>
+                    <td style='color:#94a3b8;'>Long</td>
+                    <td style='text-align:right; font-weight:600; color:#e2e8f0; padding-right:16px;'>{long_val/1000:.1f}K</td>
+                    <td style='color:#94a3b8; border-left:1px solid #1e293b; padding-left:14px;'>Δ Long</td>
+                    <td style='text-align:right; font-weight:600; color:{d_long_color};'>{d_long/1000:+.1f}K</td>
+                </tr>
+                <tr>
+                    <td style='color:#94a3b8;'>Short</td>
+                    <td style='text-align:right; font-weight:600; color:#e2e8f0; padding-right:16px;'>{short_val/1000:.1f}K</td>
+                    <td style='color:#94a3b8; border-left:1px solid #1e293b; padding-left:14px;'>Δ Short</td>
+                    <td style='text-align:right; font-weight:600; color:{d_short_color};'>{d_short/1000:+.1f}K</td>
+                </tr>
+                <tr>
+                    <td style='color:#94a3b8;'>Z56</td>
+                    <td style='text-align:right; font-weight:600; color:#e2e8f0; padding-right:16px;'>{z56:+.2f}σ</td>
+                    <td style='color:#94a3b8; border-left:1px solid #1e293b; padding-left:14px;'>Z192</td>
+                    <td style='text-align:right; font-weight:600; color:#e2e8f0;'>{z192:+.2f}σ</td>
+                </tr>
+                <tr>
+                    <td style='color:#94a3b8;'>Crowd</td>
+                    <td style='text-align:right; font-weight:700; color:{crowd_color}; padding-right:16px;'>{crowd}</td>
+                    <td style='color:#94a3b8; border-left:1px solid #1e293b; padding-left:14px;'>Report</td>
+                    <td style='text-align:right; font-weight:600; color:#e2e8f0;'>{report_date_short}</td>
+                </tr>
+            </table>
+
+            <div style='margin-top:14px; padding-top:12px; border-top:1px dashed #334155; font-size:12px; color:#cbd5e1; line-height:1.6; font-family:Inter,sans-serif;'>
+                {commentary_html}
+            </div>
+
+            {realtime_html}
+        </div>
+        """
+        st.markdown(card_html, unsafe_allow_html=True)
     else:
         st.info("Chưa có dữ liệu COT cho mã này.")
 
