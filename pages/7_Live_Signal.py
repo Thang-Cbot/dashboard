@@ -835,7 +835,7 @@ def render_kpi_cards(metrics, filter_label):
 <div class='kpi-card'>
 <div class='kpi-title'>Tỷ lệ thắng</div>
 <div class='kpi-value-white'>{win_rate:.1f}%</div>
-<div class='kpi-sub'>{metrics['win_trades']} thắng / {metrics['closed_trades']} lệnh đóng</div>
+<div class='kpi-sub'>{metrics['win_trades']} thắng / {metrics.get('decisive_trades', metrics['win_trades'] + metrics['loss_trades'])} lệnh phân định ({metrics['breakeven_trades']} hòa vốn)</div>
 </div>
 <div class='kpi-card'>
 <div class='kpi-title'>Vốn Khuyến Nghị</div>
@@ -1102,23 +1102,41 @@ def render_trade_table(trades, show_tag: bool = False):
             else:
                 method_name = "ICT Setup"
                 
-        # Phối màu trực quan theo tính chất phương thức
-        if "Bắt Đáy" in method_name:
-            tag_color = "#10b981"
-            tag_bg = "rgba(16, 185, 129, 0.12)"
-            tag_border = "rgba(16, 185, 129, 0.35)"
-        elif "Bắt Đỉnh" in method_name:
-            tag_color = "#f59e0b"
-            tag_bg = "rgba(245, 158, 11, 0.12)"
-            tag_border = "rgba(245, 158, 11, 0.35)"
-        elif "Trend" in method_name or "M1" in method_name:
-            tag_color = "#38bdf8"
+        # Phối màu trực quan theo từng phương thức (M1: Xanh dương, M2: Cam/Xanh lá, M3: Tím hoàng gia)
+        if "M3" in method_name:
+            if "Đáy" in method_name:
+                tag_color = "#34d399"  # Xanh Mint Bắt Đáy
+                tag_bg = "rgba(52, 211, 153, 0.12)"
+                tag_border = "rgba(192, 132, 252, 0.5)"  # Viền tím M3
+            elif "Đỉnh" in method_name:
+                tag_color = "#fbbf24"  # Vàng Cam Bắt Đỉnh
+                tag_bg = "rgba(251, 191, 36, 0.12)"
+                tag_border = "rgba(192, 132, 252, 0.5)"  # Viền tím M3
+            else:
+                tag_color = "#c084fc"  # Tím Thạch Anh M3 Trend / Hybrid
+                tag_bg = "rgba(192, 132, 252, 0.16)"
+                tag_border = "rgba(192, 132, 252, 0.55)"
+        elif "M1" in method_name or "Trend" in method_name:
+            tag_color = "#38bdf8"      # Xanh Dương M1 Trend
             tag_bg = "rgba(56, 189, 248, 0.12)"
             tag_border = "rgba(56, 189, 248, 0.35)"
-        else: # Reversal / SMC / Hybrid
-            tag_color = "#c084fc"
-            tag_bg = "rgba(192, 132, 252, 0.12)"
-            tag_border = "rgba(192, 132, 252, 0.35)"
+        elif "M2" in method_name:
+            if "Đáy" in method_name:
+                tag_color = "#10b981"  # Xanh Lá M2 Bắt Đáy
+                tag_bg = "rgba(16, 185, 129, 0.12)"
+                tag_border = "rgba(16, 185, 129, 0.35)"
+            elif "Đỉnh" in method_name:
+                tag_color = "#f59e0b"  # Cam Hổ Phách M2 Bắt Đỉnh
+                tag_bg = "rgba(245, 158, 11, 0.12)"
+                tag_border = "rgba(245, 158, 11, 0.35)"
+            else:
+                tag_color = "#fb923c"  # Cam Đảo Chiều M2 Reversal
+                tag_bg = "rgba(251, 146, 60, 0.12)"
+                tag_border = "rgba(251, 146, 60, 0.35)"
+        else:
+            tag_color = "#94a3b8"
+            tag_bg = "rgba(148, 163, 184, 0.12)"
+            tag_border = "rgba(148, 163, 184, 0.35)"
             
         prod_col_html = (
             f"<div style='width:120px; display:flex; flex-direction:column; justify-content:center;'>"
@@ -1333,7 +1351,7 @@ with tab4:
         f"<td><b style='color:{m1_pnl_color};'>{m1_metrics['roi_pct']:+.1f}%</b></td>"
         f"<td><b style='color:{m2_pnl_color};'>{m2_metrics['roi_pct']:+.1f}%</b></td>"
         f"<td><b style='color:{m3_pnl_color}; font-weight:800;'>{m3_metrics['roi_pct']:+.1f}%</b></td></tr>"
-        f"<tr><td><b>Tỷ Lệ Thắng (Win Rate)</b></td>"
+        f"<tr><td><b>Tỷ Lệ Thắng (Win Rate)</b><br><span style='font-size:11px; color:#94a3b8; font-weight:normal;'>Loại trừ lệnh hòa vốn $0</span></td>"
         f"<td><b style='font-size:15px; color:#f8fafc;'>{m1_metrics['win_rate']:.1f}%</b></td>"
         f"<td><b style='font-size:15px; color:#f8fafc;'>{m2_metrics['win_rate']:.1f}%</b></td>"
         f"<td><b style='font-size:15px; color:#a855f7;'>{m3_metrics['win_rate']:.1f}%</b></td></tr>"

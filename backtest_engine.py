@@ -696,7 +696,7 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
                             'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
                             'risk_points': round(risk, 2), 'bars_held': exit_idx - i,
                             'multiplier': MULTIPLIER, 'diff_points': diff_pts,
-                            'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M2 Bắt Đáy',
+                            'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M3 Bắt Đáy',
                             'reason': f"Hấp thụ đáy Climax: " + ", ".join(bz.get('factors', [])[:2]),
                             'exit_desc': exit_desc
                         })
@@ -785,7 +785,7 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
                             'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
                             'risk_points': round(risk, 2), 'bars_held': exit_idx - i,
                             'multiplier': MULTIPLIER, 'diff_points': diff_pts,
-                            'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M2 Bắt Đỉnh',
+                            'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M3 Bắt Đỉnh',
                             'reason': f"Quét đỉnh Quá mua: " + ", ".join(tz.get('factors', [])[:2]),
                             'exit_desc': exit_desc
                         })
@@ -838,7 +838,7 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
                             'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
                             'risk_points': round(risk, 2), 'bars_held': 0,
                             'multiplier': MULTIPLIER, 'diff_points': 0.0,
-                            'pnl': 0.0, 'win': False, 'tag': 'M1 Trend',
+                            'pnl': 0.0, 'win': False, 'tag': 'M3 Trend',
                             'reason': setup.get('reason', ''),
                             'exit_desc': 'Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn.'
                         })
@@ -935,7 +935,7 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
                         'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
                         'risk_points': round(risk, 2), 'bars_held': exit_idx - fill_idx,
                         'multiplier': MULTIPLIER, 'diff_points': diff_pts,
-                        'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M1 Trend',
+                        'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M3 Trend',
                         'reason': setup.get('reason', ''),
                         'exit_desc': exit_desc
                     })
@@ -947,6 +947,7 @@ def compute_metrics(trades: list, days_filter: int = None) -> dict:
     if not trades:
         return {
             "total_pnl": 0.0, "win_rate": 0.0, "total_trades": 0, "closed_trades": 0,
+            "decisive_trades": 0,
             "win_trades": 0, "loss_trades": 0, "breakeven_trades": 0, "pending_trades": 0,
             "open_trades": 0,
             "profit_factor": 0.0, "max_drawdown": 0.0, "roi_pct": 0.0, "recommended_capital": 10000,
@@ -975,7 +976,9 @@ def compute_metrics(trades: list, days_filter: int = None) -> dict:
     open_list = [t for t in filtered if t["result"] == "ĐANG MỞ"]
     
     closed_trades = len(win_list) + len(loss_list) + len(be_list)
-    win_rate = round((len(win_list) / closed_trades * 100), 1) if closed_trades > 0 else 0.0
+    decisive_trades = len(win_list) + len(loss_list)
+    # Win Rate chuẩn tài chính (loại trừ lệnh hòa vốn $0): Win / (Win + Loss)
+    win_rate = round((len(win_list) / decisive_trades * 100), 1) if decisive_trades > 0 else 0.0
     
     gross_profit = sum(t["pnl"] for t in win_list)
     gross_loss = abs(sum(t["pnl"] for t in loss_list))
@@ -1000,6 +1003,7 @@ def compute_metrics(trades: list, days_filter: int = None) -> dict:
         "win_rate": win_rate,
         "total_trades": len(filtered),
         "closed_trades": closed_trades,
+        "decisive_trades": decisive_trades,
         "win_trades": len(win_list),
         "loss_trades": len(loss_list),
         "breakeven_trades": len(be_list),

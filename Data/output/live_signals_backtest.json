@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07 21:28:45",
+  "generated_at": "2026-11-07 21:46:13",
   "period_days": 90,
   "upcoming_radar": [
     {
@@ -147,9 +147,10 @@
     "description": "Bắt sóng hồi về dải EMA 21-50 sau khi cấu trúc MSS xác nhận xu hướng.",
     "stats_90d": {
       "total_pnl": 8517.5,
-      "win_rate": 41.4,
+      "win_rate": 52.2,
       "total_trades": 79,
       "closed_trades": 58,
+      "decisive_trades": 46,
       "win_trades": 24,
       "loss_trades": 22,
       "breakeven_trades": 12,
@@ -162,9 +163,10 @@
     },
     "stats_30d": {
       "total_pnl": 3863.5,
-      "win_rate": 50.0,
+      "win_rate": 70.0,
       "total_trades": 25,
       "closed_trades": 14,
+      "decisive_trades": 10,
       "win_trades": 7,
       "loss_trades": 3,
       "breakeven_trades": 4,
@@ -177,9 +179,10 @@
     },
     "stats_7d": {
       "total_pnl": 1345.0,
-      "win_rate": 50.0,
+      "win_rate": 100.0,
       "total_trades": 5,
       "closed_trades": 4,
+      "decisive_trades": 2,
       "win_trades": 2,
       "loss_trades": 0,
       "breakeven_trades": 2,
@@ -2391,9 +2394,10 @@
     "description": "Bắt đảo chiều tại các vùng thanh khoản cực trị (Quét BSL/SSL Sweep + RSI Phân kỳ + Cản S1/R1 + FVG).",
     "stats_90d": {
       "total_pnl": 1367.0,
-      "win_rate": 30.4,
+      "win_rate": 46.7,
       "total_trades": 46,
       "closed_trades": 46,
+      "decisive_trades": 30,
       "win_trades": 14,
       "loss_trades": 16,
       "breakeven_trades": 16,
@@ -2406,9 +2410,10 @@
     },
     "stats_30d": {
       "total_pnl": 3034.5,
-      "win_rate": 46.7,
+      "win_rate": 58.3,
       "total_trades": 15,
       "closed_trades": 15,
+      "decisive_trades": 12,
       "win_trades": 7,
       "loss_trades": 5,
       "breakeven_trades": 3,
@@ -2421,9 +2426,10 @@
     },
     "stats_7d": {
       "total_pnl": 560.0,
-      "win_rate": 40.0,
+      "win_rate": 66.7,
       "total_trades": 5,
       "closed_trades": 5,
+      "decisive_trades": 3,
       "win_trades": 2,
       "loss_trades": 1,
       "breakeven_trades": 2,
@@ -3731,9 +3737,10 @@
     "description": "Chỉ bắt đáy/đỉnh khi sóng xả/tăng đã hoàn tất (quét Sweep + cạn kiệt), còn lại đi lệnh thuận sóng M1 khi có MSS xác nhận.",
     "stats_90d": {
       "total_pnl": 8886.0,
-      "win_rate": 37.9,
+      "win_rate": 55.0,
       "total_trades": 81,
       "closed_trades": 58,
+      "decisive_trades": 40,
       "win_trades": 22,
       "loss_trades": 18,
       "breakeven_trades": 18,
@@ -3746,9 +3753,10 @@
     },
     "stats_30d": {
       "total_pnl": 4390.0,
-      "win_rate": 50.0,
+      "win_rate": 77.8,
       "total_trades": 26,
       "closed_trades": 14,
+      "decisive_trades": 9,
       "win_trades": 7,
       "loss_trades": 2,
       "breakeven_trades": 5,
@@ -3761,9 +3769,10 @@
     },
     "stats_7d": {
       "total_pnl": 1345.0,
-      "win_rate": 50.0,
+      "win_rate": 100.0,
       "total_trades": 5,
       "closed_trades": 4,
+      "decisive_trades": 2,
       "win_trades": 2,
       "loss_trades": 0,
       "breakeven_trades": 2,
@@ -3799,7 +3808,7 @@
         "diff_points": 5.14,
         "pnl": 257.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
         "exit_desc": "[Tầng 2 - M5 Live (2026-11-07 01:00:02)] Vị thế đang mở. Giá M5 hiện tại: 442.00. Đã đạt TP1 & dời SL về hòa vốn 447.14."
       },
@@ -3827,7 +3836,7 @@
         "diff_points": 13.76,
         "pnl": 688.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
         "exit_desc": "Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 (588.15) tỷ lệ 2.0R."
       },
@@ -3855,7 +3864,7 @@
         "diff_points": 8.0,
         "pnl": 400.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
         "exit_desc": "Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 (597.02) tỷ lệ 2.0R."
       },
@@ -3883,7 +3892,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block",
         "exit_desc": "Giá đã đạt TP1 (447.12) và dời SL về hòa vốn 451.77. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
       },
@@ -3911,7 +3920,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can",
         "exit_desc": "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
       },
@@ -3939,7 +3948,7 @@
         "diff_points": 16.58,
         "pnl": 829.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
         "exit_desc": "Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 (595.7) tỷ lệ 2.0R."
       },
@@ -3966,7 +3975,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -3993,7 +4002,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4021,7 +4030,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
         "exit_desc": "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
       },
@@ -4048,7 +4057,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4075,7 +4084,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4103,7 +4112,7 @@
         "diff_points": 17.96,
         "pnl": 898.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can",
         "exit_desc": "Đạt TP2 (612.66) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
       },
@@ -4130,7 +4139,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4157,7 +4166,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4185,7 +4194,7 @@
         "diff_points": 11.77,
         "pnl": 588.5,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can + Breaker Block",
         "exit_desc": "Đạt TP2 (456.34) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
       },
@@ -4213,7 +4222,7 @@
         "diff_points": 15.88,
         "pnl": 794.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 (642.04) tỷ lệ 2.0R."
       },
@@ -4240,7 +4249,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4267,7 +4276,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4294,7 +4303,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4322,7 +4331,7 @@
         "diff_points": -3.38,
         "pnl": -169.0,
         "win": false,
-        "tag": "M2 Bắt Đáy",
+        "tag": "M3 Bắt Đáy",
         "reason": "Hấp thụ đáy Climax: Bullish MSS (sweep-confirmed), Unfilled bullish FVG below",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (664.62) — Lỗ 3.38 pts."
       },
@@ -4350,7 +4359,7 @@
         "diff_points": 10.66,
         "pnl": 533.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block",
         "exit_desc": "Giá bứt phá mạnh chạm chốt lời mục tiêu tối đa TP3 (678.21) tỷ lệ 2.0R."
       },
@@ -4378,7 +4387,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
       },
@@ -4405,7 +4414,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4433,7 +4442,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M2 Bắt Đáy",
+        "tag": "M3 Bắt Đáy",
         "reason": "Hấp thụ đáy Climax: RSI oversold (22.1), Bullish SWEEP nearby",
         "exit_desc": "Giá đã đạt TP1 (673.88) và dời SL về hòa vốn 665.25. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
       },
@@ -4461,7 +4470,7 @@
         "diff_points": -8.57,
         "pnl": -428.5,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (691.47) — Lỗ 8.57 pts."
       },
@@ -4488,7 +4497,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4516,7 +4525,7 @@
         "diff_points": 15.56,
         "pnl": 778.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block",
         "exit_desc": "Giá bứt phá mạnh chạm chốt lời mục tiêu tối đa TP3 (705.65) tỷ lệ 2.0R."
       },
@@ -4543,7 +4552,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4571,7 +4580,7 @@
         "diff_points": -11.49,
         "pnl": -574.5,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (693.88) — Lỗ 11.49 pts."
       },
@@ -4598,7 +4607,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4626,7 +4635,7 @@
         "diff_points": -4.2,
         "pnl": -210.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (687.79) — Lỗ 4.20 pts."
       },
@@ -4654,7 +4663,7 @@
         "diff_points": 12.17,
         "pnl": 608.5,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Đạt TP1 (687.07) tỷ lệ 1.0R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
       },
@@ -4682,7 +4691,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
       },
@@ -4710,7 +4719,7 @@
         "diff_points": 12.1,
         "pnl": 605.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 (518.55) tỷ lệ 2.0R."
       },
@@ -4737,7 +4746,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -4765,7 +4774,7 @@
         "diff_points": 17.16,
         "pnl": 858.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + FVG can + Breaker Block",
         "exit_desc": "Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 (697.55) tỷ lệ 2.0R."
       },
@@ -4793,7 +4802,7 @@
         "diff_points": 11.36,
         "pnl": 568.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block",
         "exit_desc": "Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 (712.88) tỷ lệ 2.0R."
       },
@@ -4821,7 +4830,7 @@
         "diff_points": -7.22,
         "pnl": -361.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (531.21) — Lỗ 7.22 pts."
       },
@@ -4849,7 +4858,7 @@
         "diff_points": -5.95,
         "pnl": -297.5,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (728.94) — Lỗ 5.95 pts."
       },
@@ -4877,7 +4886,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block",
         "exit_desc": "Giá đã đạt TP1 (718.1) và dời SL về hòa vốn 727.23. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
       },
@@ -4905,7 +4914,7 @@
         "diff_points": 8.0,
         "pnl": 400.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + Order Block + Breaker Block",
         "exit_desc": "Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 (526.09) tỷ lệ 2.0R."
       },
@@ -4933,7 +4942,7 @@
         "diff_points": -4.0,
         "pnl": -200.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + Breaker Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (535.14) — Lỗ 4.00 pts."
       },
@@ -4961,7 +4970,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Giá đã đạt TP1 (715.79) và dời SL về hòa vốn 728.4. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
       },
@@ -4989,7 +4998,7 @@
         "diff_points": -5.5,
         "pnl": -275.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + Order Block + Breaker Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (534.53) — Lỗ 5.50 pts."
       },
@@ -5017,7 +5026,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + Breaker Block",
         "exit_desc": "Giá đã đạt TP1 (527.06) và dời SL về hòa vốn 533.35. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
       },
@@ -5045,7 +5054,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M2 Bắt Đáy",
+        "tag": "M3 Bắt Đáy",
         "reason": "Hấp thụ đáy Climax: Bullish MSS (sweep-confirmed), Unfilled bullish FVG below",
         "exit_desc": "Giá đã đạt TP1 (747.58) và dời SL về hòa vốn 739.25. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
       },
@@ -5073,7 +5082,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block",
         "exit_desc": "Giá đã đạt TP1 (761.21) và dời SL về hòa vốn 747.62. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
       },
@@ -5101,7 +5110,7 @@
         "diff_points": -6.52,
         "pnl": -326.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (530.91) — Lỗ 6.52 pts."
       },
@@ -5129,7 +5138,7 @@
         "diff_points": -4.8,
         "pnl": -240.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (534.15) — Lỗ 4.80 pts."
       },
@@ -5156,7 +5165,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -5184,7 +5193,7 @@
         "diff_points": -14.01,
         "pnl": -700.5,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + Order Block + Breaker Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (791.89) — Lỗ 14.01 pts."
       },
@@ -5212,7 +5221,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block",
         "exit_desc": "Giá đã đạt TP1 (543.27) và dời SL về hòa vốn 537.52. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
       },
@@ -5240,7 +5249,7 @@
         "diff_points": -15.91,
         "pnl": -795.5,
         "win": false,
-        "tag": "M2 Bắt Đỉnh",
+        "tag": "M3 Bắt Đỉnh",
         "reason": "Quét đỉnh Quá mua: Bearish MSS (sweep-confirmed), Near R1/R2 resistance",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (787.16) — Lỗ 15.91 pts."
       },
@@ -5268,7 +5277,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block",
         "exit_desc": "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
       },
@@ -5296,7 +5305,7 @@
         "diff_points": -16.66,
         "pnl": -833.0,
         "win": false,
-        "tag": "M2 Bắt Đỉnh",
+        "tag": "M3 Bắt Đỉnh",
         "reason": "Quét đỉnh Quá mua: RSI overbought (78.7), Bearish SWEEP nearby",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (773.16) — Lỗ 16.66 pts."
       },
@@ -5324,7 +5333,7 @@
         "diff_points": 33.76,
         "pnl": 1688.0,
         "win": true,
-        "tag": "M2 Bắt Đáy",
+        "tag": "M3 Bắt Đáy",
         "reason": "Hấp thụ đáy Climax: RSI oversold (29.9), Bullish MSS (sweep-confirmed)",
         "exit_desc": "Giá bắt đáy bật tăng mạnh chạm chốt lời mục tiêu tối đa TP3 (730.51) tỷ lệ 2.0R."
       },
@@ -5352,7 +5361,7 @@
         "diff_points": 21.3,
         "pnl": 1065.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro",
         "exit_desc": "Giá bứt phá mạnh chạm chốt lời mục tiêu tối đa TP3 (533.08) tỷ lệ 2.0R."
       },
@@ -5380,7 +5389,7 @@
         "diff_points": 15.08,
         "pnl": 754.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block",
         "exit_desc": "Giá bứt phá mạnh chạm chốt lời mục tiêu tối đa TP3 (516.07) tỷ lệ 2.0R."
       },
@@ -5408,7 +5417,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block",
         "exit_desc": "Giá đã đạt TP1 (707.47) và dời SL về hòa vốn 696.77. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
       },
@@ -5435,7 +5444,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -5463,7 +5472,7 @@
         "diff_points": 12.99,
         "pnl": 649.5,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro",
         "exit_desc": "Đạt TP2 (502.88) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
       },
@@ -5490,7 +5499,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -5518,7 +5527,7 @@
         "diff_points": 13.02,
         "pnl": 651.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block",
         "exit_desc": "Đạt TP1 (698.49) tỷ lệ 1.0R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
       },
@@ -5545,7 +5554,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -5572,7 +5581,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + FVG ho tro + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -5600,7 +5609,7 @@
         "diff_points": 15.2,
         "pnl": 760.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block",
         "exit_desc": "Giá bứt phá mạnh chạm chốt lời mục tiêu tối đa TP3 (677.42) tỷ lệ 2.0R."
       },
@@ -5628,7 +5637,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M2 Bắt Đỉnh",
+        "tag": "M3 Bắt Đỉnh",
         "reason": "Quét đỉnh Quá mua: RSI overbought (85.4), Bearish SWEEP nearby",
         "exit_desc": "Giá đã đạt TP1 (470.98) và dời SL về hòa vốn 477.25. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
       },
@@ -5656,7 +5665,7 @@
         "diff_points": -4.34,
         "pnl": -217.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (467.02) — Lỗ 4.34 pts."
       },
@@ -5684,7 +5693,7 @@
         "diff_points": 17.46,
         "pnl": 873.0,
         "win": true,
-        "tag": "M2 Bắt Đáy",
+        "tag": "M3 Bắt Đáy",
         "reason": "Hấp thụ đáy Climax: RSI oversold (26.0), Bullish MSS nearby",
         "exit_desc": "Giá bắt đáy bật tăng mạnh chạm chốt lời mục tiêu tối đa TP3 (668.71) tỷ lệ 2.0R."
       },
@@ -5712,7 +5721,7 @@
         "diff_points": -6.9,
         "pnl": -345.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + HQ Order Block + Breaker Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (655.06) — Lỗ 6.90 pts."
       },
@@ -5740,7 +5749,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block + Breaker Block",
         "exit_desc": "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
       },
@@ -5768,7 +5777,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Sweep-confirmed MSS + HQ Order Block + Breaker Block",
         "exit_desc": "Giá đã đạt TP1 (665.28) và dời SL về hòa vốn 659.08. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
       },
@@ -5795,7 +5804,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Sweep-confirmed MSS + HQ Order Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -5823,7 +5832,7 @@
         "diff_points": -6.16,
         "pnl": -308.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho Pullback ve vung EMA 21-50 de BUY + Order Block + FVG ho tro + Breaker Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (656.81) — Lỗ 6.16 pts."
       },
@@ -5851,7 +5860,7 @@
         "diff_points": -8.02,
         "pnl": -401.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (471.8) — Lỗ 8.02 pts."
       },
@@ -5879,7 +5888,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M2 Bắt Đáy",
+        "tag": "M3 Bắt Đáy",
         "reason": "Hấp thụ đáy Climax: Bullish MSS nearby, Unfilled bullish FVG below",
         "exit_desc": "Giá đã đạt TP1 (658.17) và dời SL về hòa vốn 654.25. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
       },
@@ -5906,7 +5915,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -5933,7 +5942,7 @@
         "diff_points": 0.0,
         "pnl": 0.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + Order Block + Breaker Block",
         "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
       },
@@ -5961,7 +5970,7 @@
         "diff_points": 13.96,
         "pnl": 698.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block + Breaker Block",
         "exit_desc": "Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 (459.52) tỷ lệ 2.0R."
       },
@@ -5989,7 +5998,7 @@
         "diff_points": 8.44,
         "pnl": 422.0,
         "win": true,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
         "exit_desc": "Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 (471.45) tỷ lệ 2.0R."
       },
@@ -6017,7 +6026,7 @@
         "diff_points": -15.96,
         "pnl": -798.0,
         "win": false,
-        "tag": "M1 Trend",
+        "tag": "M3 Trend",
         "reason": "Cho hoi ve vung EMA 21-50 de SELL + HQ Order Block",
         "exit_desc": "Giá chạm mức cắt lỗ ban đầu SL (694.63) — Lỗ 15.96 pts."
       }
