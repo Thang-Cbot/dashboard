@@ -1089,10 +1089,43 @@ def render_trade_table(trades, show_tag: bool = False):
             diff_html = "<span style='color:#9ca3af;'>0.00 pts</span>"
             pnl_html = "<span style='color:#9ca3af;'>$0</span>"
             
-        tag_html = ""
-        if show_tag and t.get("tag"):
-            tag_color = "#38bdf8" if "Trend" in t["tag"] else "#f59e0b"
-            tag_html = f" <span style='font-size:11px; color:{tag_color}; border:1px solid {tag_color}55; padding:1px 4px; border-radius:4px;'>{t['tag']}</span>"
+        # Xác định tên phương thức cho dòng 2 (Dòng trên: Mã sản phẩm, Dòng dưới: Tên phương thức)
+        method_name = t.get("tag")
+        if not method_name:
+            m_raw = t.get("method", "")
+            if "M1" in m_raw:
+                method_name = "M1 Trend"
+            elif "M2" in m_raw:
+                method_name = "M2 Reversal"
+            elif "M3" in m_raw:
+                method_name = "M3 Hybrid"
+            else:
+                method_name = "ICT Setup"
+                
+        # Phối màu trực quan theo tính chất phương thức
+        if "Bắt Đáy" in method_name:
+            tag_color = "#10b981"
+            tag_bg = "rgba(16, 185, 129, 0.12)"
+            tag_border = "rgba(16, 185, 129, 0.35)"
+        elif "Bắt Đỉnh" in method_name:
+            tag_color = "#f59e0b"
+            tag_bg = "rgba(245, 158, 11, 0.12)"
+            tag_border = "rgba(245, 158, 11, 0.35)"
+        elif "Trend" in method_name or "M1" in method_name:
+            tag_color = "#38bdf8"
+            tag_bg = "rgba(56, 189, 248, 0.12)"
+            tag_border = "rgba(56, 189, 248, 0.35)"
+        else: # Reversal / SMC / Hybrid
+            tag_color = "#c084fc"
+            tag_bg = "rgba(192, 132, 252, 0.12)"
+            tag_border = "rgba(192, 132, 252, 0.35)"
+            
+        prod_col_html = (
+            f"<div style='width:120px; display:flex; flex-direction:column; justify-content:center;'>"
+            f"<div style='font-weight:700; color:#f8fafc; font-size:13px; line-height:1.2; letter-spacing:0.2px;'>{t['product']}</div>"
+            f"<div style='margin-top:4px;'><span style='font-size:10px; font-weight:600; color:{tag_color}; background:{tag_bg}; border:1px solid {tag_border}; padding:1px 6px; border-radius:4px; display:inline-block; white-space:nowrap;'>{method_name}</span></div>"
+            f"</div>"
+        )
             
         raw_dt = t.get("fill_time") or t.get("signal_time") or t.get("time", "")
         display_time = format_display_dt(raw_dt)
@@ -1105,7 +1138,7 @@ def render_trade_table(trades, show_tag: bool = False):
             f"<div style='width:36px; text-align:center; color:#64748b; font-family:monospace;'>#{idx+1}</div>"
             f"<div style='width:130px; color:#cbd5e1; font-family:monospace; font-size:12px;'>{display_time}</div>"
             f"<div style='width:70px;'>{side_badge}</div>"
-            f"<div style='width:115px;'><b style='color:#f8fafc;'>{t['product']}</b>{tag_html}</div>"
+            f"{prod_col_html}"
             f"<div style='width:105px;'>{res_badge}</div>"
             f"<div style='width:80px; font-family:monospace; font-weight:600;'>{entry_str}</div>"
             f"<div style='width:90px; font-family:monospace; font-weight:600;'>{exit_str}</div>"
@@ -1123,12 +1156,12 @@ def render_trade_table(trades, show_tag: bool = False):
         
     full_table_html = (
         f"<div style='overflow-x:auto; margin-bottom:16px;'>"
-        f"<div class='trade-table-wrapper' style='min-width:880px;'>"
+        f"<div class='trade-table-wrapper' style='min-width:900px;'>"
         f"<div class='trade-table-header'>"
         f"<div style='width:36px; text-align:center;'>#</div>"
         f"<div style='width:130px;'>Ngày & Giờ Khớp</div>"
         f"<div style='width:70px;'>Vị thế</div>"
-        f"<div style='width:115px;'>Sản phẩm</div>"
+        f"<div style='width:120px;'>Sản phẩm</div>"
         f"<div style='width:105px;'>Trạng thái</div>"
         f"<div style='width:80px;'>Giá vào</div>"
         f"<div style='width:90px;'>Giá đóng/Live</div>"
