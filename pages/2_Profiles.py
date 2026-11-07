@@ -1681,7 +1681,7 @@ with col3:
         est_date = cot_data.get("latest_price_date")
         
         # In block 1 (Chính thức)
-        st.markdown(f"""<div style='background:#0f1629; border:1px solid #1e293b; border-radius:8px; padding:10px 12px; margin-bottom:8px;'>
+        st.html(f"""<div style='background:#0f1629; border:1px solid #1e293b; border-radius:8px; padding:10px 12px; margin-bottom:8px; font-family:Inter,sans-serif;'>
 <div style='display:flex; justify-content:space-between; align-items:center;'>
     <span style='font-size:12px; font-weight:700; color:#94a3b8;'>COT Managed Money</span>
     <span style='font-size:11px; color:#64748b;'>{cot_data.get("report_date", "—")}</span>
@@ -1695,7 +1695,7 @@ with col3:
     <span>Z56: <b style="color:#e2e8f0;">{z56:+.2f}σ</b> ({crowd})</span>
 </div>
 <div style='font-size:11px; color:#38bdf8; font-weight:700; margin-top:4px;'>{bias or quad}</div>
-</div>""", unsafe_allow_html=True)
+</div>""")
 
         # Khung 2 (Ước tính)
         if net_est is not None and est_date:
@@ -1926,7 +1926,7 @@ with c_cot:
             {realtime_html}
         </div>
         """
-        st.markdown(card_html, unsafe_allow_html=True)
+        st.html("\n".join([line.strip() for line in card_html.splitlines()]))
     else:
         st.info("Chưa có dữ liệu COT cho mã này.")
 
