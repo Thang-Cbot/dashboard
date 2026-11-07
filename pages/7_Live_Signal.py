@@ -751,11 +751,18 @@ if not upcoming_radar_data:
 render_future_radar_section(upcoming_radar_data)
 
 # ── BỘ LỌC CHUNG ────────────────────────────────────────────────────────────
-col_f1, col_f2, col_f3, col_f4 = st.columns([1.2, 1.2, 1.2, 1.5])
+col_f1, col_f2, col_f3, col_f4 = st.columns([1.3, 1.1, 1.1, 1.4])
 with col_f1:
     time_filter = st.selectbox(
         "Khoảng thời gian",
-        ["30 ngày qua", "7 ngày qua", "90 ngày qua (Toàn bộ)"],
+        [
+            "Từ đầu năm 2026 (YTD)",
+            "30 ngày qua",
+            "7 ngày qua",
+            "90 ngày qua (Quý)",
+            "1 năm qua (365 ngày)",
+            "Toàn bộ lịch sử (Tất cả data)"
+        ],
         index=0
     )
 with col_f2:
@@ -780,11 +787,14 @@ with col_f4:
 
 # Map days filter
 days_map = {
-    "7 ngày qua": 7,
+    "Từ đầu năm 2026 (YTD)": "YTD",
     "30 ngày qua": 30,
-    "90 ngày qua (Toàn bộ)": 90
+    "7 ngày qua": 7,
+    "90 ngày qua (Quý)": 90,
+    "1 năm qua (365 ngày)": 365,
+    "Toàn bộ lịch sử (Tất cả data)": "ALL"
 }
-selected_days = days_map.get(time_filter, 30)
+selected_days = days_map.get(time_filter, "YTD")
 
 # Hàm filter trades
 def filter_trades(raw_trades, days, prod_sel, res_sel):

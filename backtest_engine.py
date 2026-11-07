@@ -36,6 +36,8 @@ import ict_engine
 import tv_webhook_client
 
 BACKTEST_RESULT_FILE = DATA_OUTPUT / "live_signals_backtest.json"
+CACHE_ALL_ZC = DATA_OUTPUT / "ZC_all_H1.csv"
+CACHE_ALL_ZW = DATA_OUTPUT / "ZW_all_H1.csv"
 CACHE_90D_ZC = DATA_OUTPUT / "ZC_90d_H1.csv"
 CACHE_90D_ZW = DATA_OUTPUT / "ZW_90d_H1.csv"
 
@@ -46,9 +48,9 @@ CQG_MAP = {
 MULTIPLIER = 50.0  # 1 cent = $50 / lot
 
 
-def fetch_or_load_90d(commodity_code: str, force_download: bool = False) -> list:
-    """Tải từ Yahoo Finance hoặc nạp từ file cache 90 ngày."""
-    cache_file = CACHE_90D_ZC if commodity_code == "ZC" else CACHE_90D_ZW
+def fetch_or_load_candles(commodity_code: str, force_download: bool = False) -> list:
+    """Tải toàn bộ dữ liệu lịch sử nến H1 (up to 700d / YTD) từ Yahoo Finance hoặc nạp từ cache."""
+    cache_file = CACHE_ALL_ZC if commodity_code == "ZC" else CACHE_ALL_ZW
     df = None
     
     if not force_download and cache_file.exists():
@@ -63,9 +65,15 @@ def fetch_or_load_90d(commodity_code: str, force_download: bool = False) -> list
         try:
             import yfinance as yf
             ticker = f"{commodity_code}Z26.CBT"
-            print(f"  [Backtest] Đang tải dữ liệu 90 ngày cho {ticker} từ Yahoo...")
+            print(f"  [Backtest] Đang tải toàn bộ dữ liệu lịch sử H1 cho {ticker} từ Yahoo...")
             tk = yf.Ticker(ticker)
-            raw = tk.history(period="90d", interval="1h")
+            try:
+                raw = tk.history(period="700d", interval="1h")
+            except Exception:
+                raw = None
+            if raw is None or raw.empty:
+                raw = tk.history(period="1y", interval="1h")
+                
             if not raw.empty:
                 df = raw.reset_index()
                 if "Datetime" in df.columns:
@@ -74,7 +82,7 @@ def fetch_or_load_90d(commodity_code: str, force_download: bool = False) -> list
                     df["Time"] = df["Date"].dt.strftime("%Y-%m-%d %H:%M")
                 df = df[["Time", "Open", "High", "Low", "Close", "Volume"]]
                 
-                # Tính các chỉ báo
+                # Tính các chỉ báo kỹ thuật
                 df["EMA_21"] = df["Close"].ewm(span=21, adjust=False).mean()
                 df["EMA_50"] = df["Close"].ewm(span=50, adjust=False).mean()
                 df["Volatility"] = df["High"] - df["Low"]
@@ -87,15 +95,19 @@ def fetch_or_load_90d(commodity_code: str, force_download: bool = False) -> list
                 
                 cache_file.parent.mkdir(parents=True, exist_ok=True)
                 df.to_csv(cache_file, index=False)
-                print(f"  [Backtest] Đã lưu {len(df)} nến 90d vào {cache_file.name}")
+                print(f"  [Backtest] Đã lưu {len(df)} nến lịch sử vào {cache_file.name}")
         except Exception as e:
             print(f"  [Backtest Lỗi] Không tải được dữ liệu mới: {e}")
             if cache_file.exists():
                 df = pd.read_csv(cache_file)
             else:
-                fallback_file = DATA_OUTPUT / f"{commodity_code}_active_H1.csv"
-                if fallback_file.exists():
-                    df = pd.read_csv(fallback_file)
+                old_cache = CACHE_90D_ZC if commodity_code == "ZC" else CACHE_90D_ZW
+                if old_cache.exists():
+                    df = pd.read_csv(old_cache)
+                else:
+                    fallback_file = DATA_OUTPUT / f"{commodity_code}_active_H1.csv"
+                    if fallback_file.exists():
+                        df = pd.read_csv(fallback_file)
 
     if df is None or df.empty:
         return []
@@ -106,8 +118,11 @@ def fetch_or_load_90d(commodity_code: str, force_download: bool = False) -> list
         "S1": "s1", "S2": "s2", "R1": "r1", "R2": "r2"
     })
     candles = df_ict.to_dict("records")
-    # TẦNG 1: Giữ nguyên chuỗi nến H1 đóng cửa chuẩn xác để tính cấu trúc ICT/SMC (không trộn M5 gây nhiễu)
     return candles
+
+
+# Alias tương thích ngược
+fetch_or_load_90d = fetch_or_load_candles
 
 
 def apply_m5_live_status_to_trades(trades: list, commodity: str) -> list:
@@ -221,7 +236,7 @@ def simulate_method_1(candles: list, commodity: str) -> list:
         if (hi_14 - lo_14) < 1.3 * atr_i:
             continue
             
-        window = candles[:i+1]
+        window = candles[max(0, i - 350):i + 1]
         ana = ict_engine.analyze(window)
         setup = ana.get("setup")
         
@@ -800,7 +815,7 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
             if (hi_14 - lo_14) < 1.3 * atr:
                 continue
 
-            window = candles[:i+1]
+            window = candles[max(0, i - 350):i + 1]
             ana = ict_engine.analyze(window)
             setup = ana.get('setup')
             if setup and setup.get('winRate', 0) >= 70:
@@ -942,7 +957,7 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
     return trades
 
 
-def compute_metrics(trades: list, days_filter: int = None) -> dict:
+def compute_metrics(trades: list, days_filter = None) -> dict:
     """Tính các chỉ số KPI: Tổng PnL, Win Rate, Tổng lệnh, Max Drawdown, ROI trên 10k USD."""
     if not trades:
         return {
@@ -954,11 +969,15 @@ def compute_metrics(trades: list, days_filter: int = None) -> dict:
             "filtered_trades": []
         }
         
-    if days_filter is not None:
+    if days_filter is not None and str(days_filter).upper() not in ["ALL", "MAX", "NONE"]:
         all_dates = sorted([t["date"] for t in trades])
         if all_dates:
             last_date = datetime.datetime.strptime(all_dates[-1], "%Y-%m-%d")
-            cutoff_date = (last_date - datetime.timedelta(days=days_filter)).strftime("%Y-%m-%d")
+            if str(days_filter).upper() == "YTD":
+                cutoff_date = f"{last_date.year}-01-01"
+            else:
+                days = int(days_filter)
+                cutoff_date = (last_date - datetime.timedelta(days=days)).strftime("%Y-%m-%d")
             filtered = [t for t in trades if t["date"] >= cutoff_date]
         else:
             filtered = trades
@@ -1320,13 +1339,13 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
 
 
 def run_full_backtest(force_download: bool = False) -> dict:
-    """Chạy toàn bộ backtest 90 ngày cho 3 phương pháp trên cả ZC và ZW."""
+    """Chạy toàn bộ backtest toàn bộ lịch sử nến H1 cho 3 phương pháp trên cả ZC và ZW."""
     print("=" * 60)
-    print("  KHỞI ĐỘNG LIVE SIGNAL BACKTEST (3 PHƯƠNG PHÁP - 90 NGÀY)")
+    print("  KHỞI ĐỘNG LIVE SIGNAL BACKTEST (3 PHƯƠNG PHÁP - TOÀN BỘ LỊCH SỬ & YTD)")
     print("=" * 60)
     
-    zc_candles = fetch_or_load_90d("ZC", force_download=force_download)
-    zw_candles = fetch_or_load_90d("ZW", force_download=force_download)
+    zc_candles = fetch_or_load_candles("ZC", force_download=force_download)
+    zw_candles = fetch_or_load_candles("ZW", force_download=force_download)
     
     # ── Phương pháp 1 (ICT Pullback - Tầng 1 H1 Structure + Tầng 2 M5 Status) ──
     print("▶ Chạy Phương pháp 1 (ICT MSS + Pullback EMA)...")
@@ -1346,51 +1365,70 @@ def run_full_backtest(force_download: bool = False) -> dict:
     m3_zw = apply_m5_live_status_to_trades(simulate_method_3_hybrid(zw_candles, "ZW"), "ZW")
     m3_all = sorted(m3_zc + m3_zw, key=lambda x: x["time"], reverse=True)
     
-    # Tính metrics
-    m1_stats_all = compute_metrics(m1_all)
-    m1_stats_30d = compute_metrics(m1_all, days_filter=30)
-    m1_stats_7d  = compute_metrics(m1_all, days_filter=7)
+    # Tính metrics đa tầng thời gian
+    m1_stats_all  = compute_metrics(m1_all, days_filter="ALL")
+    m1_stats_ytd  = compute_metrics(m1_all, days_filter="YTD")
+    m1_stats_365d = compute_metrics(m1_all, days_filter=365)
+    m1_stats_90d  = compute_metrics(m1_all, days_filter=90)
+    m1_stats_30d  = compute_metrics(m1_all, days_filter=30)
+    m1_stats_7d   = compute_metrics(m1_all, days_filter=7)
     
-    m2_stats_all = compute_metrics(m2_all)
-    m2_stats_30d = compute_metrics(m2_all, days_filter=30)
-    m2_stats_7d  = compute_metrics(m2_all, days_filter=7)
+    m2_stats_all  = compute_metrics(m2_all, days_filter="ALL")
+    m2_stats_ytd  = compute_metrics(m2_all, days_filter="YTD")
+    m2_stats_365d = compute_metrics(m2_all, days_filter=365)
+    m2_stats_90d  = compute_metrics(m2_all, days_filter=90)
+    m2_stats_30d  = compute_metrics(m2_all, days_filter=30)
+    m2_stats_7d   = compute_metrics(m2_all, days_filter=7)
 
-    m3_stats_all = compute_metrics(m3_all)
-    m3_stats_30d = compute_metrics(m3_all, days_filter=30)
-    m3_stats_7d  = compute_metrics(m3_all, days_filter=7)
+    m3_stats_all  = compute_metrics(m3_all, days_filter="ALL")
+    m3_stats_ytd  = compute_metrics(m3_all, days_filter="YTD")
+    m3_stats_365d = compute_metrics(m3_all, days_filter=365)
+    m3_stats_90d  = compute_metrics(m3_all, days_filter=90)
+    m3_stats_30d  = compute_metrics(m3_all, days_filter=30)
+    m3_stats_7d   = compute_metrics(m3_all, days_filter=7)
     
     print("▶ Quét Radar Điểm Vào Lệnh Tương Lai (Upcoming Future Setups)...")
     radar_list = compute_upcoming_radar(zc_candles, zw_candles)
     
     result = {
         "generated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "period_days": 90,
+        "period_days": "ALL",
+        "total_candles": {"ZC": len(zc_candles), "ZW": len(zw_candles)},
         "upcoming_radar": radar_list,
         "method_1": {
             "name": "Phương Pháp 1: ICT MSS + Pullback EMA 21-50",
             "type": "Trend-Following (Thuận xu hướng SMC)",
             "description": "Bắt sóng hồi về dải EMA 21-50 sau khi cấu trúc MSS xác nhận xu hướng.",
-            "stats_90d": {k: v for k, v in m1_stats_all.items() if k != "filtered_trades"},
-            "stats_30d": {k: v for k, v in m1_stats_30d.items() if k != "filtered_trades"},
-            "stats_7d":  {k: v for k, v in m1_stats_7d.items() if k != "filtered_trades"},
+            "stats_all":  {k: v for k, v in m1_stats_all.items() if k != "filtered_trades"},
+            "stats_ytd":  {k: v for k, v in m1_stats_ytd.items() if k != "filtered_trades"},
+            "stats_365d": {k: v for k, v in m1_stats_365d.items() if k != "filtered_trades"},
+            "stats_90d":  {k: v for k, v in m1_stats_90d.items() if k != "filtered_trades"},
+            "stats_30d":  {k: v for k, v in m1_stats_30d.items() if k != "filtered_trades"},
+            "stats_7d":   {k: v for k, v in m1_stats_7d.items() if k != "filtered_trades"},
             "trades": m1_all
         },
         "method_2": {
             "name": "Phương Pháp 2: FVG + Bắt Đáy / Đỉnh SMC Zone",
             "type": "Contrarian / Reversal (Đảo chiều vùng cực trị)",
             "description": "Bắt đảo chiều tại các vùng thanh khoản cực trị (Quét BSL/SSL Sweep + RSI Phân kỳ + Cản S1/R1 + FVG).",
-            "stats_90d": {k: v for k, v in m2_stats_all.items() if k != "filtered_trades"},
-            "stats_30d": {k: v for k, v in m2_stats_30d.items() if k != "filtered_trades"},
-            "stats_7d":  {k: v for k, v in m2_stats_7d.items() if k != "filtered_trades"},
+            "stats_all":  {k: v for k, v in m2_stats_all.items() if k != "filtered_trades"},
+            "stats_ytd":  {k: v for k, v in m2_stats_ytd.items() if k != "filtered_trades"},
+            "stats_365d": {k: v for k, v in m2_stats_365d.items() if k != "filtered_trades"},
+            "stats_90d":  {k: v for k, v in m2_stats_90d.items() if k != "filtered_trades"},
+            "stats_30d":  {k: v for k, v in m2_stats_30d.items() if k != "filtered_trades"},
+            "stats_7d":   {k: v for k, v in m2_stats_7d.items() if k != "filtered_trades"},
             "trades": m2_all
         },
         "method_3": {
             "name": "Phương Pháp 3: Chiến Lược Hybrid (M1 + M2 Kết Hợp)",
             "type": "Hybrid Dynamic (Phối hợp Xu hướng & Vùng Cực Trị)",
             "description": "Chỉ bắt đáy/đỉnh khi sóng xả/tăng đã hoàn tất (quét Sweep + cạn kiệt), còn lại đi lệnh thuận sóng M1 khi có MSS xác nhận.",
-            "stats_90d": {k: v for k, v in m3_stats_all.items() if k != "filtered_trades"},
-            "stats_30d": {k: v for k, v in m3_stats_30d.items() if k != "filtered_trades"},
-            "stats_7d":  {k: v for k, v in m3_stats_7d.items() if k != "filtered_trades"},
+            "stats_all":  {k: v for k, v in m3_stats_all.items() if k != "filtered_trades"},
+            "stats_ytd":  {k: v for k, v in m3_stats_ytd.items() if k != "filtered_trades"},
+            "stats_365d": {k: v for k, v in m3_stats_365d.items() if k != "filtered_trades"},
+            "stats_90d":  {k: v for k, v in m3_stats_90d.items() if k != "filtered_trades"},
+            "stats_30d":  {k: v for k, v in m3_stats_30d.items() if k != "filtered_trades"},
+            "stats_7d":   {k: v for k, v in m3_stats_7d.items() if k != "filtered_trades"},
             "trades": m3_all
         }
     }
@@ -1400,9 +1438,9 @@ def run_full_backtest(force_download: bool = False) -> dict:
         json.dump(result, f, ensure_ascii=False, indent=2)
         
     print(f"✅ Đã lưu kết quả Backtest thành công vào {BACKTEST_RESULT_FILE}")
-    print(f"   - M1 (30d): Lãi ${m1_stats_30d['total_pnl']:+,.2f} | Win Rate: {m1_stats_30d['win_rate']}% | Lệnh: {m1_stats_30d['total_trades']}")
-    print(f"   - M2 (30d): Lãi ${m2_stats_30d['total_pnl']:+,.2f} | Win Rate: {m2_stats_30d['win_rate']}% | Lệnh: {m2_stats_30d['total_trades']}")
-    print(f"   - M3 Hybrid (30d): Lãi ${m3_stats_30d['total_pnl']:+,.2f} | Win Rate: {m3_stats_30d['win_rate']}% | Lệnh: {m3_stats_30d['total_trades']}")
+    print(f"   - M1 YTD: Lãi ${m1_stats_ytd['total_pnl']:+,.2f} | Win Rate: {m1_stats_ytd['win_rate']}% | Lệnh: {m1_stats_ytd['total_trades']}")
+    print(f"   - M2 YTD: Lãi ${m2_stats_ytd['total_pnl']:+,.2f} | Win Rate: {m2_stats_ytd['win_rate']}% | Lệnh: {m2_stats_ytd['total_trades']}")
+    print(f"   - M3 Hybrid YTD: Lãi ${m3_stats_ytd['total_pnl']:+,.2f} | Win Rate: {m3_stats_ytd['win_rate']}% | Lệnh: {m3_stats_ytd['total_trades']}")
     return result
 
 
