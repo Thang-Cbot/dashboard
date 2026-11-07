@@ -1831,17 +1831,17 @@ with c_cot:
             realtime_html = f"""
             <div style='margin-top:14px; background:#111e38; border-left:3px solid #38bdf8; border-radius:8px; padding:12px 14px; font-family:Inter,sans-serif;'>
                 <div style='display:flex; justify-content:space-between; align-items:center;'>
-                    <b style='color:#38bdf8; font-size:12px; letter-spacing:0.5px;'>⚡ ƯỚC TÍNH REALTIME (THEO LAG GIÁ)</b>
-                    <span style='font-size:11px; color:#94a3b8;'>⏱ {est_date}</span>
+                    <b style='color:#38bdf8; font-size:13px; letter-spacing:0.5px;'>⚡ ƯỚC TÍNH REALTIME (THEO LAG GIÁ)</b>
+                    <span style='font-size:12px; color:#94a3b8;'>⏱ {est_date}</span>
                 </div>
                 <div style='display:flex; justify-content:space-between; align-items:baseline; margin-top:6px;'>
-                    <span style='font-size:19px; font-weight:800; color:{est_color}; font-family:monospace;'>{net_est:+,.0f} HĐ</span>
-                    <span style='font-size:12px; font-weight:700; color:{est_color};'>{quad_est}</span>
+                    <span style='font-size:20px; font-weight:800; color:{est_color}; font-family:monospace;'>{net_est:+,.0f} HĐ</span>
+                    <span style='font-size:14px; font-weight:700; color:{est_color};'>{quad_est}</span>
                 </div>
-                <div style='font-size:11px; color:#94a3b8; margin-top:4px;'>
+                <div style='font-size:13px; color:#94a3b8; margin-top:5px;'>
                     Độ lệch giá từ T3: <b style='color:#e2e8f0;'>{lag_txt}</b> &nbsp;|&nbsp; Lệch ước tính: <b style='color:#e2e8f0;'>{extra_txt}</b> &nbsp;|&nbsp; Beta 13W: <b style='color:#e2e8f0;'>{beta if beta else "—"}</b>
                 </div>
-                <div style='font-size:11px; color:#64748b; margin-top:3px; font-style:italic;'>
+                <div style='font-size:12.5px; color:#94a3b8; margin-top:4px; font-style:italic;'>
                     {action_est}
                 </div>
             </div>
@@ -1868,10 +1868,10 @@ with c_cot:
         .cot-grid-table {{
             width: 100%;
             border-collapse: collapse;
-            font-size: 13px;
+            font-size: 15px;
         }}
         .cot-grid-table td {{
-            padding: 4px 0;
+            padding: 6px 0;
             border-bottom: 1px dotted #1e293b;
         }}
         </style>
@@ -1919,7 +1919,7 @@ with c_cot:
                 </tr>
             </table>
 
-            <div style='margin-top:14px; padding-top:12px; border-top:1px dashed #334155; font-size:12px; color:#cbd5e1; line-height:1.6; font-family:Inter,sans-serif;'>
+            <div style='margin-top:14px; padding-top:12px; border-top:1px dashed #334155; font-size:14px; color:#cbd5e1; line-height:1.65; font-family:Inter,sans-serif;'>
                 {commentary_html}
             </div>
 
@@ -1951,23 +1951,23 @@ with c_vol:
         oi_arrow = "▲" if oi_chg >= 0 else "▼"
         
         st.markdown(f"""
-        <div style='background:#0f1629; border-radius:8px; padding:14px; border:1px solid #1e2d45; height: 100%;'>
+        <div style='background:#0f1629; border-radius:8px; padding:16px; border:1px solid #1e2d45; height: 100%;'>
             <div style='display:flex; justify-content:space-between; margin-bottom:12px;'>
                 <div style='flex:1;'>
-                    <div style='font-size:11px; color:#64748b;'>Khối lượng (Volume)</div>
-                    <div style='font-size:17px; font-weight:700; color:#e2e8f0;'>{vol_today:,.0f}</div>
-                    <div style='font-size:11px; font-weight:600; color:{vol_color}; margin-top:2px;'>{vol_arrow} {abs(vol_pct):.1f}%</div>
+                    <div style='font-size:13px; color:#94a3b8;'>Khối lượng (Volume)</div>
+                    <div style='font-size:18px; font-weight:700; color:#e2e8f0;'>{vol_today:,.0f}</div>
+                    <div style='font-size:12.5px; font-weight:600; color:{vol_color}; margin-top:2px;'>{vol_arrow} {abs(vol_pct):.1f}%</div>
                 </div>
                 <div style='flex:1;'>
-                    <div style='font-size:11px; color:#64748b;'>Hợp đồng mở (OI)</div>
-                    <div style='font-size:17px; font-weight:700; color:#e2e8f0;'>{oi_today:,.0f}</div>
-                    <div style='font-size:11px; font-weight:600; color:{oi_color}; margin-top:2px;'>{oi_arrow} {abs(oi_pct):.1f}%</div>
+                    <div style='font-size:13px; color:#94a3b8;'>Hợp đồng mở (OI)</div>
+                    <div style='font-size:18px; font-weight:700; color:#e2e8f0;'>{oi_today:,.0f}</div>
+                    <div style='font-size:12.5px; font-weight:600; color:{oi_color}; margin-top:2px;'>{oi_arrow} {abs(oi_pct):.1f}%</div>
                 </div>
             </div>
             <hr style='border-color:#1e2d45; margin:12px 0;'>
-            <div style='font-size:11px; font-weight:700; color:#94a3b8; margin-bottom:6px; letter-spacing:0.5px;'>🔍 XU HƯỚNG DÒNG TIỀN:</div>
-            <div style='font-size:13px; font-weight:700; color:#38bdf8; margin-bottom:6px;'>{trend}</div>
-            <div style='font-size:12px; color:#cbd5e1; line-height:1.6;'>{logic}</div>
+            <div style='font-size:12.5px; font-weight:700; color:#94a3b8; margin-bottom:6px; letter-spacing:0.5px;'>🔍 XU HƯỚNG DÒNG TIỀN:</div>
+            <div style='font-size:15px; font-weight:700; color:#38bdf8; margin-bottom:6px;'>{trend}</div>
+            <div style='font-size:14px; color:#cbd5e1; line-height:1.65;'>{logic}</div>
         </div>
         """, unsafe_allow_html=True)
     else:
