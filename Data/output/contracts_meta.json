@@ -17,7 +17,7 @@
     },
     "liquidity": {
       "today_volume": 202229.0,
-      "prev_volume": 212688.0,
+      "prev_volume": 209425.0,
       "today_oi": 720380,
       "prev_oi": 720213,
       "today_close": 442.25,
@@ -44,7 +44,7 @@
     },
     "liquidity": {
       "today_volume": 119111.0,
-      "prev_volume": 92766.0,
+      "prev_volume": 101113.0,
       "today_oi": 222232,
       "prev_oi": 222253,
       "today_close": 590.5,
@@ -53,5 +53,5 @@
       "logic": "Giá giảm đi kèm Volume tăng nhưng OI giảm. Phe Long đang chủ động đóng vị thế hàng loạt để cắt lỗ, lực bán tháo kỹ thuật mạnh."
     }
   },
-  "updated_at": "2026-11-07 08:00:37"
+  "updated_at": "2026-11-07 09:18:46"
 }
