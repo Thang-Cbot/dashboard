@@ -522,7 +522,7 @@ def detect_trade_setups(candles, fvg_zones, order_blocks, current_trend, bottom_
     is_choch = last_mss.get('signal') == 'choch' if last_mss else False
 
     # ── LONG SETUP ──────────────────────────────────────────────────────────
-    if current_trend == 'bullish' or bottom_score >= 3:
+    if current_trend == 'bullish':
         entry_top    = max(ema21, ema50)
         entry_bottom = min(ema21, ema50)
 
@@ -576,7 +576,7 @@ def detect_trade_setups(candles, fvg_zones, order_blocks, current_trend, bottom_
             }
 
     # ── SHORT SETUP ─────────────────────────────────────────────────────────
-    if current_trend == 'bearish' or top_score >= 3:
+    elif current_trend == 'bearish':
         entry_bottom = min(ema21, ema50)
         entry_top    = max(ema21, ema50)
 
