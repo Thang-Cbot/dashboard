@@ -48,8 +48,23 @@ CQG_MAP = {
 MULTIPLIER = 50.0  # 1 cent = $50 / lot
 
 
+def get_product_symbol(commodity: str, trade_time: str) -> str:
+    """
+    Quy tắc sản phẩm:
+    - Trước tháng 11/2026 (Backtest lịch sử): Dùng HĐ liên tục ZC1! và ZW1! cho chuẩn TradingView.
+    - Từ tháng 11/2026 trở đi (Hiện tại / Realtime): Dùng HĐ cụ thể ZCEZ26 và ZWAZ26 từ TradingView Webhook.
+    """
+    if str(trade_time)[:10] >= "2026-11-01":
+        return CQG_MAP.get(commodity, commodity)
+    return f"{commodity}1!"
+
+
 def fetch_or_load_candles(commodity_code: str, force_download: bool = False) -> list:
-    """Tải toàn bộ dữ liệu lịch sử nến H1 (up to 700d / YTD) từ Yahoo Finance hoặc nạp từ cache."""
+    """
+    Tải và ghép nối dữ liệu nến H1:
+      - Lịch sử đến hết tháng 10/2026: Lấy chuỗi nến liên tục ZC1! (ZC=F) hoặc ZW1! (ZW=F) chuẩn TradingView.
+      - Hiện tại từ tháng 11/2026: Lấy nến Hợp đồng tháng 12/2026 (ZCEZ26 / ZWAZ26) và nến M5 Realtime từ TradingView.
+    """
     cache_file = CACHE_ALL_ZC if commodity_code == "ZC" else CACHE_ALL_ZW
     df = None
     
@@ -61,26 +76,64 @@ def fetch_or_load_candles(commodity_code: str, force_download: bool = False) -> 
         except Exception:
             df = None
 
-    if df is None or df.empty:
+    if df is None or df.empty or force_download:
         try:
             import yfinance as yf
-            ticker = f"{commodity_code}Z26.CBT"
-            print(f"  [Backtest] Đang tải toàn bộ dữ liệu lịch sử H1 cho {ticker} từ Yahoo...")
-            tk = yf.Ticker(ticker)
+            
+            # 1. Lịch sử đến hết tháng 10/2026 (ZC1! / ZW1!)
+            hist_ticker = f"{commodity_code}=F"
+            print(f"  [Backtest] Đang tải lịch sử H1 (đến hết T10/2026) cho {commodity_code}1! ({hist_ticker}) từ Yahoo...")
+            tk_hist = yf.Ticker(hist_ticker)
             try:
-                raw = tk.history(period="700d", interval="1h")
+                raw_hist = tk_hist.history(period="700d", interval="1h")
             except Exception:
-                raw = None
-            if raw is None or raw.empty:
-                raw = tk.history(period="1y", interval="1h")
+                raw_hist = None
+            if raw_hist is None or raw_hist.empty:
+                raw_hist = tk_hist.history(period="1y", interval="1h")
                 
-            if not raw.empty:
-                df = raw.reset_index()
-                if "Datetime" in df.columns:
-                    df["Time"] = df["Datetime"].dt.tz_convert("Asia/Ho_Chi_Minh").dt.strftime("%Y-%m-%d %H:%M")
-                elif "Date" in df.columns:
-                    df["Time"] = df["Date"].dt.strftime("%Y-%m-%d %H:%M")
-                df = df[["Time", "Open", "High", "Low", "Close", "Volume"]]
+            if not raw_hist.empty:
+                df_h = raw_hist.reset_index()
+                if "Datetime" in df_h.columns:
+                    df_h["Time"] = df_h["Datetime"].dt.tz_convert("Asia/Ho_Chi_Minh").dt.strftime("%Y-%m-%d %H:%M")
+                elif "Date" in df_h.columns:
+                    df_h["Time"] = df_h["Date"].dt.strftime("%Y-%m-%d %H:%M")
+                df_h = df_h[["Time", "Open", "High", "Low", "Close", "Volume"]]
+                # Giới hạn lịch sử đến hết tháng 10/2026
+                df_h = df_h[df_h["Time"] < "2026-11-01 00:00"]
+            else:
+                df_h = pd.DataFrame()
+                
+            # 2. Hiện tại từ tháng 11/2026 (ZCEZ26 / ZWAZ26)
+            curr_ticker = f"{commodity_code}Z26.CBT"
+            print(f"  [Backtest] Đang tải nến H1 từ T11/2026 cho {CQG_MAP.get(commodity_code, commodity_code)} ({curr_ticker})...")
+            tk_curr = yf.Ticker(curr_ticker)
+            try:
+                raw_curr = tk_curr.history(period="30d", interval="1h")
+            except Exception:
+                raw_curr = None
+                
+            if raw_curr is not None and not raw_curr.empty:
+                df_c = raw_curr.reset_index()
+                if "Datetime" in df_c.columns:
+                    df_c["Time"] = df_c["Datetime"].dt.tz_convert("Asia/Ho_Chi_Minh").dt.strftime("%Y-%m-%d %H:%M")
+                elif "Date" in df_c.columns:
+                    df_c["Time"] = df_c["Date"].dt.strftime("%Y-%m-%d %H:%M")
+                df_c = df_c[["Time", "Open", "High", "Low", "Close", "Volume"]]
+                # Chỉ lấy nến từ tháng 11/2026 trở đi
+                df_c = df_c[df_c["Time"] >= "2026-11-01 00:00"]
+            else:
+                df_c = pd.DataFrame()
+
+            # 3. Ghép nối 2 chuỗi nến
+            if not df_h.empty and not df_c.empty:
+                df = pd.concat([df_h, df_c], ignore_index=True)
+            elif not df_h.empty:
+                df = df_h
+            else:
+                df = df_c
+                
+            if not df.empty:
+                df = df.drop_duplicates(subset=["Time"]).sort_values("Time").reset_index(drop=True)
                 
                 # Tính các chỉ báo kỹ thuật
                 df["EMA_21"] = df["Close"].ewm(span=21, adjust=False).mean()
@@ -95,7 +148,7 @@ def fetch_or_load_candles(commodity_code: str, force_download: bool = False) -> 
                 
                 cache_file.parent.mkdir(parents=True, exist_ok=True)
                 df.to_csv(cache_file, index=False)
-                print(f"  [Backtest] Đã lưu {len(df)} nến lịch sử vào {cache_file.name}")
+                print(f"  [Backtest] Đã lưu {len(df)} nến ghép ({commodity_code}1! đến T10/2026 + Z26 từ T11/2026) vào {cache_file.name}")
         except Exception as e:
             print(f"  [Backtest Lỗi] Không tải được dữ liệu mới: {e}")
             if cache_file.exists():
@@ -118,6 +171,14 @@ def fetch_or_load_candles(commodity_code: str, force_download: bool = False) -> 
         "S1": "s1", "S2": "s2", "R1": "r1", "R2": "r2"
     })
     candles = df_ict.to_dict("records")
+    
+    # 4. Ghép nến M5 Realtime từ TradingView Webhook (nếu có)
+    try:
+        candles = tv_webhook_client.merge_realtime_m5_into_candles(candles, commodity_code)
+    except Exception:
+        pass
+        
+    return candles
     return candles
 
 
@@ -280,7 +341,7 @@ def simulate_method_1(candles: list, commodity: str) -> list:
                     "fill_time": None,
                     "exit_time": candles[min(i+24, len(candles)-1)]["time"],
                     "side": side,
-                    "product": cqg_sym,
+                    "product": get_product_symbol(commodity, candles[i]["time"]),
                     "commodity": commodity,
                     "method": "M1 (ICT MSS + EMA Pullback)",
                     "result": "CHƯA KHỚP",
@@ -397,7 +458,7 @@ def simulate_method_1(candles: list, commodity: str) -> list:
                 "exit_time": exit_time,
                 "hit_tp1_time": hit_tp1_time,
                 "side": side,
-                "product": cqg_sym,
+                "product": get_product_symbol(commodity, candles[fill_idx]["time"]),
                 "commodity": commodity,
                 "method": "M1 (ICT MSS + EMA Pullback)",
                 "result": res,
@@ -572,7 +633,7 @@ def simulate_method_2(candles: list, commodity: str) -> list:
             "exit_time": exit_time,
             "hit_tp1_time": hit_tp1_time,
             "side": side,
-            "product": cqg_sym,
+            "product": get_product_symbol(commodity, entry_c["time"]),
             "commodity": commodity,
             "method": "M2 (SMC Zone 5-Sao Reversal)",
             "result": res,
@@ -705,7 +766,7 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
                             'fill_time': c['time'],
                             'exit_time': exit_time,
                             'hit_tp1_time': hit_tp1_time,
-                            'side': 'MUA', 'product': cqg_sym,
+                            'side': 'MUA', 'product': get_product_symbol(commodity, c['time']),
                             'commodity': commodity, 'method': 'M3 (Hybrid: Bắt Đáy Hấp Thụ)', 'result': res,
                             'entry_price': entry, 'exit_price': exit_p,
                             'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
@@ -794,7 +855,7 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
                             'fill_time': c['time'],
                             'exit_time': exit_time,
                             'hit_tp1_time': hit_tp1_time,
-                            'side': 'BÁN', 'product': cqg_sym,
+                            'side': 'BÁN', 'product': get_product_symbol(commodity, c['time']),
                             'commodity': commodity, 'method': 'M3 (Hybrid: Bắt Đỉnh Quá Mua)', 'result': res,
                             'entry_price': entry, 'exit_price': exit_p,
                             'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
@@ -847,7 +908,7 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
                             'signal_time': c['time'],
                             'fill_time': None,
                             'exit_time': candles[min(i+24, len(candles)-1)]['time'],
-                            'side': side, 'product': cqg_sym,
+                            'side': side, 'product': get_product_symbol(commodity, c['time']),
                             'commodity': commodity, 'method': 'M3 (Hybrid: Thuận Sóng M1)', 'result': 'CHƯA KHỚP',
                             'entry_price': entry, 'exit_price': None,
                             'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
@@ -945,7 +1006,7 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
                         'exit_time': exit_time,
                         'hit_tp1_time': hit_tp1_time,
                         'side': side,
-                        'product': cqg_sym, 'commodity': commodity, 'method': 'M3 (Hybrid: Thuận Sóng M1)',
+                        'product': get_product_symbol(commodity, candles[fill_idx]['time']), 'commodity': commodity, 'method': 'M3 (Hybrid: Thuận Sóng M1)',
                         'result': res, 'entry_price': entry, 'exit_price': exit_p,
                         'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
                         'risk_points': round(risk, 2), 'bars_held': exit_idx - fill_idx,

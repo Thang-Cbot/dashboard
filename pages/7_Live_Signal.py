@@ -768,7 +768,7 @@ with col_f1:
 with col_f2:
     product_filter = st.selectbox(
         "Sản phẩm",
-        ["Tất cả sản phẩm", "🌾 ZWAZ26 (Lúa Mì)", "🌽 ZCEZ26 (Ngô)"],
+        ["Tất cả sản phẩm", "🌾 Lúa Mì (ZW1! / ZWAZ26)", "🌽 Ngô (ZC1! / ZCEZ26)"],
         index=0
     )
 with col_f3:
@@ -801,9 +801,9 @@ def filter_trades(raw_trades, days, prod_sel, res_sel):
     res = backtest_engine.compute_metrics(raw_trades, days_filter=days)
     filtered = res["filtered_trades"]
     
-    if "ZWAZ26" in prod_sel:
+    if "Lúa Mì" in prod_sel or "ZWAZ26" in prod_sel or "ZW1!" in prod_sel:
         filtered = [t for t in filtered if t["commodity"] == "ZW"]
-    elif "ZCEZ26" in prod_sel:
+    elif "Ngô" in prod_sel or "ZCEZ26" in prod_sel or "ZC1!" in prod_sel:
         filtered = [t for t in filtered if t["commodity"] == "ZC"]
         
     if "Đang Mở" in res_sel:
