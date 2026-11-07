@@ -1,55 +1,185 @@
 {
-  "timestamp": "2026-11-06 06:45:00",
-  "news": [],
+  "timestamp": "2026-11-07 07:36:17",
+  "news": [
+    {
+      "title": "Cảnh báo: Hiện tượng phân tách xoáy cực bất thường trong năm El Niño",
+      "details": [
+        "Hiện tượng phân tách xoáy cực (Polar Vortex Split) rất bất thường vào tháng 11, đặc biệt trong các năm El Niño.",
+        "Sự kiện tương tự vào cuối tháng 1/2025 đã gây ra đợt đóng băng ở Florida và rét đậm lịch sử.",
+        "Thời tiết cực đoan có thể ảnh hưởng đến cây trồng mùa đông và giá năng lượng (khí đốt tự nhiên tăng $3/tuần).",
+        "Tiềm ẩn rủi ro thời tiết lạnh giá bất thường cho các khu vực nông nghiệp Mỹ."
+      ],
+      "link": "https://climatelligence.substack.com/p/what-is-a-split-in-the-polar-vortex",
+      "source": "06 Nov 2026 - BestWeather / Jim Roemer (Climatelligence)",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Giá ngô CBOT phục hồi nhẹ cuối tuần, xuất khẩu 101.000 tấn",
+      "details": [
+        "Hợp đồng ngô tương lai đóng cửa phiên thứ Sáu tăng nhẹ từ mức thấp nhất trong tuần.",
+        "Hợp đồng tháng 12 giảm 6 ¼ cent trong tuần, nhưng phục hồi 1-2 cent vào thứ Sáu.",
+        "Giá ngô giao ngay trung bình quốc gia tăng 1 ¾ cent lên $4.06.",
+        "USDA báo cáo bán 101.000 tấn ngô xuất khẩu tư nhân."
+      ],
+      "link": "https://www.barchart.com/story/news/8710421/corn-bounces-to-close-the-week-as-specs-flip-short",
+      "source": "06 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Giá lúa mì CBOT giảm mạnh cuối tuần, hợp đồng tháng 12 mất 12 ¼ cent",
+      "details": [
+        "Giá lúa mì giảm trên toàn bộ các hợp đồng vào thứ Sáu.",
+        "Hợp đồng lúa mì SRW Chicago giảm 1-8 cent, với hợp đồng tháng 12 giảm 12 ¼ cent.",
+        "Hợp đồng lúa mì HRW Kansas City giảm 2-3 ¼ cent, hợp đồng tháng 12 giảm 11 ¾ cent.",
+        "Áp lực giảm giá đến từ lo ngại về nguồn cung Biển Đen."
+      ],
+      "link": "https://www.barchart.com/story/news/8710441/wheat-falls-into-the-weekend",
+      "source": "06 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Dự báo sản lượng ngô Nam Phi giảm 19% do diện tích và năng suất thấp",
+      "details": [
+        "Dịch vụ Nông nghiệp Nước ngoài (FAS) dự báo sản lượng ngô của Nam Phi giảm 19% so với năm trước.",
+        "Nguyên nhân chính là do diện tích gieo trồng và năng suất đều giảm.",
+        "Nam Phi là nhà sản xuất ngô lớn ở châu Phi, sự sụt giảm này có thể ảnh hưởng đến nguồn cung khu vực.",
+        "Mặc dù không phải yếu tố chính của CBOT, nhưng góp phần vào bức tranh cung cầu ngô toàn cầu."
+      ],
+      "link": "https://www.world-grain.com/articles/23427-corn-output-decline-forecast-for-south-africa",
+      "source": "06 Nov 2026 - World Grain",
+      "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Giá lúa mì suy yếu vào thứ Sáu do áp lực từ Biển Đen",
+      "details": [
+        "Giá lúa mì giảm trên cả ba thị trường vào thứ Sáu.",
+        "Hợp đồng SRW Chicago giảm 4-6 cent, HRW Kansas City giảm 1-2 cent, lúa mì vụ xuân MPLS giảm 4-6 cent.",
+        "Áp lực giảm giá chủ yếu đến từ những diễn biến liên quan đến khu vực Biển Đen.",
+        "Thị trường đang phản ứng với khả năng nguồn cung từ Biển Đen được cải thiện hoặc lo ngại về cạnh tranh xuất khẩu."
+      ],
+      "link": "https://www.barchart.com/story/news/8705758/wheat-facing-friday-weakness-on-black-sea-pressure?.tsrc=rss",
+      "source": "06 Nov 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Xuất khẩu ngô có trở lại tâm điểm? Doanh số kỷ lục tới Mexico có thể báo hiệu đáy thị trường",
+      "details": [
+        "Một đợt bán ngô lịch sử cho Mexico đang thu hút sự chú ý của thị trường.",
+        "Doanh số lớn này có thể là dấu hiệu cho thấy thị trường ngô đang chạm đáy.",
+        "Xuất khẩu mạnh mẽ sẽ hỗ trợ nhu cầu và giá ngô CBOT.",
+        "Thị trường đang theo dõi liệu đây có phải là sự khởi đầu của một xu hướng tăng trưởng xuất khẩu."
+      ],
+      "link": "https://www.farmprogress.com/markets-and-quotes/afternoon-market-recap",
+      "source": "06 Nov 2026 - Farm Progress",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Thị trường chờ đợi báo cáo USDA tuần tới: Liệu có đáng tin cậy?",
+      "details": [
+        "Thị trường ngô và đậu tương đang giao dịch trong biên độ hẹp, gần mức thấp nhất nhiều tháng.",
+        "Tâm lý thận trọng trước các báo cáo quan trọng của USDA vào thứ Ba tuần tới.",
+        "Các báo cáo USDA thường gây biến động mạnh và định hình xu hướng thị trường.",
+        "Nhà đầu tư đang đặt câu hỏi về độ tin cậy và tác động của dữ liệu mới."
+      ],
+      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
+      "source": "06 Nov 2026 - Farm Progress",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Nông dân Mỹ nỗ lực giảm nhẹ khủng hoảng ngũ cốc Ukraine",
+      "details": [
+        "Một nông dân từ Pennsylvania đang tham gia vào các nỗ lực nhằm giải quyết khủng hoảng ngũ cốc ở Ukraine.",
+        "Khủng hoảng ngũ cốc Ukraine tiếp tục là yếu tố địa chính trị quan trọng ảnh hưởng đến thị trường toàn cầu.",
+        "Các sáng kiến này có thể giúp ổn định nguồn cung và giảm bớt áp lực giá.",
+        "Cho thấy sự quan tâm và nỗ lực quốc tế trong việc duy trì chuỗi cung ứng lương thực."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQMFlxVXA1UXlsXzF0RWFkWXprS3BWelJucTduODIzRmVIOTF4bjJYbzF6d05EVm9WV3hwY3ZBa09oaVBiV0NSNk8xZDdKQXhzUUY0Znc0bDlFV09QLTNwMWRuWEU1aXZ5ZUNVb2VTRndiUk5VZWJyQk5BYlROVnpycXZQQXdyQ28yWUNBMEk1NVBJcW5EdXlMSTQ3Z2dMRWFONGhDV1dLcEh5U2cwT3JsanRwTW5ORWJMazZtQVVJYTlINzRsTHo3bXVkbUdQOEl4SVFYUFZpUjh0d3l3azNKZGpkWlZmSXJMMFhtV2VsODY0WkIzLVhiTE9yeC0?oc=5",
+      "source": "06 Nov 2026 - Google News (Geo)",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Chiến sự lan tới bờ biển Biển Đen của NATO, vận tải biển từ chối hoạt động",
+      "details": [
+        "Xung đột quân sự đã lan rộng đến bờ biển Biển Đen thuộc các nước NATO.",
+        "Các công ty vận tải biển đang từ chối hoạt động trong khu vực này do rủi ro cao.",
+        "Điều này gây gián đoạn nghiêm trọng đến tuyến đường xuất khẩu ngũ cốc quan trọng.",
+        "Tăng chi phí vận chuyển và lo ngại về nguồn cung, đặc biệt là lúa mì và ngô."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPdV9rSXJoRG5pa3Vmc2dSU0RvVGJPenRuZ3ZITnRZRWhhTTU0RldxbmNWRU1xanhjY3QzdlRCTTZ3R2VHek1BS0ZzNTcxSWdnNmh2RDA5elVMREpmeVlqUjBsTTlROG4xU2xpcWNLcHZVemVKTThNWDFid3AzLWtLejRSRVNsYmh5N1UzTVpGWQ?oc=5",
+      "source": "05 Nov 2026 - Google News (Geo)",
+      "category": "logistics"
+    },
+    {
+      "title": "Báo cáo WASDE tháng 11/2026 của USDA sẽ định hình giá ngô và đậu tương",
+      "details": [
+        "Báo cáo Cung cầu Nông nghiệp Thế giới (WASDE) tháng 11 của USDA là sự kiện quan trọng.",
+        "Báo cáo này sẽ cung cấp dữ liệu cập nhật về sản lượng, tồn kho và dự báo xuất khẩu.",
+        "Có khả năng gây ra biến động lớn cho giá ngô và đậu tương trên thị trường CBOT.",
+        "Thị trường đang chờ đợi các điều chỉnh về năng suất và nhu cầu toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOUXltNDA0WnNpcUVON05vNW5lVU5ha19FcDMyU3hsYzFyRk9lNHJCZ3NFc1N6NldYMUJwQkRRWXRCa1hNZlJxX0lrOE1sSVgzR0cwUTM4cWtWUm1qUDJ6cU9YV0JJcW1KUmYyYS1ET3dsdTY3dzBtdENISXY3c0xOSw?oc=5",
+      "source": "05 Nov 2026 - Google News (Supply)",
+      "category": "cung_cau_nhan_dinh"
+    }
+  ],
   "intraday": {
     "ZW": {
-      "bias": "Neutral",
-      "bias_vn": "Đi Ngang / Nén Biên Độ",
-      "summary": "ZW đóng cửa tại 599.2c phiên thứ 2 liên tiếp, cản 606.4c hình thành Double Top ngắn hạn. Khối 80k Net Short chưa tháo chạy.",
+      "bias": "Bearish",
+      "bias_vn": "Giảm",
+      "summary": "Lúa mì chịu áp lực giảm mạnh từ vị thế short của Smart Money và nguồn cung Biển Đen.",
       "key_levels": {
-        "support": "591.2",
-        "resistance": "606.4"
+        "support": "585.0",
+        "resistance": "595.0"
       },
       "reasoning": [
-        "Hai phiên liên tiếp chốt tại 599.2c, chưa phá vỡ cấu trúc giảm trên D1.",
-        "Đỉnh quét 606.4c bị dội ngược nhanh xác nhận cản kỹ thuật rất mạnh.",
-        "Khối lượng giao dịch thấp cho thấy phe Short 80k HĐ chưa bắt đầu đảo hàng quy mô lớn.",
-        "Lực đỡ xuất khẩu >500k tấn và IKAR cắt giảm sản lượng Nga giữ vững đáy 591.2c.",
-        "Kỳ Goldman Roll bước vào Ngày 2 (chốt tuần), thị trường chờ đợi cao điểm đảo hàng."
+        "El Niño & phân tách xoáy cực; áp lực cung Biển Đen vẫn hiện hữu.",
+        "Giá giảm mạnh cuối tuần do áp lực cung toàn cầu.",
+        "Smart Money \"nhồi short\" mạnh (-91320 HĐ), kỳ vọng giá giảm.",
+        "Áp lực cung từ Biển Đen tiếp tục đè nặng lên giá.",
+        "Giá giảm sâu, phá vỡ các ngưỡng hỗ trợ quan trọng."
       ],
-      "risk": "Rủi ro thủng mốc 591.2 nếu phe Short tiếp tục gia tăng vị thế hoặc áp lực bán Roll đè nặng.",
-      "generated_at": "2026-11-06 06:45"
+      "risk": "Bất ngờ về thời tiết ở các vùng trồng chính hoặc thay đổi đột ngột dòng tiền.",
+      "generated_at": "2026-11-07 07:36"
     },
     "ZC": {
       "bias": "Neutral",
-      "bias_vn": "Tích Lũy Đáy",
-      "summary": "ZC neo quanh 441-442c bám sát sàn chi phí sản xuất, hưởng lợi từ giá dầu Brent tăng tiệm cận 97 USD.",
+      "bias_vn": "Đi Ngang",
+      "summary": "Ngô phục hồi nhẹ nhờ xuất khẩu mạnh, nhưng Smart Money đang chốt lời, tạo xu hướng đi ngang.",
       "key_levels": {
         "support": "440.0",
         "resistance": "445.0"
       },
       "reasoning": [
-        "Thu hoạch ngô Mỹ đạt gần 80%, áp lực bán thu hoạch giảm dần.",
-        "Giá dầu thô Brent tăng vọt lên 96.7 USD/thùng hỗ trợ mạnh mẽ biên lợi nhuận ethanol.",
-        "Nông dân Mỹ hạn chế bán ra dưới ngưỡng chi phí sản xuất 440c.",
-        "Thị trường thận trọng nén biên độ trước thềm báo cáo USDA WASDE 10/11."
+        "Sản lượng Nam Phi giảm 19% do thời tiết; El Niño cần theo dõi.",
+        "Xuất khẩu sang Mexico kỷ lục, nhu cầu phục hồi nhẹ.",
+        "Smart Money \"xả long\" (giảm vị thế mua ròng), cho thấy thận trọng.",
+        "Không có yếu tố địa chính trị nổi bật trực tiếp ảnh hưởng.",
+        "Giá phục hồi nhẹ, có thể đang tìm kiếm vùng đáy."
       ],
-      "risk": "Rủi ro giảm tiếp nếu tiến độ thu hoạch dứt điểm nhanh và thiếu vắng đơn hàng xuất khẩu lớn.",
-      "generated_at": "2026-11-06 06:45"
+      "risk": "Lực bán từ Smart Money tiếp tục hoặc dữ liệu xuất khẩu không duy trì đà.",
+      "generated_at": "2026-11-07 07:36"
     },
-    "bias": "Neutral",
-    "bias_vn": "Đi Ngang / Nén Biên Độ",
-    "summary": "ZW đóng cửa tại 599.2c phiên thứ 2 liên tiếp, cản 606.4c hình thành Double Top ngắn hạn. Khối 80k Net Short chưa tháo chạy.",
+    "bias": "Bearish",
+    "bias_vn": "Giảm",
+    "summary": "Lúa mì chịu áp lực giảm mạnh từ vị thế short của Smart Money và nguồn cung Biển Đen.",
     "key_levels": {
-      "support": "591.2",
-      "resistance": "606.4"
+      "support": "585.0",
+      "resistance": "595.0"
     },
     "reasoning": [
-      "Hai phiên liên tiếp chốt tại 599.2c, chưa phá vỡ cấu trúc giảm trên D1.",
-      "Đỉnh quét 606.4c bị dội ngược nhanh xác nhận cản kỹ thuật rất mạnh.",
-      "Khối lượng giao dịch thấp cho thấy phe Short 80k HĐ chưa bắt đầu đảo hàng quy mô lớn.",
-      "Lực đỡ xuất khẩu >500k tấn và IKAR cắt giảm sản lượng Nga giữ vững đáy 591.2c.",
-      "Kỳ Goldman Roll bước vào Ngày 2 (chốt tuần), thị trường chờ đợi cao điểm đảo hàng."
-    ]
-  }
+      "El Niño & phân tách xoáy cực; áp lực cung Biển Đen vẫn hiện hữu.",
+      "Giá giảm mạnh cuối tuần do áp lực cung toàn cầu.",
+      "Smart Money \"nhồi short\" mạnh (-91320 HĐ), kỳ vọng giá giảm.",
+      "Áp lực cung từ Biển Đen tiếp tục đè nặng lên giá.",
+      "Giá giảm sâu, phá vỡ các ngưỡng hỗ trợ quan trọng."
+    ],
+    "risk": "Bất ngờ về thời tiết ở các vùng trồng chính hoặc thay đổi đột ngột dòng tiền.",
+    "generated_at": "2026-11-07 07:36"
+  },
+  "categories": [
+    "dia_chinh_tri",
+    "logistics",
+    "san_luong_dien_tich",
+    "cung_cau_nhan_dinh"
+  ]
 }
