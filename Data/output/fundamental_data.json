@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-11-05",
+  "last_updated_fundamentals": "2026-11-07",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -120,19 +120,19 @@
       "logic": "Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại đang xuất hiện vùng khô hạn cục bộ ở rìa phía Bắc (Minnesota, Northern Plains) đe dọa trực tiếp tỷ lệ nảy mầm của cây ngô non."
     },
     "cot_report": {
-      "latest": "[2026-10-27] Net Long 81,113 HD | -83,310",
-      "next_date": "30/10/2026 (Hang tuan, Thu Sau)",
+      "latest": "[2026-11-03] Net Long 8,795 HD | -72,318",
+      "next_date": "06/11/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q2 (DO NHAT) - XA LONG",
       "action": "Cam bat day. Canh gia hoi de danh SHORT.",
-      "logic": "[2026-10-27] MM nam Long rong 81,113 HD. Tuan nay giam bot 83,310 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-11-05): +74,454 HD (Q2 (DO NHAT) - XA LONG) [Lag=-3.50c, Beta=1902.5]",
+      "logic": "[2026-11-03] MM nam Long rong 8,795 HD. Tuan nay giam bot 72,318 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-11-06): +5,454 HD (Q2 (DO NHAT) - XA LONG) [Lag=-1.00c, Beta=3341.4]",
       "raw_data": {
-        "net_position": 81113.0,
-        "change": -83310.0,
-        "long": 249351.0,
-        "short": 168238.0,
-        "net_estimated": 74454.0,
+        "net_position": 8795.0,
+        "change": -72318.0,
+        "long": 229341.0,
+        "short": 220546.0,
+        "net_estimated": 5454.0,
         "quadrant_est": "Q2 (DO NHAT) - XA LONG",
-        "beta_13w": 1902.51
+        "beta_13w": 3341.44
       }
     },
     "import_demand": {
@@ -343,19 +343,19 @@
       "logic": "Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ) + Hạn hán mùa thu làm giảm 20% diện tích gieo trồng của Úc."
     },
     "cot_report": {
-      "latest": "[2026-10-27] Net Short 74,606 HD | -22,601",
-      "next_date": "30/10/2026 (Hang tuan, Thu Sau)",
+      "latest": "[2026-11-03] Net Short 87,126 HD | -12,520",
+      "next_date": "06/11/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "logic": "[2026-10-27] MM nam Short rong 74,606 HD. Tuan nay giam bot 22,601 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-11-05): -77,786 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-8.25c, Beta=385.5]",
+      "logic": "[2026-11-03] MM nam Short rong 87,126 HD. Tuan nay giam bot 12,520 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-11-06): -91,320 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-8.50c, Beta=493.4]",
       "raw_data": {
-        "net_position": -74606.0,
-        "change": -22601.0,
-        "long": 79627.0,
-        "short": 154233.0,
-        "net_estimated": -77786.0,
+        "net_position": -87126.0,
+        "change": -12520.0,
+        "long": 78779.0,
+        "short": 165905.0,
+        "net_estimated": -91320.0,
         "quadrant_est": "Q3 (DO DAM) - NHOI SHORT",
-        "beta_13w": 385.48
+        "beta_13w": 493.4
       }
     },
     "import_demand": {
@@ -598,5 +598,5 @@
     }
   },
   "wasde_report_month": "Oct",
-  "last_updated_cot": "2026-11-05 20:36:34"
+  "last_updated_cot": "2026-11-07 07:23:21"
 }

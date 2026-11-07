@@ -8,16 +8,19 @@
     "ZCEZ26|⚡ M1-Fast (Xung Lực • FVG 50%)|BÁN|441.00": "2026-11-06 15:49:11",
     "ZWAZ26|⚡ M1-Fast (M30 Đóng Cửa • FVG 50%)|BÁN|594.00": "2026-11-06 15:49:11",
     "ZCEZ26|M1 (H1 Closed • EMA Pullback)|BÁN|441.04": "2026-11-07 00:10:39",
-    "ZWAZ26|M1 (H1 Closed • EMA Pullback)|BÁN|594.31": "2026-11-07 00:10:39"
+    "ZWAZ26|M1 (H1 Closed • EMA Pullback)|BÁN|594.31": "2026-11-07 00:10:39",
+    "ZWAZ26|⚡ M1-Fast (Xung Lực • FVG 50%)|BÁN|592.00": "2026-11-07 07:22:18",
+    "ZCEZ26|M1 (H1 Closed • EMA Pullback)|BÁN|441.31": "2026-11-07 07:22:18",
+    "ZWAZ26|M1 (H1 Closed • EMA Pullback)|BÁN|593.89": "2026-11-07 07:22:18"
   },
   "last_messages": {
     "ZCEZ26": {
-      "timestamp": "2026-11-07 00:10:39",
-      "msg": "📡 <b>CBOT RADAR</b> — <b>🌽 ZCEZ26 (Ngô) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>07/11/2026 00:10:42</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>07/11/2026 00:00</code>\n• 📊 <b>Chiến lược:</b> <b>M1 (H1 Closed • EMA Pullback)</b> <i>(Đồng thuận M3 Hybrid)</i>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (Gần chạm)</b>\n• 💹 <b>Giá Live (M5):</b> <b>440.00</b> <i>(Cách điểm đón 1.04 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>441.04</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>443.03</code> <i>(Rủi ro: 1.99 pts = $100/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>439.05</b>\n   ├ TP2 (1.5R): <b>438.06</b>\n   └ TP3 (2.0R): <b>437.06</b>\n• 🧠 <b>Căn cứ kỹ thuật:</b> [Tầng 1A - H1 Đóng Cửa] Xu hướng GIẢM. Điểm đón khóa cố định tại EMA21-50 (441.04 - 442.45); Giá M5 Live cách 1.04 pts.\n• 💡 <b>Hành động:</b> <i>Đặt Limit BÁN cố định @ 441.04 (EMA21 H1 đã đóng nến). SL: 443.03, TP3: 437.06</i>"
+      "timestamp": "2026-11-07 07:22:18",
+      "msg": "📡 <b>CBOT RADAR</b> — <b>🌽 ZCEZ26 (Ngô) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>07/11/2026 07:22:22</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>07/11/2026 02:00</code>\n• 📊 <b>Chiến lược:</b> <b>M1 (H1 Closed • EMA Pullback)</b>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (Gần chạm)</b>\n• 💹 <b>Giá Live (M5):</b> <b>440.00</b> <i>(Cách điểm đón 1.31 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>441.31</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>443.57</code> <i>(Rủi ro: 2.26 pts = $113/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>439.05</b>\n   ├ TP2 (1.5R): <b>437.92</b>\n   └ TP3 (2.0R): <b>436.79</b>\n• 🧠 <b>Căn cứ kỹ thuật:</b> [Tầng 1A - H1 Đóng Cửa] Xu hướng GIẢM. Điểm đón khóa cố định tại EMA21-50 (441.31 - 442.46); Giá M5 Live cách 1.31 pts.\n• 💡 <b>Hành động:</b> <i>Đặt Limit BÁN cố định @ 441.31 (EMA21 H1 đã đóng nến). SL: 443.57, TP3: 436.79</i>"
     },
     "ZWAZ26": {
-      "timestamp": "2026-11-07 00:10:39",
-      "msg": "📡 <b>CBOT RADAR</b> — <b>🌾 ZWAZ26 (Lúa Mì) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>07/11/2026 00:10:44</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>07/11/2026 00:00</code>\n• 📊 <b>Chiến lược:</b> <b>M1 (H1 Closed • EMA Pullback)</b> <i>(Đồng thuận M3 Hybrid)</i>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (Gần chạm)</b>\n• 💹 <b>Giá Live (M5):</b> <b>592.00</b> <i>(Cách điểm đón 2.31 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>594.31</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>598.82</code> <i>(Rủi ro: 4.51 pts = $226/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>589.80</b>\n   ├ TP2 (1.5R): <b>587.54</b>\n   └ TP3 (2.0R): <b>585.29</b>\n• 🧠 <b>Căn cứ kỹ thuật:</b> [Tầng 1A - H1 Đóng Cửa] Xu hướng GIẢM. Điểm đón khóa cố định tại EMA21-50 (594.31 - 597.20); Giá M5 Live cách 2.31 pts.\n• 💡 <b>Hành động:</b> <i>Đặt Limit BÁN cố định @ 594.31 (EMA21 H1 đã đóng nến). SL: 598.82, TP3: 585.29</i>"
+      "timestamp": "2026-11-07 07:22:18",
+      "msg": "📡 <b>CBOT RADAR</b> — <b>🌾 ZWAZ26 (Lúa Mì) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>07/11/2026 07:22:24</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>07/11/2026 02:00</code>\n• 📊 <b>Chiến lược:</b> <b>M1 (H1 Closed • EMA Pullback)</b> <i>(Đồng thuận M3 Hybrid)</i>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (Gần chạm)</b>\n• 💹 <b>Giá Live (M5):</b> <b>592.00</b> <i>(Cách điểm đón 1.89 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>593.89</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>598.49</code> <i>(Rủi ro: 4.60 pts = $230/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>589.29</b>\n   ├ TP2 (1.5R): <b>586.99</b>\n   └ TP3 (2.0R): <b>584.69</b>\n• 🧠 <b>Căn cứ kỹ thuật:</b> [Tầng 1A - H1 Đóng Cửa] Xu hướng GIẢM. Điểm đón khóa cố định tại EMA21-50 (593.89 - 596.79); Giá M5 Live cách 1.89 pts.\n• 💡 <b>Hành động:</b> <i>Đặt Limit BÁN cố định @ 593.89 (EMA21 H1 đã đóng nến). SL: 598.49, TP3: 584.69</i>"
     }
   }
 }
