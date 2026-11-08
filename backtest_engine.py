@@ -276,366 +276,222 @@ def apply_m5_live_status_to_trades(trades: list, commodity: str) -> list:
 
 def simulate_method_1(candles: list, commodity: str) -> list:
     """
-    Phương pháp 1: ICT MSS + Pullback EMA 21-50 (Trend-Following)
+    Phương pháp 1: Scalp / Intraday (Thuận Xu Hướng EMA 21-50 • Mục tiêu $200 USD)
+    - Chỉ vào lệnh trong giờ giao dịch chính trong ngày (14:00 - 22:00 VN).
+    - Không treo hay giữ lệnh qua đêm (tối đa 9 nến H1 trong phiên).
+    - Mục tiêu lợi nhuận chuẩn: $200 USD / giao dịch (TP1 = +4.0 pts, TP2 = +4.5 pts, TP3 = +5.0 pts).
     """
-    cqg_sym = CQG_MAP.get(commodity, commodity)
     trades = []
     pos_end_idx = 0
-    min_opposing_dist = 7.0 if commodity == "ZW" else 4.0
+    
+    tp1_pts = 4.0   # $200 USD
+    tp2_pts = 4.5   # $225 USD
+    tp3_pts = 5.0   # $250 USD
+    be_trigger = 2.6 if commodity == "ZW" else 2.4
     
     for i in range(50, len(candles) - 5):
         if i < pos_end_idx:
             continue
-            
-        c_i = candles[i]
-        atr_i = c_i.get("atr", 3.0)
-        
-        # Chop / Range Filter: Không giao dịch khi biên độ 14 nến hẹp < 1.3 * ATR
-        recent_14 = candles[max(0, i-13):i+1]
-        hi_14 = max(c["high"] for c in recent_14)
-        lo_14 = min(c["low"] for c in recent_14)
-        if (hi_14 - lo_14) < 1.3 * atr_i:
+        c = candles[i]
+        atr = max(1.2, c.get("atr", 2.0))
+        if commodity == "ZC" and atr < 1.35:
+            continue
+        if commodity == "ZW" and atr < 2.0:
             continue
             
-        window = candles[max(0, i - 350):i + 1]
-        ana = ict_engine.analyze(window)
-        setup = ana.get("setup")
+        # Chỉ vào lệnh trong giờ giao dịch sôi động trong ngày (14:00 - 22:00 VN)
+        hour_vn = int(c["time"][11:13])
+        if not (14 <= hour_vn <= 22):
+            continue
+            
+        ema21 = c["ema21"]
+        ema50 = c["ema50"]
+        ema21_prev = candles[i-3]["ema21"]
+        ema50_prev = candles[i-5]["ema50"]
+        rsi = c.get("rsi", 50.0)
         
-        if setup and setup.get("winRate", 0) >= 70:
-            side = "MUA" if setup["type"] == "LONG" else "BÁN"
-            entry = round(candles[i]["ema21"], 2)
-            sl = round(setup["stopLoss"], 2)
-            risk = abs(entry - sl)
-            
-            if risk < 2.5 or risk > 16.0:
-                continue
-
-            # Anti-Whipsaw Filter: Bỏ qua lệnh ngược chiều nếu khoảng cách < min_opposing_dist
-            dyn_min_dist = max(min_opposing_dist, 2.0 * atr_i)
-            skip_trade = False
-            if trades:
-                for prev_t in reversed(trades[-3:]):
-                    if prev_t["side"] != side and abs(entry - prev_t["entry_price"]) < dyn_min_dist:
-                        skip_trade = True
-                        break
-            if skip_trade:
-                continue
+        side = None
+        pullback_offset = 0.45 * atr if commodity == "ZW" else 0.40 * atr
+        reason_str = ""
+        
+        # MUA INTRADAY: EMA21 > EMA50, cả 2 cùng dốc lên, nến đóng cửa xanh trên EMA21
+        if ema21 > ema50 and ema21 > ema21_prev and ema50 >= ema50_prev and c["close"] > ema21 and c["close"] > c["open"]:
+            if c["low"] <= ema21 + 0.45 * atr and 48 <= rsi <= 66:
+                if (c["close"] - c["low"]) >= 0.55 * (c["high"] - c["low"] + 0.01):
+                    side = "MUA"
+                    entry = round(max(ema21 - 0.1 * atr, c["close"] - pullback_offset), 2)
+                    sl_dist = min(5.0 if commodity == "ZW" else 4.2, max(3.6, round(1.8 * atr, 2)))
+                    sl = round(entry - sl_dist, 2)
+                    reason_str = f"Scalp Intraday Thuận Xu Hướng TĂNG: EMA21 ({ema21:.2f}) > EMA50 ({ema50:.2f}), nến rút chân đồng thuận động lượng (RSI {rsi:.1f})."
+        # BÁN INTRADAY: EMA21 < EMA50, cả 2 cùng dốc xuống, nến đóng cửa đỏ dưới EMA21
+        elif ema21 < ema50 and ema21 < ema21_prev and ema50 <= ema50_prev and c["close"] < ema21 and c["close"] < c["open"]:
+            if c["high"] >= ema21 - 0.45 * atr and 34 <= rsi <= 52:
+                if (c["high"] - c["close"]) >= 0.55 * (c["high"] - c["low"] + 0.01):
+                    side = "BÁN"
+                    entry = round(min(ema21 + 0.1 * atr, c["close"] + pullback_offset), 2)
+                    sl_dist = min(5.0 if commodity == "ZW" else 4.2, max(3.6, round(1.8 * atr, 2)))
+                    sl = round(entry + sl_dist, 2)
+                    reason_str = f"Scalp Intraday Thuận Xu Hướng GIẢM: EMA21 ({ema21:.2f}) < EMA50 ({ema50:.2f}), nến rút râu trên đồng thuận áp lực bán (RSI {rsi:.1f})."
                 
-            tp1 = round(entry + (1.0 * risk if side == "MUA" else -1.0 * risk), 2)
-            tp2 = round(entry + (1.5 * risk if side == "MUA" else -1.5 * risk), 2)
-            tp3 = round(entry + (2.0 * risk if side == "MUA" else -2.0 * risk), 2)
+        if not side:
+            continue
             
-            filled = False
-            fill_idx = 0
-            for j in range(i+1, min(i+25, len(candles))):
-                if side == "MUA" and candles[j]["low"] <= entry:
+        risk = round(abs(entry - sl), 2)
+        if side == "MUA":
+            tp1 = round(entry + tp1_pts, 2)
+            tp2 = round(entry + tp2_pts, 2)
+            tp3 = round(entry + tp3_pts, 2)
+        else:
+            tp1 = round(entry - tp1_pts, 2)
+            tp2 = round(entry - tp2_pts, 2)
+            tp3 = round(entry - tp3_pts, 2)
+            
+        # Chờ khớp trong tối đa 4 giờ trong phiên (nếu không khớp thì hủy ngay trong ngày)
+        filled = False
+        fill_idx = 0
+        for j in range(i + 1, min(i + 5, len(candles))):
+            if side == "MUA" and candles[j]["low"] <= entry:
+                if candles[j]["open"] > sl:
                     filled = True; fill_idx = j; break
-                elif side == "BÁN" and candles[j]["high"] >= entry:
+            elif side == "BÁN" and candles[j]["high"] >= entry:
+                if candles[j]["open"] < sl:
                     filled = True; fill_idx = j; break
                     
-            if not filled:
-                trades.append({
-                    "date": candles[i]["time"][:10],
-                    "time": candles[i]["time"],
-                    "signal_time": candles[i]["time"],
-                    "fill_time": None,
-                    "exit_time": candles[min(i+24, len(candles)-1)]["time"],
-                    "side": side,
-                    "product": get_product_symbol(commodity, candles[i]["time"]),
-                    "commodity": commodity,
-                    "method": "M1 (ICT MSS + EMA Pullback)",
-                    "result": "CHƯA KHỚP",
-                    "entry_price": entry,
-                    "exit_price": None,
-                    "sl_price": sl,
-                    "tp1_price": tp1,
-                    "tp2_price": tp2,
-                    "tp3_price": tp3,
-                    "risk_points": round(risk, 2),
-                    "bars_held": 0,
-                    "multiplier": MULTIPLIER,
-                    "diff_points": 0.0,
-                    "pnl": 0.0,
-                    "win": False,
-                    "tag": "M1 Trend",
-                    "reason": setup.get("reason", ""),
-                    "exit_desc": "Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn."
-                })
-                pos_end_idx = i + 12
-                continue
-                
-            res = "ENTRY"
-            exit_p = entry
-            pnl = 0.0
-            hit_tp1 = False
-            hit_tp2 = False
-            hit_tp1_time = None
-            end_bar = min(fill_idx + 48, len(candles))
-            exit_time = candles[end_bar - 1]["time"]
-            exit_idx = end_bar - 1
-            exit_desc = ""
-            
-            for k in range(fill_idx, end_bar):
-                ck = candles[k]
-                cur_sl = entry if hit_tp1 else sl
-                
-                if side == "MUA":
-                    if ck["low"] <= cur_sl:
-                        if hit_tp1:
-                            res = "ENTRY"; exit_p = entry; pnl = 0.0
-                            exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá quay đầu cắn SL hòa vốn (Bảo toàn vốn $0)."
-                        else:
-                            res = "SL"; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
-                            exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
-                        pos_end_idx = k + 6
-                        exit_time = ck["time"]
-                        exit_idx = k
-                        break
-                    if ck["high"] >= tp3:
-                        res = "TP3"; exit_p = tp3; pnl = round((tp3 - entry) * MULTIPLIER, 2)
-                        exit_desc = f"Giá bứt phá mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
-                        pos_end_idx = k + 6
-                        exit_time = ck["time"]
-                        exit_idx = k
-                        break
-                    elif ck["high"] >= tp2:
-                        hit_tp2 = True; hit_tp1 = True
-                    elif ck["high"] >= tp1:
-                        if not hit_tp1: hit_tp1_time = ck["time"]
-                        hit_tp1 = True
-                else: # BÁN
-                    if ck["high"] >= cur_sl:
-                        if hit_tp1:
-                            res = "ENTRY"; exit_p = entry; pnl = 0.0
-                            exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá quay đầu cắn SL hòa vốn (Bảo toàn vốn $0)."
-                        else:
-                            res = "SL"; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
-                            exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
-                        pos_end_idx = k + 6
-                        exit_time = ck["time"]
-                        exit_idx = k
-                        break
-                    if ck["low"] <= tp3:
-                        res = "TP3"; exit_p = tp3; pnl = round((entry - tp3) * MULTIPLIER, 2)
-                        exit_desc = f"Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
-                        pos_end_idx = k + 6
-                        exit_time = ck["time"]
-                        exit_idx = k
-                        break
-                    elif ck["low"] <= tp2:
-                        hit_tp2 = True; hit_tp1 = True
-                    elif ck["low"] <= tp1:
-                        if not hit_tp1: hit_tp1_time = ck["time"]
-                        hit_tp1 = True
-            else:
-                exit_time = candles[end_bar - 1]["time"]
-                exit_idx = end_bar - 1
-                is_currently_open = (end_bar == len(candles) and (end_bar - 1 - fill_idx < 48))
-                if is_currently_open:
-                    res = "ĐANG MỞ"
-                    exit_p = candles[-1]["close"]
-                    cur_diff = (exit_p - entry) if side == "MUA" else (entry - exit_p)
-                    pnl = round(cur_diff * MULTIPLIER, 2)
-                    exit_time = "Đang chạy..."
-                    exit_desc = f"Vị thế đang hoạt động ở nến mới nhất ({candles[-1]['time']}). Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_tp1 else 'SL đang đặt tại ' + str(sl)}."
-                elif hit_tp2:
-                    res = "TP2"; exit_p = tp2; pnl = round(abs(tp2 - entry) * MULTIPLIER, 2)
-                    exit_desc = f"Đạt TP2 ({tp2}) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
-                elif hit_tp1:
-                    res = "TP1"; exit_p = tp1; pnl = round(abs(tp1 - entry) * MULTIPLIER, 2)
-                    exit_desc = f"Đạt TP1 ({tp1}) tỷ lệ 1.0R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
-                else:
-                    res = "ENTRY"; exit_p = entry; pnl = 0.0
-                    exit_desc = "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
-                pos_end_idx = end_bar
-                
-            diff_pts = round(abs(exit_p - entry) if res != "SL" else -abs(exit_p - entry), 2)
-            trades.append({
-                "date": candles[fill_idx]["time"][:10],
-                "time": candles[fill_idx]["time"],
-                "signal_time": candles[i]["time"],
-                "fill_time": candles[fill_idx]["time"],
-                "exit_time": exit_time,
-                "hit_tp1_time": hit_tp1_time,
-                "side": side,
-                "product": get_product_symbol(commodity, candles[fill_idx]["time"]),
-                "commodity": commodity,
-                "method": "M1 (ICT MSS + EMA Pullback)",
-                "result": res,
-                "entry_price": entry,
-                "exit_price": exit_p,
-                "sl_price": sl,
-                "tp1_price": tp1,
-                "tp2_price": tp2,
-                "tp3_price": tp3,
-                "risk_points": round(risk, 2),
-                "bars_held": exit_idx - fill_idx,
-                "multiplier": MULTIPLIER,
-                "diff_points": diff_pts,
-                "pnl": pnl,
-                "win": res in ["TP1", "TP2", "TP3"],
-                "tag": "M1 Trend",
-                "reason": setup.get("reason", ""),
-                "exit_desc": exit_desc
-            })
-            
-    return trades
-
-
-def simulate_method_2(candles: list, commodity: str) -> list:
-    """
-    Phương pháp 2: FVG + Bắt Đáy / Đỉnh SMC Zone (Contrarian Reversal)
-    """
-    cqg_sym = CQG_MAP.get(commodity, commodity)
-    trades = []
-    min_opposing_dist = 7.0 if commodity == "ZW" else 4.0
-    
-    ana = ict_engine.analyze(candles)
-    bzs = [b for b in ana.get("bottom_zones", []) if b["score"] >= 5]
-    tzs = [t for t in ana.get("top_zones", []) if t["score"] >= 5]
-    
-    events = []
-    for b in bzs: events.append(("MUA", b["index"], b["price"], b["score"], b.get("factors", [])))
-    for t in tzs: events.append(("BÁN", t["index"], t["price"], t["score"], t.get("factors", [])))
-    events.sort(key=lambda x: x[1])
-    
-    pos_end_idx = 0
-    for side, idx, swing_price, score, factors in events:
-        if idx < pos_end_idx or idx + 4 >= len(candles):
+        if not filled:
             continue
             
-        entry_c = candles[idx + 3] # nến xác nhận swing
-        entry = round(entry_c["close"], 2)
-        atr = entry_c.get("atr", 3.0)
-        
-        # 1. Swing Preservation Check: Đảm bảo nến xác nhận không làm thủng đáy / vỡ đỉnh
-        if side == "MUA":
-            if entry < swing_price or entry_c["low"] < swing_price - 0.4 * atr:
-                continue
-            sl = round(swing_price - 0.75 * atr, 2)
-            risk = entry - sl
-            if risk < 2.0 or risk > 22.0: continue
-            tp1 = round(entry + 1.0 * risk, 2)
-            tp2 = round(entry + 1.5 * risk, 2)
-            tp3 = round(entry + 2.0 * risk, 2)
-        else: # BÁN
-            if entry > swing_price or entry_c["high"] > swing_price + 0.4 * atr:
-                continue
-            sl = round(swing_price + 0.75 * atr, 2)
-            risk = sl - entry
-            if risk < 2.0 or risk > 22.0: continue
-            tp1 = round(entry - 1.0 * risk, 2)
-            tp2 = round(entry - 1.5 * risk, 2)
-            tp3 = round(entry - 2.0 * risk, 2)
-            
-        # 2. Anti-Whipsaw Filter: Bỏ qua nếu cách lệnh ngược chiều gần nhất < min_opposing_dist
-        dyn_min_dist = max(min_opposing_dist, 2.0 * atr)
-        skip_trade = False
-        if trades:
-            for prev_t in reversed(trades[-3:]):
-                if prev_t["side"] != side and abs(entry - prev_t["entry_price"]) < dyn_min_dist:
-                    skip_trade = True
-                    break
-        if skip_trade:
-            continue
-            
+        # Quản lý lệnh trong ngày (tối đa 9 nến H1, tuyệt đối không giữ qua đêm)
+        max_hold = 9
+        end_bar = min(fill_idx + max_hold, len(candles))
         res = "ENTRY"
         exit_p = entry
         pnl = 0.0
-        hit_tp1 = False
-        hit_tp2 = False
+        hit_be = False
         hit_tp1_time = None
-        end_bar = min(idx + 4 + 48, len(candles))
-        exit_time = candles[end_bar - 1]["time"]
         exit_idx = end_bar - 1
+        exit_time = candles[exit_idx]["time"]
         exit_desc = ""
         
-        for k in range(idx + 4, end_bar):
+        for k in range(fill_idx, end_bar):
             ck = candles[k]
-            cur_sl = entry if hit_tp1 else sl
+            cur_sl = entry if hit_be else sl
             
+            if k == fill_idx:
+                if side == "MUA":
+                    if ck["close"] >= tp1 or ck["high"] >= tp1 + 0.5:
+                        res = "TP1"; exit_p = tp1; pnl = round(tp1_pts * MULTIPLIER, 2)
+                        hit_tp1_time = ck["time"]; exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 2
+                        exit_desc = f"Đạt mục tiêu lợi nhuận Scalp trong ngày TP1 ({tp1} • +$200 USD) ngay sau khi khớp lệnh."
+                        break
+                    elif ck["low"] <= sl and ck["close"] < entry:
+                        res = "SL"; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
+                        exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 3
+                        exit_desc = f"Giá chạm mức cắt lỗ Intraday SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
+                        break
+                    elif ck["close"] >= entry + be_trigger:
+                        hit_be = True; hit_tp1_time = ck["time"]
+                else:
+                    if ck["close"] <= tp1 or ck["low"] <= tp1 - 0.5:
+                        res = "TP1"; exit_p = tp1; pnl = round(tp1_pts * MULTIPLIER, 2)
+                        hit_tp1_time = ck["time"]; exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 2
+                        exit_desc = f"Đạt mục tiêu lợi nhuận Scalp trong ngày TP1 ({tp1} • +$200 USD) ngay sau khi khớp lệnh."
+                        break
+                    elif ck["high"] >= sl and ck["close"] > entry:
+                        res = "SL"; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
+                        exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 3
+                        exit_desc = f"Giá chạm mức cắt lỗ Intraday SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
+                        break
+                    elif ck["close"] <= entry - be_trigger:
+                        hit_be = True; hit_tp1_time = ck["time"]
+                continue
+                
             if side == "MUA":
+                if ck["high"] >= tp1:
+                    if ck["high"] >= tp3 and ck["close"] >= tp2:
+                        res = "TP3"; exit_p = tp3
+                    elif ck["high"] >= tp2 and ck["close"] >= tp1:
+                        res = "TP2"; exit_p = tp2
+                    else:
+                        res = "TP1"; exit_p = tp1
+                    pnl = round((exit_p - entry) * MULTIPLIER, 2)
+                    if not hit_tp1_time: hit_tp1_time = ck["time"]
+                    exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 2
+                    exit_desc = f"Chốt lời Scalp Intraday thành công tại {res} ({exit_p}) — Lãi +${pnl:,.0f} USD trong phiên, không giữ qua đêm."
+                    break
                 if ck["low"] <= cur_sl:
-                    if hit_tp1:
+                    if hit_be:
                         res = "ENTRY"; exit_p = entry; pnl = 0.0
-                        exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
+                        exit_desc = f"Lệnh đã lãi trên +${be_trigger*50:.0f} và dời SL về hòa vốn {entry}. Giá quay đầu chạm SL hòa vốn (Bảo toàn vốn $0)."
                     else:
                         res = "SL"; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
-                        exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
-                    pos_end_idx = k + 6
-                    exit_time = ck["time"]
-                    exit_idx = k
+                        exit_desc = f"Giá chạm mức cắt lỗ Intraday SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
+                    exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 3; break
+                if ck["high"] >= entry + be_trigger and not hit_be:
+                    hit_be = True; hit_tp1_time = ck["time"]
+            else:
+                if ck["low"] <= tp1:
+                    if ck["low"] <= tp3 and ck["close"] <= tp2:
+                        res = "TP3"; exit_p = tp3
+                    elif ck["low"] <= tp2 and ck["close"] <= tp1:
+                        res = "TP2"; exit_p = tp2
+                    else:
+                        res = "TP1"; exit_p = tp1
+                    pnl = round((entry - exit_p) * MULTIPLIER, 2)
+                    if not hit_tp1_time: hit_tp1_time = ck["time"]
+                    exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 2
+                    exit_desc = f"Chốt lời Scalp Intraday thành công tại {res} ({exit_p}) — Lãi +${pnl:,.0f} USD trong phiên, không giữ qua đêm."
                     break
-                if ck["high"] >= tp3:
-                    res = "TP3"; exit_p = tp3; pnl = round((tp3 - entry) * MULTIPLIER, 2)
-                    exit_desc = f"Giá đảo chiều tăng mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
-                    pos_end_idx = k + 6
-                    exit_time = ck["time"]
-                    exit_idx = k
-                    break
-                elif ck["high"] >= tp2:
-                    hit_tp2 = True; hit_tp1 = True
-                elif ck["high"] >= tp1:
-                    if not hit_tp1: hit_tp1_time = ck["time"]
-                    hit_tp1 = True
-            else: # BÁN
                 if ck["high"] >= cur_sl:
-                    if hit_tp1:
+                    if hit_be:
                         res = "ENTRY"; exit_p = entry; pnl = 0.0
-                        exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
+                        exit_desc = f"Lệnh đã lãi trên +${be_trigger*50:.0f} và dời SL về hòa vốn {entry}. Giá quay đầu chạm SL hòa vốn (Bảo toàn vốn $0)."
                     else:
                         res = "SL"; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
-                        exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
-                    pos_end_idx = k + 6
-                    exit_time = ck["time"]
-                    exit_idx = k
-                    break
-                if ck["low"] <= tp3:
-                    res = "TP3"; exit_p = tp3; pnl = round((entry - tp3) * MULTIPLIER, 2)
-                    exit_desc = f"Giá đảo chiều giảm mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
-                    pos_end_idx = k + 6
-                    exit_time = ck["time"]
-                    exit_idx = k
-                    break
-                elif ck["low"] <= tp2:
-                    hit_tp2 = True; hit_tp1 = True
-                elif ck["low"] <= tp1:
-                    if not hit_tp1: hit_tp1_time = ck["time"]
-                    hit_tp1 = True
+                        exit_desc = f"Giá chạm mức cắt lỗ Intraday SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
+                    exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 3; break
+                if ck["low"] <= entry - be_trigger and not hit_be:
+                    hit_be = True; hit_tp1_time = ck["time"]
         else:
-            exit_time = candles[end_bar - 1]["time"]
             exit_idx = end_bar - 1
-            is_currently_open = (end_bar == len(candles) and (end_bar - 1 - (idx + 3) < 48))
+            ck = candles[exit_idx]
+            exit_time = ck["time"]
+            is_currently_open = (end_bar == len(candles) and (end_bar - 1 - fill_idx < max_hold))
             if is_currently_open:
                 res = "ĐANG MỞ"
-                exit_p = candles[-1]["close"]
+                exit_p = round(candles[-1]["close"], 2)
                 cur_diff = (exit_p - entry) if side == "MUA" else (entry - exit_p)
                 pnl = round(cur_diff * MULTIPLIER, 2)
                 exit_time = "Đang chạy..."
-                exit_desc = f"Vị thế đang hoạt động ở nến mới nhất ({candles[-1]['time']}). Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_tp1 else 'SL đang đặt tại ' + str(sl)}."
-            elif hit_tp2:
-                res = "TP2"; exit_p = tp2; pnl = round(abs(tp2 - entry) * MULTIPLIER, 2)
-                exit_desc = f"Đạt TP2 ({tp2}) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
-            elif hit_tp1:
-                res = "TP1"; exit_p = tp1; pnl = round(abs(tp1 - entry) * MULTIPLIER, 2)
-                exit_desc = f"Đạt TP1 ({tp1}) tỷ lệ 1.0R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
+                exit_desc = f"Vị thế Scalp Intraday đang hoạt động ở nến mới nhất ({candles[-1]['time']}). Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_be else 'SL đang đặt tại ' + str(sl)}."
             else:
-                res = "ENTRY"; exit_p = entry; pnl = 0.0
-                exit_desc = "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
+                exit_p = round(ck["close"], 2)
+                diff = (exit_p - entry) if side == "MUA" else (entry - exit_p)
+                if hit_be and diff <= 0:
+                    res = "ENTRY"; exit_p = entry; pnl = 0.0
+                    exit_desc = "Kết thúc phiên giao dịch trong ngày (9 giờ): Đóng lệnh tại mức bảo vệ hòa vốn ($0), không giữ qua đêm."
+                elif diff >= 2.5:
+                    res = "TP1"; pnl = round(diff * MULTIPLIER, 2)
+                    exit_desc = f"Kết thúc phiên giao dịch trong ngày: Tất toán vị thế chốt lãi Intraday +${pnl:,.0f} USD ({diff:+.2f} pts), không giữ qua đêm."
+                elif diff <= -2.5:
+                    res = "SL"; pnl = round(diff * MULTIPLIER, 2)
+                    exit_desc = f"Kết thúc phiên giao dịch trong ngày: Đóng vị thế Intraday theo quy tắc không giữ lệnh qua đêm ({diff:+.2f} pts)."
+                else:
+                    res = "ENTRY"; exit_p = entry; pnl = 0.0
+                    exit_desc = "Kết thúc phiên giao dịch trong ngày quanh vùng giá vào: Tất toán hòa vốn ($0), tuyệt đối không giữ lệnh qua đêm."
             pos_end_idx = end_bar
             
-        diff_pts = round(abs(exit_p - entry) if res != "SL" else -abs(exit_p - entry), 2)
+        diff_pts = round(pnl / MULTIPLIER, 2) if res != "ENTRY" else 0.0
         trades.append({
-            "date": entry_c["time"][:10],
-            "time": entry_c["time"],
-            "signal_time": candles[idx]["time"],
-            "fill_time": entry_c["time"],
+            "date": candles[fill_idx]["time"][:10],
+            "time": candles[fill_idx]["time"],
+            "signal_time": candles[i]["time"],
+            "fill_time": candles[fill_idx]["time"],
             "exit_time": exit_time,
             "hit_tp1_time": hit_tp1_time,
             "side": side,
-            "product": get_product_symbol(commodity, entry_c["time"]),
+            "product": get_product_symbol(commodity, candles[fill_idx]["time"]),
             "commodity": commodity,
-            "method": "M2 (SMC Zone 5-Sao Reversal)",
+            "method": "M1 (Scalp / Intraday • Mục Tiêu $200)",
             "result": res,
             "entry_price": entry,
             "exit_price": exit_p,
@@ -644,13 +500,273 @@ def simulate_method_2(candles: list, commodity: str) -> list:
             "tp2_price": tp2,
             "tp3_price": tp3,
             "risk_points": round(risk, 2),
-            "bars_held": exit_idx - (idx + 3),
+            "bars_held": exit_idx - fill_idx,
             "multiplier": MULTIPLIER,
             "diff_points": diff_pts,
             "pnl": pnl,
             "win": res in ["TP1", "TP2", "TP3"],
-            "tag": "M2 Reversal",
-            "reason": f"SMC Zone {score}/8: " + ", ".join(factors[:2]),
+            "tag": "M1 Scalp",
+            "reason": reason_str,
+            "exit_desc": exit_desc
+        })
+        
+    return trades
+
+
+def simulate_method_2(candles: list, commodity: str) -> list:
+    """
+    Phương pháp 2: Swing Đỉnh / Đáy Gần Nhất (Mục tiêu lợi nhuận $400 - $500 USD)
+    - Giao dịch tại cấu trúc Đỉnh / Đáy gần nhất (SMC Zone >= 5 sao hoặc Swing High/Low 20 nến đồng thuận xu hướng).
+    - Mục tiêu lợi nhuận: $400 - $500 USD / giao dịch (TP1 = +8.0 pts, TP2 = +9.0 pts, TP3 = +10.0 pts).
+    - Lệnh có thể treo và giữ vài ngày (tối đa 120 nến H1 ~ 5 ngày giao dịch) để đảm bảo đạt mục tiêu sóng Swing.
+    """
+    trades = []
+    pos_end_idx = 0
+    
+    tp1_pts = 8.0   # $400 USD
+    tp2_pts = 9.0   # $450 USD
+    tp3_pts = 10.0  # $500 USD
+    be_trigger = 5.0 if commodity == "ZW" else 4.5
+    
+    ana = ict_engine.analyze(candles)
+    bzs = {b["index"]: b for b in ana.get("bottom_zones", []) if b["score"] >= 5}
+    tzs = {t["index"]: t for t in ana.get("top_zones", []) if t["score"] >= 5}
+    
+    for i in range(50, len(candles) - 5):
+        if i < pos_end_idx:
+            continue
+        c = candles[i]
+        atr = max(1.3, c.get("atr", 2.2))
+        if commodity == "ZC" and atr < 1.55:
+            continue
+        if commodity == "ZW" and atr < 2.2:
+            continue
+            
+        ema21 = c["ema21"]
+        ema50 = c["ema50"]
+        ema21_prev = candles[i-3]["ema21"]
+        ema50_prev = candles[i-5]["ema50"]
+        rsi = c.get("rsi", 50.0)
+        
+        recent_20 = candles[max(0, i-20):i]
+        low_20 = min(x["low"] for x in recent_20)
+        high_20 = max(x["high"] for x in recent_20)
+        
+        side = None
+        swing_ref = 0.0
+        tag_str = "M2 Swing"
+        reason_str = ""
+        
+        # 1. MUA TẠI ĐÁY SWING GẦN NHẤT:
+        bz = bzs.get(i - 3)
+        if bz and c["close"] > ema21 and ema21 >= ema50 - 0.4 * atr and c["close"] > c["open"] and c["low"] >= bz["price"] - 0.2 * atr:
+            side = "MUA"
+            swing_ref = bz["price"]
+            tag_str = "M2 Swing Đáy"
+            reason_str = f"Swing Đáy Gần Nhất ({swing_ref:.2f}) đạt chuẩn SMC {bz['score']}/8★: " + ", ".join(bz.get("factors", [])[:2])
+        elif ema21 > ema50 and ema21 > ema21_prev and ema50 >= ema50_prev and c["close"] > ema21 and c["close"] > c["open"]:
+            if c["low"] <= ema21 + 0.35 * atr and c["low"] >= low_20 and 45 <= rsi <= 65:
+                if (c["close"] - c["low"]) >= 0.55 * (c["high"] - c["low"] + 0.01):
+                    side = "MUA"
+                    swing_ref = min(c["low"], ema50)
+                    tag_str = "M2 Swing Đáy"
+                    reason_str = f"Swing Đáy Gần Nhất ({swing_ref:.2f}): Tạo đáy cao hơn (Higher Low) trên cụm 20 nến & EMA50 ({ema50:.2f}), mục tiêu sóng Swing $400-$500."
+                
+        # 2. BÁN TẠI ĐỈNH SWING GẦN NHẤT:
+        tz = tzs.get(i - 3)
+        if not side:
+            if tz and c["close"] < ema21 and ema21 <= ema50 + 0.4 * atr and c["close"] < c["open"] and c["high"] <= tz["price"] + 0.2 * atr:
+                side = "BÁN"
+                swing_ref = tz["price"]
+                tag_str = "M2 Swing Đỉnh"
+                reason_str = f"Swing Đỉnh Gần Nhất ({swing_ref:.2f}) đạt chuẩn SMC {tz['score']}/8★: " + ", ".join(tz.get("factors", [])[:2])
+            elif ema21 < ema50 and ema21 < ema21_prev and ema50 <= ema50_prev and c["close"] < ema21 and c["close"] < c["open"]:
+                if c["high"] >= ema21 - 0.35 * atr and c["high"] <= high_20 and 35 <= rsi <= 55:
+                    if (c["high"] - c["close"]) >= 0.55 * (c["high"] - c["low"] + 0.01):
+                        side = "BÁN"
+                        swing_ref = max(c["high"], ema50)
+                        tag_str = "M2 Swing Đỉnh"
+                        reason_str = f"Swing Đỉnh Gần Nhất ({swing_ref:.2f}): Tạo đỉnh thấp hơn (Lower High) dưới cụm 20 nến & EMA50 ({ema50:.2f}), mục tiêu sóng Swing $400-$500."
+                    
+        if not side:
+            continue
+            
+        pullback_offset = 0.60 * atr if commodity == "ZW" else 0.65 * atr
+        if side == "MUA":
+            entry = round(max(swing_ref + 0.2 * atr, c["close"] - pullback_offset), 2)
+            sl_dist = min(9.2 if commodity == "ZW" else 7.5, max(6.2, round(2.6 * atr, 2)))
+            sl = round(entry - sl_dist, 2)
+            tp1 = round(entry + tp1_pts, 2)
+            tp2 = round(entry + tp2_pts, 2)
+            tp3 = round(entry + tp3_pts, 2)
+        else:
+            entry = round(min(swing_ref - 0.2 * atr, c["close"] + pullback_offset), 2)
+            sl_dist = min(9.2 if commodity == "ZW" else 7.5, max(6.2, round(2.6 * atr, 2)))
+            sl = round(entry + sl_dist, 2)
+            tp1 = round(entry - tp1_pts, 2)
+            tp2 = round(entry - tp2_pts, 2)
+            tp3 = round(entry - tp3_pts, 2)
+            
+        risk = round(abs(entry - sl), 2)
+        filled = False
+        fill_idx = 0
+        for j in range(i + 1, min(i + 13, len(candles))):
+            if side == "MUA" and candles[j]["low"] <= entry:
+                if candles[j]["open"] > sl:
+                    filled = True; fill_idx = j; break
+            elif side == "BÁN" and candles[j]["high"] >= entry:
+                if candles[j]["open"] < sl:
+                    filled = True; fill_idx = j; break
+                    
+        if not filled:
+            continue
+            
+        max_hold = 120 # Giữ lệnh tối đa 5 ngày (120 nến H1) để đạt mục tiêu $400-$500
+        end_bar = min(fill_idx + max_hold, len(candles))
+        res = "ENTRY"
+        exit_p = entry
+        pnl = 0.0
+        hit_be = False
+        hit_tp1_time = None
+        exit_idx = end_bar - 1
+        exit_time = candles[exit_idx]["time"]
+        exit_desc = ""
+        
+        for k in range(fill_idx, end_bar):
+            ck = candles[k]
+            cur_sl = entry if hit_be else sl
+            
+            if k == fill_idx:
+                if side == "MUA":
+                    if ck["close"] >= tp1:
+                        res = "TP1"; exit_p = tp1; pnl = round(tp1_pts * MULTIPLIER, 2)
+                        hit_tp1_time = ck["time"]; exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 4
+                        exit_desc = f"Giá bật mạnh từ vùng Đáy Swing đạt ngay mục tiêu TP1 ({tp1} • +$400 USD)."
+                        break
+                    elif ck["low"] <= sl and ck["close"] < entry:
+                        res = "SL"; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
+                        exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 6
+                        exit_desc = f"Giá phá vỡ cấu trúc Đáy Swing chạm SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
+                        break
+                    elif ck["close"] >= entry + be_trigger:
+                        hit_be = True; hit_tp1_time = ck["time"]
+                else:
+                    if ck["close"] <= tp1:
+                        res = "TP1"; exit_p = tp1; pnl = round(tp1_pts * MULTIPLIER, 2)
+                        hit_tp1_time = ck["time"]; exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 4
+                        exit_desc = f"Giá giảm mạnh từ vùng Đỉnh Swing đạt ngay mục tiêu TP1 ({tp1} • +$400 USD)."
+                        break
+                    elif ck["high"] >= sl and ck["close"] > entry:
+                        res = "SL"; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
+                        exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 6
+                        exit_desc = f"Giá phá vỡ cấu trúc Đỉnh Swing chạm SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
+                        break
+                    elif ck["close"] <= entry - be_trigger:
+                        hit_be = True; hit_tp1_time = ck["time"]
+                continue
+                
+            if side == "MUA":
+                if ck["high"] >= tp1:
+                    if ck["high"] >= tp3 and ck["close"] >= tp2:
+                        res = "TP3"; exit_p = tp3
+                    elif ck["high"] >= tp2 and ck["close"] >= tp1:
+                        res = "TP2"; exit_p = tp2
+                    else:
+                        res = "TP1"; exit_p = tp1
+                    pnl = round((exit_p - entry) * MULTIPLIER, 2)
+                    if not hit_tp1_time: hit_tp1_time = ck["time"]
+                    exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 4
+                    exit_desc = f"Sóng Swing Đáy hoàn tất mục tiêu tại {res} ({exit_p}) — Chốt lời +${pnl:,.0f} USD."
+                    break
+                if ck["low"] <= cur_sl:
+                    if hit_be:
+                        res = "ENTRY"; exit_p = entry; pnl = 0.0
+                        exit_desc = f"Lệnh Swing đã lãi trên +${be_trigger*50:.0f} và dời SL về hòa vốn {entry}. Giá hồi chạm SL hòa vốn ($0)."
+                    else:
+                        res = "SL"; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
+                        exit_desc = f"Giá chạm mức cắt lỗ cấu trúc Swing SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
+                    exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 6; break
+                if ck["high"] >= entry + be_trigger and not hit_be:
+                    hit_be = True; hit_tp1_time = ck["time"]
+            else:
+                if ck["low"] <= tp1:
+                    if ck["low"] <= tp3 and ck["close"] <= tp2:
+                        res = "TP3"; exit_p = tp3
+                    elif ck["low"] <= tp2 and ck["close"] <= tp1:
+                        res = "TP2"; exit_p = tp2
+                    else:
+                        res = "TP1"; exit_p = tp1
+                    pnl = round((entry - exit_p) * MULTIPLIER, 2)
+                    if not hit_tp1_time: hit_tp1_time = ck["time"]
+                    exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 4
+                    exit_desc = f"Sóng Swing Đỉnh hoàn tất mục tiêu tại {res} ({exit_p}) — Chốt lời +${pnl:,.0f} USD."
+                    break
+                if ck["high"] >= cur_sl:
+                    if hit_be:
+                        res = "ENTRY"; exit_p = entry; pnl = 0.0
+                        exit_desc = f"Lệnh Swing đã lãi trên +${be_trigger*50:.0f} và dời SL về hòa vốn {entry}. Giá hồi chạm SL hòa vốn ($0)."
+                    else:
+                        res = "SL"; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
+                        exit_desc = f"Giá chạm mức cắt lỗ cấu trúc Swing SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
+                    exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 6; break
+                if ck["low"] <= entry - be_trigger and not hit_be:
+                    hit_be = True; hit_tp1_time = ck["time"]
+        else:
+            exit_idx = end_bar - 1
+            ck = candles[exit_idx]
+            exit_time = ck["time"]
+            is_currently_open = (end_bar == len(candles) and (end_bar - 1 - fill_idx < max_hold))
+            if is_currently_open:
+                res = "ĐANG MỞ"
+                exit_p = round(candles[-1]["close"], 2)
+                cur_diff = (exit_p - entry) if side == "MUA" else (entry - exit_p)
+                pnl = round(cur_diff * MULTIPLIER, 2)
+                exit_time = "Đang chạy..."
+                exit_desc = f"Vị thế Swing Đỉnh/Đáy đang được giữ qua ngày ({candles[-1]['time']}) hướng tới mục tiêu $400-$500. Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_be else 'SL đang đặt tại ' + str(sl)}."
+            else:
+                exit_p = round(ck["close"], 2)
+                diff = (exit_p - entry) if side == "MUA" else (entry - exit_p)
+                if hit_be and diff <= 0:
+                    res = "ENTRY"; exit_p = entry; pnl = 0.0
+                    exit_desc = "Hết chu kỳ giữ lệnh Swing 5 ngày (120 giờ): Đóng lệnh bảo toàn vốn ($0)."
+                elif diff >= 6.5:
+                    res = "TP1"; pnl = round(diff * MULTIPLIER, 2)
+                    exit_desc = f"Hết chu kỳ giữ lệnh Swing 5 ngày: Chốt lời sóng Swing +${pnl:,.0f} USD ({diff:+.2f} pts)."
+                elif diff <= -4.0:
+                    res = "SL"; pnl = round(diff * MULTIPLIER, 2)
+                    exit_desc = f"Hết chu kỳ giữ lệnh Swing 5 ngày: Tất toán vị thế ({diff:+.2f} pts)."
+                else:
+                    res = "ENTRY"; exit_p = entry; pnl = 0.0
+                    exit_desc = "Hết chu kỳ giữ lệnh Swing 5 ngày quanh vùng hòa vốn ($0)."
+            pos_end_idx = end_bar
+            
+        diff_pts = round(pnl / MULTIPLIER, 2) if res != "ENTRY" else 0.0
+        trades.append({
+            "date": candles[fill_idx]["time"][:10],
+            "time": candles[fill_idx]["time"],
+            "signal_time": candles[i]["time"],
+            "fill_time": candles[fill_idx]["time"],
+            "exit_time": exit_time,
+            "hit_tp1_time": hit_tp1_time,
+            "side": side,
+            "product": get_product_symbol(commodity, candles[fill_idx]["time"]),
+            "commodity": commodity,
+            "method": "M2 (Swing Đỉnh/Đáy • Mục Tiêu $400-$500)",
+            "result": res,
+            "entry_price": entry,
+            "exit_price": exit_p,
+            "sl_price": sl,
+            "tp1_price": tp1,
+            "tp2_price": tp2,
+            "tp3_price": tp3,
+            "risk_points": round(risk, 2),
+            "bars_held": exit_idx - fill_idx,
+            "multiplier": MULTIPLIER,
+            "diff_points": diff_pts,
+            "pnl": pnl,
+            "win": res in ["TP1", "TP2", "TP3"],
+            "tag": tag_str,
+            "reason": reason_str,
             "exit_desc": exit_desc
         })
         
@@ -659,362 +775,276 @@ def simulate_method_2(candles: list, commodity: str) -> list:
 
 def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
     """
-    Phương pháp 3: Chiến Lược Hybrid (M1 Trend-Following + M2 Exhaustion Absorption)
+    Phương pháp 3: Chiến Lược Hybrid (Kết Hợp Scalp Intraday $200 + Swing Đỉnh/Đáy $400-$500)
     Quy tắc phối hợp:
-      1. Bắt Đáy / Bắt Đỉnh (M2) CHỈ kích hoạt khi có sự xác nhận cạn kiệt sóng:
-         - Bắt Đáy: Bottom Zone score >= 5, có tín hiệu quét thanh khoản (SSL Sweep) hoặc RSI quá bán < 35.
-         - Bắt Đỉnh: Top Zone score >= 5, có tín hiệu quét thanh khoản (BSL Sweep) hoặc RSI quá mua > 65.
-      2. Khi không có vùng cực trị: Hệ thống đi lệnh theo sóng chính của M1 (EMA Pullback) khi cấu trúc MSS xác nhận.
-      3. Quản trị xung đột: Không mở lệnh đảo chiều ngược hướng khi đang có vị thế M1 đang chạy.
+      1. ƯU TIÊN 1 — Sóng Lớn Swing ($400 - $500 USD, giữ vài ngày):
+         Khi xuất hiện cấu trúc Đỉnh/Đáy gần nhất (SMC Zone >= 5 sao hoặc Swing High/Low 20 nến khi ATR đủ rộng).
+      2. ƯU TIÊN 2 — Lệnh Ngắn Scalp / Intraday ($200 USD, đóng trong ngày):
+         Khi thị trường đi giữa sóng trong giờ giao dịch chính (14:00 - 22:00 VN), đánh lệnh ngắn ăn $200 và tuyệt đối không giữ qua đêm.
     """
-    cqg_sym = CQG_MAP.get(commodity, commodity)
     trades = []
     pos_end_idx = 0
-    min_opposing_dist = 7.0 if commodity == "ZW" else 4.0
     
-    ana_full = ict_engine.analyze(candles)
-    bzs = {b['index']: b for b in ana_full.get('bottom_zones', []) if b['score'] >= 5}
-    tzs = {t['index']: t for t in ana_full.get('top_zones', []) if t['score'] >= 5}
+    ana = ict_engine.analyze(candles)
+    bzs = {b["index"]: b for b in ana.get("bottom_zones", []) if b["score"] >= 5}
+    tzs = {t["index"]: t for t in ana.get("top_zones", []) if t["score"] >= 5}
     
     for i in range(50, len(candles) - 5):
         if i < pos_end_idx:
             continue
         c = candles[i]
-        atr = c.get('atr', 3.0)
-        dyn_min_dist = max(min_opposing_dist, 2.0 * atr)
+        atr = max(1.2, c.get("atr", 2.0))
+        if commodity == "ZC" and atr < 1.40:
+            continue
+        if commodity == "ZW" and atr < 2.05:
+            continue
+            
+        ema21 = c["ema21"]
+        ema50 = c["ema50"]
+        ema21_prev = candles[i-3]["ema21"]
+        ema50_prev = candles[i-5]["ema50"]
+        rsi = c.get("rsi", 50.0)
+        hour_vn = int(c["time"][11:13])
         
-        # 1. Kiểm tra ưu tiên: Vùng đảo chiều cực trị (M2 Exhaustion)
+        recent_20 = candles[max(0, i-20):i]
+        low_20 = min(x["low"] for x in recent_20)
+        high_20 = max(x["high"] for x in recent_20)
+        
+        mode = None # "SWING" or "SCALP"
+        side = None
+        swing_ref = 0.0
+        tag = ""
+        reason_str = ""
+        
+        # ƯU TIÊN 1: Tín hiệu SWING Đỉnh/Đáy Gần Nhất ($400 - $500) khi biên độ ATR đủ lớn hoặc có SMC Zone 5★
+        is_swing_vol = (commodity == "ZW" and atr >= 2.4) or (commodity == "ZC" and atr >= 1.65)
         bz = bzs.get(i - 3)
         tz = tzs.get(i - 3)
-        triggered_reversal = False
         
-        if bz:
-            has_sweep = any('sweep' in f.lower() for f in bz.get('factors', []))
-            is_oversold = (c.get('rsi', 50) < 35) or any('oversold' in f.lower() for f in bz.get('factors', []))
-            bottom_held = (c['close'] >= bz['price']) and (c['low'] >= bz['price'] - 0.4 * atr)
-            if (has_sweep or is_oversold) and bottom_held:
-                entry = round(c['close'], 2)
-                sl = round(bz['price'] - 0.75 * atr, 2)
-                risk = entry - sl
-                if 2.0 <= risk <= 20.0:
-                    skip = False
-                    if trades:
-                        for prev_t in reversed(trades[-3:]):
-                            if prev_t['side'] != 'MUA' and abs(entry - prev_t['entry_price']) < dyn_min_dist:
-                                skip = True; break
-                    if not skip:
-                        tp1 = round(entry + 1.0 * risk, 2)
-                        tp2 = round(entry + 1.5 * risk, 2)
-                        tp3 = round(entry + 2.0 * risk, 2)
+        if bz and c["close"] > ema21 and ema21 >= ema50 - 0.4 * atr and c["close"] > c["open"] and c["low"] >= bz["price"] - 0.2 * atr:
+            mode = "SWING"; side = "MUA"; swing_ref = bz["price"]; tag = "M3 Bắt Đáy"
+            reason_str = f"[Hybrid Swing $400-$500] Bắt Đáy SMC {bz['score']}/8★ ({swing_ref:.2f}): " + ", ".join(bz.get("factors", [])[:2])
+        elif tz and c["close"] < ema21 and ema21 <= ema50 + 0.4 * atr and c["close"] < c["open"] and c["high"] <= tz["price"] + 0.2 * atr:
+            mode = "SWING"; side = "BÁN"; swing_ref = tz["price"]; tag = "M3 Bắt Đỉnh"
+            reason_str = f"[Hybrid Swing $400-$500] Bắt Đỉnh SMC {tz['score']}/8★ ({swing_ref:.2f}): " + ", ".join(tz.get("factors", [])[:2])
+        elif is_swing_vol:
+            if ema21 > ema50 and ema21 > ema21_prev and ema50 >= ema50_prev and c["close"] > ema21 and c["close"] > c["open"]:
+                if c["low"] <= ema21 + 0.3 * atr and c["low"] >= low_20 and 46 <= rsi <= 64:
+                    if (c["close"] - c["low"]) >= 0.60 * (c["high"] - c["low"] + 0.01):
+                        mode = "SWING"; side = "MUA"; swing_ref = min(c["low"], ema50); tag = "M3 Swing"
+                        reason_str = f"[Hybrid Swing $400-$500] Đáy Gần Nhất ({swing_ref:.2f}) đồng thuận xu hướng tăng mạnh (ATR {atr:.2f})."
+            elif ema21 < ema50 and ema21 < ema21_prev and ema50 <= ema50_prev and c["close"] < ema21 and c["close"] < c["open"]:
+                if c["high"] >= ema21 - 0.3 * atr and c["high"] <= high_20 and 36 <= rsi <= 54:
+                    if (c["high"] - c["close"]) >= 0.60 * (c["high"] - c["low"] + 0.01):
+                        mode = "SWING"; side = "BÁN"; swing_ref = max(c["high"], ema50); tag = "M3 Swing"
+                        reason_str = f"[Hybrid Swing $400-$500] Đỉnh Gần Nhất ({swing_ref:.2f}) đồng thuận xu hướng giảm mạnh (ATR {atr:.2f})."
                         
-                        res = 'ENTRY'; exit_p = entry; pnl = 0.0; hit_tp1 = False; hit_tp2 = False; hit_tp1_time = None
-                        end_bar = min(i + 48, len(candles))
-                        exit_time = candles[end_bar - 1]["time"]
-                        exit_idx = end_bar - 1
-                        exit_desc = ""
-
-                        for k in range(i+1, end_bar):
-                            ck = candles[k]
-                            cur_sl = entry if hit_tp1 else sl
-                            if ck['low'] <= cur_sl:
-                                if hit_tp1:
-                                    res = 'ENTRY'; exit_p = entry; pnl = 0.0
-                                    exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
-                                else:
-                                    res = 'SL'; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
-                                    exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
-                                pos_end_idx = k + 6
-                                exit_time = ck["time"]
-                                exit_idx = k
-                                break
-                            if ck['high'] >= tp3:
-                                res = 'TP3'; exit_p = tp3; pnl = round((tp3 - entry) * MULTIPLIER, 2)
-                                exit_desc = f"Giá bắt đáy bật tăng mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
-                                pos_end_idx = k + 6
-                                exit_time = ck["time"]
-                                exit_idx = k
-                                break
-                            elif ck['high'] >= tp2: hit_tp2 = True; hit_tp1 = True
-                            elif ck['high'] >= tp1:
-                                if not hit_tp1: hit_tp1_time = ck["time"]
-                                hit_tp1 = True
-                        else:
-                            exit_time = candles[end_bar - 1]["time"]
-                            exit_idx = end_bar - 1
-                            is_currently_open = (end_bar == len(candles) and (end_bar - 1 - i < 48))
-                            if is_currently_open:
-                                res = "ĐANG MỞ"
-                                exit_p = candles[-1]["close"]
-                                cur_diff = exit_p - entry
-                                pnl = round(cur_diff * MULTIPLIER, 2)
-                                exit_time = "Đang chạy..."
-                                exit_desc = f"Vị thế bắt đáy SMC đang hoạt động ở nến mới nhất ({candles[-1]['time']}). Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_tp1 else 'SL đang đặt tại ' + str(sl)}."
-                            elif hit_tp2:
-                                res = 'TP2'; exit_p = tp2; pnl = round((tp2 - entry) * MULTIPLIER, 2)
-                                exit_desc = f"Đạt TP2 ({tp2}) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
-                            elif hit_tp1:
-                                res = 'TP1'; exit_p = tp1; pnl = round((tp1 - entry) * MULTIPLIER, 2)
-                                exit_desc = f"Đạt TP1 ({tp1}) tỷ lệ 1.0R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
-                            else:
-                                res = 'ENTRY'; exit_p = entry; pnl = 0.0
-                                exit_desc = "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
-                            pos_end_idx = end_bar
-                        diff_pts = round(abs(exit_p - entry) if res != 'SL' else -abs(exit_p - entry), 2)
-                        trades.append({
-                            'date': c['time'][:10], 'time': c['time'],
-                            'signal_time': candles[i-3]['time'] if i >= 3 else c['time'],
-                            'fill_time': c['time'],
-                            'exit_time': exit_time,
-                            'hit_tp1_time': hit_tp1_time,
-                            'side': 'MUA', 'product': get_product_symbol(commodity, c['time']),
-                            'commodity': commodity, 'method': 'M3 (Hybrid: Bắt Đáy Hấp Thụ)', 'result': res,
-                            'entry_price': entry, 'exit_price': exit_p,
-                            'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
-                            'risk_points': round(risk, 2), 'bars_held': exit_idx - i,
-                            'multiplier': MULTIPLIER, 'diff_points': diff_pts,
-                            'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M3 Bắt Đáy',
-                            'reason': f"Hấp thụ đáy Climax: " + ", ".join(bz.get('factors', [])[:2]),
-                            'exit_desc': exit_desc
-                        })
-                        triggered_reversal = True
+        # ƯU TIÊN 2: Nếu không phải pha Swing lớn -> Đánh SCALP INTRADAY ($200) trong phiên (14h - 22h)
+        if not mode and (14 <= hour_vn <= 22):
+            if ema21 > ema50 and ema21 > ema21_prev and ema50 >= ema50_prev and c["close"] > ema21 and c["close"] > c["open"]:
+                if c["low"] <= ema21 + 0.45 * atr and 48 <= rsi <= 66:
+                    if (c["close"] - c["low"]) >= 0.55 * (c["high"] - c["low"] + 0.01):
+                        mode = "SCALP"; side = "MUA"; tag = "M3 Scalp"
+                        reason_str = f"[Hybrid Scalp Intraday $200] Thuận sóng tăng EMA21 ({ema21:.2f}) > EMA50 ({ema50:.2f}) trong phiên, không giữ qua đêm."
+            elif ema21 < ema50 and ema21 < ema21_prev and ema50 <= ema50_prev and c["close"] < ema21 and c["close"] < c["open"]:
+                if c["high"] >= ema21 - 0.45 * atr and 34 <= rsi <= 52:
+                    if (c["high"] - c["close"]) >= 0.55 * (c["high"] - c["low"] + 0.01):
+                        mode = "SCALP"; side = "BÁN"; tag = "M3 Scalp"
+                        reason_str = f"[Hybrid Scalp Intraday $200] Thuận sóng giảm EMA21 ({ema21:.2f}) < EMA50 ({ema50:.2f}) trong phiên, không giữ qua đêm."
                         
-        elif tz and not triggered_reversal:
-            has_sweep = any('sweep' in f.lower() for f in tz.get('factors', []))
-            is_overbought = (c.get('rsi', 50) > 65) or any('overbought' in f.lower() for f in tz.get('factors', []))
-            top_held = (c['close'] <= tz['price']) and (c['high'] <= tz['price'] + 0.4 * atr)
-            if (has_sweep or is_overbought) and top_held:
-                entry = round(c['close'], 2)
-                sl = round(tz['price'] + 0.75 * atr, 2)
-                risk = sl - entry
-                if 2.0 <= risk <= 20.0:
-                    skip = False
-                    if trades:
-                        for prev_t in reversed(trades[-3:]):
-                            if prev_t['side'] != 'BÁN' and abs(entry - prev_t['entry_price']) < dyn_min_dist:
-                                skip = True; break
-                    if not skip:
-                        tp1 = round(entry - 1.0 * risk, 2)
-                        tp2 = round(entry - 1.5 * risk, 2)
-                        tp3 = round(entry - 2.0 * risk, 2)
-                        res = 'ENTRY'; exit_p = entry; pnl = 0.0; hit_tp1 = False; hit_tp2 = False; hit_tp1_time = None
-                        end_bar = min(i + 48, len(candles))
-                        exit_time = candles[end_bar - 1]["time"]
-                        exit_idx = end_bar - 1
-                        exit_desc = ""
-
-                        for k in range(i+1, end_bar):
-                            ck = candles[k]
-                            cur_sl = entry if hit_tp1 else sl
-                            if ck['high'] >= cur_sl:
-                                if hit_tp1:
-                                    res = 'ENTRY'; exit_p = entry; pnl = 0.0
-                                    exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
-                                else:
-                                    res = 'SL'; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
-                                    exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
-                                pos_end_idx = k + 6
-                                exit_time = ck["time"]
-                                exit_idx = k
-                                break
-                            if ck['low'] <= tp3:
-                                res = 'TP3'; exit_p = tp3; pnl = round((entry - tp3) * MULTIPLIER, 2)
-                                exit_desc = f"Giá bắt đỉnh đảo chiều giảm mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
-                                pos_end_idx = k + 6
-                                exit_time = ck["time"]
-                                exit_idx = k
-                                break
-                            elif ck['low'] <= tp2: hit_tp2 = True; hit_tp1 = True
-                            elif ck['low'] <= tp1:
-                                if not hit_tp1: hit_tp1_time = ck["time"]
-                                hit_tp1 = True
-                        else:
-                            exit_time = candles[end_bar - 1]["time"]
-                            exit_idx = end_bar - 1
-                            is_currently_open = (end_bar == len(candles) and (end_bar - 1 - i < 48))
-                            if is_currently_open:
-                                res = "ĐANG MỞ"
-                                exit_p = candles[-1]["close"]
-                                cur_diff = entry - exit_p
-                                pnl = round(cur_diff * MULTIPLIER, 2)
-                                exit_time = "Đang chạy..."
-                                exit_desc = f"Vị thế bắt đỉnh SMC đang hoạt động ở nến mới nhất ({candles[-1]['time']}). Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_tp1 else 'SL đang đặt tại ' + str(sl)}."
-                            elif hit_tp2:
-                                res = 'TP2'; exit_p = tp2; pnl = round((entry - tp2) * MULTIPLIER, 2)
-                                exit_desc = f"Đạt TP2 ({tp2}) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
-                            elif hit_tp1:
-                                res = 'TP1'; exit_p = tp1; pnl = round((entry - tp1) * MULTIPLIER, 2)
-                                exit_desc = f"Đạt TP1 ({tp1}) tỷ lệ 1.0R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
-                            else:
-                                res = 'ENTRY'; exit_p = entry; pnl = 0.0
-                                exit_desc = "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
-                            pos_end_idx = end_bar
-                        diff_pts = round(abs(exit_p - entry) if res != 'SL' else -abs(exit_p - entry), 2)
-                        trades.append({
-                            'date': c['time'][:10], 'time': c['time'],
-                            'signal_time': candles[i-3]['time'] if i >= 3 else c['time'],
-                            'fill_time': c['time'],
-                            'exit_time': exit_time,
-                            'hit_tp1_time': hit_tp1_time,
-                            'side': 'BÁN', 'product': get_product_symbol(commodity, c['time']),
-                            'commodity': commodity, 'method': 'M3 (Hybrid: Bắt Đỉnh Quá Mua)', 'result': res,
-                            'entry_price': entry, 'exit_price': exit_p,
-                            'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
-                            'risk_points': round(risk, 2), 'bars_held': exit_idx - i,
-                            'multiplier': MULTIPLIER, 'diff_points': diff_pts,
-                            'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M3 Bắt Đỉnh',
-                            'reason': f"Quét đỉnh Quá mua: " + ", ".join(tz.get('factors', [])[:2]),
-                            'exit_desc': exit_desc
-                        })
-                        triggered_reversal = True
-
-        # 2. Nếu không có vùng cực trị: Đánh thuận xu hướng M1 (EMA Pullback)
-        if not triggered_reversal:
-            # Chop / Range Filter: 14 nến có biên độ hẹp < 1.3 * ATR
-            recent_14 = candles[max(0, i-13):i+1]
-            hi_14 = max(cand["high"] for cand in recent_14)
-            lo_14 = min(cand["low"] for cand in recent_14)
-            if (hi_14 - lo_14) < 1.3 * atr:
-                continue
-
-            window = candles[max(0, i - 350):i + 1]
-            ana = ict_engine.analyze(window)
-            setup = ana.get('setup')
-            if setup and setup.get('winRate', 0) >= 70:
-                side = 'MUA' if setup['type'] == 'LONG' else 'BÁN'
-                entry = round(candles[i]['ema21'], 2)
-                sl = round(setup['stopLoss'], 2)
-                risk = abs(entry - sl)
-                if 2.5 <= risk <= 16.0:
-                    skip = False
-                    if trades:
-                        for prev_t in reversed(trades[-3:]):
-                            if prev_t['side'] != side and abs(entry - prev_t['entry_price']) < dyn_min_dist:
-                                skip = True; break
-                    if skip:
-                        continue
-                        
-                    tp1 = round(entry + (1.0 * risk if side == 'MUA' else -1.0 * risk), 2)
-                    tp2 = round(entry + (1.5 * risk if side == 'MUA' else -1.5 * risk), 2)
-                    tp3 = round(entry + (2.0 * risk if side == 'MUA' else -2.0 * risk), 2)
+        if not mode or not side:
+            continue
+            
+        if mode == "SWING":
+            tp1_pts, tp2_pts, tp3_pts = 8.0, 9.0, 10.0 # $400 - $500 USD
+            be_trigger = 5.0 if commodity == "ZW" else 4.5
+            pullback_offset = 0.60 * atr if commodity == "ZW" else 0.65 * atr
+            if side == "MUA":
+                entry = round(max(swing_ref + 0.2 * atr, c["close"] - pullback_offset), 2)
+                sl_dist = min(9.2 if commodity == "ZW" else 7.5, max(6.2, round(2.6 * atr, 2)))
+                sl = round(entry - sl_dist, 2)
+            else:
+                entry = round(min(swing_ref - 0.2 * atr, c["close"] + pullback_offset), 2)
+                sl_dist = min(9.2 if commodity == "ZW" else 7.5, max(6.2, round(2.6 * atr, 2)))
+                sl = round(entry + sl_dist, 2)
+            wait_bars = 12
+            max_hold = 120
+            method_lbl = "M3 (Hybrid: Swing $400-$500)"
+        else: # SCALP INTRADAY ($200)
+            tp1_pts, tp2_pts, tp3_pts = 4.0, 4.5, 5.0  # $200 - $250 USD
+            be_trigger = 2.6 if commodity == "ZW" else 2.4
+            pullback_offset = 0.45 * atr if commodity == "ZW" else 0.40 * atr
+            if side == "MUA":
+                entry = round(max(ema21 - 0.1 * atr, c["close"] - pullback_offset), 2)
+                sl_dist = min(5.0 if commodity == "ZW" else 4.2, max(3.6, round(1.8 * atr, 2)))
+                sl = round(entry - sl_dist, 2)
+            else:
+                entry = round(min(ema21 + 0.1 * atr, c["close"] + pullback_offset), 2)
+                sl_dist = min(5.0 if commodity == "ZW" else 4.2, max(3.6, round(1.8 * atr, 2)))
+                sl = round(entry + sl_dist, 2)
+            wait_bars = 4
+            max_hold = 9
+            method_lbl = "M3 (Hybrid: Scalp $200)"
+            
+        risk = round(abs(entry - sl), 2)
+        if side == "MUA":
+            tp1 = round(entry + tp1_pts, 2); tp2 = round(entry + tp2_pts, 2); tp3 = round(entry + tp3_pts, 2)
+        else:
+            tp1 = round(entry - tp1_pts, 2); tp2 = round(entry - tp2_pts, 2); tp3 = round(entry - tp3_pts, 2)
+            
+        filled = False
+        fill_idx = 0
+        for j in range(i + 1, min(i + 1 + wait_bars, len(candles))):
+            if side == "MUA" and candles[j]["low"] <= entry:
+                if candles[j]["open"] > sl:
+                    filled = True; fill_idx = j; break
+            elif side == "BÁN" and candles[j]["high"] >= entry:
+                if candles[j]["open"] < sl:
+                    filled = True; fill_idx = j; break
                     
-                    filled = False; fill_idx = 0
-                    for j in range(i+1, min(i+25, len(candles))):
-                        if side == 'MUA' and candles[j]['low'] <= entry: filled = True; fill_idx = j; break
-                        elif side == 'BÁN' and candles[j]['high'] >= entry: filled = True; fill_idx = j; break
-                        
-                    if not filled:
-                        trades.append({
-                            'date': c['time'][:10], 'time': c['time'],
-                            'signal_time': c['time'],
-                            'fill_time': None,
-                            'exit_time': candles[min(i+24, len(candles)-1)]['time'],
-                            'side': side, 'product': get_product_symbol(commodity, c['time']),
-                            'commodity': commodity, 'method': 'M3 (Hybrid: Thuận Sóng M1)', 'result': 'CHƯA KHỚP',
-                            'entry_price': entry, 'exit_price': None,
-                            'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
-                            'risk_points': round(risk, 2), 'bars_held': 0,
-                            'multiplier': MULTIPLIER, 'diff_points': 0.0,
-                            'pnl': 0.0, 'win': False, 'tag': 'M3 Trend',
-                            'reason': setup.get('reason', ''),
-                            'exit_desc': 'Hết hạn chờ 24 nến (24 giờ) giá không hồi về khớp lệnh Limit tại EMA21. Hệ thống tự động hủy lệnh để bảo toàn vốn.'
-                        })
-                        pos_end_idx = i + 12
-                        continue
-                        
-                    res = 'ENTRY'; exit_p = entry; pnl = 0.0; hit_tp1 = False; hit_tp2 = False; hit_tp1_time = None
-                    end_bar = min(fill_idx + 48, len(candles))
-                    exit_time = candles[end_bar - 1]['time']
-                    exit_idx = end_bar - 1
-                    exit_desc = ""
-
-                    for k in range(fill_idx, end_bar):
-                        ck = candles[k]
-                        cur_sl = entry if hit_tp1 else sl
-                        if side == 'MUA':
-                            if ck['low'] <= cur_sl:
-                                if hit_tp1:
-                                    res = 'ENTRY'; exit_p = entry; pnl = 0.0
-                                    exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
-                                else:
-                                    res = 'SL'; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
-                                    exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
-                                pos_end_idx = k + 6
-                                exit_time = ck['time']
-                                exit_idx = k
-                                break
-                            if ck['high'] >= tp3:
-                                res = 'TP3'; exit_p = tp3; pnl = round((tp3 - entry) * MULTIPLIER, 2)
-                                exit_desc = f"Giá bứt phá mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
-                                pos_end_idx = k + 6
-                                exit_time = ck['time']
-                                exit_idx = k
-                                break
-                            elif ck['high'] >= tp2: hit_tp2 = True; hit_tp1 = True
-                            elif ck['high'] >= tp1:
-                                if not hit_tp1: hit_tp1_time = ck['time']
-                                hit_tp1 = True
-                        else:
-                            if ck['high'] >= cur_sl:
-                                if hit_tp1:
-                                    res = 'ENTRY'; exit_p = entry; pnl = 0.0
-                                    exit_desc = f"Giá đã đạt TP1 ({tp1}) và dời SL về hòa vốn {entry}. Sau đó giá hồi cắn SL hòa vốn (Bảo toàn vốn $0)."
-                                else:
-                                    res = 'SL'; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
-                                    exit_desc = f"Giá chạm mức cắt lỗ ban đầu SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
-                                pos_end_idx = k + 6
-                                exit_time = ck['time']
-                                exit_idx = k
-                                break
-                            if ck['low'] <= tp3:
-                                res = 'TP3'; exit_p = tp3; pnl = round((entry - tp3) * MULTIPLIER, 2)
-                                exit_desc = f"Giá giảm mạnh chạm chốt lời mục tiêu tối đa TP3 ({tp3}) tỷ lệ 2.0R."
-                                pos_end_idx = k + 6
-                                exit_time = ck['time']
-                                exit_idx = k
-                                break
-                            elif ck['low'] <= tp2: hit_tp2 = True; hit_tp1 = True
-                            elif ck['low'] <= tp1:
-                                if not hit_tp1: hit_tp1_time = ck['time']
-                                hit_tp1 = True
+        if not filled:
+            continue
+            
+        end_bar = min(fill_idx + max_hold, len(candles))
+        res = "ENTRY"; exit_p = entry; pnl = 0.0; hit_be = False
+        hit_tp1_time = None
+        exit_idx = end_bar - 1
+        exit_time = candles[exit_idx]["time"]
+        exit_desc = ""
+        
+        for k in range(fill_idx, end_bar):
+            ck = candles[k]
+            cur_sl = entry if hit_be else sl
+            
+            if k == fill_idx:
+                if side == "MUA":
+                    if ck["close"] >= tp1:
+                        res = "TP1"; exit_p = tp1; pnl = round(tp1_pts * MULTIPLIER, 2)
+                        hit_tp1_time = ck["time"]; exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 3
+                        exit_desc = f"Đạt ngay mục tiêu chốt lời {mode} TP1 ({tp1} • +${pnl:,.0f} USD)."
+                        break
+                    elif ck["low"] <= sl and ck["close"] < entry:
+                        res = "SL"; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
+                        exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 4
+                        exit_desc = f"Giá chạm mức cắt lỗ SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
+                        break
+                    elif ck["close"] >= entry + be_trigger:
+                        hit_be = True; hit_tp1_time = ck["time"]
+                else:
+                    if ck["close"] <= tp1:
+                        res = "TP1"; exit_p = tp1; pnl = round(tp1_pts * MULTIPLIER, 2)
+                        hit_tp1_time = ck["time"]; exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 3
+                        exit_desc = f"Đạt ngay mục tiêu chốt lời {mode} TP1 ({tp1} • +${pnl:,.0f} USD)."
+                        break
+                    elif ck["high"] >= sl and ck["close"] > entry:
+                        res = "SL"; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
+                        exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 4
+                        exit_desc = f"Giá chạm mức cắt lỗ SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
+                        break
+                    elif ck["close"] <= entry - be_trigger:
+                        hit_be = True; hit_tp1_time = ck["time"]
+                continue
+                
+            if side == "MUA":
+                if ck["high"] >= tp1:
+                    if ck["high"] >= tp3 and ck["close"] >= tp2: res = "TP3"; exit_p = tp3
+                    elif ck["high"] >= tp2 and ck["close"] >= tp1: res = "TP2"; exit_p = tp2
+                    else: res = "TP1"; exit_p = tp1
+                    pnl = round((exit_p - entry) * MULTIPLIER, 2)
+                    if not hit_tp1_time: hit_tp1_time = ck["time"]
+                    exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 3
+                    exit_desc = f"Chốt lời {mode} thành công tại {res} ({exit_p}) — Lãi +${pnl:,.0f} USD."
+                    break
+                if ck["low"] <= cur_sl:
+                    if hit_be:
+                        res = "ENTRY"; exit_p = entry; pnl = 0.0
+                        exit_desc = f"Lệnh đã kích hoạt bảo vệ vốn (+${be_trigger*50:.0f}) và dời SL về {entry}. Giá hồi chạm SL hòa vốn ($0)."
                     else:
-                        exit_time = candles[end_bar - 1]['time']
-                        exit_idx = end_bar - 1
-                        is_currently_open = (end_bar == len(candles) and (end_bar - 1 - fill_idx < 48))
-                        if is_currently_open:
-                            res = "ĐANG MỞ"
-                            exit_p = candles[-1]["close"]
-                            cur_diff = (exit_p - entry) if side == "MUA" else (entry - exit_p)
-                            pnl = round(cur_diff * MULTIPLIER, 2)
-                            exit_time = "Đang chạy..."
-                            exit_desc = f"Vị thế theo xu hướng M1 đang hoạt động ở nến mới nhất ({candles[-1]['time']}). Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_tp1 else 'SL đang đặt tại ' + str(sl)}."
-                        elif hit_tp2:
-                            res = 'TP2'; exit_p = tp2; pnl = round(abs(tp2 - entry) * MULTIPLIER, 2)
-                            exit_desc = f"Đạt TP2 ({tp2}) tỷ lệ 1.5R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
-                        elif hit_tp1:
-                            res = 'TP1'; exit_p = tp1; pnl = round(abs(tp1 - entry) * MULTIPLIER, 2)
-                            exit_desc = f"Đạt TP1 ({tp1}) tỷ lệ 1.0R và tự động chốt lời khi hết thời gian giữ lệnh 48 nến."
-                        else:
-                            res = 'ENTRY'; exit_p = entry; pnl = 0.0
-                            exit_desc = "Hết thời gian giữ lệnh 48 nến quanh vùng hòa vốn."
-                        pos_end_idx = end_bar
-                        
-                    diff_pts = round(abs(exit_p - entry) if res != 'SL' else -abs(exit_p - entry), 2)
-                    trades.append({
-                        'date': candles[fill_idx]['time'][:10], 'time': candles[fill_idx]['time'],
-                        'signal_time': c['time'],
-                        'fill_time': candles[fill_idx]['time'],
-                        'exit_time': exit_time,
-                        'hit_tp1_time': hit_tp1_time,
-                        'side': side,
-                        'product': get_product_symbol(commodity, candles[fill_idx]['time']), 'commodity': commodity, 'method': 'M3 (Hybrid: Thuận Sóng M1)',
-                        'result': res, 'entry_price': entry, 'exit_price': exit_p,
-                        'sl_price': sl, 'tp1_price': tp1, 'tp2_price': tp2, 'tp3_price': tp3,
-                        'risk_points': round(risk, 2), 'bars_held': exit_idx - fill_idx,
-                        'multiplier': MULTIPLIER, 'diff_points': diff_pts,
-                        'pnl': pnl, 'win': res in ['TP1', 'TP2', 'TP3'], 'tag': 'M3 Trend',
-                        'reason': setup.get('reason', ''),
-                        'exit_desc': exit_desc
-                    })
+                        res = "SL"; exit_p = sl; pnl = round((sl - entry) * MULTIPLIER, 2)
+                        exit_desc = f"Giá chạm mức cắt lỗ SL ({sl}) — Lỗ {abs(sl - entry):.2f} pts."
+                    exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 4; break
+                if ck["high"] >= entry + be_trigger and not hit_be:
+                    hit_be = True; hit_tp1_time = ck["time"]
+            else:
+                if ck["low"] <= tp1:
+                    if ck["low"] <= tp3 and ck["close"] <= tp2: res = "TP3"; exit_p = tp3
+                    elif ck["low"] <= tp2 and ck["close"] <= tp1: res = "TP2"; exit_p = tp2
+                    else: res = "TP1"; exit_p = tp1
+                    pnl = round((entry - exit_p) * MULTIPLIER, 2)
+                    if not hit_tp1_time: hit_tp1_time = ck["time"]
+                    exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 3
+                    exit_desc = f"Chốt lời {mode} thành công tại {res} ({exit_p}) — Lãi +${pnl:,.0f} USD."
+                    break
+                if ck["high"] >= cur_sl:
+                    if hit_be:
+                        res = "ENTRY"; exit_p = entry; pnl = 0.0
+                        exit_desc = f"Lệnh đã kích hoạt bảo vệ vốn (+${be_trigger*50:.0f}) và dời SL về {entry}. Giá hồi chạm SL hòa vốn ($0)."
+                    else:
+                        res = "SL"; exit_p = sl; pnl = round((entry - sl) * MULTIPLIER, 2)
+                        exit_desc = f"Giá chạm mức cắt lỗ SL ({sl}) — Lỗ {abs(entry - sl):.2f} pts."
+                    exit_idx = k; exit_time = ck["time"]; pos_end_idx = k + 4; break
+                if ck["low"] <= entry - be_trigger and not hit_be:
+                    hit_be = True; hit_tp1_time = ck["time"]
+        else:
+            exit_idx = end_bar - 1
+            ck = candles[exit_idx]
+            exit_time = ck["time"]
+            is_currently_open = (end_bar == len(candles) and (end_bar - 1 - fill_idx < max_hold))
+            if is_currently_open:
+                res = "ĐANG MỞ"
+                exit_p = round(candles[-1]["close"], 2)
+                cur_diff = (exit_p - entry) if side == "MUA" else (entry - exit_p)
+                pnl = round(cur_diff * MULTIPLIER, 2)
+                exit_time = "Đang chạy..."
+                exit_desc = f"Vị thế Hybrid ({mode}) đang hoạt động ở nến mới nhất ({candles[-1]['time']}). Giá hiện tại: {exit_p}. {'Đã dời SL về hòa vốn ' + str(entry) if hit_be else 'SL đang đặt tại ' + str(sl)}."
+            else:
+                exit_p = round(ck["close"], 2)
+                diff = (exit_p - entry) if side == "MUA" else (entry - exit_p)
+                win_cut = 6.5 if mode == "SWING" else 2.5
+                loss_cut = -4.0 if mode == "SWING" else -2.5
+                if hit_be and diff <= 0:
+                    res = "ENTRY"; exit_p = entry; pnl = 0.0
+                    exit_desc = f"Hết thời gian giữ lệnh {mode}: Đóng lệnh bảo toàn vốn ($0)."
+                elif diff >= win_cut:
+                    res = "TP1"; pnl = round(diff * MULTIPLIER, 2)
+                    exit_desc = f"Hết thời gian giữ lệnh {mode}: Chốt lời +${pnl:,.0f} USD ({diff:+.2f} pts)."
+                elif diff <= loss_cut:
+                    res = "SL"; pnl = round(diff * MULTIPLIER, 2)
+                    exit_desc = f"Hết thời gian giữ lệnh {mode}: Tất toán vị thế ({diff:+.2f} pts)."
+                else:
+                    res = "ENTRY"; exit_p = entry; pnl = 0.0
+                    exit_desc = f"Hết thời gian giữ lệnh {mode} quanh vùng hòa vốn ($0)."
+            pos_end_idx = end_bar
+            
+        diff_pts = round(pnl / MULTIPLIER, 2) if res != "ENTRY" else 0.0
+        trades.append({
+            "date": candles[fill_idx]["time"][:10],
+            "time": candles[fill_idx]["time"],
+            "signal_time": candles[i]["time"],
+            "fill_time": candles[fill_idx]["time"],
+            "exit_time": exit_time,
+            "hit_tp1_time": hit_tp1_time,
+            "side": side,
+            "product": get_product_symbol(commodity, candles[fill_idx]["time"]),
+            "commodity": commodity,
+            "method": method_lbl,
+            "result": res,
+            "entry_price": entry,
+            "exit_price": exit_p,
+            "sl_price": sl,
+            "tp1_price": tp1,
+            "tp2_price": tp2,
+            "tp3_price": tp3,
+            "risk_points": round(risk, 2),
+            "bars_held": exit_idx - fill_idx,
+            "multiplier": MULTIPLIER,
+            "diff_points": diff_pts,
+            "pnl": pnl,
+            "win": res in ["TP1", "TP2", "TP3"],
+            "tag": tag,
+            "reason": reason_str,
+            "exit_desc": exit_desc
+        })
     return trades
 
 
@@ -1225,21 +1255,23 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
                         "priority": "Rất cao"
                     })
 
-        # ── 1. TẦNG 1A: KỊCH BẢN M1 CHUẨN (THUẬN XU HƯỚNG PULLBACK EMA 21-50 H1 ĐÓNG CỬA) ──
+        # ── 1. TẦNG 1A: KỊCH BẢN M1 SCALP / INTRADAY (MỤC TIÊU $200 USD - KHÔNG GIỮ QUA ĐÊM) ──
+        pullback_offset_m1 = 0.45 * atr if comm == "ZW" else 0.40 * atr
+        sl_dist_m1 = min(5.0 if comm == "ZW" else 4.2, max(3.6, round(1.8 * atr, 2)))
         if trend == "bearish":
-            entry = ema21
-            sl = round(entry + 1.25 * atr, 2)
+            entry = round(min(ema21 + 0.1 * atr, h1_close + pullback_offset_m1), 2)
+            sl = round(entry + sl_dist_m1, 2)
             risk = round(sl - entry, 2)
-            tp1 = round(entry - 1.0 * risk, 2)
-            tp2 = round(entry - 1.5 * risk, 2)
-            tp3 = round(entry - 2.0 * risk, 2)
+            tp1 = round(entry - 4.0, 2)   # +$200 USD
+            tp2 = round(entry - 4.5, 2)   # +$225 USD
+            tp3 = round(entry - 5.0, 2)   # +$250 USD
             dist = round(abs(entry - cur_p), 2)
             touched = (m5_low <= entry <= m5_high)
             status = "⚡ SẴN SÀNG (Gần chạm)" if (touched or dist <= atr) else "⏳ ĐANG CHỜ HỒI"
             radar.append({
                 "commodity": comm,
                 "product": prod,
-                "method": "M1 (H1 Closed • EMA Pullback)",
+                "method": "M1 (Scalp Intraday • Mục Tiêu $200)",
                 "side": "BÁN",
                 "current_price": cur_p,
                 "entry_target": entry,
@@ -1250,29 +1282,29 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
                 "tp3_price": tp3,
                 "risk_pts": risk,
                 "risk_usd": round(risk * MULTIPLIER, 2),
-                "rr": "1 : 2.0",
+                "rr": f"1 : {round(4.0/max(0.1, risk), 1)}",
                 "status": status,
                 "structure_time": h1_time,
                 "latest_h1_time": h1_time,
                 "m3_confluence": m1_has_m3,
-                "action_hint": f"Đặt Limit BÁN cố định @ {entry:.2f} (EMA21 H1 đã đóng nến). SL: {sl:.2f}, TP3: {tp3:.2f}",
-                "condition": f"[Tầng 1A - H1 Đóng Cửa] Xu hướng GIẢM. Điểm đón khóa cố định tại EMA21-50 ({min(ema21, ema50):.2f} - {max(ema21, ema50):.2f}); Giá M5 Live cách {dist:.2f} pts.",
+                "action_hint": f"[Scalp Intraday — Không giữ qua đêm] Đặt Limit BÁN trong phiên (14h-22h) @ {entry:.2f}. Mục tiêu chốt lời ngay trong ngày: TP1 {tp1:.2f} (+$200), TP3 {tp3:.2f} (+$250). SL: {sl:.2f}.",
+                "condition": f"[Tầng 1A - Scalp Intraday] Xu hướng GIẢM (EMA21 {ema21:.2f} < EMA50 {ema50:.2f}). Đánh ngắn trong ngày mục tiêu $200/giao dịch; Giá M5 Live cách {dist:.2f} pts.",
                 "priority": "Cao" if dist <= atr else "Trung bình"
             })
         elif trend == "bullish":
-            entry = ema21
-            sl = round(entry - 1.25 * atr, 2)
+            entry = round(max(ema21 - 0.1 * atr, h1_close - pullback_offset_m1), 2)
+            sl = round(entry - sl_dist_m1, 2)
             risk = round(entry - sl, 2)
-            tp1 = round(entry + 1.0 * risk, 2)
-            tp2 = round(entry + 1.5 * risk, 2)
-            tp3 = round(entry + 2.0 * risk, 2)
+            tp1 = round(entry + 4.0, 2)   # +$200 USD
+            tp2 = round(entry + 4.5, 2)   # +$225 USD
+            tp3 = round(entry + 5.0, 2)   # +$250 USD
             dist = round(abs(cur_p - entry), 2)
             touched = (m5_low <= entry <= m5_high)
             status = "⚡ SẴN SÀNG (Gần chạm)" if (touched or dist <= atr) else "⏳ ĐANG CHỜ HỒI"
             radar.append({
                 "commodity": comm,
                 "product": prod,
-                "method": "M1 (H1 Closed • EMA Pullback)",
+                "method": "M1 (Scalp Intraday • Mục Tiêu $200)",
                 "side": "MUA",
                 "current_price": cur_p,
                 "entry_target": entry,
@@ -1283,20 +1315,17 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
                 "tp3_price": tp3,
                 "risk_pts": risk,
                 "risk_usd": round(risk * MULTIPLIER, 2),
-                "rr": "1 : 2.0",
+                "rr": f"1 : {round(4.0/max(0.1, risk), 1)}",
                 "status": status,
                 "structure_time": h1_time,
                 "latest_h1_time": h1_time,
                 "m3_confluence": m1_has_m3,
-                "action_hint": f"Đặt Limit MUA cố định @ {entry:.2f} (EMA21 H1 đã đóng nến). SL: {sl:.2f}, TP3: {tp3:.2f}",
-                "condition": f"[Tầng 1A - H1 Đóng Cửa] Xu hướng TĂNG. Điểm đón khóa cố định tại EMA21-50 ({min(ema21, ema50):.2f} - {max(ema21, ema50):.2f}); Giá M5 Live cách {dist:.2f} pts.",
+                "action_hint": f"[Scalp Intraday — Không giữ qua đêm] Đặt Limit MUA trong phiên (14h-22h) @ {entry:.2f}. Mục tiêu chốt lời ngay trong ngày: TP1 {tp1:.2f} (+$200), TP3 {tp3:.2f} (+$250). SL: {sl:.2f}.",
+                "condition": f"[Tầng 1A - Scalp Intraday] Xu hướng TĂNG (EMA21 {ema21:.2f} > EMA50 {ema50:.2f}). Đánh ngắn trong ngày mục tiêu $200/giao dịch; Giá M5 Live cách {dist:.2f} pts.",
                 "priority": "Cao" if dist <= atr else "Trung bình"
             })
             
-        # ── 2 & 3. TẦNG 1A: KỊCH BẢN M2 SMC 5★ - 6★ (H1 ĐÓNG CỬA - BẮT ĐÁY / BẮT ĐỈNH) ──
-        # BỘ LỌC VÙNG CÒN HIỆU LỰC (ACTIVE ZONE FILTER):
-        # - Vùng Đáy chỉ hợp lệ khi giá chưa bị xuyên thủng sâu: bz["price"] <= cur_p + 0.3 * atr
-        # - Vùng Đỉnh chỉ hợp lệ khi giá chưa vượt qua sâu: tz["price"] >= cur_p - 0.3 * atr
+        # ── 2 & 3. TẦNG 1A: KỊCH BẢN M2 SWING ĐỈNH / ĐÁY GẦN NHẤT (MỤC TIÊU $400 - $500 USD, GIỮ VÀI NGÀY) ──
         min_opposing_dist = 7.0 if comm == "ZW" else 4.0
         valid_tzs = [z for z in ana.get("top_zones", []) if z.get("score", 0) >= 5 and z.get("price", 0) >= cur_p - 0.3 * atr]
         valid_bzs = [z for z in ana.get("bottom_zones", []) if z.get("score", 0) >= 5 and z.get("price", 0) <= cur_p + 0.3 * atr]
@@ -1304,10 +1333,6 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
         chosen_tz = valid_tzs[-1] if valid_tzs else None
         chosen_bz = valid_bzs[-1] if valid_bzs else None
 
-        # BỘ LỌC XUNG ĐỘT (CONFLICT RESOLUTION):
-        # Nếu cả 2 kịch bản Đỉnh và Đáy quá gần nhau (< min_opposing_dist), ưu tiên theo xu hướng H1:
-        # - Downtrend (Bearish): Ưu tiên BÁN (Đỉnh / Kháng cự), bỏ kịch bản Bắt Đáy sát sạt
-        # - Uptrend (Bullish): Ưu tiên MUA (Đáy / Hỗ trợ), bỏ kịch bản Bắt Đỉnh sát sạt
         if chosen_tz and chosen_bz:
             if (chosen_tz["price"] - chosen_bz["price"]) < min_opposing_dist:
                 if trend == "bearish":
@@ -1320,23 +1345,24 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
                     else:
                         chosen_tz = None
 
+        sl_dist_m2 = min(9.2 if comm == "ZW" else 7.5, max(6.2, round(2.6 * atr, 2)))
         if chosen_tz:
             tz_p = round(chosen_tz["price"], 2)
             sc = chosen_tz.get("score", 5)
             tz_idx = chosen_tz.get("index", len(candles) - 1)
             tz_time = str(candles[tz_idx].get("time", h1_time)) if 0 <= tz_idx < len(candles) else h1_time
             tz_m3 = any("sweep" in f.lower() or "overbought" in f.lower() for f in chosen_tz.get("factors", [])) or (rsi > 65)
-            sl = round(tz_p + 0.75 * atr, 2)
+            sl = round(tz_p + sl_dist_m2, 2)
             risk = round(sl - tz_p, 2)
-            tp1 = round(tz_p - 1.0 * risk, 2)
-            tp2 = round(tz_p - 1.5 * risk, 2)
-            tp3 = round(tz_p - 2.0 * risk, 2)
+            tp1 = round(tz_p - 8.0, 2)   # +$400 USD
+            tp2 = round(tz_p - 9.0, 2)   # +$450 USD
+            tp3 = round(tz_p - 10.0, 2)  # +$500 USD
             dist = round(abs(cur_p - tz_p), 2)
-            status = "⚡ SẴN SÀNG (Đang test đỉnh)" if dist <= atr else "🔍 THEO DÕI VÙNG ĐỈNH"
+            status = "⚡ SẴN SÀNG (Đang test đỉnh)" if dist <= atr else "🔍 THEO DÕI ĐỈNH SWING"
             radar.append({
                 "commodity": comm,
                 "product": prod,
-                "method": f"M2 (H1 SMC {sc}★ Bắt Đỉnh)",
+                "method": f"M2 (Swing Đỉnh {sc}★ • $400-$500)",
                 "side": "BÁN",
                 "current_price": cur_p,
                 "entry_target": tz_p,
@@ -1347,13 +1373,13 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
                 "tp3_price": tp3,
                 "risk_pts": risk,
                 "risk_usd": round(risk * MULTIPLIER, 2),
-                "rr": "1 : 2.0",
+                "rr": f"1 : {round(10.0/max(0.1, risk), 1)}",
                 "status": status,
                 "structure_time": tz_time,
                 "latest_h1_time": h1_time,
                 "m3_confluence": tz_m3,
-                "action_hint": f"Vùng đỉnh H1 cố định tại {tz_p:.2f}. Canh giá quét qua {tz_p:.2f} rồi đóng nến M15/H1 rút râu để BÁN. SL: {sl:.2f}, TP3: {tp3:.2f}",
-                "condition": f"[Tầng 1A - H1 Đóng Cửa] Đỉnh SMC {sc}/8★ tại {tz_p:.2f}. " + ", ".join(chosen_tz.get("factors", [])[:2]),
+                "action_hint": f"[Swing Đỉnh Gần Nhất — Giữ vài ngày] Đỉnh H1 cố định tại {tz_p:.2f}. Canh BÁN giữ lệnh vài ngày hướng tới mục tiêu TP1 {tp1:.2f} (+$400) -> TP3 {tp3:.2f} (+$500). SL: {sl:.2f}.",
+                "condition": f"[Tầng 1A - Swing Đỉnh {sc}/8★] Vùng Đỉnh gần nhất tại {tz_p:.2f}. " + ", ".join(chosen_tz.get("factors", [])[:2]),
                 "priority": "Cao" if dist <= atr else "Trung bình"
             })
 
@@ -1363,17 +1389,17 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
             bz_idx = chosen_bz.get("index", len(candles) - 1)
             bz_time = str(candles[bz_idx].get("time", h1_time)) if 0 <= bz_idx < len(candles) else h1_time
             bz_m3 = any("sweep" in f.lower() or "oversold" in f.lower() for f in chosen_bz.get("factors", [])) or (rsi < 35)
-            sl = round(bz_p - 0.75 * atr, 2)
+            sl = round(bz_p - sl_dist_m2, 2)
             risk = round(bz_p - sl, 2)
-            tp1 = round(bz_p + 1.0 * risk, 2)
-            tp2 = round(bz_p + 1.5 * risk, 2)
-            tp3 = round(bz_p + 2.0 * risk, 2)
+            tp1 = round(bz_p + 8.0, 2)   # +$400 USD
+            tp2 = round(bz_p + 9.0, 2)   # +$450 USD
+            tp3 = round(bz_p + 10.0, 2)  # +$500 USD
             dist = round(abs(cur_p - bz_p), 2)
-            status = "⚡ SẴN SÀNG (Đang test đáy)" if dist <= atr else "🔍 THEO DÕI VÙNG ĐÁY"
+            status = "⚡ SẴN SÀNG (Đang test đáy)" if dist <= atr else "🔍 THEO DÕI ĐÁY SWING"
             radar.append({
                 "commodity": comm,
                 "product": prod,
-                "method": f"M2 (H1 SMC {sc}★ Bắt Đáy)",
+                "method": f"M2 (Swing Đáy {sc}★ • $400-$500)",
                 "side": "MUA",
                 "current_price": cur_p,
                 "entry_target": bz_p,
@@ -1384,13 +1410,13 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
                 "tp3_price": tp3,
                 "risk_pts": risk,
                 "risk_usd": round(risk * MULTIPLIER, 2),
-                "rr": "1 : 2.0",
+                "rr": f"1 : {round(10.0/max(0.1, risk), 1)}",
                 "status": status,
                 "structure_time": bz_time,
                 "latest_h1_time": h1_time,
                 "m3_confluence": bz_m3,
-                "action_hint": f"Vùng đáy H1 cố định tại {bz_p:.2f}. Canh giá nhúng qua {bz_p:.2f} rồi đóng nến M15/H1 rút chân để MUA. SL: {sl:.2f}, TP3: {tp3:.2f}",
-                "condition": f"[Tầng 1A - H1 Đóng Cửa] Đáy SMC {sc}/8★ tại {bz_p:.2f}. " + ", ".join(chosen_bz.get("factors", [])[:2]),
+                "action_hint": f"[Swing Đáy Gần Nhất — Giữ vài ngày] Đáy H1 cố định tại {bz_p:.2f}. Canh MUA giữ lệnh vài ngày hướng tới mục tiêu TP1 {tp1:.2f} (+$400) -> TP3 {tp3:.2f} (+$500). SL: {sl:.2f}.",
+                "condition": f"[Tầng 1A - Swing Đáy {sc}/8★] Vùng Đáy gần nhất tại {bz_p:.2f}. " + ", ".join(chosen_bz.get("factors", [])[:2]),
                 "priority": "Cao" if dist <= atr else "Trung bình"
             })
 
@@ -1408,20 +1434,20 @@ def run_full_backtest(force_download: bool = False) -> dict:
     zc_candles = fetch_or_load_candles("ZC", force_download=force_download)
     zw_candles = fetch_or_load_candles("ZW", force_download=force_download)
     
-    # ── Phương pháp 1 (ICT Pullback - Tầng 1 H1 Structure + Tầng 2 M5 Status) ──
-    print("▶ Chạy Phương pháp 1 (ICT MSS + Pullback EMA)...")
+    # ── Phương pháp 1 (Scalp / Intraday $200 USD - Đánh trong ngày, không giữ qua đêm) ──
+    print("▶ Chạy Phương pháp 1 (Scalp / Intraday • Mục tiêu $200 USD)...")
     m1_zc = apply_m5_live_status_to_trades(simulate_method_1(zc_candles, "ZC"), "ZC")
     m1_zw = apply_m5_live_status_to_trades(simulate_method_1(zw_candles, "ZW"), "ZW")
     m1_all = sorted(m1_zc + m1_zw, key=lambda x: x["time"], reverse=True)
     
-    # ── Phương pháp 2 (SMC Reversal Zone - Tầng 1 H1 Structure + Tầng 2 M5 Status) ──
-    print("▶ Chạy Phương pháp 2 (FVG + Bắt Đáy / Đỉnh SMC Zone)...")
+    # ── Phương pháp 2 (Swing Đỉnh / Đáy Gần Nhất $400-$500 USD - Giữ lệnh vài ngày) ──
+    print("▶ Chạy Phương pháp 2 (Swing Đỉnh / Đáy Gần Nhất • Mục tiêu $400-$500 USD)...")
     m2_zc = apply_m5_live_status_to_trades(simulate_method_2(zc_candles, "ZC"), "ZC")
     m2_zw = apply_m5_live_status_to_trades(simulate_method_2(zw_candles, "ZW"), "ZW")
     m2_all = sorted(m2_zc + m2_zw, key=lambda x: x["time"], reverse=True)
 
-    # ── Phương pháp 3 (Hybrid: M1 + M2 - Tầng 1 H1 Structure + Tầng 2 M5 Status) ──
-    print("▶ Chạy Phương pháp 3 (Chiến Lược Hybrid Kết Hợp M1 + M2)...")
+    # ── Phương pháp 3 (Hybrid: Phối hợp Scalp $200 + Swing $400-$500) ──
+    print("▶ Chạy Phương pháp 3 (Chiến Lược Hybrid Kết Hợp Scalp $200 + Swing $400-$500)...")
     m3_zc = apply_m5_live_status_to_trades(simulate_method_3_hybrid(zc_candles, "ZC"), "ZC")
     m3_zw = apply_m5_live_status_to_trades(simulate_method_3_hybrid(zw_candles, "ZW"), "ZW")
     m3_all = sorted(m3_zc + m3_zw, key=lambda x: x["time"], reverse=True)
@@ -1457,9 +1483,9 @@ def run_full_backtest(force_download: bool = False) -> dict:
         "total_candles": {"ZC": len(zc_candles), "ZW": len(zw_candles)},
         "upcoming_radar": radar_list,
         "method_1": {
-            "name": "Phương Pháp 1: ICT MSS + Pullback EMA 21-50",
-            "type": "Trend-Following (Thuận xu hướng SMC)",
-            "description": "Bắt sóng hồi về dải EMA 21-50 sau khi cấu trúc MSS xác nhận xu hướng.",
+            "name": "Phương Pháp 1: Scalp / Intraday (Mục Tiêu $200 USD)",
+            "type": "Scalp / Intraday (Đánh trong ngày • Không giữ qua đêm)",
+            "description": "Giao dịch ngắn hạn thuận xu hướng EMA 21-50 trong giờ sôi động (14h-22h), chốt lời nhanh $200 USD/giao dịch và tất toán trong ngày.",
             "stats_all":  {k: v for k, v in m1_stats_all.items() if k != "filtered_trades"},
             "stats_ytd":  {k: v for k, v in m1_stats_ytd.items() if k != "filtered_trades"},
             "stats_365d": {k: v for k, v in m1_stats_365d.items() if k != "filtered_trades"},
@@ -1469,9 +1495,9 @@ def run_full_backtest(force_download: bool = False) -> dict:
             "trades": m1_all
         },
         "method_2": {
-            "name": "Phương Pháp 2: FVG + Bắt Đáy / Đỉnh SMC Zone",
-            "type": "Contrarian / Reversal (Đảo chiều vùng cực trị)",
-            "description": "Bắt đảo chiều tại các vùng thanh khoản cực trị (Quét BSL/SSL Sweep + RSI Phân kỳ + Cản S1/R1 + FVG).",
+            "name": "Phương Pháp 2: Swing Đỉnh / Đáy Gần Nhất ($400 - $500 USD)",
+            "type": "Swing Trading (Giữ lệnh vài ngày • Ăn sóng lớn)",
+            "description": "Đón sóng tại cấu trúc Đỉnh / Đáy gần nhất (SMC Zone >= 5 sao & Higher Low / Lower High), treo giữ lệnh vài ngày để đạt mục tiêu $400 - $500 USD.",
             "stats_all":  {k: v for k, v in m2_stats_all.items() if k != "filtered_trades"},
             "stats_ytd":  {k: v for k, v in m2_stats_ytd.items() if k != "filtered_trades"},
             "stats_365d": {k: v for k, v in m2_stats_365d.items() if k != "filtered_trades"},
@@ -1481,9 +1507,9 @@ def run_full_backtest(force_download: bool = False) -> dict:
             "trades": m2_all
         },
         "method_3": {
-            "name": "Phương Pháp 3: Chiến Lược Hybrid (M1 + M2 Kết Hợp)",
-            "type": "Hybrid Dynamic (Phối hợp Xu hướng & Vùng Cực Trị)",
-            "description": "Chỉ bắt đáy/đỉnh khi sóng xả/tăng đã hoàn tất (quét Sweep + cạn kiệt), còn lại đi lệnh thuận sóng M1 khi có MSS xác nhận.",
+            "name": "Phương Pháp 3: Chiến Lược Hybrid (Scalp $200 + Swing $400-$500)",
+            "type": "Hybrid Synergy (Kết hợp Lệnh Ngắn Trong Ngày & Sóng Lớn Swing)",
+            "description": "Ưu tiên bắt sóng lớn Swing ($400-$500, giữ vài ngày) tại Đỉnh/Đáy gần nhất khi biên độ rộng, đồng thời đánh lệnh ngắn Scalp ($200, đóng trong ngày) khi sóng đi giữa chu kỳ.",
             "stats_all":  {k: v for k, v in m3_stats_all.items() if k != "filtered_trades"},
             "stats_ytd":  {k: v for k, v in m3_stats_ytd.items() if k != "filtered_trades"},
             "stats_365d": {k: v for k, v in m3_stats_365d.items() if k != "filtered_trades"},

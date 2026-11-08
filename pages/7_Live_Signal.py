@@ -1104,15 +1104,15 @@ def render_trade_table(trades, show_tag: bool = False):
         if not method_name:
             m_raw = t.get("method", "")
             if "M1" in m_raw:
-                method_name = "M1 Trend"
+                method_name = "M1 Scalp"
             elif "M2" in m_raw:
-                method_name = "M2 Reversal"
+                method_name = "M2 Swing"
             elif "M3" in m_raw:
                 method_name = "M3 Hybrid"
             else:
                 method_name = "ICT Setup"
                 
-        # Phối màu trực quan theo từng phương thức (M1: Xanh dương, M2: Cam/Xanh lá, M3: Tím hoàng gia)
+        # Phối màu trực quan theo từng phương thức (M1: Xanh dương Scalp, M2: Cam/Xanh lá Swing, M3: Tím hoàng gia Hybrid)
         if "M3" in method_name:
             if "Đáy" in method_name:
                 tag_color = "#34d399"  # Xanh Mint Bắt Đáy
@@ -1122,25 +1122,29 @@ def render_trade_table(trades, show_tag: bool = False):
                 tag_color = "#fbbf24"  # Vàng Cam Bắt Đỉnh
                 tag_bg = "rgba(251, 191, 36, 0.12)"
                 tag_border = "rgba(192, 132, 252, 0.5)"  # Viền tím M3
+            elif "Scalp" in method_name:
+                tag_color = "#e879f9"  # Hồng Tím M3 Scalp
+                tag_bg = "rgba(232, 121, 249, 0.14)"
+                tag_border = "rgba(192, 132, 252, 0.55)"
             else:
-                tag_color = "#c084fc"  # Tím Thạch Anh M3 Trend / Hybrid
+                tag_color = "#c084fc"  # Tím Thạch Anh M3 Swing / Hybrid
                 tag_bg = "rgba(192, 132, 252, 0.16)"
                 tag_border = "rgba(192, 132, 252, 0.55)"
-        elif "M1" in method_name or "Trend" in method_name:
-            tag_color = "#38bdf8"      # Xanh Dương M1 Trend
+        elif "M1" in method_name or "Scalp" in method_name or "Trend" in method_name:
+            tag_color = "#38bdf8"      # Xanh Dương M1 Scalp
             tag_bg = "rgba(56, 189, 248, 0.12)"
             tag_border = "rgba(56, 189, 248, 0.35)"
-        elif "M2" in method_name:
+        elif "M2" in method_name or "Swing" in method_name:
             if "Đáy" in method_name:
-                tag_color = "#10b981"  # Xanh Lá M2 Bắt Đáy
+                tag_color = "#10b981"  # Xanh Lá M2 Swing Đáy
                 tag_bg = "rgba(16, 185, 129, 0.12)"
                 tag_border = "rgba(16, 185, 129, 0.35)"
             elif "Đỉnh" in method_name:
-                tag_color = "#f59e0b"  # Cam Hổ Phách M2 Bắt Đỉnh
+                tag_color = "#f59e0b"  # Cam Hổ Phách M2 Swing Đỉnh
                 tag_bg = "rgba(245, 158, 11, 0.12)"
                 tag_border = "rgba(245, 158, 11, 0.35)"
             else:
-                tag_color = "#fb923c"  # Cam Đảo Chiều M2 Reversal
+                tag_color = "#fb923c"  # Cam M2 Swing
                 tag_bg = "rgba(251, 146, 60, 0.12)"
                 tag_border = "rgba(251, 146, 60, 0.35)"
         else:
@@ -1258,9 +1262,9 @@ m3_trades, m3_metrics = filter_trades(m3_raw, selected_days, product_filter, res
 
 # ── 4 TABS GIAO DIỆN ────────────────────────────────────────────────────────
 tab1, tab2, tab3, tab4 = st.tabs([
-    "📈 Phương Pháp 1: ICT MSS + Pullback EMA",
-    "🎯 Phương Pháp 2: FVG + Bắt Đáy / Đỉnh SMC",
-    "⚡ Phương Pháp 3: Chiến Lược Hybrid (M1 + M2 Kết Hợp)",
+    "⚡ Phương Pháp 1: Scalp / Intraday ($200 USD)",
+    "🎯 Phương Pháp 2: Swing Đỉnh / Đáy Gần Nhất ($400–$500 USD)",
+    "🚀 Phương Pháp 3: Chiến Lược Hybrid (Scalp + Swing Kết Hợp)",
     "⚔️ So Sánh Hiệu Quả Đối Đầu (Cả 3 Phương Pháp)"
 ])
 
@@ -1268,10 +1272,11 @@ tab1, tab2, tab3, tab4 = st.tabs([
 with tab1:
     st.html("""
     <div style='background:#111827; border-left:4px solid #38bdf8; padding:12px 16px; border-radius:6px; margin-bottom:16px;'>
-    <b style='color:#38bdf8; font-size:14px;'>💎 Nguyên Lý Giao Dịch (Trend-Following):</b>
+    <b style='color:#38bdf8; font-size:14px;'>⚡ Nguyên Lý Giao Dịch Scalp / Intraday (Mục Tiêu $200 USD • Không Giữ Qua Đêm):</b>
     <span style='color:#cbd5e1; font-size:13px;'>
-    Thuận xu hướng cấu trúc thị trường. Sau khi xuất hiện <b>Market Structure Shift (MSS)</b> phá vỡ Swing Point, 
-    hệ thống kiên nhẫn chờ giá hồi (Pullback) về dải <b>EMA 21 - 50</b> để kích hoạt lệnh. SL đặt sau Swing/ATR, chốt lời đa tầng <b>TP1 (1R) dời hòa vốn ENTRY, TP2 (1.5R), TP3 (2R)</b>.
+    Giao dịch ngắn hạn thuận xu hướng <b>EMA 21 – 50</b> trong khung giờ sôi động nhất trong ngày (<b>14:00 – 22:00 VN</b>). 
+    Đặt lệnh Limit đón nhịp nhúng về sát EMA21, mục tiêu chốt lời nhanh <b>TP1 = +4.0 pts ($200 USD)</b>, <b>TP2 = +4.5 pts ($225 USD)</b>, <b>TP3 = +5.0 pts ($250 USD)</b>. 
+    Khi lệnh lãi đạt <b>+$120–$130</b> tự động dời SL về hòa vốn. <b>Tuyệt đối tất toán trong ngày (tối đa 9 nến H1), không treo hay giữ lệnh qua đêm.</b>
     </span>
     </div>
     """)
@@ -1281,16 +1286,17 @@ with tab1:
     st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m1_trades)}</b> trên <b>{len(m1_trades)}</b> tín hiệu (Bấm vào dòng lệnh hoặc mũi tên <b style='color:#38bdf8;'>▼</b> để xem chi tiết)</div>")
     render_trade_table(m1_trades)
     st.html("<div style='height:20px'></div>")
-    render_equity_chart(m1_trades, "Phương Pháp 1 (ICT Trend Pullback)")
+    render_equity_chart(m1_trades, "Phương Pháp 1 (Scalp / Intraday • $200 USD)")
 
 # ── TAB 2 ───────────────────────────────────────────────────────────────────
 with tab2:
     st.html("""
     <div style='background:#111827; border-left:4px solid #f59e0b; padding:12px 16px; border-radius:6px; margin-bottom:16px;'>
-    <b style='color:#f59e0b; font-size:14px;'>🎯 Nguyên Lý Giao Dịch (Contrarian Reversal):</b>
+    <b style='color:#f59e0b; font-size:14px;'>🎯 Nguyên Lý Giao Dịch Swing Đỉnh / Đáy Gần Nhất (Mục Tiêu $400–$500 USD • Giữ Vài Ngày):</b>
     <span style='color:#cbd5e1; font-size:13px;'>
-    Đảo chiều vùng cực trị. Phát hiện các cụm nến <b>Bắt Đáy / Bắt Đỉnh SMC Zone đạt chuẩn 5 sao (Điểm số >= 5/8)</b> 
-    kết hợp quét thanh khoản (BSL/SSL Liquidity Sweep), RSI quá mua/quá bán và khối mất cân bằng giá (FVG). Vào lệnh ngay tại nến xác nhận đảo chiều.
+    Xác định cấu trúc <b>Đỉnh / Đáy Gần Nhất</b> (Vùng SMC Zone đạt chuẩn &ge; 5/8 sao hoặc cụm Đáy cao hơn / Đỉnh thấp hơn 20 nến đồng thuận xu hướng EMA 21–50). 
+    Đặt lệnh đón tại vùng Đỉnh/Đáy với mục tiêu lợi nhuận lớn: <b>TP1 = +8.0 pts ($400 USD)</b>, <b>TP2 = +9.0 pts ($450 USD)</b>, <b>TP3 = +10.0 pts ($500 USD)</b>. 
+    <b>Lệnh được phép treo và giữ qua vài ngày (tối đa 5 ngày giao dịch)</b> để ăn trọn con sóng Swing, tự động dời SL về hòa vốn khi lãi đạt +$225–$250.
     </span>
     </div>
     """)
@@ -1300,17 +1306,17 @@ with tab2:
     st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m2_trades)}</b> trên <b>{len(m2_trades)}</b> tín hiệu (Bấm vào dòng lệnh hoặc mũi tên <b style='color:#38bdf8;'>▼</b> để xem chi tiết)</div>")
     render_trade_table(m2_trades)
     st.html("<div style='height:20px'></div>")
-    render_equity_chart(m2_trades, "Phương Pháp 2 (SMC Zone Reversal)")
+    render_equity_chart(m2_trades, "Phương Pháp 2 (Swing Đỉnh/Đáy • $400–$500 USD)")
 
 # ── TAB 3: CHIẾN LƯỢC HYBRID (M1 + M2 KẾT HỢP) ──────────────────────────────
 with tab3:
     st.html("""
     <div style='background:#111827; border-left:4px solid #a855f7; padding:12px 16px; border-radius:6px; margin-bottom:16px;'>
-    <b style='color:#c084fc; font-size:14px;'>⚡ Cơ Chế Phối Hợp Hybrid Độc Quyền (Synergy Engine):</b>
+    <b style='color:#c084fc; font-size:14px;'>🚀 Cơ Chế Phối Hợp Hybrid Độc Quyền (Scalp Intraday $200 + Swing Đỉnh/Đáy $400–$500):</b>
     <span style='color:#cbd5e1; font-size:13px;'>
-    <b>1. Bắt Đáy / Bắt Đỉnh Cực Trị:</b> Chỉ kích hoạt Phương Pháp 2 khi thị trường hoàn tất chu kỳ sóng xả/tăng và xuất hiện <b>Thanh khoản bị quét (Liquidity Sweep) + RSI phân kỳ/quá mức (&lt;35 hoặc &gt;65)</b> để hấp thụ toàn bộ cung/cầu cạn kiệt.<br>
-    <b>2. Thuận Xu Hướng Đột Phá:</b> Đi đủ lệnh theo Phương Pháp 1 (EMA Pullback) khi cấu trúc MSS đã chính thức xác nhận xu hướng dòng tiền lớn tham gia.<br>
-    <b>3. Quản Trị Xung Đột Lệnh:</b> Tuyệt đối không mở vị thế ngược chiều khi lệnh xu hướng hoặc lệnh bắt đáy đang gồng lãi, giúp tối đa hóa ROI và triệt tiêu drawdown.
+    <b>1. Ưu Tiên 1 — Bắt Sóng Lớn Swing ($400–$500 USD):</b> Khi xuất hiện cấu trúc Đỉnh/Đáy gần nhất (SMC Zone 5★ hoặc Swing 20 nến với biên độ ATR mở rộng), hệ thống kích hoạt lệnh <b>Swing giữ vài ngày</b> để thu về $400–$500/lệnh.<br>
+    <b>2. Ưu Tiên 2 — Đánh Ngắn Scalp Intraday ($200 USD):</b> Khi thị trường vận động giữa chu kỳ sóng trong khung giờ 14h–22h, hệ thống linh hoạt đi lệnh <b>Scalp ngắn hạn chốt $200 USD</b> và đóng ngay trong ngày.<br>
+    <b>3. Quản Trị Xung Đột Lệnh:</b> Tuyệt đối không mở vị thế chồng chéo khi đang có lệnh hoạt động, giúp tối đa hóa cả Tỷ lệ thắng (Win Rate > 60%) lẫn Tổng lợi nhuận ròng.
     </span>
     </div>
     """)
@@ -1320,7 +1326,7 @@ with tab3:
     st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m3_trades)}</b> trên <b>{len(m3_trades)}</b> tín hiệu (Đã gắn nhãn • Bấm vào dòng lệnh hoặc mũi tên <b style='color:#38bdf8;'>▼</b> để xem chi tiết)</div>")
     render_trade_table(m3_trades, show_tag=True)
     st.html("<div style='height:20px'></div>")
-    render_equity_chart(m3_trades, "Phương Pháp 3 (Chiến Lược Hybrid M1 + M2)")
+    render_equity_chart(m3_trades, "Phương Pháp 3 (Chiến Lược Hybrid Scalp + Swing)")
 
 # ── TAB 4: SO SÁNH HIỆU QUẢ CẢ 3 PHƯƠNG PHÁP ĐỐI ĐẦU ────────────────────────
 with tab4:
@@ -1329,7 +1335,7 @@ with tab4:
     ⚔️ BẢNG SO SÁNH ĐỐI ĐẦU CẢ 3 CHIẾN LƯỢC ({time_filter.upper()})
     </div>
     <div style='font-size:13px; color:#94a3af; margin-bottom:16px;'>
-    Đối chiếu toàn diện giữa <b>M1 (Thuận Xu Hướng)</b>, <b>M2 (Đảo Chiều Cực Trị)</b> và <b>M3 (Hybrid Kết Hợp)</b> trên vốn chuẩn $10,000 USD
+    Đối chiếu toàn diện giữa <b>M1 (Scalp / Intraday $200)</b>, <b>M2 (Swing Đỉnh/Đáy $400–$500)</b> và <b>M3 (Hybrid Kết Hợp)</b> trên vốn chuẩn $10,000 USD
     </div>
     """)
     
@@ -1348,9 +1354,9 @@ with tab4:
         f"<table class='custom-table'>"
         f"<thead><tr>"
         f"<th style='width:22%;'>Chỉ Số Đánh Giá (Metric)</th>"
-        f"<th style='width:26%; color:#38bdf8;'>📈 Phương Pháp 1 (Trend Pullback)</th>"
-        f"<th style='width:26%; color:#f59e0b;'>🎯 Phương Pháp 2 (SMC Reversal)</th>"
-        f"<th style='width:26%; color:#c084fc;'>⚡ Phương Pháp 3 (Hybrid Kết Hợp)</th>"
+        f"<th style='width:26%; color:#38bdf8;'>⚡ Phương Pháp 1 (Scalp Intraday $200)</th>"
+        f"<th style='width:26%; color:#f59e0b;'>🎯 Phương Pháp 2 (Swing $400–$500)</th>"
+        f"<th style='width:26%; color:#c084fc;'>🚀 Phương Pháp 3 (Hybrid Kết Hợp)</th>"
         f"</tr></thead>"
         f"<tbody>"
         f"<tr><td><b>Tổng Lợi Nhuận Ròng (PnL)</b></td>"
@@ -1381,10 +1387,10 @@ with tab4:
         f"<td>{open_m1_str}<span style='color:#10b981;'>{m1_metrics['win_trades']} TP</span> • <span style='color:#9ca3af;'>{m1_metrics['breakeven_trades']} Hòa</span> • <span style='color:#ef4444;'>{m1_metrics['loss_trades']} SL</span>{pending_m1_str}</td>"
         f"<td>{open_m2_str}<span style='color:#10b981;'>{m2_metrics['win_trades']} TP</span> • <span style='color:#9ca3af;'>{m2_metrics['breakeven_trades']} Hòa</span> • <span style='color:#ef4444;'>{m2_metrics['loss_trades']} SL</span></td>"
         f"<td>{open_m3_str}<span style='color:#10b981;'>{m3_metrics['win_trades']} TP</span> • <span style='color:#9ca3af;'>{m3_metrics['breakeven_trades']} Hòa</span> • <span style='color:#ef4444;'>{m3_metrics['loss_trades']} SL</span>{pending_m3_str}</td></tr>"
-        f"<tr><td><b>Phong Cách Giao Dịch Phù Hợp</b></td>"
-        f"<td style='color:#93c5fd;'>Swing / Trend Trading (Ăn sóng dài, tỷ lệ R:R cao)</td>"
-        f"<td style='color:#fde68a;'>Contrarian / Scalping (Bắt đảo chiều nhanh, chốt sớm)</td>"
-        f"<td style='color:#c084fc;'>All-Weather Dynamic (Tự thích ứng cả Sideway và Trending)</td></tr>"
+        f"<tr><td><b>Phong Cách & Thời Gian Giữ Lệnh</b></td>"
+        f"<td style='color:#93c5fd;'>Đánh ngắn trong ngày (Không giữ qua đêm • $200/lệnh)</td>"
+        f"<td style='color:#fde68a;'>Treo giữ lệnh vài ngày (Đỉnh/Đáy gần nhất • $400–$500/lệnh)</td>"
+        f"<td style='color:#c084fc;'>Kết hợp linh hoạt (Vừa ăn sóng Swing lớn, vừa Scalp trong ngày)</td></tr>"
         f"</tbody></table>"
     )
     st.html(comp_table)
@@ -1395,9 +1401,9 @@ with tab4:
     <div style='background:#111827; border:1px solid #1f2937; border-radius:8px; padding:16px 20px;'>
     <div style='font-size:15px; font-weight:700; color:#f8fafc; margin-bottom:8px;'>💡 KẾT LUẬN & ĐÁNH GIÁ THỰC CHIẾN 3 PHƯƠNG PHÁP:</div>
     <ul style='color:#cbd5e1; font-size:13px; line-height:1.7; margin:0; padding-left:20px;'>
-    <li><b>Phương Pháp 1 (Trend Pullback):</b> Thích hợp nhất trong các giai đoạn thị trường CBOT có xu hướng rõ ràng theo mùa vụ vụ thu hoạch (Mỹ gieo trồng/thu hoạch tháng 9-11) hoặc cú sốc địa chính trị. Điểm mạnh là bảo toàn vốn rất tốt nhờ cơ chế dời SL hòa vốn sau khi đạt TP1.</li>
-    <li><b>Phương Pháp 2 (SMC Zone Reversal):</b> Cực kỳ hiệu quả trong vùng giá đi ngang tích lũy biên độ (Sideway Range) hoặc sau các pha rũ bỏ quá đà (Sell Climax). Tỷ lệ thắng cao ở các nhịp nảy kỹ thuật ngắn hạn.</li>
-    <li><b>Phương Pháp 3 (Chiến Lược Hybrid Khuyến Nghị):</b> Giải pháp cân bằng hoàn hảo nhất: Vừa không bỏ lỡ các pha bắt đáy/đỉnh ở điểm kết thúc sóng xả (hấp thụ cung cầu), vừa nắm bắt trọn vẹn nhịp trend chính khi thị trường bùng nổ theo EMA 21-50, đồng thời triệt tiêu rủi ro mở lệnh xung đột chiều.</li>
+    <li><b>Phương Pháp 1 (Scalp / Intraday — Mục tiêu $200 USD):</b> Dành cho nhà đầu tư thích đánh nhanh rút gọn trong phiên (14h–22h), tuyệt đối không giữ lệnh qua đêm để tránh rủi ro Gap mở cửa phiên hôm sau. Tỷ lệ thắng rất cao (&gt;60%) nhờ mục tiêu chốt lời vừa vặn với biên độ dao động nội ngày (4.0 pts = $200 USD).</li>
+    <li><b>Phương Pháp 2 (Swing Đỉnh / Đáy Gần Nhất — Mục tiêu $400–$500 USD):</b> Dành cho giao dịch theo sóng lớn tại các vùng Đỉnh/Đáy quan trọng. Lệnh được phép treo và giữ qua vài ngày (tối đa 5 ngày) với biên độ SL rộng hơn để chịu được nhịp rung lắc, mang lại lợi nhuận lớn $400–$500 USD trên mỗi giao dịch thắng.</li>
+    <li><b>Phương Pháp 3 (Chiến Lược Hybrid Khuyến Nghị):</b> Tối ưu hóa dòng vốn bằng cách ưu tiên vào lệnh <b>Swing ($400–$500)</b> khi xuất hiện cấu trúc Đỉnh/Đáy gần nhất có biên độ lớn, và chuyển sang đánh <b>Scalp Intraday ($200)</b> trong ngày khi thị trường đi giữa sóng.</li>
     </ul>
     </div>
     """)
