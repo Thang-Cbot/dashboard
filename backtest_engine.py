@@ -1049,10 +1049,11 @@ def simulate_method_3_hybrid(candles: list, commodity: str) -> list:
 
 
 def compute_metrics(trades: list, days_filter = None) -> dict:
-    """Tính các chỉ số KPI: Tổng PnL, Win Rate, Tổng lệnh, Max Drawdown, ROI trên 10k USD."""
+    """Tính các chỉ số KPI: Tổng PnL, Win Rate, Tỷ lệ đạt TP1/Dời BE, Tổng lệnh, Max Drawdown, ROI trên 10k USD."""
     if not trades:
         return {
-            "total_pnl": 0.0, "win_rate": 0.0, "total_trades": 0, "closed_trades": 0,
+            "total_pnl": 0.0, "win_rate": 0.0, "tp1_reach_rate": 0.0, "tp1_reach_trades": 0,
+            "total_trades": 0, "closed_trades": 0,
             "decisive_trades": 0,
             "win_trades": 0, "loss_trades": 0, "breakeven_trades": 0, "pending_trades": 0,
             "open_trades": 0,
@@ -1090,6 +1091,15 @@ def compute_metrics(trades: list, days_filter = None) -> dict:
     # Win Rate chuẩn tài chính (loại trừ lệnh hòa vốn $0): Win / (Win + Loss)
     win_rate = round((len(win_list) / decisive_trades * 100), 1) if decisive_trades > 0 else 0.0
     
+    # Tỷ lệ lệnh đạt mốc TP1 / kích hoạt dời SL về Hòa vốn (Đánh giá chất lượng điểm Entry):
+    # Bao gồm tất cả lệnh Thắng (TP1/TP2/TP3) + các lệnh Hòa vốn/Đang mở đã từng chạm mốc kích hoạt BE (hit_tp1_time)
+    tp1_reach_list = [
+        t for t in filtered
+        if t["result"] in ["TP1", "TP2", "TP3"] or bool(t.get("hit_tp1_time")) or (t["result"] == "ENTRY" and "dời SL về" in str(t.get("exit_desc", "")))
+    ]
+    tp1_reach_trades = len(tp1_reach_list)
+    tp1_reach_rate = round((tp1_reach_trades / closed_trades * 100), 1) if closed_trades > 0 else 0.0
+    
     gross_profit = sum(t["pnl"] for t in win_list)
     gross_loss = abs(sum(t["pnl"] for t in loss_list))
     profit_factor = round(gross_profit / gross_loss, 2) if gross_loss > 0 else (99.0 if gross_profit > 0 else 0.0)
@@ -1111,6 +1121,8 @@ def compute_metrics(trades: list, days_filter = None) -> dict:
     return {
         "total_pnl": total_pnl,
         "win_rate": win_rate,
+        "tp1_reach_rate": tp1_reach_rate,
+        "tp1_reach_trades": tp1_reach_trades,
         "total_trades": len(filtered),
         "closed_trades": closed_trades,
         "decisive_trades": decisive_trades,

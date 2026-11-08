@@ -1262,10 +1262,10 @@ m3_trades, m3_metrics = filter_trades(m3_raw, selected_days, product_filter, res
 
 # ── 4 TABS GIAO DIỆN ────────────────────────────────────────────────────────
 tab1, tab2, tab3, tab4 = st.tabs([
-    "⚡ Phương Pháp 1: Scalp / Intraday ($200 USD)",
-    "🎯 Phương Pháp 2: Swing Đỉnh / Đáy Gần Nhất ($400–$500 USD)",
-    "🚀 Phương Pháp 3: Chiến Lược Hybrid (Scalp + Swing Kết Hợp)",
-    "⚔️ So Sánh Hiệu Quả Đối Đầu (Cả 3 Phương Pháp)"
+    "⚡ M1: Scalp / Intraday ($200)",
+    "🎯 M2: Swing Đỉnh/Đáy ($400–$500)",
+    "🚀 M3: Hybrid (Scalp + Swing)",
+    "⚔️ So Sánh Đối Đầu (M1 • M2 • M3)"
 ])
 
 # ── TAB 1 ───────────────────────────────────────────────────────────────────
@@ -1286,7 +1286,7 @@ with tab1:
     st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m1_trades)}</b> trên <b>{len(m1_trades)}</b> tín hiệu (Bấm vào dòng lệnh hoặc mũi tên <b style='color:#38bdf8;'>▼</b> để xem chi tiết)</div>")
     render_trade_table(m1_trades)
     st.html("<div style='height:20px'></div>")
-    render_equity_chart(m1_trades, "Phương Pháp 1 (Scalp / Intraday • $200 USD)")
+    render_equity_chart(m1_trades, "M1 (Scalp / Intraday • $200 USD)")
 
 # ── TAB 2 ───────────────────────────────────────────────────────────────────
 with tab2:
@@ -1306,7 +1306,7 @@ with tab2:
     st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m2_trades)}</b> trên <b>{len(m2_trades)}</b> tín hiệu (Bấm vào dòng lệnh hoặc mũi tên <b style='color:#38bdf8;'>▼</b> để xem chi tiết)</div>")
     render_trade_table(m2_trades)
     st.html("<div style='height:20px'></div>")
-    render_equity_chart(m2_trades, "Phương Pháp 2 (Swing Đỉnh/Đáy • $400–$500 USD)")
+    render_equity_chart(m2_trades, "M2 (Swing Đỉnh/Đáy • $400–$500 USD)")
 
 # ── TAB 3: CHIẾN LƯỢC HYBRID (M1 + M2 KẾT HỢP) ──────────────────────────────
 with tab3:
@@ -1326,7 +1326,7 @@ with tab3:
     st.html(f"<div style='font-size:14px; color:#9ca3af; margin-bottom:8px;'>Hiển thị <b>1–{len(m3_trades)}</b> trên <b>{len(m3_trades)}</b> tín hiệu (Đã gắn nhãn • Bấm vào dòng lệnh hoặc mũi tên <b style='color:#38bdf8;'>▼</b> để xem chi tiết)</div>")
     render_trade_table(m3_trades, show_tag=True)
     st.html("<div style='height:20px'></div>")
-    render_equity_chart(m3_trades, "Phương Pháp 3 (Chiến Lược Hybrid Scalp + Swing)")
+    render_equity_chart(m3_trades, "M3 (Chiến Lược Hybrid Scalp + Swing)")
 
 # ── TAB 4: SO SÁNH HIỆU QUẢ CẢ 3 PHƯƠNG PHÁP ĐỐI ĐẦU ────────────────────────
 with tab4:
@@ -1354,9 +1354,9 @@ with tab4:
         f"<table class='custom-table'>"
         f"<thead><tr>"
         f"<th style='width:22%;'>Chỉ Số Đánh Giá (Metric)</th>"
-        f"<th style='width:26%; color:#38bdf8;'>⚡ Phương Pháp 1 (Scalp Intraday $200)</th>"
-        f"<th style='width:26%; color:#f59e0b;'>🎯 Phương Pháp 2 (Swing $400–$500)</th>"
-        f"<th style='width:26%; color:#c084fc;'>🚀 Phương Pháp 3 (Hybrid Kết Hợp)</th>"
+        f"<th style='width:26%; color:#38bdf8;'>⚡ M1: Scalp / Intraday ($200)</th>"
+        f"<th style='width:26%; color:#f59e0b;'>🎯 M2: Swing Đỉnh/Đáy ($400–$500)</th>"
+        f"<th style='width:26%; color:#c084fc;'>🚀 M3: Hybrid (Scalp + Swing)</th>"
         f"</tr></thead>"
         f"<tbody>"
         f"<tr><td><b>Tổng Lợi Nhuận Ròng (PnL)</b></td>"
@@ -1367,10 +1367,14 @@ with tab4:
         f"<td><b style='color:{m1_pnl_color};'>{m1_metrics['roi_pct']:+.1f}%</b></td>"
         f"<td><b style='color:{m2_pnl_color};'>{m2_metrics['roi_pct']:+.1f}%</b></td>"
         f"<td><b style='color:{m3_pnl_color}; font-weight:800;'>{m3_metrics['roi_pct']:+.1f}%</b></td></tr>"
-        f"<tr><td><b>Tỷ Lệ Thắng (Win Rate)</b><br><span style='font-size:11px; color:#94a3b8; font-weight:normal;'>Loại trừ lệnh hòa vốn $0</span></td>"
+        f"<tr><td><b>Tỷ Lệ Thắng Thực Tế (Win Rate)</b><br><span style='font-size:11px; color:#94a3b8; font-weight:normal;'>Win / (Win + Loss) • Không tính lệnh Hòa $0</span></td>"
         f"<td><b style='font-size:15px; color:#f8fafc;'>{m1_metrics['win_rate']:.1f}%</b></td>"
         f"<td><b style='font-size:15px; color:#f8fafc;'>{m2_metrics['win_rate']:.1f}%</b></td>"
         f"<td><b style='font-size:15px; color:#a855f7;'>{m3_metrics['win_rate']:.1f}%</b></td></tr>"
+        f"<tr style='background:rgba(56, 189, 248, 0.06);'><td><b>🎯 Tỷ Lệ Chạm TP1 / Kích Hoạt Dời Hòa Vốn</b><br><span style='font-size:11px; color:#38bdf8; font-weight:normal;'>Đo độ chuẩn của Điểm Vào Lệnh (Entry Accuracy)</span></td>"
+        f"<td><b style='font-size:15px; color:#34d399;'>{m1_metrics.get('tp1_reach_rate', 0.0):.1f}%</b> <span style='font-size:12px; color:#94a3b8;'>({m1_metrics.get('tp1_reach_trades', 0)}/{m1_metrics['closed_trades']} lệnh)</span></td>"
+        f"<td><b style='font-size:15px; color:#34d399;'>{m2_metrics.get('tp1_reach_rate', 0.0):.1f}%</b> <span style='font-size:12px; color:#94a3b8;'>({m2_metrics.get('tp1_reach_trades', 0)}/{m2_metrics['closed_trades']} lệnh)</span></td>"
+        f"<td><b style='font-size:15px; color:#34d399;'>{m3_metrics.get('tp1_reach_rate', 0.0):.1f}%</b> <span style='font-size:12px; color:#94a3b8;'>({m3_metrics.get('tp1_reach_trades', 0)}/{m3_metrics['closed_trades']} lệnh)</span></td></tr>"
         f"<tr><td><b>Hệ Số Lợi Nhuận (Profit Factor)</b></td>"
         f"<td><b>{m1_metrics['profit_factor']}</b></td>"
         f"<td><b>{m2_metrics['profit_factor']}</b></td>"
