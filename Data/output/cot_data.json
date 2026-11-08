@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-07 14:46:07",
+  "fetched_at": "2026-11-08 12:51:09",
   "source": "CFTC ZIP (Disaggregated Futures Only) + Rolling Beta 13W",
   "commodities": {
     "002602": {
@@ -139,7 +139,7 @@
           "price_date": "2026-11-03"
         }
       ],
-      "fetched_at": "2026-11-07 14:46:09"
+      "fetched_at": "2026-11-08 12:51:16"
     },
     "001602": {
       "commodity": "ZW",
@@ -278,7 +278,7 @@
           "price_date": "2026-11-03"
         }
       ],
-      "fetched_at": "2026-11-07 14:46:09"
+      "fetched_at": "2026-11-08 12:51:16"
     }
   }
 }
