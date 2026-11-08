@@ -1552,6 +1552,11 @@ def format_cbot_radar_message(r: dict, is_test: bool = False) -> str:
     condition = r.get("condition", "")
     action_hint = r.get("action_hint", "")
 
+    is_scalp = ("Scalp" in method or "M1" in method) and ("Swing" not in method)
+    tp1_note = "+$200" if is_scalp else "+$400"
+    tp2_note = "+$225" if is_scalp else "+$450"
+    tp3_note = "+$250" if is_scalp else "+$500"
+
     header_tag = "📡 <b>CBOT RADAR [TEST]</b>" if is_test else "📡 <b>CBOT RADAR</b>"
     msg = (
         f"{header_tag} — <b>{icon_prod} {prod} ({name_vn}) | {side_icon}</b>\n"
@@ -1564,9 +1569,9 @@ def format_cbot_radar_message(r: dict, is_test: bool = False) -> str:
         f"• 🎯 <b>Điểm Đón ({side}):</b> <b>{entry_p:.2f}</b>\n"
         f"• 🛑 <b>Cắt lỗ (SL):</b> <code>{sl_p:.2f}</code> <i>(Rủi ro: {risk_pts:.2f} pts = ${risk_usd:,.0f}/HĐ)</i>\n"
         f"• 🏆 <b>Chốt lời (TP):</b>\n"
-        f"   ├ TP1 (Dời BE): <b>{tp1_p:.2f}</b>\n"
-        f"   ├ TP2 (1.5R): <b>{tp2_p:.2f}</b>\n"
-        f"   └ TP3 (2.0R): <b>{tp3_p:.2f}</b>\n"
+        f"   ├ TP1 (Dời BE): <b>{tp1_p:.2f}</b> ({tp1_note})\n"
+        f"   ├ TP2: <b>{tp2_p:.2f}</b> ({tp2_note})\n"
+        f"   └ TP3 (Max): <b>{tp3_p:.2f}</b> ({tp3_note})\n"
         f"• 🧠 <b>Căn cứ kỹ thuật:</b> {condition}\n"
         f"• 💡 <b>Hành động:</b> <i>{action_hint}</i>"
     )
