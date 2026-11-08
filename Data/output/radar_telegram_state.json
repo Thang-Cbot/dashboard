@@ -16,16 +16,20 @@
     "ZWAZ26|M1 (H1 Closed • EMA Pullback)|BÁN|593.96": "2026-11-07 14:36:26",
     "ZCEZ26|M2 (H1 SMC 5★ Bắt Đỉnh)|BÁN|443.00": "2026-11-07 21:03:59",
     "ZWAZ26|M2 (H1 SMC 5★ Bắt Đáy)|MUA|591.00": "2026-11-07 22:00:51",
-    "ZWAZ26|M2 (H1 SMC 6★ Bắt Đáy)|MUA|591.00": "2026-11-07 23:00:56"
+    "ZWAZ26|M2 (H1 SMC 6★ Bắt Đáy)|MUA|591.00": "2026-11-07 23:00:56",
+    "ZCEZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|441.44": "2026-11-08 09:44:03",
+    "ZWAZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|592.91": "2026-11-08 09:44:03",
+    "ZCEZ26|M2 (Swing Đỉnh 5★ • $400-$500)|BÁN|443.00": "2026-11-08 09:44:03",
+    "ZWAZ26|M2 (Swing Đáy 6★ • $400-$500)|MUA|591.00": "2026-11-08 09:44:03"
   },
   "last_messages": {
     "ZCEZ26": {
-      "timestamp": "2026-11-07 21:03:59",
-      "msg": "📡 <b>CBOT RADAR</b> — <b>🌽 ZCEZ26 (Ngô) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>07/11/2026 21:03:59</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>04/11/2026 16:00 (Nến H1 mới nhất: 07/11/2026 02:00)</code>\n• 📊 <b>Chiến lược:</b> <b>M2 (H1 SMC 5★ Bắt Đỉnh)</b>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (Đang test đỉnh)</b>\n• 💹 <b>Giá Live (M5):</b> <b>442.00</b> <i>(Cách điểm đón 1.00 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>443.00</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>444.36</code> <i>(Rủi ro: 1.36 pts = $68/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>441.64</b>\n   ├ TP2 (1.5R): <b>440.96</b>\n   └ TP3 (2.0R): <b>440.28</b>\n• 🧠 <b>Căn cứ kỹ thuật:</b> [Tầng 1A - H1 Đóng Cửa] Đỉnh SMC 5/8★ tại 443.00. Bearish MSS nearby, Unfilled bearish FVG above\n• 💡 <b>Hành động:</b> <i>Vùng đỉnh H1 cố định tại 443.00. Canh giá quét qua 443.00 rồi đóng nến M15/H1 rút râu để BÁN. SL: 444.36, TP3: 440.28</i>"
+      "timestamp": "2026-11-08 09:44:03",
+      "msg": "📡 <b>CBOT RADAR</b> — <b>🌽 ZCEZ26 (Ngô) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>08/11/2026 09:44:13</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>04/11/2026 16:00 (Nến H1 mới nhất: 07/11/2026 02:00)</code>\n• 📊 <b>Chiến lược:</b> <b>M2 (Swing Đỉnh 5★ • $400-$500)</b>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (Đang test đỉnh)</b>\n• 💹 <b>Giá Live (M5):</b> <b>442.00</b> <i>(Cách điểm đón 1.00 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>443.00</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>449.20</code> <i>(Rủi ro: 6.20 pts = $310/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>435.00</b>\n   ├ TP2 (1.5R): <b>434.00</b>\n   └ TP3 (2.0R): <b>433.00</b>\n• 🧠 <b>Căn cứ kỹ thuật:</b> [Tầng 1A - Swing Đỉnh 5/8★] Vùng Đỉnh gần nhất tại 443.00. Bearish MSS nearby, Unfilled bearish FVG above\n• 💡 <b>Hành động:</b> <i>[Swing Đỉnh Gần Nhất — Giữ vài ngày] Đỉnh H1 cố định tại 443.00. Canh BÁN giữ lệnh vài ngày hướng tới mục tiêu TP1 435.00 (+$400) -> TP3 433.00 (+$500). SL: 449.20.</i>"
     },
     "ZWAZ26": {
-      "timestamp": "2026-11-07 23:00:56",
-      "msg": "📡 <b>CBOT RADAR</b> — <b>🌾 ZWAZ26 (Lúa Mì) | 🟢 MUA</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>07/11/2026 23:01:01</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>04/11/2026 11:00 (Nến H1 mới nhất: 07/11/2026 02:00)</code>\n• 📊 <b>Chiến lược:</b> <b>M2 (H1 SMC 6★ Bắt Đáy)</b> <i>(Đồng thuận M3 Hybrid)</i>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (Đang test đáy)</b>\n• 💹 <b>Giá Live (M5):</b> <b>592.00</b> <i>(Cách điểm đón 1.00 pts)</i>\n• 🎯 <b>Điểm Đón (MUA):</b> <b>591.00</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>588.24</code> <i>(Rủi ro: 2.76 pts = $138/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>593.76</b>\n   ├ TP2 (1.5R): <b>595.14</b>\n   └ TP3 (2.0R): <b>596.52</b>\n• 🧠 <b>Căn cứ kỹ thuật:</b> [Tầng 1A - H1 Đóng Cửa] Đáy SMC 6/8★ tại 591.00. Bullish MSS (sweep-confirmed), Unfilled bullish FVG below\n• 💡 <b>Hành động:</b> <i>Vùng đáy H1 cố định tại 591.00. Canh giá nhúng qua 591.00 rồi đóng nến M15/H1 rút chân để MUA. SL: 588.24, TP3: 596.52</i>"
+      "timestamp": "2026-11-08 09:44:03",
+      "msg": "📡 <b>CBOT RADAR</b> — <b>🌾 ZWAZ26 (Lúa Mì) | 🟢 MUA</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>08/11/2026 09:44:16</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>04/11/2026 11:00 (Nến H1 mới nhất: 07/11/2026 02:00)</code>\n• 📊 <b>Chiến lược:</b> <b>M2 (Swing Đáy 6★ • $400-$500)</b> <i>(Đồng thuận M3 Hybrid)</i>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (Đang test đáy)</b>\n• 💹 <b>Giá Live (M5):</b> <b>592.00</b> <i>(Cách điểm đón 1.00 pts)</i>\n• 🎯 <b>Điểm Đón (MUA):</b> <b>591.00</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>581.80</code> <i>(Rủi ro: 9.20 pts = $460/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>599.00</b>\n   ├ TP2 (1.5R): <b>600.00</b>\n   └ TP3 (2.0R): <b>601.00</b>\n• 🧠 <b>Căn cứ kỹ thuật:</b> [Tầng 1A - Swing Đáy 6/8★] Vùng Đáy gần nhất tại 591.00. Bullish MSS (sweep-confirmed), Unfilled bullish FVG below\n• 💡 <b>Hành động:</b> <i>[Swing Đáy Gần Nhất — Giữ vài ngày] Đáy H1 cố định tại 591.00. Canh MUA giữ lệnh vài ngày hướng tới mục tiêu TP1 599.00 (+$400) -> TP3 601.00 (+$500). SL: 581.80.</i>"
     }
   }
 }
