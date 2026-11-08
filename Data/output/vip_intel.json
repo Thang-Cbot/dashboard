@@ -1,232 +1,230 @@
 {
-  "timestamp": "2026-11-05 21:58:52",
+  "timestamp": "2026-11-08 14:42:47",
   "bestweather_report": {
     "weather_premium_status": "ĐANG XÌ HƠI (BEARISH)",
-    "headline_vn": "Thời tiết thuận lợi đầu vụ Nam Mỹ gây áp lực lên giá ngũ cốc, trong khi El Niño có dấu hiệu tạm lắng và rủi ro dài hạn từ băng tan gia tăng.",
-    "executive_summary": "Các báo cáo của Jim Roemer nhấn mạnh vai trò tối thượng của thời tiết trong thị trường hàng hóa nông sản. Hiện tại, điều kiện gieo trồng thuận lợi ở Nam Mỹ (đậu tương Brazil, ngô/đậu tương Argentina) đang tạo ra triển vọng sản lượng mạnh mẽ, gây áp lực giảm giá cho ngũ cốc. Đồng thời, mưa gần đây ở Đồng bằng Mỹ đã giảm bớt lo ngại hạn hán cho lúa mì, góp phần vào đà giảm giá. Mặc dù El Niño có thể đang tạm lắng về mặt khí quyển, những thay đổi khí hậu dài hạn như băng tan vẫn tiềm ẩn rủi ro đáng kể cho nguồn cung cấp nước nông nghiệp toàn cầu trong tương lai.",
+    "headline_vn": "Phân tích chuyên sâu về sự phân tách xoáy cực, El Niño tạm lắng, tan chảy sông băng và tác động thời tiết lên thị trường nông sản toàn cầu",
+    "executive_summary": "Jim Roemer và Scott Mathews cảnh báo về sự phân tách bất thường của xoáy cực trong tháng 11, có thể gây ra đợt lạnh giá cực đoan, trong khi El Niño đang tạm thời suy yếu về mặt khí quyển. Mưa lớn ở Đồng bằng Mỹ đã giúp giảm hạn hán lúa mì, gây áp lực giảm giá, củng cố quy luật 'Thời tiết là Vua' trong mùa thu hoạch/gieo trồng.",
     "regional_impacts": [
       {
         "region": "🇺🇸 Đồng bằng Mỹ (US Plains - Lúa mì vụ Đông)",
-        "condition": "Mưa quá nhiều là một điều may mắn cho hạn hán lúa mì ở Đồng bằng Mỹ.",
+        "condition": "Mưa lớn, giảm hạn hán",
         "impact": "Bearish",
-        "detail": "Lượng mưa dồi dào gần đây ở Đồng bằng Mỹ đã giúp giảm bớt tình trạng hạn hán lúa mì, một trong những lý do chính khiến giá lúa mì giảm hơn 15% trong vài tuần qua. Điều này tạo áp lực giảm giá đáng kể cho lúa mì vụ đông."
+        "detail": "Mưa lớn là 'phước lành' cho tình trạng hạn hán lúa mì ở Đồng bằng Mỹ, một yếu tố chính khiến giá lúa mì giảm hơn 15% trong vài tuần qua. Điều này phù hợp với dự báo trước đó của BestWeather."
       },
       {
         "region": "🌽 Vành đai Corn Belt Mỹ (Thu hoạch Ngô & Đậu tương)",
-        "condition": "Không có thông tin cập nhật cụ thể về điều kiện thời tiết thu hoạch.",
+        "condition": "Không có thông tin trực tiếp về vành đai Corn Belt trong các báo cáo này.",
         "impact": "Neutral",
-        "detail": "Không có thông tin cập nhật cụ thể về điều kiện thời tiết thu hoạch ngô và đậu tương tại Vành đai Corn Belt Mỹ trong các báo cáo gần đây. Tuy nhiên, các chỉ số khí quyển như AAM và SOI đang cho thấy El Niño có thể tạm lắng, điều này có thể ảnh hưởng đến mô hình nhiệt độ mùa đông của Mỹ."
+        "detail": "Các báo cáo tập trung vào các yếu tố khí hậu vĩ mô và các khu vực khác. Tuy nhiên, sự suy yếu tạm thời của El Niño về mặt khí quyển có thể ảnh hưởng đến mô hình thời tiết mùa đông của Mỹ."
       },
       {
         "region": "🌎 Nam Mỹ (Brazil/Argentina) & Úc",
-        "condition": "Độ ẩm thuận lợi cho việc gieo trồng và mưa đúng lúc ở Brazil (đậu tương) và độ ẩm đầy đủ ở Argentina (ngô và đậu tương).",
-        "impact": "Bearish",
-        "detail": "Kịch bản thời tiết thuận lợi ở Nam Mỹ, với độ ẩm gieo trồng tốt và mưa đúng lúc cho đậu tương Brazil cùng độ ẩm đầy đủ cho ngô và đậu tương Argentina, đang tạo ra triển vọng sản lượng mạnh mẽ. Điều này gây áp lực giảm giá cho ngũ cốc, đặc biệt là đậu tương, mặc dù rủi ro El Niño vẫn còn đó với khả năng mưa quá mức hoặc khô hạn sau này."
+        "condition": "El Niño tạm lắng, có thể thay đổi mô hình mưa",
+        "impact": "Neutral",
+        "detail": "Sự suy giảm của Global Angular Momentum (AAM) và sự phục hồi của Southern Oscillation Index (SOI) cho thấy El Niño đang tạm thời suy yếu về mặt khí quyển. Điều này có thể tạm thời thay đổi mô hình lượng mưa ở Brazil, Argentina và Úc, ảnh hưởng đến triển vọng gieo trồng và thu hoạch."
       }
     ],
-    "winter_outlook": "Mặc dù nhiệt độ Thái Bình Dương vẫn ấm, các chỉ số khí quyển (AAM, SOI) cho thấy El Niño có thể tạm thời suy yếu, làm thay đổi các mô hình mưa toàn cầu và ảnh hưởng đến nhiệt độ mùa đông ở Mỹ. Chỉ số POL dương cũng gợi ý một mùa đông ôn hòa hơn ở Mỹ, điều này không tạo ra cơ hội tăng giá rõ rệt cho ngũ cốc trong mùa đông, mà thay vào đó là sự không chắc chắn và tiềm ẩn áp lực giảm giá từ nhu cầu năng lượng thấp hơn.",
+    "winter_outlook": "Sự phân tách xoáy cực bất thường trong tháng 11 (đặc biệt trong năm El Niño) có thể gây ra các đợt lạnh giá cực đoan, tương tự như đợt đóng băng ở Florida vào tháng 1/2025. Tuy nhiên, chỉ số POL dương cho thấy xoáy cực có thể duy trì ở phía bắc nước Mỹ trong phần lớn mùa đông này, tiềm ẩn khả năng giá khí đốt tự nhiên giảm xuống dưới 3 USD trong các hợp đồng mùa đông.",
     "articles": [
+      {
+        "title_vn": "Sự phân tách xoáy cực là gì và tại sao nó bất thường vào tháng 11?",
+        "title_en": "What is a split in the Polar Vortex?",
+        "date": "06 Nov 2026",
+        "link": "https://climatelligence.substack.com/p/what-is-a-split-in-the-polar-vortex",
+        "key_points": [
+          "Sự phân tách xoáy cực là hiện tượng cực kỳ bất thường vào tháng 11, đặc biệt trong các năm El Niño.",
+          "Sự kiện tương tự vào cuối tháng 1/2025 đã gây ra đợt đóng băng ở Florida và lạnh giá kỷ lục, khiến giá khí đốt tự nhiên tăng vọt 3 USD trong một tuần.",
+          "WeatherWealth đã cảnh báo khách hàng bán khí đốt tự nhiên gần 4.00 USD/mmBtu hai đến ba tuần trước."
+        ]
+      },
       {
         "title_vn": "Gió mùa Ấn Độ yếu và lo ngại kinh tế toàn cầu ảnh hưởng đến giá bạc",
         "title_en": "A weak Indian Monsoon & global economic worries hit silver prices",
         "date": "02 Nov 2026",
         "link": "https://climatelligence.substack.com/p/a-weak-indian-monsoon-and-global",
         "key_points": [
-          "Jim Roemer đã cảnh báo về đợt bán tháo bạc lớn vào năm 2026 dựa trên 4 tín hiệu.",
-          "Gió mùa Ấn Độ yếu làm giảm thu nhập nông nghiệp, ảnh hưởng đến nhu cầu bạc ở nông thôn Ấn Độ.",
-          "Các yếu tố khác bao gồm mô hình biểu đồ giảm giá, kỳ vọng lãi suất tăng và vị thế mua đầu cơ quá mức.",
-          "Thị trường bạc dễ bị tổn thương mà không cần sự sụp đổ của nhu cầu công nghiệp."
+          "Gió mùa Ấn Độ yếu đe dọa nhu cầu bạc vật chất do giảm thu nhập nông nghiệp và sức mua ở nông thôn.",
+          "Các mô hình kỹ thuật giảm giá, kỳ vọng lãi suất tăng và vị thế mua đầu cơ quá mức đã báo hiệu một đợt bán tháo bạc lớn.",
+          "Jim Roemer đã cảnh báo về triển vọng giảm giá bạc dựa trên bốn tín hiệu cảnh báo vài tháng trước."
         ]
       },
       {
-        "title_vn": "Băng tan toàn cầu có ý nghĩa gì đối với thế giới nông nghiệp ngày nay?",
+        "title_vn": "Sự tan chảy sông băng toàn cầu có ý nghĩa gì đối với thế giới nông nghiệp ngày nay?",
         "title_en": "What Does Global Glacier Melting Mean for the World of Agriculture Today?",
         "date": "29 Oct 2026",
         "link": "https://climatelligence.substack.com/p/what-does-global-glacier-melting",
         "key_points": [
-          "Băng tan toàn cầu là mối lo ngại dài hạn về nguồn cung cấp nước tưới cho nông nghiệp, đặc biệt khi kết hợp với El Niño.",
-          "Hiện tại, rủi ro lớn nhất đối với nông sản là lượng mưa quá nhiều ở California và các vùng mía đường phía bắc Brazil, nhưng lại là điều may mắn cho hạn hán lúa mì ở Đồng bằng Mỹ (gây giảm giá lúa mì).",
-          "Các sông băng đóng vai trò là 'ngân hàng nước' tự nhiên, cung cấp nước tưới trong mùa khô; sự suy giảm của chúng đe dọa nguồn cung nước trong tương lai.",
-          "Các khu vực có rủi ro cao nhất bao gồm Ấn Độ, Pakistan (lúa mì, gạo, bông) và Peru, Chile (trái cây, rau)."
+          "Sông băng tan chảy là một mất mát dài hạn về nguồn dự trữ nước tự nhiên, khuếch đại rủi ro sản xuất nông nghiệp khi tương tác với El Niño.",
+          "Mối lo ngại lớn nhất là nguồn cung cấp nước tưới trong các đợt hạn hán tương lai, đặc biệt ở châu Á và Nam Mỹ (Ấn Độ, Pakistan, Peru, Chile).",
+          "Hiện tại, một trong những rủi ro lớn nhất đối với nông sản là mưa quá nhiều ở California và các vùng mía đường phía bắc Brazil, nhưng lại là 'phước lành' cho hạn hán lúa mì ở Đồng bằng Mỹ, khiến giá lúa mì giảm hơn 15%."
         ]
       },
       {
-        "title_vn": "Liệu Super El Niño có đang tạm lắng?",
+        "title_vn": "Liệu Super El Niño có đang tạm nghỉ?",
         "title_en": "Is the Super El Niño Taking a Breather?",
         "date": "26 Oct 2026",
         "link": "https://climatelligence.substack.com/p/is-the-super-el-nino-taking-a-breather",
         "key_points": [
-          "Mặc dù nhiệt độ Thái Bình Dương ấm bất thường cho thấy El Niño mạnh, hai chỉ số khí quyển (AAM và SOI) đang cho thấy tín hiệu El Niño có thể tạm thời suy yếu.",
-          "Global Angular Momentum (AAM) dự kiến giảm đáng kể, báo hiệu thay đổi trong dòng tia và mô hình mưa ở Brazil, Argentina, Úc và châu Á.",
-          "Chỉ số Southern Oscillation Index (SOI) dự kiến phục hồi mạnh về mức trung tính, cho thấy sự hỗ trợ khí quyển cho El Niño có thể tạm thời giảm.",
-          "Điều này không có nghĩa là Super El Niño kết thúc, mà là một sự tạm lắng trong thành phần khí quyển."
+          "Mặc dù nhiệt độ nước biển Thái Bình Dương xích đạo ấm bất thường cho thấy El Niño mạnh, hai chỉ số khí quyển (AAM và SOI) cho thấy El Niño có thể tạm thời suy yếu.",
+          "Global Angular Momentum (AAM) dự kiến giảm đáng kể về mức trung tính vào đầu tháng 11, có thể thay đổi mô hình lượng mưa ở Brazil, Argentina, Úc và châu Á.",
+          "Chỉ số Southern Oscillation Index (SOI) đã giảm mạnh vào tháng 9 nhưng dự kiến sẽ phục hồi mạnh mẽ về mức trung tính, cho thấy thành phần khí quyển của El Niño có thể tạm thời suy yếu."
         ]
       },
       {
-        "title_vn": "(VIDEO) Chỉ số POL dương kết hợp với El Niño đã tạo đỉnh giá khí tự nhiên như thế nào",
+        "title_vn": "(VIDEO) Chỉ số POL dương kết hợp với El Niño đã tạo đỉnh giá khí đốt tự nhiên như thế nào",
         "title_en": "(VIDEO) How a positive POL Index, combined with El Niño created a top in natural gas prices",
         "date": "22 Oct 2026",
         "link": "https://climatelligence.substack.com/p/video-how-a-positive-pol-index-combined",
         "key_points": [
-          "Video của Jim Roemer phân tích cách chỉ số POL dương và El Niño tạo đỉnh giá khí tự nhiên.",
-          "Chỉ số POL dương cho thấy xoáy cực có thể duy trì ở phía bắc Mỹ trong phần lớn mùa đông này.",
-          "Dự báo nhiệt độ tháng 12 ban đầu cho thấy giá khí tự nhiên có thể giảm xuống dưới 3 USD trong các hợp đồng mùa đông.",
-          "Bài viết cũng đề cập đến lời khuyên về ngũ cốc và hàng hóa mềm cho các thuê bao trả phí."
+          "Jim Roemer đã dự đoán đỉnh thị trường khí đốt tự nhiên 1-2 tuần trước khi tâm lý giao dịch chuyển sang thời tiết và tháng giao mùa.",
+          "Chỉ số POL dương có nghĩa là xoáy cực có thể duy trì ở phía bắc nước Mỹ trong phần lớn mùa đông này.",
+          "Nếu dự báo nhiệt độ tháng 12 này được xác nhận, giá khí đốt tự nhiên có thể giảm xuống dưới 3 USD trong các hợp đồng mùa đông."
         ]
       },
       {
-        "title_vn": "Nho thịnh nộ: Mẹ Thiên nhiên đang gây 'say' cho ngành công nghiệp rượu vang!",
+        "title_vn": "Nho thịnh nộ: Mẹ Thiên nhiên đang gây ra 'cơn say' cho ngành công nghiệp rượu vang!",
         "title_en": "Grapes of Wrath: Mother Nature is Giving the Wine Industry a Hangover!",
         "date": "20 Oct 2026",
         "link": "https://climatelligence.substack.com/p/grapes-of-wrath-mother-nature-is",
         "key_points": [
-          "Biến đổi khí hậu đang gây áp lực lớn lên ngành công nghiệp rượu vang toàn cầu, từ California đến châu Âu.",
-          "California đối mặt với nắng nóng kỷ lục, hạn hán, mưa quá mức, mưa đá và khói cháy rừng, làm giảm sản lượng nho 35-40% ở một số vùng.",
-          "Châu Âu (Pháp, Ý, Tây Ban Nha) cũng chịu ảnh hưởng bởi sóng nhiệt, hạn hán, mưa quá mức, mưa đá và bệnh nấm, dự báo sản lượng rượu vang Pháp giảm 14% so với trung bình 5 năm.",
-          "Thời tiết cực đoan không chỉ giảm sản lượng mà còn thay đổi hương vị, độ axit và nồng độ cồn của rượu.",
-          "Sóng nhiệt và hạn hán ở Tây Âu là lý do Jim Roemer lạc quan về giá ngô châu Âu từ tháng 6."
-        ]
-      },
-      {
-        "title_vn": "Nam Mỹ: Tại sao 60-90 ngày tới lại quan trọng",
-        "title_en": "South America: Why the next 60–90 days matter",
-        "date": "17 Oct 2026",
-        "link": "https://climatelligence.substack.com/p/south-america-why-the-next-6090-days",
-        "key_points": [
-          "Kịch bản thời tiết thuận lợi ở Nam Mỹ hiện tại đang gây áp lực giảm giá cho ngũ cốc, đặc biệt là đậu tương.",
-          "Độ ẩm gieo trồng thuận lợi và mưa đúng lúc ở Brazil sẽ khuyến khích diện tích và tăng trưởng sớm của đậu tương.",
-          "Độ ẩm đầy đủ trong giai đoạn gieo trồng và phát triển ban đầu ở Argentina sẽ giảm bớt lo ngại về căng thẳng cây trồng.",
-          "Sức mạnh của El Niño có thể làm tăng khả năng mưa nhiều ở miền nam Brazil và Argentina, nhưng sự phân bố mưa là quan trọng và rủi ro vẫn còn."
+          "Biến đổi khí hậu đang gây áp lực lớn lên ngành rượu vang toàn cầu, từ nắng nóng kỷ lục, hạn hán đến mưa quá mức, mưa đá và khói cháy rừng ở California và châu Âu.",
+          "Sản lượng nho ở California và Pháp dự kiến giảm đáng kể (California 35-40% dưới mức trung bình ở một số vùng, Pháp 14% dưới mức trung bình 5 năm).",
+          "Thời tiết cực đoan không chỉ giảm sản lượng mà còn thay đổi hương vị, độ axit và nồng độ cồn của rượu vang."
         ]
       }
     ]
   },
   "dowjones_barchart_wrap": {
-    "session_headline": "Thị trường ngũ cốc CBOT phục hồi vào sáng thứ Năm, với lúa mì, ngô và đậu tương đều tăng giá sau phiên giảm điểm trước đó.",
-    "on_the_home_front": "Các báo cáo của Jim Roemer chỉ ra rằng lượng mưa gần đây ở Đồng bằng Mỹ đã giúp giảm bớt tình trạng hạn hán lúa mì, góp phần làm giá lúa mì giảm hơn 15% trong những tuần qua. Điều này có thể đã tác động tiêu cực đến tâm lý trader về triển vọng giá lúa mì, mặc dù các báo cáo Barchart gần đây không đi sâu vào chi tiết thời tiết thực địa mà tập trung vào biến động giá.",
-    "cut_and_run_funds": "Đối với ngô, sự gia tăng đáng kể 23.392 hợp đồng mở vào sáng thứ Năm cho thấy có sự mua mới khi giá phục hồi. Ngược lại, đậu tương chứng kiến hợp đồng mở giảm 2.644, có thể là do thanh lý vị thế. Lúa mì cũng có hợp đồng mở tăng nhẹ 2.694. Những động thái này phản ánh sự thay đổi trong vị thế của các quỹ và nhà đầu cơ, với ngô cho thấy lực mua mới trong khi đậu tương có thể đang chứng kiến sự rút lui của một số vị thế.",
-    "feeling_flat_demand": "Các bản tin Barchart gần đây không đề cập cụ thể đến các đơn hàng Flash Sales hay Export Sales của USDA. Tuy nhiên, giá ngô tiền mặt trung bình quốc gia tăng nhẹ, trong khi giá đậu tương tiền mặt giảm đáng kể vào thứ Tư, cho thấy nhu cầu nội địa có thể đang có sự phân hóa hoặc phản ứng khác nhau với các yếu tố thị trường khác.",
-    "insight_bottom_line": "Sau phiên giảm điểm vào thứ Tư, thị trường ngũ cốc CBOT đang cho thấy tín hiệu phục hồi vào sáng thứ Năm. Lúa mì và đậu tương đều bật tăng sau khi không giữ được mức tăng giữa phiên hoặc đối mặt với sự suy yếu vào thứ Tư. Ngô duy trì đà tăng từ giữa phiên thứ Tư và tiếp tục mở rộng vào thứ Năm. Định hướng ngắn hạn cho ZW và ZC có vẻ là sự phục hồi kỹ thuật sau áp lực bán gần đây, nhưng cần theo dõi liệu đà tăng này có được duy trì hay không.",
+    "session_headline": "Đậu tương đóng cửa trái chiều, lúa mì giảm giá, ngô phục hồi nhẹ vào cuối tuần",
+    "on_the_home_front": "Các báo cáo Barchart chủ yếu tập trung vào diễn biến giá và không cung cấp chi tiết về tình hình thời tiết thực địa hay tiến độ thu hoạch/gieo trồng tại Mỹ. Tuy nhiên, việc giá lúa mì giảm có thể phản ánh sự cải thiện điều kiện cây trồng ở Đồng bằng Mỹ do mưa (theo báo cáo của Jim Roemer). Giá ngô phục hồi nhẹ sau khi các nhà đầu cơ chuyển sang vị thế bán ròng, trong khi đậu tương biến động trái chiều.",
+    "cut_and_run_funds": "Các nhà đầu cơ đã chuyển sang vị thế bán ròng đối với ngô, cho thấy tâm lý giảm giá ngắn hạn. Đối với đậu tương, có thêm 2 đợt giao hàng chống lại hợp đồng tháng 11 qua đêm, và thị trường đậu tương đang giữ mức thua lỗ vào giữa ngày. Đối với bạc (theo Jim Roemer), vị thế mua đầu cơ quá mức đã khiến thị trường dễ bị thanh lý đột ngột.",
+    "feeling_flat_demand": "USDA đã báo cáo một giao dịch xuất khẩu tư nhân 101.000 MT ngô, góp phần giúp giá ngô phục hồi nhẹ vào cuối tuần. Tuy nhiên, nhìn chung, các thị trường ngũ cốc đang đối mặt với áp lực giảm giá, đặc biệt là lúa mì do áp lực từ Biển Đen.",
+    "insight_bottom_line": "Thị trường lúa mì đang đối mặt với sự suy yếu vào cuối tuần, chịu áp lực từ khu vực Biển Đen. Giá ngô đã phục hồi nhẹ, giúp giảm bớt mức thua lỗ hàng tuần. Đậu tương đóng cửa trái chiều. Thị trường đang phản ứng với các yếu tố cung cầu ngắn hạn và động thái của các quỹ đầu cơ, với triển vọng ngắn hạn cho lúa mì và ngô vẫn còn nhiều biến động.",
     "articles": [
       {
-        "title_vn": "Lúa mì bật tăng vào đầu phiên thứ Năm",
-        "source": "Barchart Grain Market Wrap (Austin Schroeder) (05 Nov 2026)",
-        "link": "https://www.barchart.com/story/news/8672425/wheat-bouncing-to-start-thursday",
+        "title_vn": "Đậu tương phục hồi để đóng cửa trái chiều vào thứ Sáu",
+        "source": "Barchart Grain Market Wrap (Austin Schroeder) (Fri, 06 Nov 2026)",
+        "link": "https://www.barchart.com/story/news/8710431/soybeans-come-back-to-close-mixed-on-friday",
         "summary_points": [
-          "Giá lúa mì tăng 4-6 cent vào sáng thứ Năm.",
-          "Hợp đồng mở tăng 2.694 hợp đồng."
+          "Hợp đồng đậu tương kỳ hạn gần tăng 1-8 cent, hợp đồng kỳ hạn xa giảm 3-4 cent.",
+          "Giá đậu tương tháng 1 giảm 40 ½ cent trong tuần; giá tiền mặt trung bình quốc gia tăng 6 cent lên 11.30 1/4 USD."
         ]
       },
       {
-        "title_vn": "Ngô tiếp tục đà tăng vào sáng thứ Năm",
-        "source": "Barchart Grain Market Wrap (Austin Schroeder) (05 Nov 2026)",
-        "link": "https://www.barchart.com/story/news/8672405/corn-extending-bounce-to-thursday-morning",
+        "title_vn": "Lúa mì giảm giá vào cuối tuần",
+        "source": "Barchart Grain Market Wrap (Austin Schroeder) (Fri, 06 Nov 2026)",
+        "link": "https://www.barchart.com/story/news/8710441/wheat-falls-into-the-weekend",
         "summary_points": [
-          "Giá ngô tăng 2-3 cent vào sáng thứ Năm.",
-          "Hợp đồng mở tăng 23.392 hợp đồng, cho thấy lực mua mới khiêm tốn."
+          "Hợp đồng lúa mì SRW Chicago giảm 1-8 cent, hợp đồng tháng 12 giảm 12 ¼ cent.",
+          "Hợp đồng lúa mì HRW Kansas City giảm 2-3 ¼ cent, hợp đồng tháng 12 giảm 11 ¾ cent."
         ]
       },
       {
-        "title_vn": "Đậu tương bật tăng vào giao dịch sáng thứ Năm",
-        "source": "Barchart Grain Market Wrap (Austin Schroeder) (05 Nov 2026)",
-        "link": "https://www.barchart.com/story/news/8672415/soybeans-popping-higher-on-thursday-am-trade",
+        "title_vn": "Ngô phục hồi để đóng cửa tuần khi các nhà đầu cơ chuyển sang vị thế bán ròng",
+        "source": "Barchart Grain Market Wrap (Austin Schroeder) (Fri, 06 Nov 2026)",
+        "link": "https://www.barchart.com/story/news/8710421/corn-bounces-to-close-the-week-as-specs-flip-short",
         "summary_points": [
-          "Giá đậu tương tăng 6-8 cent vào sáng thứ Năm.",
-          "Hợp đồng mở giảm 2.644 hợp đồng."
+          "Hợp đồng ngô đóng cửa phiên thứ Sáu tăng nhẹ đến 2 cent, giảm mức thua lỗ hàng tuần của hợp đồng tháng 12 xuống 6 ¼ cent.",
+          "Giá tiền mặt ngô trung bình quốc gia tăng 1 3/4 cent lên 4.06 USD; USDA báo cáo bán xuất khẩu tư nhân 101.000 MT."
         ]
       },
       {
-        "title_vn": "Lúa mì không giữ được mức tăng giữa phiên",
-        "source": "Barchart Grain Market Wrap (Austin Schroeder) (04 Nov 2026)",
-        "link": "https://www.barchart.com/story/news/8659578/wheat-fails-to-hold-onto-midday-gains",
+        "title_vn": "Thị trường gia súc phục hồi sau khi tạo đáy mới",
+        "source": "Barchart Grain Market Wrap (Ben DiCostanzo) (Fri, 06 Nov 2026)",
+        "link": "https://www.barchart.com/story/news/8709984/cattle-markets-rebound-after-making-new-lows",
         "summary_points": [
-          "Giá lúa mì giảm vào thứ Tư, không giữ được mức tăng giữa phiên.",
-          "Hợp đồng SRW Chicago ổn định đến giảm 2 cent; HRW KC giảm 3 ¼ đến 5 ½ cent."
+          "Giá gia súc giảm mạnh và sau đó phục hồi trở lại.",
+          "Thị trường gia súc đã tạo đáy mới trước khi có sự bật tăng."
         ]
       },
       {
-        "title_vn": "Phe bò ngô tạo đà phục hồi giữa tuần",
-        "source": "Barchart Grain Market Wrap (Austin Schroeder) (04 Nov 2026)",
-        "link": "https://www.barchart.com/story/news/8659556/corn-bulls-muster-up-a-midweek-bounce",
+        "title_vn": "Chênh lệch lúa mì Kansas City tháng 9-12 (KEU27:Z27)",
+        "source": "Barchart Grain Market Wrap (Walsh Trading) (Fri, 06 Nov 2026)",
+        "link": "https://www.barchart.com/story/news/8709848/sep-dec-kansas-city-wheat-spread-keu27-z27",
         "summary_points": [
-          "Giá ngô giữ được mức tăng giữa phiên vào thứ Tư, tăng 1-2 cent.",
-          "Giá ngô tiền mặt trung bình quốc gia tăng 1 ¾ cent lên 4,08 ¾ USD."
+          "Báo cáo tập trung vào chiến lược giao dịch chênh lệch (spread trading) cho lúa mì Kansas City.",
+          "Thông tin từ bộ phận Pure Hedge của Walsh Trading."
         ]
       },
       {
-        "title_vn": "Đậu tương đối mặt với sự suy yếu giữa tuần",
-        "source": "Barchart Grain Market Wrap (Austin Schroeder) (04 Nov 2026)",
-        "link": "https://www.barchart.com/story/news/8659566/soybeans-facing-midweek-weakness",
+        "title_vn": "Tóm tắt hàng ngày của Walsh Trading vào cuối phiên 11/6",
+        "source": "Barchart Grain Market Wrap (Walsh Trading) (Fri, 06 Nov 2026)",
+        "link": "https://www.barchart.com/story/news/8708672/walsh-daily-recap-at-close-11-6",
         "summary_points": [
-          "Giá đậu tương đóng cửa phiên thứ Tư giảm 2 ¼ đến 11 ¾ cent.",
-          "Giá đậu tương tiền mặt trung bình quốc gia giảm 11 ½ cent xuống 11,38 USD."
+          "Chênh lệch nghiền (crush spread) tháng 12 thu hẹp khoảng 1 cent xuống khoảng 1.93 USD, mức thấp nhất trong đợt này.",
+          "Đậu tương tháng 1 tăng 5½ cent, trong khi khô đậu tương tháng 12 tăng 2.00 USD và dầu đậu tương tháng 12 tăng 2 điểm."
         ]
       },
       {
-        "title_vn": "WALSH - NHÀ GIAO DỊCH GAMMA THUẦN TÚY",
-        "source": "Barchart Grain Market Wrap (Bill Allen) (04 Nov 2026)",
-        "link": "https://www.barchart.com/story/news/8659258/walsh-pure-gamma-trader",
+        "title_vn": "3 điểm chính rút ra từ thị trường tuần qua là gì?",
+        "source": "Barchart Grain Market Wrap (Darin Newsom) (Fri, 06 Nov 2026)",
+        "link": "https://www.barchart.com/story/news/8708347/what-were-3-key-market-takeaways-from-this-past-week",
         "summary_points": [
-          "Tùy chọn chi phí thấp, với rủi ro giới hạn."
+          "Tuần giao dịch kết thúc với nhiều biến động, đặc biệt do cuộc bầu cử giữa kỳ của Mỹ vào thứ Ba.",
+          "Bài viết tổng kết các điểm nổi bật và xu hướng chính của thị trường trong tuần."
         ]
       },
       {
-        "title_vn": "Chênh lệch giá ngũ cốc: Đậu tương tại mức 200 ngày",
-        "source": "Barchart Grain Market Wrap (Sean Lusk) (04 Nov 2026)",
-        "link": "https://www.barchart.com/story/news/8659171/grain-spreads-beans-at-200-day",
+        "title_vn": "Chênh lệch ngũ cốc: Phản ứng giữa kỳ/Triển vọng 2027",
+        "source": "Barchart Grain Market Wrap (Sean Lusk) (Fri, 06 Nov 2026)",
+        "link": "https://www.barchart.com/story/news/8708014/grain-spreads-mid-term-reaction-2027-outlook",
         "summary_points": [
-          "Mức quan trọng được kiểm tra, báo cáo WASDE vào thứ Ba."
+          "Bài viết đưa ra 5 ý tưởng giao dịch cho năm 2027.",
+          "Phân tích phản ứng của thị trường ngũ cốc với các sự kiện giữa kỳ."
         ]
       },
       {
-        "title_vn": "Đậu tương đối mặt với sự suy yếu giữa tuần",
-        "source": "Barchart Grain Market Wrap (Austin Schroeder) (04 Nov 2026)",
-        "link": "https://www.barchart.com/story/news/8652619/soybeans-facing-midweek-weakness",
+        "title_vn": "Lúa mì đối mặt với sự suy yếu vào thứ Sáu do áp lực từ Biển Đen",
+        "source": "Barchart Grain Market Wrap (Austin Schroeder) (Fri, 06 Nov 2026)",
+        "link": "https://www.barchart.com/story/news/8705758/wheat-facing-friday-weakness-on-black-sea-pressure",
         "summary_points": [
-          "Giá đậu tương giảm 1-7 cent vào giữa phiên thứ Tư.",
-          "Giá đậu tương tiền mặt trung bình quốc gia giảm 7 ¼ cent xuống 11,42 ¼ USD."
+          "Giá lúa mì SRW Chicago giảm 4-6 cent; lúa mì HRW Kansas City giảm 1-2 cent.",
+          "Lúa mì mùa xuân MPLS giảm 4-6 cent, cho thấy sự suy yếu trên toàn thị trường lúa mì."
         ]
       },
       {
-        "title_vn": "Lúa mì ghi nhận mức tăng khiêm tốn giữa tuần",
-        "source": "Barchart Grain Market Wrap (Austin Schroeder) (04 Nov 2026)",
-        "link": "https://www.barchart.com/story/news/8652629/wheat-posting-modest-midweek-gains",
+        "title_vn": "Đậu tương giữ mức thua lỗ vào thứ Sáu",
+        "source": "Barchart Grain Market Wrap (Austin Schroeder) (Fri, 06 Nov 2026)",
+        "link": "https://www.barchart.com/story/news/8705748/soybeans-holding-onto-friday-losses",
         "summary_points": [
-          "Giá lúa mì tăng vào thứ Tư.",
-          "Hợp đồng SRW Chicago tăng 4-5 cent; HRW KC tăng 1-3 cent."
+          "Đậu tương giao dịch với mức thua lỗ từ nhỏ đến 6 cent vào giữa ngày.",
+          "Giá tiền mặt đậu tương trung bình quốc gia giảm 1 1/4 cent xuống 11.24 USD; khô đậu tương giảm 20 cent, dầu đậu tương giảm 25-30 điểm."
         ]
       },
       {
-        "title_vn": "Cập nhật định kỳ về thị trường ngũ cốc, hợp đồng tương lai chăn nuôi",
-        "source": "Dow Jones / WSJ Grain Highlights (08 Oct 2026)",
-        "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPbWhUQkpHdjN6UWRtdjFleXBrc0VVQzkxZUMzek55aXpHQVpwUFNKcXZqazJubWNPRGxrSWN0c2FkakJtRS1DVDNId1R2TUxLX2p3NzYwTUhZN0dmM29aOHdvYktXMzA4c2I0V2t3SDFtWFZmVEw2NVRURV9nLWFrLVRxcjRjRVFCa2ExQWE2Z3B2LTc4RFU4ZlAwQ3FRdFl0TkE?oc=5",
+        "title_vn": "Cập nhật định kỳ về thị trường ngũ cốc, gia súc kỳ hạn",
+        "source": "Dow Jones / WSJ Grain Highlights (Fri, 02 Oct 2026)",
+        "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPMHoxdzNkaGNYUFZyaHZoX2pTbUVqRFI2TEt0TmlYQUJ0ZUV3bGVCdGdmeDdYXzN2N2tMOXhyRUNzRHRBczl0b09pQzdReGkzejFESnlCX2dPRTh4aU1LYWZ6d3RhWVE1OHFNc2R2V3V2ZG9ucHNUSUh3aW40R2xlczNMMFI4amd4VWNnUkZlUFVRYml3bko5ck1USnVySHM?oc=5",
         "summary_points": [
-          "Cập nhật định kỳ về thị trường ngũ cốc và chăn nuôi."
+          "Bản tin cung cấp các cập nhật định kỳ về thị trường ngũ cốc và gia súc.",
+          "Thông tin tổng hợp từ DTN Progressive Farmer."
         ]
       },
       {
-        "title_vn": "Báo cáo WASDE của USDA làm rung chuyển thị trường ngũ cốc khi Nam Mỹ giành ưu thế",
-        "source": "Dow Jones / WSJ Grain Highlights (11 Jun 2026)",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNYzY0dU9VNUM5Y3lRR01jTkZDZTc3SWxxMjkxZkxYWEVHRlBOVnhoeHkyU3pkcW5VNHJHcXFvQlNoZGFmOWxJS05OblBreW9BQ29ibTdlRzUxT0ZFQVdMLUtBUmQtSkc0aVRiYmNoa2dfN2gyeDBKSW9tc3pUWnozQlltZEVZX0lEcV92R3I3RG9PSGVOMnltdDBMWQ?oc=5",
+        "title_vn": "Báo cáo USDA WASDE làm rung chuyển thị trường ngũ cốc khi Nam Mỹ giành lợi thế",
+        "source": "Dow Jones / WSJ Grain Highlights (Thu, 11 Jun 2026)",
+        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNYzY0dU9VNUM5Y3lRR01jTkZDZTc3SWxxMjkxZkxYWEVHRlBOVnhoeHkyU3pkcW5VNHJHcXFvQlNoZGFmOWxJS05OblByeW9BQ29ibTdlRzUxT0ZFQVdMLUtBUmQtSkc0aVRiYmNoa2dfN2gyeDBKSW9tc3pUWnozQlltZEVZX0lEcV92R3I3RG9PSGVOMnltdDBMWQ?oc=5",
         "summary_points": [
-          "Báo cáo WASDE của USDA gây biến động thị trường ngũ cốc.",
-          "Nam Mỹ đang giành được ưu thế trong sản xuất."
+          "Báo cáo WASDE của USDA đã tạo ra biến động lớn trên thị trường ngũ cốc.",
+          "Nam Mỹ được cho là đang giành lợi thế về sản xuất."
         ]
       },
       {
-        "title_vn": "Cập nhật định kỳ về thị trường ngũ cốc, hợp đồng tương lai chăn nuôi",
-        "source": "Dow Jones / WSJ Grain Highlights (30 Sep 2026)",
-        "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPc29tS09vQUg5TXM0TzBiOWxVZlIyX29jaUlXc0MwTnVjSDZiZzNKelNxc2czNldjbTNyNzdsek05UGd3S1pzRHhxdWxuWklPQ05zXzNDaEF0dFB5d2NJV0Vuek5tVzRsUTNVN0k0R2REcUdNY3ZGVTBGdFVTZmlUYkY4Z1FDanQwZGJFVzNiTmVmQlFnTTlpNHU5VkE1Wk0?oc=5",
+        "title_vn": "Cập nhật định kỳ về thị trường ngũ cốc, gia súc kỳ hạn",
+        "source": "Dow Jones / WSJ Grain Highlights (Thu, 08 Oct 2026)",
+        "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPbWhUQkpHdjN6UWRtdjFleXBrc0VVQzkxZUMzek55aXpHQVpwUFNKcXZqazJubWNPRGxrSWN0c2FkakJtRS1DVDNId1R2TUxLX2p3NzYwTUhZN0dmM29aOHdvYktXMzA4c2I0V2t3SDFtWFZmVEw2NVRURV9nLWFrLVRxcjRjRVFCa2ExYWE2Z3B2LTc4RFU4ZlAwQ3FRdFl0TkE?oc=5",
         "summary_points": [
-          "Cập nhật định kỳ về thị trường ngũ cốc và chăn nuôi."
+          "Bản tin cung cấp các cập nhật định kỳ về thị trường ngũ cốc và gia súc.",
+          "Thông tin tổng hợp từ DTN Progressive Farmer."
         ]
       },
       {
-        "title_vn": "Cập nhật định kỳ về thị trường ngũ cốc, hợp đồng tương lai chăn nuôi",
-        "source": "Dow Jones / WSJ Grain Highlights (11 Sep 2026)",
-        "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSJoshLTMtTFpBZC1WVmVKWVZuckpPUnBxVTlMeEttNXdVWkVBUGJvekdVZzZrTC1GeXo0LW51UDRnMDlOZUpldzk3NnhOTFJHM0tpLUpkbU4weHJyODNWUldEZTN6QlJfYkUtdE9DX2FqTnVza29sSThjeEd0eXJUNzBOa19DQ05rM2dGckV4Z2VRWDlXTld1ZnpvMjQ4NUtmalE?oc=5",
+        "title_vn": "Cập nhật định kỳ về thị trường ngũ cốc, gia súc kỳ hạn",
+        "source": "Dow Jones / WSJ Grain Highlights (Fri, 11 Sep 2026)",
+        "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSkgtRTMtTFpBZC1WVmVKWVZuckpPUnBxVTlMeEttNXdVWkVBUGJvekdVZzZrTC1GeXo0LW51UDRnMDlOZUpldzk3NnhOTFJHM0tpLUpkbU4weHJyODNWUldEZTN6QlJfYkUtdE9DX2FqTnVza29sSThjeEd0eXJUNzBOa19DQ05rM2dGckV4Z2VRWDlXTld1ZnpvMjQ4NUtmalE?oc=5",
         "summary_points": [
-          "Cập nhật định kỳ về thị trường ngũ cốc và chăn nuôi."
+          "Bản tin cung cấp các cập nhật định kỳ về thị trường ngũ cốc và gia súc.",
+          "Thông tin tổng hợp từ DTN Progressive Farmer."
         ]
       }
     ]
