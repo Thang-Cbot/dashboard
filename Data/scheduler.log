@@ -30598,3 +30598,8 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-11-08 12:51:09] [INFO] ▶ Kích hoạt: COT CFTC
 [2026-11-08 12:51:16] [INFO] ✅ COT CFTC hoàn thành (attempt 1)
 [2026-11-08 12:51:16] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: COT CFTC)...
+[2026-11-08 12:51:21] [Sync] ✅ Đồng bộ Github thành công (COT CFTC)!
+[2026-11-08 12:51:21] [INFO] ⏰ Đợi COT CFTC: còn 138.39h (14/11 07:15:02 VN)
+[2026-11-08 13:12:54] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-11-08 13:13:24] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-11-08 13:13:24] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
