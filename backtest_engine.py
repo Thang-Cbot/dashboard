@@ -1141,13 +1141,11 @@ def compute_metrics(trades: list, days_filter = None) -> dict:
 
 def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
     """
-    KIẾN TRÚC 2 TẦNG THÍCH ỨNG (ADAPTIVE 2-LAYER RADAR):
-      - TẦNG 1A (Phiên Á/Âu & Sideway): Xác định cấu trúc & khóa cố định điểm Entry/SL/TP trên Nến H1 Đóng Cửa.
-      - TẦNG 1B (Phiên Mỹ & Sóng Xung Lực Mạnh): Kích hoạt sớm kịch bản Xung Lực (Fast Impulse) trên cụm nến
-        M15/M30 Đóng Cửa (hoặc nến Displacement bứt phá xa EMA21), đón nhịp hồi nông tại 50% FVG/Equilibrium
-        để không bị trễ 60 phút và không bị hụt lệnh khi sóng chạy mạnh.
-      - TẦNG 2 (Con trỏ Giá M5 Realtime): Chỉ dùng giá M5 để cập nhật Giá Live, đo khoảng cách tiếp cận
-        và báo trạng thái chạm vùng chờ (tuyệt đối không dùng M5 để vẽ lại cấu trúc hay dịch chuyển SL/TP).
+    RADAR ĐIỂM VÀO LỆNH TƯƠNG LAI (UPCOMING SETUPS) - 3 PHƯƠNG PHÁP MỚI:
+      - M1 (Scalp / Intraday): Đánh trong phiên (14h-22h), không giữ qua đêm, mục tiêu $200 USD (+4.0 pts).
+      - M2 (Swing Đỉnh / Đáy Gần Nhất): Đón tại Đỉnh/Đáy gần nhất (SMC Zone >= 5★), giữ vài ngày, mục tiêu $400-$500 USD (+8.0 - +10.0 pts).
+      - M3 (Chiến Lược Hybrid): Phối hợp linh hoạt theo trạng thái thị trường (Ưu tiên Swing $400-$500 khi gặp Đỉnh/Đáy; đánh Scalp $200 khi giữa sóng).
+      - Con trỏ Giá M5 Realtime: Chỉ dùng đo khoảng cách thực chiến (Live Distance) và cập nhật trạng thái Sẵn sàng / Chờ hồi.
     """
     radar = []
     commodities = [
@@ -1158,13 +1156,9 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
     for comm, prod, candles in commodities:
         if not candles:
             continue
-        # TẦNG 1: Chỉ lấy nến H1 đã đóng cửa để tính cấu trúc chuẩn
         c_last = candles[-1]
         h1_time = str(c_last.get("time", ""))
         h1_close = round(float(c_last["close"]), 2)
-        h1_open = round(float(c_last.get("open", h1_close)), 2)
-        h1_high = round(float(c_last.get("high", h1_close)), 2)
-        h1_low = round(float(c_last.get("low", h1_close)), 2)
         atr = round(float(c_last.get("atr", 3.0)), 2)
         rsi = round(float(c_last.get("rsi", 50.0)), 1)
         ema21 = round(float(c_last.get("ema21", h1_close)), 2)
@@ -1172,172 +1166,71 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
         
         ana = ict_engine.analyze(candles)
         trend = ana.get("trend", "neutral")
-        setup_h1 = ana.get("setup") or {}
-        m1_has_m3 = bool(setup_h1 and setup_h1.get("winRate", 0) >= 70)
-
-        # TẦNG 2: Lấy Giá M5 Realtime chỉ để làm Con trỏ Giá Live & đo khoảng cách
+        
+        # Con trỏ giá M5 Realtime
         m5_live = tv_webhook_client.get_latest_m5_price(comm)
         cur_p = round(float(m5_live["close"]), 2) if m5_live and m5_live.get("close") else h1_close
         m5_high = round(float(m5_live["high"]), 2) if m5_live and m5_live.get("high") else cur_p
         m5_low = round(float(m5_live["low"]), 2) if m5_live and m5_live.get("low") else cur_p
+        
+        recent_20 = candles[max(0, len(candles)-20):]
+        low_20 = min(x["low"] for x in recent_20)
+        high_20 = max(x["high"] for x in recent_20)
 
-        # ── 0. TẦNG 1B: KỊCH BẢN XUNG LỰC NHANH (M15/M30 ĐÓNG CỬA HOẶC DISPLACEMENT PHIÊN MỸ) ──
-        impulse_m15 = tv_webhook_client.get_m15_m30_closed_impulse(comm, c_last)
-        if impulse_m15.get("is_active"):
-            imp_side = impulse_m15["side"]
-            imp_entry = impulse_m15["entry_target"]
-            imp_sl = impulse_m15["sl_price"]
-            imp_tp1 = impulse_m15["tp1_price"]
-            imp_tp2 = impulse_m15["tp2_price"]
-            imp_tp3 = impulse_m15["tp3_price"]
-            imp_risk = impulse_m15["risk_pts"]
-            tf_lbl = impulse_m15["timeframe_label"]
-            reg_lbl = impulse_m15["regime_label"]
-            dist = round(abs(cur_p - imp_entry), 2)
-            touched = (m5_low <= imp_entry <= m5_high)
-            status = "⚡ SẴN SÀNG (Đang khớp FVG)" if (touched or dist <= 0.6 * atr) else "⏳ CHỜ HỒI NÔNG (FVG 50%)"
-            radar.append({
-                "commodity": comm,
-                "product": prod,
-                "method": f"⚡ M1-Fast ({tf_lbl} • FVG 50%)",
-                "side": imp_side,
-                "current_price": cur_p,
-                "entry_target": imp_entry,
-                "distance_pts": dist,
-                "sl_price": imp_sl,
-                "tp1_price": imp_tp1,
-                "tp2_price": imp_tp2,
-                "tp3_price": imp_tp3,
-                "risk_pts": imp_risk,
-                "risk_usd": round(imp_risk * MULTIPLIER, 2),
-                "rr": "1 : 2.0",
-                "status": status,
-                "structure_time": impulse_m15.get("time_vn", h1_time),
-                "latest_h1_time": h1_time,
-                "m3_confluence": True,
-                "action_hint": f"[{reg_lbl}] Đặt Limit {imp_side} đón nhịp hồi nông tại 50% nến xung lực ({imp_entry:.2f}) thay vì chờ EMA21 H1 ở xa ({ema21:.2f}). SL cố định: {imp_sl:.2f}, TP3: {imp_tp3:.2f}.",
-                "condition": f"[Tầng 1B - {tf_lbl}] Phát hiện nến Xung Lực ({impulse_m15['atr_ratio']}x ATR, thân nến đặc {impulse_m15['body_pct']}%). Khóa điểm đón FVG/Equilibrium 50%; Tầng 2 (M5) chỉ đo khoảng cách.",
-                "priority": "Rất cao"
-            })
-        else:
-            # Kiểm tra nếu nến H1 vừa đóng là nến Xung Lực mạnh (Displacement) đẩy giá rời xa EMA21 (> 0.85 ATR)
-            h1_range = max(0.01, h1_high - h1_low)
-            h1_body = abs(h1_close - h1_open)
-            dist_from_ema21 = abs(h1_close - ema21)
-            if h1_range >= 0.85 * atr and (h1_body / h1_range) >= 0.55 and dist_from_ema21 >= 0.85 * atr:
-                imp_side = "MUA" if (trend == "bullish" and h1_close > h1_open) else ("BÁN" if (trend == "bearish" and h1_close < h1_open) else None)
-                if imp_side:
-                    imp_entry = round((h1_open + h1_close) / 2.0, 2)
-                    if imp_side == "MUA":
-                        imp_sl = round(h1_low - 0.35 * atr, 2)
-                        imp_risk = round(max(2.0, imp_entry - imp_sl), 2)
-                        imp_tp1 = round(imp_entry + 1.0 * imp_risk, 2)
-                        imp_tp2 = round(imp_entry + 1.5 * imp_risk, 2)
-                        imp_tp3 = round(imp_entry + 2.0 * imp_risk, 2)
-                    else:
-                        imp_sl = round(h1_high + 0.35 * atr, 2)
-                        imp_risk = round(max(2.0, imp_sl - imp_entry), 2)
-                        imp_tp1 = round(imp_entry - 1.0 * imp_risk, 2)
-                        imp_tp2 = round(imp_entry - 1.5 * imp_risk, 2)
-                        imp_tp3 = round(imp_entry - 2.0 * imp_risk, 2)
-                    dist = round(abs(cur_p - imp_entry), 2)
-                    touched = (m5_low <= imp_entry <= m5_high)
-                    status = "⚡ SẴN SÀNG (Gần vùng FVG)" if (touched or dist <= 0.75 * atr) else "⏳ CHỜ HỒI NÔNG (FVG 50%)"
-                    radar.append({
-                        "commodity": comm,
-                        "product": prod,
-                        "method": "⚡ M1-Fast (Xung Lực • FVG 50%)",
-                        "side": imp_side,
-                        "current_price": cur_p,
-                        "entry_target": imp_entry,
-                        "distance_pts": dist,
-                        "sl_price": imp_sl,
-                        "tp1_price": imp_tp1,
-                        "tp2_price": imp_tp2,
-                        "tp3_price": imp_tp3,
-                        "risk_pts": imp_risk,
-                        "risk_usd": round(imp_risk * MULTIPLIER, 2),
-                        "rr": "1 : 2.0",
-                        "status": status,
-                        "structure_time": h1_time,
-                        "latest_h1_time": h1_time,
-                        "m3_confluence": True,
-                        "action_hint": f"[Chế độ Sóng Mạnh] Giá đã bứt phá xa EMA21 ({ema21:.2f}). Đặt Limit {imp_side} đón nhịp hồi nông tại 50% thân nến xung lực ({imp_entry:.2f}). SL: {imp_sl:.2f}, TP3: {imp_tp3:.2f}.",
-                        "condition": f"[Tầng 1B - Displacement] Nến bứt phá biên độ {h1_range:.2f} pts ({h1_range/atr:.1f}x ATR), cách EMA21 {dist_from_ema21:.2f} pts. Đón tại vùng cân bằng 50% để tránh hụt lệnh.",
-                        "priority": "Rất cao"
-                    })
-
-        # ── 1. TẦNG 1A: KỊCH BẢN M1 SCALP / INTRADAY (MỤC TIÊU $200 USD - KHÔNG GIỮ QUA ĐÊM) ──
+        # ── 1. KỊCH BẢN M1: SCALP / INTRADAY ($200 USD • KHÔNG GIỮ QUA ĐÊM) ────────
         pullback_offset_m1 = 0.45 * atr if comm == "ZW" else 0.40 * atr
         sl_dist_m1 = min(5.0 if comm == "ZW" else 4.2, max(3.6, round(1.8 * atr, 2)))
-        if trend == "bearish":
-            entry = round(min(ema21 + 0.1 * atr, h1_close + pullback_offset_m1), 2)
-            sl = round(entry + sl_dist_m1, 2)
-            risk = round(sl - entry, 2)
-            tp1 = round(entry - 4.0, 2)   # +$200 USD
-            tp2 = round(entry - 4.5, 2)   # +$225 USD
-            tp3 = round(entry - 5.0, 2)   # +$250 USD
-            dist = round(abs(entry - cur_p), 2)
-            touched = (m5_low <= entry <= m5_high)
-            status = "⚡ SẴN SÀNG (Gần chạm)" if (touched or dist <= atr) else "⏳ ĐANG CHỜ HỒI"
-            radar.append({
-                "commodity": comm,
-                "product": prod,
-                "method": "M1 (Scalp Intraday • Mục Tiêu $200)",
-                "side": "BÁN",
-                "current_price": cur_p,
-                "entry_target": entry,
-                "distance_pts": dist,
-                "sl_price": sl,
-                "tp1_price": tp1,
-                "tp2_price": tp2,
-                "tp3_price": tp3,
-                "risk_pts": risk,
-                "risk_usd": round(risk * MULTIPLIER, 2),
-                "rr": f"1 : {round(4.0/max(0.1, risk), 1)}",
-                "status": status,
-                "structure_time": h1_time,
-                "latest_h1_time": h1_time,
-                "m3_confluence": m1_has_m3,
-                "action_hint": f"[Scalp Intraday — Không giữ qua đêm] Đặt Limit BÁN trong phiên (14h-22h) @ {entry:.2f}. Mục tiêu chốt lời ngay trong ngày: TP1 {tp1:.2f} (+$200), TP3 {tp3:.2f} (+$250). SL: {sl:.2f}.",
-                "condition": f"[Tầng 1A - Scalp Intraday] Xu hướng GIẢM (EMA21 {ema21:.2f} < EMA50 {ema50:.2f}). Đánh ngắn trong ngày mục tiêu $200/giao dịch; Giá M5 Live cách {dist:.2f} pts.",
-                "priority": "Cao" if dist <= atr else "Trung bình"
-            })
-        elif trend == "bullish":
-            entry = round(max(ema21 - 0.1 * atr, h1_close - pullback_offset_m1), 2)
-            sl = round(entry - sl_dist_m1, 2)
-            risk = round(entry - sl, 2)
-            tp1 = round(entry + 4.0, 2)   # +$200 USD
-            tp2 = round(entry + 4.5, 2)   # +$225 USD
-            tp3 = round(entry + 5.0, 2)   # +$250 USD
-            dist = round(abs(cur_p - entry), 2)
-            touched = (m5_low <= entry <= m5_high)
-            status = "⚡ SẴN SÀNG (Gần chạm)" if (touched or dist <= atr) else "⏳ ĐANG CHỜ HỒI"
-            radar.append({
-                "commodity": comm,
-                "product": prod,
-                "method": "M1 (Scalp Intraday • Mục Tiêu $200)",
-                "side": "MUA",
-                "current_price": cur_p,
-                "entry_target": entry,
-                "distance_pts": dist,
-                "sl_price": sl,
-                "tp1_price": tp1,
-                "tp2_price": tp2,
-                "tp3_price": tp3,
-                "risk_pts": risk,
-                "risk_usd": round(risk * MULTIPLIER, 2),
-                "rr": f"1 : {round(4.0/max(0.1, risk), 1)}",
-                "status": status,
-                "structure_time": h1_time,
-                "latest_h1_time": h1_time,
-                "m3_confluence": m1_has_m3,
-                "action_hint": f"[Scalp Intraday — Không giữ qua đêm] Đặt Limit MUA trong phiên (14h-22h) @ {entry:.2f}. Mục tiêu chốt lời ngay trong ngày: TP1 {tp1:.2f} (+$200), TP3 {tp3:.2f} (+$250). SL: {sl:.2f}.",
-                "condition": f"[Tầng 1A - Scalp Intraday] Xu hướng TĂNG (EMA21 {ema21:.2f} > EMA50 {ema50:.2f}). Đánh ngắn trong ngày mục tiêu $200/giao dịch; Giá M5 Live cách {dist:.2f} pts.",
-                "priority": "Cao" if dist <= atr else "Trung bình"
-            })
+        
+        if ema21 <= ema50 or trend == "bearish":
+            m1_side = "BÁN"
+            m1_entry = round(min(ema21 + 0.1 * atr, h1_close + pullback_offset_m1), 2)
+            m1_sl = round(m1_entry + sl_dist_m1, 2)
+            m1_risk = round(m1_sl - m1_entry, 2)
+            m1_tp1 = round(m1_entry - 4.0, 2)   # +$200 USD
+            m1_tp2 = round(m1_entry - 4.5, 2)   # +$225 USD
+            m1_tp3 = round(m1_entry - 5.0, 2)   # +$250 USD
+            m1_cond = f"[M1 Scalp Intraday] Thuận xu hướng GIẢM (EMA21 {ema21:.2f} <= EMA50 {ema50:.2f}, RSI {rsi:.1f}). Đánh ngắn trong phiên (14h-22h) mục tiêu $200 USD, không giữ qua đêm."
+            m1_hint = f"[Scalp Intraday — Không giữ qua đêm] Đặt Limit BÁN @ {m1_entry:.2f}. Mục tiêu chốt lời: TP1 {m1_tp1:.2f} (+$200) -> TP3 {m1_tp3:.2f} (+$250). SL: {m1_sl:.2f}. Dời BE khi lãi đạt +$125."
+        else:
+            m1_side = "MUA"
+            m1_entry = round(max(ema21 - 0.1 * atr, h1_close - pullback_offset_m1), 2)
+            m1_sl = round(m1_entry - sl_dist_m1, 2)
+            m1_risk = round(m1_entry - m1_sl, 2)
+            m1_tp1 = round(m1_entry + 4.0, 2)   # +$200 USD
+            m1_tp2 = round(m1_entry + 4.5, 2)   # +$225 USD
+            m1_tp3 = round(m1_entry + 5.0, 2)   # +$250 USD
+            m1_cond = f"[M1 Scalp Intraday] Thuận xu hướng TĂNG (EMA21 {ema21:.2f} > EMA50 {ema50:.2f}, RSI {rsi:.1f}). Đánh ngắn trong phiên (14h-22h) mục tiêu $200 USD, không giữ qua đêm."
+            m1_hint = f"[Scalp Intraday — Không giữ qua đêm] Đặt Limit MUA @ {m1_entry:.2f}. Mục tiêu chốt lời: TP1 {m1_tp1:.2f} (+$200) -> TP3 {m1_tp3:.2f} (+$250). SL: {m1_sl:.2f}. Dời BE khi lãi đạt +$125."
             
-        # ── 2 & 3. TẦNG 1A: KỊCH BẢN M2 SWING ĐỈNH / ĐÁY GẦN NHẤT (MỤC TIÊU $400 - $500 USD, GIỮ VÀI NGÀY) ──
+        m1_dist = round(abs(cur_p - m1_entry), 2)
+        m1_touched = (m5_low <= m1_entry <= m5_high)
+        m1_status = f"⚡ SẴN SÀNG ({m1_dist:.2f} pts)" if (m1_touched or m1_dist <= 0.8 * atr) else f"⏳ ĐANG CHỜ HỒI ({m1_dist:.2f} pts)"
+        
+        radar.append({
+            "commodity": comm,
+            "product": prod,
+            "method": "M1 (Scalp Intraday • Mục Tiêu $200)",
+            "side": m1_side,
+            "current_price": cur_p,
+            "entry_target": m1_entry,
+            "distance_pts": m1_dist,
+            "sl_price": m1_sl,
+            "tp1_price": m1_tp1,
+            "tp2_price": m1_tp2,
+            "tp3_price": m1_tp3,
+            "risk_pts": m1_risk,
+            "risk_usd": round(m1_risk * MULTIPLIER, 2),
+            "rr": f"1 : {round(4.0/max(0.1, m1_risk), 1)}",
+            "status": m1_status,
+            "structure_time": h1_time,
+            "latest_h1_time": h1_time,
+            "m3_confluence": False,
+            "action_hint": m1_hint,
+            "condition": m1_cond,
+            "priority": "Cao" if m1_dist <= atr else "Trung bình"
+        })
+
+        # ── 2. KỊCH BẢN M2: SWING ĐỈNH / ĐÁY GẦN NHẤT ($400 - $500 USD • GIỮ VÀI NGÀY) ─
         min_opposing_dist = 7.0 if comm == "ZW" else 4.0
         valid_tzs = [z for z in ana.get("top_zones", []) if z.get("score", 0) >= 5 and z.get("price", 0) >= cur_p - 0.3 * atr]
         valid_bzs = [z for z in ana.get("bottom_zones", []) if z.get("score", 0) >= 5 and z.get("price", 0) <= cur_p + 0.3 * atr]
@@ -1349,91 +1242,153 @@ def compute_upcoming_radar(zc_candles: list, zw_candles: list) -> list:
             if (chosen_tz["price"] - chosen_bz["price"]) < min_opposing_dist:
                 if trend == "bearish":
                     chosen_bz = None
-                elif trend == "bullish":
-                    chosen_tz = None
                 else:
-                    if chosen_tz.get("score", 0) >= chosen_bz.get("score", 0):
-                        chosen_bz = None
-                    else:
-                        chosen_tz = None
+                    chosen_tz = None
 
         sl_dist_m2 = min(9.2 if comm == "ZW" else 7.5, max(6.2, round(2.6 * atr, 2)))
+        pullback_offset_m2 = 0.60 * atr if comm == "ZW" else 0.65 * atr
+
         if chosen_tz:
-            tz_p = round(chosen_tz["price"], 2)
-            sc = chosen_tz.get("score", 5)
-            tz_idx = chosen_tz.get("index", len(candles) - 1)
-            tz_time = str(candles[tz_idx].get("time", h1_time)) if 0 <= tz_idx < len(candles) else h1_time
-            tz_m3 = any("sweep" in f.lower() or "overbought" in f.lower() for f in chosen_tz.get("factors", [])) or (rsi > 65)
-            sl = round(tz_p + sl_dist_m2, 2)
-            risk = round(sl - tz_p, 2)
-            tp1 = round(tz_p - 8.0, 2)   # +$400 USD
-            tp2 = round(tz_p - 9.0, 2)   # +$450 USD
-            tp3 = round(tz_p - 10.0, 2)  # +$500 USD
-            dist = round(abs(cur_p - tz_p), 2)
-            status = "⚡ SẴN SÀNG (Đang test đỉnh)" if dist <= atr else "🔍 THEO DÕI ĐỈNH SWING"
-            radar.append({
-                "commodity": comm,
-                "product": prod,
-                "method": f"M2 (Swing Đỉnh {sc}★ • $400-$500)",
-                "side": "BÁN",
-                "current_price": cur_p,
-                "entry_target": tz_p,
-                "distance_pts": dist,
-                "sl_price": sl,
-                "tp1_price": tp1,
-                "tp2_price": tp2,
-                "tp3_price": tp3,
-                "risk_pts": risk,
-                "risk_usd": round(risk * MULTIPLIER, 2),
-                "rr": f"1 : {round(10.0/max(0.1, risk), 1)}",
-                "status": status,
-                "structure_time": tz_time,
-                "latest_h1_time": h1_time,
-                "m3_confluence": tz_m3,
-                "action_hint": f"[Swing Đỉnh Gần Nhất — Giữ vài ngày] Đỉnh H1 cố định tại {tz_p:.2f}. Canh BÁN giữ lệnh vài ngày hướng tới mục tiêu TP1 {tp1:.2f} (+$400) -> TP3 {tp3:.2f} (+$500). SL: {sl:.2f}.",
-                "condition": f"[Tầng 1A - Swing Đỉnh {sc}/8★] Vùng Đỉnh gần nhất tại {tz_p:.2f}. " + ", ".join(chosen_tz.get("factors", [])[:2]),
-                "priority": "Cao" if dist <= atr else "Trung bình"
-            })
+            m2_side = "BÁN"
+            m2_entry = round(chosen_tz["price"], 2)
+            m2_sc = chosen_tz.get("score", 5)
+            m2_idx = chosen_tz.get("index", len(candles) - 1)
+            m2_time = str(candles[m2_idx].get("time", h1_time)) if 0 <= m2_idx < len(candles) else h1_time
+            m2_sl = round(m2_entry + sl_dist_m2, 2)
+            m2_risk = round(m2_sl - m2_entry, 2)
+            m2_tp1 = round(m2_entry - 8.0, 2)   # +$400 USD
+            m2_tp2 = round(m2_entry - 9.0, 2)   # +$450 USD
+            m2_tp3 = round(m2_entry - 10.0, 2)  # +$500 USD
+            m2_name = f"M2 (Swing Đỉnh Gần Nhất {m2_sc}★ • $400-$500)"
+            m2_cond = f"[M2 Swing Đỉnh {m2_sc}/8★] Vùng Đỉnh gần nhất tại {m2_entry:.2f}. " + ", ".join(chosen_tz.get("factors", [])[:2])
+            m2_hint = f"[Swing Đỉnh Gần Nhất — Giữ vài ngày] Đỉnh cố định tại {m2_entry:.2f}. Canh BÁN giữ lệnh vài ngày hướng tới mục tiêu lớn: TP1 {m2_tp1:.2f} (+$400) -> TP3 {m2_tp3:.2f} (+$500). SL: {m2_sl:.2f}. Dời BE khi lãi đạt +$250."
+        elif chosen_bz:
+            m2_side = "MUA"
+            m2_entry = round(chosen_bz["price"], 2)
+            m2_sc = chosen_bz.get("score", 5)
+            m2_idx = chosen_bz.get("index", len(candles) - 1)
+            m2_time = str(candles[m2_idx].get("time", h1_time)) if 0 <= m2_idx < len(candles) else h1_time
+            m2_sl = round(m2_entry - sl_dist_m2, 2)
+            m2_risk = round(m2_entry - m2_sl, 2)
+            m2_tp1 = round(m2_entry + 8.0, 2)   # +$400 USD
+            m2_tp2 = round(m2_entry + 9.0, 2)   # +$450 USD
+            m2_tp3 = round(m2_entry + 10.0, 2)  # +$500 USD
+            m2_name = f"M2 (Swing Đáy Gần Nhất {m2_sc}★ • $400-$500)"
+            m2_cond = f"[M2 Swing Đáy {m2_sc}/8★] Vùng Đáy gần nhất tại {m2_entry:.2f}. " + ", ".join(chosen_bz.get("factors", [])[:2])
+            m2_hint = f"[Swing Đáy Gần Nhất — Giữ vài ngày] Đáy cố định tại {m2_entry:.2f}. Canh MUA giữ lệnh vài ngày hướng tới mục tiêu lớn: TP1 {m2_tp1:.2f} (+$400) -> TP3 {m2_tp3:.2f} (+$500). SL: {m2_sl:.2f}. Dời BE khi lãi đạt +$250."
+        else:
+            # Fallback lấy Swing High / Low 20 nến gần nhất
+            if trend == "bearish":
+                m2_side = "BÁN"
+                m2_entry = round(min(high_20 - 0.2 * atr, h1_close + pullback_offset_m2), 2)
+                m2_time = h1_time
+                m2_sl = round(m2_entry + sl_dist_m2, 2)
+                m2_risk = round(m2_sl - m2_entry, 2)
+                m2_tp1 = round(m2_entry - 8.0, 2)
+                m2_tp2 = round(m2_entry - 9.0, 2)
+                m2_tp3 = round(m2_entry - 10.0, 2)
+                m2_name = "M2 (Swing Đỉnh 20 Nến • $400-$500)"
+                m2_cond = f"[M2 Swing Đỉnh 20 nến] Vùng Đỉnh gần nhất tại {high_20:.2f}. Sóng giảm trung hạn, giữ lệnh vài ngày mục tiêu $400-$500."
+                m2_hint = f"[Swing Đỉnh — Giữ vài ngày] Canh BÁN tại {m2_entry:.2f}. TP1: {m2_tp1:.2f} (+$400), TP3: {m2_tp3:.2f} (+$500). SL: {m2_sl:.2f}."
+            else:
+                m2_side = "MUA"
+                m2_entry = round(max(low_20 + 0.2 * atr, h1_close - pullback_offset_m2), 2)
+                m2_time = h1_time
+                m2_sl = round(m2_entry - sl_dist_m2, 2)
+                m2_risk = round(m2_entry - m2_sl, 2)
+                m2_tp1 = round(m2_entry + 8.0, 2)
+                m2_tp2 = round(m2_entry + 9.0, 2)
+                m2_tp3 = round(m2_entry + 10.0, 2)
+                m2_name = "M2 (Swing Đáy 20 Nến • $400-$500)"
+                m2_cond = f"[M2 Swing Đáy 20 nến] Vùng Đáy gần nhất tại {low_20:.2f}. Sóng tăng trung hạn, giữ lệnh vài ngày mục tiêu $400-$500."
+                m2_hint = f"[Swing Đáy — Giữ vài ngày] Canh MUA tại {m2_entry:.2f}. TP1: {m2_tp1:.2f} (+$400), TP3: {m2_tp3:.2f} (+$500). SL: {m2_sl:.2f}."
 
-        if chosen_bz:
-            bz_p = round(chosen_bz["price"], 2)
-            sc = chosen_bz.get("score", 5)
-            bz_idx = chosen_bz.get("index", len(candles) - 1)
-            bz_time = str(candles[bz_idx].get("time", h1_time)) if 0 <= bz_idx < len(candles) else h1_time
-            bz_m3 = any("sweep" in f.lower() or "oversold" in f.lower() for f in chosen_bz.get("factors", [])) or (rsi < 35)
-            sl = round(bz_p - sl_dist_m2, 2)
-            risk = round(bz_p - sl, 2)
-            tp1 = round(bz_p + 8.0, 2)   # +$400 USD
-            tp2 = round(bz_p + 9.0, 2)   # +$450 USD
-            tp3 = round(bz_p + 10.0, 2)  # +$500 USD
-            dist = round(abs(cur_p - bz_p), 2)
-            status = "⚡ SẴN SÀNG (Đang test đáy)" if dist <= atr else "🔍 THEO DÕI ĐÁY SWING"
-            radar.append({
-                "commodity": comm,
-                "product": prod,
-                "method": f"M2 (Swing Đáy {sc}★ • $400-$500)",
-                "side": "MUA",
-                "current_price": cur_p,
-                "entry_target": bz_p,
-                "distance_pts": dist,
-                "sl_price": sl,
-                "tp1_price": tp1,
-                "tp2_price": tp2,
-                "tp3_price": tp3,
-                "risk_pts": risk,
-                "risk_usd": round(risk * MULTIPLIER, 2),
-                "rr": f"1 : {round(10.0/max(0.1, risk), 1)}",
-                "status": status,
-                "structure_time": bz_time,
-                "latest_h1_time": h1_time,
-                "m3_confluence": bz_m3,
-                "action_hint": f"[Swing Đáy Gần Nhất — Giữ vài ngày] Đáy H1 cố định tại {bz_p:.2f}. Canh MUA giữ lệnh vài ngày hướng tới mục tiêu TP1 {tp1:.2f} (+$400) -> TP3 {tp3:.2f} (+$500). SL: {sl:.2f}.",
-                "condition": f"[Tầng 1A - Swing Đáy {sc}/8★] Vùng Đáy gần nhất tại {bz_p:.2f}. " + ", ".join(chosen_bz.get("factors", [])[:2]),
-                "priority": "Cao" if dist <= atr else "Trung bình"
-            })
+        m2_dist = round(abs(cur_p - m2_entry), 2)
+        m2_status = f"⚡ SẴN SÀNG ({m2_dist:.2f} pts)" if m2_dist <= atr else f"🔍 THEO DÕI VÙNG SWING ({m2_dist:.2f} pts)"
 
-    # Sắp xếp theo mức độ sẵn sàng: Sẵn sàng & M1-Fast lên đầu, khoảng cách gần lên trước
-    radar = sorted(radar, key=lambda x: (0 if "SẴN SÀNG" in x["status"] else 1, 0 if "M1-Fast" in x["method"] else 1, x["distance_pts"]))
+        radar.append({
+            "commodity": comm,
+            "product": prod,
+            "method": m2_name,
+            "side": m2_side,
+            "current_price": cur_p,
+            "entry_target": m2_entry,
+            "distance_pts": m2_dist,
+            "sl_price": m2_sl,
+            "tp1_price": m2_tp1,
+            "tp2_price": m2_tp2,
+            "tp3_price": m2_tp3,
+            "risk_pts": m2_risk,
+            "risk_usd": round(m2_risk * MULTIPLIER, 2),
+            "rr": f"1 : {round(10.0/max(0.1, m2_risk), 1)}",
+            "status": m2_status,
+            "structure_time": m2_time,
+            "latest_h1_time": h1_time,
+            "m3_confluence": True,
+            "action_hint": m2_hint,
+            "condition": m2_cond,
+            "priority": "Cao" if m2_dist <= atr else "Trung bình"
+        })
+
+        # ── 3. KỊCH BẢN M3: CHIẾN LƯỢC HYBRID (PHỐI HỢP SCALP $200 + SWING $400-$500) ─
+        is_swing_vol = (comm == "ZW" and atr >= 2.4) or (comm == "ZC" and atr >= 1.65)
+        has_strong_smc = bool(chosen_tz or chosen_bz)
+        
+        if has_strong_smc or is_swing_vol:
+            # M3 ưu tiên đi lệnh Swing $400-$500 khi gặp vùng Đỉnh/Đáy hoặc biên độ rộng
+            m3_side = m2_side
+            m3_entry = m2_entry
+            m3_sl = m2_sl
+            m3_risk = m2_risk
+            m3_tp1 = m2_tp1
+            m3_tp2 = m2_tp2
+            m3_tp3 = m2_tp3
+            m3_dist = m2_dist
+            m3_method = "M3 (Hybrid: Swing $400-$500)"
+            m3_cond = f"[M3 Hybrid • Chế độ Swing] Biên độ ATR ({atr:.2f}) đủ lớn để ăn sóng dài $400-$500. Ưu tiên đón tại Đỉnh/Đáy gần nhất, giữ lệnh vài ngày."
+            m3_hint = f"[Hybrid Swing — Giữ vài ngày] Đặt Limit {m3_side} @ {m3_entry:.2f}. Mục tiêu: TP1 {m3_tp1:.2f} (+$400) -> TP3 {m3_tp3:.2f} (+$500). SL: {m3_sl:.2f}."
+            m3_status = m2_status
+        else:
+            # M3 đi lệnh Scalp Intraday $200 khi sóng đi giữa chu kỳ
+            m3_side = m1_side
+            m3_entry = m1_entry
+            m3_sl = m1_sl
+            m3_risk = m1_risk
+            m3_tp1 = m1_tp1
+            m3_tp2 = m1_tp2
+            m3_tp3 = m1_tp3
+            m3_dist = m1_dist
+            m3_method = "M3 (Hybrid: Scalp $200)"
+            m3_cond = f"[M3 Hybrid • Chế độ Scalp] Thị trường vận động giữa chu kỳ sóng. Kích hoạt lệnh Scalp Intraday chốt nhanh $200 USD trong phiên, không giữ qua đêm."
+            m3_hint = f"[Hybrid Scalp — Trong ngày] Đặt Limit {m3_side} @ {m3_entry:.2f}. Mục tiêu: TP1 {m3_tp1:.2f} (+$200) -> TP3 {m3_tp3:.2f} (+$250). SL: {m3_sl:.2f}."
+            m3_status = m1_status
+
+        radar.append({
+            "commodity": comm,
+            "product": prod,
+            "method": m3_method,
+            "side": m3_side,
+            "current_price": cur_p,
+            "entry_target": m3_entry,
+            "distance_pts": m3_dist,
+            "sl_price": m3_sl,
+            "tp1_price": m3_tp1,
+            "tp2_price": m3_tp2,
+            "tp3_price": m3_tp3,
+            "risk_pts": m3_risk,
+            "risk_usd": round(m3_risk * MULTIPLIER, 2),
+            "rr": f"1 : {round((10.0 if 'Swing' in m3_method else 4.0)/max(0.1, m3_risk), 1)}",
+            "status": m3_status,
+            "structure_time": h1_time,
+            "latest_h1_time": h1_time,
+            "m3_confluence": True,
+            "action_hint": m3_hint,
+            "condition": m3_cond,
+            "priority": "Cao" if m3_dist <= atr else "Trung bình"
+        })
+
+    # Sắp xếp theo mức độ sẵn sàng: Sẵn sàng lên đầu, khoảng cách gần lên trước
+    radar = sorted(radar, key=lambda x: (0 if "SẴN SÀNG" in x["status"] else 1, x["distance_pts"]))
     return radar
 
 

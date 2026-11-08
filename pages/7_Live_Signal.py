@@ -600,6 +600,7 @@ def render_future_radar_section(radar_list):
     ready_cnt = sum(1 for r in radar_list if "SẴN SÀNG" in r.get("status", ""))
     m1_cnt = sum(1 for r in radar_list if "M1" in r.get("method", ""))
     m2_cnt = sum(1 for r in radar_list if "M2" in r.get("method", ""))
+    m3_cnt = sum(1 for r in radar_list if "M3" in r.get("method", ""))
     total_cnt = len(radar_list)
     
     rows_html = []
@@ -632,6 +633,12 @@ def render_future_radar_section(radar_list):
         else:
             status_badge = f"<span style='background:rgba(148, 163, 184, 0.15); color:#cbd5e1; border:1px solid #64748b; padding:3px 8px; border-radius:4px; font-weight:600; font-size:11px;'>🔍 Cách {dist:.2f} pts</span>"
             
+        is_scalp = ("Scalp" in method or "M1" in method) and ("Swing" not in method)
+        tp1_lbl = "+$200" if is_scalp else "+$400"
+        tp2_lbl = "+$225" if is_scalp else "+$450"
+        tp3_lbl = "+$250" if is_scalp else "+$500"
+        target_pnl_str = "+$200 - $250 USD" if is_scalp else "+$400 - $500 USD"
+        
         row = f"""
         <details class='radar-accordion'>
           <summary class='radar-summary'>
@@ -662,15 +669,15 @@ def render_future_radar_section(radar_list):
               <div style='background:#111827; border:1px solid #374151; border-radius:6px; padding:10px;'>
                 <div style='font-size:11px; color:#94a3b8; text-transform:uppercase;'>🏆 Mục Tiêu Chốt Lời (TP)</div>
                 <div style='font-size:13px; font-weight:700; color:#34d399; font-family:monospace; margin-top:2px;'>
-                  TP1 (Dời BE): {tp1_p:.2f}<br>
-                  TP2 (1.5R): {tp2_p:.2f}<br>
-                  TP3 (2.0R): {tp3_p:.2f}
+                  TP1 (Dời BE): {tp1_p:.2f} ({tp1_lbl})<br>
+                  TP2: {tp2_p:.2f} ({tp2_lbl})<br>
+                  TP3 (Max): {tp3_p:.2f} ({tp3_lbl})
                 </div>
               </div>
               <div style='background:#111827; border:1px solid #374151; border-radius:6px; padding:10px;'>
                 <div style='font-size:11px; color:#94a3b8; text-transform:uppercase;'>⚖️ Tỷ Lệ Lợi Nhuận / Rủi Ro</div>
                 <div style='font-size:16px; font-weight:800; color:#a78bfa; font-family:monospace; margin-top:2px;'>R:R = {rr}</div>
-                <div style='font-size:11px; color:#c4b5fd;'>Lợi nhuận mục tiêu: +${risk_usd*2:,.0f} USD</div>
+                <div style='font-size:11px; color:#c4b5fd;'>Mục tiêu: {target_pnl_str}</div>
               </div>
             </div>
             <div style='background:#1e1b4b; border-left:4px solid #818cf8; border-radius:6px; padding:10px 14px; margin-bottom:8px;'>
@@ -694,10 +701,10 @@ def render_future_radar_section(radar_list):
               <span style='background:#312e81; color:#c7d2fe; font-size:11px; font-weight:700; padding:2px 8px; border-radius:12px; border:1px solid #4f46e5;'>LIVE WATCHLIST</span>
             </div>
             <div style='font-size:12px; color:#94a3b8; margin-top:4px;'>
-              <b>Tầng 1 (Cấu trúc & Điểm vào):</b> Nến H1 Đóng Cửa (Sideway) + Nến M15/M30 Đóng Cửa FVG 50% (Phiên Mỹ / Sóng Mạnh) &nbsp;|&nbsp; <b>Tầng 2 (M5 Realtime):</b> Chỉ đo khoảng cách Giá Live & cập nhật trạng thái khớp lệnh (Không gây nhiễu cấu trúc).
+              <b>Cấu trúc 3 Phương Pháp Mới:</b> M1 Scalp ($200 • Không giữ qua đêm) &nbsp;|&nbsp; M2 Swing ($400-$500 • Đỉnh/Đáy gần nhất) &nbsp;|&nbsp; M3 Hybrid (Phối hợp linh hoạt) &nbsp;|&nbsp; Con trỏ Giá M5 Realtime đo khoảng cách thực tế.
             </div>
           </div>
-          <div style='display:flex; gap:10px;'>
+          <div style='display:flex; gap:10px; flex-wrap:wrap;'>
             <div style='background:#0f172a; border:1px solid #312e81; border-radius:8px; padding:8px 14px; text-align:center;'>
               <div style='font-size:10px; color:#a5b4fc; text-transform:uppercase;'>Tổng Kịch Bản</div>
               <div style='font-size:18px; font-weight:800; color:#ffffff;'>{total_cnt}</div>
@@ -706,13 +713,17 @@ def render_future_radar_section(radar_list):
               <div style='font-size:10px; color:#fde047; text-transform:uppercase;'>⚡ Sẵn Sàng</div>
               <div style='font-size:18px; font-weight:800; color:#facc15;'>{ready_cnt}</div>
             </div>
-            <div style='background:#0f172a; border:1px solid #1e3a8a; border-radius:8px; padding:8px 14px; text-align:center;'>
-              <div style='font-size:10px; color:#93c5fd; text-transform:uppercase;'>Thuận Trend (M1)</div>
-              <div style='font-size:18px; font-weight:800; color:#60a5fa;'>{m1_cnt}</div>
+            <div style='background:#0f172a; border:1px solid #0284c7; border-radius:8px; padding:8px 14px; text-align:center;'>
+              <div style='font-size:10px; color:#38bdf8; text-transform:uppercase;'>M1 Scalp ($200)</div>
+              <div style='font-size:18px; font-weight:800; color:#38bdf8;'>{m1_cnt}</div>
             </div>
-            <div style='background:#0f172a; border:1px solid #4c1d95; border-radius:8px; padding:8px 14px; text-align:center;'>
-              <div style='font-size:10px; color:#d8b4fe; text-transform:uppercase;'>SMC Zone (M2)</div>
-              <div style='font-size:18px; font-weight:800; color:#c084fc;'>{m2_cnt}</div>
+            <div style='background:#0f172a; border:1px solid #f59e0b; border-radius:8px; padding:8px 14px; text-align:center;'>
+              <div style='font-size:10px; color:#fbbf24; text-transform:uppercase;'>M2 Swing ($400-$500)</div>
+              <div style='font-size:18px; font-weight:800; color:#fbbf24;'>{m2_cnt}</div>
+            </div>
+            <div style='background:#0f172a; border:1px solid #9333ea; border-radius:8px; padding:8px 14px; text-align:center;'>
+              <div style='font-size:10px; color:#c084fc; text-transform:uppercase;'>M3 Hybrid</div>
+              <div style='font-size:18px; font-weight:800; color:#c084fc;'>{m3_cnt}</div>
             </div>
           </div>
         </div>
