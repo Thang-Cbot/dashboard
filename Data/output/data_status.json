@@ -53,14 +53,14 @@
       "updated_at": "2026-11-09 10:15:07"
     },
     "github_sync": {
-      "status": "[ERROR]",
-      "detail": "Exception: [WinError 2] The system cannot find the file specified",
-      "updated_at": "2026-11-09 08:01:23"
+      "status": "[OK]",
+      "detail": "Đẩy thành công lúc 10:25:10 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-11-09 10:25:10"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 08:00:19",
-      "updated_at": "2026-11-09 08:00:19"
+      "detail": "Auto-fetch 10:25:19",
+      "updated_at": "2026-11-09 10:25:19"
     },
     "russian_metrics": {
       "status": "[OK]",
