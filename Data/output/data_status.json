@@ -14,8 +14,8 @@
     },
     "macro": {
       "status": "[OK]",
-      "detail": "Auto-fetch 13:38:34",
-      "updated_at": "2026-11-09 13:38:34"
+      "detail": "Auto-fetch 14:01:34",
+      "updated_at": "2026-11-09 14:01:34"
     },
     "cot": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 14:01:13 (Nguồn: Giá H1 + Macro)",
-      "updated_at": "2026-11-09 14:01:13"
+      "detail": "Đẩy thành công lúc 14:01:31 (Nguồn: Giá H4)",
+      "updated_at": "2026-11-09 14:01:31"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -101,8 +101,8 @@
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=96.91, DXY=102.077",
-    "updated_at": "2026-11-09 13:38:34"
+    "detail": "Brent=96.52, DXY=102.061",
+    "updated_at": "2026-11-09 14:01:34"
   },
   "weather_short": {
     "status": "OK",
