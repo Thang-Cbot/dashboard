@@ -30994,3 +30994,8 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-11-09 16:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
 [2026-11-09 16:01:22] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
 [2026-11-09 16:01:22] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
+[2026-11-09 16:01:32] [Sync] ✅ Đồng bộ Github thành công (Giá H1 + Macro)!
+[2026-11-09 16:01:32] [WARNING] Lỗi đồng bộ M5 vào H1 CSV: No module named 'tv_webhook_client'
+[2026-11-09 16:01:32] [INFO] ▶ Kích hoạt: Giá H4
+[2026-11-09 16:01:47] [INFO] ✅ Giá H4 hoàn thành (attempt 1)
+[2026-11-09 16:01:47] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H4)...
