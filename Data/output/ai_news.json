@@ -1,209 +1,55 @@
 {
-  "timestamp": "2026-11-09 21:00:03",
-  "news": [
-    {
-      "title": "Hiện tượng phân tách xoáy cực: Nguy cơ thời tiết cực đoan cho nông nghiệp Mỹ",
-      "details": [
-        "Hiện tượng phân tách xoáy cực (Polar Vortex Split) là bất thường, đặc biệt trong tháng 11 và các năm El Niño.",
-        "Từng gây ra đợt đóng băng ở Florida và rét đậm lịch sử vào cuối tháng 1/2025.",
-        "Có thể dẫn đến thời tiết cực lạnh tại Mỹ, ảnh hưởng đến cây trồng vụ đông và gieo trồng vụ xuân.",
-        "Tác động gián tiếp đến giá nông sản CBOT thông qua điều kiện thời tiết."
-      ],
-      "link": "https://climatelligence.substack.com/p/what-is-a-split-in-the-polar-vortex",
-      "source": "06 Nov 2026 - BestWeather / Jim Roemer (Climatelligence)",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Giá lúa mì tiếp tục suy yếu vào sáng thứ Hai",
-      "details": [
-        "Giá lúa mì giảm 1-4 cent vào sáng thứ Hai.",
-        "Hợp đồng SRW Chicago giảm 1-8 cent vào phiên trước, hợp đồng tháng 12 giảm 12.25 cent.",
-        "Lãi suất mở tăng 1,588 hợp đồng, cho thấy sự quan tâm của thị trường.",
-        "Áp lực giảm giá có thể đến từ nguồn cung Biển Đen hoặc dự báo sản lượng."
-      ],
-      "link": "https://www.barchart.com/story/news/8734600/wheat-feeling-extending-weakness-on-monday-morning",
-      "source": "09 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Giá ngô tăng nhẹ vào sáng thứ Hai",
-      "details": [
-        "Giá ngô tăng 1-2 cent vào sáng thứ Hai.",
-        "Hợp đồng tương lai đóng cửa phiên thứ Sáu tăng nhẹ đến 2 cent, giảm mức lỗ hàng tuần của hợp đồng tháng 12 xuống 6.25 cent.",
-        "Lãi suất mở tăng 18,644 hợp đồng vào thứ Sáu, cho thấy dòng tiền mới vào thị trường.",
-        "Sự tăng giá có thể do hoạt động mua vào sau khi giá giảm hoặc kỳ vọng về báo cáo USDA sắp tới."
-      ],
-      "link": "https://www.barchart.com/story/news/8734580/corn-ticking-higher-on-monday-morning",
-      "source": "09 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Phân tích kỹ thuật: Đỉnh dài hạn của giá lúa mì và các mức hỗ trợ/kháng cự quan trọng",
-      "details": [
-        "Bài viết cung cấp thông tin giáo dục và hành động dựa trên phân tích Fibonacci và W.D. Gann.",
-        "Giải thích về khả năng giá lúa mì đã đạt đỉnh dài hạn.",
-        "Đưa ra các mức giá quan trọng cho tuần, giúp nhà giao dịch định hướng.",
-        "Nhận định này có thể ảnh hưởng đến tâm lý thị trường và chiến lược giao dịch."
-      ],
-      "link": "https://www.barchart.com/story/news/8726001/wheat-the-long-term-top-explained-plus-key-levels-for-the-week",
-      "source": "08 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Giá ngô phục hồi cuối tuần khi giới đầu cơ chuyển sang vị thế bán",
-      "details": [
-        "Hợp đồng ngô tương lai đóng cửa phiên thứ Sáu tăng nhẹ đến 2 cent.",
-        "Giúp giảm mức lỗ hàng tuần của hợp đồng tháng 12 xuống 6.25 cent.",
-        "Giá ngô giao ngay trung bình quốc gia tăng 1.75 cent, đạt 4.06 USD.",
-        "USDA báo cáo một giao dịch xuất khẩu tư nhân 101,000 tấn ngô."
-      ],
-      "link": "https://www.barchart.com/story/news/8710421/corn-bounces-to-close-the-week-as-specs-flip-short",
-      "source": "06 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Giá lúa mì giảm mạnh vào cuối tuần",
-      "details": [
-        "Giá lúa mì giảm trên toàn bộ các hợp đồng vào thứ Sáu.",
-        "Hợp đồng SRW Chicago giảm 1-8 cent, hợp đồng tháng 12 giảm 12.25 cent.",
-        "Hợp đồng HRW Kansas City giảm 2-3.25 cent, hợp đồng tháng 12 giảm 11.75 cent.",
-        "Áp lực giảm giá có thể đến từ nguồn cung Biển Đen hoặc tâm lý thị trường tiêu cực."
-      ],
-      "link": "https://www.barchart.com/story/news/8710441/wheat-falls-into-the-weekend",
-      "source": "06 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Sản lượng lúa mì Canada dự kiến giảm 10% trong niên vụ 2026-27",
-      "details": [
-        "FAS dự báo sản lượng lúa mì của Canada sẽ giảm 10% trong niên vụ 2026-27.",
-        "Mặc dù giảm, sản lượng này vẫn sẽ là mức cao thứ hai của quốc gia.",
-        "Sự sụt giảm nguồn cung từ Canada có thể hỗ trợ giá lúa mì toàn cầu.",
-        "Tác động đến cán cân cung cầu lúa mì trên thị trường quốc tế."
-      ],
-      "link": "https://www.world-grain.com/articles/23432-canadian-wheat-output-expected-to-fall-by-10",
-      "source": "09 Nov 2026 - World Grain",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Dự báo sản lượng ngô Nam Phi giảm 19% do diện tích và năng suất thấp",
-      "details": [
-        "FAS dự báo sản lượng ngô của Nam Phi sẽ giảm 19% so với năm trước.",
-        "Nguyên nhân là do diện tích gieo trồng và năng suất đều giảm.",
-        "Nam Phi là nhà sản xuất ngô lớn trong khu vực, sự sụt giảm này có thể ảnh hưởng đến nguồn cung khu vực.",
-        "Tác động gián tiếp đến giá ngô toàn cầu nếu các nhà nhập khẩu tìm kiếm nguồn cung thay thế."
-      ],
-      "link": "https://www.world-grain.com/articles/23427-corn-output-decline-forecast-for-south-africa",
-      "source": "06 Nov 2026 - World Grain",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Giá lúa mì suy yếu vào thứ Sáu do áp lực từ Biển Đen",
-      "details": [
-        "Giá lúa mì giảm trên cả ba thị trường vào thứ Sáu.",
-        "Hợp đồng SRW Chicago giảm 4-6 cent, HRW Kansas City giảm 1-2 cent, lúa mì vụ xuân Minneapolis giảm 4-6 cent.",
-        "Áp lực giảm giá đến từ các diễn biến liên quan đến khu vực Biển Đen.",
-        "Các nỗ lực giảm gián đoạn xuất khẩu từ Biển Đen có thể làm tăng nguồn cung và gây áp lực lên giá."
-      ],
-      "link": "https://www.barchart.com/story/news/8705758/wheat-facing-friday-weakness-on-black-sea-pressure?.tsrc=rss",
-      "source": "06 Nov 2026 - Yahoo Finance",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Giá lúa mì toàn cầu có thể tăng 18-24% vào năm 2027 nếu các cảng Biển Đen vẫn đóng cửa",
-      "details": [
-        "UkrAgroConsult dự báo giá lúa mì toàn cầu có thể tăng đáng kể.",
-        "Mức tăng dự kiến là 18-24% vào năm 2027.",
-        "Điều kiện tiên quyết là các cảng Biển Đen vẫn bị đóng cửa.",
-        "Xung đột ở Biển Đen tiếp tục là yếu tố rủi ro lớn nhất đối với nguồn cung và giá lúa mì."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdHhVQjc4ZVhzMXlxYVNkcU50TEktM3laMkl4bFhyV3ZTWWNBTnpZSkZFTlZJX2tsX1pnT21lQ0dUT1dyQzluV0pxRkZNZTNvQUh5bjlwWTRNZ29HZDlGMkU1aWtxeUdYMC1fN01LNkNNTXNqUlUzQ0hKU2dsOEJHSU56M195N1RKamRZUUJLYTF4TVNkVHpMRDA0cFI2NTVDSEU0UGtyMGU4MFJwRTRJN0h3bw?oc=5",
-      "source": "06 Nov 2026 - Google News (Geo)",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Báo cáo WASDE tháng 11/2026 của USDA: Yếu tố then chốt cho giá ngô và đậu tương",
-      "details": [
-        "Báo cáo Cung cầu Nông nghiệp Thế giới (WASDE) tháng 11 của USDA sắp được công bố.",
-        "Đây là một báo cáo quan trọng, có khả năng tác động lớn đến giá ngô và đậu tương.",
-        "Thị trường đang chờ đợi các ước tính mới về sản lượng, tồn kho và xuất khẩu.",
-        "Dự báo của USDA sẽ định hình tâm lý thị trường và xu hướng giá trong ngắn hạn."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOUXltNDA0WnNpcUVON05vNW5lVU5ha19FcDMyU3hsYzFyRk9lNHJCZ3NFc1N6NldYMUJwQkRRWXRCa1hNZlJxX0lrOE1sSVgzR0cwUTM4cWtWUm1qUDJ6cU9YV0JJcW1KUmYyYS1ET3dsdTY3dzBtdENISXY3c0xOSw?oc=5",
-      "source": "05 Nov 2026 - Google News (Supply)",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Tiến độ thu hoạch của Mỹ: Ngô đạt 74%, đậu tương 88% vào đầu tháng 11",
-      "details": [
-        "Báo cáo Tiến độ Cây trồng của USDA cho thấy ngô đã thu hoạch được 74%.",
-        "Đậu tương đã thu hoạch được 88% tính đến đầu tháng 11 năm 2026.",
-        "Tiến độ thu hoạch nhanh chóng có thể gây áp lực lên giá trong ngắn hạn do nguồn cung mới ra thị trường.",
-        "Dữ liệu này là yếu tố quan trọng trong việc đánh giá tổng sản lượng cuối cùng của vụ mùa."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNMGx3djJLZUJ6aUwySHk2SndSd0I4S1FoekRQaTNYcjVPa0dQVWJ5ZUlFVXQ4amRzTW50RFFOQnVKTHVXejVDMWp3eDlKQlFqc3pJaVFzUHZHVWNZRElydE0yVjlqZV9RdWVSeTlPQW53NWhwSTN5N0cxOWpPY2tsb0lmVlBCV3BJa00xWC05aFNBTFlVWEZQMEN2R3BpS2UxLXBaUzZyVmI5ekRoNEtpLQ?oc=5",
-      "source": "03 Nov 2026 - Google News (Supply)",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Các cuộc tấn công mới ở Biển Đen làm tăng nguy cơ khủng hoảng lương thực toàn cầu",
-      "details": [
-        "Các cuộc tấn công mới trong khu vực Biển Đen đang làm gia tăng lo ngại về an ninh lương thực.",
-        "Khu vực này là hành lang xuất khẩu ngũ cốc quan trọng của Ukraine và Nga.",
-        "Gián đoạn vận chuyển có thể đẩy giá ngũ cốc toàn cầu lên cao.",
-        "Tình hình địa chính trị căng thẳng tiếp tục là rủi ro lớn cho thị trường nông sản."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQR2hRWUNlYTZDM3lkU1NBNVJPRThhWllJQ2xrYk1TMjJzemg0cW1EY1NlZjBIUWJvNjdvMGJvaXBiUzVKbWwta1U3T1hPUzZGeVVvcHZjcURDVWZOYUhMdkJGY0xrUTh5ejE4aGFGQjZZVEV5QUZaUW5WTVQxVjZHenh4eVBMUFRmZnY5WWhBZGZBOGxDcFc5VHc4emN4UEtvdW9IQzNwZkE?oc=5",
-      "source": "07 Nov 2026 - Google News (Geo)",
-      "category": "dia_chinh_tri"
-    }
-  ],
+  "timestamp": "2026-11-10 06:30:00",
+  "news": [],
   "intraday": {
     "ZW": {
-      "bias": "Neutral",
-      "bias_vn": "Đi Ngang",
-      "summary": "Chưa đủ dữ liệu để nhận định intraday ZW",
+      "bias": "Compression / High Volatility Pending",
+      "bias_vn": "Nén Đáy / Chờ Bùng Nổ Đêm Nay",
+      "summary": "ZW chốt tại 587.4c, biên độ nén hẹp (586.4 - 594.0c) trước sức ép giá dầu rơi -$3.5. Đáy 586.4c cao hơn đáy thứ Sáu. Chờ điểm nổ WASDE và Abu Dhabi.",
       "key_levels": {
-        "support": "N/A",
-        "resistance": "N/A"
+        "support": "585.0",
+        "resistance": "598.0"
       },
       "reasoning": [
-        "Đang chờ cập nhật dữ liệu"
+        "Biên độ hôm qua nén chặt quanh 587.4c, đỉnh bị kìm tại 594c do giá dầu thô Brent giảm -$3.5 về $94.7/thùng.",
+        "Đáy ngày 586.4c giữ vững trên đáy năm 585c, xác nhận lực bán tháo phiên ngày không mở rộng thêm.",
+        "Khối Net Short 87k - 91k hợp đồng đang trong thế rủi ro cực đại nếu WASDE tối nay cắt giảm tồn kho Nga.",
+        "Hôm nay hội nghị Abu Dhabi khai mạc; chiến sự Odesa ác liệt trong 24h qua làm vỡ mộng thỏa thuận nhanh.",
+        "Báo cáo USDA WASDE công bố lúc 23:00 tối nay sẽ kích hoạt thanh khoản và xu hướng bứt phá."
       ],
-      "risk": "N/A",
-      "generated_at": "2026-11-09 20:59"
+      "risk": "Rủi ro biến động giật 2 đầu cực mạnh trong khung giờ 21:30 - 23:30 tối nay.",
+      "generated_at": "2026-11-10 06:30"
     },
     "ZC": {
       "bias": "Neutral",
-      "bias_vn": "Đi Ngang",
-      "summary": "Chưa đủ dữ liệu để nhận định intraday ZC",
+      "bias_vn": "Thử Thách Hỗ Trợ 440c",
+      "summary": "ZC giảm nhẹ về 439.25c do áp lực giá dầu thô hạ nhiệt, chờ đợi số liệu tỉa năng suất từ WASDE tối nay.",
       "key_levels": {
-        "support": "N/A",
-        "resistance": "N/A"
+        "support": "437.0",
+        "resistance": "443.0"
       },
       "reasoning": [
-        "Đang chờ cập nhật dữ liệu"
+        "Áp lực từ giá dầu thô rơi đẩy ngô kiểm tra nhẹ dưới mốc 440c.",
+        "Thị trường kỳ vọng WASDE hạ năng suất Mỹ từ 181.2 xuống 180.5 bpa để nâng đỡ giá.",
+        "Nông dân Mỹ kiên quyết giữ kho dưới giá thành sản xuất, hạn chế đà giảm sâu.",
+        "Biến động lớn sẽ xuất hiện sau khi số liệu WASDE chính thức công bố lúc 23:00."
       ],
-      "risk": "N/A",
-      "generated_at": "2026-11-09 20:59"
+      "risk": "Rủi ro giảm tiếp nếu WASDE giữ nguyên năng suất ngô ở mức kỷ lục 181.2 bpa.",
+      "generated_at": "2026-11-10 06:30"
     },
-    "bias": "Neutral",
-    "bias_vn": "Đi Ngang",
-    "summary": "Chưa đủ dữ liệu để nhận định",
+    "bias": "Compression / High Volatility Pending",
+    "bias_vn": "Nén Đáy / Chờ Bùng Nổ Đêm Nay",
+    "summary": "ZW chốt tại 587.4c, biên độ nén hẹp (586.4 - 594.0c) trước sức ép giá dầu rơi -$3.5. Đáy 586.4c cao hơn đáy thứ Sáu. Chờ điểm nổ WASDE và Abu Dhabi.",
     "key_levels": {
-      "support": "N/A",
-      "resistance": "N/A"
+      "support": "585.0",
+      "resistance": "598.0"
     },
     "reasoning": [
-      "Đang chờ cập nhật dữ liệu"
-    ],
-    "risk": "N/A",
-    "generated_at": "2026-11-09 20:59"
-  },
-  "categories": [
-    "dia_chinh_tri",
-    "logistics",
-    "san_luong_dien_tich",
-    "cung_cau_nhan_dinh"
-  ]
+      "Biên độ hôm qua nén chặt quanh 587.4c, đỉnh bị kìm tại 594c do giá dầu thô Brent giảm -$3.5 về $94.7/thùng.",
+      "Đáy ngày 586.4c giữ vững trên đáy năm 585c, xác nhận lực bán tháo phiên ngày không mở rộng thêm.",
+      "Khối Net Short 87k - 91k hợp đồng đang trong thế rủi ro cực đại nếu WASDE tối nay cắt giảm tồn kho Nga.",
+      "Hôm nay hội nghị Abu Dhabi khai mạc; chiến sự Odesa ác liệt trong 24h qua làm vỡ mộng thỏa thuận nhanh.",
+      "Báo cáo USDA WASDE công bố lúc 23:00 tối nay sẽ kích hoạt thanh khoản và xu hướng bứt phá."
+    ]
+  }
 }
