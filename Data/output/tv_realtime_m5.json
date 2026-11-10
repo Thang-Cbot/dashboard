@@ -614,47 +614,31 @@
         "symbol": "ZC",
         "contract": "ZC1!",
         "interval": "M5",
-        "time": "2026-11-10T02:55:10Z",
-        "received_at": "2026-11-10T02:55:11.881Z",
+        "time": "2026-11-10T03:01:00Z",
+        "received_at": "2026-11-10T03:01:01.679Z",
         "open": 440,
         "high": 440,
         "low": 440,
         "close": 440,
-        "volume": 81,
+        "volume": 54,
         "ema21": null,
         "ema50": null,
         "rsi": null,
         "atr": null,
-        "time_vn": "2026-11-10 09:55:10",
-        "h1_bar_vn": "2026-11-10 09:00"
+        "time_vn": "2026-11-10 10:01:00",
+        "h1_bar_vn": "2026-11-10 10:00"
       },
       "forming_h1": {
-        "hour_prefix": "2026-11-10T02",
-        "time": "2026-11-10 02:00:00",
-        "open": 441,
-        "high": 441,
+        "hour_prefix": "2026-11-10T03",
+        "time": "2026-11-10 03:00:00",
+        "open": 440,
+        "high": 440,
         "low": 440,
         "close": 440,
-        "volume": 613,
-        "m5_count": 12
+        "volume": 54,
+        "m5_count": 1
       },
       "history_m5": [
-        {
-          "symbol": "ZC",
-          "contract": "ZC1!",
-          "interval": "M5",
-          "time": "2026-11-09T18:15:10Z",
-          "received_at": "2026-11-09T18:15:13.884Z",
-          "open": 438,
-          "high": 440,
-          "low": 438,
-          "close": 439,
-          "volume": 1620,
-          "ema21": null,
-          "ema50": null,
-          "rsi": null,
-          "atr": null
-        },
         {
           "symbol": "ZC",
           "contract": "ZC1!",
@@ -1214,9 +1198,25 @@
           "ema50": null,
           "rsi": null,
           "atr": null
+        },
+        {
+          "symbol": "ZC",
+          "contract": "ZC1!",
+          "interval": "M5",
+          "time": "2026-11-10T03:01:00Z",
+          "received_at": "2026-11-10T03:01:01.679Z",
+          "open": 440,
+          "high": 440,
+          "low": 440,
+          "close": 440,
+          "volume": 54,
+          "ema21": null,
+          "ema50": null,
+          "rsi": null,
+          "atr": null
         }
       ]
     }
   },
-  "updated_at": "2026-11-10T02:55:15.744Z"
+  "updated_at": "2026-11-10T03:01:01.719Z"
 }
