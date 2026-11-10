@@ -59,7 +59,8 @@
     "ZCEZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|441.43": "2026-11-10 19:25:18",
     "ZWAZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|590.09": "2026-11-10 19:25:18",
     "ZCEZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|441.33": "2026-11-10 19:30:33",
-    "ZWAZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|589.09": "2026-11-10 19:30:33"
+    "ZWAZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|589.09": "2026-11-10 19:30:33",
+    "ZWAZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|590.31": "2026-11-10 19:46:02"
   },
   "last_messages": {
     "ZCEZ26": {
@@ -67,8 +68,8 @@
       "msg": "📡 <b>CBOT RADAR</b> — <b>🌽 ZCEZ26 (Ngô) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>10/11/2026 19:30:42</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>10/11/2026 19:00</code>\n• 📊 <b>Chiến lược:</b> <b>M1 (Scalp Intraday • Mục Tiêu $200)</b>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (0.33 pts)</b>\n• 💹 <b>Giá Live (M5):</b> <b>441.00</b> <i>(Cách điểm đón 0.33 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>441.33</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>444.93</code> <i>(Rủi ro: 3.60 pts = $180/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>437.33</b> (+$200)\n   ├ TP2: <b>436.83</b> (+$225)\n   └ TP3 (Max): <b>436.33</b> (+$250)\n• 🧠 <b>Căn cứ kỹ thuật:</b> [M1 Scalp Intraday] Thuận xu hướng GIẢM (EMA21 441.21 <= EMA50 441.57, RSI 55.5). Đánh ngắn trong phiên (14h-22h) mục tiêu $200 USD, không giữ qua đêm.\n• 💡 <b>Hành động:</b> <i>[Scalp Intraday — Không giữ qua đêm] Đặt Limit BÁN @ 441.33. Mục tiêu chốt lời: TP1 437.33 (+$200) -> TP3 436.33 (+$250). SL: 444.93. Dời BE khi lãi đạt +$125.</i>"
     },
     "ZWAZ26": {
-      "timestamp": "2026-11-10 19:30:33",
-      "msg": "📡 <b>CBOT RADAR</b> — <b>🌾 ZWAZ26 (Lúa Mì) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>10/11/2026 19:30:44</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>10/11/2026 19:00</code>\n• 📊 <b>Chiến lược:</b> <b>M1 (Scalp Intraday • Mục Tiêu $200)</b>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (1.09 pts)</b>\n• 💹 <b>Giá Live (M5):</b> <b>588.00</b> <i>(Cách điểm đón 1.09 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>589.09</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>593.45</code> <i>(Rủi ro: 4.36 pts = $218/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>585.09</b> (+$200)\n   ├ TP2: <b>584.59</b> (+$225)\n   └ TP3 (Max): <b>584.09</b> (+$250)\n• 🧠 <b>Căn cứ kỹ thuật:</b> [M1 Scalp Intraday] Thuận xu hướng GIẢM (EMA21 589.89 <= EMA50 591.74, RSI 47.4). Đánh ngắn trong phiên (14h-22h) mục tiêu $200 USD, không giữ qua đêm.\n• 💡 <b>Hành động:</b> <i>[Scalp Intraday — Không giữ qua đêm] Đặt Limit BÁN @ 589.09. Mục tiêu chốt lời: TP1 585.09 (+$200) -> TP3 584.09 (+$250). SL: 593.45. Dời BE khi lãi đạt +$125.</i>"
+      "timestamp": "2026-11-10 19:46:02",
+      "msg": "📡 <b>CBOT RADAR</b> — <b>🌾 ZWAZ26 (Lúa Mì) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>10/11/2026 19:46:10</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>10/11/2026 19:00</code>\n• 📊 <b>Chiến lược:</b> <b>M1 (Scalp Intraday • Mục Tiêu $200)</b>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (0.31 pts)</b>\n• 💹 <b>Giá Live (M5):</b> <b>590.00</b> <i>(Cách điểm đón 0.31 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>590.31</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>594.67</code> <i>(Rủi ro: 4.36 pts = $218/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>586.31</b> (+$200)\n   ├ TP2: <b>585.81</b> (+$225)\n   └ TP3 (Max): <b>585.31</b> (+$250)\n• 🧠 <b>Căn cứ kỹ thuật:</b> [M1 Scalp Intraday] Thuận xu hướng GIẢM (EMA21 590.07 <= EMA50 591.82, RSI 47.4). Đánh ngắn trong phiên (14h-22h) mục tiêu $200 USD, không giữ qua đêm.\n• 💡 <b>Hành động:</b> <i>[Scalp Intraday — Không giữ qua đêm] Đặt Limit BÁN @ 590.31. Mục tiêu chốt lời: TP1 586.31 (+$200) -> TP3 585.31 (+$250). SL: 594.67. Dời BE khi lãi đạt +$125.</i>"
     }
   }
 }
