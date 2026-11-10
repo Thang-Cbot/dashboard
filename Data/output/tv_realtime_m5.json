@@ -614,18 +614,18 @@
         "symbol": "ZC",
         "contract": "ZC1!",
         "interval": "M5",
-        "time": "2026-11-10T13:40:02Z",
-        "received_at": "2026-11-10T13:40:08.548Z",
+        "time": "2026-11-10T13:46:00Z",
+        "received_at": "2026-11-10T13:46:00.996Z",
         "open": 440,
         "high": 440,
         "low": 440,
         "close": 440,
-        "volume": 544,
+        "volume": 501,
         "ema21": null,
         "ema50": null,
         "rsi": null,
         "atr": null,
-        "time_vn": "2026-11-10 20:40:02",
+        "time_vn": "2026-11-10 20:46:00",
         "h1_bar_vn": "2026-11-10 20:00"
       },
       "forming_h1": {
@@ -635,26 +635,10 @@
         "high": 441,
         "low": 440,
         "close": 440,
-        "volume": 2852,
-        "m5_count": 9
+        "volume": 3353,
+        "m5_count": 10
       },
       "history_m5": [
-        {
-          "symbol": "ZC",
-          "contract": "ZC1!",
-          "interval": "M5",
-          "time": "2026-11-10T10:45:02Z",
-          "received_at": "2026-11-10T10:45:14.679Z",
-          "open": 442,
-          "high": 442,
-          "low": 442,
-          "close": 442,
-          "volume": 104,
-          "ema21": null,
-          "ema50": null,
-          "rsi": null,
-          "atr": null
-        },
         {
           "symbol": "ZC",
           "contract": "ZC1!",
@@ -1214,9 +1198,25 @@
           "ema50": null,
           "rsi": null,
           "atr": null
+        },
+        {
+          "symbol": "ZC",
+          "contract": "ZC1!",
+          "interval": "M5",
+          "time": "2026-11-10T13:46:00Z",
+          "received_at": "2026-11-10T13:46:00.996Z",
+          "open": 440,
+          "high": 440,
+          "low": 440,
+          "close": 440,
+          "volume": 501,
+          "ema21": null,
+          "ema50": null,
+          "rsi": null,
+          "atr": null
         }
       ]
     }
   },
-  "updated_at": "2026-11-10T13:40:08.597Z"
+  "updated_at": "2026-11-10T13:46:01.024Z"
 }
