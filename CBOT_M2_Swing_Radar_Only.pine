@@ -1,0 +1,358 @@
+//@version=5
+strategy("CBOT M2: Swing Đỉnh / Đáy SMC ($400 - $500 USD) & Radar", 
+     shorttitle="CBOT M2 Swing CQG", 
+     overlay=true, 
+     initial_capital=10000, 
+     default_qty_type=strategy.fixed, 
+     default_qty_value=1, 
+     currency=currency.USD,
+     calc_on_every_tick=false,
+     max_labels_count=500,
+     max_lines_count=500)
+
+// ============================================================================
+// 1. THAM SỐ CẤU HÌNH PHƯƠNG PHÁP 2 (SWING ĐỈNH / ĐÁY)
+// ============================================================================
+grp_m2 = "🎯 THÔNG SỐ MỤC TIÊU & QUẢN TRỊ LỆNH SWING (CQG $50/CENT)"
+pointMult       = input.float(50.0, "Hệ số quy đổi CBOT ($/point, chuẩn 5,000 bu)", minval=1.0, group=grp_m2)
+tp1Usd          = input.float(400.0, "Mục tiêu TP1 ($ USD)", minval=100.0, step=50.0, group=grp_m2)
+tp3Usd          = input.float(500.0, "Mục tiêu TP3 ($ USD - Đóng hết)", minval=100.0, step=50.0, group=grp_m2)
+slPtsInput      = input.float(7.0, "Khoảng cách Cắt lỗ SL (Points/Cents)", minval=2.0, step=0.5, group=grp_m2)
+beTriggerUsd    = input.float(250.0, "Lợi nhuận kích hoạt dời SL về BE ($ USD)", minval=50.0, step=25.0, group=grp_m2)
+maxHoldBars     = input.int(96, "Thời gian giữ lệnh tối đa (Bars • ~4 ngày)", minval=24, maxval=200, group=grp_m2)
+
+grp_smc = "📐 CẤU TRÚC SMC / ICT BẮT ĐỈNH ĐÁY"
+minSmcScore     = input.int(5, "Điểm SMC Zone Tối Thiểu (Chuẩn >= 5/8★)", minval=3, maxval=8, group=grp_smc)
+swingLen        = input.int(3, "Swing Lookback (Số nến xác nhận Đỉnh/Đáy)", minval=2, maxval=10, group=grp_smc)
+sweepLookback   = input.int(36, "Chu kỳ nhớ Liquidity Sweep (Bars)", minval=10, maxval=100, group=grp_smc)
+
+grp_ui = "🎨 GIAO DIỆN & BẢNG THÔNG TIN"
+showRadarTab    = input.bool(true, "Hiển thị Bảng Radar Đón Đỉnh/Đáy Tương Lai", group=grp_ui)
+radarPosition   = input.string("Góc Phải Dưới (Bottom Right)", "Vị trí Bảng Radar", 
+     options=["Góc Phải Dưới (Bottom Right)", "Góc Trái Dưới (Bottom Left)", "Góc Phải Trên (Top Right)"], group=grp_ui)
+showDashTab     = input.bool(true, "Hiển thị Bảng Thống Kê Hiệu Suất Realtime", group=grp_ui)
+dashPosition    = input.string("Góc Phải Trên (Top Right)", "Vị trí Bảng Thống Kê", 
+     options=["Góc Phải Trên (Top Right)", "Góc Phải Dưới (Bottom Right)", "Góc Trái Dưới (Bottom Left)"], group=grp_ui)
+showTpSlLines   = input.bool(true, "Vẽ đường Entry, SL, TP1, TP3 trên biểu đồ", group=grp_ui)
+showSmcLabels   = input.bool(true, "Hiển thị nhãn 5★ ĐỈNH / 5★ ĐÁY", group=grp_ui)
+enableWebhook   = input.bool(true, "Bật phát Alert Webhook khi đóng nến", group=grp_ui)
+
+// Quy đổi tiền tệ ($) sang điểm nến (Points/Cents)
+float tp1Pts     = tp1Usd / pointMult          // $400 / 50 = +8.00 pts
+float tp3Pts     = tp3Usd / pointMult          // $500 / 50 = +10.00 pts
+float beTriggerPts = beTriggerUsd / pointMult  // $250 / 50 = +5.00 pts
+float slPts      = slPtsInput                  // 7.00 pts = $350
+
+// ============================================================================
+// 2. CHỈ BÁO KỸ THUẬT & TÍNH TOÁN PIVOT
+// ============================================================================
+rsi14    = ta.rsi(close, 14)
+atr14    = ta.atr(14)
+atrAvg14 = ta.sma(atr14, 14)
+
+[dHigh, dLow, dClose] = request.security(syminfo.tickerid, "D", [high[1], low[1], close[1]], lookahead=barmerge.lookahead_on)
+pivotP  = (dHigh + dLow + dClose) / 3.0
+pivotS1 = 2.0 * pivotP - dHigh
+pivotR1 = 2.0 * pivotP - dLow
+pivotS2 = pivotP - (dHigh - dLow)
+pivotR2 = pivotP + (dHigh - dLow)
+
+// ============================================================================
+// 3. NHẬN DIỆN CẤU TRÚC SMC BẮT ĐỈNH / ĐÁY (8 TIÊU CHÍ CHẤM ĐIỂM)
+// ============================================================================
+ph = ta.pivothigh(high, swingLen, swingLen)
+pl = ta.pivotlow(low, swingLen, swingLen)
+
+var float lastSwingHigh = na
+var float lastSwingLow  = na
+if not na(ph)
+    lastSwingHigh := ph
+if not na(pl)
+    lastSwingLow  := pl
+
+// Quét thanh khoản (Liquidity Sweep)
+bool bslSweep = not na(lastSwingHigh) and high > lastSwingHigh and close < lastSwingHigh
+bool sslSweep = not na(lastSwingLow)  and low < lastSwingLow  and close > lastSwingLow
+
+var int lastBslSweepBar = na
+var int lastSslSweepBar = na
+if bslSweep
+    lastBslSweepBar := bar_index
+if sslSweep
+    lastSslSweepBar := bar_index
+
+bool hadRecentBslSweep = not na(lastBslSweepBar) and (bar_index - lastBslSweepBar <= sweepLookback)
+bool hadRecentSslSweep = not na(lastSslSweepBar) and (bar_index - lastSslSweepBar <= sweepLookback)
+
+// Cấu trúc MSS / CHoCH
+var string currentTrend = "neutral"
+var int    lastMssBar   = na
+var bool   lastMssHadSweep = false
+
+bool bullMss = not na(lastSwingHigh) and ta.crossover(close, lastSwingHigh)
+bool bearMss = not na(lastSwingLow)  and ta.crossunder(close, lastSwingLow)
+
+if bullMss
+    currentTrend    := "bullish"
+    lastMssBar      := bar_index
+    lastMssHadSweep := hadRecentSslSweep
+
+if bearMss
+    currentTrend    := "bearish"
+    lastMssBar      := bar_index
+    lastMssHadSweep := hadRecentBslSweep
+
+// Fair Value Gap (FVG)
+bool bullFvg = low > high[2] and close[1] > high[2]
+bool bearFvg = high < low[2] and close[1] < low[2]
+var float lastBullFvgTop = na
+var float lastBullFvgBot = na
+var float lastBearFvgTop = na
+var float lastBearFvgBot = na
+if bullFvg
+    lastBullFvgTop := low
+    lastBullFvgBot := high[2]
+if bearFvg
+    lastBearFvgTop := low[2]
+    lastBearFvgBot := high
+
+// Chấm điểm SMC Bắt Đáy (0 - 8 sao)
+int bottomScore = 0
+bool isConfirmedBottom = not na(pl)
+float confirmedLowPrice = isConfirmedBottom ? pl : na
+
+if isConfirmedBottom
+    if rsi14[swingLen] < 35 or rsi14 < 38
+        bottomScore += 2
+    bool nearBullMss = not na(lastMssBar) and currentTrend == "bullish" and (bar_index - lastMssBar <= 12)
+    if nearBullMss
+        bottomScore += (lastMssHadSweep ? 4 : 3)
+    else if hadRecentSslSweep and (bar_index - lastSslSweepBar <= 10)
+        bottomScore += 3
+    if not na(lastBullFvgTop) and close >= lastBullFvgBot
+        bottomScore += 1
+    if not na(pivotS1) and (math.abs(confirmedLowPrice - pivotS1) / pivotS1 <= 0.02 or math.abs(confirmedLowPrice - pivotS2) / pivotS2 <= 0.02)
+        bottomScore += 1
+    if atr14[swingLen] > atrAvg14[swingLen] * 1.30
+        bottomScore += 1
+
+// Chấm điểm SMC Bắt Đỉnh (0 - 8 sao)
+int topScore = 0
+bool isConfirmedTop = not na(ph)
+float confirmedHighPrice = isConfirmedTop ? ph : na
+
+if isConfirmedTop
+    if rsi14[swingLen] > 65 or rsi14 > 62
+        topScore += 2
+    bool nearBearMss = not na(lastMssBar) and currentTrend == "bearish" and (bar_index - lastMssBar <= 12)
+    if nearBearMss
+        topScore += (lastMssHadSweep ? 4 : 3)
+    else if hadRecentBslSweep and (bar_index - lastBslSweepBar <= 10)
+        topScore += 3
+    if not na(lastBearFvgBot) and close <= lastBearFvgTop
+        topScore += 1
+    if not na(pivotR1) and (math.abs(confirmedHighPrice - pivotR1) / pivotR1 <= 0.02 or math.abs(confirmedHighPrice - pivotR2) / pivotR2 <= 0.02)
+        topScore += 1
+    if atr14[swingLen] > atrAvg14[swingLen] * 1.30
+        topScore += 1
+
+// Lưu vết vùng đỉnh / đáy mạnh gần nhất để phục vụ Bảng Radar
+var int   lastBotScoreSeen = 0
+var int   lastTopScoreSeen = 0
+var float lastBotPrice     = na
+var float lastTopPrice     = na
+
+if isConfirmedBottom
+    lastBotScoreSeen := bottomScore
+    lastBotPrice     := confirmedLowPrice
+
+if isConfirmedTop
+    lastTopScoreSeen := topScore
+    lastTopPrice     := confirmedHighPrice
+
+// Tín hiệu kích hoạt lệnh Swing Phương Pháp 2 (Điểm SMC >= 5★)
+bool m2BuySignal  = isConfirmedBottom and bottomScore >= minSmcScore
+bool m2SellSignal = isConfirmedTop    and topScore    >= minSmcScore
+
+// ============================================================================
+// 4. QUẢN TRỊ LỆNH SWING ($400 - $500 USD • GIỮ VÀI NGÀY)
+// ============================================================================
+var float  activeEntry     = na
+var float  activeSl        = na
+var float  activeTp1       = na
+var float  activeTp3       = na
+var float  activeBeTrigger = na
+var bool   isBeMoved       = false
+var int    entryBar        = na
+var string activeSide      = ""
+
+bool isFlat = strategy.position_size == 0
+
+// Reset trạng thái khi không còn vị thế
+if isFlat and not na(activeEntry) and (na(entryBar) or bar_index > entryBar)
+    activeEntry     := na
+    activeSl        := na
+    activeTp1       := na
+    activeTp3       := na
+    activeBeTrigger := na
+    isBeMoved       := false
+    activeSide      := ""
+
+// --- MỞ VỊ THẾ SWING MUA (BẮT ĐÁY SMC 5★) ---
+if isFlat and m2BuySignal
+    float entryP    = close
+    float stopP     = math.min(confirmedLowPrice - 0.5 * atr14, entryP - slPts)
+    activeEntry     := entryP
+    activeSl        := stopP
+    activeTp1       := entryP + tp1Pts       // +$400 USD (+8.0 pts)
+    activeTp3       := entryP + tp3Pts       // +$500 USD (+10.0 pts)
+    activeBeTrigger := entryP + beTriggerPts // +$250 USD (+5.0 pts)
+    isBeMoved       := false
+    entryBar        := bar_index
+    activeSide      := "MUA"
+    strategy.entry("SWING_BUY", strategy.long, comment="M2: Bắt Đáy " + str.tostring(bottomScore) + "★")
+
+// --- MỞ VỊ THẾ SWING BÁN (BẮT ĐỈNH SMC 5★) ---
+if isFlat and m2SellSignal and not m2BuySignal
+    float entryP    = close
+    float stopP     = math.max(confirmedHighPrice + 0.5 * atr14, entryP + slPts)
+    activeEntry     := entryP
+    activeSl        := stopP
+    activeTp1       := entryP - tp1Pts       // +$400 USD (+8.0 pts)
+    activeTp3       := entryP - tp3Pts       // +$500 USD (+10.0 pts)
+    activeBeTrigger := entryP - beTriggerPts // +$250 USD (+5.0 pts)
+    isBeMoved       := false
+    entryBar        := bar_index
+    activeSide      := "BÁN"
+    strategy.entry("SWING_SELL", strategy.short, comment="M2: Bắt Đỉnh " + str.tostring(topScore) + "★")
+
+// --- QUẢN TRỊ DỜI SL VỀ BE VÀ CHỐT LỜI TP3 ---
+if strategy.position_size > 0 and not na(activeEntry)
+    if high >= activeBeTrigger
+        isBeMoved := true
+    float curStop = isBeMoved ? activeEntry : activeSl
+    strategy.exit("EXIT_BUY", stop=curStop, limit=activeTp3, 
+         comment_loss=isBeMoved ? "BE (Hòa Vốn)" : "SL", 
+         comment_profit="TP ($500)")
+    if not na(entryBar) and (bar_index - entryBar >= maxHoldBars)
+        strategy.close_all(comment="Hết Chu Kỳ Swing")
+
+if strategy.position_size < 0 and not na(activeEntry)
+    if low <= activeBeTrigger
+        isBeMoved := true
+    float curStop = isBeMoved ? activeEntry : activeSl
+    strategy.exit("EXIT_SELL", stop=curStop, limit=activeTp3, 
+         comment_loss=isBeMoved ? "BE (Hòa Vốn)" : "SL", 
+         comment_profit="TP ($500)")
+    if not na(entryBar) and (bar_index - entryBar >= maxHoldBars)
+        strategy.close_all(comment="Hết Chu Kỳ Swing")
+
+// ============================================================================
+// 5. HIỂN THỊ ĐỒ HỌA TRÊN BIỂU ĐỒ (NHÃN SMC 5★ & ĐƯỜNG GIÁ TP/SL)
+// ============================================================================
+plotshape(showSmcLabels and m2BuySignal,  title="SMC 5★ Đáy",  style=shape.labelup,   location=location.belowbar, color=color.new(#10b981, 0), text="5★ ĐÁY\nSWING", textcolor=color.white, size=size.small)
+plotshape(showSmcLabels and m2SellSignal, title="SMC 5★ Đỉnh", style=shape.labeldown, location=location.abovebar, color=color.new(#ef4444, 0), text="5★ ĐỈNH\nSWING", textcolor=color.white, size=size.small)
+
+bool inTrade = strategy.position_size != 0 and not na(activeEntry)
+plot(showTpSlLines and inTrade ? activeEntry : na, "Entry", color=color.new(#38bdf8, 0), style=plot.style_linebr, linewidth=2)
+plot(showTpSlLines and inTrade ? (isBeMoved ? activeEntry : activeSl) : na, "SL (Dời BE)", color=isBeMoved ? color.new(#94a3b8, 0) : color.new(#ef4444, 0), style=plot.style_linebr, linewidth=2)
+plot(showTpSlLines and inTrade ? activeTp1 : na, "TP1 (+$400)", color=color.new(#10b981, 30), style=plot.style_linebr, linewidth=1)
+plot(showTpSlLines and inTrade ? activeTp3 : na, "TP3 (+$500)", color=color.new(#10b981, 0), style=plot.style_linebr, linewidth=2)
+
+// ============================================================================
+// 6. BẢNG DASHBOARD THỐNG KÊ HIỆU SUẤT M2 REALTIME
+// ============================================================================
+dashPos = dashPosition == "Góc Phải Dưới (Bottom Right)" ? position.bottom_right : dashPosition == "Góc Trái Dưới (Bottom Left)" ? position.bottom_left : position.top_right
+var table dashTab = table.new(dashPos, 2, 7, bgcolor=color.new(#0b0f19, 10), border_color=color.new(#1e293b, 0), border_width=1, frame_color=color.new(#f59e0b, 30), frame_width=1)
+
+if showDashTab and (barstate.islast or barstate.islastconfirmedhistory)
+    int wins        = strategy.wintrades
+    int losses      = strategy.losstrades
+    int evenTrades  = strategy.eventrades
+    int totalTrades = strategy.closedtrades
+    float winRate   = totalTrades > 0 ? (wins / totalTrades) * 100.0 : 0.0
+    float pf        = strategy.grossloss > 0 ? strategy.grossprofit / strategy.grossloss : strategy.grossprofit > 0 ? 99.9 : 0.0
+
+    table.cell(dashTab, 0, 0, "BOT SWING CBOT (M2)", text_color=#fbbf24, bgcolor=color.new(#1e293b, 0), text_size=size.small)
+    table.cell(dashTab, 1, 0, "GIÁ TRỊ THỰC THỜI",   text_color=#fbbf24, bgcolor=color.new(#1e293b, 0), text_size=size.small)
+
+    table.cell(dashTab, 0, 1, "Phương Pháp", text_color=#94a3b8, text_size=size.small)
+    table.cell(dashTab, 1, 1, "M2: Swing Đỉnh/Đáy ($400-$500)", text_color=#facc15, text_size=size.small)
+
+    table.cell(dashTab, 0, 2, "Vùng SMC Đỉnh / Đáy", text_color=#94a3b8, text_size=size.small)
+    table.cell(dashTab, 1, 2, "Đỉnh " + str.tostring(lastTopScoreSeen) + "★ | Đáy " + str.tostring(lastBotScoreSeen) + "★", text_color=#c084fc, text_size=size.small)
+
+    table.cell(dashTab, 0, 3, "Vị Thế Hiện Tại", text_color=#94a3b8, text_size=size.small)
+    string posStr = inTrade ? (activeSide + " @ " + str.tostring(activeEntry, "0.00") + (isBeMoved ? " [BE]" : "")) : "ĐANG CHỜ ĐÓN"
+    table.cell(dashTab, 1, 3, posStr, text_color=inTrade ? #f59e0b : #cbd5e1, text_size=size.small)
+
+    table.cell(dashTab, 0, 4, "SL / TP Mục Tiêu", text_color=#94a3b8, text_size=size.small)
+    string slTpStr = inTrade ? ("SL: " + str.tostring(isBeMoved ? activeEntry : activeSl, "0.00") + " | TP: " + str.tostring(activeTp3, "0.00")) : "—"
+    table.cell(dashTab, 1, 4, slTpStr, text_color=color.white, text_size=size.small)
+
+    table.cell(dashTab, 0, 5, "Win Rate | PF", text_color=#94a3b8, text_size=size.small)
+    table.cell(dashTab, 1, 5, str.tostring(winRate, "0.0") + "% (" + str.tostring(wins) + "W/" + str.tostring(evenTrades) + "BE/" + str.tostring(losses) + "L) | PF: " + str.tostring(pf, "0.00"), text_color=#10b981, text_size=size.small)
+
+    table.cell(dashTab, 0, 6, "Lợi Nhuận Net PnL", text_color=#94a3b8, text_size=size.small)
+    table.cell(dashTab, 1, 6, (strategy.netprofit >= 0 ? "+$" : "-$") + str.tostring(math.abs(strategy.netprofit), "#,##0"), text_color=strategy.netprofit >= 0 ? #10b981 : #ef4444, text_size=size.small)
+
+// ============================================================================
+// 7. BẢNG RADAR PHÁT HIỆN ĐIỂM VÀO TƯƠNG LAI — CHUYÊN BIỆT PHƯƠNG PHÁP 2
+// ============================================================================
+radarPos = radarPosition == "Góc Phải Trên (Top Right)" ? position.top_right : radarPosition == "Góc Trái Dưới (Bottom Left)" ? position.bottom_left : position.bottom_right
+var table radarTab = table.new(radarPos, 7, 3, bgcolor=color.new(#090d16, 5), border_color=color.new(#312e81, 0), border_width=1, frame_color=color.new(#eab308, 20), frame_width=1)
+
+if showRadarTab and (barstate.islast or barstate.islastconfirmedhistory)
+    // 1. Kịch bản Bắt Đỉnh gần nhất (BÁN)
+    float effTop    = not na(lastTopPrice) ? lastTopPrice : (not na(lastSwingHigh) ? lastSwingHigh : high)
+    float topDist   = math.abs(close - effTop)
+    float topSl     = effTop + slPts
+    float topTp1    = effTop - tp1Pts // +$400 (+8.0 pts)
+    float topTp3    = effTop - tp3Pts // +$500 (+10.0 pts)
+    string topStat  = topDist <= atr14 ? "⚡ SẴN SÀNG" : "🔍 THEO DÕI SWING"
+    color  topCol   = topDist <= atr14 ? #facc15 : #cbd5e1
+
+    // 2. Kịch bản Bắt Đáy gần nhất (MUA)
+    float effBot    = not na(lastBotPrice) ? lastBotPrice : (not na(lastSwingLow) ? lastSwingLow : low)
+    float botDist   = math.abs(close - effBot)
+    float botSl     = effBot - slPts
+    float botTp1    = effBot + tp1Pts // +$400 (+8.0 pts)
+    float botTp3    = effBot + tp3Pts // +$500 (+10.0 pts)
+    string botStat  = botDist <= atr14 ? "⚡ SẴN SÀNG" : "🔍 THEO DÕI SWING"
+    color  botCol   = botDist <= atr14 ? #facc15 : #cbd5e1
+
+    // HEADER ROW
+    table.cell(radarTab, 0, 0, "📡 KỊCH BẢN SWING M2", text_color=#fef08a, bgcolor=color.new(#422006, 0), text_size=size.small)
+    table.cell(radarTab, 1, 0, "CHIỀU",   text_color=#fef08a, bgcolor=color.new(#422006, 0), text_size=size.small)
+    table.cell(radarTab, 2, 0, "ĐIỂM ĐÓN PLAN",text_color=#fef08a, bgcolor=color.new(#422006, 0), text_size=size.small)
+    table.cell(radarTab, 3, 0, "KHOẢNG CÁCH", text_color=#fef08a, bgcolor=color.new(#422006, 0), text_size=size.small)
+    table.cell(radarTab, 4, 0, "MỤC TIÊU LỢI NHUẬN", text_color=#fef08a, bgcolor=color.new(#422006, 0), text_size=size.small)
+    table.cell(radarTab, 5, 0, "CẮT LỖ (SL)", text_color=#fef08a, bgcolor=color.new(#422006, 0), text_size=size.small)
+    table.cell(radarTab, 6, 0, "TRẠNG THÁI RADAR", text_color=#fef08a, bgcolor=color.new(#422006, 0), text_size=size.small)
+
+    // ROW 1: BẮT ĐỈNH GẦN NHẤT
+    string topLabel = "M2: Đỉnh SMC (" + str.tostring(lastTopScoreSeen) + "★)"
+    table.cell(radarTab, 0, 1, topLabel, text_color=color.white, text_size=size.small)
+    table.cell(radarTab, 1, 1, "BÁN", text_color=#ef4444, text_size=size.small)
+    table.cell(radarTab, 2, 1, str.tostring(effTop, "0.00"), text_color=#38bdf8, text_size=size.small)
+    table.cell(radarTab, 3, 1, str.tostring(topDist, "0.00") + " pts", text_color=topDist <= 1.5 ? #fde047 : #cbd5e1, text_size=size.small)
+    table.cell(radarTab, 4, 1, str.tostring(topTp1, "0.00") + " (+$400) -> " + str.tostring(topTp3, "0.00") + " (+$500)", text_color=#10b981, text_size=size.small)
+    table.cell(radarTab, 5, 1, str.tostring(topSl, "0.00") + " (-$" + str.tostring(slPts * pointMult, "0") + ")", text_color=#ef4444, text_size=size.small)
+    table.cell(radarTab, 6, 1, topStat + " (Giữ vài ngày)", text_color=topCol, text_size=size.small)
+
+    // ROW 2: BẮT ĐÁY GẦN NHẤT
+    string botLabel = "M2: Đáy SMC (" + str.tostring(lastBotScoreSeen) + "★)"
+    table.cell(radarTab, 0, 2, botLabel, text_color=color.white, text_size=size.small)
+    table.cell(radarTab, 1, 2, "MUA", text_color=#10b981, text_size=size.small)
+    table.cell(radarTab, 2, 2, str.tostring(effBot, "0.00"), text_color=#38bdf8, text_size=size.small)
+    table.cell(radarTab, 3, 2, str.tostring(botDist, "0.00") + " pts", text_color=botDist <= 1.5 ? #fde047 : #cbd5e1, text_size=size.small)
+    table.cell(radarTab, 4, 2, str.tostring(botTp1, "0.00") + " (+$400) -> " + str.tostring(botTp3, "0.00") + " (+$500)", text_color=#10b981, text_size=size.small)
+    table.cell(radarTab, 5, 2, str.tostring(botSl, "0.00") + " (-$" + str.tostring(slPts * pointMult, "0") + ")", text_color=#ef4444, text_size=size.small)
+    table.cell(radarTab, 6, 2, botStat + " (Giữ vài ngày)", text_color=botCol, text_size=size.small)
+
+// ============================================================================
+// 8. ALERT WEBHOOK GỬI DỮ LIỆU ĐÓNG NẾN
+// ============================================================================
+if enableWebhook and barstate.isconfirmed
+    string payload = '{"symbol":"' + syminfo.ticker + '","method":"M2_SWING","close":' + str.tostring(close) + ',"top_score":' + str.tostring(lastTopScoreSeen) + ',"bot_score":' + str.tostring(lastBotScoreSeen) + ',"atr":' + str.tostring(atr14, "0.00") + '}'
+    alert(payload, alert.freq_once_per_bar_close)
