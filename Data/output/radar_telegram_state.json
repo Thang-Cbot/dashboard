@@ -64,7 +64,12 @@
     "ZCEZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|440.50": "2026-11-10 20:00:56",
     "ZCEZ26|M2 (Swing Đáy Gần Nhất 5★ • $400-$500)|MUA|440.00": "2026-11-10 20:06:35",
     "ZCEZ26|M3 (Hybrid: Swing $400-$500)|MUA|440.00": "2026-11-10 20:06:35",
-    "ZWAZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|588.09": "2026-11-10 21:44:25"
+    "ZWAZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|588.09": "2026-11-10 21:44:25",
+    "ZWAZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|587.09": "2026-11-10 22:04:55",
+    "ZWAZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|590.40": "2026-11-10 22:30:36",
+    "ZWAZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|590.49": "2026-11-10 22:40:53",
+    "ZWAZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|590.67": "2026-11-10 22:46:08",
+    "ZWAZ26|M1 (Scalp Intraday • Mục Tiêu $200)|BÁN|590.58": "2026-11-10 22:56:24"
   },
   "last_messages": {
     "ZCEZ26": {
@@ -72,8 +77,8 @@
       "msg": "📡 <b>CBOT RADAR</b> — <b>🌽 ZCEZ26 (Ngô) | 🟢 MUA</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>10/11/2026 20:06:46</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>10/11/2026 20:00</code>\n• 📊 <b>Chiến lược:</b> <b>M3 (Hybrid: Swing $400-$500)</b>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (1.00 pts)</b>\n• 💹 <b>Giá Live (M5):</b> <b>441.00</b> <i>(Cách điểm đón 1.00 pts)</i>\n• 🎯 <b>Điểm Đón (MUA):</b> <b>440.00</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>433.80</code> <i>(Rủi ro: 6.20 pts = $310/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>448.00</b> (+$400)\n   ├ TP2: <b>449.00</b> (+$450)\n   └ TP3 (Max): <b>450.00</b> (+$500)\n• 🧠 <b>Căn cứ kỹ thuật:</b> [M3 Hybrid • Chế độ Swing] Biên độ ATR (1.25) đủ lớn để ăn sóng dài $400-$500. Ưu tiên đón tại Đỉnh/Đáy gần nhất, giữ lệnh vài ngày.\n• 💡 <b>Hành động:</b> <i>[Hybrid Swing — Giữ vài ngày] Đặt Limit MUA @ 440.00. Mục tiêu: TP1 448.00 (+$400) -> TP3 450.00 (+$500). SL: 433.80.</i>"
     },
     "ZWAZ26": {
-      "timestamp": "2026-11-10 21:44:25",
-      "msg": "📡 <b>CBOT RADAR</b> — <b>🌾 ZWAZ26 (Lúa Mì) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>10/11/2026 21:44:32</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>10/11/2026 21:00</code>\n• 📊 <b>Chiến lược:</b> <b>M1 (Scalp Intraday • Mục Tiêu $200)</b>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (1.09 pts)</b>\n• 💹 <b>Giá Live (M5):</b> <b>587.00</b> <i>(Cách điểm đón 1.09 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>588.09</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>592.45</code> <i>(Rủi ro: 4.36 pts = $218/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>584.09</b> (+$200)\n   ├ TP2: <b>583.59</b> (+$225)\n   └ TP3 (Max): <b>583.09</b> (+$250)\n• 🧠 <b>Căn cứ kỹ thuật:</b> [M1 Scalp Intraday] Thuận xu hướng GIẢM (EMA21 589.80 <= EMA50 591.70, RSI 47.4). Đánh ngắn trong phiên (14h-22h) mục tiêu $200 USD, không giữ qua đêm.\n• 💡 <b>Hành động:</b> <i>[Scalp Intraday — Không giữ qua đêm] Đặt Limit BÁN @ 588.09. Mục tiêu chốt lời: TP1 584.09 (+$200) -> TP3 583.09 (+$250). SL: 592.45. Dời BE khi lãi đạt +$125.</i>"
+      "timestamp": "2026-11-10 22:56:24",
+      "msg": "📡 <b>CBOT RADAR</b> — <b>🌾 ZWAZ26 (Lúa Mì) | 🔴 BÁN</b>\n────────────────────────────\n• 🕒 <b>Thời gian báo:</b> <code>10/11/2026 22:56:31</code> (Giờ VN)\n• ⏱ <b>Nến cấu trúc gốc:</b> <code>10/11/2026 22:00</code>\n• 📊 <b>Chiến lược:</b> <b>M1 (Scalp Intraday • Mục Tiêu $200)</b>\n• 📡 <b>Trạng thái:</b> <b>⚡ SẴN SÀNG (2.42 pts)</b>\n• 💹 <b>Giá Live (M5):</b> <b>593.00</b> <i>(Cách điểm đón 2.42 pts)</i>\n• 🎯 <b>Điểm Đón (BÁN):</b> <b>590.58</b>\n• 🛑 <b>Cắt lỗ (SL):</b> <code>594.94</code> <i>(Rủi ro: 4.36 pts = $218/HĐ)</i>\n• 🏆 <b>Chốt lời (TP):</b>\n   ├ TP1 (Dời BE): <b>586.58</b> (+$200)\n   ├ TP2: <b>586.08</b> (+$225)\n   └ TP3 (Max): <b>585.58</b> (+$250)\n• 🧠 <b>Căn cứ kỹ thuật:</b> [M1 Scalp Intraday] Thuận xu hướng GIẢM (EMA21 590.34 <= EMA50 591.93, RSI 47.4). Đánh ngắn trong phiên (14h-22h) mục tiêu $200 USD, không giữ qua đêm.\n• 💡 <b>Hành động:</b> <i>[Scalp Intraday — Không giữ qua đêm] Đặt Limit BÁN @ 590.58. Mục tiêu chốt lời: TP1 586.58 (+$200) -> TP3 585.58 (+$250). SL: 594.94. Dời BE khi lãi đạt +$125.</i>"
     }
   }
 }
