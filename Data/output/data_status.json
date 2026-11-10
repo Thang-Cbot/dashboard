@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 00:00:18",
-      "updated_at": "2026-11-11 00:00:18"
+      "detail": "Auto-fetch 06:48:35",
+      "updated_at": "2026-11-11 06:48:35"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 00:00:39 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-11-11 00:00:39"
+      "detail": "Đẩy thành công lúc 00:01:31 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-11-11 00:01:31"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -77,41 +77,41 @@
   "export_sales": {
     "status": "OK",
     "detail": "Kỳ: 10/29/2026 | ZW=538,000 MT, ZC=1.29M MT",
-    "updated_at": "2026-11-10 06:39:34"
+    "updated_at": "2026-11-11 06:22:17"
   },
   "acreage": {
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-11-10 06:39:38"
+    "updated_at": "2026-11-11 00:11:22"
   },
   "usda": {
     "status": "OK",
-    "detail": "Updated: 2026-11-10 | WASDE: Oct",
-    "updated_at": "2026-11-10 06:39:52"
+    "detail": "Updated: 2026-11-11 | WASDE: Nov",
+    "updated_at": "2026-11-11 00:11:33"
   },
   "cot": {
     "status": "[OK] Success",
     "detail": "",
-    "updated_at": "2026-11-10 06:39:59"
+    "updated_at": "2026-11-11 00:11:36"
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 00:00",
-    "updated_at": "2026-11-11 00:00:18"
+    "detail": "ZC+ZW updated at 06:48",
+    "updated_at": "2026-11-11 06:48:35"
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=91.88, DXY=102.369",
-    "updated_at": "2026-11-11 00:00:35"
+    "detail": "Brent: $91.8 | DXY: 102.217",
+    "updated_at": "2026-11-11 06:21:50"
   },
   "weather_short": {
     "status": "OK",
     "detail": "24/24 fetched",
-    "updated_at": "2026-11-09 22:57:19"
+    "updated_at": "2026-11-11 06:22:13"
   },
   "weather_long": {
     "status": "OK",
     "detail": "Status: El Niño Advisory",
-    "updated_at": "2026-11-02 06:30:05"
+    "updated_at": "2026-11-11 06:22:14"
   }
 }

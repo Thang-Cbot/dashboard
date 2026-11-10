@@ -1,232 +1,89 @@
 {
-  "timestamp": "2026-11-10 22:24:26",
+  "timestamp": "2026-11-11 06:30:00",
   "news": [
     {
-      "title": "USDA Sẽ Gây Sốc Hôm Nay? Ngô và Đậu Tương Có Thể Bất Ngờ",
+      "title": "Báo Cáo USDA WASDE #677 Gây Sốc: Năng Suất Ngô Rơi Thủng Mốc 180 bpa",
       "details": [
-        "Thị trường ngũ cốc, đặc biệt là ngô và đậu tương, đã giảm 10-15% trong 4-6 tuần qua.",
-        "Các nhà giao dịch đang chờ đợi báo cáo USDA có thể tạo ra bất ngờ lớn.",
-        "Chuyên gia Jim Roemer đã dự đoán sự sụt giảm gần đây của thị trường ngũ cốc."
+        "USDA cắt giảm sốc năng suất ngô Mỹ từ 181.2 xuống 179.6 bpa (thị trường kỳ vọng 180.5 bpa).",
+        "Tồn kho cuối vụ ngô Mỹ bị chém -91 triệu giạ xuống 1,758 Mbu, thấp hơn kỳ vọng tới 88 triệu giạ.",
+        "Giá ngô ZC bùng nổ tăng +14 cents trong phiên đêm lên 455.5c trước khi chốt tại 448.0c, kích hoạt làn sóng mua lan tỏa toàn bộ ngũ cốc."
       ],
-      "link": "https://climatelligence.substack.com/p/usda-shocker-today-three-markets",
-      "source": "10 Nov 2026 - BestWeather / Jim Roemer (Climatelligence)",
-      "category": "cung_cau_nhan_dinh"
+      "link": "https://www.usda.gov/oce/commodity/wasde",
+      "source": "11 Nov 2026 - USDA WASDE Report #677",
+      "category": "USDA / Cung Cầu"
     },
     {
-      "title": "Ngô Tăng Nhẹ Trước Báo Cáo USDA: Thu Hoạch Chậm, Sản Lượng Dự Kiến Giảm",
+      "title": "WASDE Cắt Giảm 2 Triệu Tấn Xuất Khẩu Lúa Mì Nga và Ukraine",
       "details": [
-        "Giá ngô tăng 2¼ đến 3 cent qua đêm sau khi chạm mức thấp nhất 4 tháng.",
-        "Báo cáo Sản lượng Cây trồng và WASDE của USDA dự kiến công bố lúc 11 giờ sáng CT.",
-        "Dự kiến sản lượng ngô sẽ bị cắt giảm trong báo cáo USDA.",
-        "Thu hoạch ngô đạt 81%, thấp hơn mức 84% dự kiến và trung bình 5 năm là 86%."
+        "USDA chính thức cắt giảm xuất khẩu Nga từ 40.0 xuống 39.0 triệu tấn và Ukraine từ 12.5 xuống 11.5 triệu tấn do căng thẳng Biển Đen và cạn kiệt nguồn cung giá rẻ.",
+        "Tồn kho lúa mì Mỹ giữ ở mức trung tính 743 Mbu (đúng kỳ vọng 744 Mbu), dòng SRW siêu siết chặt ở 106 Mbu.",
+        "Tồn kho lúa mì toàn cầu tăng lên 280.82 MMT do USDA nâng sản lượng Úc (+1.5 MMT) và Argentina (+1.5 MMT), tạo ngưỡng cản kỹ thuật 600c cho ZW."
       ],
-      "link": "https://www.barchart.com/story/news/8758411/walsh-daily-bullet-points-11-10",
-      "source": "10 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
+      "link": "https://www.usda.gov/oce/commodity/wasde",
+      "source": "11 Nov 2026 - USDA WASDE Report #677",
+      "category": "Cung Cầu Thế Giới"
     },
     {
-      "title": "Giá Ngô Tăng Nhẹ Sáng Thứ Ba Trước Báo Cáo USDA",
+      "title": "Đàm Phán Abu Dhabi Ngày 1 Bế Tắc, Nga Tập Kích Odesa Đêm Qua",
       "details": [
-        "Giá ngô tăng nhẹ từ một phần nhỏ đến một xu vào sáng thứ Ba.",
-        "Phiên giao dịch thứ Hai kết thúc với hợp đồng ngô giảm 2-3 cent.",
-        "Lượng hợp đồng mở giảm 5.089 vào thứ Hai, chủ yếu do chuyển đổi từ hợp đồng tháng 12."
+        "Vòng đàm phán 3 bên tại Abu Dhabi ngày 10/11 kết thúc không đạt bất kỳ thỏa thuận hành lang ngũ cốc hay ngừng bắn nào do bất đồng sâu sắc về lãnh thổ.",
+        "Quân đội Nga phóng hàng loạt UAV Shahed và tên lửa hành trình nhắm vào hạ tầng cảng và năng lượng miền nam Ukraine ngay trong đêm.",
+        "Ngày đàm phán thứ 2 (11/11) tiếp tục với các nhóm kỹ thuật nhưng khả năng có đột phá hòa bình là cực thấp."
       ],
-      "link": "https://www.barchart.com/story/news/8756594/corn-posting-slight-tuesday-am-gains-ahead-of-usda-release",
-      "source": "10 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Lúa Mì Giao Dịch Trái Chiều Sáng Thứ Ba: Lúa Mì Đông Tăng, Lúa Mì Xuân Giảm",
-      "details": [
-        "Thị trường lúa mì giao dịch trái chiều vào sáng thứ Ba.",
-        "Lúa mì vụ đông (winter wheat) nhận được lực mua, trong khi lúa mì vụ xuân (spring wheat) yếu hơn.",
-        "Hợp đồng lúa mì SRW Chicago giảm 2 cent vào thứ Hai."
-      ],
-      "link": "https://www.barchart.com/story/news/8756468/wheat-reverting-from-monday-action-with-slight-winter-wheat-gains-to-start-tuesday",
-      "source": "10 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Những Con Số Quan Trọng Nhất Trong Báo Cáo USDA Hôm Nay",
-      "details": [
-        "Giá hợp đồng tương lai ngô và đậu tương biến động trái chiều và gần mức thấp nhất nhiều tháng qua.",
-        "Thị trường đang chờ đợi báo cáo Sản lượng Cây trồng, Cung và Cầu của USDA.",
-        "Báo cáo USDA sẽ cung cấp dữ liệu quan trọng định hình thị trường."
-      ],
-      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
-      "source": "10 Nov 2026 - Farm Progress",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Tấn Công Drone Biển Đen Đe Dọa Tuyến Thương Mại Ngũ Cốc Toàn Cầu",
-      "details": [
-        "Các cuộc tấn công bằng drone ở Biển Đen đang gây rủi ro cho tuyến đường thương mại ngũ cốc quan trọng.",
-        "Tình hình căng thẳng làm tăng lo ngại về nguồn cung và giá cả toàn cầu.",
-        "Biển Đen là hành lang xuất khẩu chính cho ngũ cốc từ Ukraine và Nga."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOaXAwajBkVkNGcjRjdVN6U1VFa0JPRTNGWUVicTY5M1hOUmlyaW9vYzU3V2VnQ1g4eTlRTzdIaFlRa05vRUd6akhvY3ZXYndiYWJhMHdkYTlKcHZlSzQ0T1BnVlA0a2JGcnNHRVNSVFNBeEhWcFRGN2djZVZIcFExSzJEbm55NEpPeDBuRnF4UmhTWll3blk0Z2IzOA?oc=5",
-      "source": "10 Nov 2026 - Deutsche Welle",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Nga Lên Kế Hoạch Tấn Công Ngành Công Nghiệp Thực Phẩm Ukraine",
-      "details": [
-        "Nguồn tin tình báo quân sự cho biết Nga đang lên kế hoạch tấn công ngành công nghiệp thực phẩm của Ukraine.",
-        "Động thái này có thể gây ra gián đoạn nghiêm trọng cho chuỗi cung ứng ngũ cốc toàn cầu.",
-        "Tình hình leo thang căng thẳng ở Biển Đen tiếp tục ảnh hưởng đến thị trường nông sản."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxONTJJdDFPSnV6N3hKQlJicy1IR0RhaVQxWDJJYm1HdUY0TkdvZ1NyZkU3SU85Ulg0UW9NaEtjZ2E1aHI1VmhfbC1CLU1fMTZ5cE01bjBlQzMyUElQZzBWQ28wTmx3X0t4N2c2X09oTzJLSzhQc0JxZEVXNjhCT3lXMUNlUU9JcEljUGRRd1U4R180TXpSeDRJZG1n?oc=5",
-      "source": "10 Nov 2026 - Yahoo",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Mexico Mua Ngô và Đậu Tương Từ Mỹ: Tín Hiệu Tích Cực Cho Xuất Khẩu",
-      "details": [
-        "Mexico đã mua ngô và đậu tương từ Mỹ.",
-        "Đây là một phần của năm tiếp thị 2026-27 bắt đầu từ ngày 1 tháng 9.",
-        "Giao dịch này cho thấy nhu cầu xuất khẩu ổn định đối với ngũ cốc của Mỹ."
-      ],
-      "link": "https://www.farmprogress.com/marketing/flash-sales",
-      "source": "10 Nov 2026 - Farm Progress",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Ấn Độ Có Thể Đóng Vai Trò Trung Gian Cho Thỏa Thuận Ngũ Cốc Biển Đen?",
-      "details": [
-        "Ấn Độ, với quan hệ tốt với cả Nga và Ukraine, đang được xem xét là trung gian tiềm năng.",
-        "Mục tiêu là tìm kiếm một giải pháp đột phá cho việc xuất khẩu ngũ cốc qua Biển Đen.",
-        "Thỏa thuận này có thể giúp ổn định nguồn cung và giá lương thực toàn cầu."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZVRVVzhFY2dQeml0ZnhlMGhaQjI1ZXBQcXE2NDZZcHQxV3pkSU91TEQ3Zkp6V0FLMUVvOG1vSWNGTHd5VkRwMHV3YWNQVnJwYXFzbWo0b2ZKVXBhenA5RWlJVFdHdEw5MGN6YVBhLWpSN2NHenlaVzVIb3lJdW11cWlaV3hxUDNxV2VrSG1TMzdMZkNfamhMM1dFNXdhYzEzTlVvaTFJeHduaHh0ci1WSVNB?oc=5",
-      "source": "10 Nov 2026 - Al Jazeera",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Tiến Độ Thu Hoạch Ngô 81%, Đậu Tương 92%, Lúa Mì Đông 89% Theo USDA",
-      "details": [
-        "USDA báo cáo tiến độ thu hoạch ngô đạt 81%.",
-        "Tiến độ thu hoạch đậu tương đạt 92%.",
-        "Lúa mì vụ đông đã được gieo 89%.",
-        "Các số liệu này cung cấp cái nhìn tổng quan về nguồn cung nông sản sắp tới."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONHh3VnRadkxUNnpLMjBhQU1xOEpaU1dGUTdCTnZQODhoM0xFMHdLU3FxMm9iN3dPdms4dk1Ka0E2bEhmUE1lLVhaT01JTnl3czJUUlZ4OFJTVXh6MXQxbDQ4QUMxOHducGxvNzJ0NVlydEFIeDdTQjZZYjd4cDNCYmFQZWU1MFBjY1Fjc1pMNFdZWTZPYk4wMjFPSTJGN2VhZUZWa29vdjBvU1FO?oc=5",
-      "source": "09 Nov 2026 - IndexBox",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Quy Định Kiểm Tra Ngũ Cốc Mới Của Lithuania Có Thể Trì Hoãn Xuất Khẩu Nga Hàng Tháng",
-      "details": [
-        "Lithuania áp dụng các quy định kiểm tra ngũ cốc mới, có thể làm chậm trễ xuất khẩu của Nga.",
-        "Sự chậm trễ này có thể kéo dài hàng tháng, ảnh hưởng đến nguồn cung ngũ cốc toàn cầu.",
-        "Động thái này có thể làm tăng căng thẳng địa chính trị và tác động đến giá lúa mì."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQMlFHT2NiaEdmY1VFSV9IRGxUZWtVVW05MVk5ejl3V2xkV0pwV2ExTlZuQ2tkZFBIcUV1UmlhRVdJX1BCLWlXS3FRaHpfSE5BVFhualVTemJiZk9ReVJCWHc1cGdpbzhPMnVjeDA2STNlUVFJYXBveEJxcHM3LXNrVVhMUUxkcG9PT1VtY1dEeEdEZFZGT2hUekFEblpUanhFVUZsVHhFRjJGVVhhdVIw?oc=5",
-      "source": "09 Nov 2026 - Reuters",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Các Cảng Miền Nam Nga Mất Hơn Một Nửa Lượng Hàng Nông Sản",
-      "details": [
-        "Tình báo Ukraine báo cáo các cảng phía Nam của Nga đã mất hơn 50% lượng hàng nông sản.",
-        "Điều này cho thấy tác động đáng kể của xung đột đến khả năng xuất khẩu của Nga.",
-        "Sự gián đoạn này có thể ảnh hưởng đến nguồn cung ngũ cốc toàn cầu và giá cả."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOYUVFLW5ETWxhWjdYR0RLam9NMmF1aElUV3QyZ2tuZFFjWnRCdnl1SEhRdnVsRnB5Ml8tU2lQNEFjWjRIYTZUb0pkc0NlNjhoSUJuRWI3RThZVFB6YTg1b2tOWGl6MXRoc0VSVDl6S21Ka20tRVlmTUdZclRmSG5YTk9vZm1SU3lGaUxaRDdwTTR3T3hIbVZiRU96YUFiVHhtZF9DdURabkxoZng5aklDT09lNVcwT1FURV9TcHYzSW9XYnl2TjBaVHJyQkhlbkwzR2c?oc=5",
-      "source": "09 Nov 2026 - UNITED24 Media",
-      "category": "logistics"
-    },
-    {
-      "title": "Giá Lúa Mì Giảm Do Áp Lực Từ Biển Đen",
-      "details": [
-        "Thị trường lúa mì ghi nhận sự sụt giảm trên cả ba loại hợp đồng vào thứ Sáu.",
-        "Hợp đồng SRW Chicago giảm 4-6 cent.",
-        "Áp lực từ tình hình Biển Đen tiếp tục là yếu tố chính gây suy yếu giá lúa mì."
-      ],
-      "link": "https://www.barchart.com/story/news/8705758/wheat-facing-friday-weakness-on-black-sea-pressure?.tsrc=rss",
-      "source": "06 Nov 2026 - Yahoo Finance",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Báo Cáo WASDE Tháng 11/2026: Giá Ngô và Đậu Tương Đối Mặt Với Báo Cáo Quan Trọng Của USDA",
-      "details": [
-        "Báo cáo Cung và Cầu Nông nghiệp Thế giới (WASDE) tháng 11 của USDA là yếu tố then chốt.",
-        "Giá ngô và đậu tương đang ở thời điểm nhạy cảm trước khi báo cáo được công bố.",
-        "Báo cáo sẽ cung cấp cái nhìn sâu sắc về dự báo sản lượng, tồn kho và xuất khẩu."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOUXltNDA0WnNpcUVON05vNW5lVU5ha19FcDMyU3hsYzFyRk9lNHJCZ3NFc1N6NldYMUJwQkRRWXRCa1hNZlJxX0lrOE1sSVgzR0cwUTM4cWtWUm1qUDJ6cU9YV0JJcW1KUmYyYS1ET3dsdTY3dzBtdENISXY3c0xOSw?oc=5",
-      "source": "05 Nov 2026 - AgroLatam",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Chi Phí Logistics Cao Gây Áp Lực Lên Xuất Khẩu Ngũ Cốc Ukraine",
-      "details": [
-        "Chi phí logistics cao đang làm giảm lợi nhuận của nông dân Ukraine và hạn chế xuất khẩu.",
-        "Điều này ảnh hưởng đến khả năng cạnh tranh của ngũ cốc Ukraine trên thị trường toàn cầu.",
-        "Tình hình này có thể làm giảm nguồn cung từ Ukraine, tác động đến giá lúa mì và ngô."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUUJkc1RNMlY0TUNnd205VzNLV09LUjE1eXlZbGs5c3lPald4cFdGM1FDZUU3c0tXVFprVWxKYTlqWTVYeFppdWpXVVVSeERmYTFmamhJSVA5T3VzQW9qbUdfVHVyWUtpVnBfdk1keFFrelN3OXhydkRRbmU5eF9fbWRNemRkT3ZsSXdBdGlQaVpFYVZtU01kanNPR2VoZ3ZzM3VOaXl4LTVQdw?oc=5",
-      "source": "06 Nov 2026 - Miller Magazine",
-      "category": "logistics"
+      "link": "https://reuters.com",
+      "source": "11 Nov 2026 - Reuters / Geopolitics",
+      "category": "Địa Chính Trị"
     }
   ],
   "intraday": {
     "ZW": {
-      "bias": "Neutral",
-      "bias_vn": "Đi Ngang",
-      "summary": "Lúa mì giằng co trước USDA, áp lực từ vị thế short lớn có thể hạn chế đà tăng.",
+      "bias": "Bullish Floor / Second Wave Pending",
+      "bias_vn": "Đáy Thép 586 Được Bảo Vệ / Chờ Sóng 2 Lan Tỏa Từ Ngô",
+      "summary": "ZW chốt tại 591.4c (+4.0c), biên độ 586.0 - 599.6c. Cú sốc năng suất Ngô đã tạo đáy thép bảo vệ lúa mì. Chờ sóng 2 kiểm định lại cản 600c.",
       "key_levels": {
-        "support": "582.0",
-        "resistance": "592.0"
+        "support": "586.0",
+        "resistance": "602.0"
       },
       "reasoning": [
-        "Thời tiết US Plains có mưa, nhưng thiếu thông tin rõ ràng về tiến độ mùa vụ.",
-        "Báo cáo USDA hôm nay là yếu tố chính, nhưng tác động cụ thể lên lúa mì chưa rõ.",
-        "Vị thế COT Smart Money Net -90703 HĐ (NHOI SHORT) tạo áp lực giảm giá.",
-        "Tin Biển Đen đã bão hòa, không tạo premium lớn; DXY/Dầu biến động nhỏ.",
-        "Giá giao dịch trái chiều, cho thấy sự giằng co kỹ thuật và thiếu động lực rõ ràng."
+        "Cú sốc Ngô (WASDE 677): Năng suất rớt thảm về 179.6 bpa, tồn kho bị chém -91 Mbu về 1,758 Mbu kéo giá Ngô tăng dựng đứng +14c lên 455c. Đây là lá chắn thép bảo vệ sàn đáy cho toàn bộ ngũ cốc.",
+        "Lúa mì Mỹ trung tính vững chắc: Tồn kho Mỹ đạt 743 Mbu (đúng kỳ vọng 744 Mbu), dòng SRW chỉ 106 Mbu - mức cực kỳ thắt chặt.",
+        "Dòng chảy Biển Đen siết lại: USDA chính thức cắt giảm xuất khẩu của Nga (-1.0 MMT xuống 39.0 MMT) và Ukraine (-1.0 MMT xuống 11.5 MMT), xác nhận rủi ro logistics Odesa và hạn ngạch Nga.",
+        "Kháng cự ngắn hạn 600c: Tồn kho toàn cầu tăng lên 280.8 MMT do sản lượng Úc và Argentina được nâng lên +3M tấn khiến cú giật chạm 599.6c bị chốt lời tạm thời.",
+        "Khối Net Short kỷ lục ~91k HĐ bị kẹp chặt: Áp lực Short Squeeze duy trì cực cao khi đáy 586c không bị phá thủng."
       ],
-      "risk": "Báo cáo USDA bất ngờ hoặc thay đổi vị thế COT đột ngột có thể đảo chiều xu hướng.",
-      "generated_at": "2026-11-10 22:24"
+      "risk": "Rủi ro rung lắc kỹ thuật quanh 590 - 595 trước khi phiên Mỹ mở cửa hấp thụ toàn bộ dòng tiền cơ bản.",
+      "generated_at": "2026-11-11 06:30"
     },
     "ZC": {
-      "bias": "Bullish",
-      "bias_vn": "Tăng",
-      "summary": "Ngô có xu hướng tăng mạnh intraday nhờ kỳ vọng USDA giảm sản lượng và thu hoạch chậm.",
+      "bias": "Strong Bullish",
+      "bias_vn": "Bùng Nổ Tăng Giá Sau Cú Sốc Năng Suất",
+      "summary": "ZC tăng mạnh chốt tại 448.0c (+8.75c, đỉnh 455.5c), volume bùng nổ sau khi USDA cắt giảm năng suất ngô xuống 179.6 bpa.",
       "key_levels": {
-        "support": "438.0",
-        "resistance": "448.0"
+        "support": "444.0",
+        "resistance": "456.0"
       },
       "reasoning": [
-        "Thu hoạch chậm và khô ráo Corn Belt hỗ trợ giá, tạo premium rủi ro thời tiết.",
-        "Kỳ vọng USDA giảm sản lượng là yếu tố bullish mạnh, có thể gây sốc thị trường.",
-        "Vị thế COT Smart Money Net -2065 HĐ (NHOI SHORT) có thể bị cover nhanh chóng.",
-        "Tin Biển Đen đã bão hòa, không tạo premium lớn; DXY/Dầu biến động nhỏ.",
-        "Giá tăng nhẹ trước USDA, cho thấy tâm lý tích cực và động lực kỹ thuật."
+        "Năng suất ngô bị USDA cắt giảm bất ngờ từ 181.2 xuống 179.6 bpa, đánh vỡ mốc tâm lý 180 bpa của thị trường.",
+        "Tồn kho ngô Mỹ sụt giảm -91 triệu giạ xuống 1,758 Mbu (thấp hơn dự báo 88 Mbu), tạo sự khan hiếm cung nội địa.",
+        "Tiến độ thu hoạch ngô đạt 81%, chậm hơn mức trung bình 5 năm (86%), củng cố thêm sức ép nguồn cung.",
+        "Lực mua Short Covering và mua mới từ Commercial ồ ạt đẩy giá bứt phá qua các ngưỡng kháng cự then chốt."
       ],
-      "risk": "Báo cáo USDA không như kỳ vọng hoặc đảo chiều bất ngờ có thể gây áp lực giảm.",
-      "generated_at": "2026-11-10 22:24"
+      "risk": "Hoạt động chốt lời ngắn hạn từ nông dân bán spot khi giá vượt qua 450c.",
+      "generated_at": "2026-11-11 06:30"
     },
-    "bias": "Neutral",
-    "bias_vn": "Đi Ngang",
-    "summary": "Lúa mì giằng co trước USDA, áp lực từ vị thế short lớn có thể hạn chế đà tăng.",
+    "bias": "Bullish Floor / Second Wave Pending",
+    "bias_vn": "Đáy Thép 586 Được Bảo Vệ / Chờ Sóng 2 Lan Tỏa Từ Ngô",
+    "summary": "ZW chốt tại 591.4c (+4.0c), biên độ 586.0 - 599.6c. Cú sốc năng suất Ngô đã tạo đáy thép bảo vệ lúa mì. Chờ sóng 2 kiểm định lại cản 600c.",
     "key_levels": {
-      "support": "582.0",
-      "resistance": "592.0"
+      "support": "586.0",
+      "resistance": "602.0"
     },
     "reasoning": [
-      "Thời tiết US Plains có mưa, nhưng thiếu thông tin rõ ràng về tiến độ mùa vụ.",
-      "Báo cáo USDA hôm nay là yếu tố chính, nhưng tác động cụ thể lên lúa mì chưa rõ.",
-      "Vị thế COT Smart Money Net -90703 HĐ (NHOI SHORT) tạo áp lực giảm giá.",
-      "Tin Biển Đen đã bão hòa, không tạo premium lớn; DXY/Dầu biến động nhỏ.",
-      "Giá giao dịch trái chiều, cho thấy sự giằng co kỹ thuật và thiếu động lực rõ ràng."
-    ],
-    "risk": "Báo cáo USDA bất ngờ hoặc thay đổi vị thế COT đột ngột có thể đảo chiều xu hướng.",
-    "generated_at": "2026-11-10 22:24"
-  },
-  "categories": [
-    "dia_chinh_tri",
-    "logistics",
-    "san_luong_dien_tich",
-    "cung_cau_nhan_dinh"
-  ]
+      "Cú sốc Ngô (WASDE 677): Năng suất rớt thảm về 179.6 bpa, tồn kho bị chém -91 Mbu về 1,758 Mbu kéo giá Ngô tăng dựng đứng +14c lên 455c. Đây là lá chắn thép bảo vệ sàn đáy cho toàn bộ ngũ cốc.",
+      "Lúa mì Mỹ trung tính vững chắc: Tồn kho Mỹ đạt 743 Mbu (đúng kỳ vọng 744 Mbu), dòng SRW chỉ 106 Mbu - mức cực kỳ thắt chặt.",
+      "Dòng chảy Biển Đen siết lại: USDA chính thức cắt giảm xuất khẩu của Nga (-1.0 MMT xuống 39.0 MMT) và Ukraine (-1.0 MMT xuống 11.5 MMT), xác nhận rủi ro logistics Odesa và hạn ngạch Nga.",
+      "Kháng cự ngắn hạn 600c: Tồn kho toàn cầu tăng lên 280.8 MMT do sản lượng Úc và Argentina được nâng lên +3M tấn khiến cú giật chạm 599.6c bị chốt lời tạm thời.",
+      "Khối Net Short kỷ lục ~91k HĐ bị kẹp chặt: Áp lực Short Squeeze duy trì cực cao khi đáy 586c không bị phá thủng."
+    ]
+  }
 }
