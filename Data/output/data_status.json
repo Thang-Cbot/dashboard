@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 07:10:07 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-11-10 07:10:07"
+      "detail": "Đẩy thành công lúc 07:11:35 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-11-10 07:11:35"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -63,9 +63,9 @@
       "updated_at": "2026-11-10 07:09:53"
     },
     "russian_metrics": {
-      "status": "[ERROR]",
-      "detail": "Failed after 1 attempts",
-      "updated_at": "2026-11-10 06:23:16"
+      "status": "[OK]",
+      "detail": "Auto-fetch 07:30:18",
+      "updated_at": "2026-11-10 07:30:18"
     },
     "blacksea_news": {
       "status": "[OK]",
