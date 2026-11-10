@@ -6,18 +6,18 @@
         "symbol": "ZW",
         "contract": "ZW1!",
         "interval": "M5",
-        "time": "2026-11-10T08:30:09Z",
-        "received_at": "2026-11-10T08:30:23.019Z",
-        "open": 591,
-        "high": 591,
-        "low": 591,
-        "close": 591,
-        "volume": 6,
+        "time": "2026-11-10T08:35:21Z",
+        "received_at": "2026-11-10T08:35:22.274Z",
+        "open": 590,
+        "high": 590,
+        "low": 590,
+        "close": 590,
+        "volume": 4,
         "ema21": null,
         "ema50": null,
         "rsi": null,
         "atr": null,
-        "time_vn": "2026-11-10 15:30:09",
+        "time_vn": "2026-11-10 15:35:21",
         "h1_bar_vn": "2026-11-10 15:00"
       },
       "forming_h1": {
@@ -26,27 +26,11 @@
         "open": 590,
         "high": 591,
         "low": 590,
-        "close": 591,
-        "volume": 26,
-        "m5_count": 8
+        "close": 590,
+        "volume": 30,
+        "m5_count": 9
       },
       "history_m5": [
-        {
-          "symbol": "ZW",
-          "contract": "ZW1!",
-          "interval": "M5",
-          "time": "2026-11-10T05:40:37Z",
-          "received_at": "2026-11-10T05:40:38.664Z",
-          "open": 592,
-          "high": 592,
-          "low": 592,
-          "close": 592,
-          "volume": 24,
-          "ema21": null,
-          "ema50": null,
-          "rsi": null,
-          "atr": null
-        },
         {
           "symbol": "ZW",
           "contract": "ZW1!",
@@ -606,6 +590,22 @@
           "ema50": null,
           "rsi": null,
           "atr": null
+        },
+        {
+          "symbol": "ZW",
+          "contract": "ZW1!",
+          "interval": "M5",
+          "time": "2026-11-10T08:35:21Z",
+          "received_at": "2026-11-10T08:35:22.274Z",
+          "open": 590,
+          "high": 590,
+          "low": 590,
+          "close": 590,
+          "volume": 4,
+          "ema21": null,
+          "ema50": null,
+          "rsi": null,
+          "atr": null
         }
       ]
     },
@@ -614,18 +614,18 @@
         "symbol": "ZC",
         "contract": "ZC1!",
         "interval": "M5",
-        "time": "2026-11-10T08:30:00Z",
-        "received_at": "2026-11-10T08:30:02.080Z",
+        "time": "2026-11-10T08:35:33Z",
+        "received_at": "2026-11-10T08:35:34.292Z",
         "open": 441,
-        "high": 442,
+        "high": 441,
         "low": 441,
         "close": 441,
-        "volume": 156,
+        "volume": 44,
         "ema21": null,
         "ema50": null,
         "rsi": null,
         "atr": null,
-        "time_vn": "2026-11-10 15:30:00",
+        "time_vn": "2026-11-10 15:35:33",
         "h1_bar_vn": "2026-11-10 15:00"
       },
       "forming_h1": {
@@ -635,26 +635,10 @@
         "high": 442,
         "low": 440,
         "close": 441,
-        "volume": 893,
-        "m5_count": 7
+        "volume": 937,
+        "m5_count": 8
       },
       "history_m5": [
-        {
-          "symbol": "ZC",
-          "contract": "ZC1!",
-          "interval": "M5",
-          "time": "2026-11-10T05:35:13Z",
-          "received_at": "2026-11-10T05:35:14.127Z",
-          "open": 441,
-          "high": 442,
-          "low": 441,
-          "close": 442,
-          "volume": 239,
-          "ema21": null,
-          "ema50": null,
-          "rsi": null,
-          "atr": null
-        },
         {
           "symbol": "ZC",
           "contract": "ZC1!",
@@ -1214,9 +1198,25 @@
           "ema50": null,
           "rsi": null,
           "atr": null
+        },
+        {
+          "symbol": "ZC",
+          "contract": "ZC1!",
+          "interval": "M5",
+          "time": "2026-11-10T08:35:33Z",
+          "received_at": "2026-11-10T08:35:34.292Z",
+          "open": 441,
+          "high": 441,
+          "low": 441,
+          "close": 441,
+          "volume": 44,
+          "ema21": null,
+          "ema50": null,
+          "rsi": null,
+          "atr": null
         }
       ]
     }
   },
-  "updated_at": "2026-11-10T08:30:23.112Z"
+  "updated_at": "2026-11-10T08:35:34.328Z"
 }
