@@ -16,7 +16,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 121952.0,
+      "today_volume": 154129.0,
       "prev_volume": 239362.0,
       "today_oi": 644643,
       "prev_oi": 644796,
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 37263.0,
+      "today_volume": 49510.0,
       "prev_volume": 129494.0,
       "today_oi": 198078,
       "prev_oi": 197987,
-      "today_close": 594.0,
+      "today_close": 591.0,
       "prev_close": 588.0,
       "trend": "Tăng nhẹ tích lũy (Accumulation Rally)",
       "logic": "Giá tăng nhẹ với các chỉ số thanh khoản hỗn hợp, cho thấy thị trường đang tích lũy lực cầu hoặc đi ngang."
     }
   },
-  "updated_at": "2026-11-10 23:00:19"
+  "updated_at": "2026-11-11 00:00:18"
 }
