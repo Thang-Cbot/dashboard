@@ -1,227 +1,236 @@
 {
-  "timestamp": "2026-11-11 11:49:58",
+  "timestamp": "2026-11-11 22:27:22",
   "news": [
     {
-      "title": "Báo cáo USDA có thể gây sốc thị trường?",
+      "title": "USDA Cắt Giảm Dự Báo Năng Suất Ngô và Sản Lượng",
       "details": [
-        "Thị trường ngũ cốc gần đây chịu áp lực giảm giá mạnh.",
-        "Giá ngô và đậu tương đã giảm khoảng 10-15% trong 4-6 tuần qua.",
-        "Chuyên gia Jim Roemer dự đoán báo cáo USDA có thể chứa đựng những bất ngờ."
+        "USDA hạ năng suất ngô xuống 179.6 bushel/acre.",
+        "Tổng sản lượng ngô dự kiến giảm xuống 15.893 tỷ bushel.",
+        "Thông tin này thường gây bất ngờ và tác động tăng giá ngô trên thị trường."
       ],
-      "link": "https://climatelligence.substack.com/p/usda-shocker-today-three-markets",
-      "source": "10 Nov 2026 - BestWeather / Jim Roemer (Climatelligence)",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Giá Ngô Tăng Mạnh nhờ Cắt Giảm Dự Báo Năng Suất",
-      "details": [
-        "Hợp đồng tương lai ngô tăng 3.25 đến 9.75 cent trong phiên thứ Ba.",
-        "Giá ngô giao ngay trung bình quốc gia tăng 10.25 cent, đạt 4.15 3/4 USD.",
-        "USDA báo cáo bán 312.700 tấn ngô cho Mexico.",
-        "Động thái tăng giá diễn ra sau khi USDA cắt giảm dự báo năng suất."
-      ],
-      "link": "https://www.barchart.com/story/news/8770202/corn-rallies-on-yield-cut",
-      "source": "10 Nov 2026 - Barchart Grain Market Wrap",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPMkRDWllKSGE5Z0lRVXQ0cl85QURiUXlMMXdLSmJ1LUs3d3J2UmxZODh5YThMX01aZUFRVXNCd2ZZeDlWMWZWVFZLNEF6Umlfbno0ZTFUM0pWQ0xmNUxwLTJxUE9JeXNsUlJOaXRrTnR5czZOdEE2aFZYdHREclVKSldud3RrWTFVbVo1ZUZJVmpXTUVSX2oxaHlQX1ZVOTg?oc=5",
+      "source": "10 Nov 2026 - Google News (Supply)",
       "category": "san_luong_dien_tich"
     },
     {
-      "title": "Giá Lúa Mì Tăng Nhờ Hỗ Trợ Lan Tỏa và Báo Cáo USDA",
+      "title": "Báo Cáo WASDE Tháng 11 Gây Bất Ngờ: Năng Suất và Tồn Kho Ngô, Đậu Tương Thắt Chặt Hơn Dự Kiến",
       "details": [
-        "Giá lúa mì tăng trên cả ba sàn giao dịch vào thứ Ba.",
-        "Được hỗ trợ bởi thị trường ngô và đậu tương mạnh hơn.",
-        "Hợp đồng tương lai lúa mì SRW Chicago tăng 3.75 đến 4.75 cent.",
-        "Báo cáo tồn kho cuối kỳ của USDA cũng góp phần vào đà tăng."
+        "Báo cáo WASDE tháng 11 của USDA cho thấy năng suất và tồn kho ngô, đậu tương thấp hơn dự báo.",
+        "Thông tin này được coi là 'bất ngờ' và 'thắt chặt' nguồn cung.",
+        "Thường dẫn đến phản ứng tăng giá trên thị trường ngô và đậu tương."
       ],
-      "link": "https://www.barchart.com/story/news/8770222/wheat-pops-higher-on-spillover-support-as-usda-carryout",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5taGtIdF8xTkdKbjlQa1A1Q2FSOGRmOFRPdEF5enBPZi1IX3BjMTduR01jWWk1aW1XZjZfcGhOR3FZTnZ4OXNCQW1FZHFDODl5YlRhNlVyOXR4eW80Y2haUlJGcFJaNFZ6bjR3Mk9SSVI?oc=5",
+      "source": "10 Nov 2026 - Google News (Supply)",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Ngô Tăng Giá Mạnh Sau Báo Cáo Cắt Giảm Năng Suất của USDA",
+      "details": [
+        "Giá ngô kỳ hạn tăng 3.25 đến 9.75 cent trong phiên giao dịch thứ Ba.",
+        "Giá ngô giao ngay trung bình quốc gia tăng 10.25 cent, đạt 4.1575 USD.",
+        "USDA báo cáo bán 312,700 tấn ngô cho Mexico, hỗ trợ giá.",
+        "Việc cắt giảm năng suất của USDA là nguyên nhân chính thúc đẩy đà tăng."
+      ],
+      "link": "https://www.barchart.com/story/news/8770202/corn-rallies-on-yield-cut",
       "source": "10 Nov 2026 - Barchart Grain Market Wrap",
       "category": "cung_cau_nhan_dinh"
     },
     {
-      "title": "Đậu Tương Tăng Giá Mạnh Sau Khi USDA Cắt Giảm Tồn Kho Mỹ",
+      "title": "Đậu Tương Tăng Vọt Khi USDA Cắt Giảm Tồn Kho Mỹ",
       "details": [
-        "Giá đậu tương tăng 14 đến 42.25 cent sau báo cáo USDA thuận lợi về tồn kho cuối kỳ.",
-        "Giá đậu tương giao ngay trung bình quốc gia tăng 40.5 cent, đạt 11.66 3/4 USD.",
-        "Báo cáo USDA cho thấy tồn kho đậu tương của Mỹ được cắt giảm.",
-        "Các hợp đồng giao tháng gần nhất dẫn đầu đà tăng."
+        "Giá đậu tương kỳ hạn tăng 14 đến 42.25 cent sau báo cáo USDA.",
+        "Báo cáo USDA được coi là 'thuận lợi' cho tồn kho cuối kỳ.",
+        "Giá đậu tương giao ngay trung bình quốc gia tăng 40.5 cent, đạt 11.6675 USD.",
+        "Thị trường phản ứng tích cực với nguồn cung thắt chặt hơn."
       ],
       "link": "https://www.barchart.com/story/news/8770212/soybeans-rally-as-usda-trims-us-stocks",
       "source": "10 Nov 2026 - Barchart Grain Market Wrap",
       "category": "cung_cau_nhan_dinh"
     },
     {
-      "title": "USDA Cắt Giảm Năng Suất và Sản Lượng Ngô Mỹ",
+      "title": "Điểm Tin Thị Trường Ngũ Cốc 11/11: Ngô, Lúa Mì Giảm Sau Đà Tăng của USDA",
       "details": [
-        "USDA hạ dự báo năng suất ngô xuống 179.6 bushel/acre (BPA).",
-        "Sản lượng ngô dự kiến giảm xuống 15.893 tỷ bushel (BB).",
-        "Thông tin này có tác động tích cực đến giá ngô.",
-        "Báo cáo WASDE tháng 11 gây bất ngờ cho thị trường."
+        "Giá ngô giảm 3.5 cent, lúa mì tháng 12 giảm 1.5 cent vào sáng thứ Tư, trả lại một phần mức tăng hôm thứ Ba.",
+        "USDA cắt giảm năng suất ngô 1.6 bushel xuống 179.6 bushel/acre và tồn kho cuối kỳ xuống 1.758 tỷ bushel.",
+        "Một đợt bán nhanh 312,700 tấn ngô cho Mexico đã kích hoạt hoạt động mua bù bán khống mạnh mẽ vào thứ Ba.",
+        "Lãi suất mở của ngô tăng 6,155 hợp đồng, cho thấy sự quan tâm mới của thị trường."
       ],
-      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPMkRDWllKSGE5Z0lRVXQ0cl85QURiUXlMMXdLSmJ1LUs3d3J2UmxZODh5aThMX01aZUFRVXNCd2ZZeDlWMWZWVFZLNEF6Umlfbno0ZTFUM0pWQ0xmNUxwLTJxUE9JeXNsUlJOaXRrTnR5czZOdEE2aFZYdHREclVKSldud3RrWTFVbVo1ZUZJVmpXTUVSX2oxaHlQX1ZVOTg?oc=5",
-      "source": "10 Nov 2026 - DTN Progressive Farmer",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Báo Cáo WASDE Tháng 11 Gây Bất Ngờ: Năng Suất và Tồn Kho Ngô, Đậu Tương Thắt Chặt Hơn Dự Kiến",
-      "details": [
-        "Báo cáo WASDE tháng 11 của USDA gây bất ngờ cho thị trường.",
-        "Dự báo năng suất ngô và đậu tương thấp hơn kỳ vọng.",
-        "Dự báo tồn kho cuối kỳ của cả hai loại ngũ cốc cũng thắt chặt hơn.",
-        "Thông tin này thúc đẩy giá ngũ cốc tăng mạnh."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5taGtIdF8xTkdKbjlQa1A1Q2FSOGRmOFRPdEF5enBPZi1IX3BjMTduR01jWWk1aW1XZjZfcGhOR3FZTnZ4OXNCQW1FZHFDODl5YlRhNlVyOXR4eW80Y2haUlJGcFJaNFZ6bjR3Mk9SSVI?oc=5",
-      "source": "10 Nov 2026 - Successful Farming",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Giá Ngô Tăng Vọt Nhờ Dữ Liệu WASDE Thuận Lợi",
-      "details": [
-        "Giá ngô tăng mạnh sau báo cáo WASDE của USDA.",
-        "USDA cắt giảm ước tính năng suất trên mỗi acre nghiêm trọng hơn dự kiến.",
-        "Thông tin này được coi là \"thân thiện\" với thị trường ngô.",
-        "Tác động tích cực đến tâm lý giao dịch và giá cả."
-      ],
-      "link": "https://www.farmprogress.com/marketing/corn-prices-soar-on-friendly-wasde-data",
-      "source": "10 Nov 2026 - Farm Progress",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Mexico Mua Ngô và Đậu Tương Từ Mỹ, Thúc Đẩy Xuất Khẩu",
-      "details": [
-        "USDA báo cáo Mexico đã mua ngô và đậu tương từ Mỹ.",
-        "Đây là tin tức tích cực cho nhu cầu xuất khẩu của Mỹ.",
-        "Năm tiếp thị 2026-27 cho ngô và đậu tương bắt đầu từ ngày 1 tháng 9.",
-        "Giao dịch này hỗ trợ giá ngũ cốc."
-      ],
-      "link": "https://www.farmprogress.com/marketing/flash-sales",
-      "source": "10 Nov 2026 - Farm Progress",
+      "link": "https://www.barchart.com/story/news/8777584/walsh-dauly-bullet-points-11-11",
+      "source": "11 Nov 2026 - Barchart Grain Market Wrap",
       "category": "cung_cau_nhan_dinh"
     },
     {
-      "title": "Thương Mại Ngũ Cốc Toàn Cầu Thay Đổi: Xuất Khẩu Mỹ Có Thể Tăng Khi Vận Chuyển Biển Đen Giảm?",
+      "title": "Ngô Tăng Giá Nhờ Hoạt Động Mua Bù Bán Khống Sau Báo Cáo USDA",
       "details": [
-        "Thương mại ngũ cốc toàn cầu đang có sự dịch chuyển lớn.",
-        "Các chuyến hàng từ Biển Đen giảm sút do căng thẳng địa chính trị.",
-        "Đặt ra câu hỏi liệu các nhà xuất khẩu Mỹ có thể giành thêm thị phần.",
-        "Sự thay đổi này có thể ảnh hưởng đến giá và dòng chảy thương mại."
+        "Triển vọng ngô Mỹ niên vụ 2026/27 cho thấy sản lượng, tiêu thụ nội địa, xuất khẩu và tồn kho cuối kỳ đều giảm.",
+        "Thông tin này dựa trên báo cáo WASDE mới nhất của USDA.",
+        "Thị trường ngô chứng kiến hoạt động mua bù bán khống, đẩy giá tăng."
       ],
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNm5JOE9FendrSEp6TFJuQ0E3Q0pBVThhekg0UTlHbkZfRVhNOUJFeEh2UzBabFJXMDZocnhRekQyZkpqV1ZDTEFGeGwyRjFjTDZvWGp4emhTX0VITlR4QURTMXlFVU1ZVWhtb1FCd0VVRExmampwLV9QYjFGbFg5U2N0ME15ZTg3ajhQM3VGWk4?oc=5",
+      "link": "https://www.barchart.com/story/news/8771276/corn-short-covering-and-reversing-up",
+      "source": "11 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Thị Trường Ngũ Cốc Điều Chỉnh Giảm Sau Đà Tăng Mạnh Từ Báo Cáo WASDE",
+      "details": [
+        "Giá ngô và đậu tương kỳ hạn giảm nhẹ qua đêm, điều chỉnh sau đà tăng mạnh hôm thứ Ba.",
+        "Đà tăng trước đó được thúc đẩy bởi báo cáo WASDE của USDA.",
+        "Chỉ số đô la Mỹ đạt mức cao nhất trong bốn tuần, có thể gây áp lực lên hàng hóa."
+      ],
+      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
+      "source": "11 Nov 2026 - Farm Progress",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Nga Dùng Túi Nhựa Khổng Lồ Lưu Trữ Ngũ Cốc Do Bế Tắc Thương Mại Biển Đen",
+      "details": [
+        "Nga phải sử dụng túi nhựa lớn để lưu trữ lượng ngũ cốc chưa xuất khẩu.",
+        "Tình trạng này xảy ra do thương mại Biển Đen bị đình trệ.",
+        "Cho thấy những thách thức lớn về logistics và xuất khẩu ngũ cốc của Nga.",
+        "Có thể ảnh hưởng đến nguồn cung lúa mì toàn cầu và giá cả."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOWTU3YzRMbmlsWjNDNXFhV1FXUW5YUFZRd1dfcERWVjB6NjNMZmxwak5QbjN0WUsyVGI1dVp5MzY4RVJoZWJCNFlVeF84NnFlcEZEUzRXSjUwZWJBN0R6X3Z6NzNOcFFoLTFDeGpQYUZlbW5yMThUeWdIeXVyT3g0b21fLWJ6ZWtTaUw5cW9rdzNFN2hjMmdIbk9uRDFwVkh0OHNQVk5jTW9vdjZUVDZRejZCSkxvSGpucEg3akJWWQ?oc=5",
+      "source": "11 Nov 2026 - Google News (Geo)",
+      "category": "logistics"
+    },
+    {
+      "title": "Sông Danube Không Thể Đảm Đương Toàn Bộ Vận Chuyển Ngũ Cốc Ukraine",
+      "details": [
+        "Sông Danube là tuyến đường xuất khẩu quan trọng cho ngũ cốc Ukraine.",
+        "Tuy nhiên, năng lực vận chuyển của sông Danube không đủ để xử lý toàn bộ sản lượng thu hoạch của Ukraine.",
+        "Điều này gây ra nút thắt cổ chai trong chuỗi cung ứng, ảnh hưởng đến xuất khẩu và giá ngũ cốc.",
+        "Nhấn mạnh sự cần thiết của các tuyến đường xuất khẩu khác hoặc giải pháp cho Biển Đen."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE04VHVpVGpjMkhtODBLbjkwWFEwV1RkZEVsdndEU1FFekxUUmc2MjA3d0ViQXpIdDRtMmtjQUJ4eGJ5TW9oaFNzaFpsc0lBUFAwYk9sNl8xbEtJdERaWTZmQzJkRFRSNDBVSmtrUUFIWFg1ZnNCTnI0cGYybw?oc=5",
+      "source": "11 Nov 2026 - IndraStra Global",
+      "category": "logistics"
+    },
+    {
+      "title": "Thương Mại Ngũ Cốc Toàn Cầu Thay Đổi: Cơ Hội Cho Các Nhà Xuất Khẩu Mỹ Khi Vận Chuyển Biển Đen Giảm?",
+      "details": [
+        "Thương mại ngũ cốc toàn cầu đang chứng kiến sự dịch chuyển đáng kể.",
+        "Sự suy giảm trong các chuyến hàng từ Biển Đen tạo ra cơ hội cho các nhà xuất khẩu Mỹ.",
+        "Mỹ có thể tăng cường thị phần xuất khẩu ngũ cốc trong bối cảnh địa chính trị phức tạp.",
+        "Tác động tiềm năng đến giá cả và dòng chảy thương mại toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNm5JOE9FendrSEp6TFJuQ0E3Q0pBVThhekgwUTlHbkZfRVhNOUJFeEh2UzBabFJXMDZocnhRekQyZkpqV1ZDTEFGeGwyRjFjTDZvWGp4emhTX0VITlR4QURTMXlFVU1ZVWhtb1FCd0VVRExmampwLV9QYjFGbFg5U2N0ME15ZTg3ajhQM3VGWk4?oc=5",
       "source": "10 Nov 2026 - AgroLatam",
       "category": "dia_chinh_tri"
     },
     {
-      "title": "Cuộc Chiến Ngũ Cốc Giữa Ukraine và Nga Tiếp Diễn",
+      "title": "Các Cuộc Tấn Công Mới ở Biển Đen Làm Tăng Nguy Cơ Khủng Hoảng Lương Thực Toàn Cầu",
       "details": [
-        "Xung đột Nga-Ukraine tiếp tục ảnh hưởng đến nguồn cung ngũ cốc toàn cầu.",
-        "Các cuộc tấn công vào cơ sở hạ tầng cảng và tàu vận chuyển vẫn diễn ra.",
-        "Tạo ra sự bất ổn và lo ngại về an ninh lương thực.",
-        "Giá ngũ cốc nhạy cảm với các diễn biến địa chính trị tại khu vực Biển Đen."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQRUZNU002OUx6T2NXZ3lWd0xENGRLaXhvdnFpcVJTRTNrZFkwNE9wR0kzSTJ5TjN2NzV4X3RlMHgxZmN3cjJobXZFOG9jWGdtQjV2RmhXWjlrMjJ1OThzMWlOX3ZUT1ZuYXlNSWp3LTB6RXNKTVN4MUpjZzhwTVZnRFRnZTJMNHdqcXVvU1RWWnhBaDBVckdldWRoaGF0d3dtVGtYeW1fZE82NlRlMUkxcm85Z1g?oc=5",
-      "source": "09 Nov 2026 - Le Monde.fr",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Các Cuộc Tấn Công Mới ở Biển Đen Đe Dọa Khủng Hoảng Lương Thực Toàn Cầu",
-      "details": [
-        "Các cuộc tấn công gần đây ở Biển Đen làm gia tăng lo ngại về nguồn cung lương thực.",
-        "Khu vực Biển Đen là hành lang xuất khẩu ngũ cốc quan trọng.",
-        "Tình hình leo thang có thể dẫn đến khủng hoảng lương thực toàn cầu.",
-        "Tác động tiêu cực đến giá lúa mì và ngô."
+        "Các cuộc tấn công mới ở khu vực Biển Đen đang gia tăng.",
+        "Điều này đe dọa nghiêm trọng đến an ninh lương thực toàn cầu.",
+        "Gây gián đoạn chuỗi cung ứng ngũ cốc từ Ukraine và Nga.",
+        "Có thể đẩy giá ngũ cốc, đặc biệt là lúa mì, lên cao."
       ],
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQR2hRWUNlYTZDM3lkU1NBNVJPRThhWllJQ2xrYk1TMjJzemg0cW1EY1NlZjBIUWJvNjdvMGJvaXBiUzVKbWwta1U3T1hPUzZGeVVvcHZjcURDVWZOYUhMdkJGY0xrUTh5ejE4aGFGQjZZVEV5QUZaUW5WTVQxVjZHenh4eVBMUFRmZnY5WWhBZGZBOGxDcFc5VHc4emN4UEtvdW9IQzNwZkE?oc=5",
       "source": "07 Nov 2026 - Al Majalla",
       "category": "dia_chinh_tri"
     },
     {
-      "title": "Giá Lúa Mì Giảm Do Áp Lực Từ Biển Đen",
+      "title": "Chi Phí Logistics Cao Bóp Nghẹt Xuất Khẩu Ngũ Cốc Ukraine và Lợi Nhuận Nông Dân",
       "details": [
-        "Giá lúa mì giảm trên cả ba sàn giao dịch vào thứ Sáu.",
-        "Hợp đồng SRW Chicago giảm 4-6 cent.",
-        "Áp lực giảm giá đến từ tình hình căng thẳng ở khu vực Biển Đen.",
-        "Lo ngại về nguồn cung và vận chuyển từ khu vực này ảnh hưởng tiêu cực đến giá."
-      ],
-      "link": "https://www.barchart.com/story/news/8705758/wheat-facing-friday-weakness-on-black-sea-pressure?.tsrc=rss",
-      "source": "06 Nov 2026 - Yahoo Finance",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Chi Phí Logistics Cao Bóp Nghẹt Xuất Khẩu Ngũ Cốc Ukraine",
-      "details": [
-        "Chi phí logistics tăng cao đang gây khó khăn cho xuất khẩu ngũ cốc của Ukraine.",
+        "Chi phí logistics tăng cao đang gây áp lực lớn lên xuất khẩu ngũ cốc của Ukraine.",
         "Điều này làm giảm lợi nhuận của nông dân Ukraine.",
-        "Ảnh hưởng đến khả năng cạnh tranh của ngũ cốc Ukraine trên thị trường toàn cầu.",
-        "Góp phần vào sự bất ổn của nguồn cung từ khu vực Biển Đen."
+        "Vấn đề vận chuyển và chi phí cao làm giảm khả năng cạnh tranh của ngũ cốc Ukraine trên thị trường toàn cầu.",
+        "Có thể ảnh hưởng đến nguồn cung và giá lúa mì."
       ],
       "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUUJkc1RNMlY0TUNnd205VzNLV09LUjE1eXlZbGs5c3lPald4cFdGM1FDZUU3c0tXVFprVWxKYTlqWTVYeFppdWpXVVVSeERmYTFmamhJSVA5T3VzQW9qbUdfVHVyWUtpVnBfdk1keFFrelN3OXhydkRRbmU5eF9fbWRNemRkT3ZsSXdBdGlQaVpFYVZtU01kanNPR2VoZ3ZzM3VOaXl4LTVQdw?oc=5",
       "source": "06 Nov 2026 - Miller Magazine",
       "category": "logistics"
     },
     {
-      "title": "Tiến Độ Thu Hoạch Ngũ Cốc Mỹ: Ngô 81%, Đậu Tương 92%, Lúa Mì Đông 89%",
+      "title": "Báo Cáo Tiến Độ Mùa Vụ USDA: Ngô 81%, Đậu Tương 92%, Lúa Mì Đông 89%",
       "details": [
-        "USDA công bố tiến độ thu hoạch ngô đạt 81%.",
+        "Tiến độ thu hoạch ngô đạt 81%.",
         "Tiến độ thu hoạch đậu tương đạt 92%.",
         "Tiến độ gieo trồng lúa mì đông đạt 89%.",
-        "Dữ liệu này cung cấp cái nhìn về nguồn cung sắp tới và tình hình mùa vụ."
+        "Các số liệu này cung cấp cái nhìn về nguồn cung hiện tại và tiềm năng cho mùa vụ tiếp theo."
       ],
       "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONHh3VnRadkxUNnpLMjBhQU1xOEpaU1dGUTdCTnZQODhoM0xFMHdLU3FxMm9iN3dPdms4dk1Ka0E2bEhmUE1lLVhaT01JTnl3czJUUlZ4OFJTVXh6MXQxbDQ4QUMxOHducGxvNzJ0NVlydEFIeDdTQjZZYjd4cDNCYmFQZWU1MFBjY1Fjc1pMNFdZWTZPYk4wMjFPSTJGN2VhZUZWa29vdjBvU1FO?oc=5",
       "source": "09 Nov 2026 - IndexBox",
       "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Hiện Tượng Phân Tách Xoáy Cực: Nguy Cơ Thời Tiết Lạnh Bất Thường Ảnh Hưởng Nông Nghiệp",
+      "details": [
+        "Hiện tượng phân tách xoáy cực là bất thường vào tháng 11, đặc biệt trong các năm El Niño.",
+        "Sự kiện tương tự vào tháng 1/2025 đã gây ra đợt đóng băng ở Florida và lạnh kỷ lục.",
+        "Thời tiết cực đoan có thể ảnh hưởng đến cây trồng mùa đông và vụ xuân năm sau.",
+        "Đây là yếu tố rủi ro thời tiết cần theo dõi cho thị trường nông sản."
+      ],
+      "link": "https://climatelligence.substack.com/p/what-is-a-split-in-the-polar-vortex",
+      "source": "06 Nov 2026 - BestWeather / Jim Roemer (Climatelligence)",
+      "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Giá Phân Bón, Nhiên Liệu Cao Đe Dọa An Ninh Lương Thực Toàn Cầu",
+      "details": [
+        "Giá phân bón và nhiên liệu tăng cao đang là mối đe dọa lớn đối với an ninh lương thực.",
+        "Các cuộc xung đột ở Biển Đen và Trung Đông làm hạn chế vận chuyển đầu vào nông nghiệp.",
+        "Chi phí sản xuất tăng cao có thể dẫn đến giảm sản lượng và tăng giá lương thực.",
+        "Ảnh hưởng đến lợi nhuận của nông dân và nguồn cung ngũ cốc toàn cầu."
+      ],
+      "link": "https://www.world-grain.com/articles/23442-from-the-editor-high-fertilizer-fuel-prices-threaten-food-security",
+      "source": "11 Nov 2026 - World Grain",
+      "category": "dia_chinh_tri"
     }
   ],
   "intraday": {
     "ZW": {
-      "bias": "Bullish",
-      "bias_vn": "Tăng",
-      "summary": "ZW tăng mạnh nhờ báo cáo USDA tích cực; Smart Money short lớn có thể gây short squeeze.",
+      "bias": "Bearish",
+      "bias_vn": "Giảm",
+      "summary": "Lúa mì chịu áp lực bán mạnh từ vị thế Smart Money và tin Biển Đen bão hòa, xu hướng giảm chiếm ưu thế.",
       "key_levels": {
-        "support": "590.0",
-        "resistance": "600.0"
+        "support": "588.00",
+        "resistance": "598.00"
       },
       "reasoning": [
-        "Báo cáo USDA gây bất ngờ, hỗ trợ giá lúa mì.",
-        "Cung cầu thắt chặt hơn dự kiến sau báo cáo USDA tháng 11.",
-        "Vị thế Smart Money short lớn (Q3) tiềm năng short squeeze.",
-        "Địa chính trị Biển Đen đã bão hòa, ít tác động mới.",
-        "Giá đang tăng mạnh, vượt kháng cự ngắn hạn, xu hướng tích cực."
+        "Thời tiết: Không có yếu tố thời tiết hỗ trợ mạnh cho giá lúa mì.",
+        "Cung cầu/USDA: Báo cáo USDA không tạo động lực tăng bền vững cho lúa mì.",
+        "Vị thế COT: Smart Money NHOI SHORT mạnh (-91443 HĐ, Q3), áp lực bán lớn.",
+        "Địa chính trị: Tin Biển Đen đã bão hòa, giảm bớt lo ngại nguồn cung.",
+        "Kỹ thuật: Giá tham chiếu giảm nhẹ, cho thấy xu hướng tiêu cực."
       ],
-      "risk": "Rủi ro chốt lời sau khi tin USDA đã phản ánh vào giá.",
-      "generated_at": "2026-11-11 11:49"
+      "risk": "Bất ngờ về thời tiết vùng trồng hoặc thay đổi chính sách xuất khẩu.",
+      "generated_at": "2026-11-11 22:27"
     },
     "ZC": {
-      "bias": "Bullish",
-      "bias_vn": "Tăng",
-      "summary": "ZC tăng vọt do USDA cắt giảm năng suất và tồn kho ngô Mỹ, tạo động lực tăng giá mạnh.",
+      "bias": "Bearish",
+      "bias_vn": "Giảm",
+      "summary": "Ngô giảm giá mạnh sau khi thị trường đã tiêu hóa tin USDA cắt giảm năng suất, Smart Money XA LONG.",
       "key_levels": {
-        "support": "445.0",
-        "resistance": "455.0"
+        "support": "442.00",
+        "resistance": "450.00"
       },
       "reasoning": [
-        "USDA cắt giảm năng suất/sản lượng ngô Mỹ, hỗ trợ giá.",
-        "Báo cáo WASDE tháng 11 bất ngờ, tồn kho ngô thắt chặt.",
-        "Vị thế Smart Money long (Q2) có thể tiếp tục đẩy giá.",
-        "Địa chính trị Biển Đen đã bão hòa, ít tác động mới.",
-        "Giá tăng mạnh, vượt các ngưỡng kháng cự quan trọng kỹ thuật."
+        "Thời tiết: Không có yếu tố thời tiết hỗ trợ mạnh, tập trung vào Nam Mỹ.",
+        "Cung cầu/USDA: Dù USDA cắt giảm năng suất, thị trường đã phản ứng và đang điều chỉnh giảm.",
+        "Vị thế COT: Smart Money XA LONG (Q2), cho thấy sự thận trọng và chốt lời.",
+        "Địa chính trị: Không có tin tức địa chính trị nổi bật tác động trực tiếp đến ngô.",
+        "Kỹ thuật: Giá tham chiếu giảm đáng kể (-0.78%), cho thấy áp lực bán."
       ],
-      "risk": "Rủi ro điều chỉnh kỹ thuật hoặc chốt lời sau đợt tăng mạnh.",
-      "generated_at": "2026-11-11 11:49"
+      "risk": "Báo cáo thời tiết Nam Mỹ xấu hơn dự kiến hoặc nhu cầu xuất khẩu tăng đột biến.",
+      "generated_at": "2026-11-11 22:27"
     },
-    "bias": "Bullish",
-    "bias_vn": "Tăng",
-    "summary": "ZW tăng mạnh nhờ báo cáo USDA tích cực; Smart Money short lớn có thể gây short squeeze.",
+    "bias": "Bearish",
+    "bias_vn": "Giảm",
+    "summary": "Lúa mì chịu áp lực bán mạnh từ vị thế Smart Money và tin Biển Đen bão hòa, xu hướng giảm chiếm ưu thế.",
     "key_levels": {
-      "support": "590.0",
-      "resistance": "600.0"
+      "support": "588.00",
+      "resistance": "598.00"
     },
     "reasoning": [
-      "Báo cáo USDA gây bất ngờ, hỗ trợ giá lúa mì.",
-      "Cung cầu thắt chặt hơn dự kiến sau báo cáo USDA tháng 11.",
-      "Vị thế Smart Money short lớn (Q3) tiềm năng short squeeze.",
-      "Địa chính trị Biển Đen đã bão hòa, ít tác động mới.",
-      "Giá đang tăng mạnh, vượt kháng cự ngắn hạn, xu hướng tích cực."
+      "Thời tiết: Không có yếu tố thời tiết hỗ trợ mạnh cho giá lúa mì.",
+      "Cung cầu/USDA: Báo cáo USDA không tạo động lực tăng bền vững cho lúa mì.",
+      "Vị thế COT: Smart Money NHOI SHORT mạnh (-91443 HĐ, Q3), áp lực bán lớn.",
+      "Địa chính trị: Tin Biển Đen đã bão hòa, giảm bớt lo ngại nguồn cung.",
+      "Kỹ thuật: Giá tham chiếu giảm nhẹ, cho thấy xu hướng tiêu cực."
     ],
-    "risk": "Rủi ro chốt lời sau khi tin USDA đã phản ánh vào giá.",
-    "generated_at": "2026-11-11 11:49"
+    "risk": "Bất ngờ về thời tiết vùng trồng hoặc thay đổi chính sách xuất khẩu.",
+    "generated_at": "2026-11-11 22:27"
   },
   "categories": [
     "dia_chinh_tri",
