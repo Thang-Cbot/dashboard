@@ -1,59 +1,59 @@
 {
-  "timestamp": "2026-11-11 10:02:09",
+  "timestamp": "2026-11-11 23:02:07",
   "model": "gemini-2.5-flash",
   "version": "run_tin_tuc_6_parts_v1",
   "structured": {
     "header_context": {
-      "report_time": "2026-11-11 10:01 (Giờ VN)",
-      "zw_price_str": "593.25 ¢/bu (Fair Value gốc: 670c)",
-      "zc_price_str": "449.25 ¢/bu (Fair Value gốc: 480c)",
+      "report_time": "2026-11-11 23:01 (Giờ VN)",
+      "zw_price_str": "593.75 ¢/bu (Fair Value gốc: 670c)",
+      "zc_price_str": "444.5 ¢/bu (Fair Value gốc: 480c)",
       "cot_summary": "ZW Net Est: -91443.0 HĐ | ZC Net Est: 6289.0 HĐ",
-      "macro_summary": "DXY: 102.265 (+0.60%) | Brent: 92.58$"
+      "macro_summary": "DXY: 102.878 (+0.63%) | Brent: 94.38$"
     },
     "table_parts": [
       {
         "part_num": "PHẦN 1",
         "part_title": "Phiên Đêm, Cấu Trúc Giá (VSA/Wyckoff) & Vị Thế COT",
-        "core_content": "Giá lúa mì (ZW) tăng nhẹ lên 593.25c từ 588.0c, với volume thấp và cấu trúc 'tăng yếu / rủi ro đảo chiều' do short covering. Vị thế COT của ZW cho thấy quỹ đang net short rất lớn (-91443 HĐ), tạo tiềm năng cho các đợt short covering mạnh hơn. Giá hiện tại nằm dưới cả Fair Value (670c) và sàn chi phí sản xuất (600-620c). Tín hiệu kỹ thuật H1 cho thấy kháng cự tại 601.30-601.45c. Ngô (ZC) cũng tăng lên 449.25c từ 439.25c, với volume cao hơn ZW nhưng cấu trúc tương tự 'tăng yếu / rủi ro đảo chiều'. Vị thế COT của ZC là net long nhưng đang giảm (6289 HĐ), cho thấy áp lực xả long. Giá ZC đang sát sàn chi phí sản xuất (445-460c) và dưới Fair Value (480c). Tín hiệu H1 cho thấy ngưỡng kháng cự/hỗ trợ tại 445.15-445.17c.",
-        "zw_impact": "Giá ZW đang hồi phục kỹ thuật từ vùng quá bán, chủ yếu do short covering khi giá nằm dưới sàn chi phí sản xuất. Vị thế net short lớn của quỹ có thể tiếp tục thúc đẩy các đợt hồi phục ngắn hạn, nhưng động lực tăng bền vững còn yếu.",
+        "core_content": "Lúa mì (ZW) đang ở mức 593.75c, thấp hơn đáng kể so với Fair Value 670c và dưới sàn chi phí sản xuất 600-620c. Cấu trúc giá cho thấy một đợt tăng yếu, mang tính chất hồi phục kỹ thuật hoặc Short Covering Rally, với rủi ro đảo chiều tiềm ẩn. Vị thế COT của quỹ đang Net Short rất lớn (-91443.0 HĐ), cho thấy thị trường đang ở trạng thái quá bán và có thể kích hoạt các lệnh mua bù. Ngô (ZC) giao dịch ở 444.5c, sát sàn chi phí sản xuất 445-460c và dưới Fair Value 480c. Cấu trúc giá là giảm suy yếu, cho thấy quá trình tạo đáy ngắn hạn sau đợt thanh lý vị thế Long (Long Liquidation Decline). Vị thế COT của quỹ đang Net Long nhưng có xu hướng giảm (6289.0 HĐ), phản ánh áp lực bán ra từ các vị thế Long cũ. Tín hiệu kỹ thuật H1 cho thấy áp lực bán ngắn hạn quanh 601.30-601.45 cho ZW và 445.15-445.17 cho ZC.",
+        "zw_impact": "Giá ZW đang ở vùng quá bán dưới chi phí sản xuất, với vị thế short lớn của quỹ, tạo điều kiện cho một đợt hồi phục kỹ thuật hoặc tích lũy trong biên độ hẹp. Rủi ro đảo chiều cần được theo dõi chặt chẽ.",
         "zw_badge": "HỒI PHỤC KỸ THUẬT / TẠO ĐÁY",
-        "zc_impact": "Giá ZC đang nỗ lực dò đáy quanh vùng sàn chi phí sản xuất. Mặc dù có dấu hiệu short covering, áp lực xả long vẫn hiện hữu. Vùng giá hiện tại có thể là điểm tích lũy quan trọng trước khi tìm được động lực mới.",
+        "zc_impact": "Giá ZC đã chạm sàn chi phí sản xuất, cùng với tín hiệu giảm suy yếu và thanh lý vị thế Long, cho thấy thị trường đang trong quá trình dò đáy và thiết lập nền giá ngắn hạn.",
         "zc_badge": "DÒ ĐÁY NGẮN HẠN"
       },
       {
         "part_num": "PHẦN 2",
         "part_title": "Cung Cầu Thực Tế, Báo Cáo USDA & Cạnh Tranh Quốc Tế",
-        "core_content": "Báo cáo USDA Weekly Export Sales mới nhất cho thấy ZW đạt 538,000 tấn, là một con số tích cực, cho thấy nhu cầu xuất khẩu vẫn duy trì. ZC đạt 1,294,600 tấn, một mức rất mạnh, cung cấp hỗ trợ đáng kể cho giá ngô. Về cạnh tranh quốc tế, Nga đang xuất khẩu lúa mì với giá FOB khoảng 267-268 USD/tấn (tương đương ~725-730c/bu), cao hơn đáng kể so với giá CBOT hiện tại. Hạn ngạch xuất khẩu mùa đông của Nga sắp áp dụng từ tháng 11 có thể làm giảm nguồn cung từ Nga trong tương lai, nhưng tác động này chưa phản ánh hoàn toàn vào giá.",
-        "zw_impact": "Doanh số xuất khẩu lúa mì của USDA là tích cực nhưng có thể đã được phản ánh một phần vào đợt hồi phục gần đây. Áp lực cạnh tranh từ Nga có thể giảm bớt khi hạn ngạch được áp dụng, tạo yếu tố hỗ trợ tiềm năng trong trung hạn.",
-        "zw_badge": "TRUNG TÍNH (ĐÃ PRICED-IN)",
-        "zc_impact": "Doanh số xuất khẩu ngô rất mạnh từ USDA là một yếu tố hỗ trợ nội địa quan trọng, giúp giá ngô tìm được điểm tựa vững chắc quanh vùng sàn chi phí sản xuất, bất chấp áp lực thu hoạch.",
+        "core_content": "Báo cáo USDA Weekly Export Sales mới nhất cho thấy nhu cầu xuất khẩu mạnh mẽ đối với cả lúa mì (538,000 tấn) và ngô (1,294,600 tấn). Đây là một yếu tố hỗ trợ tích cực, đặc biệt đối với ngô. Tuy nhiên, áp lực cạnh tranh quốc tế vẫn hiện hữu, đặc biệt từ Nga với lúa mì xuất khẩu giá rẻ (267-268 USD/tấn FOB) qua cảng Baltic & Biển Đen, cùng với việc hạn ngạch xuất khẩu mùa đông sắp được áp dụng từ tháng 11. Yếu tố này đã và đang gây áp lực giảm giá lên lúa mì toàn cầu và có thể đã phần nào được phản ánh vào giá hiện tại. Nhu cầu ethanol và thức ăn chăn nuôi nội địa Mỹ vẫn là yếu tố hỗ trợ cơ bản cho ngô.",
+        "zw_impact": "Mặc dù USDA Export Sales tốt, áp lực từ lúa mì giá rẻ của Nga và hạn ngạch xuất khẩu sắp tới vẫn là yếu tố Bearish ngắn hạn, có thể đã Priced-in một phần nhưng vẫn duy trì tâm lý thận trọng.",
+        "zw_badge": "BEARISH NGẮN HẠN",
+        "zc_impact": "Nhu cầu xuất khẩu mạnh mẽ của USDA Export Sales là yếu tố hỗ trợ tích cực, giúp ngô tìm được điểm cân bằng trong bối cảnh áp lực thu hoạch.",
         "zc_badge": "HỖ TRỢ NỘI ĐỊA"
       },
       {
         "part_num": "PHẦN 3",
         "part_title": "Địa Chính Trị Biển Đen & Vĩ Mô Liên Thị Trường",
-        "core_content": "Tình hình Biển Đen vẫn phức tạp với các tin tức mâu thuẫn: một mặt có lo ngại về xuất khẩu yếu và nông dân Ukraine mất động lực gieo trồng, mặt khác lại có cảnh báo về 'nạn đói cận kề' và 'căng thẳng Biển Đen đẩy giá lúa mì toàn cầu tăng'. Điều này tạo ra sự bất ổn và rủi ro tin đồn cho thị trường lúa mì. Về vĩ mô, chỉ số DXY tăng nhẹ (+0.60%) lên 102.265, tạo áp lực giảm giá chung cho các loại hàng hóa. Giá dầu Brent ổn định ở mức 92.58$, không tạo động lực đáng kể cho thị trường ngô liên quan đến ethanol.",
-        "zw_impact": "Các tin tức về Biển Đen tạo ra rủi ro tin đồn và biến động khó lường cho giá lúa mì. Mặc dù có các yếu tố hỗ trợ tiềm năng từ rủi ro nguồn cung, sự mâu thuẫn trong thông tin khiến thị trường khó định hướng rõ ràng. DXY tăng nhẹ tạo áp lực giảm giá.",
+        "core_content": "Tình hình Biển Đen vẫn phức tạp và mâu thuẫn. Một mặt, thị trường lúa mì giảm giá do xuất khẩu yếu hơn lo ngại hạn hán từ Ukraine, nông dân mất động lực gieo trồng và nguy cơ khủng hoảng ngũ cốc mới. Mặt khác, căng thẳng Biển Đen và hạn hán khu vực lại được cho là đẩy giá lúa mì toàn cầu tăng. Điều này tạo ra một môi trường tin tức không rõ ràng, dễ bị ảnh hưởng bởi tin đồn. Về vĩ mô, chỉ số DXY tăng (+0.63%) cho thấy đồng USD mạnh lên, thường gây áp lực giảm giá lên các mặt hàng nông sản. Ngược lại, giá Dầu Brent tăng mạnh (+3.16%) lên 94.38$ là yếu tố hỗ trợ tích cực cho giá ngô do mối liên hệ với sản xuất ethanol.",
+        "zw_impact": "Tình hình Biển Đen đầy mâu thuẫn và không chắc chắn, tạo ra rủi ro tin đồn có thể gây biến động mạnh cho giá lúa mì. DXY tăng gây áp lực giảm giá.",
         "zw_badge": "RỦI RO TIN ĐỒN",
-        "zc_impact": "Giá dầu Brent ổn định không tác động mạnh đến nhu cầu ethanol từ ngô. DXY tăng nhẹ tạo áp lực giảm giá chung cho hàng hóa, nhưng không có yếu tố địa chính trị trực tiếp ảnh hưởng đến ngô như lúa mì.",
-        "zc_badge": "TRUNG TÍNH"
+        "zc_impact": "Giá dầu Brent tăng mạnh là yếu tố hỗ trợ đáng kể cho giá ngô thông qua nhu cầu ethanol, giúp giảm bớt áp lực bán.",
+        "zc_badge": "HỖ TRỢ TỪ GIÁ DẦU"
       },
       {
         "part_num": "PHẦN 4",
         "part_title": "Thời Tiết (NOAA / Jim Roemer) & Mùa Vụ 2 Bán Cầu",
-        "core_content": "Hiện tượng El Niño tiếp tục mạnh lên và có khả năng kéo dài đến tháng 1-3/2027 với xác suất trên 83%. Đây là yếu tố bullish dài hạn cho thị trường nông sản toàn cầu. Tại Mỹ, tiến độ thu hoạch ngô đang ở giai đoạn cao điểm (>60-70%), tạo áp lực bán theo mùa vụ. Gieo trồng lúa mì vụ Đông thuận lợi nhờ mưa rào nhẹ tại US Plains, là yếu tố bearish ngắn hạn. Ở Nam Bán Cầu, Úc và Argentina chuẩn bị bước vào vụ gặt tháng 11, có thể tăng nguồn cung ngắn hạn trên thị trường toàn cầu.",
-        "zw_impact": "Gieo trồng lúa mì vụ Đông thuận lợi ở Mỹ tạo áp lực kìm hãm đà tăng ngắn hạn. Tuy nhiên, El Niño mạnh kéo dài đến 2027 là yếu tố bullish dài hạn, có thể gây ra các vấn đề thời tiết ở các khu vực sản xuất chính khác trong tương lai.",
+        "core_content": "Dự báo ENSO xác nhận El Niño tiếp tục mạnh lên, với khả năng cao duy trì mạnh đến rất mạnh qua tháng 1-3/2027 (trên 83%). Đây là yếu tố Bullish dài hạn cho thị trường nông sản toàn cầu do tiềm năng gây ra các hình thái thời tiết cực đoan. Tại Mỹ, tiến độ thu hoạch ngô đang ở giai đoạn cao điểm (>60-70%), tạo áp lực cung lớn nhất lên thị trường. Tuy nhiên, việc gieo trồng lúa mì vụ Đông thuận lợi nhờ mưa rào nhẹ tại US Plains lại là yếu tố kìm hãm đà tăng của lúa mì ngắn hạn. Ở Nam Bán Cầu, Úc và Argentina đang chuẩn bị bước vào vụ gặt tháng 11, bổ sung nguồn cung vào thị trường toàn cầu.",
+        "zw_impact": "Gieo trồng lúa mì vụ Đông thuận lợi tại Mỹ kìm hãm đà tăng ngắn hạn, nhưng El Niño mạnh mẽ cho năm 2027 là yếu tố Bullish dài hạn.",
         "zw_badge": "KÌM ĐÀ TĂNG NGẮN / BULLISH 2027",
-        "zc_impact": "Áp lực thu hoạch ngô ở Mỹ đang ở đỉnh điểm, tạo ra nguồn cung dồi dào và kìm hãm đà tăng của giá. El Niño có thể ảnh hưởng đến mùa vụ Nam Mỹ sau này, nhưng hiện tại, áp lực mùa gặt là yếu tố chi phối.",
+        "zc_impact": "Áp lực cung từ mùa gặt ngô đang ở đỉnh điểm, gây sức ép lên giá và cản trở đà hồi phục mạnh mẽ.",
         "zc_badge": "ĐỈNH ÁP LỰC MÙA GẶT"
       },
       {
         "part_num": "PHẦN 5",
         "part_title": "Chuyên Mục AgWeb Market Analysis (Góc Nhìn Chuyên Gia Mỹ)",
-        "core_content": "Các chuyên gia AgWeb liên tục nhấn mạnh thị trường ngũ cốc đã trải qua một tháng 10 'ugly' với 'huge losses' do áp lực bán từ quỹ (fund selling) và áp lực thu hoạch. Thị trường đang ở trạng thái 'oversold' và cần một 'catalyst' như thời tiết Nam Mỹ hoặc nhu cầu mạnh để tìm đáy. Có những dấu hiệu hồi phục kỹ thuật nhẹ nhưng chưa bền vững. Các quỹ vẫn đang rút tiền khỏi hàng hóa, và tâm lý chung là chờ đợi thị trường thiết lập đáy mùa vụ.",
-        "zw_impact": "Lúa mì đang ở trạng thái quá bán sâu sau các đợt bán tháo của quỹ. Mức giá hiện tại phản ánh nỗ lực hồi phục kỹ thuật, nhưng cần một chất xúc tác mạnh hơn để thoát khỏi xu hướng giảm.",
+        "core_content": "Các chuyên gia AgWeb liên tục nhấn mạnh về tình trạng 'melt down' của thị trường hàng hóa do áp lực bán từ các quỹ đầu cơ ('fund selling pressure', 'close to $6 billion of outflow'). Thị trường đang ở trạng thái quá bán ('oversold') và cần một chất xúc tác mới như thời tiết Nam Mỹ hoặc nhu cầu để tìm đáy. Joe Kooima và Dave Chatterton đều nhận định rằng các yếu tố cơ bản vẫn còn trì trệ. Mặc dù có những đợt hồi phục kỹ thuật ngắn hạn (Corn, Soybeans bounce Friday), nhưng áp lực thu hoạch và năng suất đậu tương tốt hơn dự kiến vẫn đè nặng. Chip Nellinger chỉ ra việc các quỹ vẫn giữ vị thế Long đáng kể ở đậu tương và meal, nhưng đang có xu hướng bán ra. Nhìn chung, tâm lý thị trường đang tìm kiếm một điểm dừng cho đợt bán tháo và thiết lập đáy mùa vụ.",
+        "zw_impact": "Lúa mì đang ở trạng thái quá bán do áp lực bán của quỹ và cần một chất xúc tác để hồi phục. Mọi đợt tăng giá hiện tại có thể là hồi phục kỹ thuật.",
         "zw_badge": "QUÁ BÁN - CHỜ HỒI PHỤC (CORRECTION)",
-        "zc_impact": "Ngô cũng đang ở trạng thái quá bán do áp lực thu hoạch và bán tháo của quỹ. Thị trường đang trong quá trình thiết lập đáy mùa vụ, với các chuyên gia chờ đợi tín hiệu rõ ràng hơn về nhu cầu hoặc thời tiết để xác nhận đáy.",
+        "zc_impact": "Ngô đang chịu áp lực thu hoạch và thanh lý vị thế Long, nhưng giá đã ở vùng quá bán và đang trong quá trình thiết lập đáy mùa vụ, chờ đợi chất xúc tác mới.",
         "zc_badge": "ĐANG THIẾT LẬP ĐÁY MÙA VỤ (HARVEST LOW)"
       }
     ],
@@ -61,33 +61,33 @@
       "summary_label": "Tổng hợp trọng số từ 5 Phần trên cho phiên giao dịch hôm nay:",
       "zw_trend_title": "HỒI PHỤC KỸ THUẬT / SHORT-COVERING (HOẶC TÍCH LŨY BIÊN HẸP)",
       "zw_range": "590.0 – 605.0 ¢/bu",
-      "zw_rationale": "Giá đang ở vùng quá bán và dưới sàn chi phí sản xuất, kích hoạt lực mua kỹ thuật và short covering, nhưng thiếu động lực tăng bền vững.",
+      "zw_rationale": "Giá lúa mì đang ở vùng quá bán dưới chi phí sản xuất, với vị thế short lớn của quỹ, tạo điều kiện cho một đợt hồi phục kỹ thuật hoặc tích lũy trong biên độ hẹp, bất chấp áp lực cạnh tranh từ Nga.",
       "zc_trend_title": "TÍCH LŨY DÒ ĐÁY MÙA VỤ (HARVEST LOW BASE)",
-      "zc_range": "445.0 – 455.0 ¢/bu",
-      "zc_rationale": "Áp lực thu hoạch đang ở đỉnh điểm, nhưng nhu cầu xuất khẩu mạnh và giá sát sàn chi phí sản xuất đang hỗ trợ, giúp thị trường tích lũy quanh vùng đáy."
+      "zc_range": "440.0 – 450.0 ¢/bu",
+      "zc_rationale": "Ngô đang chịu áp lực thu hoạch đỉnh điểm và thanh lý vị thế long, nhưng giá đã chạm sàn chi phí sản xuất và được hỗ trợ bởi nhu cầu xuất khẩu mạnh cùng giá dầu tăng, cho thấy khả năng thiết lập đáy mùa vụ."
     },
     "part6_strategy": {
-      "executive_verdict": "Thị trường nông sản CBOT đang ở giai đoạn giằng co quyết liệt giữa phe Long và phe Short. Phe Long đang nỗ lực bảo vệ vùng giá sàn chi phí sản xuất cho cả lúa mì và ngô, được hỗ trợ bởi nhu cầu xuất khẩu mạnh (đặc biệt là ngô) và các yếu tố rủi ro địa chính trị/thời tiết dài hạn (El Niño). Ngược lại, phe Short vẫn chiếm ưu thế trong ngắn hạn do áp lực thu hoạch cao điểm ở Mỹ và dòng tiền rút khỏi hàng hóa. Tuy nhiên, thị trường đang ở trạng thái quá bán sâu, kích hoạt các đợt hồi phục kỹ thuật và short covering. Định hướng chủ đạo trong ngày là theo dõi tín hiệu tạo đáy và tích lũy trong biên độ hẹp, với rủi ro đảo chiều vẫn hiện hữu.",
+      "executive_verdict": "Thị trường nông sản CBOT đang ở một thời điểm then chốt, với cả lúa mì và ngô đều giao dịch sát hoặc dưới sàn chi phí sản xuất của nông dân Mỹ. Áp lực bán từ các quỹ đầu cơ và mùa gặt cao điểm đã đẩy giá xuống vùng quá bán, tạo điều kiện cho một đợt hồi phục kỹ thuật hoặc quá trình thiết lập đáy. Trong khi lúa mì đối mặt với rủi ro địa chính trị Biển Đen và cạnh tranh từ Nga, ngô được hỗ trợ bởi nhu cầu xuất khẩu mạnh và giá dầu tăng. Định hướng chủ đạo trong ngày là theo dõi tín hiệu tạo đáy và các đợt hồi phục kỹ thuật từ vùng giá hiện tại.",
       "golden_rules": [
-        "Ưu tiên quản trị vốn chặt chẽ, duy trì tâm thế tiền mặt cao để chờ đợi các vùng giá chiết khấu sâu hơn hoặc tín hiệu xác nhận rõ ràng.",
-        "Tuyệt đối không FOMO mua đuổi khi giá chạm các ngưỡng kháng cự mạnh hoặc bán đuổi khi giá về vùng hỗ trợ cạn cung.",
-        "Lưu ý chênh lệch spread giữa kỳ gần (Z) và kỳ xa (H) có thể biến động mạnh trước mùa rollover, ảnh hưởng đến chiến lược vị thế dài hạn."
+        "Quản trị vốn chặt chẽ, ưu tiên bảo toàn vốn và chỉ vào lệnh với tỷ trọng nhỏ khi có tín hiệu rõ ràng. Tâm thế tiền mặt là vua trong giai đoạn thị trường dò đáy.",
+        "Tuyệt đối không FOMO (Fear Of Missing Out) khi giá chạm các ngưỡng kháng cự mạnh và không bán đuổi khi giá đã ở vùng đáy cạn cung. Tránh giao dịch theo cảm tính.",
+        "Lưu ý về chênh lệch Spread giữa kỳ hạn gần (Z) và kỳ hạn xa (H) trước mùa Rollover, đặc biệt khi thị trường đang có biến động mạnh. Ưu tiên các kỳ hạn có thanh khoản tốt và ít bị ảnh hưởng bởi các yếu tố kỹ thuật ngắn hạn."
       ],
       "zw_tactical": {
         "intraday_contract": "ZWZ26 (HĐ Tháng 12/2026)",
-        "intraday_plan": "Chờ tín hiệu cạn cung tại vùng hỗ trợ để mua thăm dò, hoặc chờ breakout qua kháng cự ngắn hạn với volume xác nhận. Tránh giao dịch khi giá nằm giữa biên độ.",
-        "support_zone": "588.0 – 592.0 ¢/bu",
-        "resistance_zone": "601.0 – 605.0 ¢/bu",
+        "intraday_plan": "Theo dõi tín hiệu hồi phục kỹ thuật từ vùng hỗ trợ. Có thể xem xét mua thăm dò khi giá kiểm định thành công vùng hỗ trợ và có tín hiệu đảo chiều tăng. Mục tiêu chốt lời ngắn hạn tại các ngưỡng kháng cự gần. Cần thận trọng với rủi ro đảo chiều từ các đợt Short Covering Rally.",
+        "support_zone": "590.0 – 593.0 ¢/bu",
+        "resistance_zone": "600.0 – 605.0 ¢/bu",
         "macro_dca_contract": "ZWH27 (HĐ Tháng 03/2027)",
-        "macro_dca_plan": "Kế hoạch chờ gom lại trung-dài hạn đón sóng mùa đông và El Niño 2027 tại vùng giá mục tiêu 580-600c, đặc biệt sau khi áp lực bán kỹ thuật và rollover giảm bớt. Ưu tiên các đợt điều chỉnh về gần sàn chi phí sản xuất."
+        "macro_dca_plan": "Kế hoạch chờ gom lại trung-dài hạn đón sóng El Niño 2027. Vùng giá mục tiêu để rải vốn tích lũy là 61x - 63x ¢/bu, đặc biệt sau khi các yếu tố nhiễu từ đàm phán Biển Đen và mùa Rollover được giải quyết."
       },
       "zc_tactical": {
         "intraday_contract": "ZCZ26 (HĐ Tháng 12/2026)",
-        "intraday_plan": "Theo dõi tín hiệu tạo đáy rõ ràng tại vùng hỗ trợ, ưu tiên mua thăm dò khi áp lực bán từ thu hoạch suy yếu và có lực cầu xuất khẩu mạnh. Tránh bán đuổi khi giá về vùng hỗ trợ cứng.",
-        "support_zone": "445.0 – 448.0 ¢/bu",
-        "resistance_zone": "452.0 – 456.0 ¢/bu",
+        "intraday_plan": "Theo dõi tín hiệu tạo đáy ngắn hạn khi áp lực xả thu hoạch suy yếu. Có thể xem xét mua thăm dò khi giá giữ vững vùng hỗ trợ và có dấu hiệu tích lũy. Mục tiêu chốt lời ngắn hạn tại các ngưỡng kháng cự gần. Tránh bán đuổi khi giá đã sát sàn chi phí sản xuất.",
+        "support_zone": "440.0 – 444.0 ¢/bu",
+        "resistance_zone": "448.0 – 452.0 ¢/bu",
         "macro_dca_contract": "ZCZ26 / ZCH27",
-        "macro_dca_plan": "Chiến lược rải vốn thu gom vùng đáy mùa gặt (Harvest Low) sát sàn chi phí sản xuất của nông dân Mỹ (445-460c), tận dụng các đợt điều chỉnh để xây dựng vị thế dài hạn đón đầu nhu cầu tăng sau mùa gặt và các yếu tố thời tiết El Niño."
+        "macro_dca_plan": "Chiến lược rải vốn thu gom vùng đáy mùa gặt (Harvest Low) sát sàn chi phí sản xuất của nông dân Mỹ (445-460c). Đây là cơ hội tích lũy vị thế Long trung-dài hạn khi áp lực cung từ thu hoạch giảm dần và các yếu tố hỗ trợ khác phát huy tác dụng."
       }
     }
   },
@@ -96,50 +96,50 @@
       "title": "Cattle See Corrective Bounce But Can it Hold? Grains Position Pre-Report",
       "pub_date": "Mon, 09 Nov 2026",
       "summary": "Joe Kooima with Kooima Kooima Varilek says its difficult to say because the fundamentals are still sluggish with the north seeing heavy weight cattle that have not been able to find a home.",
-      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af3da667b1e41e3984b42bb7fe12fb7&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fcattle-see-corrective-bounce-can-it-hold-grains-position-pre-report&c=16299960057227105820&mkt=en-ww"
+      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af4914ef7ad420bb769d3f0a89b0fc9&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fcattle-see-corrective-bounce-can-it-hold-grains-position-pre-report&c=16299960057227105820&mkt=en-ww"
     },
     {
       "title": "Ag Markets Fall With Equity Melt Down: When Will the Spec Selling Stop?",
       "pub_date": "Thu, 05 Nov 2026",
       "summary": "Commodities Hit by Equity Melt Down The commodity sector saw fund selling pressure with the melt down in the stock market. “There was, what, close to $6 billion of outflow on the last Commitment of ...",
-      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af3da667b1e41e3984b42bb7fe12fb7&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fag-markets-fall-equity-melt-down-when-will-spec-selling-stop&c=10246958304430256955&mkt=en-ww"
+      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af4914ef7ad420bb769d3f0a89b0fc9&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fag-markets-fall-equity-melt-down-when-will-spec-selling-stop&c=10246958304430256955&mkt=en-ww"
     },
     {
       "title": "Corn, Soybeans Bounce Friday But Grain and Livestock See Bloodbath This Week",
       "pub_date": "Fri, 06 Nov 2026",
       "summary": "Dave Chatterton with Strategic Farm Marketing says the markets needs a catalyst like South American weather or demand to find a bottom.",
-      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af3da667b1e41e3984b42bb7fe12fb7&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fcorn-soybeans-bounce-friday-grain-and-livestock-see-bloodbath-week&c=1736619273186047042&mkt=en-ww"
+      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af4914ef7ad420bb769d3f0a89b0fc9&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fcorn-soybeans-bounce-friday-grain-and-livestock-see-bloodbath-week&c=1736619273186047042&mkt=en-ww"
     },
     {
       "title": "Cattle Futures Bounce But Can They Recover After an Ugly Week? Corn Up on Big Mexican Buy",
       "pub_date": "Mon, 02 Nov 2026",
       "summary": "Joe Kooima of Kooima Kooima Varilek says the bounce in cattle isn't unexpected as Friday's selloff may have been overdone and with the financial markets seeing a recovery.",
-      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af3da667b1e41e3984b42bb7fe12fb7&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fcattle-futures-bounce-can-they-recover-after-ugly-week-corn-big-mexican-b&c=13550062348633755021&mkt=en-ww"
+      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af4914ef7ad420bb769d3f0a89b0fc9&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fcattle-futures-bounce-can-they-recover-after-ugly-week-corn-big-mexican-b&c=13550062348633755021&mkt=en-ww"
     },
     {
       "title": "Soybeans Make New Lows, Capping Rally in Corn, Wheat Despite Big Mexico Sales",
       "pub_date": "Mon, 02 Nov 2026",
       "summary": "Chip Nellinger of Blue Reef Agri-Marketing says the soybean complex saw technical selling with funds still holding a sizable long in soybeans and meal.",
-      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af3da667b1e41e3984b42bb7fe12fb7&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fsoybeans-make-new-lows-capping-rally-corn-wheat-despite-big-mexico-sales&c=11286915760207835927&mkt=en-ww"
+      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af4914ef7ad420bb769d3f0a89b0fc9&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fsoybeans-make-new-lows-capping-rally-corn-wheat-despite-big-mexico-sales&c=11286915760207835927&mkt=en-ww"
     },
     {
       "title": "Grains Lower For the Week and Month: Will Selling Stop in November?",
       "pub_date": "Fri, 30 Oct 2026",
       "summary": "The grain markets saw an ugly October with huge losses on fund selling. Brian Grete with CommStock Investments says he's not sure if the fund selling is done.",
-      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af3da667b1e41e3984b42bb7fe12fb7&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fgrains-lower-week-and-month-will-fund-stop-selling-november&c=16630360974456844396&mkt=en-ww"
+      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af4914ef7ad420bb769d3f0a89b0fc9&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fgrains-lower-week-and-month-will-fund-stop-selling-november&c=16630360974456844396&mkt=en-ww"
     },
     {
       "title": "Grains Hit New Lows Again: What’s Causing the Bleeding and When Does it End?",
       "pub_date": "Tue, 27 Oct 2026",
       "summary": "Ted Seifried of Zaner Ag Hedge says funds continue to sell for a host of reasons including harvest pressure and better than expected soybean yields.",
-      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af3da667b1e41e3984b42bb7fe12fb7&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fgrains-hit-new-lows-again-whats-causing-bleeding-and-when-does-it-end&c=6894479935274694674&mkt=en-ww"
+      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af4914ef7ad420bb769d3f0a89b0fc9&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fgrains-hit-new-lows-again-whats-causing-bleeding-and-when-does-it-end&c=6894479935274694674&mkt=en-ww"
     },
     {
       "title": "Corn, Soybeans Try to Bounce Early Wednesday With Cattle Mixed",
       "pub_date": "Wed, 28 Oct 2026",
       "summary": "Greg McBride of Allendale says corn and soybean futures are trying to bounce as they are oversold, the key is what will it take to bottom the markets?",
-      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af3da667b1e41e3984b42bb7fe12fb7&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fcorn-soybeans-try-bounce-can-they-bottom-cattle-mixed&c=9748055596432387482&mkt=en-ww"
+      "link": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af4914ef7ad420bb769d3f0a89b0fc9&url=https%3a%2f%2fwww.agweb.com%2fmarkets%2fmarket-analysis%2fcorn-soybeans-try-bounce-can-they-bottom-cattle-mixed&c=9748055596432387482&mkt=en-ww"
     }
   ],
-  "analysis": "Thị trường nông sản CBOT đang ở giai đoạn giằng co quyết liệt giữa phe Long và phe Short. Phe Long đang nỗ lực bảo vệ vùng giá sàn chi phí sản xuất cho cả lúa mì và ngô, được hỗ trợ bởi nhu cầu xuất khẩu mạnh (đặc biệt là ngô) và các yếu tố rủi ro địa chính trị/thời tiết dài hạn (El Niño). Ngược lại, phe Short vẫn chiếm ưu thế trong ngắn hạn do áp lực thu hoạch cao điểm ở Mỹ và dòng tiền rút khỏi hàng hóa. Tuy nhiên, thị trường đang ở trạng thái quá bán sâu, kích hoạt các đợt hồi phục kỹ thuật và short covering. Định hướng chủ đạo trong ngày là theo dõi tín hiệu tạo đáy và tích lũy trong biên độ hẹp, với rủi ro đảo chiều vẫn hiện hữu."
+  "analysis": "Thị trường nông sản CBOT đang ở một thời điểm then chốt, với cả lúa mì và ngô đều giao dịch sát hoặc dưới sàn chi phí sản xuất của nông dân Mỹ. Áp lực bán từ các quỹ đầu cơ và mùa gặt cao điểm đã đẩy giá xuống vùng quá bán, tạo điều kiện cho một đợt hồi phục kỹ thuật hoặc quá trình thiết lập đáy. Trong khi lúa mì đối mặt với rủi ro địa chính trị Biển Đen và cạnh tranh từ Nga, ngô được hỗ trợ bởi nhu cầu xuất khẩu mạnh và giá dầu tăng. Định hướng chủ đạo trong ngày là theo dõi tín hiệu tạo đáy và các đợt hồi phục kỹ thuật từ vùng giá hiện tại."
 }
