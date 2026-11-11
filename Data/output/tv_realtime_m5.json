@@ -6,47 +6,31 @@
         "symbol": "ZW",
         "contract": "ZW1!",
         "interval": "M5",
-        "time": "2026-11-11T13:35:12Z",
-        "received_at": "2026-11-11T13:35:13.041Z",
-        "open": 594,
-        "high": 594,
-        "low": 594,
-        "close": 594,
-        "volume": 10,
+        "time": "2026-11-11T13:40:00Z",
+        "received_at": "2026-11-11T13:40:05.160Z",
+        "open": 596,
+        "high": 596,
+        "low": 596,
+        "close": 596,
+        "volume": 14,
         "ema21": null,
         "ema50": null,
         "rsi": null,
         "atr": null,
-        "time_vn": "2026-11-11 20:35:12",
+        "time_vn": "2026-11-11 20:40:00",
         "h1_bar_vn": "2026-11-11 20:00"
       },
       "forming_h1": {
         "hour_prefix": "2026-11-11T13",
         "time": "2026-11-11 13:00:00",
         "open": 594,
-        "high": 594,
+        "high": 596,
         "low": 594,
-        "close": 594,
-        "volume": 26,
-        "m5_count": 8
+        "close": 596,
+        "volume": 40,
+        "m5_count": 9
       },
       "history_m5": [
-        {
-          "symbol": "ZW",
-          "contract": "ZW1!",
-          "interval": "M5",
-          "time": "2026-11-11T10:35:18Z",
-          "received_at": "2026-11-11T10:35:19.341Z",
-          "open": 601,
-          "high": 601,
-          "low": 601,
-          "close": 601,
-          "volume": 1,
-          "ema21": null,
-          "ema50": null,
-          "rsi": null,
-          "atr": null
-        },
         {
           "symbol": "ZW",
           "contract": "ZW1!",
@@ -606,6 +590,22 @@
           "ema50": null,
           "rsi": null,
           "atr": null
+        },
+        {
+          "symbol": "ZW",
+          "contract": "ZW1!",
+          "interval": "M5",
+          "time": "2026-11-11T13:40:00Z",
+          "received_at": "2026-11-11T13:40:05.160Z",
+          "open": 596,
+          "high": 596,
+          "low": 596,
+          "close": 596,
+          "volume": 14,
+          "ema21": null,
+          "ema50": null,
+          "rsi": null,
+          "atr": null
         }
       ]
     },
@@ -614,18 +614,18 @@
         "symbol": "ZC",
         "contract": "ZC1!",
         "interval": "M5",
-        "time": "2026-11-11T13:35:21Z",
-        "received_at": "2026-11-11T13:35:21.896Z",
+        "time": "2026-11-11T13:40:05Z",
+        "received_at": "2026-11-11T13:40:09.528Z",
         "open": 447,
         "high": 447,
         "low": 446,
-        "close": 446,
-        "volume": 274,
+        "close": 447,
+        "volume": 712,
         "ema21": null,
         "ema50": null,
         "rsi": null,
         "atr": null,
-        "time_vn": "2026-11-11 20:35:21",
+        "time_vn": "2026-11-11 20:40:05",
         "h1_bar_vn": "2026-11-11 20:00"
       },
       "forming_h1": {
@@ -634,27 +634,11 @@
         "open": 447,
         "high": 448,
         "low": 446,
-        "close": 446,
-        "volume": 2363,
-        "m5_count": 8
+        "close": 447,
+        "volume": 3075,
+        "m5_count": 9
       },
       "history_m5": [
-        {
-          "symbol": "ZC",
-          "contract": "ZC1!",
-          "interval": "M5",
-          "time": "2026-11-11T10:40:06Z",
-          "received_at": "2026-11-11T10:40:08.968Z",
-          "open": 448,
-          "high": 448,
-          "low": 447,
-          "close": 447,
-          "volume": 540,
-          "ema21": null,
-          "ema50": null,
-          "rsi": null,
-          "atr": null
-        },
         {
           "symbol": "ZC",
           "contract": "ZC1!",
@@ -1214,9 +1198,25 @@
           "ema50": null,
           "rsi": null,
           "atr": null
+        },
+        {
+          "symbol": "ZC",
+          "contract": "ZC1!",
+          "interval": "M5",
+          "time": "2026-11-11T13:40:05Z",
+          "received_at": "2026-11-11T13:40:09.528Z",
+          "open": 447,
+          "high": 447,
+          "low": 446,
+          "close": 447,
+          "volume": 712,
+          "ema21": null,
+          "ema50": null,
+          "rsi": null,
+          "atr": null
         }
       ]
     }
   },
-  "updated_at": "2026-11-11T13:35:21.937Z"
+  "updated_at": "2026-11-11T13:40:09.585Z"
 }
