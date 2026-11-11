@@ -351,8 +351,19 @@ if showRadarTab and (barstate.islast or barstate.islastconfirmedhistory)
     table.cell(radarTab, 6, 2, botStat + " (Giữ vài ngày)", text_color=botCol, text_size=size.small)
 
 // ============================================================================
-// 8. ALERT WEBHOOK GỬI DỮ LIỆU ĐÓNG NẾN
+// 8. TỰ ĐỘNG PHÂN TÁCH CẢNH BÁO THEO KHUNG GIỜ PHIÊN (MÚI GIỜ VIỆT NAM GMT+7)
 // ============================================================================
-if enableWebhook and barstate.isconfirmed
-    string payload = '{"symbol":"' + syminfo.ticker + '","method":"M2_SWING","close":' + str.tostring(close) + ',"top_score":' + str.tostring(lastTopScoreSeen) + ',"bot_score":' + str.tostring(lastBotScoreSeen) + ',"atr":' + str.tostring(atr14, "0.00") + '}'
-    alert(payload, alert.freq_once_per_bar_close)
+int vnTime = hour(time, "GMT+7") * 100 + minute(time, "GMT+7")
+bool isAsiaEuSession = (vnTime >= 800 and vnTime <= 2048)   // 08:00 - 20:48 VN: Vol thấp, cần đóng nến xác nhận
+bool isUsSession     = (vnTime >= 2130 or vnTime < 200)    // 21:30 - 02:00 VN: Vol cao, phát tín hiệu tức thì
+
+// Điều kiện kích hoạt:
+// - Phiên Á-Âu: BẮT BUỘC barstate.isconfirmed (Chờ đóng nến H1/M30 mới gửi để lọc rút râu)
+// - Phiên Mỹ: Bắn ngay trong nến khi giá tiệm cận điểm đón (<= 1.0 pts) để không bị miss lệnh
+bool alertAsiaEu = isAsiaEuSession and barstate.isconfirmed and (m2BuySignal or m2SellSignal)
+bool alertUsMain = isUsSession and (topDist <= 1.0 or botDist <= 1.0)
+
+if enableWebhook and (alertAsiaEu or alertUsMain)
+    string sessionTag = isUsSession ? "US_REALTIME" : "ASIA_EU_CONFIRMED"
+    string payload = '{"symbol":"' + syminfo.ticker + '","method":"M2_SWING","session":"' + sessionTag + '","close":' + str.tostring(close) + ',"top_score":' + str.tostring(lastTopScoreSeen) + ',"bot_score":' + str.tostring(lastBotScoreSeen) + ',"atr":' + str.tostring(atr14, "0.00") + '}'
+    alert(payload, isUsSession ? alert.freq_once_per_bar : alert.freq_once_per_bar_close)

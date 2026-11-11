@@ -1522,6 +1522,54 @@ def _format_vn_time_str(raw_str: str) -> str:
     return s
 
 
+def get_cbot_session_info(now_vn: datetime.datetime = None) -> dict:
+    """
+    Phân loại phiên giao dịch theo múi giờ Việt Nam (UTC+7):
+      1. PHIÊN Á - ÂU (08:00 - 20:48 VN):
+         - Đặc thù: Vol thấp, biên độ hẹp, dễ bẫy rút râu.
+         - Cơ chế: CẦN ĐÓNG NẾN (H1 / M30) mới gửi tin nhắn.
+      2. PHIÊN MỸ (21:30 - 02:00 sáng hôm sau VN):
+         - Đặc thù: Tần suất cao, Vol bùng nổ, sóng giật rất nhanh.
+         - Cơ chế: GỬI NGAY TỨC THÌ (REALTIME) khi chạm vùng SẴN SÀNG (không chờ đóng nến để không lỡ lệnh).
+      3. GIỜ NGHỈ / NGOÀI PHIÊN (20:49 - 21:29 & 02:01 - 07:59 VN):
+         - Tạm ngưng bắn cảnh báo tự động để tránh nhiễu.
+    """
+    if now_vn is None:
+        now_vn = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7)))
+    time_val = now_vn.hour * 100 + now_vn.minute
+    minute = now_vn.minute
+
+    if 800 <= time_val <= 2048:
+        # Cửa sổ đóng nến: Nến H1 đóng ở đầu giờ (:00 - :05) hoặc M30 (:30 - :35)
+        is_candle_closed = (minute in [0, 1, 2, 3, 4, 5, 30, 31, 32, 33, 34, 35])
+        return {
+            "session": "ASIA_EU",
+            "name": "Phiên Á - Âu",
+            "mode": "CONFIRMED_CLOSE",
+            "is_candle_closed": is_candle_closed,
+            "badge": "🎯 <b>[PHIÊN Á - ÂU • ĐÃ ĐÓNG NẾN XÁC NHẬN]</b>",
+            "desc": "Thanh khoản thấp, tín hiệu đã lọc nến đóng cửa (H1/M30) để tránh rút râu ảo."
+        }
+    elif time_val >= 2130 or time_val < 200:
+        return {
+            "session": "US_MAIN",
+            "name": "Phiên Mỹ",
+            "mode": "REALTIME_FAST",
+            "is_candle_closed": True,
+            "badge": "⚡ <b>[PHIÊN MỸ • TÍN HIỆU REALTIME CẦN VÀO LỆNH NGAY]</b>",
+            "desc": "Thanh khoản cao, sóng giật nhanh. Báo ngay tức thì khi giá chạm vùng đón để không lỡ lệnh!"
+        }
+    else:
+        return {
+            "session": "BREAK_OFF",
+            "name": "Giờ Nghỉ Chuyển Phiên / Ngoài Giờ",
+            "mode": "PAUSE",
+            "is_candle_closed": False,
+            "badge": "⏸️ <b>[GIỜ NGHỈ CHUYỂN PHIÊN]</b>",
+            "desc": "Thị trường tạm nghỉ hoặc giao phiên, tạm ngưng tín hiệu tự động."
+        }
+
+
 def format_cbot_radar_message(r: dict, is_test: bool = False) -> str:
     """Định dạng tin nhắn Telegram chuẩn tiêu đề 'CBOT RADAR' với đầy đủ thời gian & chiến lược M1/M2/M3."""
     now_vn = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime("%d/%m/%Y %H:%M:%S")
@@ -1534,6 +1582,10 @@ def format_cbot_radar_message(r: dict, is_test: bool = False) -> str:
     method = r.get("method", "")
     m3_conf = r.get("m3_confluence", False)
     m3_str = " <i>(Đồng thuận M3 Hybrid)</i>" if m3_conf and "M3" not in method else ""
+
+    session_info = get_cbot_session_info()
+    session_badge = session_info.get("badge", "")
+    session_desc = session_info.get("desc", "")
 
     struct_t = _format_vn_time_str(r.get("structure_time", ""))
     h1_t = _format_vn_time_str(r.get("latest_h1_time", ""))
@@ -1560,6 +1612,8 @@ def format_cbot_radar_message(r: dict, is_test: bool = False) -> str:
     header_tag = "📡 <b>CBOT RADAR [TEST]</b>" if is_test else "📡 <b>CBOT RADAR</b>"
     msg = (
         f"{header_tag} — <b>{icon_prod} {prod} ({name_vn}) | {side_icon}</b>\n"
+        f"{session_badge}\n"
+        f"<i>{session_desc}</i>\n"
         f"{'─'*28}\n"
         f"• 🕒 <b>Thời gian báo:</b> <code>{now_vn}</code> (Giờ VN)\n"
         f"• ⏱ <b>Nến cấu trúc gốc:</b> <code>{time_candle_line}</code>\n"
@@ -1618,6 +1672,16 @@ def scan_and_send_cbot_radar_telegram(force_test_nearest: bool = False, target_c
     if not radar_list:
         print("[CBOT RADAR] Không có kịch bản nào trên Radar.")
         return False
+
+    session_info = get_cbot_session_info()
+    if not force_test_nearest:
+        if session_info["session"] == "BREAK_OFF":
+            print(f"[CBOT RADAR] {session_info['name']} ({now_str}) -> Tạm ngưng phát tín hiệu tự động.")
+            return False
+
+        if session_info["session"] == "ASIA_EU" and not session_info["is_candle_closed"]:
+            print(f"[CBOT RADAR] Phiên Á - Âu ({now_str}): Đang giữa nến (phút :{datetime.datetime.now().minute:02d}), chờ đóng nến H1/M30 mới gửi.")
+            return False
 
     state = {"sent_keys": {}, "last_messages": {}}
     if RADAR_STATE_FILE.exists():
