@@ -36,6 +36,7 @@ TELEGRAM_CONFIGS = [
 
 # Tạm ngưng hệ thống CBOT ENTRY ALARM cũ theo yêu cầu, chuyển sang CBOT RADAR
 ENABLE_LEGACY_ENTRY_ALARM = False
+ENABLE_CBOT_RADAR = False  # Đã tắt hoàn toàn việc gửi tin nhắn CBOT RADAR qua Telegram theo yêu cầu
 
 # Trạng thái quét thủ công để tránh xung đột
 is_scanning = False
@@ -156,6 +157,9 @@ def handle_telegram_update(update):
             is_scanning = True
             
         try:
+            if not ENABLE_CBOT_RADAR:
+                send_single_message(chat_id, "ℹ️ Hệ thống CBOT RADAR đã tạm ngưng gửi cảnh báo qua Telegram theo yêu cầu.")
+                return
             send_single_message(chat_id, "⏳ Đang quét dữ liệu CBOT RADAR mới nhất...")
             backtest_engine.scan_and_send_cbot_radar_telegram(force_test_nearest=True, target_chat_id=str(chat_id))
         except Exception as e:
@@ -247,6 +251,9 @@ def extract_avg_entry(entry_range_str):
 
 def run_analysis():
     """Chạy quét CBOT RADAR mới (Tạm ngưng hệ thống CBOT ENTRY ALARM cũ khi ENABLE_LEGACY_ENTRY_ALARM = False)."""
+    if not ENABLE_CBOT_RADAR:
+        print("[CBOT RADAR] Đã tạm ngưng gửi cảnh báo qua Telegram theo yêu cầu.")
+        return False
     if not ENABLE_LEGACY_ENTRY_ALARM:
         return backtest_engine.scan_and_send_cbot_radar_telegram(force_test_nearest=False)
 
@@ -373,7 +380,7 @@ def main():
     
     try:
         while True:
-            if is_cbot_open():
+            if ENABLE_CBOT_RADAR and is_cbot_open():
                 try:
                     backtest_engine.scan_and_send_cbot_radar_telegram(force_test_nearest=False)
                 except Exception as e:

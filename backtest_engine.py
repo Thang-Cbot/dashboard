@@ -1499,6 +1499,7 @@ def run_full_backtest(force_download: bool = False) -> dict:
 
 
 # ── HỆ THỐNG CẢNH BÁO TELEGRAM: CBOT RADAR ──────────────────────────────────
+ENABLE_CBOT_RADAR_TELEGRAM = False  # Đã tạm ngưng gửi cảnh báo qua Telegram theo yêu cầu
 RADAR_STATE_FILE = DATA_OUTPUT / "radar_telegram_state.json"
 TELEGRAM_CONFIGS = [
     {"token": "8723627742:AAEpZFbfd8RSOGi9jxoh2tKQ8TdFViXivc0", "chat_id": "5294991069"},
@@ -1633,7 +1634,10 @@ def format_cbot_radar_message(r: dict, is_test: bool = False) -> str:
 
 
 def send_cbot_radar_telegram(text: str, target_chat_id: str = None):
-    """Gửi tin nhắn CBOT RADAR qua Telegram."""
+    """Gửi tin nhắn CBOT RADAR qua Telegram (Đã tắt theo yêu cầu)."""
+    if not ENABLE_CBOT_RADAR_TELEGRAM:
+        print("[CBOT RADAR] Hệ thống gửi Telegram đang TẠM NGƯNG theo yêu cầu người dùng.")
+        return
     import requests
     configs = [{"token": TELEGRAM_CONFIGS[0]["token"], "chat_id": target_chat_id}] if target_chat_id else TELEGRAM_CONFIGS
     for cfg in configs:
@@ -1662,6 +1666,10 @@ def scan_and_send_cbot_radar_telegram(force_test_nearest: bool = False, target_c
     - Nếu force_test_nearest=True: gửi ngay 1 tin nhắn test của tín hiệu gần nhất trên Radar.
     - Nếu force_test_nearest=False: chỉ gửi các kịch bản đang '⚡ SẴN SÀNG' chưa từng gửi (chống spam).
     """
+    if not ENABLE_CBOT_RADAR_TELEGRAM:
+        print("[CBOT RADAR] Hệ thống gửi Telegram đã TẠM NGƯNG theo yêu cầu người dùng.")
+        return False
+
     now_str = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=7))).strftime("%Y-%m-%d %H:%M:%S")
     print(f"\n--- [{now_str}] QUÉT CBOT RADAR (LIVE SIGNAL) ---")
 

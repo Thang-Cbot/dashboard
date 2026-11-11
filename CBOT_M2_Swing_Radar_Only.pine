@@ -35,7 +35,7 @@ dashPosition    = input.string("Góc Phải Trên (Top Right)", "Vị trí Bản
      options=["Góc Phải Trên (Top Right)", "Góc Phải Dưới (Bottom Right)", "Góc Trái Dưới (Bottom Left)"], group=grp_ui)
 showTpSlLines   = input.bool(true, "Vẽ đường Entry, SL, TP1, TP3 trên biểu đồ", group=grp_ui)
 showSmcLabels   = input.bool(true, "Hiển thị nhãn 5★ ĐỈNH / 5★ ĐÁY", group=grp_ui)
-enableWebhook   = input.bool(true, "Bật phát Alert Webhook theo múi giờ VN", group=grp_ui)
+enableWebhook   = input.bool(false, "Bật phát Alert Webhook theo múi giờ VN (Mặc định TẮT)", group=grp_ui)
 
 // Quy đổi tiền tệ ($) sang điểm nến (Points/Cents)
 float tp1Pts     = tp1Usd / pointMult          // $400 / 50 = +8.00 pts
