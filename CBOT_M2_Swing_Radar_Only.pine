@@ -1,13 +1,13 @@
-//@version=5
+//@version=6
 strategy("CBOT M2: Swing Đỉnh / Đáy SMC ($400 - $500 USD) & Radar", 
      shorttitle="CBOT M2 Swing CQG", 
      overlay=true, 
      initial_capital=10000, 
      default_qty_type=strategy.fixed, 
      default_qty_value=1, 
-     currency=currency.USD,
-     calc_on_every_tick=false,
-     max_labels_count=500,
+     currency=currency.USD, 
+     calc_on_every_tick=false, 
+     max_labels_count=500, 
      max_lines_count=500)
 
 // ============================================================================
@@ -35,7 +35,7 @@ dashPosition    = input.string("Góc Phải Trên (Top Right)", "Vị trí Bản
      options=["Góc Phải Trên (Top Right)", "Góc Phải Dưới (Bottom Right)", "Góc Trái Dưới (Bottom Left)"], group=grp_ui)
 showTpSlLines   = input.bool(true, "Vẽ đường Entry, SL, TP1, TP3 trên biểu đồ", group=grp_ui)
 showSmcLabels   = input.bool(true, "Hiển thị nhãn 5★ ĐỈNH / 5★ ĐÁY", group=grp_ui)
-enableWebhook   = input.bool(true, "Bật phát Alert Webhook khi đóng nến", group=grp_ui)
+enableWebhook   = input.bool(true, "Bật phát Alert Webhook theo múi giờ VN", group=grp_ui)
 
 // Quy đổi tiền tệ ($) sang điểm nến (Points/Cents)
 float tp1Pts     = tp1Usd / pointMult          // $400 / 50 = +8.00 pts
@@ -50,7 +50,7 @@ rsi14    = ta.rsi(close, 14)
 atr14    = ta.atr(14)
 atrAvg14 = ta.sma(atr14, 14)
 
-[dHigh, dLow, dClose] = request.security(syminfo.tickerid, "D", [high[1], low[1], close[1]], lookahead=barmerge.lookahead_on)
+[dHigh, dLow, dClose] = request.security(syminfo.tickerid, "1D", [high[1], low[1], close[1]], lookahead=barmerge.lookahead_on)
 pivotP  = (dHigh + dLow + dClose) / 3.0
 pivotS1 = 2.0 * pivotP - dHigh
 pivotR1 = 2.0 * pivotP - dLow
@@ -84,13 +84,15 @@ if sslSweep
 bool hadRecentBslSweep = not na(lastBslSweepBar) and (bar_index - lastBslSweepBar <= sweepLookback)
 bool hadRecentSslSweep = not na(lastSslSweepBar) and (bar_index - lastSslSweepBar <= sweepLookback)
 
-// Cấu trúc MSS / CHoCH
-var string currentTrend = "neutral"
-var int    lastMssBar   = na
+// Cấu trúc MSS / CHoCH (Tính cross bên ngoài để tương thích v6 Short-Circuit)
+var string currentTrend    = "neutral"
+var int    lastMssBar      = na
 var bool   lastMssHadSweep = false
 
-bool bullMss = not na(lastSwingHigh) and ta.crossover(close, lastSwingHigh)
-bool bearMss = not na(lastSwingLow)  and ta.crossunder(close, lastSwingLow)
+bool crossHigh = ta.crossover(close, lastSwingHigh)
+bool crossLow  = ta.crossunder(close, lastSwingLow)
+bool bullMss   = not na(lastSwingHigh) and crossHigh
+bool bearMss   = not na(lastSwingLow)  and crossLow
 
 if bullMss
     currentTrend    := "bullish"
@@ -270,8 +272,8 @@ if showDashTab and (barstate.islast or barstate.islastconfirmedhistory)
     int losses      = strategy.losstrades
     int evenTrades  = strategy.eventrades
     int totalTrades = strategy.closedtrades
-    float winRate   = totalTrades > 0 ? (wins / totalTrades) * 100.0 : 0.0
-    float pf        = strategy.grossloss > 0 ? strategy.grossprofit / strategy.grossloss : strategy.grossprofit > 0 ? 99.9 : 0.0
+    float winRate   = totalTrades > 0 ? (float(wins) / float(totalTrades)) * 100.0 : 0.0
+    float pf        = strategy.grossloss > 0 ? strategy.grossprofit / strategy.grossloss : (strategy.grossprofit > 0 ? 99.9 : 0.0)
 
     table.cell(dashTab, 0, 0, "BOT SWING CBOT (M2)", text_color=#fbbf24, bgcolor=color.new(#1e293b, 0), text_size=size.small)
     table.cell(dashTab, 1, 0, "GIÁ TRỊ THỰC THỜI",   text_color=#fbbf24, bgcolor=color.new(#1e293b, 0), text_size=size.small)
@@ -299,28 +301,29 @@ if showDashTab and (barstate.islast or barstate.islastconfirmedhistory)
 // ============================================================================
 // 7. BẢNG RADAR PHÁT HIỆN ĐIỂM VÀO TƯƠNG LAI — CHUYÊN BIỆT PHƯƠNG PHÁP 2
 // ============================================================================
+// Biến Radar toàn cục (Global Scope) dùng cho cả Bảng Radar & Cảnh báo Webhook
+// 1. Kịch bản Bắt Đỉnh gần nhất (BÁN)
+float effTop    = not na(lastTopPrice) ? lastTopPrice : (not na(lastSwingHigh) ? lastSwingHigh : high)
+float topDist   = math.abs(close - effTop)
+float topSl     = effTop + slPts
+float topTp1    = effTop - tp1Pts // +$400 (+8.0 pts)
+float topTp3    = effTop - tp3Pts // +$500 (+10.0 pts)
+string topStat  = topDist <= atr14 ? "⚡ SẴN SÀNG" : "🔍 THEO DÕI SWING"
+color  topCol   = topDist <= atr14 ? #facc15 : #cbd5e1
+
+// 2. Kịch bản Bắt Đáy gần nhất (MUA)
+float effBot    = not na(lastBotPrice) ? lastBotPrice : (not na(lastSwingLow) ? lastSwingLow : low)
+float botDist   = math.abs(close - effBot)
+float botSl     = effBot - slPts
+float botTp1    = effBot + tp1Pts // +$400 (+8.0 pts)
+float botTp3    = effBot + tp3Pts // +$500 (+10.0 pts)
+string botStat  = botDist <= atr14 ? "⚡ SẴN SÀNG" : "🔍 THEO DÕI SWING"
+color  botCol   = botDist <= atr14 ? #facc15 : #cbd5e1
+
 radarPos = radarPosition == "Góc Phải Trên (Top Right)" ? position.top_right : radarPosition == "Góc Trái Dưới (Bottom Left)" ? position.bottom_left : position.bottom_right
 var table radarTab = table.new(radarPos, 7, 3, bgcolor=color.new(#090d16, 5), border_color=color.new(#312e81, 0), border_width=1, frame_color=color.new(#eab308, 20), frame_width=1)
 
 if showRadarTab and (barstate.islast or barstate.islastconfirmedhistory)
-    // 1. Kịch bản Bắt Đỉnh gần nhất (BÁN)
-    float effTop    = not na(lastTopPrice) ? lastTopPrice : (not na(lastSwingHigh) ? lastSwingHigh : high)
-    float topDist   = math.abs(close - effTop)
-    float topSl     = effTop + slPts
-    float topTp1    = effTop - tp1Pts // +$400 (+8.0 pts)
-    float topTp3    = effTop - tp3Pts // +$500 (+10.0 pts)
-    string topStat  = topDist <= atr14 ? "⚡ SẴN SÀNG" : "🔍 THEO DÕI SWING"
-    color  topCol   = topDist <= atr14 ? #facc15 : #cbd5e1
-
-    // 2. Kịch bản Bắt Đáy gần nhất (MUA)
-    float effBot    = not na(lastBotPrice) ? lastBotPrice : (not na(lastSwingLow) ? lastSwingLow : low)
-    float botDist   = math.abs(close - effBot)
-    float botSl     = effBot - slPts
-    float botTp1    = effBot + tp1Pts // +$400 (+8.0 pts)
-    float botTp3    = effBot + tp3Pts // +$500 (+10.0 pts)
-    string botStat  = botDist <= atr14 ? "⚡ SẴN SÀNG" : "🔍 THEO DÕI SWING"
-    color  botCol   = botDist <= atr14 ? #facc15 : #cbd5e1
-
     // HEADER ROW
     table.cell(radarTab, 0, 0, "📡 KỊCH BẢN SWING M2", text_color=#fef08a, bgcolor=color.new(#422006, 0), text_size=size.small)
     table.cell(radarTab, 1, 0, "CHIỀU",   text_color=#fef08a, bgcolor=color.new(#422006, 0), text_size=size.small)
@@ -363,7 +366,11 @@ bool isUsSession     = (vnTime >= 2130 or vnTime < 200)    // 21:30 - 02:00 VN: 
 bool alertAsiaEu = isAsiaEuSession and barstate.isconfirmed and (m2BuySignal or m2SellSignal)
 bool alertUsMain = isUsSession and (topDist <= 1.0 or botDist <= 1.0)
 
-if enableWebhook and (alertAsiaEu or alertUsMain)
-    string sessionTag = isUsSession ? "US_REALTIME" : "ASIA_EU_CONFIRMED"
-    string payload = '{"symbol":"' + syminfo.ticker + '","method":"M2_SWING","session":"' + sessionTag + '","close":' + str.tostring(close) + ',"top_score":' + str.tostring(lastTopScoreSeen) + ',"bot_score":' + str.tostring(lastBotScoreSeen) + ',"atr":' + str.tostring(atr14, "0.00") + '}'
-    alert(payload, isUsSession ? alert.freq_once_per_bar : alert.freq_once_per_bar_close)
+// Pine Script v6: freq yêu cầu constant input string, phân tách rẽ nhánh độc lập
+if enableWebhook
+    if alertUsMain
+        string payloadUs = '{"symbol":"' + syminfo.ticker + '","method":"M2_SWING","session":"US_REALTIME","close":' + str.tostring(close) + ',"top_score":' + str.tostring(lastTopScoreSeen) + ',"bot_score":' + str.tostring(lastBotScoreSeen) + ',"atr":' + str.tostring(atr14, "0.00") + '}'
+        alert(payloadUs, alert.freq_once_per_bar)
+    else if alertAsiaEu
+        string payloadAsiaEu = '{"symbol":"' + syminfo.ticker + '","method":"M2_SWING","session":"ASIA_EU_CONFIRMED","close":' + str.tostring(close) + ',"top_score":' + str.tostring(lastTopScoreSeen) + ',"bot_score":' + str.tostring(lastBotScoreSeen) + ',"atr":' + str.tostring(atr14, "0.00") + '}'
+        alert(payloadAsiaEu, alert.freq_once_per_bar_close)
