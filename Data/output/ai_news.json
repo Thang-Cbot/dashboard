@@ -1,220 +1,93 @@
 {
-  "timestamp": "2026-11-12 12:08:53",
+  "timestamp": "2026-11-13 06:30:00",
   "news": [
     {
-      "title": "Báo cáo USDA có thể gây sốc thị trường ngũ cốc?",
+      "title": "Cú sốc lúa mì Argentina: BAGE & BCR nâng sản lượng lên 23.8 - 24.3 triệu tấn",
       "details": [
-        "Thị trường ngũ cốc đang chịu áp lực giảm giá mạnh.",
-        "Giá ngô và đậu tương đã giảm 10-15% trong 4-6 tuần qua.",
-        "Báo cáo USDA sắp tới có thể chứa đựng những bất ngờ cho các nhà giao dịch."
+        "Sàn Giao dịch Ngũ cốc Buenos Aires (BAGE) và Rosario (BCR) đồng loạt nâng dự báo sản lượng lúa mì niên vụ 2026/27 của Argentina lên mức kỷ lục 23.8 – 24.3 triệu tấn (tăng hơn 2.8 triệu tấn so với dự báo trước).",
+        "Năng suất lúa mì tại các vùng trọng điểm Buenos Aires, Cordoba và Santa Fe tăng đột biến nhờ lượng mưa lý tưởng trong tháng 10.",
+        "Đây là vụ mùa lúa mì lớn thứ 2 trong lịch sử Argentina, tạo ra làn sóng nguồn cung dồi dào trên thị trường xuất khẩu quốc tế."
       ],
-      "link": "https://climatelligence.substack.com/p/usda-shocker-today-three-markets",
-      "source": "10 Nov 2026 - BestWeather / Jim Roemer",
+      "link": "https://www.bcr.com.ar/es/mercados/estimaciones-agricolas",
+      "source": "12 Nov 2026 - Rosario Board of Trade / BAGE",
+      "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Argentina đại hạ giá xuất khẩu: Lúa mì FOB Up River rớt xuống 200 - 207 USD/tấn",
+      "details": [
+        "Áp lực thu hoạch cao điểm cùng nhu cầu thu ngoại tệ USD khiến các nhà xuất khẩu Argentina chào bán lúa mì FOB Up River (Rosario) ở mức siêu rẻ 200 – 207 USD/tấn (tương đương 545 – 565 ¢/bu).",
+        "Mức giá này cạnh tranh khốc liệt và rẻ hơn 35 – 50 USD/tấn so với lúa mì Mỹ (SRW Gulf ~255 USD/tấn) và lúa mì Nga (~235 USD/tấn).",
+        "Lúa mì Argentina đang độc chiếm thị trường Brazil và xâm lấn mạnh sang Bắc Phi, Đông Nam Á, tạo sức ép giảm giá dây chuyền lên sàn CBOT."
+      ],
+      "link": "https://www.reuters.com/markets/commodities/argentina-grains",
+      "source": "12 Nov 2026 - Reuters Grains Desk",
       "category": "cung_cau_nhan_dinh"
     },
     {
-      "title": "Hiện tượng phân tách xoáy cực bất thường trong năm El Niño",
+      "title": "CBOT ZWZ26 lao dốc lập đáy mới trong năm tại 582.4 ¢/bu trước áp lực Rollover",
       "details": [
-        "Hiện tượng phân tách xoáy cực (Polar Vortex Split) rất bất thường vào tháng 11, đặc biệt trong các năm El Niño.",
-        "Sự kiện tương tự vào tháng 1/2025 đã gây ra đợt đóng băng ở Florida và rét kỷ lục.",
-        "Các hiện tượng thời tiết cực đoan có thể ảnh hưởng đến sản xuất nông nghiệp và giá năng lượng."
+        "Hợp đồng lúa mì CBOT kỳ hạn tháng 12/2026 (ZWZ26) giảm sâu -18.1 cent trong phiên ngày 12/11, xuyên thủng đáy cũ 590c để chạm mức thấp kỷ lục năm tại 582.4 ¢/bu.",
+        "Áp lực bán tháo đến từ sự kết hợp của lúa mì giá rẻ Argentina, chỉ số DXY tăng vọt lên 103.17 và các quỹ đầu cơ thanh lý vị thế Long trước ngày First Notice Day (30/11).",
+        "Tuy nhiên, lực cầu bắt đáy hấp thụ (Absorption) xuất hiện mạnh cuối phiên Mỹ tại vùng 582 - 585c kỳ Z và 603 - 605c kỳ H (ZWH27)."
+      ],
+      "link": "https://www.barchart.com/futures/quotes/ZWZ26",
+      "source": "13 Nov 2026 - CBOT Pit Wire",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Đàm phán Moscow: Putin nêu bất đồng lãnh thổ với phái đoàn Mỹ (Witkoff & Kushner)",
+      "details": [
+        "Tổng thống Nga Vladimir Putin đã tiếp phái đoàn đặc phái viên Mỹ (Steve Witkoff và Jared Kushner) tại Điện Kremlin để thảo luận về triển vọng ngừng bắn.",
+        "Ông Putin nhấn mạnh hai bên có 'cách giải thích khác nhau về các vấn đề lãnh thổ' (đặc biệt là Donetsk và Luhansk), đồng thời tái khẳng định sự hiện diện của lực lượng nước ngoài tại Ukraine là mối đe dọa an ninh quốc gia.",
+        "Chưa có đột phá hòa bình ngay lập tức; rủi ro xung đột quân sự tại khu vực Biển Đen vẫn duy trì ở mức cao."
+      ],
+      "link": "https://www.reuters.com/world/europe/putin-us-envoys-talks",
+      "source": "12 Nov 2026 - Kremlin / Reuters Wire",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Cảng Baltic Ust-Luga bị tấn công drone; SovEcon hạ dự báo xuất khẩu lúa mì Nga xuống 36 triệu tấn",
+      "details": [
+        "Hạ tầng tại cảng xuất khẩu dầu và ngũ cốc Ust-Luga ở vùng Baltic của Nga bị hư hại sau đợt tấn công bằng thiết bị bay không người lái.",
+        "Hãng tư vấn nông nghiệp SovEcon tiếp tục hạ ước tính xuất khẩu lúa mì Nga niên vụ 2026/27 xuống còn 36.0 triệu tấn (thấp hơn nhiều so với con số 39.0 triệu tấn của USDA).",
+        "Lithuania tuyên bố bắt đầu áp dụng các biện pháp kiểm soát chặt chẽ hàng hóa quá cảnh từ Nga qua ngả Kaliningrad từ ngày 16/11, gây khó khăn thêm cho logistics Baltic."
+      ],
+      "link": "https://www.world-grain.com/articles/sovecon-russia-wheat-export-cut",
+      "source": "12 Nov 2026 - SovEcon / World Grain",
+      "category": "logistics"
+    },
+    {
+      "title": "Dầu thô Brent tăng vọt lên 95.77 USD/thùng (+3.24%) trong khi DXY lên 103.17",
+      "details": [
+        "Giá dầu Brent giao sau bật tăng mạnh hơn 3 USD/thùng lên 95.77 USD do lo ngại căng thẳng địa chính trị Trung Đông và rủi ro gián đoạn nguồn cung năng lượng Nga.",
+        "Đồng USD mạnh lên với chỉ số DXY đạt 103.17 (+0.25%), tạo áp lực tỷ giá khiến nông sản Mỹ kém cạnh tranh trong ngắn hạn.",
+        "Giá dầu cao tiếp tục neo giữ chi phí phân bón, vận tải biển và hỗ trợ nhu cầu chế biến ethanol từ ngô."
+      ],
+      "link": "https://finance.yahoo.com/quote/BZ=F",
+      "source": "13 Nov 2026 - Bloomberg / Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Đấu thầu quốc tế: Algeria (OAIC) mua hơn 700.000 tấn lúa mì; Jordan mở thầu",
+      "details": [
+        "Cơ quan ngũ cốc nhà nước Algeria (OAIC) đã chốt mua hơn 700.000 tấn lúa mì xay xát trong đợt thầu quốc tế lớn nhất tháng 11, tận dụng vùng giá thấp toàn cầu.",
+        "Jordan tiếp tục phát hành hồ sơ mời thầu quốc tế mua 120.000 tấn lúa mì giao hàng tháng 1 và tháng 2/2027.",
+        "Các nước nhập khẩu lớn tại Trung Đông và Bắc Phi đang tích cực tích trữ lương thực chiến lược khi nhận định giá lúa mì thế giới đang ở vùng đáy hấp dẫn."
+      ],
+      "link": "https://www.reuters.com/markets/commodities/algeria-wheat-tender",
+      "source": "12 Nov 2026 - Reuters Tenders Desk",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Thời tiết nông nghiệp: US Plains ẩm tốt; Cảnh báo phân tách xoáy cực Polar Vortex",
+      "details": [
+        "Các đợt mưa gần đây trên khắp vùng đồng bằng phía Nam Mỹ (Kansas, Oklahoma, Texas) đã cải thiện đáng kể độ ẩm đất cho lúa mì vụ đông sinh trưởng tốt.",
+        "Vùng Rostov và Nam Nga ghi nhận mưa rào 33.8mm giúp giảm bớt hạn hán cục bộ trước khi bước vào kỳ ngủ đông.",
+        "Các mô hình khí tượng cảnh báo hiện tượng phân tách xoáy cực (Polar Vortex Split) có thể mang đợt rét kỷ lục đến Bắc Mỹ và châu Âu vào cuối tháng 11."
       ],
       "link": "https://climatelligence.substack.com/p/what-is-a-split-in-the-polar-vortex",
-      "source": "06 Nov 2026 - BestWeather / Jim Roemer",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Giá lúa mì tăng mạnh giữa tuần",
-      "details": [
-        "Giá lúa mì tăng trên cả ba sàn giao dịch vào thứ Tư.",
-        "Hợp đồng tương lai lúa mì SRW Chicago tăng 6,75 đến 10,5 cent.",
-        "Lúa mì HRW Kansas City tăng 5,25 đến 8,5 cent, lúa mì vụ xuân MPLS tăng 3 đến 7,25 cent."
-      ],
-      "link": "https://www.barchart.com/story/news/8789882/wheat-posts-midweek-gains",
-      "source": "11 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Giá ngô giảm nhẹ vào thứ Tư",
-      "details": [
-        "Hợp đồng tương lai ngô giảm 1 đến 4,5 cent trên diện rộng.",
-        "Giá ngô giao ngay trung bình quốc gia tăng 0,5 cent, đạt 4,15 USD.",
-        "Báo cáo EIA hàng tuần bị trì hoãn đến thứ Năm do ngày lễ Veterans Day."
-      ],
-      "link": "https://www.barchart.com/story/news/8789851/corn-eases-back-lower-on-wednesday",
-      "source": "11 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Chênh lệch giá lúa mì và ngô: Tình trạng quá bán",
-      "details": [
-        "Chênh lệch giá giữa lúa mì và ngô đang ở tình trạng quá bán.",
-        "Điều này có thể tạo cơ hội cho các nhà giao dịch spread.",
-        "Phân tích kỹ thuật cho thấy tiềm năng điều chỉnh trong mối quan hệ giá giữa hai loại ngũ cốc."
-      ],
-      "link": "https://www.barchart.com/story/news/8788140/grain-spreads-wheat-vs-corn",
-      "source": "11 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Chính sách giảm nhiên liệu sinh học đe dọa thị trường đậu tương Mỹ",
-      "details": [
-        "Hiệp hội Đậu tương Mỹ (ASA) cảnh báo việc giảm Tiêu chuẩn Nhiên liệu Tái tạo (RFS) sẽ tàn phá thị trường đậu tương.",
-        "Chính sách này cũng sẽ gây tổn hại cho nền kinh tế nông thôn Mỹ.",
-        "Mặc dù tập trung vào đậu tương, chính sách nhiên liệu sinh học cũng ảnh hưởng lớn đến nhu cầu ngô (ethanol)."
-      ],
-      "link": "https://www.world-grain.com/articles/23445-asa-biofuels-rollback-would-devastate-us-soy-markets",
-      "source": "11 Nov 2026 - World Grain",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "CPKC lập kỷ lục vận chuyển ngũ cốc hàng tháng",
-      "details": [
-        "CPKC (Canadian Pacific Kansas City) đã đạt kỷ lục vận chuyển ngũ cốc hàng tháng vào tháng 10.",
-        "Mức cao nhất mọi thời đại được thiết lập ở cả Hoa Kỳ và Canada.",
-        "Điều này cho thấy năng lực logistics được cải thiện, hỗ trợ xuất khẩu ngũ cốc."
-      ],
-      "link": "https://www.world-grain.com/articles/23443-cpkc-sets-monthly-grain-movement-record",
-      "source": "11 Nov 2026 - World Grain",
-      "category": "logistics"
-    },
-    {
-      "title": "Giá phân bón, nhiên liệu cao đe dọa an ninh lương thực toàn cầu",
-      "details": [
-        "Giá phân bón và nhiên liệu tăng cao đang là mối lo ngại lớn.",
-        "Xung đột ở Biển Đen và Trung Đông hạn chế vận chuyển đầu vào nông nghiệp.",
-        "Điều này có thể dẫn đến chi phí sản xuất tăng và đe dọa an ninh lương thực toàn cầu."
-      ],
-      "link": "https://www.world-grain.com/articles/23442-from-the-editor-high-fertilizer-fuel-prices-threaten-food-security",
-      "source": "11 Nov 2026 - World Grain",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Thị trường ngũ cốc điều chỉnh sau đợt tăng giá do USDA",
-      "details": [
-        "Hợp đồng tương lai ngô và đậu tương giảm qua đêm.",
-        "Đây là sự điều chỉnh sau đợt tăng giá mạnh vào thứ Ba, được thúc đẩy bởi báo cáo USDA.",
-        "Chỉ số đồng đô la Mỹ đạt mức cao nhất trong bốn tuần."
-      ],
-      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
-      "source": "11 Nov 2026 - Farm Progress",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Nga dùng túi nhựa khổng lồ lưu trữ ngũ cốc do tắc nghẽn Biển Đen",
-      "details": [
-        "Nga đang sử dụng túi nhựa lớn để lưu trữ ngũ cốc không thể xuất khẩu.",
-        "Tình trạng tắc nghẽn thương mại ở Biển Đen tiếp tục gây khó khăn.",
-        "Điều này cho thấy áp lực lên chuỗi cung ứng và khả năng xuất khẩu của Nga."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOWTU3YzRMbmlsWjNDNXFhV1FXUW5YUFZRd1dfcERWVjB6NjNMZmxwak5QbjN0WUsyVGI1dVp5MzY4RVJoZWJCNFlVeF84NnFlcEZEUzRXSjUwZWJBN0R6X3Z6NzNOcFFoLTFDeGpQYUZlbW5yMThUeWdIeXVyT3g0b21fLWJ6ZWtTaUw5cW9rdzNFN2hjMmdIbk9uRDFwVkh0OHNQVk5jTW9vdjZUVDZRejZCSkxvSGpucEg3akJWWQ?oc=5",
-      "source": "11 Nov 2026 - Reuters",
-      "category": "logistics"
-    },
-    {
-      "title": "Cảng Ust-Luga của Nga bốc cháy sau tấn công bằng drone",
-      "details": [
-        "Một cuộc tấn công bằng drone đã gây ra hỏa hoạn tại cảng Ust-Luga của Nga.",
-        "Cảng này là một trung tâm xuất khẩu quan trọng, bao gồm cả ngũ cốc.",
-        "Sự cố có thể làm gián đoạn hoạt động xuất khẩu và tăng căng thẳng địa chính trị."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQNVBpTVFoTUNkQTN1NXVZZ0hFNHRuazFhMURyWGttRkZYWEhydC03NWRxa2JSLVRTN3poQ2pLNGN5WUgzeGxtaGZkZy1QYWxycFNKaEh3Vk9BVEZDYm1pdXZMZTVwX0ZNSUV3Z0xiblJtWlpWVDlxcXJZdW9ySnd3VVYyRG5pbTRpRWNsTFdVdlpyT1UzTE9IUVlySlB1dkgzTEFNbExORkFrZ1ZRdEJUaw?oc=5",
-      "source": "11 Nov 2026 - Bloomberg.com",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Lithuania siết chặt kiểm tra, có thể trì hoãn xuất khẩu ngũ cốc Nga hàng tháng",
-      "details": [
-        "Lithuania sẽ tăng cường kiểm tra các lô hàng ngũ cốc của Nga.",
-        "Các quy định kiểm tra mới có thể làm trì hoãn xuất khẩu ngũ cốc của Nga trong nhiều tháng.",
-        "Động thái này làm tăng thêm rào cản thương mại và ảnh hưởng đến nguồn cung ngũ cốc toàn cầu."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNUkozOC0zQXJ3YzhHX3k1Y3lydHA3VmdhMndsNGNtWE0xS0hlNGVCekhUNEFqcXZWSWd0LVBOM0NNQWFYR2FNNHR5bGpsUEhrQkdhT0d5S0Fqb081eHVMc0JUdHJiRmhIbnlsSkFfbWprbFA4aDMyaU5iRm8wT3BzdTBKVDdfd3UzUTAw?oc=5",
-      "source": "10 Nov 2026 - The Kyiv Independent / Reuters",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Báo cáo WASDE tháng 11 gây bất ngờ: Sản lượng và tồn kho ngô, đậu tương thấp hơn dự kiến",
-      "details": [
-        "USDA đã hạ dự báo năng suất ngô xuống 179,6 bushel/acre (BPA).",
-        "Tổng sản lượng ngô giảm xuống 15,893 tỷ bushel.",
-        "Sản lượng và tồn kho ngô, đậu tương được dự báo chặt chẽ hơn so với kỳ vọng thị trường, có thể hỗ trợ giá ngũ cốc."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5taGtIdF8xTkdKbjlQa1A1Q2FSOGRmOFRPdEF5enBPZi1IX3BjMTduR01jWWk1aW1XZjZfcGhOR3FZTnZ4OXNCQW1FZHFDODl5YlRhNlVyOXR4eW80Y2haUlJGcFJaNFZ6bjR3Mk9SSVI?oc=5",
-      "source": "10 Nov 2026 - Successful Farming / DTN Progressive Farmer",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Tiến độ mùa vụ USDA: Ngô 81%, Đậu tương 92%, Lúa mì vụ đông 89%",
-      "details": [
-        "Tiến độ thu hoạch ngô đạt 81%.",
-        "Tiến độ thu hoạch đậu tương đạt 92%.",
-        "Tiến độ gieo trồng lúa mì vụ đông đạt 89%.",
-        "Các số liệu này cung cấp cái nhìn về tình hình mùa vụ hiện tại."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONHh3VnRadkxUNnpLMjBhQU1xOEpaU1dGUTdCTnZQODhoM0xFMHdLU3FxMm9iN3dPdms4dk1Ka0E2bEhmUE1lLVhaT01JTnl3czJUUlZ4OFJTVXh6MXQxbDQ4QUMxOHducGxvNzJ0NVlydEFIeDdTQjZZYjd4cDNCYmFQZWU1MFBjY1Fjc1pMNFdZWTZPYk4wMjFPSTJGN2VhZUZWa29vdjBvU1FO?oc=5",
-      "source": "09 Nov 2026 - IndexBox",
+      "source": "11 Nov 2026 - BestWeather / Jim Roemer",
       "category": "san_luong_dien_tich"
     }
-  ],
-  "intraday": {
-    "ZW": {
-      "bias": "Bearish",
-      "bias_vn": "Giảm",
-      "summary": "Lúa mì chịu áp lực từ vị thế NHOI SHORT của Smart Money và rủi ro USDA, dù có tín hiệu kỹ thuật quá bán.",
-      "key_levels": {
-        "support": "592.0 cents",
-        "resistance": "608.0 cents"
-      },
-      "reasoning": [
-        "Thời tiết El Niño & phân tách xoáy cực tạo bất ổn, cần theo dõi mưa US Plains.",
-        "Báo cáo USDA tiềm ẩn bất ngờ; giá lúa mì tăng mạnh giữa tuần.",
-        "Smart Money NHOI SHORT (Q3) tạo áp lực giảm giá, tiềm ẩn short squeeze.",
-        "Tin Biển Đen đã bão hòa, không còn là yếu tố tác động chính.",
-        "Chênh lệch giá lúa mì/ngô quá bán có thể hỗ trợ giá kỹ thuật."
-      ],
-      "risk": "Báo cáo USDA gây sốc hoặc short squeeze mạnh có thể đảo chiều xu hướng nhanh chóng.",
-      "generated_at": "2026-11-12 12:08"
-    },
-    "ZC": {
-      "bias": "Bearish",
-      "bias_vn": "Giảm",
-      "summary": "Ngô đối mặt áp lực giảm từ vị thế XA LONG của Smart Money, giá giảm nhẹ và rủi ro chính sách nhiên liệu sinh học.",
-      "key_levels": {
-        "support": "442.0 cents",
-        "resistance": "453.0 cents"
-      },
-      "reasoning": [
-        "Thời tiết El Niño & phân tách xoáy cực tạo bất ổn, cần theo dõi khô hạn Corn Belt.",
-        "Báo cáo USDA tiềm ẩn bất ngờ; giá ngô giảm nhẹ vào thứ Tư.",
-        "Smart Money XA LONG (Q2) cho thấy sự thận trọng và giảm vị thế mua.",
-        "Chính sách giảm nhiên liệu sinh học đe dọa nhu cầu ngô gián tiếp.",
-        "Giá ngô giảm nhẹ vào thứ Tư cho thấy xu hướng giảm ngắn hạn."
-      ],
-      "risk": "Báo cáo USDA gây sốc hoặc thay đổi chính sách nhiên liệu sinh học có thể đảo chiều.",
-      "generated_at": "2026-11-12 12:08"
-    },
-    "bias": "Bearish",
-    "bias_vn": "Giảm",
-    "summary": "Lúa mì chịu áp lực từ vị thế NHOI SHORT của Smart Money và rủi ro USDA, dù có tín hiệu kỹ thuật quá bán.",
-    "key_levels": {
-      "support": "592.0 cents",
-      "resistance": "608.0 cents"
-    },
-    "reasoning": [
-      "Thời tiết El Niño & phân tách xoáy cực tạo bất ổn, cần theo dõi mưa US Plains.",
-      "Báo cáo USDA tiềm ẩn bất ngờ; giá lúa mì tăng mạnh giữa tuần.",
-      "Smart Money NHOI SHORT (Q3) tạo áp lực giảm giá, tiềm ẩn short squeeze.",
-      "Tin Biển Đen đã bão hòa, không còn là yếu tố tác động chính.",
-      "Chênh lệch giá lúa mì/ngô quá bán có thể hỗ trợ giá kỹ thuật."
-    ],
-    "risk": "Báo cáo USDA gây sốc hoặc short squeeze mạnh có thể đảo chiều xu hướng nhanh chóng.",
-    "generated_at": "2026-11-12 12:08"
-  },
-  "categories": [
-    "dia_chinh_tri",
-    "logistics",
-    "san_luong_dien_tich",
-    "cung_cau_nhan_dinh"
   ]
 }
