@@ -6,3 +6,7 @@ When calculating or referencing the Macro Accumulation Zone or Fair Value for Wh
   - *DXY Premium*: -5 cents for every 1 point above 100.
   - *War Premium (Rủi ro địa chính trị)*: F8 Score * 5 cents.
 - Do NOT use 520¢ or any other base. 550¢ is the hard baseline for ZW.
+
+# Rollover & Calendar Spread Guidelines
+- **FND Reversal**: When Managed Money COT Net Short > 70k contracts and price is near cash breakeven (560-586¢), strictly forbid Shorting near FND. Anticipate forced short-covering rally at T-0/T+1.
+- **Calendar Spread Momentum (US Session)**: If deferred contract (H) vs front contract (Z) spread divergence > 1.2¢, follow the active leg ("Dòng tiền ở đâu - Đánh ở đó") for Hit & Run scalps (exit before 00:30 VN time).
