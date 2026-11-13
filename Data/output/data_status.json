@@ -55,7 +55,7 @@
     "github_sync": {
       "status": "[ERROR]",
       "detail": "Lỗi Push: fatal: unable to access 'https://github.com/Thang-Cbot/dashboard.git/': Could not resolve host: github.com",
-      "updated_at": "2026-11-13 12:57:04"
+      "updated_at": "2026-11-13 12:57:05"
     },
     "prices_h4": {
       "status": "[OK]",
