@@ -1,94 +1,93 @@
 {
-  "timestamp": "2026-11-13 06:30:00",
+  "timestamp": "2026-11-13 06:55:00",
   "model": "gemini-2.5-flash",
   "version": "run_tin_tuc_6_parts_v1",
   "structured": {
     "header_context": {
-      "report_time": "2026-11-13 06:30 (Giờ VN)",
-      "zw_price_str": "582.40 ¢/bu (Đáy mới trong năm, -18.1c | Fair Value gốc: 670c)",
+      "report_time": "2026-11-13 06:55 (Giờ VN)",
+      "zw_price_str": "ZWZ26: 582.40 ¢/bu (Đáy mới năm, -18.1c) | ZWH27: 597.40 ¢/bu (Chốt phiên, -18.75c)",
       "zc_price_str": "442.25 ¢/bu (Fair Value gốc: 480c)",
-      "cot_summary": "ZW Net Est: -91,443 HĐ (Short kỷ lục) | ZC Net Est: +6,289 HĐ",
-      "macro_summary": "DXY: 103.17 (+0.25%) | Brent: $95.77 (+3.24%)",
-      "zwh_price_str": "597.40 ¢/bu (Chốt phiên đêm, -18.75c | Hỗ trợ 595c)"
+      "cot_summary": "ZW Net Est: -91,443 HĐ (Short cực đại) | ZC Net Est: +6,289 HĐ",
+      "macro_summary": "DXY: 103.17 (+0.25%) | Brent: .77 (+3.24%)"
     },
     "table_parts": [
       {
         "part_num": "PHẦN 1",
         "part_title": "Phiên Đêm, Cấu Trúc Giá (VSA/Wyckoff) & Vị Thế COT",
-        "core_content": "Phiên đêm 12/11 chứng kiến đợt bán tháo dữ dội trên thị trường lúa mì CBOT. Hợp đồng ZWZ26 bị xả mạnh xuyên thủng mốc hỗ trợ tâm lý 590c, chạm mức đáy sâu nhất trong năm tại 582.4 ¢/bu (-18.1c). Đây là hành vi Selling Climax điển hình trong giai đoạn Phase C Wyckoff (hoặc Spring Test đáy lớn). Nguyên nhân chủ yếu đến từ áp lực thanh lý ép dồn vị thế Long trước kỳ hạn First Notice Day (30/11) kết hợp hiệu ứng tin tức nguồn cung Argentina. Tuy nhiên, khối lượng giao dịch tăng vọt ở vùng 582 - 585c và xuất hiện cây nến rút chân M15 tại 603.4 - 605.4c trên kỳ hạn ZWH27 cho thấy lực cầu của Smart Money đã nhập cuộc hấp thụ (Absorption). Vị thế COT ước tính Net Short của Managed Money vẫn neo ở mức cực đại (-91,443 HĐ), khiến độ nén lò xo ngày càng khổng lồ. Ngô (ZCZ26) điều chỉnh nhẹ về 442.25c, tiếp tục vận động trong biên độ tích lũy mùa vụ sát sàn chi phí sản xuất (440 - 450c).",
-        "zw_impact": "ZWZ26 chạm đáy sâu mới 582.4c, bước vào trạng thái siêu quá bán (Extreme Oversold). Giá đang nằm sâu dưới sàn chi phí nông dân Mỹ (600 - 620c). Nến M15 rút chân kỳ H tại 605c xác nhận lực đỡ ban đầu; rủi ro Short-Squeeze bùng nổ khi áp lực rollover hạ nhiệt.",
-        "zw_badge": "SELLING CLIMAX / SPRING TEST 582.4c",
-        "zc_impact": "ZCZ26 lùi về 442.25c nhưng giữ vững sàn hỗ trợ cứng 440c. Áp lực bán từ đợt thu hoạch đỉnh điểm tại Mỹ đang cạn kiệt dần. Vùng giá 440 - 445c là đệm đỡ vững chắc.",
+        "core_content": "Phiên đêm 12/11 khép lại với đợt bán tháo thanh lý cực mạnh trên toàn sàn CBOT. Hợp đồng ZWZ26 bị đạp thủng mốc 590c, rơi thẳng về đáy kỷ lục năm tại 582.4 ¢/bu (-18.1c). Trong 2 tiếng cuối phiên, quán tính ép bán tiếp tục kéo hợp đồng ZWH27 trượt qua mốc tâm lý 600c để chính thức chốt phiên tại 597.4 ¢/bu (-18.75c, thấp nhất 597.25c). Đây là hành vi Selling Climax / Phase C Spring Test đồng pha giữa hai kỳ hạn, phản ánh đợt thanh lý cưỡng bức của các vị thế Long kỳ Z trước First Notice Day (30/11) kết hợp tâm lý hoảng loạn từ tin Argentina. Chênh lệch kỳ hạn Spread ZWH27 - ZWZ26 đạt chuẩn xác +15.0 cent (Carry Spread bình thường). Vị thế Managed Money Net Short kỷ lục (-91,443 HĐ) đang tạo ra thế lò xo nén cực đại. Ngô (ZCZ26) chốt phiên tại 442.25c, tiếp tục tích lũy vững chắc tại sàn chi phí sản xuất 440 - 450c.",
+        "zw_impact": "Cả hai kỳ hạn đều đã rơi vào trạng thái siêu quá bán (Extreme Oversold): ZWZ26 tại 582.4c và ZWH27 tại 597.4c. Vùng 595 - 597c của ZWH27 là đáy hỗ trợ cứng tháng 8. Quán tính ép bán đã đạt đến độ cùng cực, mở ra tiềm năng phục hồi kỹ thuật hoặc bùng nổ Short-Covering.",
+        "zw_badge": "SELLING CLIMAX / SPRING TEST (Z: 582.4c | H: 597.4c)",
+        "zc_impact": "ZCZ26 duy trì tốt quanh 442.25c, neo sát sàn chi phí 440c. Áp lực thu hoạch tại Mỹ sắp kết thúc giúp giải tỏa tâm lý bán tháo của nông dân.",
         "zc_badge": "TÍCH LŨY SÀN CHI PHÍ SẢN XUẤT"
       },
       {
         "part_num": "PHẦN 2",
         "part_title": "Cung Cầu Thực Tế, Báo Cáo USDA & Cú Sốc Lúa Mì Argentina",
-        "core_content": "Tâm điểm rung lắc thị trường phiên vừa qua bắt nguồn từ Nam Bán Cầu: Sàn Rosario (BCR) và Sàn Buenos Aires (BAGE) đồng loạt công bố nâng dự báo sản lượng lúa mì Argentina vụ 2026/27 lên mức kỷ lục 23.8 – 24.3 triệu tấn (+2.8 triệu tấn so với kỳ vọng trước đó). Với việc bước vào đỉnh điểm thu hoạch tháng 11-12 và nhu cầu giải phóng kho thu USD, các nhà xuất khẩu Argentina ồ ạt chào bán lúa mì FOB Up River ở mức giá rẻ khó tin: 200 – 207 USD/tấn (~545 – 565 ¢/bu), rẻ hơn lúa mì Mỹ 40-50 USD/tấn. Nguồn cung này lập tức chiếm lĩnh toàn bộ thị trường Brazil và chèn ép thị trường Bắc Phi. Ở chiều ngược lại, hãng SovEcon tiếp tục cắt giảm ước tính xuất khẩu lúa mì Nga xuống 36.0 triệu tấn (thấp hơn nhiều so với mức 39.0 triệu tấn của USDA). Algeria (OAIC) vừa chốt mua hơn 700.000 tấn lúa mì và Jordan mời thầu 120.000 tấn, cho thấy người mua tiền mặt toàn cầu đang tranh thủ gom hàng giá rẻ.",
-        "zw_impact": "Áp lực 'dội chợ' của lúa mì Argentina trong ngắn hạn đẩy giá CBOT về đáy 582.4c để chiết khấu cạnh tranh. Tuy nhiên, sản lượng vụ mùa Argentina (~24 MMT) chỉ bằng 1/3 Nga và không thể bù đắp được khoảng trống xuất khẩu Biển Đen khi Nga siết hạn ngạch từ mùa đông.",
-        "zw_badge": "SỐC CUNG ARGENTINA VS THỦNG BIỂN ĐEN",
-        "zc_impact": "Ngô Mỹ xuất khẩu duy trì ổn định, tiến độ thu hoạch tại Corn Belt đã vượt 92%. Áp lực bán ngô vụ mới của nông dân Mỹ đang giảm nhanh khi nông dân chuyển sang tích trữ trong silo chờ giá phục hồi.",
-        "zc_badge": "TIẾN ĐỘ THU HOẠCH CUỐI VỤ"
+        "core_content": "Trọng tâm gây sức ép giảm giá là Nam Bán Cầu: Sàn Rosario (BCR) và Sàn Buenos Aires (BAGE) đồng loạt nâng dự báo sản lượng lúa mì Argentina 2026/27 lên 23.8 – 24.3 triệu tấn (+2.8 đến +3.3 MMT). Đây là vụ mùa lớn thứ 2 trong lịch sử nước này. Áp lực thu hoạch rộ tháng 11-12 cùng nhu cầu ngoại tệ USD khiến các nhà xuất khẩu Argentina chào bán lúa mì FOB Up River ở mức siêu rẻ 200 – 207 USD/tấn (~545 – 565 ¢/bu), rẻ hơn lúa mì Mỹ tới 35-50 USD/tấn. Dòng lúa mì này ngay lập tức chiếm trọn thị trường Brazil và cạnh tranh gay gắt tại Bắc Phi. Tuy nhiên, về trung hạn, tổng sản lượng Argentina (~24 MMT) chỉ bằng 1/3 Nga và không thể bù đắp thiếu hụt từ Biển Đen. SovEcon vừa hạ dự báo xuất khẩu Nga xuống 36.0 triệu tấn và Nga sắp áp hạn ngạch mùa đông. Lực cầu thực tế phản ứng mạnh: Algeria (OAIC) vừa chốt mua hơn 700.000 tấn lúa mì và Jordan mời thầu 120.000 tấn.",
+        "zw_impact": "Áp lực giá rẻ Argentina đẩy ZWZ26 về 582.4c và ZWH27 về 597.4c để chiết khấu cạnh tranh trong ngắn hạn. Tuy nhiên, khi đỉnh điểm thu hoạch Argentina qua đi và hạn ngạch Nga kích hoạt, nguồn cung toàn cầu sẽ nhanh chóng thắt chặt.",
+        "zw_badge": "SỐC CUNG ARGENTINA VS CẦU BẮT ĐÁY BIỂN ĐEN",
+        "zc_impact": "Tiến độ thu hoạch ngô Corn Belt đã vượt 92%. Nông dân Mỹ dừng bán tháo và chuyển sang trữ ngô trong silo chờ giá lên, nguồn cung bán ra thị trường giao ngay giảm mạnh.",
+        "zc_badge": "ÁP LỰC THU HOẠCH HẠ NHIỆT"
       },
       {
         "part_num": "PHẦN 3",
         "part_title": "Địa Chính Trị, Biển Đen, Tàu Biển & Năng Lượng / Vĩ Mô",
-        "core_content": "Về mặt địa chính trị, cuộc gặp tại Moscow giữa Tổng thống Nga Putin và hai đặc phái viên Mỹ (Steve Witkoff và Jared Kushner) đã kết thúc mà không đạt được thỏa thuận ngừng bắn tức thời. Ông Putin thẳng thắn nêu rõ hai bên có 'cách giải thích khác nhau về các vấn đề lãnh thổ' (Nga yêu cầu kiểm soát toàn bộ Donetsk và Luhansk) và nhấn mạnh quân đội nước ngoài tại Ukraine là mục tiêu hợp pháp. Cùng lúc, cảng chiến lược Ust-Luga của Nga ở biển Baltic bị drone tấn công làm hư hại hạ tầng năng lượng, và Lithuania siết chặt kiểm soát hàng hóa quá cảnh từ 16/11. Trên thị trường vĩ mô, dầu thô Brent tăng vọt +3.24% lên 95.77 USD/thùng do căng thẳng Trung Đông và đe dọa chuỗi cung ứng dầu Nga. Tuy nhiên, chỉ số DXY cũng tăng lên 103.17 (+0.25%), tạo áp lực ghìm giá các mặt hàng tính bằng USD.",
-        "zw_impact": "Bế tắc đàm phán Nga - Mỹ và rủi ro cảng biển Baltic bị tấn công duy trì 'phí bảo hiểm rủi ro chiến tranh' (war risk premium) cho ngũ cốc Biển Đen. Chi phí vận tải biển và bảo hiểm tàu tăng cao, hỗ trợ giá sàn lúa mì thế giới.",
+        "core_content": "Về địa chính trị, cuộc gặp thượng đỉnh tại Moscow giữa Tổng thống Nga Putin và Đặc phái viên Mỹ (Steve Witkoff & Jared Kushner) không mang lại đột phá ngừng bắn. Ông Putin nhấn mạnh hai bên có bất đồng sâu sắc về vấn đề lãnh thổ (Donetsk/Luhansk) và coi sự hiện diện quân đội nước ngoài tại Ukraine là mục tiêu hợp pháp. Cùng lúc, cảng chiến lược Ust-Luga (Baltic) của Nga bị drone tấn công làm hư hại hạ tầng, và Lithuania siết chặt kiểm soát quá cảnh từ 16/11. Về vĩ mô, dầu thô Brent tăng vọt +3.24% lên 95.77 USD/thùng do rủi ro nguồn cung, trong khi DXY tăng lên 103.17 (+0.25%).",
+        "zw_impact": "Đàm phán hòa bình bế tắc và cảng Baltic bị tấn công duy trì phí bảo hiểm rủi ro chiến tranh (war risk premium) cho ngũ cốc Biển Đen, neo giữ chi phí cước tàu và giá sàn thế giới.",
         "zw_badge": "CĂNG THẲNG ĐỊA CHÍNH TRỊ BIỂN ĐEN",
-        "zc_impact": "Giá dầu Brent leo dốc lên 95.77 USD/thùng mang lại lợi nhuận biên cực lớn cho các nhà máy ethanol Mỹ, kích hoạt lực cầu nội địa tiêu thụ ngô xay xát mạnh mẽ.",
-        "zc_badge": "BRENT $95.77 HỖ TRỢ ETHANOL"
+        "zc_impact": "Giá dầu Brent .77 tạo biên lợi nhuận bùng nổ cho các nhà máy ethanol Mỹ, kích thích tối đa lực cầu xay xát ngô nội địa.",
+        "zc_badge": "BRENT .77 THÚC ĐẨY ETHANOL"
       },
       {
         "part_num": "PHẦN 4",
         "part_title": "Thời Tiết Nông Nghiệp Chuyên Sâu (US Plains, Nga, Nam Mỹ)",
-        "core_content": "Thời tiết toàn cầu đang có những diễn biến phân hóa rõ nét. Tại Mỹ, dải mưa mùa thu vừa qua tại Southern Plains (Kansas, Oklahoma, Texas) đã bổ sung độ ẩm đất quý giá, giúp lúa mì HRW nảy mầm tốt và tỷ lệ Good/Excellent cải thiện. Tại Nga, khu vực Rostov và miền Nam ghi nhận lượng mưa 33.8mm, giúp cây lúa mì phát triển rễ trước khi tuyết rơi. Tại Argentina, thời tiết vùng Pampas khô ráo và nắng ấm với lượng mưa vừa phải (5.0mm) tạo điều kiện tối ưu để đẩy nhanh tiến độ gặt lúa mì vụ mới. Đáng chú ý, các chuyên gia khí tượng (Jim Roemer - Climatelligence) cảnh báo hiện tượng phân tách xoáy cực (Polar Vortex Split) bất thường vào tháng 11 có thể kéo theo các đợt rét cắt da cắt thịt và nguy cơ Winterkill cho lúa mì vụ đông Mỹ nếu thiếu lớp tuyết che phủ (snow cover).",
-        "zw_impact": "Mưa tại Mỹ và Nga tạo áp lực tâm lý giảm giá ngắn hạn (Bearish thời tiết), nhưng rủi ro rét đậm Polar Vortex cuối tháng 11 và đầu tháng 12 sẽ là ẩn số thời tiết kích hoạt đà bật mạnh.",
-        "zw_badge": "ẨM ĐẤT TỐT / THEO DÕI POLAR VORTEX",
-        "zc_impact": "Thời tiết Midwest hanh khô giúp nông dân Mỹ dọn sạch những cánh đồng ngô cuối cùng. Mưa thuận lợi tại Brazil hỗ trợ gieo trồng đậu tương và ngô vụ 1.",
+        "core_content": "Tại Mỹ, các đợt mưa diện rộng trên vùng Southern Plains (Kansas, Oklahoma, Texas) đã bổ sung ẩm đất quý giá cho lúa mì đông phát triển rễ tốt. Tại Nga, vùng Rostov đón mưa 33.8mm giải tỏa khô hạn cục bộ trước kỳ ngủ đông. Tại Argentina, vùng Pampas thời tiết khô ráo, nắng ấm (mưa chỉ 5.0mm) tạo điều kiện tối ưu để máy gặt đẩy nhanh tiến độ thu hoạch lúa mì. Đáng chú ý, các chuyên gia khí tượng (Jim Roemer) cảnh báo hiện tượng phân tách xoáy cực (Polar Vortex Split) cuối tháng 11 có thể kéo các đợt rét cắt da cắt thịt xuống Bắc Mỹ, đe dọa rét hại (Winterkill) cho lúa mì đông nếu thiếu tuyết che phủ.",
+        "zw_impact": "Thời tiết mưa thuận lợi tại Mỹ và Nga gây sức ép giảm giá ngắn hạn, nhưng rủi ro rét đậm Polar Vortex cuối tháng 11 là ẩn số thời tiết kích hoạt đà bật mạnh.",
+        "zw_badge": "ẨM ĐẤT TỐT / RỦI RO POLAR VORTEX",
+        "zc_impact": "Thời tiết khô ráo giúp dọn sạch đồng ngô tại Mỹ; mưa thuận lợi tại Nam Mỹ hỗ trợ gieo trồng ngô vụ 1.",
         "zc_badge": "THUẬN LỢI THU HOẠCH"
       },
       {
         "part_num": "PHẦN 5",
         "part_title": "Chuyên Mục AgWeb Market Analysis (Góc Nhìn Chuyên Gia Mỹ)",
-        "core_content": "Các chuyên gia phân tích hàng đầu trên AgWeb tiếp tục mổ xẻ hiện tượng thị trường bị bán quá đà. Jim Roemer (BestWeather) nhận định giá nông sản đang phản ánh tiêu cực quá mức nguồn cung Nam Mỹ mà bỏ quên rủi ro thời tiết cực đoan El Niño và xoáy cực Polar Vortex. Brad Kooima (Kooima Kooima Varilek) lưu ý mô hình đảo chiều Wyckoff thường hình thành sau một đợt rũ bỏ kinh hoàng (Shakeout) khi các vị thế yếu (weak hands) bị quét sạch lệnh dừng lỗ tại vùng đáy cũ. Randy Martinson (Martinson Ag) cho rằng đợt giảm xuống 582.4c của lúa mì mang tính chất kỹ thuật ép thanh lý kỳ hạn tháng 12 (December liquidation) hơn là thay đổi về bức tranh cán cân cung cầu dài hạn. Các chuyên gia thống nhất rằng mức giá dưới 590c của lúa mì đã rơi vào vùng siêu định giá thấp (Deep Discount), tạo tỷ lệ Risk:Reward vượt trội cho phe Mua trung-dài hạn.",
-        "zw_impact": "Đồng thuận từ các chuyên gia Mỹ: Lúa mì đã chạm vùng định giá cực đoan. Cú rũ bỏ về 582.4c là cơ hội gom hàng trung-dài hạn cho kỳ hạn năm 2027.",
-        "zw_badge": "SHAKEOUT ĐÁY CỰC ĐOAN",
-        "zc_impact": "Ngô đang ở vùng đáy mùa vụ điển hình (Harvest Low), các chuyên gia khuyến nghị hạn chế bán đuổi và chuẩn bị cho nhịp hồi phục sau khi nông dân hoàn tất thu hoạch.",
-        "zc_badge": "CHỜ NHỊP PHỤC HỒI HẬU THU HOẠCH"
+        "core_content": "Các chuyên gia phân tích hàng đầu trên AgWeb nhận định đợt bán tháo phiên đêm mang đậm tính chất kỹ thuật và tâm lý hoảng loạn quá đà. Randy Martinson (Martinson Ag) khẳng định việc ZWZ26 thủng 590c về 582.4c và ZWH27 trượt về 597.4c là đợt thanh lý bắt buộc (forced liquidation) trước ngày First Notice Day kết hợp hiệu ứng dội chợ của Argentina. Brad Kooima (Kooima Kooima Varilek) nhận định mô hình Spring quét stoploss dưới mốc 600c của kỳ H là tín hiệu rũ bỏ toàn bộ nhà đầu tư yếu bóng vía trước khi thiết lập đáy lớn. Jim Roemer (BestWeather) cảnh báo mức giá dưới 600c đang định giá bằng 0 toàn bộ rủi ro thời tiết El Niño và mùa đông 2027.",
+        "zw_impact": "Đồng thuận từ các chuyên gia Mỹ: Lúa mì CBOT đã rơi vào vùng siêu chiết khấu (Deep Discount). Việc ZWH27 đóng cửa ở 597.4c tạo ra tỷ lệ Risk:Reward cực kỳ hấp dẫn cho vị thế nắm giữ trung-dài hạn.",
+        "zw_badge": "RŨ BỎ THANH KHOẢN (SHAKEOUT CỰC ĐOAN)",
+        "zc_impact": "Ngô đang hoàn tất quá trình tạo đáy mùa vụ (Harvest Low), khuyến nghị duy trì nắm giữ và chuẩn bị cho nhịp hồi phục sau thu hoạch.",
+        "zc_badge": "ĐÁY MÙA VỤ XÁC LẬP"
       }
     ],
     "daily_trend_conclusion": {
       "summary_label": "Tổng hợp trọng số từ 5 Phần trên cho phiên giao dịch hôm nay:",
       "zw_trend_title": "RŨ BỎ TẠO ĐÁY HOÀN TẤT / HỒI PHỤC KỸ THUẬT TỪ VÙNG 582c (Z) & 597c (H)",
       "zw_range": "ZWZ26: 580.0 – 595.0 ¢/bu | ZWH27: 595.0 – 610.0 ¢/bu",
-      "zw_rationale": "Cú đạp về 582.4c đã rũ bỏ sạch lượng stoploss tại đáy cũ. Nến rút chân M15 tại 605c kỳ H và lực gom của các nhà nhập khẩu quốc tế (Algeria) mở ra nhịp hồi phục kỹ thuật vững chắc.",
+      "zw_rationale": "Cú đạp về 582.4c (Z) và 597.4c (H) đã rũ bỏ sạch lượng Stop-loss dưới đáy cũ và dưới mốc 600c. Lực cầu bắt đáy của các nhà nhập khẩu quốc tế (Algeria) và thế nén Short của quỹ (-91k HĐ) sẽ kích hoạt nhịp hồi kỹ thuật.",
       "zc_trend_title": "TÍCH LŨY SÀN CHI PHÍ SẢN XUẤT (440 – 448c)",
       "zc_range": "ZCZ26: 440.0 – 448.0 ¢/bu",
-      "zc_rationale": "Giá dầu Brent tăng vọt lên 95.77 USD cùng sàn chi phí sản xuất 440c sẽ bảo vệ vững chắc vùng đáy của ngô."
+      "zc_rationale": "Giá dầu Brent 95.77 USD cùng sàn chi phí 440c là bức tường bảo vệ vững chắc cho giá ngô."
     },
     "part6_strategy": {
-      "executive_verdict": "Thị trường nông sản CBOT ngày 13/11/2026 ghi nhận cú sốc kép từ vụ mùa kỷ lục Argentina (23.8 - 24.3 MMT, FOB $200/tấn) và áp lực thanh lý rollover hợp đồng ZWZ26 trước ngày FND (30/11), đẩy giá ZWZ26 xuống đáy mới trong năm tại 582.4 ¢/bu. Tuy nhiên, đây là cấu trúc Wyckoff Spring / Selling Climax điển hình khi vị thế Net Short của quỹ vẫn ở mức kỷ lục (-91k HĐ) và giá đã nằm sâu dưới sàn chi phí nông dân Mỹ. Với việc nến M15 đã bật nảy từ 602.4c lên 605.4c trên kỳ hạn ZWH27, chiến thuật tối ưu lúc này là: Giữ vững kỷ luật kho hàng, nhồi thêm Lot 2 cho kỳ hạn ZWH27 quanh vùng 605c để đón sóng dài hạn, đồng thời tận dụng các nhịp hồi phục kỹ thuật sắp tới để chốt bớt kỳ hạn cận ZWZ26 nhằm giảm tải áp lực giao nhận.",
+      "executive_verdict": "Thị trường nông sản CBOT ngày 13/11/2026 ghi nhận cú sốc kép từ vụ mùa kỷ lục Argentina (23.8 - 24.3 MMT, FOB /tấn) và áp lực thanh lý rollover hợp đồng ZWZ26 trước ngày First Notice Day (30/11), kéo giá ZWZ26 về đáy mới 582.4c và kéo ZWH27 chốt phiên tại 597.4c (chênh lệch Spread chuẩn +15.0c). Đây là mô hình Selling Climax / Phase C Spring rũ bỏ kinh điển khi quỹ bán khống kỷ lục (-91k HĐ) và giá nằm sâu dưới giá thành sản xuất. Chiến thuật chuẩn xác lúc này: Giữ vững kỷ luật kho hàng, giữ chặt vị thế ZWH27 đã mua gom (Lot 1 @ 635c, Lot 2 quanh 600 - 605c, giá vốn bình quân ~616 - 620c) tại vùng hỗ trợ cứng 595 - 598c; đồng thời đặt sẵn kế hoạch giảm tải dần hợp đồng cận ZWZ26 khi giá hồi phục lên vùng 598 - 608c để giải phóng áp lực đáo hạn.",
       "golden_rules": [
-        "Không hoảng loạn bán tháo tại đáy Selling Climax (dưới 585c ZWZ26 / dưới 605c ZWH27) khi nông dân toàn cầu đang lỗ nặng ở mức giá này.",
-        "Phân tách rõ ràng mục tiêu giữa 2 kỳ hạn: Kỳ ZWZ26 ưu tiên thoát bớt khi hồi phục để tránh rủi ro Rollover FND; Kỳ ZWH27 giữ vững vị thế gom dài hạn đón sóng mùa đông và El Niño 2027.",
+        "Không hoảng loạn bán cắt lỗ tại đáy Selling Climax (vùng 582c ZWZ26 / 597c ZWH27) khi giá đã chiết khấu sâu dưới sàn chi phí sản xuất toàn cầu.",
+        "Tách bạch rõ rệt chiến lược 2 kỳ hạn: Hợp đồng ZWZ26 ưu tiên hạ tải khi hồi phục để tránh rủi ro FND 30/11; Hợp đồng ZWH27 nắm giữ kiên định đón sóng mùa đông và hạn ngạch Biển Đen.",
         "Kiểm soát tuyệt đối tỷ trọng lệnh, không mở thêm đòn bẩy quá mức khi thị trường đang trong pha xác nhận tạo đáy."
       ],
       "zw_tactical": {
         "intraday_contract": "ZWZ26 (HĐ Tháng 12/2026)",
-        "intraday_plan": "Ưu tiên theo dõi nhịp hồi phục kỹ thuật. Đặt sẵn lệnh Sell Limit quanh vùng 605.0 – 615.0 ¢/bu (hoặc giữ nguyên lệnh Sell Limit 2 Lots @ 617'4) để hạ tỷ trọng hàng cận tháng trước First Notice Day 30/11.",
+        "intraday_plan": "Theo dõi nhịp nảy kỹ thuật từ vùng đáy 582c. Treo sẵn các lệnh Sell Limit hạ tải 1-2 lot tại vùng 598.0 – 608.0 ¢/bu (hoặc giữ lệnh Sell Limit 2 Lots @ 617'4) để giải phóng vị thế cận tháng trước ngày 20-30/11.",
         "support_zone": "ZWZ26: 580.0 – 582.5 ¢/bu | ZWH27: 595.0 – 597.5 ¢/bu",
         "resistance_zone": "ZWZ26: 592.0 – 598.0 ¢/bu | ZWH27: 608.0 – 615.0 ¢/bu",
         "macro_dca_contract": "ZWH27 (HĐ Tháng 03/2027)",
-        "macro_dca_plan": "ZWH27 chốt phiên tại 597.4 ¢/bu (thấp nhất 597.25c). Lot 1 @ 635c, Lot 2 quanh 600 - 605c đưa giá vốn về ~616 - 620c. Vùng 595 - 598c là hỗ trợ cứng trung hạn, giữ chặt đón sóng mùa đông và hạn ngạch Biển Đen."
+        "macro_dca_plan": "Chốt phiên tại 597.4 ¢/bu sát vùng hỗ trợ cứng 595 - 597c. Vị thế gom gồm Lot 1 @ 635c và Lot 2 @ 605c (hoặc rải thêm ở 597 - 598c) đưa giá vốn bình quân về ~616 - 620c. Kiên trì nắm giữ kỳ H đón nhịp Short-Covering và chu kỳ thắt chặt nguồn cung mùa đông."
       },
       "zc_tactical": {
         "intraday_contract": "ZCZ26 (HĐ Tháng 12/2026)",
-        "intraday_plan": "Canh mua thăm dò ngắn hạn tại vùng hỗ trợ 440.0 – 442.0 ¢/bu khi giá test sàn chi phí sản xuất, chốt lời ngắn tại 448.0 – 450.0 ¢/bu. Cắt lỗ nếu thủng 438.0 ¢/bu.",
+        "intraday_plan": "Canh mua lướt sóng thăm dò tại vùng hỗ trợ 440.0 – 442.0 ¢/bu sát sàn chi phí, chốt lời ngắn hạn tại 448.0 – 450.0 ¢/bu. Cắt lỗ nếu thủng 438.0 ¢/bu.",
         "support_zone": "440.0 – 442.0 ¢/bu",
         "resistance_zone": "448.0 – 452.0 ¢/bu",
         "macro_dca_contract": "ZCZ26 / ZCH27",
-        "macro_dca_plan": "Rải vốn tích lũy kỳ hạn ZCH27 quanh 450 – 455c khi nông dân Mỹ kết thúc vụ thu hoạch và nhu cầu ethanol bùng nổ theo giá dầu Brent $95.77."
+        "macro_dca_plan": "Tích lũy vị thế ngô kỳ hạn xa (ZCH27) quanh vùng 450c khi tiến độ thu hoạch Mỹ kết thúc và giá dầu Brent .77 kích hoạt lực cầu Ethanol."
       }
     }
   }
