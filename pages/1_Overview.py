@@ -372,7 +372,7 @@ def render_overview():
         arr_zw = "▲" if zw_diff >= 0 else "▼"
         render_html(f"""
         <div style='background:#161f33; border:1px solid #2a3a5c; border-left:4px solid #3b82f6; border-radius:10px; padding:10px 14px;'>
-            <div style='display:flex; justify-content:space-between; align-items:center;'><div style='font-size:11px; color:#94a3b8; font-weight:700;'>🌾 LÚA MÌ (ZWAZ26) vs FAIR VALUE 670c</div><span style='background:#1e3a8a; color:#93c5fd; font-size:10px; font-weight:700; padding:1px 6px; border-radius:4px;'>{zw_tag} {zw_time}</span></div>
+            <div style='display:flex; justify-content:space-between; align-items:center;'><div style='font-size:11px; color:#94a3b8; font-weight:700;'>🌾 LÚA MÌ (ZW) | THỊ GIÁ LIVE</div><span style='background:#1e3a8a; color:#93c5fd; font-size:10px; font-weight:700; padding:1px 6px; border-radius:4px;'>{zw_tag} {zw_time}</span></div>
             <div style='display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;'>
                 <span style='font-size:20px; font-weight:800; color:#f8fafc;'>{zw_close} ¢/bu</span>
                 <span style='font-size:12px; font-weight:700; color:{c_zw};'>{arr_zw} {zw_diff:+.2f}c</span>
@@ -383,7 +383,7 @@ def render_overview():
         arr_zc = "▲" if zc_diff >= 0 else "▼"
         render_html(f"""
         <div style='background:#161f33; border:1px solid #2a3a5c; border-left:4px solid #f59e0b; border-radius:10px; padding:10px 14px;'>
-            <div style='display:flex; justify-content:space-between; align-items:center;'><div style='font-size:11px; color:#94a3b8; font-weight:700;'>🌽 NGÔ (ZCEZ26) vs FAIR VALUE 480c</div><span style='background:#78350f; color:#fde68a; font-size:10px; font-weight:700; padding:1px 6px; border-radius:4px;'>{zc_tag} {zc_time}</span></div>
+            <div style='display:flex; justify-content:space-between; align-items:center;'><div style='font-size:11px; color:#94a3b8; font-weight:700;'>🌽 NGÔ (ZC) | THỊ GIÁ LIVE</div><span style='background:#78350f; color:#fde68a; font-size:10px; font-weight:700; padding:1px 6px; border-radius:4px;'>{zc_tag} {zc_time}</span></div>
             <div style='display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;'>
                 <span style='font-size:20px; font-weight:800; color:#f8fafc;'>{zc_close} ¢/bu</span>
                 <span style='font-size:12px; font-weight:700; color:{c_zc};'>{arr_zc} {zc_diff:+.2f}c</span>

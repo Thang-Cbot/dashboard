@@ -1006,40 +1006,41 @@ with _tab_h1:
             _v3_comm = _v3_state.get("commodities", {}).get(code, {}).get("active", {})
             _v3_macro = _v3_state.get("macro", {})
 
-            # Thiết lập Trục Fair Value và Vùng BSL / SSL chuẩn hóa
-            if code == "ZW":
-                _base_fv = 670.0
-                _base_bsl = [674.0, 678.0]
-                _base_ssl = [661.5, 665.5]
-                _unit_lbl = "¢/bu"
-            elif code == "ZC":
-                _base_fv = 480.0
-                _base_bsl = [485.0, 488.0]
-                _base_ssl = [474.0, 478.0]
-                _unit_lbl = "¢/bu"
+            # Thiết lập Trục Fair Value và Vùng BSL / SSL chuẩn hóa ĐỘNG từ dữ liệu thực tế
+            _unit_lbl = "¢/bu" if code in ["ZW", "ZC", "ZS"] else "pts"
+            _last_h1_close = float(_dfh1["Close"].iloc[-1])
+            _recent_24 = _dfh1.tail(24)
+            _h24 = float(_recent_24["High"].max()) if not _recent_24.empty else _last_h1_close + 2.0 * _h1_atr14
+            _l24 = float(_recent_24["Low"].min()) if not _recent_24.empty else _last_h1_close - 2.0 * _h1_atr14
+
+            _r1 = _v3_comm.get("r1") if _v3_comm else None
+            _s1 = _v3_comm.get("s1") if _v3_comm else None
+            _r2 = _v3_comm.get("r2") if _v3_comm else None
+            _s2 = _v3_comm.get("s2") if _v3_comm else None
+
+            # 1. Trục Fair Value Cân Bằng Động:
+            # Ưu tiên lấy theo Pivot trung tâm thực tế (_r1 + _s1)/2 nếu có và gần thị giá (<= 35.0 pts)
+            # Nếu không, lấy theo đường cân bằng xu hướng EMA50 của khung H1
+            if _r1 and _s1 and abs((_r1 + _s1)/2 - _last_h1_close) <= 35.0:
+                _base_fv = round((_r1 + _s1) / 2, 2)
+            elif "EMA50" in _dfh1 and not pd.isna(_dfh1["EMA50"].iloc[-1]) and abs(float(_dfh1["EMA50"].iloc[-1]) - _last_h1_close) <= 35.0:
+                _base_fv = round(float(_dfh1["EMA50"].iloc[-1]), 2)
             else:
-                _base_fv = float(_dfh1["Close"].iloc[-1])
-                _base_bsl = [_base_fv + 1.5 * _h1_atr14, _base_fv + 2.5 * _h1_atr14]
-                _base_ssl = [_base_fv - 2.5 * _h1_atr14, _base_fv - 1.5 * _h1_atr14]
-                _unit_lbl = "pts"
+                _base_fv = round(_last_h1_close, 2)
 
-            if _v3_comm:
-                _r1 = _v3_comm.get("r1")
-                _s1 = _v3_comm.get("s1")
-                _r2 = _v3_comm.get("r2")
-                _s2 = _v3_comm.get("s2")
-                if _r1 and _s1 and abs((_r1 + _s1)/2 - _base_fv) <= 15.0:
-                    _base_fv = round((_r1 + _s1)/2, 2)
-                if _r1 and _r1 > _base_fv:
-                    _base_bsl[0] = min(_base_bsl[0], _r1)
-                    if _r2 and _r2 < _base_bsl[1] + 25.0:
-                        _base_bsl[1] = max(_base_bsl[1], _r2)
-                if _s1 and _s1 < _base_fv:
-                    _base_ssl[1] = max(_base_ssl[1], _s1)
-                    if _s2 and _s2 > _base_ssl[0] - 25.0:
-                        _base_ssl[0] = min(_base_ssl[0], _s2)
+            # 2. Vùng BSL (Buy-Side Liquidity - Vùng quét đỉnh phe Short):
+            # Nằm phía trên Fair Value và giá hiện tại, neo theo R1, R2 hoặc đỉnh 24h
+            _bsl_min = max(_base_fv + 0.8 * _h1_atr14, float(_r1) if _r1 and _r1 > _base_fv else _h24)
+            _bsl_max = max(_bsl_min + 1.2 * _h1_atr14, float(_r2) if _r2 and _r2 > _bsl_min and _r2 <= _bsl_min + 4.0 * _h1_atr14 else _bsl_min + 2.0 * _h1_atr14)
+            _base_bsl = [round(_bsl_min, 2), round(_bsl_max, 2)]
 
-            # Vi chỉnh theo biến động Vĩ Mô DXY & Brent
+            # 3. Vùng SSL (Sell-Side Liquidity - Vùng quét đáy phe Long / Vùng gom mua):
+            # Nằm phía dưới Fair Value và giá hiện tại, neo theo S1, S2 hoặc đáy 24h
+            _ssl_max = min(_base_fv - 0.8 * _h1_atr14, float(_s1) if _s1 and _s1 < _base_fv else _l24)
+            _ssl_min = min(_ssl_max - 1.2 * _h1_atr14, float(_s2) if _s2 and _s2 < _ssl_max and _s2 >= _ssl_max - 4.0 * _h1_atr14 else _ssl_max - 2.0 * _h1_atr14)
+            _base_ssl = [round(_ssl_min, 2), round(_ssl_max, 2)]
+
+            # 4. Vi chỉnh theo biến động Vĩ Mô DXY & Brent
             _brent_pct = float(_v3_macro.get("brent_pct", 0.0)) if _v3_macro else 0.0
             _dxy_pct   = float(_v3_macro.get("dxy_pct", 0.0)) if _v3_macro else 0.0
             _macro_shift = 0.0
