@@ -9,12 +9,12 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 # PHẦN I: THÔNG TIN TỔNG QUAN & VĨ MÔ
 
 ## 🌐 1. TỔNG QUAN VĨ MÔ TOÀN CẦU (MACRO INDICATORS OVERVIEW)
-*Cập nhật tự động qua `macro_tracker.py` vào lúc 07:55 ICT ngày 14/11/2026*
+*Cập nhật tự động qua `macro_tracker.py` vào lúc 08:16 ICT ngày 14/11/2026*
 
 | Chỉ số Vĩ mô | Mức giá hiện tại | Biến động 24h | Xu hướng & Đánh giá tác động đến Nông sản |
 | :--- | :---: | :---: | :--- |
-| **Dầu thô Brent (BZ=F)** | **$96.00 / thùng** | **+0.19%** | 📈 **Tích cực (Bullish):** Giá dầu duy trì ở mức cao hỗ trợ mạnh mẽ cho biofuels như Ethanol (ZC) và Biodiesel (ZS). Chi phí sản xuất neo cao tạo mức sàn hỗ trợ giá. |
-| **Chỉ số DXY (USD Index)** | **103.39** | **+0.21%** | 📉 **Trung lập - Tiêu cực (Sức ép xuất khẩu):** DXY neo cao khiến hàng Mỹ kém cạnh tranh hơn ở thị trường quốc tế, cản trở xuất khẩu ngắn hạn. |
+| **Dầu thô Brent (BZ=F)** | **$96.08 / thùng** | **+0.27%** | 📈 **Tích cực (Bullish):** Giá dầu duy trì ở mức cao hỗ trợ mạnh mẽ cho biofuels như Ethanol (ZC) và Biodiesel (ZS). Chi phí sản xuất neo cao tạo mức sàn hỗ trợ giá. |
+| **Chỉ số DXY (USD Index)** | **103.41** | **+0.23%** | 📉 **Trung lập - Tiêu cực (Sức ép xuất khẩu):** DXY neo cao khiến hàng Mỹ kém cạnh tranh hơn ở thị trường quốc tế, cản trở xuất khẩu ngắn hạn. |
 
 
 ## 💰 DÒNG TIỀN COT (SMART MONEY MATRIX)
@@ -31,7 +31,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 
 
 ### ✅ TƯƠNG QUAN VĨ MÔ ỔN ĐỊNH (NORMAL CORRELATION)
-*   **Giá trị biến động 24h:** Dầu Brent: **`$96.00` (+0.19%)** | DXY: **`103.39` (+0.21%)** | Lúa mì CBOT: **`593.50¢` (+1.58%)**.
+*   **Giá trị biến động 24h:** Dầu Brent: **`$96.08` (+0.27%)** | DXY: **`103.41` (+0.23%)** | Lúa mì CBOT: **`593.50¢` (+1.58%)**.
 *   **Biện chứng liên thị trường:** Liên thị trường giao dịch ổn định, giá lúa mì bám sát các chỉ tiêu cung cầu cơ bản và không có hiện tượng bán tháo chéo quá mức từ nhóm năng lượng.
 *   🚀 **Khuyến nghị chiến lược:** Tiếp tục duy trì kế hoạch giao dịch trong ngày (Intraday) và đánh biên (Swing) theo cản kỹ thuật đã hoạch định.
 
@@ -39,7 +39,7 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 ---
 
 ## 🌡️ 2. BẢN TIN THỜI TIẾT & MÙA VỤ TOÀN CẦU (WEATHER INTELLIGENCE REPORT)
-*Cập nhật tự động lúc 07:55 ICT ngày 14/11/2026 — Nguồn: NOAA, USDA, BOM Australia*
+*Cập nhật tự động lúc 08:16 ICT ngày 14/11/2026 — Nguồn: NOAA, USDA, BOM Australia*
 
 ### 🇺🇸 Thời tiết Nội địa Mỹ (US Domestic Weather)
 
@@ -75,8 +75,8 @@ Tài liệu được lưu trữ trực tiếp tại thư mục làm việc:
 
 | Ngày Báo Cáo (ICT) | Mã | Giá Chốt (Close) | Dự báo Chốt Phiên | Tín Hiệu H1 (EMA 21/50) | Volatility | Intraday Bias | Xem Chi Tiết |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **14/11/2026** | **ZC** | **446.00 ¢** | **446.60 ¢ (+0.60)** | 🐂 Bullish (446.61 > 446.26) | 1.50 cents | Rình mua (Long on dip) | [Xem Ngô (ZC)](#2-báo-cáo-mã-zc-ngô---phiên-chốt-14112026) |
-| **14/11/2026** | **ZW** | **593.50 ¢** | **594.05 ¢ (+0.55)** | 🐻 Bearish (593.78 < 594.12) | 1.75 cents | Bán khống hồi (Short on rally) | [Xem Lúa mì (ZW)](#3-báo-cáo-mã-zw-lúa-mì---phiên-chốt-14112026) |
+| **14/11/2026** | **ZC** | **446.00 ¢** | **446.61 ¢ (+0.61)** | 🐂 Bullish (446.61 > 446.26) | 1.50 cents | Rình mua (Long on dip) | [Xem Ngô (ZC)](#2-báo-cáo-mã-zc-ngô---phiên-chốt-14112026) |
+| **14/11/2026** | **ZW** | **593.50 ¢** | **594.04 ¢ (+0.54)** | 🐻 Bearish (593.78 < 594.12) | 1.75 cents | Bán khống hồi (Short on rally) | [Xem Lúa mì (ZW)](#3-báo-cáo-mã-zw-lúa-mì---phiên-chốt-14112026) |
 | **14/11/2026** 
 ---
 
@@ -230,7 +230,7 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 | **Trung hạn** | ↕️ **Đi ngang (Sideways)** | Đi ngang tích lũy (Sideways Accumulation) | Giao dịch Swing trading biên độ |
 | **Ngắn hạn** | 🐂 **Tăng (Bullish)** | EMA_21 H1 > EMA_50 H1 (Hội tụ động lượng tăng) | Canh vào lệnh ngắn hạn (Intraday) |
 
-*   **Giá Chốt Phiên (Close):** 446.00 cents | **Dự báo Chốt Phiên:** **`446.60 cents`** (+0.60).
+*   **Giá Chốt Phiên (Close):** 446.00 cents | **Dự báo Chốt Phiên:** **`446.61 cents`** (+0.61).
 *   **Thanh khoản phiên chốt:** Volume: **`245,686`** (Chênh lệch: **`-10,358`**) | OI: **`542,873`** (Chênh lệch: **`-34,542`**)
 *   **Mô hình nến H1:** **`Không phát hiện mô hình nến đặc biệt`**
 *   **Dòng tiền (Volume + OI):** **`Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)`**
@@ -244,8 +244,8 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Chỉ số | Giá trị Hiện tại | Biến động 24h | Tác động Biện chứng lên Ngô (ZC) |
 | :--- | :---: | :---: | :--- |
-| **Dầu Brent** | **$96.00** | **+0.19%** | Giá dầu Tăng hỗ trợ biên lợi nhuận pha chế Ethanol, kéo theo nhu cầu ngô tích cực. |
-| **USD Index** | **103.39** | **+0.21%** | DXY Tăng làm giảm sức cạnh tranh xuất khẩu của ngô Mỹ so với Brazil/Argentina. |
+| **Dầu Brent** | **$96.08** | **+0.27%** | Giá dầu Tăng hỗ trợ biên lợi nhuận pha chế Ethanol, kéo theo nhu cầu ngô tích cực. |
+| **USD Index** | **103.41** | **+0.23%** | DXY Tăng làm giảm sức cạnh tranh xuất khẩu của ngô Mỹ so với Brazil/Argentina. |
 
 
 
@@ -358,7 +358,7 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 | **Trung hạn** | 🐻 **Giảm (Bearish)** | Giảm điều chỉnh tích lũy (Bearish Correction & Consolidation) | Giao dịch Swing trading biên độ |
 | **Ngắn hạn** | 🐻 **Giảm (Bearish)** | EMA_21 H1 < EMA_50 H1 (Áp lực bán duy trì) | Canh vào lệnh ngắn hạn (Intraday) |
 
-*   **Giá Chốt Phiên (Close):** 593.50 cents | **Dự báo Chốt Phiên:** **`594.05 cents`** (+0.55).
+*   **Giá Chốt Phiên (Close):** 593.50 cents | **Dự báo Chốt Phiên:** **`594.04 cents`** (+0.54).
 *   **Thanh khoản phiên chốt:** Volume: **`99,685`** (Chênh lệch: **`-31,345`**) | OI: **`153,284`** (Chênh lệch: **`-15,256`**)
 *   **Mô hình nến H1:** **`Bullish Engulfing (Nhấn chìm tăng trưởng)`**
 *   **Dòng tiền (Volume + OI):** **`Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)`**
@@ -372,8 +372,8 @@ Chúng tôi không sử dụng hỗ trợ kỹ thuật S2 của V3 Pro làm đi�
 
 | Chỉ số | Giá trị Hiện tại | Biến động 24h | Tác động Biện chứng lên Lúa Mì (ZW) |
 | :--- | :---: | :---: | :--- |
-| **Dầu Brent** | **$96.00** | **+0.19%** | Giá dầu Tăng tăng premium rủi ro địa chính trị và logistics Biển Đen, hỗ trợ giá lúa mì. |
-| **USD Index** | **103.39** | **+0.21%** | DXY Tăng khiến lúa mì Mỹ đắt đỏ hơn đối với các khách hàng truyền thống như Ai Cập/Châu Á. |
+| **Dầu Brent** | **$96.08** | **+0.27%** | Giá dầu Tăng tăng premium rủi ro địa chính trị và logistics Biển Đen, hỗ trợ giá lúa mì. |
+| **USD Index** | **103.41** | **+0.23%** | DXY Tăng khiến lúa mì Mỹ đắt đỏ hơn đối với các khách hàng truyền thống như Ai Cập/Châu Á. |
 
 
 
