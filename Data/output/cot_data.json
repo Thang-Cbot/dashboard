@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-13 20:50:37",
+  "fetched_at": "2026-11-14 07:55:44",
   "source": "CFTC ZIP (Disaggregated Futures Only) + Rolling Beta 13W",
   "commodities": {
     "002602": {
@@ -26,11 +26,11 @@
       ],
       "rolling_beta_13w": 3341.44,
       "cutoff_price_tue": 442.5,
-      "latest_price": 447.5,
+      "latest_price": 445.5,
       "latest_price_date": "2026-11-13",
-      "price_lag_change": 5.0,
-      "estimated_extra_contracts": 16707.0,
-      "net_estimated": 25502.0,
+      "price_lag_change": 3.0,
+      "estimated_extra_contracts": 10024.0,
+      "net_estimated": 18819.0,
       "quadrant_estimated": "Q1 (XANH LA) - GOM LONG",
       "action_estimated": "Uu tien LONG. Xu huong tang ben vung.",
       "history": [
@@ -139,7 +139,7 @@
           "price_date": "2026-11-03"
         }
       ],
-      "fetched_at": "2026-11-13 20:50:41"
+      "fetched_at": "2026-11-14 07:55:47"
     },
     "001602": {
       "commodity": "ZW",
@@ -165,11 +165,11 @@
       ],
       "rolling_beta_13w": 493.4,
       "cutoff_price_tue": 599.75,
-      "latest_price": 595.5,
+      "latest_price": 593.25,
       "latest_price_date": "2026-11-13",
-      "price_lag_change": -4.25,
-      "estimated_extra_contracts": -2097.0,
-      "net_estimated": -89223.0,
+      "price_lag_change": -6.5,
+      "estimated_extra_contracts": -3207.0,
+      "net_estimated": -90333.0,
       "quadrant_estimated": "Q3 (DO DAM) - NHOI SHORT",
       "action_estimated": "Uu tien SHORT thuan xu huong.",
       "history": [
@@ -278,7 +278,7 @@
           "price_date": "2026-11-03"
         }
       ],
-      "fetched_at": "2026-11-13 20:50:41"
+      "fetched_at": "2026-11-14 07:55:47"
     }
   }
 }
