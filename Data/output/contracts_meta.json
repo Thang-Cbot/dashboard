@@ -16,14 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 245686.0,
-      "prev_volume": 282183.0,
-      "today_oi": 542873,
-      "prev_oi": 577415,
-      "today_close": 445.5,
-      "prev_close": 442.5,
       "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
-      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
+      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy.",
+      "today_vol": 245686.0,
+      "today_oi": 542873,
+      "today_close": 445.5
     }
   },
   "ZW": {
@@ -43,15 +40,12 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 99685.0,
-      "prev_volume": 124742.0,
-      "today_oi": 153284,
-      "prev_oi": 168540,
-      "today_close": 593.25,
-      "prev_close": 584.25,
       "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
-      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
+      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy.",
+      "today_vol": 99685.0,
+      "today_oi": 153284,
+      "today_close": 593.25
     }
   },
-  "updated_at": "2026-11-16 06:18:17"
+  "updated_at": "2026-11-16 06:23:45"
 }

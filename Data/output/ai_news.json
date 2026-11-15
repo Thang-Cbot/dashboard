@@ -1,93 +1,60 @@
 {
-  "timestamp": "2026-11-13 06:55:00",
+  "timestamp": "2026-11-16 06:30:00",
   "news": [
     {
-      "title": "Cú sốc lúa mì Argentina: BAGE & BCR nâng sản lượng lên 23.8 - 24.3 triệu tấn",
+      "title": "Eo biển Kerch hết hạn mở cửa tạm thời (15/11): Nga chưa gia hạn, xuất khẩu Azov bị siết chặt",
       "details": [
-        "Sàn Giao dịch Ngũ cốc Buenos Aires (BAGE) và Rosario (BCR) đồng loạt nâng dự báo sản lượng lúa mì 2026/27 của Argentina lên 23.8 – 24.3 triệu tấn (+2.8 đến +3.3 triệu tấn so với dự báo trước).",
-        "Năng suất tại các tỉnh vựa lúa mì Buenos Aires, Cordoba và Santa Fe tăng đột biến nhờ mưa tháng 10, đưa vụ này thành vụ mùa lớn thứ 2 trong lịch sử Argentina.",
-        "Nguồn cung Argentina ồ ạt tràn ngập thị trường xuất khẩu, tạo sức ép giảm giá dây chuyền trên toàn cầu."
+        "Giấy phép ngoại lệ cho phép các tàu chở ngũ cốc xuất bến qua Eo biển Kerch ra Biển Đen chính thức hết hạn vào ngày 15/11/2026 mà không có thông báo gia hạn từ Bộ Quốc phòng Nga.",
+        "Tuyến hàng hải Biển Azov quay trở lại chế độ an ninh quân sự thắt chặt, chặn đứng lượng lúa mì giá rẻ từ các cảng nông miền Nam Nga.",
+        "Các tuyến thay thế của Nga (Baltic, Caspian, Viễn Đông) đều đang gặp nút thắt nghiêm trọng về chi phí, an ninh và thời tiết đóng băng mùa đông."
       ],
-      "link": "https://www.bcr.com.ar/es/mercados/estimaciones-agricolas",
-      "source": "12 Nov 2026 - Rosario Board of Trade / BAGE",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Argentina đại hạ giá xuất khẩu: Lúa mì FOB Up River rớt xuống 200 - 207 USD/tấn",
-      "details": [
-        "Áp lực thu hoạch cao điểm và nhu cầu gom USD khiến các nhà xuất khẩu Argentina chào bán lúa mì FOB Up River ở mức siêu rẻ 200 – 207 USD/tấn (tương đương 545 – 565 ¢/bu).",
-        "Mức giá này rẻ hơn 35 – 50 USD/tấn so với lúa mì Mỹ (SRW Gulf ~255 USD/tấn) và lúa mì Nga (~235 USD/tấn).",
-        "Lúa mì Argentina chiếm trọn thị trường Brazil và thâm nhập mạnh vào Bắc Phi, Đông Nam Á, trực tiếp chèn ép giá CBOT."
-      ],
-      "link": "https://www.reuters.com/markets/commodities/argentina-grains",
-      "source": "12 Nov 2026 - Reuters Grains Desk",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "CBOT ZWZ26 lao dốc lập đáy mới năm tại 582.4 ¢/bu; ZWH27 trượt về chốt phiên 597.4 ¢/bu",
-      "details": [
-        "Hợp đồng lúa mì ZWZ26 giảm sâu -18.1 cent, phá vỡ đáy cũ 590c để chạm mức thấp kỷ lục năm tại 582.4 ¢/bu do áp lực bán tháo Rollover trước ngày First Notice Day (30/11).",
-        "Hợp đồng ZWH27 chịu áp lực liên đới trong 2 tiếng cuối phiên, trượt khỏi mốc tâm lý 600c và chính thức chốt phiên tại 597.4 ¢/bu (-18.75 cent).",
-        "Chênh lệch kỳ hạn Spread ZWH27 - ZWZ26 đạt +15.0 cent, phản ánh đúng chi phí lưu kho 3 tháng."
-      ],
-      "link": "https://www.barchart.com/futures/quotes/ZWZ26",
-      "source": "13 Nov 2026 - CBOT Pit Wire",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Đàm phán Moscow: Putin nêu bất đồng lãnh thổ với phái đoàn Mỹ (Witkoff & Kushner)",
-      "details": [
-        "Tổng thống Vladimir Putin tiếp phái đoàn Mỹ tại Điện Kremlin, khẳng định hai bên có bất đồng sâu sắc về vấn đề lãnh thổ tại Ukraine.",
-        "Ông Putin nhấn mạnh quân đội nước ngoài tại Ukraine là mối đe dọa an ninh và là mục tiêu hợp pháp; đàm phán chưa mang lại đột phá hòa bình tức thời.",
-        "Rủi ro chiến sự tại hành lang ngũ cốc Biển Đen vẫn duy trì ở mức cao."
-      ],
-      "link": "https://www.reuters.com/world/europe/putin-us-envoys-talks",
-      "source": "12 Nov 2026 - Kremlin / Reuters Wire",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Cảng Baltic Ust-Luga bị tấn công drone; SovEcon hạ dự báo xuất khẩu Nga xuống 36 triệu tấn",
-      "details": [
-        "Cảng xuất khẩu chiến lược Ust-Luga của Nga ở biển Baltic bị hư hại hạ tầng sau đợt tấn công bằng drone.",
-        "SovEcon tiếp tục hạ dự báo xuất khẩu lúa mì Nga 2026/27 xuống 36.0 triệu tấn (thấp hơn nhiều mức 39.0 MMT của USDA).",
-        "Lithuania bắt đầu siết kiểm soát hàng hóa quá cảnh Nga từ 16/11, gây nghẽn thêm chuỗi logistics Baltic."
-      ],
-      "link": "https://www.world-grain.com/articles/sovecon-russia-wheat-export-cut",
-      "source": "12 Nov 2026 - SovEcon / World Grain",
+      "link": "https://www.ukragroconsult.com/en/news/kerch-strait-grain-navigation",
+      "source": "16 Nov 2026 - UkrAgroConsult / Marine Insight",
       "category": "logistics"
     },
     {
-      "title": "Dầu Brent tăng vọt lên 95.77 USD/thùng (+3.24%) trong khi DXY lên 103.17",
+      "title": "Xác minh số liệu Biển Đen: Nga & Ukraine đồng loạt co thắt hơn 4 triệu hecta diện tích lúa mì",
       "details": [
-        "Giá dầu Brent bật tăng mạnh hơn 3 USD lên 95.77 USD/thùng do căng thẳng địa chính trị và rủi ro gián đoạn nguồn cung năng lượng.",
-        "DXY mạnh lên 103.17 (+0.25%) tạo sức ép tỷ giá ngắn hạn cho ngũ cốc Mỹ.",
-        "Giá dầu neo cao củng cố vững chắc biên lợi nhuận cho sản xuất Ethanol từ ngô và duy trì mặt bằng chi phí nông nghiệp."
+        "SovEcon & IKAR: Tốc độ gieo lúa mì vụ đông của Nga chạm đáy 11 năm, diện tích co hẹp về ~16.0 triệu ha (-1.8 triệu ha so với đỉnh 17.8M ha) do hạn hán nghiêm trọng tại Rostov, Volgograd, Saratov và thuế Damper.",
+        "Bộ Nông nghiệp Ukraine: Diện tích gieo lúa mì vụ đông chỉ đạt 4.1 triệu ha (~91% kế hoạch), giảm vĩnh viễn 35-40% so với trước năm 2022 do hạn hán 60-70% diện tích cùng gánh nặng bom mìn và thiếu hụt lao động.",
+        "Khoảng trống sụt giảm cấu trúc hơn 4.0 triệu hecta tại Biển Đen là tổn thất dài hạn không thể bù đắp bởi vụ mùa ngắn hạn của Argentina."
       ],
-      "link": "https://finance.yahoo.com/quote/BZ=F",
-      "source": "13 Nov 2026 - Bloomberg / Yahoo Finance",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Đấu thầu quốc tế: Algeria (OAIC) mua hơn 700.000 tấn lúa mì; Jordan mở thầu",
-      "details": [
-        "Cơ quan ngũ cốc nhà nước Algeria (OAIC) vừa chốt mua hơn 700.000 tấn lúa mì trong đợt thầu lớn nhất tháng 11, tranh thủ vùng giá đáy thế giới.",
-        "Jordan mở thầu quốc tế mua 120.000 tấn lúa mì giao đầu năm 2027.",
-        "Lực cầu tiền mặt thực tế từ các quốc gia nhập khẩu lớn bắt đầu hấp thụ mạnh mẽ nguồn cung chiết khấu."
-      ],
-      "link": "https://www.reuters.com/markets/commodities/algeria-wheat-tender",
-      "source": "12 Nov 2026 - Reuters Tenders Desk",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Thời tiết nông nghiệp: US Plains ẩm tốt; Cảnh báo xoáy cực Polar Vortex",
-      "details": [
-        "Mưa rào diện rộng tại Kansas, Oklahoma, Texas cải thiện độ ẩm đất cho lúa mì đông.",
-        "Vùng Nam Nga (Rostov) đón mưa 33.8mm giảm bớt khô hạn cục bộ trước kỳ ngủ đông.",
-        "Các mô hình khí tượng cảnh báo hiện tượng phân tách xoáy cực (Polar Vortex Split) cuối tháng 11 có thể gây rét kỷ lục cho Bắc Mỹ."
-      ],
-      "link": "https://climatelligence.substack.com/p/what-is-a-split-in-the-polar-vortex",
-      "source": "11 Nov 2026 - BestWeather / Jim Roemer",
+      "link": "https://www.ikar.ru/wheat_acreage_report",
+      "source": "15 Nov 2026 - IKAR / SovEcon / MinAgro Ukraine",
       "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Chiến sự Biển Đen: Tàu chở hàng khô bị bắn trúng; DTEK Odesa mất điện 50.000 hộ dân",
+      "details": [
+        "Bộ Quốc phòng Nga tuyên bố đã bắn trúng một tàu chở hàng khô ở tây nam Odesa; rủi ro hàng hải Biển Đen bị đẩy lên mức báo động đỏ.",
+        "Nga tiếp tục tập kích trạm biến áp DTEK Odesa khiến 50.000 hộ mất điện, làm gián đoạn trực tiếp các tháp sấy ngũ cốc và hệ thống băng chuyền bốc dỡ cảng biển.",
+        "Các hãng bảo hiểm quốc tế (P&I) tiếp tục siết chặt điều kiện và duy trì mức phí War Risk Premium cao ngất ngưởng."
+      ],
+      "link": "https://www.reuters.com/world/europe/black-sea-cargo-vessel-strike",
+      "source": "15 Nov 2026 - Reuters / DTEK Official",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Thời tiết Nam Mỹ: Mưa Pampas (23.2mm) cản trở gặt lúa mì; Australia nắng nóng gay gắt",
+      "details": [
+        "Vùng đồng bằng Pampas (Argentina) tiếp tục đón mưa lớn (23.2mm), đất đai lầy lội làm chậm tiến độ đưa lúa mì ra cảng và gia tăng nguy cơ nấm đầu bông Fusarium.",
+        "Mưa ẩm tại Argentina đang tạm thời chặn đứng làn sóng bán tháo lúa mì giá rẻ ra thị trường quốc tế.",
+        "Tại Australia, bang trọng điểm NSW ghi nhận thời tiết khô hạn và nắng nóng gay gắt (0.0mm mưa), đe dọa năng suất lúa mì cuối vụ."
+      ],
+      "link": "https://www.graincentral.com/markets/weather-south-america-australia",
+      "source": "16 Nov 2026 - Grain Central / BestWeather",
+      "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Tuần áp chót trước First Notice Day: Quỹ Net Short kỷ lục (-91k HĐ) đối mặt rủi ro Squeeze",
+      "details": [
+        "Hợp đồng ZWZ26 chốt tuần tại 593.4 ¢/bu (tăng +11.0c, đỉnh 600c) và ZWH27 tại 607.0 ¢/bu (tăng +9.5c), Spread co lại còn 13.5c.",
+        "Bước vào tuần 16/11 - 20/11 trước ngày FND (30/11), các quỹ đầu cơ đang nắm giữ -91,443 HĐ Net Short phải khẩn trương cơ cấu vị thế, tiềm ẩn rủi ro Short-Squeeze bùng nổ.",
+        "Dầu Brent duy trì ở mức cao .20/thùng tiếp tục củng cố vững chắc sàn chi phí sản xuất và nhu cầu chế biến ethanol."
+      ],
+      "link": "https://www.barchart.com/futures/quotes/ZWZ26",
+      "source": "16 Nov 2026 - CBOT Market Wire",
+      "category": "cung_cau_nhan_dinh"
     }
   ]
 }
