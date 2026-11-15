@@ -1,0 +1,63 @@
+{
+  "updated_at": "2026-11-15 19:35:00",
+  "status": "VERIFIED_AND_LOCKED",
+  "source_verification": "SovEcon, IKAR (Dmitry Rylko), Ministry of Agrarian Policy and Food of Ukraine, UkrAgroConsult",
+  "russia": {
+    "role": "Nhà xuất khẩu lúa mì số 1 thế giới",
+    "planted_area_winter_wheat": {
+      "current_estimate": "16.0 - 16.2 triệu ha",
+      "historical_peak": "17.8 triệu ha (cuối năm 2021)",
+      "net_reduction": "-1.5 đến -1.8 triệu ha (-9% đến -10%)",
+      "sowing_pace": "Chạm đáy thấp nhất trong vòng 11 năm qua do đất khô kiệt"
+    },
+    "core_drivers": {
+      "extreme_drought": {
+        "key_regions": [
+          "Rostov",
+          "Krasnodar",
+          "Stavropol",
+          "Volgograd",
+          "Saratov",
+          "Penza"
+        ],
+        "phenomenon": "Đợt khô hạn mùa thu khốc liệt nhất nhiều năm, nông dân gieo vào đất khô bụi hoặc bỏ hoang đất do thiếu ẩm và chi phí tưới tiêu quá cao",
+        "expert_quote": "Dmitry Rylko (Giám đốc IKAR): Tình trạng cực kỳ khó khăn có thể dẫn tới kịch bản tiêu cực cho vụ mùa mới"
+      },
+      "farmer_margin_squeeze": {
+        "export_tax_damper": "Chính phủ Nga áp thuế xuất khẩu thả nổi (Damper) kìm giá nội địa",
+        "cost_inflation": "Chi phí hạt giống, phân bón, nhiên liệu và lãi suất ngân hàng Nga tăng vọt",
+        "crop_shift": "Nông dân chủ động giảm diện tích lúa mì để chuyển sang các loại hạt có dầu (hoa hướng dương, đậu tương) có biên lợi nhuận tốt hơn"
+      }
+    },
+    "implication_for_cbot": "Nguồn cung xuất khẩu lúa mì Nga niên vụ 2026/27 sẽ sụt giảm mạnh từ quý 1/2027 khi Nga áp hạn ngạch mùa đông và sản lượng vụ 2027 bị tổn thương ngay từ khâu gieo trồng."
+  },
+  "ukraine": {
+    "role": "Nhà xuất khẩu lúa mì và ngô trọng yếu Biển Đen",
+    "planted_area_winter_wheat": {
+      "actual_sown": "4.1 triệu ha",
+      "original_plan": "4.5 - 5.0 triệu ha",
+      "plan_achievement": "91% - 92% kế hoạch",
+      "pre_war_baseline": ">6.5 triệu ha (trước 2022)",
+      "structural_loss": "Giảm vĩnh viễn 35% - 40% diện tích gieo trồng"
+    },
+    "core_drivers": {
+      "drought": {
+        "coverage": "Bao phủ 60% - 70% lãnh thổ trong giai đoạn gieo trồng tháng 8 - 10",
+        "affected_oblasts": [
+          "Dnipropetrovsk",
+          "Odesa",
+          "Mykolaiv",
+          "Zaporizhzhia"
+        ],
+        "impact": "Đất nứt nẻ, thiếu ẩm trầm trọng khiến nhiều nông dân lỡ khung thời vụ gieo hạt tối ưu"
+      },
+      "security_and_finance": {
+        "mine_contamination": "Đất đai vùng biên và chiến tuyến bị ô nhiễm bom mìn nặng nề",
+        "labor_shortage": "Luật huy động quân sự siết chặt gây thiếu hụt nghiêm trọng lao động nam giới vận hành máy móc",
+        "logistics_costs": "Chi phí vận tải và bảo hiểm hàng hải chiến tranh (War Risk) qua Biển Đen bào mòn lợi nhuận tại cổng trại"
+      }
+    },
+    "implication_for_cbot": "Cơ cấu cung cấp lúa mì từ Ukraine tiếp tục bị giới hạn ở mức thấp lịch sử, không có khả năng bù đắp khoảng trống của thị trường toàn cầu."
+  },
+  "executive_macro_verdict": "Bản chất cung cấp lúa mì Biển Đen (chiếm ~30% thương mại toàn cầu) đang bước vào chu kỳ co thắt kép (Double Contraction): Cả Nga và Ukraine đều đồng loạt thu hẹp diện tích gieo trồng vụ đông do khô hạn kỷ lục và biên lợi nhuận âm. Đây là nền tảng Bullish cốt lõi cho các kỳ hạn năm 2027 (như ZWH27)."
+}

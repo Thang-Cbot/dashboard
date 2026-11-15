@@ -1,6 +1,16 @@
 {
-  "timestamp": "2026-10-22 22:17:09",
+  "timestamp": "2026-11-15 19:35:00",
   "news": [
+    {
+      "title": "Báo cáo IKAR & SovEcon: Diện tích lúa mì vụ đông Nga & Ukraine đồng loạt giảm mạnh",
+      "details": [
+        "Nga: Tốc độ gieo trồng chạm đáy 11 năm; diện tích vụ đông co hẹp về ~16.0 triệu ha (-1.8 triệu ha so với đỉnh 17.8M ha) do khô hạn gay gắt tại Rostov, Volgograd, Saratov và thuế xuất khẩu Damper bào mòn lợi nhuận.",
+        "Ukraine: Diện tích lúa mì vụ đông chỉ đạt 4.1 triệu ha (~91% kế hoạch), giảm vĩnh viễn 35-40% so với trước chiến sự do hạn hán 60-70% diện tích cùng gánh nặng bom mìn, thiếu hụt lao động.",
+        "Ý nghĩa: Vựa lúa mì Biển Đen (chiếm 30% xuất khẩu thế giới) chính thức bước vào chu kỳ suy giảm diện tích kép, tạo nền tảng hỗ trợ giá cực mạnh cho các hợp đồng lúa mì năm 2027."
+      ],
+      "link": "https://www.ikar.ru/wheat_acreage_report",
+      "source": "SovEcon, IKAR & Bộ Chính sách Nông nghiệp Ukraine (15 Nov 2026)"
+    },
     {
       "title": "Thị trường lúa mì giảm giá do xuất khẩu yếu hơn lo ngại hạn hán",
       "details": [

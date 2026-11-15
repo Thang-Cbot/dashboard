@@ -6,9 +6,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZCZ26.CBT",
-      "year": 2026,
-      "month": 12
+      "ticker": "ZCH27.CBT",
+      "year": 2027,
+      "month": 3
     },
     "dca": {
       "ticker": "ZCZ26.CBT",
@@ -16,7 +16,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 282183.0,
+      "today_volume": 245686.0,
       "prev_volume": 282183.0,
       "today_oi": 542873,
       "prev_oi": 577415,
@@ -33,9 +33,9 @@
       "month": 12
     },
     "swing": {
-      "ticker": "ZWZ26.CBT",
-      "year": 2026,
-      "month": 12
+      "ticker": "ZWH27.CBT",
+      "year": 2027,
+      "month": 3
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,7 +43,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 124742.0,
+      "today_volume": 99685.0,
       "prev_volume": 124742.0,
       "today_oi": 153284,
       "prev_oi": 168540,
@@ -53,5 +53,5 @@
       "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
-  "updated_at": "2026-11-14 13:16:13"
+  "updated_at": "2026-11-16 06:18:17"
 }

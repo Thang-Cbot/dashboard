@@ -226,6 +226,13 @@ try:
 except Exception as _cal_err:
     st.warning(f"⚠️ Không hiển thị được La Bàn Mùa Vụ: {_cal_err}")
 
+# ─── PART 0b: ĐƯỜNG CONG MÙA VỤ 0–100 (NĂM HIỆN TẠI vs TB 3Y / 5Y) ───────────
+try:
+    from seasonal_curve import render_seasonal_curve
+    render_seasonal_curve()
+except Exception as _curve_err:
+    st.warning(f"⚠️ Không hiển thị được Đường Cong Mùa Vụ: {_curve_err}")
+
 # ─── PART 1: GLOBAL MACRO ────────────────────────────────────────────────────
 tab_zw, tab_zc = st.tabs(["🌾 Lúa Mì (ZW)", "🌽 Ngô (ZC)"])
 
