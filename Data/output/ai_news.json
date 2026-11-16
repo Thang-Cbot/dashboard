@@ -1,60 +1,186 @@
 {
-  "timestamp": "2026-11-16 06:30:00",
+  "timestamp": "2026-11-17 02:23:39",
   "news": [
     {
-      "title": "Eo biển Kerch hết hạn mở cửa tạm thời (15/11): Nga chưa gia hạn, xuất khẩu Azov bị siết chặt",
+      "title": "Giá Ngô tăng nhẹ giữa phiên, xuất khẩu khởi sắc",
       "details": [
-        "Giấy phép ngoại lệ cho phép các tàu chở ngũ cốc xuất bến qua Eo biển Kerch ra Biển Đen chính thức hết hạn vào ngày 15/11/2026 mà không có thông báo gia hạn từ Bộ Quốc phòng Nga.",
-        "Tuyến hàng hải Biển Azov quay trở lại chế độ an ninh quân sự thắt chặt, chặn đứng lượng lúa mì giá rẻ từ các cảng nông miền Nam Nga.",
-        "Các tuyến thay thế của Nga (Baltic, Caspian, Viễn Đông) đều đang gặp nút thắt nghiêm trọng về chi phí, an ninh và thời tiết đóng băng mùa đông."
+        "Hợp đồng tương lai ngô tăng 1-2 cent vào giữa phiên giao dịch.",
+        "USDA báo cáo bán 130.000 tấn ngô cho Colombia cho niên vụ 2026/27.",
+        "Giá ngô tiền mặt trung bình quốc gia tăng 1,5 cent."
       ],
-      "link": "https://www.ukragroconsult.com/en/news/kerch-strait-grain-navigation",
-      "source": "16 Nov 2026 - UkrAgroConsult / Marine Insight",
+      "link": "https://www.barchart.com/story/news/8859577/corn-posting-midday-gains",
+      "source": "16 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Ngô CBOT tìm động lực tăng giá: Châu Âu và Trung Quốc là chìa khóa?",
+      "details": [
+        "Hợp đồng ngô tháng 3 gặp khó khăn duy trì đà tăng sau đợt phục hồi tuần trước.",
+        "Cần vượt mức giá quan trọng để kích hoạt đợt tăng mới.",
+        "Ngô châu Âu đang tăng giá, và khả năng mua hàng từ Trung Quốc có thể hỗ trợ giá ngô Mỹ."
+      ],
+      "link": "https://www.barchart.com/story/news/8857969/is-there-a-little-pep-in-corn-s-step",
+      "source": "16 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Ngô chạm đáy: Cơ hội mua vào cho hợp đồng tháng 3",
+      "details": [
+        "Hợp đồng tương lai ngô tháng 3 đang ở mức đáy.",
+        "Đây là cơ hội mua vào khi giá có dấu hiệu phục hồi.",
+        "Cần theo dõi sức mạnh giá để xác nhận xu hướng tăng."
+      ],
+      "link": "https://www.barchart.com/story/news/8857216/market-bottom-alert-how-to-trade-a-rebound-in-corn-as-prices-hit-a-bottom",
+      "source": "16 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Ngô tăng giá hàng tuần nhờ cắt giảm sản lượng USDA",
+      "details": [
+        "Ngô có mức tăng hàng tuần sau đợt phục hồi hôm thứ Sáu.",
+        "USDA đã cắt giảm sản lượng lớn hơn dự kiến.",
+        "Thời tiết thu hoạch cuối tuần rất thuận lợi."
+      ],
+      "link": "https://www.barchart.com/story/news/8854888/walsh-daily-bullet-points-11-16",
+      "source": "16 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Giá Lúa mì giảm trở lại vào đầu tuần",
+      "details": [
+        "Hợp đồng tương lai lúa mì SRW Chicago giảm 5-7 cent.",
+        "Hợp đồng HRW Kansas City giảm 9-11 cent.",
+        "Lúa mì vụ xuân Minneapolis giữ giá tốt hơn."
+      ],
+      "link": "https://www.barchart.com/story/news/8859598/wheat-falling-back-on-monday",
+      "source": "16 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Thị trường ngũ cốc chưa chắc đã chạm đáy",
+      "details": [
+        "Hợp đồng tương lai đậu tương giảm sau khi tăng mạnh cuối tuần trước.",
+        "Giá ngô biến động trái chiều.",
+        "Các nhà giao dịch đang chờ đợi cuộc gặp Trump-Tập Cận Bình."
+      ],
+      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
+      "source": "16 Nov 2026 - Farm Progress",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Tàu chở hàng lật úp ngoài khơi Biển Đen Bulgaria",
+      "details": [
+        "Một tàu chở hàng đã bị lật úp ngoài khơi bờ biển Biển Đen của Bulgaria.",
+        "Sự cố có thể ảnh hưởng đến an toàn hàng hải và chi phí bảo hiểm trong khu vực.",
+        "Gây lo ngại về chuỗi cung ứng ngũ cốc qua Biển Đen."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOdm42c29LOXNVREw1dWxnRVo5WlpBalQ1Q2N0a3NvYjVaNkRiVXA4NG9YZGx3X0drT2FVT3I1SGFMNmhaOExDbnhrWks2TXZDck1RRk1Hd3hRYlhReUxZOVhOeWppQmIxclBwZGM2SE9pTFZ2Rmc0ZkRsd3FTT3hvb2xjdFFzcWVJaEl3dUQ0WGUxME1XNWfSAZsBQVVfeXFMUGJ4VHFwbTd2OXhPRlFOUG5nVks4S0o2ckQyd2hTRnZ0cW8xR2xOVHFQVFZ0R0xQcVp3aFloWDZELVhPT2ZzcVJZdERud2R2R0kxMW44TmlPQ09QVU51WTF3aXQtR1RQc2JoMGdMWk1ZaWdSN3JYUHVLZk9BSDBUR0thaGZZbWVwbUVFUTRheDNYUkh0dVRBQmRKNFU?oc=5",
+      "source": "16 Nov 2026 - Google News (Geo)",
       "category": "logistics"
     },
     {
-      "title": "Xác minh số liệu Biển Đen: Nga & Ukraine đồng loạt co thắt hơn 4 triệu hecta diện tích lúa mì",
+      "title": "Lúa mì giảm giá nhờ lạc quan về đàm phán Biển Đen",
       "details": [
-        "SovEcon & IKAR: Tốc độ gieo lúa mì vụ đông của Nga chạm đáy 11 năm, diện tích co hẹp về ~16.0 triệu ha (-1.8 triệu ha so với đỉnh 17.8M ha) do hạn hán nghiêm trọng tại Rostov, Volgograd, Saratov và thuế Damper.",
-        "Bộ Nông nghiệp Ukraine: Diện tích gieo lúa mì vụ đông chỉ đạt 4.1 triệu ha (~91% kế hoạch), giảm vĩnh viễn 35-40% so với trước năm 2022 do hạn hán 60-70% diện tích cùng gánh nặng bom mìn và thiếu hụt lao động.",
-        "Khoảng trống sụt giảm cấu trúc hơn 4.0 triệu hecta tại Biển Đen là tổn thất dài hạn không thể bù đắp bởi vụ mùa ngắn hạn của Argentina."
+        "Giá lúa mì giảm do kỳ vọng các cuộc đàm phán ba bên sẽ giải phóng hoạt động xuất khẩu qua Biển Đen.",
+        "Việc nối lại hành lang ngũ cốc Biển Đen có thể tăng nguồn cung toàn cầu.",
+        "Giảm bớt lo ngại về gián đoạn vận chuyển."
       ],
-      "link": "https://www.ikar.ru/wheat_acreage_report",
-      "source": "15 Nov 2026 - IKAR / SovEcon / MinAgro Ukraine",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Chiến sự Biển Đen: Tàu chở hàng khô bị bắn trúng; DTEK Odesa mất điện 50.000 hộ dân",
-      "details": [
-        "Bộ Quốc phòng Nga tuyên bố đã bắn trúng một tàu chở hàng khô ở tây nam Odesa; rủi ro hàng hải Biển Đen bị đẩy lên mức báo động đỏ.",
-        "Nga tiếp tục tập kích trạm biến áp DTEK Odesa khiến 50.000 hộ mất điện, làm gián đoạn trực tiếp các tháp sấy ngũ cốc và hệ thống băng chuyền bốc dỡ cảng biển.",
-        "Các hãng bảo hiểm quốc tế (P&I) tiếp tục siết chặt điều kiện và duy trì mức phí War Risk Premium cao ngất ngưởng."
-      ],
-      "link": "https://www.reuters.com/world/europe/black-sea-cargo-vessel-strike",
-      "source": "15 Nov 2026 - Reuters / DTEK Official",
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPelFYbGZob1hJMXFjS2pkSk5namd5YW5WX3ZxcXk0MWJGZFd3WmJOVWRVM3FDMGdFZ29obzhuQm9QYXViaVM3Z1JSak45aE5Fd21fZ2RmXzJyVmNPNmpCbTEzV0x1Q0dCS1J3cEpyNkdkcmplczZjd2J2NS1Xbll3Y3lGNDVuVk9CVjFBU3dVZnJoRkRwd0M3cFMzeVYteEozcmlscjVtSV9iMmF6cjh1aUZ5dDU?oc=5",
+      "source": "16 Nov 2026 - Google News (Geo)",
       "category": "dia_chinh_tri"
     },
     {
-      "title": "Thời tiết Nam Mỹ: Mưa Pampas (23.2mm) cản trở gặt lúa mì; Australia nắng nóng gay gắt",
+      "title": "Lithuania siết chặt kiểm soát ngũ cốc từ Nga, Belarus",
       "details": [
-        "Vùng đồng bằng Pampas (Argentina) tiếp tục đón mưa lớn (23.2mm), đất đai lầy lội làm chậm tiến độ đưa lúa mì ra cảng và gia tăng nguy cơ nấm đầu bông Fusarium.",
-        "Mưa ẩm tại Argentina đang tạm thời chặn đứng làn sóng bán tháo lúa mì giá rẻ ra thị trường quốc tế.",
-        "Tại Australia, bang trọng điểm NSW ghi nhận thời tiết khô hạn và nắng nóng gay gắt (0.0mm mưa), đe dọa năng suất lúa mì cuối vụ."
+        "Lithuania áp đặt các biện pháp kiểm soát nghiêm ngặt hơn đối với ngũ cốc nhập khẩu từ Nga và Belarus.",
+        "Động thái này nhằm hạn chế dòng chảy ngũ cốc từ các quốc gia này vào EU.",
+        "Có thể ảnh hưởng đến thương mại ngũ cốc khu vực và giá cả."
       ],
-      "link": "https://www.graincentral.com/markets/weather-south-america-australia",
-      "source": "16 Nov 2026 - Grain Central / BestWeather",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOanlBbS1Nc0xfQ2x1TTByTWg2MDBEdE1GNmhWWmhnY3ltS1RfU0lyWGIwOWo2WE5Fdk1pMHRNYWJvZjEzNG42cFFOY0dvR2c5VHVIamRvb18xWDhlekRnaVlmdHlIb1hxVWp4STlZblFsenE5czlrT0RpOUx3c2t4bVhRVU1MUldhdnU3SzNNOGtfTExJVHRrN0s3NDVlN3c?oc=5",
+      "source": "16 Nov 2026 - Google News (Geo)",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Diện tích gieo trồng của Ukraine có thể giảm mạnh 6,3 triệu ha",
+      "details": [
+        "Bộ trưởng Ukraine cảnh báo diện tích gieo trồng có thể giảm 6,3 triệu ha vào mùa xuân tới.",
+        "Đây là mức giảm đáng kể, gây lo ngại về sản lượng ngũ cốc tương lai của Ukraine.",
+        "Tác động tiêu cực đến nguồn cung ngũ cốc toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQa2x3endpOHBqVTc2a0l6VE84SXFxWVFPYzZRWlhjOG9lU0RicEdfR2lzX0hwcTEyUl9wdGpRUXBjR3hnaHdSUFlNQm5qTDZFZE9aM3pyekVsak1BYzI2YUhkS09BVWNmbTJpMjJkZk9xVEJKdWZGRm95OGpQbnR2cE1CYnQtTDJNZ19lS2FoN0FpdXdaT3p2ZFZNNnJFS2wtdlVGSVQwa0Z5cWh5RW1rQm1zY1pHdw?oc=5",
+      "source": "14 Nov 2026 - Google News (Geo)",
       "category": "san_luong_dien_tich"
     },
     {
-      "title": "Tuần áp chót trước First Notice Day: Quỹ Net Short kỷ lục (-91k HĐ) đối mặt rủi ro Squeeze",
+      "title": "Nga mở tuyến đường vận chuyển ngũ cốc phía Bắc tránh Biển Đen",
       "details": [
-        "Hợp đồng ZWZ26 chốt tuần tại 593.4 ¢/bu (tăng +11.0c, đỉnh 600c) và ZWH27 tại 607.0 ¢/bu (tăng +9.5c), Spread co lại còn 13.5c.",
-        "Bước vào tuần 16/11 - 20/11 trước ngày FND (30/11), các quỹ đầu cơ đang nắm giữ -91,443 HĐ Net Short phải khẩn trương cơ cấu vị thế, tiềm ẩn rủi ro Short-Squeeze bùng nổ.",
-        "Dầu Brent duy trì ở mức cao .20/thùng tiếp tục củng cố vững chắc sàn chi phí sản xuất và nhu cầu chế biến ethanol."
+        "Nga đang phát triển một tuyến đường vận chuyển mới ở phía Bắc để tránh rủi ro ở Biển Đen.",
+        "Tuyến đường này nhằm đảm bảo xuất khẩu ngũ cốc và sắt.",
+        "Giảm sự phụ thuộc vào hành lang Biển Đen đầy biến động."
       ],
-      "link": "https://www.barchart.com/futures/quotes/ZWZ26",
-      "source": "16 Nov 2026 - CBOT Market Wire",
-      "category": "cung_cau_nhan_dinh"
+      "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOdWh4Q1BKU25FQlQ4cW0tSkQwUXhEVUJubGpFVHlHQmItd0lPTlZSQk1MUUZGMHk5TU1XY1dPRXU5VzRua0lpbVhjTHdCQnFVWXQ1OF9hcmlaYVhsU1NUYXdweU1ZTzA5UzV5N21RQXZNQ0NkTWZnall6Zk0wbzFZS0RmYUg3aG9XWG1QeGhlX2RyMkl6ZHlMRXRNZHNXZDhfR3BRWndENldSdjJSSjZkbUNIMDFDYi04Rnd0Sm9wVQ?oc=5",
+      "source": "13 Nov 2026 - Google News (Geo)",
+      "category": "logistics"
     }
+  ],
+  "intraday": {
+    "ZW": {
+      "bias": "Bearish",
+      "bias_vn": "Giảm",
+      "summary": "Lúa mì chịu áp lực giảm do vị thế bán ròng lớn của Smart Money và tin tức tiêu cực về giá.",
+      "key_levels": {
+        "support": "595.0",
+        "resistance": "610.0"
+      },
+      "reasoning": [
+        "Không có yếu tố thời tiết hỗ trợ giá lúa mì trong ngắn hạn.",
+        "Giá lúa mì giảm trở lại, cho thấy cung cầu không thuận lợi.",
+        "Smart Money đang NHOI SHORT mạnh (-93540 HĐ) tạo áp lực giảm.",
+        "Tin Biển Đen bão hòa, giảm bớt lo ngại nguồn cung toàn cầu.",
+        "Giá tham chiếu 602.0, xu hướng giảm đầu tuần cho thấy kỹ thuật yếu."
+      ],
+      "risk": "Rủi ro chính là khả năng phục hồi kỹ thuật ngắn hạn hoặc thay đổi đột ngột về thời tiết.",
+      "generated_at": "2026-11-17 02:23"
+    },
+    "ZC": {
+      "bias": "Bullish",
+      "bias_vn": "Tăng",
+      "summary": "Ngô có xu hướng tăng mạnh nhờ cắt giảm sản lượng USDA, xuất khẩu tốt và vị thế mua ròng của Smart Money.",
+      "key_levels": {
+        "support": "445.0",
+        "resistance": "455.0"
+      },
+      "reasoning": [
+        "USDA cắt giảm sản lượng là yếu tố cung quan trọng hỗ trợ giá.",
+        "Xuất khẩu khởi sắc, nhu cầu từ EU/TQ tăng và USDA cắt giảm sản lượng.",
+        "Smart Money đang GOM LONG mạnh (14643 HĐ) cho thấy kỳ vọng tăng giá.",
+        "Không có yếu tố địa chính trị tiêu cực đáng kể ảnh hưởng đến ngô.",
+        "Ngô được cho là đã chạm đáy, tạo cơ hội mua vào theo phân tích kỹ thuật."
+      ],
+      "risk": "Rủi ro chính là sự suy yếu của nhu cầu xuất khẩu hoặc áp lực từ thị trường ngũ cốc chung.",
+      "generated_at": "2026-11-17 02:23"
+    },
+    "bias": "Bearish",
+    "bias_vn": "Giảm",
+    "summary": "Lúa mì chịu áp lực giảm do vị thế bán ròng lớn của Smart Money và tin tức tiêu cực về giá.",
+    "key_levels": {
+      "support": "595.0",
+      "resistance": "610.0"
+    },
+    "reasoning": [
+      "Không có yếu tố thời tiết hỗ trợ giá lúa mì trong ngắn hạn.",
+      "Giá lúa mì giảm trở lại, cho thấy cung cầu không thuận lợi.",
+      "Smart Money đang NHOI SHORT mạnh (-93540 HĐ) tạo áp lực giảm.",
+      "Tin Biển Đen bão hòa, giảm bớt lo ngại nguồn cung toàn cầu.",
+      "Giá tham chiếu 602.0, xu hướng giảm đầu tuần cho thấy kỹ thuật yếu."
+    ],
+    "risk": "Rủi ro chính là khả năng phục hồi kỹ thuật ngắn hạn hoặc thay đổi đột ngột về thời tiết.",
+    "generated_at": "2026-11-17 02:23"
+  },
+  "categories": [
+    "dia_chinh_tri",
+    "logistics",
+    "san_luong_dien_tich",
+    "cung_cau_nhan_dinh"
   ]
 }
