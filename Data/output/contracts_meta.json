@@ -16,7 +16,7 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 190645.0,
+      "today_volume": 190644.0,
       "prev_volume": 13129.0,
       "today_oi": 515520,
       "prev_oi": 542873,
@@ -53,5 +53,5 @@
       "logic": "Giá tăng đi kèm Volume tăng nhưng OI giảm. Cho thấy phe Short đang ồ ạt cắt lỗ/chốt vị thế bán khống, giúp giá đẩy lên nhanh nhưng thiếu dòng tiền mới mua lên."
     }
   },
-  "updated_at": "2026-11-17 05:00:43"
+  "updated_at": "2026-11-17 06:00:58"
 }
