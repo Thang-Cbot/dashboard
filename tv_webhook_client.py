@@ -376,13 +376,30 @@ def get_m15_m30_closed_impulse(commodity: str, last_closed_h1: dict) -> dict:
     }
 
 
-def get_latest_m5_price(commodity: str) -> dict:
+def get_latest_m5_price(commodity: str, max_cache_age_sec: int = 60) -> dict:
     """
     Lấy giá nến M5 Realtime mới nhất (close, open, high, low, volume, time_vn, diff, pct).
+    Tự động kéo dữ liệu mới từ Google Apps Script nếu cache đã quá 60 giây.
     Dùng để thay thế hoặc đè lên giá nến H1 trên toàn bộ các trang Streamlit.
     """
     c_code = normalize_commodity_key(commodity).upper()
-    cached = load_cached_m5()
+    
+    # Kiểm tra tuổi cache, nếu quá 60s hoặc chưa có thì tự động fetch từ GAS Webhook
+    need_refresh = True
+    if CACHE_M5_FILE.exists():
+        try:
+            mtime = CACHE_M5_FILE.stat().st_mtime
+            age = (datetime.datetime.now() - datetime.datetime.fromtimestamp(mtime)).total_seconds()
+            if age < max_cache_age_sec:
+                need_refresh = False
+        except Exception:
+            need_refresh = True
+
+    if need_refresh:
+        cached = fetch_realtime_m5(timeout=3)
+    else:
+        cached = load_cached_m5()
+
     symbols = cached.get("symbols", {})
     sym_data = symbols.get(c_code)
     if not sym_data:
@@ -407,10 +424,11 @@ def get_latest_m5_price(commodity: str) -> dict:
         diff = round(close - open_p, 2)
         pct  = round((diff / open_p * 100.0), 2) if open_p > 0 else 0.0
 
-        contract_name = "ZCEZ26" if c_code == "ZC" else ("ZWAZ26" if c_code == "ZW" else f"{c_code}Z26")
+        # Lấy tên contract thực tế từ TradingView (VD: ZW1!, ZWH27, ZWZ26) thay vì gán cứng
+        actual_contract = m5.get("contract") or ("ZWAZ26" if c_code == "ZW" else "ZCEZ26")
         return {
             "symbol": c_code,
-            "contract": contract_name,
+            "contract": actual_contract,
             "close": close,
             "open": open_p,
             "high": high_p,
@@ -419,7 +437,7 @@ def get_latest_m5_price(commodity: str) -> dict:
             "diff": diff,
             "pct": pct,
             "time_vn": time_vn,
-            "interval": "M5",
+            "interval": m5.get("interval", "M5"),
             "is_m5": True
         }
     except Exception:

@@ -174,11 +174,13 @@ except Exception:
 
 if zc_m5 or zw_m5:
     b1, b2 = st.columns(2)
-    for col, m_info, icon, label in [
-        (b1, zc_m5, "🌽", "NGÔ (ZC / ZCEZ26)"),
-        (b2, zw_m5, "🌾", "LÚA MÌ (ZW / ZWAZ26)")
+    for col, m_info, icon, base_name in [
+        (b1, zc_m5, "🌽", "NGÔ (ZC)"),
+        (b2, zw_m5, "🌾", "LÚA MÌ (ZW)")
     ]:
         if m_info:
+            act_contract = m_info.get("contract", "")
+            label = f"{base_name} • {act_contract}" if act_contract else base_name
             c_val = m_info["close"]
             d_val = m_info["diff"]
             p_val = m_info["pct"]

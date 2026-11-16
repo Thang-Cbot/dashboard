@@ -542,10 +542,12 @@ with col_actions:
 
 if rt_symbols:
     cards_m5 = []
-    for sym_key, label_name in [("ZW", "🌾 Lúa Mì (ZWAZ26)"), ("ZC", "🌽 Ngô (ZCEZ26)")]:
+    for sym_key, default_name in [("ZW", "🌾 Lúa Mì"), ("ZC", "🌽 Ngô")]:
         s_info = rt_symbols.get(sym_key, {})
         m5 = s_info.get("latest_m5")
         h1_form = s_info.get("forming_h1")
+        act_contract = m5.get("contract") if m5 else ""
+        label_name = f"{default_name} ({act_contract})" if act_contract else f"{default_name} ({sym_key})"
         if m5:
             c_val = m5.get("close", 0)
             o_val = m5.get("open", 0)
