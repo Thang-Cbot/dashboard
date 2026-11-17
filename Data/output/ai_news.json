@@ -1,64 +1,59 @@
 {
-  "timestamp": "2026-11-17 06:01:35",
-  "news": [],
-  "intraday": {
-    "ZW": {
-      "bias": "Bearish",
-      "bias_vn": "Giảm",
-      "summary": "ZW chịu áp lực giảm từ vị thế Smart Money nhồi short mạnh, thiếu yếu tố hỗ trợ từ tin tức.",
-      "key_levels": {
-        "support": "595.00",
-        "resistance": "608.00"
-      },
-      "reasoning": [
-        "Không có dữ liệu thời tiết/tiến độ mùa vụ cụ thể tác động giá.",
-        "Chưa có báo cáo cung cầu/USDA mới đáng chú ý ảnh hưởng thị trường.",
-        "Vị thế COT Smart Money NHỒI SHORT mạnh (-93540 HĐ) tạo áp lực bán.",
-        "Tin Biển Đen đã bão hòa, không có tin địa chính trị/logistics mới.",
-        "Giá tham chiếu đi ngang, nhưng áp lực bán từ vị thế COT chiếm ưu thế."
+  "timestamp": "2026-11-17 06:30:00",
+  "news": [
+    {
+      "title": "Ngô CBOT bùng nổ lên 448.5 ¢/bu (+6.25c) nhờ lực cầu Export Sales khổng lồ 2.88 triệu tấn",
+      "details": [
+        "Hợp đồng ngô ZCZ26 bật tăng mạnh mẽ +6.25 cent trong phiên đầu tuần, chính thức vượt qua mốc kháng cự 445c để đóng cửa tại 448.5 ¢/bu.",
+        "Động lực đến từ báo cáo USDA Export Sales tuần qua với doanh số bán hàng ròng đạt kỷ lục 2.88 triệu tấn, khẳng định người mua tiền mặt quốc tế đang ồ ạt gom hàng tại vùng đáy chi phí sản xuất.",
+        "Tiến độ thu hoạch ngô Mỹ đạt trên 95%, nông dân ngừng bán tháo và chuyển sang trữ silo chờ giá cao."
       ],
-      "risk": "Rủi ro chính: Thời tiết bất lợi tại các vùng trồng hoặc nhu cầu xuất khẩu tăng đột biến.",
-      "generated_at": "2026-11-17 06:01"
+      "link": "https://www.barchart.com/futures/quotes/ZCZ26",
+      "source": "17 Nov 2026 - USDA Export Sales / Barchart",
+      "category": "cung_cau_nhan_dinh"
     },
-    "ZC": {
-      "bias": "Bullish",
-      "bias_vn": "Tăng",
-      "summary": "ZC có xu hướng tăng nhờ vị thế Smart Money gom long mạnh, chờ đợi tín hiệu hỗ trợ khác.",
-      "key_levels": {
-        "support": "442.00",
-        "resistance": "455.00"
-      },
-      "reasoning": [
-        "Không có dữ liệu thời tiết/tiến độ mùa vụ cụ thể tác động giá.",
-        "Chưa có báo cáo cung cầu/USDA mới đáng chú ý ảnh hưởng thị trường.",
-        "Vị thế COT Smart Money GOM LONG mạnh (14643 HĐ) tạo lực mua.",
-        "Không có tin địa chính trị/logistics nổi bật ảnh hưởng đến ngô.",
-        "Giá tham chiếu đi ngang, nhưng lực mua từ vị thế COT chiếm ưu thế."
+    {
+      "title": "Hậu 15/11: Eo biển Kerch chính thức đóng cửa; Estonia đóng toàn bộ biên giới với Nga từ 1/12",
+      "details": [
+        "Không có thông báo gia hạn từ Nga sau ngày 15/11, Eo biển Kerch quay trở lại chế độ an ninh quân sự thắt chặt, chặn đứng lượng lúa mì giá rẻ từ các cảng nông Biển Azov.",
+        "Estonia tuyên bố đóng toàn bộ cửa khẩu đường bộ với Nga từ ngày 1/12 sau vụ âm mưu phá hoại nhà máy quốc phòng Threod Systems.",
+        "Cùng với việc Lithuania siết kiểm soát quá cảnh từ 16/11, toàn bộ hành lang trung chuyển lúa mì của Nga qua 3 nước Baltic chính thức bị phong tỏa."
       ],
-      "risk": "Rủi ro chính: Thời tiết thuận lợi bất ngờ hoặc áp lực bán từ nông dân gia tăng.",
-      "generated_at": "2026-11-17 06:01"
+      "link": "https://www.ukragroconsult.com/en/news/kerch-strait-grain-navigation",
+      "source": "16 Nov 2026 - Reuters / UkrAgroConsult",
+      "category": "logistics"
     },
-    "bias": "Bearish",
-    "bias_vn": "Giảm",
-    "summary": "ZW chịu áp lực giảm từ vị thế Smart Money nhồi short mạnh, thiếu yếu tố hỗ trợ từ tin tức.",
-    "key_levels": {
-      "support": "595.00",
-      "resistance": "608.00"
+    {
+      "title": "Lúa mì ZWH27 giữ vững sàn 600c (chốt 601.75c); ZWZ26 tích lũy 587.75c trước thềm FND",
+      "details": [
+        "Hợp đồng ZWH27 duy trì vững vàng trên mốc tâm lý 600c, đóng cửa tại 601.75 ¢/bu, khẳng định lực cầu đỡ giá trung hạn rất tốt.",
+        "Hợp đồng ZWZ26 giằng co quanh 587.75 ¢/bu khi chỉ còn 13 ngày nữa là đến First Notice Day (30/11); khối lượng giao dịch cho thấy phe Short đang mua bù thiếu (Cover Short) từng phần.",
+        "Spread ZWH27 - ZWZ26 duy trì ở mức 14.0 cent, phản ánh đúng chi phí lưu kho quy chuẩn."
+      ],
+      "link": "https://www.barchart.com/futures/quotes/ZWZ26",
+      "source": "17 Nov 2026 - CBOT Pit Wire",
+      "category": "cung_cau_nhan_dinh"
     },
-    "reasoning": [
-      "Không có dữ liệu thời tiết/tiến độ mùa vụ cụ thể tác động giá.",
-      "Chưa có báo cáo cung cầu/USDA mới đáng chú ý ảnh hưởng thị trường.",
-      "Vị thế COT Smart Money NHỒI SHORT mạnh (-93540 HĐ) tạo áp lực bán.",
-      "Tin Biển Đen đã bão hòa, không có tin địa chính trị/logistics mới.",
-      "Giá tham chiếu đi ngang, nhưng áp lực bán từ vị thế COT chiếm ưu thế."
-    ],
-    "risk": "Rủi ro chính: Thời tiết bất lợi tại các vùng trồng hoặc nhu cầu xuất khẩu tăng đột biến.",
-    "generated_at": "2026-11-17 06:01"
-  },
-  "categories": [
-    "dia_chinh_tri",
-    "logistics",
-    "san_luong_dien_tich",
-    "cung_cau_nhan_dinh"
+    {
+      "title": "Thời tiết Nam Mỹ: Vùng Pampas (Argentina) tiếp tục mưa 15.1mm; Úc nắng hạn gay gắt",
+      "details": [
+        "Mưa dông liên tục tại Argentina (thêm 15.1mm) khiến đất đai lầy lội, cản trở tiến độ máy gặt lúa mì và gia tăng nguy cơ nấm đầu bông Fusarium.",
+        "Áp lực xả hàng giá rẻ của Argentina trên thị trường quốc tế tiếp tục bị hoãn lại.",
+        "Tại Australia, bang NSW ghi nhận thời tiết khô nóng cực đoan (chỉ 1.4mm mưa), đe dọa năng suất lúa mì cuối vụ."
+      ],
+      "link": "https://www.graincentral.com/markets/weather-south-america-australia",
+      "source": "17 Nov 2026 - Grain Central",
+      "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Nga & Ukraine: Mưa rào diện rộng tại Rostov và Poltava trước kỳ đóng băng",
+      "details": [
+        "Khu vực Rostov (Nga) đón lượng mưa lớn 34.5mm và Poltava (Ukraine) đón mưa 29.6mm, bổ sung ẩm đất quý giá trước khi bước vào kỳ ngủ đông sâu.",
+        "Tuy nhiên, tổng diện tích gieo trồng vụ đông tại Biển Đen vẫn bị suy giảm cấu trúc hơn 4.0 triệu hecta (Nga giảm 1.8M ha, Ukraine giảm 2.4M ha so với trước 2022)."
+      ],
+      "link": "https://www.ikar.ru/weather_report",
+      "source": "16 Nov 2026 - IKAR / SovEcon",
+      "category": "san_luong_dien_tich"
+    }
   ]
 }

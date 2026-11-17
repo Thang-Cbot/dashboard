@@ -19,7 +19,7 @@
       "action": "Argentina thu hoạch rộ -> Canh Short ngắn hạn / Gom Long dài hạn (DCA)",
       "logic": "Argentina đang thu hoạch rộ đạt 66%. Việc giá ngô giữ vững trên 445-450 cents bất bất chấp áp lực thu hoạch cho thấy ngô đã xác lập vùng đáy chu kỳ mùa vụ thành công.",
       "previous": "Mỹ: 81% thu hoạch",
-      "previous_date": "09/11/2026",
+      "previous_date": "16/11/2026",
       "latest_date": "16/11/2026"
     },
     "crop_condition": {
@@ -120,19 +120,19 @@
       "logic": "Xác suất chuyển pha sang El Niño đạt 82% vào tháng 7. Hiện tại đang xuất hiện vùng khô hạn cục bộ ở rìa phía Bắc (Minnesota, Northern Plains) đe dọa trực tiếp tỷ lệ nảy mầm của cây ngô non."
     },
     "cot_report": {
-      "latest": "[2026-11-03] Net Long 8,795 HD | -72,318",
-      "next_date": "06/11/2026 (Hang tuan, Thu Sau)",
-      "forecast": "Q2 (DO NHAT) - XA LONG",
-      "action": "Cam bat day. Canh gia hoi de danh SHORT.",
-      "logic": "[2026-11-03] MM nam Long rong 8,795 HD. Tuan nay giam bot 72,318 HD. Ma tran: Q2 (DO NHAT) - XA LONG. Khuyen nghi: Cam bat day. Canh gia hoi de danh SHORT.. | UOC TINH HIEN TAI (2026-11-16): +14,643 HD (Q1 (XANH LA) - GOM LONG) [Lag=+1.75c, Beta=3341.4]",
+      "latest": "[2026-11-10] Net Short 22,628 HD | -31,423",
+      "next_date": "13/11/2026 (Hang tuan, Thu Sau)",
+      "forecast": "Q3 (DO DAM) - NHOI SHORT",
+      "action": "Uu tien SHORT thuan xu huong.",
+      "logic": "[2026-11-10] MM nam Short rong 22,628 HD. Tuan nay giam bot 31,423 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-11-16): -23,202 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-0.25c, Beta=2296.4]",
       "raw_data": {
-        "net_position": 8795.0,
-        "change": -72318.0,
-        "long": 229341.0,
-        "short": 220546.0,
-        "net_estimated": 14643.0,
-        "quadrant_est": "Q1 (XANH LA) - GOM LONG",
-        "beta_13w": 3341.44
+        "net_position": -22628.0,
+        "change": -31423.0,
+        "long": 243161.0,
+        "short": 265789.0,
+        "net_estimated": -23202.0,
+        "quadrant_est": "Q3 (DO DAM) - NHOI SHORT",
+        "beta_13w": 2296.4
       }
     },
     "import_demand": {
@@ -225,7 +225,7 @@
       "action": "Tiến độ ổn định -> Canh Short ngắn hạn",
       "logic": "Lúa mì xuân gieo trồng phát triển thuận lợi. Lúa mì đông đã trổ bông vượt trung bình.",
       "previous": "Đông 89% gieo, Xuân N/A",
-      "previous_date": "09/11/2026",
+      "previous_date": "16/11/2026",
       "latest_date": "16/11/2026"
     },
     "harvest_progress": {
@@ -235,7 +235,7 @@
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Đông N/A, Xuân N/A",
-      "previous_date": "09/11/2026",
+      "previous_date": "16/11/2026",
       "latest_date": "16/11/2026"
     },
     "crop_condition": {
@@ -245,7 +245,7 @@
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông 49% G/E, Xuân N/A",
-      "previous_date": "09/11/2026",
+      "previous_date": "16/11/2026",
       "latest_date": "16/11/2026"
     },
     "us_ending_stocks": {
@@ -343,19 +343,19 @@
       "logic": "Hạn hán tàn phá bang Kansas/Oklahoma (Mỹ) + Hạn hán mùa thu làm giảm 20% diện tích gieo trồng của Úc."
     },
     "cot_report": {
-      "latest": "[2026-11-03] Net Short 87,126 HD | -12,520",
-      "next_date": "06/11/2026 (Hang tuan, Thu Sau)",
-      "forecast": "Q3 (DO DAM) - NHOI SHORT",
-      "action": "Uu tien SHORT thuan xu huong.",
-      "logic": "[2026-11-03] MM nam Short rong 87,126 HD. Tuan nay giam bot 12,520 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-11-16): -93,540 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-13.00c, Beta=493.4]",
+      "latest": "[2026-11-10] Net Short 81,050 HD | +6,076",
+      "next_date": "13/11/2026 (Hang tuan, Thu Sau)",
+      "forecast": "Q4 (CAM) - COVER SHORT",
+      "action": "Cam Short duoi. Canh LONG bat hoi.",
+      "logic": "[2026-11-10] MM nam Short rong 81,050 HD. Tuan nay tang them 6,076 HD. Ma tran: Q4 (CAM) - COVER SHORT. Khuyen nghi: Cam Short duoi. Canh LONG bat hoi.. | UOC TINH HIEN TAI (2026-11-16): -82,787 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-5.75c, Beta=302.0]",
       "raw_data": {
-        "net_position": -87126.0,
-        "change": -12520.0,
-        "long": 78779.0,
-        "short": 165905.0,
-        "net_estimated": -93540.0,
+        "net_position": -81050.0,
+        "change": 6076.0,
+        "long": 83411.0,
+        "short": 164461.0,
+        "net_estimated": -82787.0,
         "quadrant_est": "Q3 (DO DAM) - NHOI SHORT",
-        "beta_13w": 493.4
+        "beta_13w": 302.03
       }
     },
     "import_demand": {
@@ -483,7 +483,7 @@
       "logic": "Mỹ bắt đầu thu hoạch vào tháng 9-11. Argentina đang thu hoạch đậu tương đạt 75% tiến độ. Việc Argentina sắp kết thúc thu hoạch rộ đồng nghĩa với việc áp lực bán tháo lớn nhất của Nam Mỹ đã phản ánh hoàn toàn vào giá (priced-in), tạo điều kiện cho giá đậu tương thiết lập đáy chu kỳ mùa vụ và bước vào pha tăng trưởng.",
       "previous": "Mỹ: 92% thu hoạch",
       "latest_date": "16/11/2026",
-      "previous_date": "09/11/2026"
+      "previous_date": "16/11/2026"
     },
     "crop_condition": {
       "latest": "57% Good to Excellent",
@@ -598,5 +598,5 @@
     }
   },
   "wasde_report_month": "Nov",
-  "last_updated_cot": "2026-11-16 12:59:54"
+  "last_updated_cot": "2026-11-17 06:33:40"
 }

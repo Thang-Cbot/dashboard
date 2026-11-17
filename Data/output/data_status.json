@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 06:00:58",
-      "updated_at": "2026-11-17 06:00:58"
+      "detail": "Auto-fetch 07:00:38",
+      "updated_at": "2026-11-17 07:00:38"
     },
     "macro": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 06:01:25 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-11-17 06:01:25"
+      "detail": "Đẩy thành công lúc 06:02:36 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-11-17 06:02:36"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -77,41 +77,41 @@
   "export_sales": {
     "status": "OK",
     "detail": "Kỳ: 11/05/2026 | ZW=182,800 MT, ZC=2.88M MT",
-    "updated_at": "2026-11-16 12:59:58"
+    "updated_at": "2026-11-17 06:33:20"
   },
   "acreage": {
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-11-15 19:40:41"
+    "updated_at": "2026-11-17 06:33:24"
   },
   "usda": {
     "status": "OK",
     "detail": "Updated: 2026-11-17 | WASDE: Nov",
-    "updated_at": "2026-11-17 04:22:48"
+    "updated_at": "2026-11-17 06:33:36"
   },
   "cot": {
     "status": "[OK] Success",
     "detail": "",
-    "updated_at": "2026-11-16 12:59:54"
+    "updated_at": "2026-11-17 06:33:40"
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 06:00",
-    "updated_at": "2026-11-17 06:00:58"
+    "detail": "ZC+ZW updated at 07:00",
+    "updated_at": "2026-11-17 07:00:37"
   },
   "macro": {
     "status": "OK",
-    "detail": "Brent=91.84, DXY=103.593",
-    "updated_at": "2026-11-17 06:01:20"
+    "detail": "Brent: $92.21 | DXY: 103.586",
+    "updated_at": "2026-11-17 06:32:40"
   },
   "weather_short": {
     "status": "OK",
     "detail": "24/24 fetched",
-    "updated_at": "2026-11-16 13:00:28"
+    "updated_at": "2026-11-17 06:33:09"
   },
   "weather_long": {
     "status": "OK",
     "detail": "Status: El Niño Advisory",
-    "updated_at": "2026-11-16 13:00:30"
+    "updated_at": "2026-11-17 06:33:11"
   }
 }
