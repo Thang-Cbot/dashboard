@@ -1,59 +1,173 @@
 {
-  "timestamp": "2026-11-17 06:30:00",
+  "timestamp": "2026-11-18 00:23:29",
   "news": [
     {
-      "title": "Ngô CBOT bùng nổ lên 448.5 ¢/bu (+6.25c) nhờ lực cầu Export Sales khổng lồ 2.88 triệu tấn",
+      "title": "Cầu Kerch bị tấn công: Giá ngũ cốc tăng vọt!",
       "details": [
-        "Hợp đồng ngô ZCZ26 bật tăng mạnh mẽ +6.25 cent trong phiên đầu tuần, chính thức vượt qua mốc kháng cự 445c để đóng cửa tại 448.5 ¢/bu.",
-        "Động lực đến từ báo cáo USDA Export Sales tuần qua với doanh số bán hàng ròng đạt kỷ lục 2.88 triệu tấn, khẳng định người mua tiền mặt quốc tế đang ồ ạt gom hàng tại vùng đáy chi phí sản xuất.",
-        "Tiến độ thu hoạch ngô Mỹ đạt trên 95%, nông dân ngừng bán tháo và chuyển sang trữ silo chờ giá cao."
+        "Giá lúa mì Chicago tháng 3 tăng 7.75 cent, lúa mì Kansas tháng 3 tăng 8.75 cent.",
+        "Giá ngô tháng 3 tăng 3 cent.",
+        "Ukraine phá hủy một phần cầu Kerch, ảnh hưởng đến tuyến đường biển sâu duy nhất giữa Biển Azov và Biển Đen.",
+        "Sự kiện này gây lo ngại về gián đoạn vận chuyển ngũ cốc từ khu vực Biển Đen."
       ],
-      "link": "https://www.barchart.com/futures/quotes/ZCZ26",
-      "source": "17 Nov 2026 - USDA Export Sales / Barchart",
+      "link": "https://www.barchart.com/story/news/8876798/walsh-daily-bullet-points-11-17",
+      "source": "17 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Lúa mì tăng giá mạnh sau cuộc tấn công của Ukraine",
+      "details": [
+        "Giá lúa mì giao dịch tăng từ 3 đến 9 cent vào sáng thứ Ba.",
+        "Phản ứng trực tiếp với cuộc tấn công của Ukraine, gây lo ngại về nguồn cung.",
+        "Trước đó, hợp đồng lúa mì SRW Chicago giảm 5.75 đến 7.75 cent vào cuối phiên.",
+        "Lúa mì HRW Kansas cũng giảm 6.25 đến 9.75 cent."
+      ],
+      "link": "https://www.barchart.com/story/news/8874544/wheat-popping-higher-after-ukrainian-strike",
+      "source": "17 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Ngô tiếp tục đà tăng vào sáng thứ Ba",
+      "details": [
+        "Giá ngô tăng từ 1 đến 3 cent, được hỗ trợ bởi đà tăng của lúa mì.",
+        "Hợp đồng tương lai ngô tăng nhẹ đến 3.25 cent vào thứ Hai.",
+        "Thị trường vững chắc hơn nhờ hoạt động xuất khẩu tăng.",
+        "Giá ngô giao ngay trung bình quốc gia tăng 2.75 cent, đạt 4.1675 USD."
+      ],
+      "link": "https://www.barchart.com/story/news/8874524/corn-extending-gains-to-tuesday-morning",
+      "source": "17 Nov 2026 - Barchart Grain Market Wrap",
       "category": "cung_cau_nhan_dinh"
     },
     {
-      "title": "Hậu 15/11: Eo biển Kerch chính thức đóng cửa; Estonia đóng toàn bộ biên giới với Nga từ 1/12",
+      "title": "Cam kết mua nông sản 17 tỷ USD của Trung Quốc có nguy cơ đổ vỡ",
       "details": [
-        "Không có thông báo gia hạn từ Nga sau ngày 15/11, Eo biển Kerch quay trở lại chế độ an ninh quân sự thắt chặt, chặn đứng lượng lúa mì giá rẻ từ các cảng nông Biển Azov.",
-        "Estonia tuyên bố đóng toàn bộ cửa khẩu đường bộ với Nga từ ngày 1/12 sau vụ âm mưu phá hoại nhà máy quốc phòng Threod Systems.",
-        "Cùng với việc Lithuania siết kiểm soát quá cảnh từ 16/11, toàn bộ hành lang trung chuyển lúa mì của Nga qua 3 nước Baltic chính thức bị phong tỏa."
+        "Trung Quốc khó đạt cam kết mua 17 tỷ USD nông sản Mỹ trong năm 2026.",
+        "Điều này gây áp lực giảm giá ngũ cốc.",
+        "Diễn ra trước thềm hội nghị thượng đỉnh Trump-Tập.",
+        "Cho thấy căng thẳng thương mại tiếp tục ảnh hưởng đến thị trường nông sản."
       ],
-      "link": "https://www.ukragroconsult.com/en/news/kerch-strait-grain-navigation",
-      "source": "16 Nov 2026 - Reuters / UkrAgroConsult",
+      "link": "https://www.farmprogress.com/farm-policy/china-s-17-billion-crop-pledge-falters-ahead-of-trump-xi-summit",
+      "source": "17 Nov 2026 - Farm Progress",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Ngô đạt đỉnh 1 tuần: Nông dân có thể giảm chi phí năm 2027?",
+      "details": [
+        "Giá ngô tương lai tăng lên mức cao nhất trong một tuần.",
+        "Được hỗ trợ bởi đà tăng của thị trường lúa mì qua đêm.",
+        "Thị trường tiền mặt (cash market) mạnh mẽ cũng góp phần đẩy giá lên.",
+        "Phân tích thị trường buổi sáng cho thấy triển vọng tích cực cho ngô."
+      ],
+      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
+      "source": "17 Nov 2026 - Farm Progress",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Tàu chở LPG chìm ngoài khơi Bulgaria, Biển Đen",
+      "details": [
+        "Một tàu chở khí hóa lỏng (LPG) được báo cáo đã chìm ngoài khơi bờ biển Biển Đen của Bulgaria.",
+        "Sự cố này có thể làm tăng thêm lo ngại về an toàn hàng hải trong khu vực.",
+        "Mặc dù không phải tàu chở ngũ cốc, nhưng ảnh hưởng đến tâm lý vận tải biển chung.",
+        "Khu vực Biển Đen là tuyến đường xuất khẩu ngũ cốc quan trọng."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOeFJ6ZDR5MFd5UUtDU3JkZ3d4ZjBRNWIxT2FQZnNaX3FTcmpqOHpLdjBmdG5VWHJBVElkTU1pcnQ3bzBYRWJGVDF4a1ZrQW9hMXAxbkVybUdkeUdLcFhHZXZCanZJU1U3ZVpUakdFWkNsN0ZsbnJBaUREdFFLZHdQeFk2Q2JkSGg0RE5ieg?oc=5",
+      "source": "17 Nov 2026 - Google News (Geo)",
       "category": "logistics"
     },
     {
-      "title": "Lúa mì ZWH27 giữ vững sàn 600c (chốt 601.75c); ZWZ26 tích lũy 587.75c trước thềm FND",
+      "title": "Tàu hàng lật úp ngoài khơi Bulgaria sau tấn công bằng drone",
       "details": [
-        "Hợp đồng ZWH27 duy trì vững vàng trên mốc tâm lý 600c, đóng cửa tại 601.75 ¢/bu, khẳng định lực cầu đỡ giá trung hạn rất tốt.",
-        "Hợp đồng ZWZ26 giằng co quanh 587.75 ¢/bu khi chỉ còn 13 ngày nữa là đến First Notice Day (30/11); khối lượng giao dịch cho thấy phe Short đang mua bù thiếu (Cover Short) từng phần.",
-        "Spread ZWH27 - ZWZ26 duy trì ở mức 14.0 cent, phản ánh đúng chi phí lưu kho quy chuẩn."
+        "Một tàu hàng đã lật úp ngoài khơi Bulgaria trên Biển Đen.",
+        "Sự cố được báo cáo là do một cuộc tấn công bằng máy bay không người lái (drone) trên biển.",
+        "Gây thêm căng thẳng và rủi ro cho hoạt động vận tải biển trong khu vực chiến sự.",
+        "Ảnh hưởng tiêu cực đến hành lang ngũ cốc Biển Đen và giá cả."
       ],
-      "link": "https://www.barchart.com/futures/quotes/ZWZ26",
-      "source": "17 Nov 2026 - CBOT Pit Wire",
-      "category": "cung_cau_nhan_dinh"
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQcUt1S0NicjlNbjlxSEcxRFVnWUdxLUxwbklTMmZsUHNrX2Z0VzF3UEZEWDc5UERLdXl0Zzc5ZzBYRXNpWHJNUTlWQUlnbWFNeUhqbURacjRrRU1KN0R2d3ZRVGtQak5SdmNrdVhQOUpneGtGZ1h5aDlTZ0NRWGRYbTNYUFFtbEU3ekF3UHU4dw?oc=5",
+      "source": "16 Nov 2026 - Google News (Geo)",
+      "category": "logistics"
     },
     {
-      "title": "Thời tiết Nam Mỹ: Vùng Pampas (Argentina) tiếp tục mưa 15.1mm; Úc nắng hạn gay gắt",
+      "title": "Lúa mì giảm giá nhờ lạc quan về đàm phán Biển Đen",
       "details": [
-        "Mưa dông liên tục tại Argentina (thêm 15.1mm) khiến đất đai lầy lội, cản trở tiến độ máy gặt lúa mì và gia tăng nguy cơ nấm đầu bông Fusarium.",
-        "Áp lực xả hàng giá rẻ của Argentina trên thị trường quốc tế tiếp tục bị hoãn lại.",
-        "Tại Australia, bang NSW ghi nhận thời tiết khô nóng cực đoan (chỉ 1.4mm mưa), đe dọa năng suất lúa mì cuối vụ."
+        "Giá lúa mì giảm do kỳ vọng tích cực từ các cuộc đàm phán ba bên.",
+        "Các cuộc đàm phán nhằm mục đích giải phóng hoạt động xuất khẩu qua Biển Đen.",
+        "Việc nối lại hành lang ngũ cốc sẽ tăng nguồn cung và giảm áp lực giá.",
+        "Cho thấy thị trường nhạy cảm với các diễn biến địa chính trị."
       ],
-      "link": "https://www.graincentral.com/markets/weather-south-america-australia",
-      "source": "17 Nov 2026 - Grain Central",
-      "category": "san_luong_dien_tich"
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPelFYbGZob1hJMXFjS2pkSk5namd5YW5WX3ZxcXk0MWJGZFd3WmJOVWRVM1FDMGdFZ29obzhuQm9QYXViaVM3Z1JSak45aE5Fd21fZ2RmXzJyVmNPNmpCbTEzV0x1Q0dCS1J3cEpyNkdkcmplczZjd2J2NS1Xbll3Y3lGNDVuVk9CVjFBU3dVZnJoRkRwd0M3cFMzeVYteEozcmlscjVtSV9iMmF6cjh1aUZ5dDU?oc=5",
+      "source": "16 Nov 2026 - Google News (Geo)",
+      "category": "dia_chinh_tri"
     },
     {
-      "title": "Nga & Ukraine: Mưa rào diện rộng tại Rostov và Poltava trước kỳ đóng băng",
+      "title": "\"Cuộc chiến ngũ cốc\" Nga-Ukraine đe dọa an ninh lương thực toàn cầu",
       "details": [
-        "Khu vực Rostov (Nga) đón lượng mưa lớn 34.5mm và Poltava (Ukraine) đón mưa 29.6mm, bổ sung ẩm đất quý giá trước khi bước vào kỳ ngủ đông sâu.",
-        "Tuy nhiên, tổng diện tích gieo trồng vụ đông tại Biển Đen vẫn bị suy giảm cấu trúc hơn 4.0 triệu hecta (Nga giảm 1.8M ha, Ukraine giảm 2.4M ha so với trước 2022)."
+        "Xung đột Nga-Ukraine tiếp tục gây ra mối đe dọa nghiêm trọng cho an ninh lương thực toàn cầu.",
+        "Các hành động quân sự và chính sách xuất khẩu ảnh hưởng đến nguồn cung ngũ cốc.",
+        "Gây biến động giá cả và lo ngại về khả năng tiếp cận lương thực.",
+        "Thị trường ngũ cốc toàn cầu vẫn chịu tác động lớn từ tình hình Biển Đen."
       ],
-      "link": "https://www.ikar.ru/weather_report",
-      "source": "16 Nov 2026 - IKAR / SovEcon",
-      "category": "san_luong_dien_tich"
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9wSVhLQXVfeTk1UWFFN2VDNGNabG1Bd1hOT3U2SVFzUUJUTmF0OXU1YTNubDUyN0tQRXBBQmZud21WT1ZKWG9NZk1pSmxLM1p5?oc=5",
+      "source": "15 Nov 2026 - Google News (Geo)",
+      "category": "dia_chinh_tri"
     }
+  ],
+  "intraday": {
+    "ZW": {
+      "bias": "Bullish",
+      "bias_vn": "Tăng",
+      "summary": "Lúa mì tăng mạnh do căng thẳng Biển Đen leo thang và vị thế short lớn, tạo động lực tăng giá intraday.",
+      "key_levels": {
+        "support": "600 cents",
+        "resistance": "625 cents"
+      },
+      "reasoning": [
+        "Không có dữ liệu thời tiết thực địa mới nổi bật cho lúa mì.",
+        "Căng thẳng Biển Đen gây lo ngại về nguồn cung, hỗ trợ giá.",
+        "Vị thế short lớn của Smart Money có thể gây ra short squeeze.",
+        "Tấn công cầu Kerch, tàu chìm Biển Đen đẩy rủi ro nguồn cung lên cao.",
+        "Giá tăng mạnh +4.00% cho thấy động lực tăng giá mạnh mẽ."
+      ],
+      "risk": "Rủi ro chính là sự hạ nhiệt căng thẳng Biển Đen hoặc hoạt động chốt lời sau đợt tăng mạnh.",
+      "generated_at": "2026-11-18 00:23"
+    },
+    "ZC": {
+      "bias": "Neutral",
+      "bias_vn": "Đi Ngang",
+      "summary": "Ngô đi ngang dù có tin tức địa chính trị hỗ trợ, cho thấy thị trường đang cân bằng giữa các yếu tố cung cầu và rủi ro.",
+      "key_levels": {
+        "support": "445 cents",
+        "resistance": "452 cents"
+      },
+      "reasoning": [
+        "Không có dữ liệu thời tiết thực địa mới nổi bật cho ngô.",
+        "Tin tức về đỉnh 1 tuần và đà tăng cho thấy hỗ trợ, nhưng giá đi ngang.",
+        "Vị thế short lớn nhưng chưa có phản ứng giá mạnh.",
+        "Căng thẳng Biển Đen hỗ trợ chung, nhưng rủi ro Trung Quốc giảm cầu.",
+        "Giá tham chiếu +0.00% cho thấy thị trường đang đi ngang, thiếu động lực rõ ràng."
+      ],
+      "risk": "Rủi ro chính là diễn biến thời tiết Corn Belt hoặc thay đổi cam kết mua của Trung Quốc.",
+      "generated_at": "2026-11-18 00:23"
+    },
+    "bias": "Bullish",
+    "bias_vn": "Tăng",
+    "summary": "Lúa mì tăng mạnh do căng thẳng Biển Đen leo thang và vị thế short lớn, tạo động lực tăng giá intraday.",
+    "key_levels": {
+      "support": "600 cents",
+      "resistance": "625 cents"
+    },
+    "reasoning": [
+      "Không có dữ liệu thời tiết thực địa mới nổi bật cho lúa mì.",
+      "Căng thẳng Biển Đen gây lo ngại về nguồn cung, hỗ trợ giá.",
+      "Vị thế short lớn của Smart Money có thể gây ra short squeeze.",
+      "Tấn công cầu Kerch, tàu chìm Biển Đen đẩy rủi ro nguồn cung lên cao.",
+      "Giá tăng mạnh +4.00% cho thấy động lực tăng giá mạnh mẽ."
+    ],
+    "risk": "Rủi ro chính là sự hạ nhiệt căng thẳng Biển Đen hoặc hoạt động chốt lời sau đợt tăng mạnh.",
+    "generated_at": "2026-11-18 00:23"
+  },
+  "categories": [
+    "dia_chinh_tri",
+    "logistics",
+    "san_luong_dien_tich",
+    "cung_cau_nhan_dinh"
   ]
 }
