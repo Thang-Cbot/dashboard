@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-11-17 16:48:05",
+  "timestamp": "2026-11-18 16:26:41",
   "metrics": {
     "planted_area": "N/A",
     "production_forecast": "N/A",
-    "harvest_progress": "N/A",
+    "harvest_progress": "Đang diễn ra, đã thu hoạch 28 triệu tấn (tính đến 30/07/2025), năng suất giảm 4.5%.",
     "fob_price": "N/A",
-    "export_tax": "N/A",
+    "export_tax": "Chính sách thúc đẩy xuất khẩu đang được xem xét sau khi doanh số bán lúa mì giảm trong tháng 7.",
     "export_capacity": "N/A",
-    "quality_notes": "N/A",
+    "quality_notes": "Có nguy cơ bị ảnh hưởng do khởi đầu mùa xuân kém (năm 2018), năng suất giảm 4.5% (năm 2025).",
     "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Thu (Vụ Xuân)",
-    "ai_assessment": "Áp lực xả hàng của Nga lên giá CBOT hiện tại đang giảm do các rủi ro logistics và xung đột ở Biển Đen làm cản trở xuất khẩu, mặc dù các báo cáo gần đây cho thấy giá chào bán từ Biển Đen có thể vẫn ở mức thấp hoặc có chiết khấu."
+    "ai_assessment": "Áp lực xả hàng của Nga lên giá CBOT hiện tại được dự báo là giảm do rủi ro xuất khẩu, gián đoạn nguồn cung ở Biển Đen và doanh số bán hàng yếu."
   }
 }
