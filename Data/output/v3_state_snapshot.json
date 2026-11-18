@@ -1,5 +1,5 @@
 {
-  "timestamp": "18/11/2026 23:01",
+  "timestamp": "19/11/2026 00:01",
   "macro": {
     "brent_price": 89.21,
     "brent_pct": -4.219,
@@ -21,7 +21,7 @@
         "s2": 438.0,
         "r1": 442.0,
         "r2": 482.0,
-        "volume": 21506.0,
+        "volume": 21693.0,
         "open_interest": 408327,
         "contract": "ZCZ26",
         "weather": "Trời nóng tại Midwest, mưa rải rác",
@@ -41,7 +41,7 @@
         "s2": 451.0,
         "r1": 456.0,
         "r2": 495.5,
-        "volume": 24179.0,
+        "volume": 24801.0,
         "open_interest": 706414,
         "contract": "ZCH27"
       },
@@ -58,7 +58,7 @@
         "s2": 438.0,
         "r1": 442.0,
         "r2": 482.0,
-        "volume": 21506.0,
+        "volume": 21693.0,
         "open_interest": 408327,
         "contract": "ZCZ26"
       },
@@ -84,7 +84,7 @@
         "s2": 578.0,
         "r1": 589.0,
         "r2": 681.0,
-        "volume": 6343.0,
+        "volume": 6377.0,
         "open_interest": 116084,
         "contract": "ZWZ26",
         "weather": "Hạn hán vĩ mô",
@@ -104,7 +104,7 @@
         "s2": 593.25,
         "r1": 602.75,
         "r2": 694.75,
-        "volume": 12166.0,
+        "volume": 12200.0,
         "open_interest": 258570,
         "contract": "ZWH27"
       },
@@ -121,7 +121,7 @@
         "s2": 578.0,
         "r1": 589.0,
         "r2": 681.0,
-        "volume": 6343.0,
+        "volume": 6377.0,
         "open_interest": 116084,
         "contract": "ZWZ26"
       },
