@@ -1,202 +1,181 @@
 {
-  "timestamp": "2026-11-18 21:28:51",
+  "timestamp": "2026-11-19 19:50:45",
   "news": [
     {
-      "title": "Điểm tin nhanh thị trường ngũ cốc 18/11: Lúa mì giảm, Ngô giảm nhẹ",
+      "title": "Lúa mì giảm mạnh do áp lực thị trường bên ngoài",
       "details": [
-        "Lúa mì tháng 3 giảm 8½ cent, Ngô tháng 3 giảm 1¾ cent.",
-        "Thị trường lúa mì đang trả lại phần lớn mức tăng 9¼ cent của thứ Ba.",
-        "Cuộc gặp Trump-Tập dự kiến diễn ra tối nay có thể ảnh hưởng thị trường."
+        "Giá lúa mì SRW Chicago giảm 11-25.5 cent.",
+        "Giá lúa mì HRW Kansas City giảm 14.25-23.75 cent.",
+        "Thị trường chịu áp lực từ các yếu tố bên ngoài."
       ],
-      "link": "https://www.barchart.com/story/news/8897194/walsh-daily-bullet-points-11-18",
+      "link": "https://www.barchart.com/story/news/8905676/wheat-falls-with-outside-pressure-on-wednesday",
       "source": "18 Nov 2026 - Barchart Grain Market Wrap",
       "category": "cung_cau_nhan_dinh"
     },
     {
-      "title": "Lúa mì giảm giá vào sáng thứ Tư sau đợt tăng mạnh",
+      "title": "Ngô giảm giá do áp lực thị trường bên ngoài",
       "details": [
-        "Giá lúa mì giảm 1 đến 7½ cent trên cả ba thị trường.",
-        "Thị trường lúa mì tăng mạnh vào thứ Ba sau các sự kiện ở Biển Đen.",
-        "Hợp đồng lúa mì SRW Chicago tăng 8¼ đến 9½ cent vào thứ Ba."
+        "Giá ngô kỳ hạn giảm 4.5-11.25 cent.",
+        "Thiết lập mức thấp mới trong đợt giảm giá gần đây.",
+        "Chịu áp lực từ các thị trường bên ngoài."
       ],
-      "link": "https://www.barchart.com/story/news/8896026/wheat-falling-back-on-wednesday-morning",
+      "link": "https://www.barchart.com/story/news/8905655/corn-falls-to-outside-pressure-on-wednesday",
       "source": "18 Nov 2026 - Barchart Grain Market Wrap",
       "category": "cung_cau_nhan_dinh"
     },
     {
-      "title": "Giá ngô giảm nhẹ vào giữa tuần",
+      "title": "Thị trường ngũ cốc \"báo động đỏ\": Ngô, đậu tương, lúa mì phá vỡ ngưỡng kỹ thuật quan trọng",
       "details": [
-        "Giá ngô giảm 1 đến 2½ cent vào sáng thứ Tư.",
-        "Hợp đồng tháng 12 giảm 2 cent, các hợp đồng khác tăng nhẹ đến 2 cent vào thứ Ba.",
-        "Lãi suất mở giảm 70.790 hợp đồng trong tháng 12."
+        "Bức tranh kỹ thuật thị trường ngũ cốc xấu đi.",
+        "Xuất hiện tín hiệu EMA giảm giá trên cả ba thị trường (ngô, đậu tương, lúa mì).",
+        "Cần chú ý các mức kháng cự và mục tiêu giảm giá."
       ],
-      "link": "https://www.barchart.com/story/news/8896006/corn-slipping-to-start-midweek-trade",
+      "link": "https://www.barchart.com/story/news/8905062/grain-markets-flash-red-corn-soybeans-wheat-break-below-key-technical-levels",
       "source": "18 Nov 2026 - Barchart Grain Market Wrap",
       "category": "cung_cau_nhan_dinh"
     },
     {
-      "title": "Ukraine tiếp tục rà phá bom mìn trên đất nông nghiệp",
+      "title": "Giá ngô lao dốc khi lúa mì tiếp tục bán tháo trên thị trường ngũ cốc Mỹ",
       "details": [
-        "Công ty Nibulon tiếp tục nỗ lực rà phá bom mìn tại Ukraine.",
-        "Đã rà phá vật liệu nổ trên 40 hecta đất nông nghiệp.",
-        "Hoạt động này giúp khôi phục sản xuất nông nghiệp tại các khu vực bị ảnh hưởng bởi xung đột."
+        "Giá ngô giảm mạnh.",
+        "Làn sóng bán tháo lúa mì lan rộng trên các thị trường ngũ cốc Mỹ.",
+        "Cho thấy xu hướng giảm giá chung của thị trường."
       ],
-      "link": "https://www.world-grain.com/articles/23470-nibulon-demining-efforts-continue-in-ukraine",
-      "source": "18 Nov 2026 - World Grain",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Rabobank cảnh báo vấn đề nhiên liệu và phân bón sẽ kéo dài",
-      "details": [
-        "Chiến tranh tiếp tục ảnh hưởng đến nguồn cung và giá cả các yếu tố đầu vào nông nghiệp quan trọng.",
-        "Giá nhiên liệu và phân bón dự kiến vẫn ở mức cao.",
-        "Điều này có thể làm tăng chi phí sản xuất và ảnh hưởng đến lợi nhuận của nông dân."
-      ],
-      "link": "https://www.world-grain.com/articles/23468-rabobank-fuel-and-fertilizer-issues-to-persist",
-      "source": "18 Nov 2026 - World Grain",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOUG5FeHRYbGlnNUVfb0VUcDhBb1NleUUwYmtSMzJUY0w4ZVNYb1BMZHFaWXVtMzR1Qnh5SG1MRjV5Q0llOVM5aWdVWHNJVk5rMEQwZ0p1Mll2TW9HRUZDT0JlcVN1aHVLU2cyQXZxTFhLTlU2Sm5KaTlIVDFBUDZLY2s5YWVqRi1zbXRkZw?oc=5",
+      "source": "18 Nov 2026 - Google News (Supply)",
       "category": "cung_cau_nhan_dinh"
     },
     {
-      "title": "Nhu cầu nông sản Trung Quốc: Bí ẩn 17 tỷ USD",
+      "title": "Tấn công bằng máy bay không người lái ở Biển Đen đẩy giá lúa mì và phí bảo hiểm rủi ro vận chuyển tăng",
       "details": [
-        "Hợp đồng tương lai ngô, đậu tương và lúa mì giảm giá qua đêm.",
-        "Kỳ vọng cuộc gặp Trump-Tập sẽ ít tạo ra lợi ích cho nông nghiệp Mỹ.",
-        "Nhu cầu nông sản từ Trung Quốc vẫn là một ẩn số lớn."
-      ],
-      "link": "https://www.farmprogress.com/markets-and-quotes/morning-market-review",
-      "source": "18 Nov 2026 - Farm Progress",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Đội tàu sà lan cũ kỹ đe dọa chi phí xuất khẩu nông sản",
-      "details": [
-        "Báo cáo của Cobank cảnh báo đội tàu sà lan đang già đi và thu hẹp.",
-        "Nhu cầu xuất khẩu tăng có thể đẩy chi phí vận chuyển ngũ cốc đến Vịnh Mexico lên cao.",
-        "Điều này ảnh hưởng trực tiếp đến giá thành và khả năng cạnh tranh của nông sản Mỹ."
-      ],
-      "link": "https://www.farmprogress.com/tv-and-radio/aging-barge-fleet-threatens-farm-export-costs",
-      "source": "18 Nov 2026 - Farm Progress",
-      "category": "logistics"
-    },
-    {
-      "title": "Biển Đen: Tàu chìm và tắc nghẽn sông Danube làm gián đoạn dòng chảy ngũ cốc",
-      "details": [
-        "Các vụ tàu chìm và tắc nghẽn trên sông Danube gây gián đoạn nghiêm trọng cho dòng chảy ngũ cốc.",
-        "Chi phí vận chuyển hàng hóa tăng cao do rủi ro và khó khăn trong vận tải.",
-        "Tình hình này ảnh hưởng tiêu cực đến xuất khẩu ngũ cốc từ khu vực Biển Đen."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQUFc3UGdCQlVNQTQzc1FCc1ZCa0JhRmRsN19XV1dMLThoVjlvQ2RLTzhYU0FKM0w1eUdqU1pYVFVSRmNadVdidXNTaGFTN29nZnIwLUNQQVRJMGJLSExJcXJmRVdUVlpWcGtVNXRiTmo0Wk5ub1pwUGRtX190ZHhJRUM5WlZ4aWNILURXU2RqYmI2TTNOOExPWmVwcFVmeVl1Y2hVMjRXd1BQZDNsTFNwVFJBMFhWR2Iza3NYZg?oc=5",
-      "source": "18 Nov 2026 - Google News (Shipping)",
-      "category": "logistics"
-    },
-    {
-      "title": "Tấn công bằng drone ở Biển Đen đẩy giá lúa mì và phí bảo hiểm rủi ro chiến tranh tăng",
-      "details": [
-        "Vụ tấn công bằng drone vào tàu chở LPG ở Biển Đen làm tăng căng thẳng.",
-        "Giá lúa mì và phí bảo hiểm rủi ro chiến tranh cho vận tải biển tăng vọt.",
-        "Sự kiện này làm dấy lên lo ngại về an ninh hàng hải và nguồn cung ngũ cốc toàn cầu."
+        "Tàu chở khí hóa lỏng (LPG) bị tấn công bằng máy bay không người lái ở Biển Đen.",
+        "Kéo theo giá lúa mì tăng.",
+        "Phí bảo hiểm rủi ro chiến tranh cho vận chuyển hàng hóa cũng tăng."
       ],
       "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQTC0zcVhTbFRpTzRPb2ZYX055SkdaZ0pIVVYybGxBOFo3eDhxdDNrYm1TZjByWUI3SjhCSlJuZXlmZlhfX19rYkdOckhKWmpDeURCR0duNWZlRTlRdjhRUnBVSDVLMkhmS0lhbHpMRXptRzhRU3VCZFVxNmtSbmljUENyazNhb25BWVJob0x3RmhtNXJuWEliRENXdHFXY1NURUtVRUJtQno5NzJWdUotYklzZGliMFVEWXQ4ZkpFTmNncERPVnc?oc=5",
       "source": "18 Nov 2026 - Google News (Shipping)",
       "category": "dia_chinh_tri"
     },
     {
-      "title": "Lúa mì tăng giá mạnh vào thứ Ba sau các cuộc tấn công ở Biển Đen",
+      "title": "Sự cố chìm tàu ở Biển Đen và tắc nghẽn sông Danube làm gián đoạn dòng chảy ngũ cốc, tăng chi phí vận chuyển",
       "details": [
-        "Thị trường lúa mì tăng giá trên cả ba sàn giao dịch vào thứ Ba.",
-        "Các sự kiện ở Biển Đen trong đêm đã thúc đẩy đà tăng.",
-        "Hợp đồng lúa mì SRW Chicago tăng 8¼ đến 9½ cent, KC HRW tăng 12½ đến 15¼ cent."
+        "Các vụ chìm tàu ở Biển Đen và tắc nghẽn trên sông Danube.",
+        "Gây gián đoạn nghiêm trọng dòng chảy ngũ cốc.",
+        "Đẩy chi phí vận chuyển hàng hóa lên cao."
       ],
-      "link": "https://www.barchart.com/story/news/8885578/wheat-posts-tuesday-rally-following-black-sea-strikes",
-      "source": "17 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Ngũ cốc tăng giá nhờ chiến sự Biển Đen và Hội nghị APEC",
-      "details": [
-        "Các quỹ đầu tư mua vào ngũ cốc do lo ngại về chiến sự Biển Đen.",
-        "Hội nghị APEC cũng là yếu tố hỗ trợ giá.",
-        "Giá ngũ cốc tăng trong khi giá gia súc giảm."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOOXJwTXNBSC1ESlc3R0ZXT3l4RGN6V2dvTnVzMlIxbU5tNnU5V09NMXEwT0Yxb3RvREk0ellHU2dmSGwyOTJ1VFkxQjdmNTFfSnktOEVBNnl5cGJqakV6UjZHSTJ6ZXlGRl91ci04OTQ0TTBHd0lkRGF2WnNVY19RcmJDZzBJQldNVEZ4eVhULXFhYUZXdDhN?oc=5",
-      "source": "17 Nov 2026 - Google News (Geo)",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Nga tăng cường tấn công vận tải biển Biển Đen",
-      "details": [
-        "Nga tiếp tục gia tăng các cuộc tấn công vào hoạt động vận tải biển ở Biển Đen.",
-        "Điều này làm tăng rủi ro và chi phí cho các tàu chở hàng.",
-        "Gây lo ngại về khả năng xuất khẩu ngũ cốc từ khu vực."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPVXJnZDBBTllaYWhsbzRMSm1qT1N5UjVWMVptTUh5WWdNeUtzUDFLenItUUt2cHpvYlU3TDZBZGRnZ1JXWm1qbjZoS0hTN3Z5LTZpREMzU0h5NWZ4VDlBcXRuVVhCVWo1aXcxQS1xQkFkZDhPWFVicXc4TW9USEF0UHFVT21UbVhBQW5PejVwQU8?oc=5",
-      "source": "17 Nov 2026 - Google News (Geo)",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Hàng hóa Nga chuyển hướng sang Baltic và Viễn Đông sau tấn công drone",
-      "details": [
-        "Các cuộc tấn công bằng drone đã làm ngừng giao thông container ở phía Nam Nga.",
-        "Hàng hóa Nga đang chuyển hướng sang các cảng ở Baltic và Viễn Đông.",
-        "Điều này gây áp lực lên các tuyến đường vận tải thay thế và có thể ảnh hưởng đến dòng chảy hàng hóa."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOOUtqSHZpNzB1VnpuLVBiTHctUTM2S3JueXN1RThTNkR3bnJYbkFYbV8wYzdYMk13M2FnazAtcEgxVWh0MERzaWV6SUp1VjZnUDE1M3pEcTVtVk5YVnJNaHpSV3VrTm5FWUc2SUpVYWZRWVUyaktIeEtSZTVlOXBFY3lxcHZCSGo1UVVPWWRCM0l1c2lrc1lPRmFQRmxPNWFNQzV3aVlEcFN1alNRS2t1LW5yeHdOZ2NmM0xLYlpkTmVfRlVfb1pfZEh1TzF2dVFUd0pJZmVrZkpTWldL?oc=5",
-      "source": "17 Nov 2026 - Google News (Geo)",
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQUFc3UGdCQlVNQTQzc1FCc1ZCa0JhRmRsN19XV1dMLThoVjlvQ2RLTzhYU0FKM0w1eUdqU1pYVFVSRmNadVdidXNTaGFTN29nZnIwLUNQQVRJMGJLSExJcXJmRVdUVlpWcGtVNXRiTmo0Wk5ub1pwUGRtX190ZHhJRUM5WlZ4aWNILURXU2RqYmI2TTNOOExPWmVwcFVmeVl1Y2hVMjRXd1BQZDNsTFNwVFJBMFhWR2Iza3NYZg?oc=5",
+      "source": "18 Nov 2026 - Google News (Shipping)",
       "category": "logistics"
     },
     {
-      "title": "Thu hoạch ngô ở Iowa chậm hơn 11 điểm so với trung bình do sương giá",
+      "title": "Rabobank: Vấn đề nhiên liệu và phân bón sẽ tiếp diễn",
       "details": [
-        "Thu hoạch ngô ở Iowa đang chậm hơn 11 điểm phần trăm so với mức trung bình.",
-        "Sương giá đã kết thúc mùa vụ, ảnh hưởng đến tiến độ thu hoạch.",
-        "Điều này có thể ảnh hưởng đến tổng sản lượng và chất lượng ngô."
+        "Báo cáo của Rabobank nhận định.",
+        "Các cuộc xung đột đang ảnh hưởng đến nguồn cung và giá các yếu tố đầu vào nông nghiệp quan trọng.",
+        "Dự kiến các vấn đề này sẽ tiếp tục kéo dài."
+      ],
+      "link": "https://www.world-grain.com/articles/23468-rabobank-fuel-and-fertilizer-issues-to-persist",
+      "source": "18 Nov 2026 - World Grain",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Lúa mì tăng giá mạnh vào thứ Ba sau các cuộc tấn công ở Biển Đen",
+      "details": [
+        "Giá lúa mì SRW Chicago tăng 8.25-9.5 cent.",
+        "Giá lúa mì HRW Kansas City tăng 12.5-15.25 cent.",
+        "Phản ứng với các sự kiện ở Biển Đen trong đêm."
+      ],
+      "link": "https://www.barchart.com/story/news/8885578/wheat-posts-tuesday-rally-following-black-sea-strikes?.tsrc=rss",
+      "source": "17 Nov 2026 - Yahoo Finance",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Ngũ cốc tăng giá do quỹ mua vào giữa căng thẳng Biển Đen và Hội nghị APEC",
+      "details": [
+        "Giá ngũ cốc tăng mạnh.",
+        "Các quỹ đầu tư mua vào do lo ngại về chiến sự Biển Đen.",
+        "Hội nghị thượng đỉnh APEC cũng là một yếu tố ảnh hưởng."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOOXJwTXNBSC1ESlc3R0ZXT3l4RGN6V2dvTnVzMlIxbU5tNnU5V09NMXEwT0Yxb3RvREk0ellHU2dmSGwyOTJ1VFkxQjdmNTFfSnktOEVBNnl5cGJqakV6UjZHSTJ6ZXlGRl91ci04OTQ0TTBHd0lkRGF2WnNVY19RcmJDZzBJQldNVEZ4aVhULXFhYUZXdDhN?oc=5",
+      "source": "17 Nov 2026 - Google News (Geo)",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Thu hoạch ngô ở Iowa chậm 11 điểm so với trung bình do sương giá kết thúc mùa vụ",
+      "details": [
+        "Tiến độ thu hoạch ngô tại Iowa chậm hơn 11 điểm phần trăm so với mức trung bình.",
+        "Sương giá đã chấm dứt mùa vụ.",
+        "Có thể ảnh hưởng đến tổng sản lượng ngô."
       ],
       "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1FYzhzbnZwYzYzRWRpVzR1OWJMajNGR0xhandBU2JfY1dKZmVnUFZBYUhFUHJ4ZW81S3BOcjctT3FidjFrenpqSkUtbG5VRkpqbklIMk9JTWdMUTFVUEIyMXllN3FIUWdNbGJXUU1vRU43eUJTQ2NkNHlPaw?oc=5",
       "source": "17 Nov 2026 - Google News (Supply)",
       "category": "san_luong_dien_tich"
+    },
+    {
+      "title": "Lúa mì giảm giá do lạc quan về đàm phán ba bên mở cửa Biển Đen",
+      "details": [
+        "Giá lúa mì giảm.",
+        "Thị trường lạc quan về khả năng đàm phán ba bên sẽ giải phóng tuyến đường vận chuyển ở Biển Đen.",
+        "Cho thấy kỳ vọng giảm căng thẳng địa chính trị."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPelFYbGZob1hJMXFjS2pkSk5namd5YW5WX3ZxcXk0MWJGZFd3WmJOVWRVM1FDMGdFZ29obzhuQm9QYXViaVM3Z1JSak45aE5Fd21fZ2RmXzJyVmNPNmpCbTEzV0x1Q0dCS1J3cEpyNkdkcmplczZjd2J2NS1Xbll3Y3lGNDVuVk9CVjFBU3dVZnJoRkRwd0M3cFMzeVYteEozcmlscjVtSV9iMmF6cjh1aUZ5dDU?oc=5",
+      "source": "16 Nov 2026 - Google News (Geo)",
+      "category": "dia_chinh_tri"
     }
   ],
   "intraday": {
     "ZW": {
-      "bias": "Neutral",
-      "bias_vn": "Đi Ngang",
-      "summary": "Chưa đủ dữ liệu để nhận định intraday ZW",
+      "bias": "Bullish",
+      "bias_vn": "Tăng",
+      "summary": "Lúa mì tăng mạnh intraday do lo ngại nguồn cung Biển Đen, bất chấp áp lực bán tháo trước đó.",
       "key_levels": {
-        "support": "N/A",
-        "resistance": "N/A"
+        "support": "580.0",
+        "resistance": "600.0"
       },
       "reasoning": [
-        "Đang chờ cập nhật dữ liệu"
+        "Thời tiết US Plains/Nam Mỹ/Úc là VUA, cần theo dõi sát diễn biến mưa/khô.",
+        "Lo ngại nguồn cung toàn cầu do Biển Đen, bất chấp áp lực bán tháo.",
+        "Smart Money tiếp tục NHOI SHORT (Q3), tạo áp lực giảm dài hạn.",
+        "Tấn công Biển Đen, tắc nghẽn sông Danube đẩy giá và phí vận chuyển.",
+        "Phá vỡ ngưỡng kỹ thuật nhưng đang hồi phục mạnh mẽ intraday."
       ],
-      "risk": "N/A",
-      "generated_at": "2026-11-18 21:28"
+      "risk": "Biến động địa chính trị Biển Đen và áp lực bán tháo từ Smart Money.",
+      "generated_at": "2026-11-19 19:50"
     },
     "ZC": {
-      "bias": "Neutral",
-      "bias_vn": "Đi Ngang",
-      "summary": "Chưa đủ dữ liệu để nhận định intraday ZC",
+      "bias": "Bullish",
+      "bias_vn": "Tăng",
+      "summary": "Ngô tăng mạnh intraday, hưởng lợi từ lo ngại nguồn cung Biển Đen, bất chấp áp lực bán trước đó.",
       "key_levels": {
-        "support": "N/A",
-        "resistance": "N/A"
+        "support": "440.0",
+        "resistance": "455.0"
       },
       "reasoning": [
-        "Đang chờ cập nhật dữ liệu"
+        "Thời tiết Corn Belt/Nam Mỹ/Úc là VUA, cần theo dõi sát diễn biến.",
+        "Lo ngại gián đoạn nguồn cung ngũ cốc từ Biển Đen hỗ trợ giá.",
+        "Smart Money tiếp tục NHOI SHORT (Q3), tạo áp lực giảm dài hạn.",
+        "Sự cố Biển Đen và sông Danube làm tăng chi phí vận chuyển ngũ cốc.",
+        "Phá vỡ ngưỡng kỹ thuật nhưng đang hồi phục mạnh mẽ intraday."
       ],
-      "risk": "N/A",
-      "generated_at": "2026-11-18 21:28"
+      "risk": "Áp lực bán từ Smart Money và diễn biến thời tiết Nam Mỹ.",
+      "generated_at": "2026-11-19 19:50"
     },
-    "bias": "Neutral",
-    "bias_vn": "Đi Ngang",
-    "summary": "Chưa đủ dữ liệu để nhận định",
+    "bias": "Bullish",
+    "bias_vn": "Tăng",
+    "summary": "Lúa mì tăng mạnh intraday do lo ngại nguồn cung Biển Đen, bất chấp áp lực bán tháo trước đó.",
     "key_levels": {
-      "support": "N/A",
-      "resistance": "N/A"
+      "support": "580.0",
+      "resistance": "600.0"
     },
     "reasoning": [
-      "Đang chờ cập nhật dữ liệu"
+      "Thời tiết US Plains/Nam Mỹ/Úc là VUA, cần theo dõi sát diễn biến mưa/khô.",
+      "Lo ngại nguồn cung toàn cầu do Biển Đen, bất chấp áp lực bán tháo.",
+      "Smart Money tiếp tục NHOI SHORT (Q3), tạo áp lực giảm dài hạn.",
+      "Tấn công Biển Đen, tắc nghẽn sông Danube đẩy giá và phí vận chuyển.",
+      "Phá vỡ ngưỡng kỹ thuật nhưng đang hồi phục mạnh mẽ intraday."
     ],
-    "risk": "N/A",
-    "generated_at": "2026-11-18 21:28"
+    "risk": "Biến động địa chính trị Biển Đen và áp lực bán tháo từ Smart Money.",
+    "generated_at": "2026-11-19 19:50"
   },
   "categories": [
     "dia_chinh_tri",
