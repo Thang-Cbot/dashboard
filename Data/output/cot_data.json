@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-17 06:33:37",
+  "fetched_at": "2026-11-19 20:30:52",
   "source": "CFTC ZIP (Disaggregated Futures Only) + Rolling Beta 13W",
   "commodities": {
     "002602": {
@@ -26,11 +26,11 @@
       ],
       "rolling_beta_13w": 2296.4,
       "cutoff_price_tue": 449.0,
-      "latest_price": 448.75,
-      "latest_price_date": "2026-11-16",
-      "price_lag_change": -0.25,
-      "estimated_extra_contracts": -574.0,
-      "net_estimated": -23202.0,
+      "latest_price": 435.75,
+      "latest_price_date": "2026-11-19",
+      "price_lag_change": -13.25,
+      "estimated_extra_contracts": -30427.0,
+      "net_estimated": -53055.0,
       "quadrant_estimated": "Q3 (DO DAM) - NHOI SHORT",
       "action_estimated": "Uu tien SHORT thuan xu huong.",
       "history": [
@@ -139,7 +139,7 @@
           "price_date": "2026-11-10"
         }
       ],
-      "fetched_at": "2026-11-17 06:33:40"
+      "fetched_at": "2026-11-19 20:30:56"
     },
     "001602": {
       "commodity": "ZW",
@@ -163,13 +163,13 @@
         "COT vẫn NET SHORT nhưng phe Bán đang giảm bớt bán khống.",
         "Long tăng, Short giảm: gom Long + đóng Short, dòng tiền Smart Money tích cực."
       ],
-      "rolling_beta_13w": 302.03,
-      "cutoff_price_tue": 592.75,
-      "latest_price": 587.0,
-      "latest_price_date": "2026-11-16",
-      "price_lag_change": -5.75,
-      "estimated_extra_contracts": -1737.0,
-      "net_estimated": -82787.0,
+      "rolling_beta_13w": 239.65,
+      "cutoff_price_tue": 605.25,
+      "latest_price": 591.0,
+      "latest_price_date": "2026-11-19",
+      "price_lag_change": -14.25,
+      "estimated_extra_contracts": -3415.0,
+      "net_estimated": -84465.0,
       "quadrant_estimated": "Q3 (DO DAM) - NHOI SHORT",
       "action_estimated": "Uu tien SHORT thuan xu huong.",
       "history": [
@@ -178,7 +178,7 @@
           "net_position": -25328.0,
           "long": 78911.0,
           "short": 104239.0,
-          "price_close_tue": 681.25,
+          "price_close_tue": 699.0,
           "price_date": "2026-08-18"
         },
         {
@@ -186,7 +186,7 @@
           "net_position": -13597.0,
           "long": 87501.0,
           "short": 101098.0,
-          "price_close_tue": 703.25,
+          "price_close_tue": 721.25,
           "price_date": "2026-08-25"
         },
         {
@@ -194,7 +194,7 @@
           "net_position": 14904.0,
           "long": 109614.0,
           "short": 94710.0,
-          "price_close_tue": 782.5,
+          "price_close_tue": 797.5,
           "price_date": "2026-09-01"
         },
         {
@@ -202,7 +202,7 @@
           "net_position": 4873.0,
           "long": 100506.0,
           "short": 95633.0,
-          "price_close_tue": 747.0,
+          "price_close_tue": 761.5,
           "price_date": "2026-09-08"
         },
         {
@@ -210,7 +210,7 @@
           "net_position": -3674.0,
           "long": 95798.0,
           "short": 99472.0,
-          "price_close_tue": 728.5,
+          "price_close_tue": 744.5,
           "price_date": "2026-09-15"
         },
         {
@@ -218,7 +218,7 @@
           "net_position": -12016.0,
           "long": 88801.0,
           "short": 100817.0,
-          "price_close_tue": 717.25,
+          "price_close_tue": 733.25,
           "price_date": "2026-09-22"
         },
         {
@@ -226,7 +226,7 @@
           "net_position": -22109.0,
           "long": 82747.0,
           "short": 104856.0,
-          "price_close_tue": 692.75,
+          "price_close_tue": 707.0,
           "price_date": "2026-09-29"
         },
         {
@@ -234,7 +234,7 @@
           "net_position": -28830.0,
           "long": 86954.0,
           "short": 115784.0,
-          "price_close_tue": 704.25,
+          "price_close_tue": 717.5,
           "price_date": "2026-10-06"
         },
         {
@@ -242,7 +242,7 @@
           "net_position": -32555.0,
           "long": 89109.0,
           "short": 121664.0,
-          "price_close_tue": 669.25,
+          "price_close_tue": 683.25,
           "price_date": "2026-10-13"
         },
         {
@@ -250,7 +250,7 @@
           "net_position": -52005.0,
           "long": 88258.0,
           "short": 140263.0,
-          "price_close_tue": 643.25,
+          "price_close_tue": 658.5,
           "price_date": "2026-10-20"
         },
         {
@@ -258,7 +258,7 @@
           "net_position": -74606.0,
           "long": 79627.0,
           "short": 154233.0,
-          "price_close_tue": 610.25,
+          "price_close_tue": 623.0,
           "price_date": "2026-10-27"
         },
         {
@@ -266,7 +266,7 @@
           "net_position": -87126.0,
           "long": 78779.0,
           "short": 165905.0,
-          "price_close_tue": 599.75,
+          "price_close_tue": 610.75,
           "price_date": "2026-11-03"
         },
         {
@@ -274,11 +274,11 @@
           "net_position": -81050.0,
           "long": 83411.0,
           "short": 164461.0,
-          "price_close_tue": 592.75,
+          "price_close_tue": 605.25,
           "price_date": "2026-11-10"
         }
       ],
-      "fetched_at": "2026-11-17 06:33:40"
+      "fetched_at": "2026-11-19 20:30:56"
     }
   }
 }
