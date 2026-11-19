@@ -1,181 +1,59 @@
 {
-  "timestamp": "2026-11-19 19:50:45",
-  "news": [
-    {
-      "title": "Lúa mì giảm mạnh do áp lực thị trường bên ngoài",
-      "details": [
-        "Giá lúa mì SRW Chicago giảm 11-25.5 cent.",
-        "Giá lúa mì HRW Kansas City giảm 14.25-23.75 cent.",
-        "Thị trường chịu áp lực từ các yếu tố bên ngoài."
-      ],
-      "link": "https://www.barchart.com/story/news/8905676/wheat-falls-with-outside-pressure-on-wednesday",
-      "source": "18 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Ngô giảm giá do áp lực thị trường bên ngoài",
-      "details": [
-        "Giá ngô kỳ hạn giảm 4.5-11.25 cent.",
-        "Thiết lập mức thấp mới trong đợt giảm giá gần đây.",
-        "Chịu áp lực từ các thị trường bên ngoài."
-      ],
-      "link": "https://www.barchart.com/story/news/8905655/corn-falls-to-outside-pressure-on-wednesday",
-      "source": "18 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Thị trường ngũ cốc \"báo động đỏ\": Ngô, đậu tương, lúa mì phá vỡ ngưỡng kỹ thuật quan trọng",
-      "details": [
-        "Bức tranh kỹ thuật thị trường ngũ cốc xấu đi.",
-        "Xuất hiện tín hiệu EMA giảm giá trên cả ba thị trường (ngô, đậu tương, lúa mì).",
-        "Cần chú ý các mức kháng cự và mục tiêu giảm giá."
-      ],
-      "link": "https://www.barchart.com/story/news/8905062/grain-markets-flash-red-corn-soybeans-wheat-break-below-key-technical-levels",
-      "source": "18 Nov 2026 - Barchart Grain Market Wrap",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Giá ngô lao dốc khi lúa mì tiếp tục bán tháo trên thị trường ngũ cốc Mỹ",
-      "details": [
-        "Giá ngô giảm mạnh.",
-        "Làn sóng bán tháo lúa mì lan rộng trên các thị trường ngũ cốc Mỹ.",
-        "Cho thấy xu hướng giảm giá chung của thị trường."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOUG5FeHRYbGlnNUVfb0VUcDhBb1NleUUwYmtSMzJUY0w4ZVNYb1BMZHFaWXVtMzR1Qnh5SG1MRjV5Q0llOVM5aWdVWHNJVk5rMEQwZ0p1Mll2TW9HRUZDT0JlcVN1aHVLU2cyQXZxTFhLTlU2Sm5KaTlIVDFBUDZLY2s5YWVqRi1zbXRkZw?oc=5",
-      "source": "18 Nov 2026 - Google News (Supply)",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Tấn công bằng máy bay không người lái ở Biển Đen đẩy giá lúa mì và phí bảo hiểm rủi ro vận chuyển tăng",
-      "details": [
-        "Tàu chở khí hóa lỏng (LPG) bị tấn công bằng máy bay không người lái ở Biển Đen.",
-        "Kéo theo giá lúa mì tăng.",
-        "Phí bảo hiểm rủi ro chiến tranh cho vận chuyển hàng hóa cũng tăng."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQTC0zcVhTbFRpTzRPb2ZYX055SkdaZ0pIVVYybGxBOFo3eDhxdDNrYm1TZjByWUI3SjhCSlJuZXlmZlhfX19rYkdOckhKWmpDeURCR0duNWZlRTlRdjhRUnBVSDVLMkhmS0lhbHpMRXptRzhRU3VCZFVxNmtSbmljUENyazNhb25BWVJob0x3RmhtNXJuWEliRENXdHFXY1NURUtVRUJtQno5NzJWdUotYklzZGliMFVEWXQ4ZkpFTmNncERPVnc?oc=5",
-      "source": "18 Nov 2026 - Google News (Shipping)",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Sự cố chìm tàu ở Biển Đen và tắc nghẽn sông Danube làm gián đoạn dòng chảy ngũ cốc, tăng chi phí vận chuyển",
-      "details": [
-        "Các vụ chìm tàu ở Biển Đen và tắc nghẽn trên sông Danube.",
-        "Gây gián đoạn nghiêm trọng dòng chảy ngũ cốc.",
-        "Đẩy chi phí vận chuyển hàng hóa lên cao."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQUFc3UGdCQlVNQTQzc1FCc1ZCa0JhRmRsN19XV1dMLThoVjlvQ2RLTzhYU0FKM0w1eUdqU1pYVFVSRmNadVdidXNTaGFTN29nZnIwLUNQQVRJMGJLSExJcXJmRVdUVlpWcGtVNXRiTmo0Wk5ub1pwUGRtX190ZHhJRUM5WlZ4aWNILURXU2RqYmI2TTNOOExPWmVwcFVmeVl1Y2hVMjRXd1BQZDNsTFNwVFJBMFhWR2Iza3NYZg?oc=5",
-      "source": "18 Nov 2026 - Google News (Shipping)",
-      "category": "logistics"
-    },
-    {
-      "title": "Rabobank: Vấn đề nhiên liệu và phân bón sẽ tiếp diễn",
-      "details": [
-        "Báo cáo của Rabobank nhận định.",
-        "Các cuộc xung đột đang ảnh hưởng đến nguồn cung và giá các yếu tố đầu vào nông nghiệp quan trọng.",
-        "Dự kiến các vấn đề này sẽ tiếp tục kéo dài."
-      ],
-      "link": "https://www.world-grain.com/articles/23468-rabobank-fuel-and-fertilizer-issues-to-persist",
-      "source": "18 Nov 2026 - World Grain",
-      "category": "cung_cau_nhan_dinh"
-    },
-    {
-      "title": "Lúa mì tăng giá mạnh vào thứ Ba sau các cuộc tấn công ở Biển Đen",
-      "details": [
-        "Giá lúa mì SRW Chicago tăng 8.25-9.5 cent.",
-        "Giá lúa mì HRW Kansas City tăng 12.5-15.25 cent.",
-        "Phản ứng với các sự kiện ở Biển Đen trong đêm."
-      ],
-      "link": "https://www.barchart.com/story/news/8885578/wheat-posts-tuesday-rally-following-black-sea-strikes?.tsrc=rss",
-      "source": "17 Nov 2026 - Yahoo Finance",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Ngũ cốc tăng giá do quỹ mua vào giữa căng thẳng Biển Đen và Hội nghị APEC",
-      "details": [
-        "Giá ngũ cốc tăng mạnh.",
-        "Các quỹ đầu tư mua vào do lo ngại về chiến sự Biển Đen.",
-        "Hội nghị thượng đỉnh APEC cũng là một yếu tố ảnh hưởng."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOOXJwTXNBSC1ESlc3R0ZXT3l4RGN6V2dvTnVzMlIxbU5tNnU5V09NMXEwT0Yxb3RvREk0ellHU2dmSGwyOTJ1VFkxQjdmNTFfSnktOEVBNnl5cGJqakV6UjZHSTJ6ZXlGRl91ci04OTQ0TTBHd0lkRGF2WnNVY19RcmJDZzBJQldNVEZ4aVhULXFhYUZXdDhN?oc=5",
-      "source": "17 Nov 2026 - Google News (Geo)",
-      "category": "dia_chinh_tri"
-    },
-    {
-      "title": "Thu hoạch ngô ở Iowa chậm 11 điểm so với trung bình do sương giá kết thúc mùa vụ",
-      "details": [
-        "Tiến độ thu hoạch ngô tại Iowa chậm hơn 11 điểm phần trăm so với mức trung bình.",
-        "Sương giá đã chấm dứt mùa vụ.",
-        "Có thể ảnh hưởng đến tổng sản lượng ngô."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1FYzhzbnZwYzYzRWRpVzR1OWJMajNGR0xhandBU2JfY1dKZmVnUFZBYUhFUHJ4ZW81S3BOcjctT3FidjFrenpqSkUtbG5VRkpqbklIMk9JTWdMUTFVUEIyMXllN3FIUWdNbGJXUU1vRU43eUJTQ2NkNHlPaw?oc=5",
-      "source": "17 Nov 2026 - Google News (Supply)",
-      "category": "san_luong_dien_tich"
-    },
-    {
-      "title": "Lúa mì giảm giá do lạc quan về đàm phán ba bên mở cửa Biển Đen",
-      "details": [
-        "Giá lúa mì giảm.",
-        "Thị trường lạc quan về khả năng đàm phán ba bên sẽ giải phóng tuyến đường vận chuyển ở Biển Đen.",
-        "Cho thấy kỳ vọng giảm căng thẳng địa chính trị."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPelFYbGZob1hJMXFjS2pkSk5namd5YW5WX3ZxcXk0MWJGZFd3WmJOVWRVM1FDMGdFZ29obzhuQm9QYXViaVM3Z1JSak45aE5Fd21fZ2RmXzJyVmNPNmpCbTEzV0x1Q0dCS1J3cEpyNkdkcmplczZjd2J2NS1Xbll3Y3lGNDVuVk9CVjFBU3dVZnJoRkRwd0M3cFMzeVYteEozcmlscjVtSV9iMmF6cjh1aUZ5dDU?oc=5",
-      "source": "16 Nov 2026 - Google News (Geo)",
-      "category": "dia_chinh_tri"
-    }
-  ],
+  "timestamp": "2026-11-19 20:00:40",
+  "news": [],
   "intraday": {
     "ZW": {
       "bias": "Bullish",
       "bias_vn": "Tăng",
-      "summary": "Lúa mì tăng mạnh intraday do lo ngại nguồn cung Biển Đen, bất chấp áp lực bán tháo trước đó.",
+      "summary": "Lúa mì tăng mạnh do lo ngại thời tiết và vị thế short lớn, đẩy giá lên cao trong phiên hôm nay.",
       "key_levels": {
-        "support": "580.0",
-        "resistance": "600.0"
+        "support": "588.0",
+        "resistance": "595.0"
       },
       "reasoning": [
-        "Thời tiết US Plains/Nam Mỹ/Úc là VUA, cần theo dõi sát diễn biến mưa/khô.",
-        "Lo ngại nguồn cung toàn cầu do Biển Đen, bất chấp áp lực bán tháo.",
-        "Smart Money tiếp tục NHOI SHORT (Q3), tạo áp lực giảm dài hạn.",
-        "Tấn công Biển Đen, tắc nghẽn sông Danube đẩy giá và phí vận chuyển.",
-        "Phá vỡ ngưỡng kỹ thuật nhưng đang hồi phục mạnh mẽ intraday."
+        "Lo ngại thời tiết bất lợi tại các vùng trồng chính thúc đẩy giá tăng mạnh.",
+        "Nhu cầu mạnh hoặc dự báo nguồn cung thắt chặt hơn từ các báo cáo.",
+        "Vị thế short lớn của Smart Money có thể gây ra hiện tượng short squeeze.",
+        "Tác động từ Biển Đen đã bão hòa, ít ảnh hưởng mới đến thị trường.",
+        "Giá tăng mạnh, vượt các ngưỡng kháng cự quan trọng, cho thấy đà tăng."
       ],
-      "risk": "Biến động địa chính trị Biển Đen và áp lực bán tháo từ Smart Money.",
-      "generated_at": "2026-11-19 19:50"
+      "risk": "Rủi ro chính là bất ngờ về dự báo thời tiết cải thiện hoặc áp lực bán từ Smart Money.",
+      "generated_at": "2026-11-19 20:00"
     },
     "ZC": {
       "bias": "Bullish",
       "bias_vn": "Tăng",
-      "summary": "Ngô tăng mạnh intraday, hưởng lợi từ lo ngại nguồn cung Biển Đen, bất chấp áp lực bán trước đó.",
+      "summary": "Ngô tăng mạnh do lo ngại thời tiết và lực mua kỹ thuật, bất chấp vị thế short của Smart Money.",
       "key_levels": {
-        "support": "440.0",
-        "resistance": "455.0"
+        "support": "447.0",
+        "resistance": "452.0"
       },
       "reasoning": [
-        "Thời tiết Corn Belt/Nam Mỹ/Úc là VUA, cần theo dõi sát diễn biến.",
-        "Lo ngại gián đoạn nguồn cung ngũ cốc từ Biển Đen hỗ trợ giá.",
-        "Smart Money tiếp tục NHOI SHORT (Q3), tạo áp lực giảm dài hạn.",
-        "Sự cố Biển Đen và sông Danube làm tăng chi phí vận chuyển ngũ cốc.",
-        "Phá vỡ ngưỡng kỹ thuật nhưng đang hồi phục mạnh mẽ intraday."
+        "Lo ngại thời tiết tại Corn Belt/Nam Mỹ hỗ trợ giá, tạo premium rủi ro.",
+        "Nhu cầu ethanol tăng (do dầu Brent cao) và triển vọng cung cầu cân bằng hơn.",
+        "Vị thế short của Smart Money có thể bị ép đóng, hỗ trợ đà tăng giá.",
+        "Tình hình vận chuyển và xuất khẩu ổn định, ít biến động địa chính trị mới.",
+        "Đà tăng mạnh cho thấy xu hướng tích cực trong ngắn hạn, vượt kháng cự."
       ],
-      "risk": "Áp lực bán từ Smart Money và diễn biến thời tiết Nam Mỹ.",
-      "generated_at": "2026-11-19 19:50"
+      "risk": "Rủi ro chính là cải thiện bất ngờ về thời tiết hoặc báo cáo cung cầu mới từ USDA.",
+      "generated_at": "2026-11-19 20:00"
     },
     "bias": "Bullish",
     "bias_vn": "Tăng",
-    "summary": "Lúa mì tăng mạnh intraday do lo ngại nguồn cung Biển Đen, bất chấp áp lực bán tháo trước đó.",
+    "summary": "Lúa mì tăng mạnh do lo ngại thời tiết và vị thế short lớn, đẩy giá lên cao trong phiên hôm nay.",
     "key_levels": {
-      "support": "580.0",
-      "resistance": "600.0"
+      "support": "588.0",
+      "resistance": "595.0"
     },
     "reasoning": [
-      "Thời tiết US Plains/Nam Mỹ/Úc là VUA, cần theo dõi sát diễn biến mưa/khô.",
-      "Lo ngại nguồn cung toàn cầu do Biển Đen, bất chấp áp lực bán tháo.",
-      "Smart Money tiếp tục NHOI SHORT (Q3), tạo áp lực giảm dài hạn.",
-      "Tấn công Biển Đen, tắc nghẽn sông Danube đẩy giá và phí vận chuyển.",
-      "Phá vỡ ngưỡng kỹ thuật nhưng đang hồi phục mạnh mẽ intraday."
+      "Lo ngại thời tiết bất lợi tại các vùng trồng chính thúc đẩy giá tăng mạnh.",
+      "Nhu cầu mạnh hoặc dự báo nguồn cung thắt chặt hơn từ các báo cáo.",
+      "Vị thế short lớn của Smart Money có thể gây ra hiện tượng short squeeze.",
+      "Tác động từ Biển Đen đã bão hòa, ít ảnh hưởng mới đến thị trường.",
+      "Giá tăng mạnh, vượt các ngưỡng kháng cự quan trọng, cho thấy đà tăng."
     ],
-    "risk": "Biến động địa chính trị Biển Đen và áp lực bán tháo từ Smart Money.",
-    "generated_at": "2026-11-19 19:50"
+    "risk": "Rủi ro chính là bất ngờ về dự báo thời tiết cải thiện hoặc áp lực bán từ Smart Money.",
+    "generated_at": "2026-11-19 20:00"
   },
   "categories": [
     "dia_chinh_tri",
