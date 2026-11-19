@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-18 15:50:02",
+  "fetched_at": "2026-11-19 07:22:13",
   "source": "Open-Meteo API",
   "regions": {
     "US_Wheat_Kansas": {
@@ -7,22 +7,22 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 17.0,
+          "max_temp_C": 17.6,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 18.3,
+          "max_temp_C": 18.8,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 18.7,
+          "max_temp_C": 19.4,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 18.7,
+      "max_temp_C": 19.4,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "US_Wheat_Montana": {
@@ -35,40 +35,40 @@
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 1.5,
+          "max_temp_C": 2.6,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 0.9,
-          "precip_mm": 0.8
+          "max_temp_C": 0.2,
+          "precip_mm": 2.8
         }
       ],
-      "total_3d_rain_mm": 1.5,
-      "max_temp_C": 1.5,
-      "risk_assessment": "Binh thuong (Mild/Normal)"
+      "total_3d_rain_mm": 3.5,
+      "max_temp_C": 2.6,
+      "risk_assessment": "Thuan loi (Favorable)"
     },
     "US_Wheat_Washington": {
       "desc": "Lúa mì SW",
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 6.6,
-          "precip_mm": 4.4
+          "max_temp_C": 4.5,
+          "precip_mm": 1.1
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 5.5,
-          "precip_mm": 6.6
+          "max_temp_C": 4.9,
+          "precip_mm": 2.8
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 8.2,
+          "max_temp_C": 7.3,
           "precip_mm": 0.0
         }
       ],
-      "total_3d_rain_mm": 11.0,
-      "max_temp_C": 8.2,
+      "total_3d_rain_mm": 3.9,
+      "max_temp_C": 7.3,
       "risk_assessment": "Thuan loi (Favorable)"
     },
     "US_Wheat_Oklahoma": {
@@ -76,7 +76,53 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 16.6,
+          "max_temp_C": 19.2,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-11-19",
+          "max_temp_C": 18.9,
+          "precip_mm": 0.0
+        },
+        {
+          "date": "2026-11-20",
+          "max_temp_C": 20.4,
+          "precip_mm": 0.0
+        }
+      ],
+      "total_3d_rain_mm": 0.0,
+      "max_temp_C": 20.4,
+      "risk_assessment": "Binh thuong (Mild/Normal)"
+    },
+    "US_Wheat_NorthDakota": {
+      "desc": "Durum+Spring Wheat",
+      "forecast": [
+        {
+          "date": "2026-11-18",
+          "max_temp_C": 7.6,
+          "precip_mm": 1.2
+        },
+        {
+          "date": "2026-11-19",
+          "max_temp_C": 5.1,
+          "precip_mm": 1.9
+        },
+        {
+          "date": "2026-11-20",
+          "max_temp_C": 7.9,
+          "precip_mm": 0.0
+        }
+      ],
+      "total_3d_rain_mm": 3.1,
+      "max_temp_C": 7.9,
+      "risk_assessment": "Thuan loi (Favorable)"
+    },
+    "US_Wheat_Texas": {
+      "desc": "Lúa mì HRW South Plains",
+      "forecast": [
+        {
+          "date": "2026-11-18",
+          "max_temp_C": 19.7,
           "precip_mm": 0.0
         },
         {
@@ -86,58 +132,12 @@
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 20.3,
+          "max_temp_C": 21.7,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 20.3,
-      "risk_assessment": "Binh thuong (Mild/Normal)"
-    },
-    "US_Wheat_NorthDakota": {
-      "desc": "Durum+Spring Wheat",
-      "forecast": [
-        {
-          "date": "2026-11-18",
-          "max_temp_C": 8.4,
-          "precip_mm": 0.8
-        },
-        {
-          "date": "2026-11-19",
-          "max_temp_C": 5.1,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-11-20",
-          "max_temp_C": 7.6,
-          "precip_mm": 1.0
-        }
-      ],
-      "total_3d_rain_mm": 1.8,
-      "max_temp_C": 8.4,
-      "risk_assessment": "Binh thuong (Mild/Normal)"
-    },
-    "US_Wheat_Texas": {
-      "desc": "Lúa mì HRW South Plains",
-      "forecast": [
-        {
-          "date": "2026-11-18",
-          "max_temp_C": 17.3,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-11-19",
-          "max_temp_C": 18.0,
-          "precip_mm": 0.0
-        },
-        {
-          "date": "2026-11-20",
-          "max_temp_C": 22.0,
-          "precip_mm": 0.0
-        }
-      ],
-      "total_3d_rain_mm": 0.0,
-      "max_temp_C": 22.0,
+      "max_temp_C": 21.7,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "US_Wheat_SouthDakota": {
@@ -145,22 +145,22 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 15.1,
+          "max_temp_C": 14.4,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 8.3,
+          "max_temp_C": 8.8,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 16.7,
+          "max_temp_C": 15.2,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 16.7,
+      "max_temp_C": 15.2,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "US_Wheat_Colorado": {
@@ -168,22 +168,22 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 3.1,
+          "max_temp_C": 4.0,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 6.0,
+          "max_temp_C": 6.9,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 4.3,
+          "max_temp_C": 4.2,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 6.0,
+      "max_temp_C": 6.9,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "US_Wheat_Idaho": {
@@ -191,22 +191,22 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": -2.4,
+          "max_temp_C": -2.9,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": -1.5,
-          "precip_mm": 14.48
+          "max_temp_C": -1.2,
+          "precip_mm": 2.7
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": -1.0,
-          "precip_mm": 0.9
+          "max_temp_C": -0.6,
+          "precip_mm": 2.13
         }
       ],
-      "total_3d_rain_mm": 15.4,
-      "max_temp_C": -1.0,
+      "total_3d_rain_mm": 4.8,
+      "max_temp_C": -0.6,
       "risk_assessment": "Thuan loi (Favorable)"
     },
     "US_Corn_Iowa": {
@@ -214,12 +214,12 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 16.1,
+          "max_temp_C": 16.9,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 17.4,
+          "max_temp_C": 19.2,
           "precip_mm": 0.0
         },
         {
@@ -229,7 +229,7 @@
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 19.1,
+      "max_temp_C": 19.2,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "US_Corn_Illinois": {
@@ -237,22 +237,22 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 16.3,
+          "max_temp_C": 17.5,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 19.4,
+          "max_temp_C": 19.9,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 19.1,
+          "max_temp_C": 19.9,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 19.4,
+      "max_temp_C": 19.9,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "US_Corn_Nebraska": {
@@ -260,35 +260,35 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 14.7,
+          "max_temp_C": 15.7,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 15.4,
+          "max_temp_C": 15.8,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 18.6,
-          "precip_mm": 1.4
+          "max_temp_C": 18.5,
+          "precip_mm": 3.0
         }
       ],
-      "total_3d_rain_mm": 1.4,
-      "max_temp_C": 18.6,
-      "risk_assessment": "Binh thuong (Mild/Normal)"
+      "total_3d_rain_mm": 3.0,
+      "max_temp_C": 18.5,
+      "risk_assessment": "Thuan loi (Favorable)"
     },
     "US_Corn_Minnesota": {
       "desc": "Ngô, Đậu tương",
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 15.8,
+          "max_temp_C": 15.3,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 11.9,
+          "max_temp_C": 11.6,
           "precip_mm": 0.0
         },
         {
@@ -306,12 +306,12 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 15.8,
+          "max_temp_C": 17.9,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 18.0,
+          "max_temp_C": 18.5,
           "precip_mm": 0.0
         },
         {
@@ -321,7 +321,7 @@
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 18.0,
+      "max_temp_C": 18.5,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "US_Corn_Ohio": {
@@ -329,12 +329,12 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 12.8,
+          "max_temp_C": 15.8,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 14.5,
+          "max_temp_C": 15.1,
           "precip_mm": 0.0
         },
         {
@@ -352,22 +352,22 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 14.5,
+          "max_temp_C": 14.4,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 13.7,
+          "max_temp_C": 14.6,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 16.4,
+          "max_temp_C": 16.5,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 16.4,
+      "max_temp_C": 16.5,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "US_Corn_Missouri": {
@@ -375,7 +375,7 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 18.6,
+          "max_temp_C": 19.7,
           "precip_mm": 0.0
         },
         {
@@ -385,12 +385,12 @@
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 20.9,
+          "max_temp_C": 21.9,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 20.9,
+      "max_temp_C": 21.9,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "US_Corn_Michigan": {
@@ -398,22 +398,22 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 13.2,
+          "max_temp_C": 14.4,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 15.4,
+          "max_temp_C": 15.5,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 15.4,
+          "max_temp_C": 14.8,
           "precip_mm": 0.0
         }
       ],
       "total_3d_rain_mm": 0.0,
-      "max_temp_C": 15.4,
+      "max_temp_C": 15.5,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "Brazil_MatoGrosso": {
@@ -421,22 +421,22 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 30.8,
-          "precip_mm": 6.6
+          "max_temp_C": 30.4,
+          "precip_mm": 3.3
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 31.5,
-          "precip_mm": 2.6
+          "max_temp_C": 30.7,
+          "precip_mm": 1.0
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 32.2,
-          "precip_mm": 5.1
+          "max_temp_C": 32.5,
+          "precip_mm": 5.9
         }
       ],
-      "total_3d_rain_mm": 14.3,
-      "max_temp_C": 32.2,
+      "total_3d_rain_mm": 10.2,
+      "max_temp_C": 32.5,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "Argentina_Pampas": {
@@ -444,114 +444,114 @@
       "forecast": [
         {
           "date": "2026-11-18",
-          "max_temp_C": 25.0,
+          "max_temp_C": 24.8,
           "precip_mm": 0.0
         },
         {
           "date": "2026-11-19",
-          "max_temp_C": 26.1,
-          "precip_mm": 0.0
+          "max_temp_C": 25.4,
+          "precip_mm": 0.1
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 24.2,
-          "precip_mm": 4.6
+          "max_temp_C": 24.9,
+          "precip_mm": 1.5
         }
       ],
-      "total_3d_rain_mm": 4.6,
-      "max_temp_C": 26.1,
-      "risk_assessment": "Thuan loi (Favorable)"
+      "total_3d_rain_mm": 1.6,
+      "max_temp_C": 25.4,
+      "risk_assessment": "Binh thuong (Mild/Normal)"
     },
     "Russia_Rostov": {
       "desc": "Lúa mì (XK số 1 TG)",
       "forecast": [
         {
-          "date": "2026-11-18",
-          "max_temp_C": 12.1,
-          "precip_mm": 12.7
-        },
-        {
           "date": "2026-11-19",
-          "max_temp_C": 13.5,
-          "precip_mm": 17.3
+          "max_temp_C": 12.7,
+          "precip_mm": 20.5
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 12.7,
-          "precip_mm": 12.6
+          "max_temp_C": 12.0,
+          "precip_mm": 7.3
+        },
+        {
+          "date": "2026-11-21",
+          "max_temp_C": 11.2,
+          "precip_mm": 0.0
         }
       ],
-      "total_3d_rain_mm": 42.6,
-      "max_temp_C": 13.5,
-      "risk_assessment": "Rui ro ngap ung (Heavy Rain)"
+      "total_3d_rain_mm": 27.8,
+      "max_temp_C": 12.7,
+      "risk_assessment": "Thuan loi (Favorable)"
     },
     "Ukraine_Poltava": {
       "desc": "Ngô, Lúa mì",
       "forecast": [
         {
-          "date": "2026-11-18",
-          "max_temp_C": 9.6,
-          "precip_mm": 4.3
-        },
-        {
           "date": "2026-11-19",
-          "max_temp_C": 8.9,
-          "precip_mm": 4.9
+          "max_temp_C": 9.3,
+          "precip_mm": 0.9
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 7.6,
-          "precip_mm": 10.7
+          "max_temp_C": 7.9,
+          "precip_mm": 12.9
+        },
+        {
+          "date": "2026-11-21",
+          "max_temp_C": 8.8,
+          "precip_mm": 0.6
         }
       ],
-      "total_3d_rain_mm": 19.9,
-      "max_temp_C": 9.6,
+      "total_3d_rain_mm": 14.4,
+      "max_temp_C": 9.3,
       "risk_assessment": "Thuan loi (Favorable)"
     },
     "EU_France_Centre": {
       "desc": "Lúa mì (EU XK số 2)",
       "forecast": [
         {
-          "date": "2026-11-18",
-          "max_temp_C": 14.4,
-          "precip_mm": 0.1
-        },
-        {
           "date": "2026-11-19",
-          "max_temp_C": 12.8,
-          "precip_mm": 4.6
+          "max_temp_C": 13.1,
+          "precip_mm": 7.4
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 12.5,
-          "precip_mm": 2.0
+          "max_temp_C": 13.1,
+          "precip_mm": 0.2
+        },
+        {
+          "date": "2026-11-21",
+          "max_temp_C": 11.1,
+          "precip_mm": 0.0
         }
       ],
-      "total_3d_rain_mm": 6.7,
-      "max_temp_C": 14.4,
+      "total_3d_rain_mm": 7.6,
+      "max_temp_C": 13.1,
       "risk_assessment": "Thuan loi (Favorable)"
     },
     "Australia_NSW": {
       "desc": "Lúa mì",
       "forecast": [
         {
-          "date": "2026-11-18",
-          "max_temp_C": 32.8,
-          "precip_mm": 0.0
-        },
-        {
           "date": "2026-11-19",
-          "max_temp_C": 32.2,
-          "precip_mm": 3.3
+          "max_temp_C": 32.4,
+          "precip_mm": 2.8
         },
         {
           "date": "2026-11-20",
-          "max_temp_C": 24.2,
-          "precip_mm": 23.2
+          "max_temp_C": 23.8,
+          "precip_mm": 17.2
+        },
+        {
+          "date": "2026-11-21",
+          "max_temp_C": 29.6,
+          "precip_mm": 0.4
         }
       ],
-      "total_3d_rain_mm": 26.5,
-      "max_temp_C": 32.8,
+      "total_3d_rain_mm": 20.4,
+      "max_temp_C": 32.4,
       "risk_assessment": "Binh thuong (Mild/Normal)"
     }
   }

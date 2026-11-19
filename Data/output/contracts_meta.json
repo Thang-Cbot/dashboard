@@ -20,7 +20,7 @@
       "prev_volume": 227426.0,
       "today_oi": 408327,
       "prev_oi": 408304,
-      "today_close": 441.25,
+      "today_close": 435.0,
       "prev_close": 446.75,
       "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
       "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
@@ -47,11 +47,11 @@
       "prev_volume": 80964.0,
       "today_oi": 258570,
       "prev_oi": 116059,
-      "today_close": 593.75,
+      "today_close": 586.75,
       "prev_close": 610.25,
       "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
       "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
-  "updated_at": "2026-11-19 00:00:21"
+  "updated_at": "2026-11-19 07:38:36"
 }
