@@ -1,116 +1,105 @@
 {
-  "timestamp": "2026-11-15 19:35:00",
+  "timestamp": "2026-11-19 12:55:25",
   "news": [
     {
-      "title": "Báo cáo IKAR & SovEcon: Diện tích lúa mì vụ đông Nga & Ukraine đồng loạt giảm mạnh",
+      "title": "Gián đoạn ngũ cốc Biển Đen mở ra cơ hội xuất khẩu mới cho châu Mỹ",
       "details": [
-        "Nga: Tốc độ gieo trồng chạm đáy 11 năm; diện tích vụ đông co hẹp về ~16.0 triệu ha (-1.8 triệu ha so với đỉnh 17.8M ha) do khô hạn gay gắt tại Rostov, Volgograd, Saratov và thuế xuất khẩu Damper bào mòn lợi nhuận.",
-        "Ukraine: Diện tích lúa mì vụ đông chỉ đạt 4.1 triệu ha (~91% kế hoạch), giảm vĩnh viễn 35-40% so với trước chiến sự do hạn hán 60-70% diện tích cùng gánh nặng bom mìn, thiếu hụt lao động.",
-        "Ý nghĩa: Vựa lúa mì Biển Đen (chiếm 30% xuất khẩu thế giới) chính thức bước vào chu kỳ suy giảm diện tích kép, tạo nền tảng hỗ trợ giá cực mạnh cho các hợp đồng lúa mì năm 2027."
+        "Các gián đoạn liên tục trong hoạt động xuất khẩu ngũ cốc từ khu vực Biển Đen đang thay đổi dòng chảy thương mại toàn cầu.",
+        "Tình hình này tạo điều kiện thuận lợi cho các quốc gia châu Mỹ tăng cường vai trò là nhà cung cấp lúa mì và ngũ cốc.",
+        "Sự bất ổn ở Biển Đen buộc các nhà nhập khẩu phải tìm kiếm nguồn cung ổn định hơn từ các khu vực khác."
       ],
-      "link": "https://www.ikar.ru/wheat_acreage_report",
-      "source": "SovEcon, IKAR & Bộ Chính sách Nông nghiệp Ukraine (15 Nov 2026)"
+      "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPb0owci1IcFRiY2swVDA4TmRIWWJlTjJiNnNJYXotTDYwUUpNVmRnSlZKNDNQMTg4Y0NXVGM2Q0NVejlXOWlqbThRc2tLQ2J6ZEZRcFJXZkdDUUFBTkhoODZTX190c2pMclJGWVJ4dWhJSHdOSmRpbDZVUU0wVmFySmlRX0MySXVCX1NNVWVfeDR4UDVSSlE?oc=5",
+      "source": "Sat, 14 Nov 2026 16:48:36 GMT (Nguồn: Google News)"
     },
     {
-      "title": "Thị trường lúa mì giảm giá do xuất khẩu yếu hơn lo ngại hạn hán",
+      "title": "Phí bảo hiểm chiến tranh trên thị trường lúa mì tạm thời giảm",
       "details": [
-        "Giá lúa mì toàn cầu có xu hướng giảm.",
-        "Nguyên nhân chính là do nhu cầu xuất khẩu yếu, vượt trội so với các lo ngại về tình hình hạn hán.",
-        "Điều này cho thấy nguồn cung hiện tại có thể đủ đáp ứng hoặc thị trường đang phản ứng với các yếu tố khác ngoài thời tiết."
+        "Mức phí bảo hiểm liên quan đến rủi ro chiến tranh trên thị trường lúa mì đã giảm bớt trong thời điểm hiện tại.",
+        "Điều này cho thấy sự điều chỉnh của thị trường trước các diễn biến địa chính trị.",
+        "Tuy nhiên, tình hình có thể thay đổi nhanh chóng tùy thuộc vào các sự kiện mới."
       ],
-      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPY2VUWDFuQU9wZ1NNUmNndmxUX1FiNkNCaE54M3E0cnFrZmNYWDF4WG9NT0FSWjJBSFM4SFY0M1dTWWk3VHptMFJHX2dkdS1RVm4zVi1Ta0JwMTNKTXFkUFhHbDVUaEFHcGhzeENJMC1GTUUtOXFNUDA5Z1R4WVJka0toUzRiWU1WbVhVdVVGekdiZE5SNEEtdndLNA?oc=5",
-      "source": "Thu, 22 Oct 2026 07:02:59 GMT (Nguồn: Google News)"
-    },
-    {
-      "title": "Thế giới cần ngũ cốc của Ukraine, nhưng nông dân đang mất động lực gieo trồng",
-      "details": [
-        "Nhu cầu toàn cầu đối với ngũ cốc Ukraine vẫn cao.",
-        "Nông dân Ukraine đối mặt với nhiều thách thức, làm giảm động lực và khả năng gieo trồng vụ mới.",
-        "Các yếu tố như chi phí cao, rủi ro chiến sự, và khó khăn trong vận chuyển có thể là nguyên nhân chính.",
-        "Điều này đe dọa nguồn cung lúa mì trong tương lai từ một trong những nhà xuất khẩu lớn nhất thế giới."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1XSHo3OVZwWkpjbWtaenNwMkNaZ1cxUnpGd1NyUmZCM2dpV3V3NlpXODIwdDdvdTlYVlJxNTM5SGRneGNjYWRlZERtWFN0ZHNvZ3dqZDBRR1BXSFVscGJZdEJ4SXBsNjBubUdlaWVRa1RpQjFlNEgzX1JsYTBTd9IBgwFBVV95cUxPTW82R2FFR3ZQQm1PUk1RNVdfMGlXNS1TYXNDb3U1NDBtUm0tYjFrQ0loWS1VTlNEaTAyVV8tcnhONW5tZE1JMVdES196NEVLeFRES05qU2p2Q0NIWWFKZk16Q2JQcGtHYjZiOHF1QzBHckl0VFpfWVl2QWNCTXVrOWFNdw?oc=5",
-      "source": "Sat, 10 Oct 2026 07:00:00 GMT (Nguồn: Google News)"
-    },
-    {
-      "title": "Nạn đói cận kề: Cuộc khủng hoảng ngũ cốc Biển Đen mới",
-      "details": [
-        "Khu vực Biển Đen đang đối mặt với một cuộc khủng hoảng ngũ cốc nghiêm trọng.",
-        "Tình hình này có thể dẫn đến tình trạng thiếu lương thực và nạn đói trên quy mô toàn cầu.",
-        "Các yếu tố địa chính trị và gián đoạn chuỗi cung ứng là nguyên nhân chính gây ra khủng hoảng."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOQ2xZRU9zV3VZbEdRajJCeNUlBYmpVV09OWlhzNGZHVmZtUEVMV0trSV9VVU5NNm1HSXF0MmlmRWRENkQ4Mmg4Y1p5YVpLOVVoNFdNUmIzbUdvdzd5NWZyazE3YndlM21GSEd2X1V3Y2FiWmIwNUlkdlRiUVZKa2h5V0EySjEwY05L?oc=5",
-      "source": "Thu, 24 Sep 2026 07:00:00 GMT (Nguồn: Google News)"
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQQVExRlhHV0EzSjR6WWJtaFVobjRySWo3NE1qXzN5LXZyUmtGS1B4TE5kcjhldDV2LXJCQ1lOMUl1QUNTV2ItcG1wVEVZY0JqU0poMkdtWVJ1NEFJV3psY25NSTRrV3c2SjlWaURiNFRVZl9Gg2ZsNkI5QWRiLVgxUHB4OHdPSFQ5RHVjeWxaQQ?oc=5",
+      "source": "Fri, 30 Oct 2026 07:00:00 GMT (Nguồn: Google News)"
     },
     {
       "title": "Căng thẳng Biển Đen và hạn hán khu vực đẩy giá lúa mì toàn cầu tăng",
       "details": [
-        "Giá lúa mì trên thị trường quốc tế đang có xu hướng tăng mạnh.",
-        "Hai yếu tố chính gây ra sự tăng giá là căng thẳng địa chính trị ở Biển Đen và tình trạng hạn hán kéo dài trong khu vực.",
-        "Căng thẳng làm gián đoạn xuất khẩu, trong khi hạn hán ảnh hưởng đến sản lượng, tạo áp lực kép lên nguồn cung."
+        "Giá lúa mì toàn cầu đang tăng cao do sự kết hợp của hai yếu tố chính.",
+        "Căng thẳng địa chính trị ở khu vực Biển Đen tiếp tục gây lo ngại về nguồn cung.",
+        "Tình trạng hạn hán ở các khu vực sản xuất lúa mì quan trọng cũng góp phần làm giảm dự báo sản lượng."
       ],
       "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQTHlvWk1tSUFGakF2UV9sWXBMRGVSSGlRdHFoUmxVbndscDJqTlFOTFFZRXFEUkpSTHNpMUN3YVVBUGNUdFV4b3RLbFFmNnlReVcxem9NT09TZDk0YTZpQjhZSFNYb2kyUXNFSWdncTJJT3F6YUJQZmVXSUR6MVZmeU5VOFQ5WmxkZjZrb2l4NkNQMW1VU3o4cmYyX2dWU1FnQVhOY3lGSTJVOHEz?oc=5",
       "source": "Mon, 03 Aug 2026 07:00:00 GMT (Nguồn: Google News)"
     },
     {
+      "title": "Nạn đói cận kề: Cuộc khủng hoảng ngũ cốc Biển Đen mới",
+      "details": [
+        "Khu vực Biển Đen đang đối mặt với một cuộc khủng hoảng ngũ cốc mới, có nguy cơ gây ra nạn đói.",
+        "Sự gián đoạn xuất khẩu từ khu vực này ảnh hưởng nghiêm trọng đến an ninh lương thực toàn cầu.",
+        "Các yếu tố địa chính trị tiếp tục làm trầm trọng thêm tình hình cung ứng lương thực."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOQ2xZRU9zV3VZbEdRakJ5NUlBYmpVV09OWlhzNGZHVmZtUEVMV0trSV9VVU5NNm1HSXF0MmlmRWRENkQ4Mmg4Y1p5YVpLOVVoNFdNUmIzbUdvdzd5NWZyazE3YndlM21GSEd2X1V3Y2FiWmIwNUlkdlRiUVZKa2h5V0EySjEwY05L?oc=5",
+      "source": "Thu, 24 Sep 2026 07:00:00 GMT (Nguồn: Google News)"
+    },
+    {
+      "title": "Thế giới cần ngũ cốc Ukraine, nhưng nông dân đang mất động lực gieo trồng",
+      "details": [
+        "Nhu cầu ngũ cốc từ Ukraine vẫn rất cao trên thị trường toàn cầu.",
+        "Tuy nhiên, nông dân Ukraine đang đối mặt với nhiều thách thức, làm giảm động lực và khả năng gieo trồng.",
+        "Các vấn đề bao gồm rủi ro chiến tranh, tắc nghẽn logistics và khó khăn trong việc tiếp cận thị trường."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1XSHo3OVZwWkpjbWtaenNwMkNaZ1cxUnpGd1NyUmZCM2dpV3V3NlpXODIwdDdvdTlYVlJxNTM5SGRneGNjYWRlZERtWFN0ZHNvZ3dqZDBRR1BXSFVscGJZdEJ4SXBsNjBubUdlaWVRa1RpQjFlNEgzX1JsYTBTd9IBgwFBVV95cUxPTW82R2FFR3ZQQm1PUk1RNVdfMGlXNS1TYXNDb3U1NDBtUm0tYjFrQ0loWS1VTlNEaTAyVV8tcnhONW5tZE1JMVdES196NEVLeFRES05qU2p2Q0NIWWFKZk16Q2JQcGtHYjZiOHF1QzBHckl0VFpfWVl2QWNCTXVrOWFNdw?oc=5",
+      "source": "Sat, 10 Oct 2026 07:00:00 GMT (Nguồn: Google News)"
+    },
+    {
       "title": "Nông dân Ukraine tuyệt vọng vì phong tỏa Biển Đen của Nga làm mắc kẹt vụ thu hoạch",
       "details": [
-        "Vụ thu hoạch lúa mì của Ukraine đang bị mắc kẹt do Nga phong tỏa các tuyến đường biển ở Biển Đen.",
-        "Tình trạng này gây ra sự tuyệt vọng cho nông dân Ukraine, những người không thể xuất khẩu sản phẩm của mình.",
-        "Việc phong tỏa ảnh hưởng nghiêm trọng đến khả năng cung ứng ngũ cốc của Ukraine ra thị trường toàn cầu."
+        "Vụ thu hoạch của nông dân Ukraine đang bị mắc kẹt do sự phong tỏa của Nga tại Biển Đen.",
+        "Việc không thể xuất khẩu ngũ cốc gây thiệt hại lớn cho nông dân và nền kinh tế Ukraine.",
+        "Tình trạng này đe dọa nguồn cung lương thực toàn cầu và làm tăng giá cả."
       ],
       "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNUmVrUGExX1RHQ2IzZ0toSUJaU255RTBvd2NmOUpfTFpNS1l6R19jLTBlYnF1SHhJdEZNd2FlelNidVcxcUtoZWF5b0NzVGFCd3JVR2JfUElfanBDUnRkZXp5XzluX2poNE8xYkZ2Mmt2VGFSUzJNa1VlejhVWHlYWW5WN3R5WjNEeGc1bTJOWnRYWmxTLUJYdDh1MTBnTGlYdzN3d25uRVBBNWdISjY5QkVpbw?oc=5",
       "source": "Thu, 13 Aug 2026 07:00:00 GMT (Nguồn: Google News)"
     },
     {
-      "title": "THÔNG TIN: Thương mại ngũ cốc Biển Đen căng thẳng do xung đột Nga-Ukraine leo thang",
-      "details": [
-        "Xung đột Nga-Ukraine đang leo thang, gây áp lực lớn lên hoạt động thương mại ngũ cốc ở Biển Đen.",
-        "Các tuyến đường vận chuyển bị gián đoạn, rủi ro an ninh tăng cao.",
-        "Điều này ảnh hưởng đến khả năng xuất khẩu của cả Nga và Ukraine, hai nhà cung cấp lúa mì lớn."
-      ],
-      "link": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOd3BsRWc3SklmRDVQbGZ0MnRoOHhQVm1tcDRuVGVRUGRvUERQRUNTOXRCRDNMTjM3VFZFUGR6TVd6Mlo2d0FLRTlSX2JyOEZraXJ5d1ZfeEhmZFVFUU15dTZBZnNUWUhIWV8yYkhGQXdtR2J6YXJYa2I4T2Rid0R3bS11RmZFUkgyaUlZZjdqTi1wOWpCa0p6RUJ6Ml9PakV1cU5lOVNROU9FMl9fbnlsVlY0S0FTSlI3V3N4MnB6d09vODZHZFdyS08wcFlva2ZmU2lfMm03cnEzbWpfYVFDaElab3ZDZ1JXTnFXZg?oc=5",
-      "source": "Thu, 20 Aug 2026 07:00:00 GMT (Nguồn: Google News)"
-    },
-    {
       "title": "Khủng hoảng logistics Biển Đen đe dọa vụ lúa mì tiếp theo của Ukraine",
       "details": [
-        "Các vấn đề về logistics và vận chuyển ở Biển Đen đang gây ra mối đe dọa nghiêm trọng cho vụ lúa mì sắp tới của Ukraine.",
-        "Khó khăn trong việc vận chuyển đầu vào nông nghiệp và xuất khẩu sản phẩm hiện tại làm giảm khả năng gieo trồng và thu hoạch hiệu quả.",
-        "Điều này có thể dẫn đến giảm sản lượng và nguồn cung lúa mì từ Ukraine trong tương lai."
+        "Khủng hoảng logistics tại Biển Đen đang gây ra mối đe dọa nghiêm trọng cho vụ lúa mì sắp tới của Ukraine.",
+        "Các vấn đề về vận chuyển và xuất khẩu làm giảm khả năng tiếp cận thị trường quốc tế.",
+        "Điều này có thể ảnh hưởng đến quyết định gieo trồng và sản lượng trong tương lai."
       ],
       "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSlpfV2xBcHF5WDVhQXgzdGJCNUtwTFUxb05lR2hwSGxhbTcxQzkzalRvOXJNUlpjV0ZVNjlKRkNqQnFrWDh1Q2RiSWZyb0Q0N29KRjZhX0hmVkZKYTBWMm5HUGw1UWloRGd6YjF3Xzh4dDBtVVdwcTBlMkZ6dUZFWUxPRGt3U1NrVk1Hek1JTmZqYXVFZFdlT1NxS05TVTg?oc=5",
       "source": "Tue, 08 Sep 2026 07:00:00 GMT (Nguồn: Google News)"
     },
     {
-      "title": "Chiến tranh leo thang làm đình trệ xuất khẩu ngũ cốc Biển Đen",
+      "title": "Giá lúa mì tăng khi Nga, Ukraine tìm kiếm giải pháp xuất khẩu thay thế",
       "details": [
-        "Tình hình chiến sự leo thang trong khu vực Biển Đen đang gây ra sự đình trệ đáng kể cho hoạt động xuất khẩu ngũ cốc.",
-        "Các tuyến đường vận chuyển không an toàn và rủi ro cao khiến các hoạt động thương mại bị ảnh hưởng.",
-        "Điều này làm giảm nguồn cung ngũ cốc từ khu vực Biển Đen ra thị trường toàn cầu."
+        "Giá lúa mì đang tăng lên trong bối cảnh cả Nga và Ukraine đều nỗ lực tìm kiếm các tuyến đường và phương thức xuất khẩu thay thế.",
+        "Các giải pháp này nhằm giảm thiểu tác động của các hạn chế và rủi ro địa chính trị.",
+        "Tuy nhiên, chi phí vận chuyển và rủi ro vẫn cao, góp phần đẩy giá lên."
       ],
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNbHFGbmNaSTd3WURzeUVDR1hLT3A5aC1VVC1KZDFScWZNNWY2QUtDWE1vMndFWHZHVzNYZ0hDOXZEQU9FWk1RT0d4cEZnLU5OWFk3TTlUenhEWktzbnVjbGozQV91MUdteW1XWFppWTFrenAwVmlwQXVPTG55TGNHeHhkZ2cyQlY2LTczYmpzcmFjVHJN?oc=5",
-      "source": "Tue, 25 Aug 2026 07:00:00 GMT (Nguồn: Google News)"
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNYldLcDU3LWE0dE90THhYcDNHdVNGa1pHWlNXOTU2SFZvcVhzc0N5eEdYTU9hMFJQeEVFQjBENkwzVnRZZTRPWUJWNGVwdDREVWgxOEpPTlczY3Awb3VmUDRJWmk1Q0ZLZm5zby00R2J6MVMwUV85UElEWFl2NF9meU0wMm1FMTBnWUhhaThpVlotcV90dFVMcThPbHRDakh2TVB6YQ?oc=5",
+      "source": "Fri, 02 Oct 2026 12:45:21 GMT (Nguồn: Google News)"
     },
     {
-      "title": "Khoảng cách xuất khẩu lúa mì Biển Đen mở rộng do gián đoạn làm tăng chi phí và rủi ro gieo trồng",
+      "title": "Rủi ro năng suất ngô vẫn tồn tại khi xuất khẩu lúa mì Biển Đen giảm một nửa",
       "details": [
-        "Khoảng cách giữa cung và cầu xuất khẩu lúa mì từ Biển Đen đang ngày càng lớn.",
-        "Sự gián đoạn trong chuỗi cung ứng và vận chuyển làm tăng đáng kể chi phí hoạt động.",
-        "Rủi ro cao trong khu vực cũng ảnh hưởng tiêu cực đến quyết định và khả năng gieo trồng của nông dân."
+        "Xuất khẩu lúa mì từ khu vực Biển Đen đã giảm đáng kể, ước tính giảm một nửa.",
+        "Tình trạng này không chỉ ảnh hưởng đến thị trường lúa mì mà còn gây ra rủi ro cho năng suất ngô.",
+        "Sự gián đoạn nguồn cung từ một loại ngũ cốc có thể tạo áp lực lên các loại ngũ cốc khác."
       ],
-      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNeENMZ3M4N1REQVZpZ2xfblNGbkItOEhycjlmdGFrREFyYkp0aFhycEpnRExweEhWeG9ZM0VuNENfM2ZLdHJCTl9JSkxNeUxuWENmX0FXdEJtR2plX2I1dGktZUNZWnh3eU5FcXZEd1U5THNvOE1lYXFqczR5QTRrd01TRC1VVjBzMUQ3ajRnMGJiYUYtbHV2SkVZTUVHOXZEYWpIOXhWdGJWV2s1SVduQ09xVXM0TXc?oc=5",
-      "source": "Fri, 02 Oct 2026 07:00:00 GMT (Nguồn: Google News)"
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQY2ZIUUY2UUNjYVpuUWZFbHdqRGJBNWFRYzlzY0pXUWxKcUdYbVU3aDlrbGFyOEV0UHRidlAweVIwYnNSWmFMTVQwMzFwaDQ1dWVDQXZNUC03NWE5TERrMUJHX1Y4WWVOWUVadDlMZGF1X1czZU1wYXRpNlNnOWtoeHdNaklia1pnaWRZLVIwemF2MjVZZXhnc19ULVBiQQ?oc=5",
+      "source": "Tue, 22 Sep 2026 07:00:00 GMT (Nguồn: Google News)"
     },
     {
-      "title": "Giá lúa mì tăng vọt do các vấn đề xuất khẩu ở Biển Đen",
+      "title": "Ukraine không thấy lệnh ngừng bắn Biển Đen, rủi ro thương mại ngũ cốc toàn cầu tăng",
       "details": [
-        "Giá lúa mì trên thị trường quốc tế đã tăng mạnh.",
-        "Nguyên nhân chính là do các vấn đề và gián đoạn liên tục trong hoạt động xuất khẩu từ khu vực Biển Đen.",
-        "Sự thiếu hụt nguồn cung từ khu vực này tạo áp lực tăng giá lên thị trường toàn cầu."
+        "Ukraine không có dấu hiệu cho thấy một lệnh ngừng bắn sẽ được thiết lập tại Biển Đen.",
+        "Tình hình này làm tăng thêm rủi ro và sự bất ổn cho hoạt động thương mại ngũ cốc toàn cầu.",
+        "Các nhà nhập khẩu và xuất khẩu phải đối mặt với sự không chắc chắn kéo dài về nguồn cung và tuyến đường vận chuyển."
       ],
-      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNalNBZXQ0YTdWSVNIdVd2ZlBoRTdaOXVlODdXQXVxbVRReTlzSXVaMEVqOGs5VlJIbkg4NXNRV0ZuVUMxc2tHRkZ3NkZsb1FMbzJDM0wxYWMtWDE3WHhhWW0ycklSd0NOTUIxZWhOQnJyWUdpb1hrRThlMzBIaHBXczNtMHVBS1V6Sk51cFluZEU?oc=5",
-      "source": "Wed, 26 Aug 2026 07:00:00 GMT (Nguồn: Google News)"
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNSFNDUkl4cnpqN1FNNWtxWUNqUXV3TUFRcFhTekRfWnNCUnhvYjdsR3ZQRTIyNXQwbUNXVGUyck55Qi1qNHBRMDRKZ3kyMWE4VzFUaHRrZUxmMWw4VEEtZHNUYmpPVzlpT2dVeWNKVzAzMm11aW9tV0hLbnc1bFc2eGEwQ2xCQWhPd3c?oc=5",
+      "source": "Mon, 28 Sep 2026 07:00:00 GMT (Nguồn: Google News)"
     }
   ]
 }
