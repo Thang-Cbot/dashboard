@@ -1,59 +1,240 @@
 {
-  "timestamp": "2026-11-19 20:00:40",
-  "news": [],
+  "timestamp": "2026-11-20 14:53:11",
+  "news": [
+    {
+      "title": "Lúa mì tăng giá mạnh vào thứ Năm",
+      "details": [
+        "Hợp đồng lúa mì SRW Chicago tăng 6-9 cent trên các tháng gần nhất.",
+        "Hợp đồng lúa mì HRW Kansas City tăng 12.75-17.75 cent trong phiên.",
+        "Lúa mì vụ xuân Minneapolis tăng 9-12.25 cent.",
+        "Thị trường lúa mì phục hồi sau đợt giảm giá trước đó."
+      ],
+      "link": "https://www.barchart.com/story/news/8926808/wheat-rally-back-on-thursday",
+      "source": "19 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Ngô duy trì đà tăng vào thứ Năm",
+      "details": [
+        "Hợp đồng ngô tăng 1.5-4.5 cent trên hầu hết các hợp đồng.",
+        "Giá ngô giao ngay quốc gia tăng 4.25 cent, đạt $4.07/giạ.",
+        "Dữ liệu xuất khẩu cho thấy tổng cộng 1.588 triệu giạ đã được bán.",
+        "Thị trường ngô giữ vững mức tăng từ đầu phiên."
+      ],
+      "link": "https://www.barchart.com/story/news/8926785/corn-holds-on-to-thursday-gains",
+      "source": "19 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Ngô đối mặt nguy cơ thanh lý nếu chứng khoán yếu",
+      "details": [
+        "Thanh lý bắt buộc hàng hóa có thể xảy ra nếu thị trường chứng khoán tiếp tục suy yếu.",
+        "Tình hình này có thể làm phức tạp thêm thị trường nông sản.",
+        "Phân tích về khả năng đầu hàng của thị trường ngô.",
+        "Nhà đầu tư cần theo dõi chặt chẽ diễn biến thị trường tài chính."
+      ],
+      "link": "https://www.barchart.com/story/news/8925315/the-case-for-capitulation-in-the-corn-market",
+      "source": "19 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "FAO: Nguồn cung lương thực toàn cầu dồi dào nhưng rủi ro gia tăng",
+      "details": [
+        "FAO nhận định nguồn cung lương thực toàn cầu vẫn ở mức dồi dào.",
+        "Tuy nhiên, các rủi ro đang ngày càng gia tăng, đe dọa ổn định thị trường.",
+        "Báo cáo triển vọng lương thực toàn cầu của FAO.",
+        "Cần theo dõi các yếu tố địa chính trị và khí hậu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOd1dVcy1PQUwtZ3JVdlVzdXpyU0I5a2sxZXVBWVRhdE5YaFRrZ2NYdG9wang2ekxBRFA4dDVFcjd4VEdWbXFZNGE5WUx5NU84RlRFMTc5Mkx3NW9QbUZKTjlMaldyS3RsMXlTZkFCRW1yLTZHdEFITlpvUmVXd1gtcjFQM09RWGVZbU9HeXJRcGZvOFl2N240eUFqT1dkNmVkdlRIU0p2X2hBZ3BhdVhMaDFxc2dwZGxXbGhLWVE2N0lEOTZHSkpSdlI5cTc0NWs?oc=5",
+      "source": "19 Nov 2026 - Food and Agriculture Organization",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Châu Âu sẵn sàng đàm phán chấm dứt chiến tranh Nga-Ukraine",
+      "details": [
+        "Andy Burnham cho biết Châu Âu sẵn sàng tham gia đàm phán.",
+        "Mục tiêu là giúp chấm dứt chiến tranh Nga-Ukraine.",
+        "Thông tin có thể ảnh hưởng đến hành lang ngũ cốc Biển Đen và nguồn cung toàn cầu.",
+        "Động thái ngoại giao quan trọng trong bối cảnh xung đột."
+      ],
+      "link": "https://news.sky.com/story/putin-vows-to-retaliate-as-ukraine-hits-prized-crimea-bridge-for-third-time-in-four-days-13613963",
+      "source": "19 Nov 2026 - Sky News",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Kenya đối mặt thâm hụt nguồn cung ngô",
+      "details": [
+        "Kenya đang đối mặt với thâm hụt nguồn cung ngô ròng.",
+        "Nỗ lực tăng nhập khẩu đang gặp phải các vụ kiện và quy định nghiêm ngặt.",
+        "Tình hình có thể đẩy giá ngô lên cao trong khu vực Đông Phi.",
+        "Ảnh hưởng đến an ninh lương thực quốc gia."
+      ],
+      "link": "https://www.world-grain.com/articles/23476-kenya-facing-net-corn-supply-deficit",
+      "source": "19 Nov 2026 - World Grain",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "NGFA phản đối sáp nhập đường sắt, lo ngại rủi ro nông nghiệp",
+      "details": [
+        "NGFA tiếp tục phản đối việc sáp nhập đường sắt Union Pacific-Norfolk Southern.",
+        "Hồ sơ gửi STB mô tả các rủi ro nông nghiệp từ sự kết hợp này.",
+        "Việc sáp nhập có thể ảnh hưởng đến chi phí và hiệu quả vận chuyển ngũ cốc.",
+        "Động thái này nhằm bảo vệ lợi ích của ngành nông nghiệp."
+      ],
+      "link": "https://www.barchart.com/story/news/8924387/pure-hedge-livestock-and-grain",
+      "source": "19 Nov 2026 - World Grain",
+      "category": "logistics"
+    },
+    {
+      "title": "Bảng giá hợp đồng tương lai CBOT cập nhật",
+      "details": [
+        "Bảng giao dịch hợp đồng tương lai trên Sở Giao dịch Chicago (CBOT).",
+        "Lúa mì tháng 12/2026 đóng cửa ở mức 610 cent/giạ.",
+        "Cập nhật giá các mặt hàng nông sản chính vào cuối ngày.",
+        "Thông tin quan trọng cho các nhà giao dịch."
+      ],
+      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-bot-table-150029777.html?.tsrc=rss",
+      "source": "19 Nov 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Giá ngô CBOT tháng 12/2026",
+      "details": [
+        "Giá ngô (CBOT) cập nhật vào 4:30 PM thứ Năm, 19 tháng 11.",
+        "Hợp đồng tháng 12/2026 đóng cửa ở mức 435 cent/giạ.",
+        "Thông tin chi tiết về giá mở cửa, cao nhất, thấp nhất và thay đổi trong ngày.",
+        "Phản ánh biến động thị trường ngô."
+      ],
+      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-corn-futures-150024364.html?.tsrc=rss",
+      "source": "19 Nov 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Giá lúa mì SRW CBOT tháng 12/2026",
+      "details": [
+        "Giá lúa mì (SRW) cập nhật vào 4:30 PM thứ Năm, 19 tháng 11.",
+        "Hợp đồng tháng 12/2026 đóng cửa ở mức 571 cent/giạ.",
+        "Thông tin chi tiết về giá mở cửa, cao nhất, thấp nhất và thay đổi trong ngày.",
+        "Cung cấp cái nhìn tổng quan về thị trường lúa mì."
+      ],
+      "link": "https://finance.yahoo.com/markets/commodities/articles/bc-wheat-futures-150023231.html?.tsrc=rss",
+      "source": "19 Nov 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Lúa mì giảm giá mạnh do áp lực bên ngoài",
+      "details": [
+        "Giá lúa mì giảm mạnh vào thứ Tư do áp lực từ thị trường bên ngoài.",
+        "Hợp đồng SRW Chicago giảm 11-25.5 cent trên toàn bảng.",
+        "Hợp đồng HRW Kansas City giảm 14.25-23.75 cent.",
+        "Phản ánh sự nhạy cảm của thị trường với các yếu tố vĩ mô."
+      ],
+      "link": "https://www.barchart.com/story/news/8905676/wheat-falls-with-outside-pressure-on-wednesday?.tsrc=rss",
+      "source": "18 Nov 2026 - Yahoo Finance",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Khủng hoảng đói toàn cầu: Những yếu tố hình thành",
+      "details": [
+        "Phân tích sâu về các yếu tố dẫn đến cuộc khủng hoảng đói toàn cầu.",
+        "Đánh giá tác động của các sự kiện địa chính trị và khí hậu.",
+        "Cảnh báo về tình hình an ninh lương thực thế giới.",
+        "Kêu gọi hành động khẩn cấp để đối phó với thách thức này."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9ScThzQUNIUElxVlFXR0hfWTR4RjIxRk5xTy1KRHRXNEJpdWV0cG91STlIb0hpU05oQXE3dmtmTmdCcnBUcU5OMmZnUm9xdm5ZNGNNaG13a0NTUlE5TlE3SElYM2xXNDhUc1ZPVjFDSFlDQQ?oc=5",
+      "source": "18 Nov 2026 - Council on Foreign Relations",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Lúa mì Úc đạt đỉnh 2 năm khi người mua rời Biển Đen",
+      "details": [
+        "Giá lúa mì Úc tăng lên mức cao nhất trong hai năm.",
+        "Người mua quốc tế chuyển hướng tìm nguồn cung thay thế.",
+        "Nguyên nhân do lo ngại về rủi ro và gián đoạn vận chuyển ở Biển Đen.",
+        "Cho thấy sự dịch chuyển trong chuỗi cung ứng ngũ cốc toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPbWpqd0p3cHFNWXNTcHR5ZWdvenBUNDZZSU5sQXdiMWNjNkw3QnluZDYycE83OHBBeVNYdE55d1Z6TVphV3RSSDVneG1zWk41WkhsaUdWZ3J6bUhqbllfNEpkMHpYeFJtckwtVXJ1SHZqX1paZEc5eWN0cXg5d2tpNHFhNG1vMHFXTjE5MExqOU9IeUpqQl9nS1RrcXpSTDRDdk5OaU1EblpUUVlnWjQzbA?oc=5",
+      "source": "18 Nov 2026 - Bloomberg.com",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Nga tăng cường tấn công vận tải biển Biển Đen",
+      "details": [
+        "Nga tiếp tục tăng cường các cuộc tấn công vào hoạt động vận tải biển ở Biển Đen.",
+        "Gây ra lo ngại lớn về an ninh hàng hải và chuỗi cung ứng ngũ cốc.",
+        "Có thể làm tăng phí bảo hiểm rủi ro và chi phí vận chuyển.",
+        "Ảnh hưởng tiêu cực đến xuất khẩu nông sản từ khu vực."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPVXJnZDBBTllaYWhsbzRMSm1qT1N5UjVWMVptTUh5WWdNeUtzUDFMenItUUt2cHpvYlU3TDZBZGRnZ1JXWm1qbjZoS0hTN3Z5LTZpREMzU0h5NWZ4VDlBcXRuVVhCVWo1aXcxQS1xQkFkZDhPWFVicXc4TW9USEF0UHFVT21UbVhBQW5PejVwQU8?oc=5",
+      "source": "17 Nov 2026 - The Maritime Executive",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Biển Đen: Tàu chìm, tắc nghẽn Danube làm gián đoạn dòng chảy ngũ cốc",
+      "details": [
+        "Các vụ chìm tàu ở Biển Đen và tắc nghẽn trên sông Danube gây gián đoạn nghiêm trọng dòng chảy ngũ cốc.",
+        "Chi phí vận chuyển hàng hóa tăng cao do rủi ro và khó khăn logistics.",
+        "Ảnh hưởng đến xuất khẩu ngũ cốc từ khu vực Biển Đen.",
+        "Tình hình này làm trầm trọng thêm vấn đề an ninh lương thực toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQUFc3UGdCQlVNQTQzc1FCc1ZCa0JhRmRsN19XV1dMLThoVjlvQ2RLTzhYU0FKM0w1eUdqU1pYVFVSRmNadVdidXNTaGFTN29nZnIwLUNQQVRJMGJLSExJcXJmRVdUVlpWcGtVNXRiTmo0Wk5ub1pwUGRtX190ZHhJRUM5WlZ4aWNILURXU2RqYmI2TTNOOExPWmVwcFVmeVl1Y2hVMjRXd1BQZDNsTFNwVFJBMFhWR2Iza3NYZg?oc=5",
+      "source": "18 Nov 2026 - CMB News",
+      "category": "logistics"
+    }
+  ],
   "intraday": {
     "ZW": {
       "bias": "Bullish",
       "bias_vn": "Tăng",
-      "summary": "Lúa mì tăng mạnh do lo ngại thời tiết và vị thế short lớn, đẩy giá lên cao trong phiên hôm nay.",
+      "summary": "Lúa mì duy trì đà tăng mạnh mẽ nhờ lo ngại nguồn cung và vị thế COT NHOI SHORT có thể gây short squeeze.",
       "key_levels": {
         "support": "588.0",
-        "resistance": "595.0"
+        "resistance": "598.0"
       },
       "reasoning": [
-        "Lo ngại thời tiết bất lợi tại các vùng trồng chính thúc đẩy giá tăng mạnh.",
-        "Nhu cầu mạnh hoặc dự báo nguồn cung thắt chặt hơn từ các báo cáo.",
-        "Vị thế short lớn của Smart Money có thể gây ra hiện tượng short squeeze.",
-        "Tác động từ Biển Đen đã bão hòa, ít ảnh hưởng mới đến thị trường.",
-        "Giá tăng mạnh, vượt các ngưỡng kháng cự quan trọng, cho thấy đà tăng."
+        "Thời tiết thực địa & Tiến độ mùa vụ: Rủi ro thời tiết toàn cầu gia tăng hỗ trợ giá lúa mì.",
+        "Cung cầu/USDA: Nhu cầu mạnh và lo ngại nguồn cung toàn cầu gia tăng (FAO).",
+        "Vị thế COT & dòng tiền: Vị thế COT NHOI SHORT có thể gây ra short squeeze.",
+        "Địa chính trị/logistics: Tin đàm phán Nga-Ukraine chưa tác động mạnh intraday.",
+        "Kỹ thuật: Đà tăng mạnh mẽ (+2.55%) cho thấy xu hướng tích cực."
       ],
-      "risk": "Rủi ro chính là bất ngờ về dự báo thời tiết cải thiện hoặc áp lực bán từ Smart Money.",
-      "generated_at": "2026-11-19 20:00"
+      "risk": "Rủi ro chính: Đàm phán địa chính trị tiến triển, DXY mạnh lên hoặc chốt lời.",
+      "generated_at": "2026-11-20 14:52"
     },
     "ZC": {
       "bias": "Bullish",
       "bias_vn": "Tăng",
-      "summary": "Ngô tăng mạnh do lo ngại thời tiết và lực mua kỹ thuật, bất chấp vị thế short của Smart Money.",
+      "summary": "Ngô tiếp tục đà tăng mạnh, được hỗ trợ bởi vị thế COT NHOI SHORT và lo ngại thời tiết Nam Mỹ.",
       "key_levels": {
-        "support": "447.0",
-        "resistance": "452.0"
+        "support": "445.0",
+        "resistance": "455.0"
       },
       "reasoning": [
-        "Lo ngại thời tiết tại Corn Belt/Nam Mỹ hỗ trợ giá, tạo premium rủi ro.",
-        "Nhu cầu ethanol tăng (do dầu Brent cao) và triển vọng cung cầu cân bằng hơn.",
-        "Vị thế short của Smart Money có thể bị ép đóng, hỗ trợ đà tăng giá.",
-        "Tình hình vận chuyển và xuất khẩu ổn định, ít biến động địa chính trị mới.",
-        "Đà tăng mạnh cho thấy xu hướng tích cực trong ngắn hạn, vượt kháng cự."
+        "Thời tiết thực địa & Tiến độ mùa vụ: Lo ngại thời tiết Nam Mỹ có thể ảnh hưởng đến vụ mùa.",
+        "Cung cầu/USDA: Nhu cầu duy trì tốt và lo ngại nguồn cung toàn cầu (FAO, Kenya).",
+        "Vị thế COT & dòng tiền: Vị thế COT NHOI SHORT có thể kích hoạt short squeeze.",
+        "Địa chính trị/logistics: Tin đàm phán Nga-Ukraine chưa tác động mạnh intraday.",
+        "Kỹ thuật: Đà tăng mạnh mẽ (+2.56%) cho thấy xu hướng tích cực."
       ],
-      "risk": "Rủi ro chính là cải thiện bất ngờ về thời tiết hoặc báo cáo cung cầu mới từ USDA.",
-      "generated_at": "2026-11-19 20:00"
+      "risk": "Rủi ro chính: Thị trường chứng khoán yếu dẫn đến thanh lý, DXY mạnh lên hoặc chốt lời.",
+      "generated_at": "2026-11-20 14:52"
     },
     "bias": "Bullish",
     "bias_vn": "Tăng",
-    "summary": "Lúa mì tăng mạnh do lo ngại thời tiết và vị thế short lớn, đẩy giá lên cao trong phiên hôm nay.",
+    "summary": "Lúa mì duy trì đà tăng mạnh mẽ nhờ lo ngại nguồn cung và vị thế COT NHOI SHORT có thể gây short squeeze.",
     "key_levels": {
       "support": "588.0",
-      "resistance": "595.0"
+      "resistance": "598.0"
     },
     "reasoning": [
-      "Lo ngại thời tiết bất lợi tại các vùng trồng chính thúc đẩy giá tăng mạnh.",
-      "Nhu cầu mạnh hoặc dự báo nguồn cung thắt chặt hơn từ các báo cáo.",
-      "Vị thế short lớn của Smart Money có thể gây ra hiện tượng short squeeze.",
-      "Tác động từ Biển Đen đã bão hòa, ít ảnh hưởng mới đến thị trường.",
-      "Giá tăng mạnh, vượt các ngưỡng kháng cự quan trọng, cho thấy đà tăng."
+      "Thời tiết thực địa & Tiến độ mùa vụ: Rủi ro thời tiết toàn cầu gia tăng hỗ trợ giá lúa mì.",
+      "Cung cầu/USDA: Nhu cầu mạnh và lo ngại nguồn cung toàn cầu gia tăng (FAO).",
+      "Vị thế COT & dòng tiền: Vị thế COT NHOI SHORT có thể gây ra short squeeze.",
+      "Địa chính trị/logistics: Tin đàm phán Nga-Ukraine chưa tác động mạnh intraday.",
+      "Kỹ thuật: Đà tăng mạnh mẽ (+2.55%) cho thấy xu hướng tích cực."
     ],
-    "risk": "Rủi ro chính là bất ngờ về dự báo thời tiết cải thiện hoặc áp lực bán từ Smart Money.",
-    "generated_at": "2026-11-19 20:00"
+    "risk": "Rủi ro chính: Đàm phán địa chính trị tiến triển, DXY mạnh lên hoặc chốt lời.",
+    "generated_at": "2026-11-20 14:52"
   },
   "categories": [
     "dia_chinh_tri",

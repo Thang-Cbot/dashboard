@@ -9,8 +9,8 @@
     },
     "prices": {
       "status": "[OK]",
-      "detail": "Auto-fetch 14:00:23",
-      "updated_at": "2026-11-20 14:00:23"
+      "detail": "Auto-fetch 15:11:08",
+      "updated_at": "2026-11-20 15:11:08"
     },
     "macro": {
       "status": "[OK]",
@@ -48,14 +48,14 @@
       "updated_at": "2026-11-20 14:21:26"
     },
     "ai_news": {
-      "status": "[OK]",
-      "detail": "Auto-fetch 20:00:47",
-      "updated_at": "2026-11-19 20:00:47"
+      "status": "[ERROR]",
+      "detail": "Failed after 1 attempts",
+      "updated_at": "2026-11-20 14:53:22"
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 14:21:31 (Nguồn: USDA Acreage)",
-      "updated_at": "2026-11-20 14:21:31"
+      "detail": "Đẩy thành công lúc 14:51:54 (Nguồn: Thời Tiết Ngắn Hạn)",
+      "updated_at": "2026-11-20 14:51:54"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -96,8 +96,8 @@
   },
   "prices": {
     "status": "OK",
-    "detail": "ZC+ZW updated at 14:00",
-    "updated_at": "2026-11-20 14:00:23"
+    "detail": "ZC+ZW updated at 15:10",
+    "updated_at": "2026-11-20 15:11:08"
   },
   "macro": {
     "status": "OK",
