@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 6570.0,
+      "today_volume": 7058.0,
       "prev_volume": 270156.0,
-      "today_oi": 376748,
+      "today_oi": 327722,
       "prev_oi": 376253,
-      "today_close": 438.0,
+      "today_close": 437.25,
       "prev_close": 435.5,
-      "trend": "Tăng nhẹ tích lũy (Accumulation Rally)",
-      "logic": "Giá tăng nhẹ với các chỉ số thanh khoản hỗn hợp, cho thấy thị trường đang tích lũy lực cầu hoặc đi ngang."
+      "trend": "Tăng yếu / Rủi ro đảo chiều (Short Covering Rally)",
+      "logic": "Giá tăng nhưng Volume giảm và OI giảm. Nhịp tăng này chủ yếu do phe Short đóng vị thế cắt lỗ (Short Covering) chứ không có dòng tiền mới mua lên hỗ trợ. Rủi ro đảo chiều giảm trở lại khi phe Short dừng tháo chạy."
     }
   },
   "ZW": {
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 1391.0,
+      "today_volume": 2126.0,
       "prev_volume": 111825.0,
-      "today_oi": 265208,
+      "today_oi": 267304,
       "prev_oi": 104974,
-      "today_close": 594.25,
+      "today_close": 592.5,
       "prev_close": 586.0,
       "trend": "Tăng nhẹ tích lũy (Accumulation Rally)",
       "logic": "Giá tăng nhẹ với các chỉ số thanh khoản hỗn hợp, cho thấy thị trường đang tích lũy lực cầu hoặc đi ngang."
     }
   },
-  "updated_at": "2026-11-20 09:28:24"
+  "updated_at": "2026-11-20 10:49:48"
 }
