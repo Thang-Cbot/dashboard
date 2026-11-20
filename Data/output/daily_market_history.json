@@ -817,7 +817,7 @@
       "open": 435.75
     },
     "2026-11-20": {
-      "volume": 7510.0,
+      "volume": 7522.0,
       "open_interest": 327722,
       "close": 436.75,
       "open": 438.75
@@ -1617,34 +1617,34 @@
       "open": 596.0
     },
     "2026-11-16": {
-      "volume": 80964.0,
+      "volume": 78161.0,
       "open_interest": 129481,
-      "close": 601.0,
-      "open": 609.5
+      "close": 587.0,
+      "open": 596.0
     },
     "2026-11-17": {
-      "volume": 85468.0,
+      "volume": 75617.0,
       "open_interest": 116059,
-      "close": 610.25,
-      "open": 601.5
+      "close": 595.25,
+      "open": 587.5
     },
     "2026-11-18": {
-      "volume": 111825.0,
+      "volume": 95169.0,
       "open_interest": 104974,
-      "close": 586.0,
-      "open": 610.25
+      "close": 570.0,
+      "open": 595.25
     },
     "2026-11-19": {
-      "volume": 111825.0,
+      "volume": 95169.0,
       "open_interest": 85601,
-      "close": 595.0,
-      "open": 587.25
+      "close": 578.25,
+      "open": 571.5
     },
     "2026-11-20": {
-      "volume": 2562.0,
-      "open_interest": 267304,
-      "close": 591.5,
-      "open": 596.0
+      "volume": 1508.0,
+      "open_interest": 85601,
+      "close": 575.0,
+      "open": 579.0
     }
   },
   "ZS": {
