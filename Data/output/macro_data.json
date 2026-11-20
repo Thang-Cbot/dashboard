@@ -1,27 +1,27 @@
 {
-  "timestamp": "2026-11-20 09:28:39",
+  "timestamp": "2026-11-20 10:50:10",
   "brent": {
-    "price": 89.9,
+    "price": 89.75,
     "prev": 91.95,
-    "pct": -2.229,
+    "pct": -2.393,
     "ticker": "BZ=F"
   },
   "dxy": {
-    "price": 103.927,
+    "price": 103.828,
     "prev": 103.86,
-    "pct": 0.065,
+    "pct": -0.031,
     "ticker": "DX-Y.NYB"
   },
   "zw_ref": {
-    "price": 594.25,
+    "price": 592.5,
     "prev": 570.0,
-    "pct": 4.254,
+    "pct": 3.947,
     "ticker": "ZW=F"
   },
   "zc_ref": {
-    "price": 451.75,
+    "price": 451.0,
     "prev": 435.5,
-    "pct": 3.731,
+    "pct": 3.559,
     "ticker": "ZC=F"
   }
 }
