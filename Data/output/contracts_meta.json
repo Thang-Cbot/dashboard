@@ -17,7 +17,7 @@
     },
     "liquidity": {
       "today_volume": 111313.0,
-      "prev_volume": 270156.0,
+      "prev_volume": 223325.0,
       "today_oi": 327805,
       "prev_oi": 327722,
       "today_close": 434.75,
@@ -44,7 +44,7 @@
     },
     "liquidity": {
       "today_volume": 90408.0,
-      "prev_volume": 111825.0,
+      "prev_volume": 105634.0,
       "today_oi": 267304,
       "prev_oi": 85601,
       "today_close": 593.0,
@@ -53,5 +53,5 @@
       "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
-  "updated_at": "2026-11-21 08:06:18"
+  "updated_at": "2026-11-21 11:00:43"
 }
