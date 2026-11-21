@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 111313.0,
+      "today_volume": 223325.0,
       "prev_volume": 223325.0,
       "today_oi": 327805,
       "prev_oi": 327722,
-      "today_close": 434.75,
+      "today_close": 434.5,
       "prev_close": 439.0,
       "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
       "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 90408.0,
+      "today_volume": 105634.0,
       "prev_volume": 105634.0,
       "today_oi": 267304,
       "prev_oi": 85601,
-      "today_close": 593.0,
+      "today_close": 592.0,
       "prev_close": 595.0,
       "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
       "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
-  "updated_at": "2026-11-21 11:00:43"
+  "updated_at": "2026-11-21 15:19:16"
 }
