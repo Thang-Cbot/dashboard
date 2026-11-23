@@ -16,11 +16,11 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 36636.0,
+      "today_volume": 74674.0,
       "prev_volume": 6204.0,
       "today_oi": 764987,
       "prev_oi": 327805,
-      "today_close": 452.75,
+      "today_close": 452.5,
       "prev_close": 437.0,
       "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
       "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
@@ -33,9 +33,9 @@
       "month": 3
     },
     "swing": {
-      "ticker": "ZWH27.CBT",
+      "ticker": "ZWK27.CBT",
       "year": 2027,
-      "month": 3
+      "month": 5
     },
     "dca": {
       "ticker": "ZWZ26.CBT",
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 22475.0,
+      "today_volume": 37440.0,
       "prev_volume": 5115.0,
       "today_oi": 267304,
       "prev_oi": 86339,
-      "today_close": 594.75,
+      "today_close": 589.0,
       "prev_close": 575.75,
       "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
       "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
     }
   },
-  "updated_at": "2026-11-23 21:01:24"
+  "updated_at": "2026-11-23 22:00:27"
 }

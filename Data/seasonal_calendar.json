@@ -11,8 +11,8 @@
     "8":  {"focus": "Nga & Biển Đen gặt",          "detail": "Mùa gặt Nga (T7–T8) — 'quả bom' đè giá lớn nhất thế giới. Giá chạm đáy sâu nhất năm.",                    "bias": "down",  "marker": "bottom", "curve": 25},
     "9":  {"focus": "Gieo hạt vụ mới + Phục hồi",  "detail": "Đất khô hạn vùng Plains → hạt khó nảy mầm → tăng nhẹ. Kho vơi dần, bắt đầu Vùng Phục Hồi (T9–T11).",      "bias": "up",    "marker": null,     "curve": 40},
     "10": {"focus": "Vùng Phục Hồi",               "detail": "Kho chứa vơi dần, giá hồi phục (Pullback). Theo dõi độ ẩm đất cho cây non nảy mầm.",                     "bias": "up",    "marker": null,     "curve": 50},
-    "11": {"focus": "Phục hồi + Úc/Arg vào gặt",   "detail": "Cuối Vùng Phục Hồi. Úc & Argentina bắt đầu thu hoạch (T11–T1) → áp lực cung mới.",                       "bias": "mixed", "marker": null,     "curve": 54},
-    "12": {"focus": "Áp lực gặt Nam Bán Cầu",      "detail": "Mùa gặt Úc/Argentina thường phá vỡ đà phục hồi mùa đông. Lúa mì Mỹ/Nga vào ngủ đông.",                   "bias": "down",  "marker": null,     "curve": 46}
+    "11": {"focus": "Vụ Đông Mỹ + Úc/Arg gặt",     "detail": "Trọng tâm số 1: Thời tiết gieo trồng/độ ẩm vụ Đông Mỹ (G/E, hạn hán) và cao điểm thu hoạch/thời tiết Nam Bán Cầu (Úc, Argentina).", "bias": "mixed", "marker": null,     "curve": 54},
+    "12": {"focus": "Úc/Arg gặt rộ + Ngủ đông Mỹ", "detail": "Áp lực nguồn cung gặt Úc/Argentina đạt đỉnh thường đè giá tạo đáy đầu T12. Theo dõi độ ẩm & sức khỏe rễ vụ Đông Mỹ trước ngủ đông.", "bias": "down",  "marker": null,     "curve": 46}
   },
   "ZC": {
     "1":  {"focus": "Brazil gieo Safrinha",        "detail": "Brazil gieo vụ 2 Safrinha (T1–T3) — vụ chi phối mạnh nguồn cung Ngô toàn cầu.",                          "bias": "flat",  "marker": null,     "curve": 45},
