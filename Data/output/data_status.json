@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 20:54:43 (Nguồn: USDA Acreage)",
-      "updated_at": "2026-11-24 20:54:43"
+      "detail": "Đẩy thành công lúc 21:00:33 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-11-24 21:00:33"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 20:35:38",
-      "updated_at": "2026-11-24 20:35:38"
+      "detail": "Auto-fetch 21:00:39",
+      "updated_at": "2026-11-24 21:00:39"
     },
     "russian_metrics": {
       "status": "[OK]",
