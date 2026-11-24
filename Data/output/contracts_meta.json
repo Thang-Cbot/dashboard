@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 188937.0,
-      "prev_volume": 6204.0,
+      "today_volume": 4079.0,
+      "prev_volume": 188937.0,
       "today_oi": 800834,
-      "prev_oi": 327805,
-      "today_close": 449.75,
-      "prev_close": 437.0,
-      "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
-      "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
+      "prev_oi": 170012,
+      "today_close": 449.25,
+      "prev_close": 449.75,
+      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
+      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
   "ZW": {
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 94013.0,
-      "prev_volume": 5115.0,
+      "today_volume": 3201.0,
+      "prev_volume": 94013.0,
       "today_oi": 268360,
-      "prev_oi": 86339,
-      "today_close": 595.5,
-      "prev_close": 575.75,
-      "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
-      "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
+      "prev_oi": 42343,
+      "today_close": 593.5,
+      "prev_close": 595.5,
+      "trend": "Giảm nhẹ tích lũy (Distribution Decline)",
+      "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
-  "updated_at": "2026-11-24 12:00:25"
+  "updated_at": "2026-11-24 13:00:33"
 }
