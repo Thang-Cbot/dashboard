@@ -1,47 +1,159 @@
 {
-  "timestamp": "2026-11-24 16:07:11",
-  "news": [],
+  "timestamp": "2026-11-24 22:33:38",
+  "news": [
+    {
+      "title": "Xung đột đe dọa tuyến đường lương thực toàn cầu, 7.3 triệu người đối mặt nạn đói",
+      "details": [
+        "Chương trình Lương thực Thế giới (WFP) cảnh báo các cuộc xung đột đang làm tắc nghẽn các tuyến đường vận chuyển lương thực toàn cầu.",
+        "Điều này đe dọa nguồn viện trợ cho 7.3 triệu người, làm trầm trọng thêm tình hình an ninh lương thực.",
+        "Tình hình này có thể đẩy giá ngũ cốc lên cao do lo ngại về nguồn cung và chi phí vận chuyển."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQmRvVDRwWktKYTZqa0JQYmRpY0hsckM3TnZQX1lOSGRwTlF5Z1pEd0xuN3RzSlBJSjFMa2ZuTHJFX1ctS3hpY3Q2SVlpNFBnUkdNQzlDYnFEZ1c4X0thWmEzSGVmeU1XamRidEhZbHR0c1FHNnhheVNCN1VHWWl3S1MxY284b3Noa2FiLWtSZDd0U0hYQndLbWZfd3UwbnFncUdPaXdmMDJaRFN1OTNRSlpwONIBuAFBVV95cUxNT2UxN213dVZYZVdCM21YMXg0aUJLU3Q2bmllbGNXYml2VnZvSW42WXRZenJyZDNuRVlVaEJwbmVkVzRIRFNZWkkzeEtBRm5HTmlMekpWNjV2bUpJMTR2MVB4SlRIUFNNQnNELVQyZWFab1phenBoUXpGU3VrQ3N0WUgtV2FaTE81bHJESHVYY1FUSk41TWNVLUFOdkNQbGtlclZmaTBidFJmUVQ4MnlCVGEwalF0dThs?oc=5",
+      "source": "24 Nov 2026 - Al Jazeera",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "LHQ công bố chi phí khủng hoảng vận tải Biển Đen",
+      "details": [
+        "Liên Hợp Quốc tiết lộ những tác động kinh tế nặng nề từ cuộc khủng hoảng vận tải biển ở Biển Đen.",
+        "Chi phí vận chuyển tăng cao và rủi ro gia tăng ảnh hưởng trực tiếp đến xuất khẩu ngũ cốc từ khu vực này.",
+        "Điều này gây áp lực lên giá lúa mì và ngô toàn cầu, đặc biệt là các hợp đồng CBOT."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPSWtwdHpmZV94MlNTZU1fb2NPQ3RDSEJUc3hIdC0tdEJIOU5ra0JERTJrSlNKM2JpSkJYem5HUUVUMEwyQXE0SkVMSks1VXljRUllV20xVUNZclhfWkt6a3liYndBeFQtQnlDTnJfZGxmeTBGRGZQRHNUWDk0ZHBYTGJaVQ?oc=5",
+      "source": "24 Nov 2026 - Splash247",
+      "category": "logistics"
+    },
+    {
+      "title": "Hy Lạp đề xuất tuyến đường thương mại mới cho ngũ cốc Ukraine",
+      "details": [
+        "Hy Lạp đang tìm kiếm một tuyến đường thương mại mới để xuất khẩu ngũ cốc từ Ukraine.",
+        "Tuyến đường này cũng sẽ cho phép nhập khẩu nhiên liệu và thiết bị vào Ukraine.",
+        "Sáng kiến này có thể giúp giảm bớt áp lực lên các tuyến đường Biển Đen hiện tại và ổn định nguồn cung ngũ cốc toàn cầu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNUDZTdFdiRUNrZTVJQVFKbHZxdjhLYVFtWUx2Vkh3Qmh2eXIwNFEzaTMxdEJuMXYzMVZkTjRob01ZSWMxUEtDXzliVGNDQ3BUcHlZNThsOWpCZmFZcmV4SkQ0UGlEanlpSnBMZzJsbjFoNUJtdjlmMDhHOWFpVmI1dDNueUVybUN3enJJeENyd2NCanBHdVBybDI5NFBIcmYyMjR1SXE4UjB4dGt1Z0JHTVEtelFIM1QwazhIaWZGMXhNMXc?oc=5",
+      "source": "24 Nov 2026 - UNITED24 Media",
+      "category": "logistics"
+    },
+    {
+      "title": "Giá lúa mì giảm nhẹ vào sáng thứ Ba",
+      "details": [
+        "Hợp đồng lúa mì CBOT giảm nhẹ từ mức thấp đến 2 cent trong hầu hết các tháng gần nhất.",
+        "Thị trường lúa mì có xu hướng trái chiều vào thứ Hai, với hợp đồng SRW Chicago tăng 2 1/4 đến 4 1/2 cent.",
+        "Lãi suất mở giảm 10,328 hợp đồng vào thứ Hai, cho thấy sự giảm bớt vị thế mua/bán."
+      ],
+      "link": "https://www.barchart.com/story/news/8983816/wheat-showing-marginal-tuesday-am-losses",
+      "source": "24 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Giá ngô giảm nhẹ vào sáng thứ Ba",
+      "details": [
+        "Giá ngô giao dịch với mức giảm 1 đến 2 cent vào sáng thứ Ba trên các tháng gần nhất.",
+        "Hợp đồng tương lai đã phục hồi từ mức yếu giữa ngày thứ Hai để đóng cửa với mức tăng nhẹ đến 2 cent.",
+        "Lãi suất mở giảm 26,428 hợp đồng vào thứ Hai, chủ yếu do thanh lý vị thế."
+      ],
+      "link": "https://www.barchart.com/story/news/8983796/corn-fading-back-on-tuesday-morning",
+      "source": "24 Nov 2026 - Barchart Grain Market Wrap",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Nông nghiệp Ukraine đối mặt nguy cơ sụp đổ do chiến tranh",
+      "details": [
+        "Một nhà giao dịch hàng đầu cảnh báo các trang trại Ukraine đang đứng trước nguy cơ thất bại do chiến tranh làm cạn kiệt nguồn tài chính.",
+        "Điều này có thể ảnh hưởng nghiêm trọng đến sản lượng và khả năng xuất khẩu ngũ cốc của Ukraine trong tương lai.",
+        "Tác động tiêu cực đến nguồn cung toàn cầu, đặc biệt là lúa mì và ngô, có thể đẩy giá lên cao."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNNjZTcUZnNVlkemlhMmVkZGpXVk5fck4tNDB2ZlVTTEVPajM5QnNKTmE4TEg4M0lzSVVjcVpwdmtrbWtKUVZnT3MtbUZWYmMzMXR4VU1iYmNoNlYwZTl5c3p0X25lMDMwWmJZaFFwYUkxbFo1VFRNR2J5eHcwMk5zVllOSHBlaGtsanljeTY4azRnOWJ1blNJNXNMNmRzNEp2cDlKU2ZxVXU3NW9nMG9GWWR6UDRSN0t3Sm5PQXBLQm9JLTA?oc=5",
+      "source": "23 Nov 2026 - Bloomberg",
+      "category": "dia_chinh_tri"
+    },
+    {
+      "title": "Argentina vượt Pháp trong thị trường lúa mì Algeria với hợp đồng 700,000 tấn",
+      "details": [
+        "Argentina đã ký hợp đồng bán 700,000 tấn lúa mì cho Algeria, cho thấy sự thay đổi trong cạnh tranh thị trường.",
+        "Algeria là một trong những nhà nhập khẩu lúa mì lớn, và sự thay đổi nguồn cung có thể ảnh hưởng đến giá lúa mì toàn cầu.",
+        "Điều này phản ánh sự năng động trong thương mại ngũ cốc quốc tế và nguồn cung từ các quốc gia xuất khẩu."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQOVhCUW5HS3hFeHlLcmtOMFExRVUtczlWX1YtRzRnVHZRc1ZXMks5YzRuWjNJaTZoZUFmNzQ0ZHdRRUdRQnpBVTZNSG43UzRVUUNBall5dUVHbnB2dndoTFRCbE8zU2s4OGdCWVQxT1lLb3FldzlCUVZLa2tDUG55M2JQQnl6M2t2WWdtVmtvdVd3ZU5pSXJlQ2twV0xQUVRuVmlhVFB0SV9NdDhScHlvNUFTZ2tNaDQtdEFhTWhJOWNkSTFvSFF4YjlRQnBmeHM?oc=5",
+      "source": "19 Nov 2026 - دزاير تيوب",
+      "category": "cung_cau_nhan_dinh"
+    },
+    {
+      "title": "Tắc nghẽn Biển Đen và sông Danube làm gián đoạn dòng chảy ngũ cốc, tăng chi phí vận chuyển",
+      "details": [
+        "Các vụ chìm tàu ở Biển Đen và tắc nghẽn trên sông Danube đang làm gián đoạn nghiêm trọng dòng chảy ngũ cốc.",
+        "Tình hình này đẩy chi phí vận chuyển hàng hóa lên cao, ảnh hưởng đến lợi nhuận của các nhà xuất khẩu và giá nhập khẩu.",
+        "Gây áp lực tăng giá đối với lúa mì và ngô trên thị trường quốc tế do lo ngại về khả năng vận chuyển."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQUFc3UGdCQlVNQTQzc1FCc1ZCa0JhRmRsN19XV1dMLThoVjlvQ2RLTzhYU0FKM0w1eUdqU1pYVFVSRmNadVdidXNTaGFTN29nZnIwLUNQQVRJMGJLSExJcXJmRVdUVlpWcGtVNXRiTmo0Wk5ub1pwUGRtX190ZHhJRUM5WlZ4aWNILURXU2RqYmI2TTNOOExPWmVwcFVmeVl1Y2hVMjRXd1BQZDNsTFNwVFJBMFhWR2Iza3NYZg?oc=5",
+      "source": "18 Nov 2026 - CMB News",
+      "category": "logistics"
+    },
+    {
+      "title": "Giá ngô lao dốc khi lúa mì tiếp tục bán tháo trên thị trường ngũ cốc Mỹ",
+      "details": [
+        "Giá ngô giảm mạnh trong bối cảnh lúa mì tiếp tục bị bán tháo trên các thị trường ngũ cốc Mỹ.",
+        "Sự sụt giảm này phản ánh tâm lý thị trường tiêu cực và có thể do các yếu tố cung cầu hoặc vĩ mô.",
+        "Tác động lan tỏa giữa các loại ngũ cốc cho thấy sự liên kết chặt chẽ của thị trường."
+      ],
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOUG5FeHRYbGlnNUVfb0VUcDhBb1NleUUwYmtSMzJUY0w4ZVNYb1BMZHFaWXVtMzR1Qnh5SG1MRjV5Q0llOVM5aWdVWHNJVk5rMEQwZ0p1Mll2TW9HRUZDT0JlcVN1aHVLU2cyQXZxTFhLTlU2Sm5KaTlIVDFBUDZLY2s5YWVqRi1zbXRkZw?oc=5",
+      "source": "18 Nov 2026 - AgroLatam",
+      "category": "cung_cau_nhan_dinh"
+    }
+  ],
   "intraday": {
     "ZW": {
-      "bias": "Neutral",
-      "bias_vn": "Đi Ngang",
-      "summary": "Chưa đủ dữ liệu để nhận định intraday ZW",
+      "bias": "Bullish",
+      "bias_vn": "Tăng",
+      "summary": "Lúa mì tăng mạnh intraday do lo ngại địa chính trị và vận tải, bất chấp vị thế short lớn của Smart Money.",
       "key_levels": {
-        "support": "N/A",
-        "resistance": "N/A"
+        "support": "588.0",
+        "resistance": "598.0"
       },
       "reasoning": [
-        "Đang chờ cập nhật dữ liệu"
+        "Thời tiết thực địa là VUA, nhưng không có dữ liệu cập nhật intraday cụ thể.",
+        "Giá tăng mạnh (+2.64%) bất chấp tin giảm nhẹ buổi sáng, cho thấy lực cầu mạnh.",
+        "Smart Money NHOI SHORT (Q3) có thể kích hoạt short squeeze, đẩy giá lên.",
+        "Xung đột, khủng hoảng vận tải Biển Đen tạo áp lực tăng giá lương thực toàn cầu.",
+        "Giá đang có xu hướng tăng mạnh intraday, vượt các ngưỡng kháng cự quan trọng."
       ],
-      "risk": "N/A",
-      "generated_at": "2026-11-24 16:07"
+      "risk": "Rủi ro chính là áp lực bán từ vị thế short lớn của Smart Money nếu đà tăng chững lại.",
+      "generated_at": "2026-11-24 22:33"
     },
     "ZC": {
-      "bias": "Neutral",
-      "bias_vn": "Đi Ngang",
-      "summary": "Chưa đủ dữ liệu để nhận định intraday ZC",
+      "bias": "Bullish",
+      "bias_vn": "Tăng",
+      "summary": "Ngô tăng vọt intraday, được hỗ trợ bởi lo ngại địa chính trị và vị thế short lớn của Smart Money.",
       "key_levels": {
-        "support": "N/A",
-        "resistance": "N/A"
+        "support": "447.0",
+        "resistance": "456.0"
       },
       "reasoning": [
-        "Đang chờ cập nhật dữ liệu"
+        "Thời tiết thực địa là VUA, nhưng không có dữ liệu cập nhật intraday cụ thể.",
+        "Giá tăng rất mạnh (+3.86%) bất chấp tin giảm nhẹ buổi sáng, cho thấy lực cầu rất mạnh.",
+        "Smart Money NHOI SHORT (Q3) đang kích hoạt short squeeze mạnh mẽ.",
+        "Xung đột và vấn đề vận tải Biển Đen hỗ trợ giá ngũ cốc nói chung.",
+        "Giá đang có xu hướng tăng rất mạnh intraday, phá vỡ các ngưỡng kháng cự."
       ],
-      "risk": "N/A",
-      "generated_at": "2026-11-24 16:07"
+      "risk": "Rủi ro chính là áp lực bán chốt lời sau đà tăng mạnh và vị thế short lớn.",
+      "generated_at": "2026-11-24 22:33"
     },
-    "bias": "Neutral",
-    "bias_vn": "Đi Ngang",
-    "summary": "Chưa đủ dữ liệu để nhận định",
+    "bias": "Bullish",
+    "bias_vn": "Tăng",
+    "summary": "Lúa mì tăng mạnh intraday do lo ngại địa chính trị và vận tải, bất chấp vị thế short lớn của Smart Money.",
     "key_levels": {
-      "support": "N/A",
-      "resistance": "N/A"
+      "support": "588.0",
+      "resistance": "598.0"
     },
     "reasoning": [
-      "Đang chờ cập nhật dữ liệu"
+      "Thời tiết thực địa là VUA, nhưng không có dữ liệu cập nhật intraday cụ thể.",
+      "Giá tăng mạnh (+2.64%) bất chấp tin giảm nhẹ buổi sáng, cho thấy lực cầu mạnh.",
+      "Smart Money NHOI SHORT (Q3) có thể kích hoạt short squeeze, đẩy giá lên.",
+      "Xung đột, khủng hoảng vận tải Biển Đen tạo áp lực tăng giá lương thực toàn cầu.",
+      "Giá đang có xu hướng tăng mạnh intraday, vượt các ngưỡng kháng cự quan trọng."
     ],
-    "risk": "N/A",
-    "generated_at": "2026-11-24 16:07"
+    "risk": "Rủi ro chính là áp lực bán từ vị thế short lớn của Smart Money nếu đà tăng chững lại.",
+    "generated_at": "2026-11-24 22:33"
   },
   "categories": [
     "dia_chinh_tri",

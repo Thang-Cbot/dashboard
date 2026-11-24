@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-11-19 22:47:21",
+  "timestamp": "2026-11-24 22:54:49",
   "metrics": {
     "planted_area": "N/A",
     "production_forecast": "N/A",
-    "harvest_progress": "Thu hoạch vụ 2026 đã hoàn thành (dựa trên các báo cáo tháng 10-11/2026)",
-    "fob_price": "Giá toàn cầu tăng, nhưng giá FOB Biển Đen có thể bị chiết khấu do rủi ro logistics. (Không có số liệu cụ thể)",
-    "export_tax": "N/A (Nga đang tìm cách thúc đẩy xuất khẩu, có thể liên quan đến chính sách thuế)",
-    "export_capacity": "N/A (Năng lực xuất khẩu đang bị ảnh hưởng nghiêm trọng bởi các cuộc tấn công và rủi ro logistics ở Biển Đen)",
-    "quality_notes": "N/A (Báo cáo năm 2025 cho thấy năng suất giảm 4.5%, nhưng không có thông tin chất lượng cụ thể cho năm 2026)",
+    "harvest_progress": "Đã hoàn thành (đối với vụ 2026)",
+    "fob_price": "N/A",
+    "export_tax": "N/A",
+    "export_capacity": "N/A",
+    "quality_notes": "N/A",
     "harvest_time": "Tháng 6 - Tháng 7 (Vụ Đông), Tháng 7 - Tháng 9 (Vụ Xuân)",
-    "ai_assessment": "Áp lực xả hàng của Nga lên giá CBOT hiện tại đang giảm do các rủi ro và gián đoạn xuất khẩu ở Biển Đen, dẫn đến giá lúa mì toàn cầu tăng cao. Tuy nhiên, Nga có thể tìm cách bán với giá chiết khấu để duy trì dòng chảy xuất khẩu."
+    "ai_assessment": "Các rủi ro địa chính trị và gián đoạn vận chuyển ở Biển Đen đang làm tăng giá lúa mì Nga, giảm áp lực xả hàng lên giá CBOT và có thể hỗ trợ giá toàn cầu."
   }
 }
