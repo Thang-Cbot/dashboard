@@ -6,47 +6,31 @@
         "symbol": "ZW",
         "contract": "ZW1!",
         "interval": "M5",
-        "time": "2026-11-23T19:15:00Z",
-        "received_at": "2026-11-23T19:15:02.503Z",
+        "time": "2026-11-24T01:00:00Z",
+        "received_at": "2026-11-24T01:00:04.245Z",
         "open": 596,
         "high": 596,
-        "low": 596,
-        "close": 596,
-        "volume": 1,
+        "low": 595,
+        "close": 595,
+        "volume": 42,
         "ema21": null,
         "ema50": null,
         "rsi": null,
         "atr": null,
-        "time_vn": "2026-11-24 02:15:00",
-        "h1_bar_vn": "2026-11-24 02:00"
+        "time_vn": "2026-11-24 08:00:00",
+        "h1_bar_vn": "2026-11-24 08:00"
       },
       "forming_h1": {
-        "hour_prefix": "2026-11-23T19",
-        "time": "2026-11-23 19:00:00",
-        "open": 595,
+        "hour_prefix": "2026-11-24T01",
+        "time": "2026-11-24 01:00:00",
+        "open": 596,
         "high": 596,
         "low": 595,
-        "close": 596,
-        "volume": 6,
-        "m5_count": 4
+        "close": 595,
+        "volume": 42,
+        "m5_count": 1
       },
       "history_m5": [
-        {
-          "symbol": "ZW",
-          "contract": "ZW1!",
-          "interval": "M5",
-          "time": "2026-11-23T16:25:02Z",
-          "received_at": "2026-11-23T16:25:12.553Z",
-          "open": 588,
-          "high": 588,
-          "low": 588,
-          "close": 588,
-          "volume": 1,
-          "ema21": null,
-          "ema50": null,
-          "rsi": null,
-          "atr": null
-        },
         {
           "symbol": "ZW",
           "contract": "ZW1!",
@@ -602,6 +586,22 @@
           "low": 596,
           "close": 596,
           "volume": 1,
+          "ema21": null,
+          "ema50": null,
+          "rsi": null,
+          "atr": null
+        },
+        {
+          "symbol": "ZW",
+          "contract": "ZW1!",
+          "interval": "M5",
+          "time": "2026-11-24T01:00:00Z",
+          "received_at": "2026-11-24T01:00:04.245Z",
+          "open": 596,
+          "high": 596,
+          "low": 595,
+          "close": 595,
+          "volume": 42,
           "ema21": null,
           "ema50": null,
           "rsi": null,
@@ -1218,5 +1218,5 @@
       ]
     }
   },
-  "updated_at": "2026-11-23T19:21:02.190Z"
+  "updated_at": "2026-11-24T01:00:04.317Z"
 }
