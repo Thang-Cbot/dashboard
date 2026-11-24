@@ -35183,3 +35183,8 @@ error: failed to push some refs to 'https://github.com/Thang-Cbot/dashboard.git'
 [2026-11-24 07:40:06] [INFO] ▶ Kích hoạt: USDA Crop Progress
 [2026-11-24 07:40:19] [INFO] ✅ USDA Crop Progress hoàn thành (attempt 1)
 [2026-11-24 07:40:19] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: USDA Crop Progress)...
+[2026-11-24 07:40:24] [Sync] ✅ Đồng bộ Github thành công (USDA Crop Progress)!
+[2026-11-24 07:40:24] [INFO] ⏰ Đợi Crop Progress: còn 158.33h (30/11 22:00:02 VN)
+[2026-11-24 08:00:05] [INFO] ▶ Kích hoạt: Giá H1 + Macro
+[2026-11-24 08:00:27] [INFO] ✅ Giá H1 + Macro hoàn thành (attempt 1)
+[2026-11-24 08:00:27] [Sync] Bắt đầu đẩy dữ liệu lên Github (Kích hoạt bởi: Giá H1 + Macro)...
