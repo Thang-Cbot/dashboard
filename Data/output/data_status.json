@@ -4,8 +4,8 @@
   "modules": {
     "usda": {
       "status": "[OK]",
-      "detail": "Auto-fetch 04:22:48",
-      "updated_at": "2026-11-17 04:22:48"
+      "detail": "Auto-fetch 07:40:19",
+      "updated_at": "2026-11-24 07:40:19"
     },
     "prices": {
       "status": "[OK]",
@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 07:01:02 (Nguồn: Vĩ Mô (Macro))",
-      "updated_at": "2026-11-24 07:01:02"
+      "detail": "Đẩy thành công lúc 07:02:26 (Nguồn: Cập nhật Phân tích & Giao diện (H1))",
+      "updated_at": "2026-11-24 07:02:26"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -86,8 +86,8 @@
   },
   "usda": {
     "status": "OK",
-    "detail": "Updated: 2026-11-23 | WASDE: Nov",
-    "updated_at": "2026-11-23 07:54:44"
+    "detail": "Updated: 2026-11-24 | WASDE: Nov",
+    "updated_at": "2026-11-24 07:40:19"
   },
   "cot": {
     "status": "[OK] Success",
