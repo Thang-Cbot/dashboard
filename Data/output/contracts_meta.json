@@ -6,9 +6,9 @@
       "month": 3
     },
     "swing": {
-      "ticker": "ZCH27.CBT",
+      "ticker": "ZCK27.CBT",
       "year": 2027,
-      "month": 3
+      "month": 5
     },
     "dca": {
       "ticker": "ZCZ26.CBT",
@@ -16,14 +16,14 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 232488.0,
+      "today_volume": 3505.0,
       "prev_volume": 6204.0,
       "today_oi": 773946,
       "prev_oi": 327805,
-      "today_close": 449.0,
+      "today_close": 448.5,
       "prev_close": 437.0,
-      "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
-      "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
+      "trend": "Tăng nhẹ tích lũy (Accumulation Rally)",
+      "logic": "Giá tăng nhẹ với các chỉ số thanh khoản hỗn hợp, cho thấy thị trường đang tích lũy lực cầu hoặc đi ngang."
     }
   },
   "ZW": {
@@ -43,15 +43,15 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 91831.0,
+      "today_volume": 2568.0,
       "prev_volume": 5115.0,
       "today_oi": 264793,
       "prev_oi": 86339,
-      "today_close": 594.5,
+      "today_close": 591.75,
       "prev_close": 575.75,
-      "trend": "Tăng mạnh mẽ (Strong Bullish / Long Buildup)",
-      "logic": "Giá tăng đi kèm Volume và Vị thế mở (OI) đều tăng. Phe Mua mới đang ồ ạt gia nhập thị trường, tạo động lực tăng vững chắc và có tính bền vững cao."
+      "trend": "Tăng nhẹ tích lũy (Accumulation Rally)",
+      "logic": "Giá tăng nhẹ với các chỉ số thanh khoản hỗn hợp, cho thấy thị trường đang tích lũy lực cầu hoặc đi ngang."
     }
   },
-  "updated_at": "2026-11-24 08:00:27"
+  "updated_at": "2026-11-24 10:45:11"
 }
