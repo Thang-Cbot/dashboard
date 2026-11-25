@@ -16,9 +16,9 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 4988.0,
+      "today_volume": 5157.0,
       "prev_volume": 243193.0,
-      "today_oi": 799523,
+      "today_oi": 827466,
       "prev_oi": 170012,
       "today_close": 450.25,
       "prev_close": 449.75,
@@ -43,9 +43,9 @@
       "month": 12
     },
     "liquidity": {
-      "today_volume": 1649.0,
+      "today_volume": 1770.0,
       "prev_volume": 95664.0,
-      "today_oi": 268354,
+      "today_oi": 270483,
       "prev_oi": 42343,
       "today_close": 586.5,
       "prev_close": 595.5,
@@ -53,5 +53,5 @@
       "logic": "Giá giảm nhẹ với các chỉ số thanh khoản hỗn hợp, thị trường đang điều chỉnh đi ngang."
     }
   },
-  "updated_at": "2026-11-25 10:30:07"
+  "updated_at": "2026-11-25 11:00:34"
 }
