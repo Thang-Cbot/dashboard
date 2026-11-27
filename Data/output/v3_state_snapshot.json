@@ -1,10 +1,10 @@
 {
-  "timestamp": "26/11/2026 07:49",
+  "timestamp": "27/11/2026 07:04",
   "macro": {
-    "brent_price": 90.65,
-    "brent_pct": -0.821,
-    "dxy_price": 103.696,
-    "dxy_pct": -0.11
+    "brent_price": 91.67,
+    "brent_pct": 0.0,
+    "dxy_price": 103.777,
+    "dxy_pct": 0.0
   },
   "commodities": {
     "ZC": {
@@ -22,11 +22,11 @@
         "r1": 441.75,
         "r2": 466.5,
         "volume": 10560.0,
-        "open_interest": 107931,
+        "open_interest": 43011,
         "contract": "ZCZ26",
         "weather": "Trời nóng tại Midwest, mưa rải rác",
-        "predicted_close": 440.0157079807429,
-        "predicted_change": 0.5157079807428623
+        "predicted_close": 440.0730224735109,
+        "predicted_change": 0.5730224735108861
       },
       "swing": {
         "time": "2026-11-26 02:00",
@@ -42,7 +42,7 @@
         "r1": 458.25,
         "r2": 480.5,
         "volume": 29802.0,
-        "open_interest": 827466,
+        "open_interest": 840853,
         "contract": "ZCH27"
       },
       "dca": {
@@ -59,7 +59,7 @@
         "r1": 441.75,
         "r2": 466.5,
         "volume": 10560.0,
-        "open_interest": 107931,
+        "open_interest": 43011,
         "contract": "ZCZ26"
       },
       "competitor_weather": {
@@ -85,11 +85,11 @@
         "r1": 571.0,
         "r2": 631.5,
         "volume": 1524.0,
-        "open_interest": 24536,
+        "open_interest": 6941,
         "contract": "ZWZ26",
         "weather": "Hạn hán vĩ mô",
-        "predicted_close": 564.3307527640237,
-        "predicted_change": 0.3307527640236997
+        "predicted_close": 564.2648256888294,
+        "predicted_change": 0.2648256888294277
       },
       "swing": {
         "time": "2026-11-26 02:00",
@@ -105,7 +105,7 @@
         "r1": 589.5,
         "r2": 645.0,
         "volume": 5421.0,
-        "open_interest": 270489,
+        "open_interest": 278631,
         "contract": "ZWH27"
       },
       "dca": {
@@ -122,7 +122,7 @@
         "r1": 571.0,
         "r2": 631.5,
         "volume": 1524.0,
-        "open_interest": 24536,
+        "open_interest": 6941,
         "contract": "ZWZ26"
       },
       "competitor_weather": {
