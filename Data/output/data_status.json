@@ -54,8 +54,8 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 21:24:34 (Nguồn: Giá H4)",
-      "updated_at": "2026-11-27 21:24:34"
+      "detail": "Đẩy thành công lúc 21:24:42 (Nguồn: Vĩ Mô (Macro))",
+      "updated_at": "2026-11-27 21:24:42"
     },
     "prices_h4": {
       "status": "[OK]",
@@ -82,17 +82,17 @@
   "acreage": {
     "status": "OK",
     "detail": "ZC=95.3M, ZW=46.0M acres",
-    "updated_at": "2026-11-25 17:25:02"
+    "updated_at": "2026-11-27 21:24:41"
   },
   "usda": {
     "status": "OK",
-    "detail": "Updated: 2026-11-24 | WASDE: Nov",
-    "updated_at": "2026-11-24 07:40:19"
+    "detail": "Updated: 2026-11-27 | WASDE: Nov",
+    "updated_at": "2026-11-27 21:24:53"
   },
   "cot": {
     "status": "[OK] Success",
     "detail": "",
-    "updated_at": "2026-11-23 07:54:48"
+    "updated_at": "2026-11-27 21:24:56"
   },
   "prices": {
     "status": "OK",

@@ -1,5 +1,5 @@
 {
-  "last_updated_fundamentals": "2026-11-24",
+  "last_updated_fundamentals": "2026-11-27",
   "last_updated_weather": "2026-06-12",
   "ZC": {
     "us_planting": {
@@ -19,7 +19,7 @@
       "action": "Argentina thu hoạch rộ -> Canh Short ngắn hạn / Gom Long dài hạn (DCA)",
       "logic": "Argentina đang thu hoạch rộ đạt 66%. Việc giá ngô giữ vững trên 445-450 cents bất bất chấp áp lực thu hoạch cho thấy ngô đã xác lập vùng đáy chu kỳ mùa vụ thành công.",
       "previous": "Mỹ: 88% thu hoạch",
-      "previous_date": "16/11/2026",
+      "previous_date": "23/11/2026",
       "latest_date": "23/11/2026"
     },
     "crop_condition": {
@@ -124,13 +124,13 @@
       "next_date": "20/11/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "logic": "[2026-11-17] MM nam Short rong 33,862 HD. Tuan nay giam bot 11,234 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-11-20): -58,614 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-10.50c, Beta=2357.3]",
+      "logic": "[2026-11-17] MM nam Short rong 33,862 HD. Tuan nay giam bot 11,234 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-11-25): -40,345 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-2.75c, Beta=2357.3]",
       "raw_data": {
         "net_position": -33862.0,
         "change": -11234.0,
         "long": 244177.0,
         "short": 278039.0,
-        "net_estimated": -58614.0,
+        "net_estimated": -40345.0,
         "quadrant_est": "Q3 (DO DAM) - NHOI SHORT",
         "beta_13w": 2357.3
       }
@@ -225,7 +225,7 @@
       "action": "Tiến độ ổn định -> Canh Short ngắn hạn",
       "logic": "Lúa mì xuân gieo trồng phát triển thuận lợi. Lúa mì đông đã trổ bông vượt trung bình.",
       "previous": "Đông 92% gieo, Xuân N/A",
-      "previous_date": "16/11/2026",
+      "previous_date": "23/11/2026",
       "latest_date": "23/11/2026"
     },
     "harvest_progress": {
@@ -235,7 +235,7 @@
       "action": "Bắt đầu thu hoạch -> Canh Short ngắn hạn",
       "logic": "Trung bình 5 năm đạt 6%. Báo cáo tiến độ thu hoạch mới nhất.",
       "previous": "Đông N/A, Xuân N/A",
-      "previous_date": "16/11/2026",
+      "previous_date": "23/11/2026",
       "latest_date": "23/11/2026"
     },
     "crop_condition": {
@@ -245,7 +245,7 @@
       "action": "Khủng hoảng chất lượng -> Gom Long dài hạn (DCA)",
       "logic": "Khủng hoảng chất lượng nghiêm trọng (Bullish): Tỷ lệ Poor/Very Poor vọt lên 44% do hạn hán nghiêm trọng kéo dài tại Southern Plains.",
       "previous": "Đông 53% G/E, Xuân N/A",
-      "previous_date": "16/11/2026",
+      "previous_date": "23/11/2026",
       "latest_date": "23/11/2026"
     },
     "us_ending_stocks": {
@@ -347,13 +347,13 @@
       "next_date": "20/11/2026 (Hang tuan, Thu Sau)",
       "forecast": "Q3 (DO DAM) - NHOI SHORT",
       "action": "Uu tien SHORT thuan xu huong.",
-      "logic": "[2026-11-17] MM nam Short rong 84,836 HD. Tuan nay giam bot 3,786 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-11-20): -86,462 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-18.25c, Beta=89.1]",
+      "logic": "[2026-11-17] MM nam Short rong 84,836 HD. Tuan nay giam bot 3,786 HD. Ma tran: Q3 (DO DAM) - NHOI SHORT. Khuyen nghi: Uu tien SHORT thuan xu huong.. | UOC TINH HIEN TAI (2026-11-25): -86,863 HD (Q3 (DO DAM) - NHOI SHORT) [Lag=-22.75c, Beta=89.1]",
       "raw_data": {
         "net_position": -84836.0,
         "change": -3786.0,
         "long": 90741.0,
         "short": 175577.0,
-        "net_estimated": -86462.0,
+        "net_estimated": -86863.0,
         "quadrant_est": "Q3 (DO DAM) - NHOI SHORT",
         "beta_13w": 89.09
       }
@@ -598,5 +598,5 @@
     }
   },
   "wasde_report_month": "Nov",
-  "last_updated_cot": "2026-11-23 07:54:48"
+  "last_updated_cot": "2026-11-27 21:24:56"
 }
