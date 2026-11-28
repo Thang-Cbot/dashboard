@@ -54,13 +54,13 @@
     },
     "github_sync": {
       "status": "[OK]",
-      "detail": "Đẩy thành công lúc 17:50:20 (Nguồn: COT CFTC)",
-      "updated_at": "2026-11-28 17:50:20"
+      "detail": "Đẩy thành công lúc 18:00:42 (Nguồn: Giá H1 + Macro)",
+      "updated_at": "2026-11-28 18:00:42"
     },
     "prices_h4": {
       "status": "[OK]",
-      "detail": "Auto-fetch 17:01:03",
-      "updated_at": "2026-11-28 17:01:03"
+      "detail": "Auto-fetch 18:00:48",
+      "updated_at": "2026-11-28 18:00:48"
     },
     "russian_metrics": {
       "status": "[OK]",
